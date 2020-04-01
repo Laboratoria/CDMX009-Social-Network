@@ -1,5 +1,7 @@
 // imports
 import $ from '../lib/tools.js'
+// firebase
+import { loginWithGoogle } from '../lib/firebase.js'
 // main
 export default props => {
 
@@ -21,7 +23,8 @@ export default props => {
     //  logic
     $('#login-form').onsubmit = e => {
         e.preventDefault()
-        alert("Signing in")
+        loginWithGoogle()
+            .then(user => console.log(user))
     }
     $('#back').onclick = () => props.navigate('/')
     return div
