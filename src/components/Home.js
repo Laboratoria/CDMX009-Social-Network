@@ -11,12 +11,14 @@ export default props => {
             <h2> Bienvenido </h2>
             <p> El lugar del cine </p>
             <button id="start"> Entrar </button>
+            <button id="new"> Crear </button>
         </div>
     `
     // root.innerHTML = "" // this should do it the router
     root.appendChild(div)
     //  logic
     $('#start').onclick = () => props.navigate('/login')
+    $('#new').onclick = () => props.navigate('/new')
     return div
 
 }

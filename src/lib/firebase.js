@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore()
 let usersRef = db.collection('users')
+let reviewsRef = db.collection("reviews")
 
 export default firebase
 
@@ -22,6 +23,11 @@ export function loginWithGoogle() {
             saveUser(snap.user)
             return snap.user
         })
+}
+
+export function createReview(data){
+    console.log(data)
+    return reviewsRef.add(data)
 }
 
 function saveUser(user) {
