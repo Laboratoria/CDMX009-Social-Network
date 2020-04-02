@@ -21,7 +21,7 @@ function render(path) {
             route = login({ document, navigate })
             break;
         default:
-            route = list({ document, navigate })
+            route = home({ document, navigate })
             break;
     }
     root.appendChild(route)
