@@ -25,7 +25,6 @@ export default props => {
     }
     $('#back').onclick = () => props.navigate('/')
     return div
-
 }
 
 
