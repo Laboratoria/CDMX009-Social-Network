@@ -12,9 +12,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore()
 let usersRef = db.collection('users')
+let reviewsRef = db.collection('reviews')
+
 
 export default firebase
 
+//Auth
 export function loginWithGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(provider)
@@ -35,4 +38,14 @@ function saveUser(user) {
     usersRef.doc(user.uid).set(u)
     // local
     localStorage.user = JSON.stringify(u)
+}
+
+// Reviews
+export function getAllReviews() {
+    return reviewsRef.get()
+        .then(snap => {
+            let reviews = []
+            snap.forEach(r => reviews.push(r.data()))
+            return reviews
+        })
 }
