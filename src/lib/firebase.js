@@ -40,6 +40,11 @@ function saveUser(user) {
     localStorage.user = JSON.stringify(u)
 }
 
+export function createReview(data){
+    console.log(data)
+    return reviewsRef.add(data)
+}
+
 // Reviews
 export function getAllReviews() {
     return reviewsRef.get()

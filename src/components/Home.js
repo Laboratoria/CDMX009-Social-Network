@@ -12,6 +12,7 @@ export default props => {
             <p> El lugar del cine </p>
             <button id="start"> Iniciar Sesión </button>
             <button id="browse"> Explorar Reviews </button>
+            <button id="new"> Crear Recomendación</button>
         </div>
     `
     // root.innerHTML = "" // this should do it the router
@@ -19,6 +20,7 @@ export default props => {
     //  logic
     $('#start').onclick = () => props.navigate('/login')
     $('#browse').onclick = () => props.navigate('/browse')
+    $('#new').onclick = () => props.navigate('/new')
     return div
 
 }
