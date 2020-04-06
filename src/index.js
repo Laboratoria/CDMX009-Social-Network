@@ -1,6 +1,8 @@
 //import { example } from './example.js';
 import home from './components/Home.js'
 import login from './components/Login.js'
+import search from './components/Search.js'
+import reviews from './components/Reviews.js'
 
 function navigate(path) {
     root.lastElementChild.remove()
