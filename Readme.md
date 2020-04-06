@@ -44,8 +44,12 @@ Cine+ (Cartelera de México) es una aplicación que te permite saber qué pelíc
 
 En Cine+ (Cartelera de México) encontrarás la práctica totalidad de cines de Cinepólis y Cinemex con su cartelera, horarios y la opción de reservar o comprar los boletos directamente desde tu dispositivo móvil.
 
+![alt text](https://raw.githubusercontent.com/Laboratoria/CDMX009-Social-Network/tree/adriana/src/assets/design1.png)
 
 
+![alt text](https://raw.githubusercontent.com/Laboratoria/CDMX009-Social-Network/tree/adriana/src/assets/design2.png)
 
+
+![alt text](https://raw.githubusercontent.com/Laboratoria/CDMX009-Social-Network/tree/adriana/src/assets/design3.png)
 
 
