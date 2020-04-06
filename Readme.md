@@ -94,7 +94,7 @@ El objetivo de usar Firestore en este proyecto, es que aprendes a manejar y pers
 
 ## Restricciones Técnicas
 
-* Debes utilizar `flexbox` para posicionar tus elementos. No está permitido el uso de frameworks de CCS (bootstrap), ni de componentes flotantes.
+* Debes utilizar `flexbox` o `CSSGrid` para posicionar tus elementos. Si está permitido el uso de frameworks de CCS (bootstrap), y de componentes flotantes.
 
 * Ya te damos un diseño (layout) de la vista mobile y desktop, queremos que lo repliques a nivel *pixel perfect*, el contenido, paleta de colores y fuentes, depende de la temática que van a elegir como equipo. La implementación de ese layout deberá formar parte de la *definición de terminado* de tus historias de usuario.
 
