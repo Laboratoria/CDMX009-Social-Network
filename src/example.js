@@ -1,3 +1,4 @@
 export const example = () => {
-    // aquí tu código
+    let welcomeText = '¡Bienvenidas, Eli y Gabi, al proyecto 3 "Social-Network"!';
+    return welcomeText;
 }
