@@ -4,9 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   <title>Document</title>
+
+ 
 </head>
 <body>
+  <div id="firstPage">
+
+    <div id= "firstElement">
+  <p><img class="imgIPN" src="img/logo-ipn-blanco.png" style="width:200px; height:auto;"></p>
+  <h1>e s t u D Í A</h1>
+  <p>¡Bienvenido/a!</p>
+
+  <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> 
+  <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p>
+  <p><button class="logIn" id="logInUser"> Ingresar </button></p>
+  <p>Ingresa con </p>
+  <p><img class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p>
+  <p id="newUser">¿No tienes cuenta? <strong>Regístrate</strong></p>
+
+  <div id="createUser"> <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> 
+    <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p>
+    <p><button class="logIn" id="createUserNw"> Registrar </button></p></div>
+  </div>
+</div>
+
   <script type="module" src="index.js"></script>
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+ 
+ <script>
+   // Your web app's Firebase configuration
+   var firebaseConfig = {
+     apiKey: "AIzaSyB-S-fofVCcshafWHzbUi6pnfeAdPPjYfo",
+     authDomain: "social-nerwork.firebaseapp.com",
+     databaseURL: "https://social-nerwork.firebaseio.com",
+     projectId: "social-nerwork",
+     storageBucket: "social-nerwork.appspot.com",
+     messagingSenderId: "574784343818",
+     appId: "1:574784343818:web:43ad089e0324bbf79774f3",
+     measurementId: "G-QC2RFEXKFR"
+   };
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   firebase.analytics();
+ </script>
+
 </body>
 </html>
+
+
