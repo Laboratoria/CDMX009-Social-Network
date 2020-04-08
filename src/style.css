@@ -1,0 +1,212 @@
+    a,
+    abbr,
+    acronym,
+    address,
+    applet,
+    article,
+    aside,
+    audio,
+    big,
+    blockquote,
+    body,
+    caption,
+    cite,
+    code,
+    dd,
+    del,
+    dfn,
+    dialog,
+    div,
+    dl,
+    dt,
+    em,
+    fieldset,
+    figure,
+    font,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    html,
+    iframe,
+    img,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    mark,
+    menu,
+    nav,
+    object,
+    ol,
+    p,
+    pre,
+    q,
+    s,
+    samp,
+    section,
+    small,
+    span,
+    strike,
+    sub,
+    sup,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    tt,
+    ul,
+    var,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%
+    }
+    
+    article,
+    aside,
+    dialog,
+    figure,
+    footer,
+    header,
+    hgroup,
+    nav,
+    section {
+        display: block
+    }
+    
+    legend {
+        display: none
+    }
+    
+     :focus {
+        outline: 0
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+    
+    caption,
+    td,
+    th {
+        text-align: left;
+        font-weight: 400
+    }
+    
+    a img,
+    iframe {
+        border: none
+    }
+    
+    ul {
+        list-style: none
+    }
+    
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+        font-family: inherit
+    }
+    
+    input,
+    select {
+        vertical-align: middle
+    }
+    
+    select {
+        margin: inherit
+    }
+    
+    button {
+        border: 0;
+        padding: 0;
+        background: 0 0;
+        cursor: pointer
+    }
+    
+    ol {
+        margin-left: 2em
+    }
+    
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+    
+    * html .clearfix {
+        height: 1%
+    }
+    
+    .clearfix {
+        display: block
+    }
+    /*empezamos con los estilos generales*/
+    
+    @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    * {
+        margin: 0px;
+        /*quitamos todos los margenes*/
+        padding: 0px;
+        /*quitamos los rellemos*/
+        box-sizing: border-box;
+        /*nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/
+    }
+    
+    nav {
+        background: #ccddcc;
+    }
+    
+    .navletters {
+        color: #444444;
+        font-weight: bolder;
+    }
+    
+    .navletters:hover {
+        background-color: #ff2255;
+        color: white;
+    }
+    
+    img.logo {
+        height: auto;
+        width: 34%;
+        padding-top: 3%;
+    }
+    
+    img.responsive-img,
+    video.responsive-video {
+        max-width: 24%;
+        height: auto;
+        padding-top: 1%;
+        padding-left: 1%;
+    }
+    
+    .personalInformationPerfilUser {
+        text-align: center;
+        display: inline-block;
+    }

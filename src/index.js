@@ -1,3 +1,8 @@
-import { example } from './example.js';
+// import { example } from './example.js';
 
-example();
+// example();
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+});

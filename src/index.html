@@ -4,12 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimun-scale=1,width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>CodDev</title>
 </head>
 
 <body>
-    <h3>este es el cambio de dian</h3>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo center"><img class="logo" src="imagenes/logo little size.png" alt="logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="navletters" href="sass.html">Inicio</a></li>
+                <li><a class="navletters" href="badges.html">Foro</a></li>
+                <li><a class="navletters" href="collapsible.html">Perfil</a></li>
+                <li><a class="navletters" href="collapsible.html">Editar Perfil</a></li>
+                <li><a class="navletters" href="mobile.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav grey darken-3" id="mobile-demo">
+        <li><a class="selector white-text" href="sass.html">Inicio</a></li>
+        <li><a class="selector white-text" href="badges.html">Foro</a></li>
+        <li><a class="selector white-text" href="collapsible.html">Perfil</a></li>
+        <li><a class="selector white-text" href="collapsible.html">Editar Perfil</a></li>
+        <li><a class="selector white-text" href="mobile.html">Cerrar sesión</a></li>
+    </ul>
+
+
+    <div>
+        <img src="imagenes/foto_perfil_circulo.png" alt="foto de perfil usuario" class="circle responsive-img">
+        <div class="personalInformationPerfilUser">
+            <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López</strong></div>
+            <div class="professionDescription">Developer Sr. en Accenture</div>
+        </div>
+    </div>
+
+
+    <form>
+        <p>
+            <textarea name="descripcion" placeholder="Pensamiento al que quieres dar pull"></textarea>
+        </p>
+        <div class="right-align">
+            <a class="waves-effect waves-light btn-small"><i class="material-icons right">computer</i>Publicar</a>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="module" src="index.js"></script>
 </body>
 
