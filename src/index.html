@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
   <title>Document</title>
 
  
@@ -15,20 +16,27 @@
 
     <div id= "firstElement">
   <p><img class="imgIPN" src="img/logo-ipn-blanco.png" style="width:200px; height:auto;"></p>
-  <h1>e s t u D Í A</h1>
-  <p>¡Bienvenido/a!</p>
-
-  <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> 
-  <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p>
-  <p><button class="logIn" id="logInUser"> Ingresar </button></p>
-  <p>Ingresa con </p>
-  <p><img class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p>
-  <p id="newUser">¿No tienes cuenta? <strong>Regístrate</strong></p>
-
-  <div id="createUser"> <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> 
-    <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p>
+  <h1>e s t u D Í A</h1><br>
+  <p>¡Bienvenido/a!</p><br>
+  <div id="createUser"> 
+    <p><input class="boxInput" id="namelNw" type="text" placeholder="Ingrese nombre de usuario"> </p> <br>
+    <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> <br>
+    <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p><br>
     <p><button class="logIn" id="createUserNw"> Registrar </button></p></div>
+<div id='logingUsers'>
+  <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> <br>
+  <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p> <br>
+  <p><button class="logIn" id="logInUser"> Ingresar </button></p> <br>
+  <p>Ingresa con </p> <br>
+  <p><img id="loginFacebook" class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img id="loginGoogle"class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p><br>
+  <p id="newUser">¿Ya tienes cuenta? <strong>Regístrate</strong></p>
+</div>
+  
   </div>
+</div>
+
+<div id="allTheSite">
+
 </div>
 
   <script type="module" src="index.js"></script>
