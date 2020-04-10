@@ -1,0 +1,21 @@
+[debug] [2020-04-08T18:21:32.967Z] ----------------------------------------------------------------------
+[debug] [2020-04-08T18:21:32.969Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Lenovo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-04-08T18:21:32.970Z] CLI Version:   8.0.2
+[debug] [2020-04-08T18:21:32.970Z] Platform:      win32
+[debug] [2020-04-08T18:21:32.970Z] Node Version:  v12.15.0
+[debug] [2020-04-08T18:21:32.971Z] Time:          Wed Apr 08 2020 13:21:32 GMT-0500 (GMT-05:00)
+[debug] [2020-04-08T18:21:32.972Z] ----------------------------------------------------------------------
+[debug] [2020-04-08T18:21:32.972Z] 
+[debug] [2020-04-08T18:21:32.978Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-08T18:21:32.979Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Lenovo\Desktop\Laboratoria\CDMX009-Social-Network
+
