@@ -13,7 +13,9 @@ switch (route){
     case '#/parentPanel':
             { return root.appendChild(components.ParentPanel()) }  
     case '#/releases':
-            { return root.appendChild(components.Releases()) }   
+            { return root.appendChild(components.Releases()) } 
+    case '#/login':
+            { return root.appendChild(components.Login()) }   
     default:
         break;
 
