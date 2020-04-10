@@ -1,3 +1,8 @@
-import { example } from './example.js';
+import { changeView } from './viewControler/viewControler.js';
 
-example();
+const init = () => {
+    changeView(window.location.hash)
+    window.addEventListener('hashchange', () => changeView(window.location.hash))
+    
+}
+window.addEventListener('load', init)

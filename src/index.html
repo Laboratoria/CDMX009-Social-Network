@@ -4,9 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <title>DigiTareas</title>
 </head>
 <body>
-  <script type="module" src="index.js"></script>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#/">Home</a></li>
+      <li><a href="#/calendar">calendario</a></li>
+      <li><a href="#/homework">Tareas</a></li>
+      <li><a href="#/parentPanel">Panel de padres</a></li>
+      <li><a href="#/releases">Comunicados</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div id="root"></div>
+</main>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script type="module" src="index.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC2n5GXmLFsQcElQT6yPSdqk2Ml3oUrPKU",
+    authDomain: "socialnetwork-68d85.firebaseapp.com",
+    databaseURL: "https://socialnetwork-68d85.firebaseio.com",
+    projectId: "socialnetwork-68d85",
+    storageBucket: "socialnetwork-68d85.appspot.com",
+    messagingSenderId: "155697408797",
+    appId: "1:155697408797:web:828dffb194882a783b0ff4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </body>
 </html>

@@ -1,0 +1,65 @@
+body{
+    background-color: #A698FF;
+    font-family: Century Gothic;
+  }
+  /*Nav*/
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .home {
+    width: 25%;
+  }
+  .imagenUser {
+    width: 50px;
+    padding-right: 50px;
+  }
+  /* Cointeiner Menu*/
+  .mainConteiner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mainConteiner div {
+    padding: 2%;
+    margin: 2%;
+    background-color: #FFE36B;
+    width: 400px;
+    border-radius: 20px;
+  }
+  
+  .mainConteiner img {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mainConteiner p {
+    font-family: Century Gothic;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  
+  /*Cointeiner option*/
+  .DegreeAndGroup{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .DegreeAndGroup select {
+    padding: 2%;
+    margin: 2%;
+    background-color: #FFFFFF;
+    width: 420px;
+    height: 50px;
+    border-radius: 100px;
+  }
+  
