@@ -1,0 +1,115 @@
+body{
+    text-align: center;
+}
+.header{
+    font-weight: bolder;
+    font-size: 48px;  
+  background:rgb(252, 248, 36);
+  text-align: center;
+   
+  justify-content: center;
+  align-items: center;
+  height: 108px; 
+  }
+
+  #subtitle{
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+#form{
+    outline: none;
+    display:flex;
+  justify-content: center;
+  align-items: center; 
+  height: 260px; 
+  margin-top: 10px;
+  }
+#account{
+  background-color:blue;
+  display:flex; 
+  justify-content: center;
+  align-items: center; 
+  height: 260px; 
+  } 
+
+  .forms{
+    outline: none;
+    border: 0;
+    height: 60px;
+    width: 308px;
+    margin-top: 10px;
+    background: linear-gradient(to top, #d1d6d5 0%, #ffffff 103%)
+  }
+
+  .buttons{
+    outline: none;
+    background:white;
+    border: 0;
+      outline: none;
+      height: 60px;
+      width: 308px;
+      font: bolder;
+      font-size: 24px;   
+  }
+
+  #login{
+    background: rgb(252, 248, 36);
+    font-weight: bold;
+  }
+  h3{
+      display: inline-block;
+      position: relative;
+  }
+
+  h3::after,h3::before{
+      content: "";
+      position: absolute;
+      width: 125px;
+      height: 1px;
+      background-color: gray;
+      top: 0.6em;
+  }
+
+  h3::before{
+      left: -145px;
+  }
+  h3::after{
+    right:-145px;
+}
+
+.or{
+margin-top: -30px;
+}
+#facebook{
+    background-image: url(../facebook.png); 
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+    /* background-size: 300px 100px; */
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+}
+#google{
+    background-image: url(../google.png); 
+    background-size: 90% 90%;
+    background-repeat: no-repeat;
+}
+h5{
+color: #2F80ED;
+text-align: right;
+}
+
+
+.singin{
+    font: bold;
+    text-align: center;
+    display: inline-flex;
+}
+#link{
+    text-align: center;
+    display: inline-flex;
+    text-decoration:none;
+    color: #2F80ED;
+    font-weight: bolder;
+    }
