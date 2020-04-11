@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="header">&lt JS &gt<br> <div id="subtitle"> Únete a la red social de programadoras</div></div>
-  <div id="containner">
-    <div id="form">
-      <form>
-        <input type="text" class="forms" id="mail" placeholder= "Correo electrónico"><br>
-        <input type="text" class="forms" id="pasword" placeholder="Contraseña"><br><br>
-        <button type="button" class="buttons" id="login">INICIAR SESIÓN</button><br>
-        <h5 id="password">¿Has olvidado la contraseña?</h5> 
-      </form> 
-    </div>
-    <div class="or"><h3>o</h3></div>
-    
-    
-      <button type="button" id="facebook" class="buttons"></button><br><br>
-      <button type="button" id="google" class="buttons"></button><br><br>
-       <h5 class="singin"> ¿No tienes cuenta?   <div> <a href="#" id="link" class="singin">   Registrate</a> </div></h5>
+    <div class="header">&lt JS &gt<br> <div id="subtitle"> Únete a la red social de programadoras</div></div> 
+    <div id="menu">
+        <button id="Menu" class="buttonMenu"></button>
+        <button id="Group" class="buttonMenu"></button>
+        <button id="Notific" class="buttonMenu"></button>
+        <button id="Settings" class="buttonMenu"></button>
 
-    
-  </div>
-</div>
-  <script type="module" src="index.js"></script>
+    </div>  
+    <div id="containner"> 
+        <div id="user">
+            <div class="photo"> </div>
+            <div > <input type="text" class="post" placeholder="¿Qué estas pensando?"> </div>
+        </div>
+        <div ><hr id="div"></div>
+        <div><button id="puntos"></button></div>
+        <div id="posts"> 
+            <div class="photo"> </div>
+            <div > <input type="text" class="post" readonly> </div>
+            <button class="buttonLike"></button>
+            <div class="photo"> </div>
+            <div > <input type="text" class="post" readonly> </div>
+            <button class="buttonLike"></button>
+            <div class="photo"> </div>
+            <div > <input type="text" class="post" readonly> </div>
+            <button class="buttonLike"></button>
+        </div>
+    </div>
 </body>
 </html>

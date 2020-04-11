@@ -113,3 +113,87 @@ text-align: right;
     color: #2F80ED;
     font-weight: bolder;
     }
+.post{
+    height: 86px;
+    width: 203px;
+    outline: none;
+    border: 0;
+    /* text-align:; */
+    margin-top: 10px;
+    background: linear-gradient(to top, #d1d6d5 0%, #ffffff 103%);
+    display:inline-flex;
+    margin-top: 10px;     
+   
+} 
+
+.photo{
+    height: 86px;
+    width: 81px;
+    background-color: lightcoral;
+    display: inline-flex;
+    margin-top: 10px;
+    float: left;
+}
+
+#div{
+    background-color: rgb(252, 248, 36);
+    border: 0;
+    height: 20px;
+}
+
+#menu{
+    height: 40px;
+}
+
+.buttonMenu{
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    outline: none;
+    border: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#Menu{
+    background-image: url(../Inicio.png); 
+}
+
+#Group{
+    background-image: url(../Grupo.png); 
+}
+
+#Notific{
+    background-image: url(../Notificaciones.png); 
+}
+#Settings{
+    background-image: url(../Configuración.png); 
+}
+.buttonLike{
+
+    height: 30px;
+    width: 30px;
+    position:relative;
+    margin-left:285px;
+    background-image: url(../like.png); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    outline: none;
+    border: 0;
+    background-color: white;    
+}
+
+#puntos{
+    height: 20px;
+    width: 50px;
+    background-image: url(../Puntos.png); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    outline: none;
+    border: 0;
+    background-color: white; 
+    left: 25px;
+    margin-left:285px;
+}
