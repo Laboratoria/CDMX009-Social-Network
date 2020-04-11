@@ -4,12 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Social-Network</title>
+  <title>TripLife</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-  <p id="welcomeBox"></p>
-  <input id="click" type="button" value="Click me!">
+  <section class="main">
+    <div class="container">
+      <figure>
+        <img src="images/logo.png" alt="">
+      </figure>
+      <input type="text" name="email" id="loginEmail" placeholder="Email">
+      <input type="password" name="password" id="loginPsw" placeholder="Password">
+      <input id="loginSend" type="button" value="Log-in">
+      <p> <span><u>¿Olvidaste tu contraseña?</u></span> </p>
+      <p>O bien ingresa con...</p>
+      <div class="social-media">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-google"></i>
+      </div>
+      <p>¿No tienes una cuenta? <u>Regístrate</u></p>
+      
+    </div> 
+      
+    
+
+  </section>
+
+
+  <!--
+    <img src="images/logo.png" alt="TripLife-logo" id="logo">
+  <section>
+    <p id="welcome">Welcome, what do you want to do?</p>
+    <input type="button" id="login" value="Log-in" class="root">
+    <input type="button" id="signin" value="Sign-in" class="root">
+    <div id="rootContainer">
+    </div>
+  </section>
+  -->
+  
+   
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCWtB_El7FwC2HVhoL2kfuFoqc12okRJd4",
+      authDomain: "usuarios-triplife.firebaseapp.com",
+      databaseURL: "https://usuarios-triplife.firebaseio.com",
+      projectId: "usuarios-triplife",
+      storageBucket: "usuarios-triplife.appspot.com",
+      messagingSenderId: "369850574673",
+      appId: "1:369850574673:web:2c3ed8255fa9182d129570"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+  
+  <!-- Manage of DOM -->
   <script type="module" src="index.js"></script>
 </body>
 </html>
+
