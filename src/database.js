@@ -50,5 +50,55 @@ function guardarDatos(user){
 database.ref('GuardarDatos')
 .on('child_added',  (s) =>{
    let user = s.val(); 
-   datos.innerHTML = '<img src="'+user.foto+'">'; 
+   datos.innerHTML = '<img width="100" src="'+user.foto+'">'; 
 }); 
+
+
+/**
+ * Proecesp para 
+ * entrar con face
+ * 
+ * 
+ */
+const providerFace = new firebase.auth.FacebookAuthProvider();
+const datosFacebook = document.querySelector('#VerFacebook');
+//funcion de dar click en el boton de google
+document.querySelector('#Facebook').addEventListener('click', () =>{ 
+    firebase.auth().signInWithPopup(providerFace).then(function(result) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const token = result.credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+        guardarFacebook(user);  
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      }); 
+});
+//Guarda los datos tradio del usuario de google
+function guardarFacebook(user){
+    const usuario = {   
+        uid:user.uid,
+        nombre:user.displayName, 
+        email:user.email, 
+         foto:user.photoURL
+       }
+       database.ref("GuardarFacebook/" + user.uid) //Esta linea no permite guardar doble los datos
+       .set(usuario)
+}
+
+//Se lee la base de Datos de Google
+// s = snap de la base de datos y muestra la imagen de usuario un listado
+database.ref('GuardarFacebook')
+.on('child_added',  (s) =>{
+   let user = s.val(); 
+   datosFacebook.innerHTML = '<img width="100" src="'+user.foto+'">'; 
+}); 
+
