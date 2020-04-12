@@ -8,6 +8,7 @@ html{
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
    
 }
 
@@ -18,6 +19,7 @@ body, section, div{
 .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 figure{
@@ -32,6 +34,7 @@ img{
 }
 
 input[type=text], input[type=password] {
+    box-sizing: border-box;
     padding-left: 15px;
     border-radius: 15px;
     width: 359px;
@@ -42,7 +45,7 @@ input[type=text], input[type=password] {
     font-size: 18px;
     background-color: #E1E8EC;
     opacity: 0.5;
-    border: #E1E8EC;
+    border: 1px solid #E1E8EC;
 }
 
 input[type=button]{
@@ -57,6 +60,21 @@ input[type=button]{
     margin:auto; 
     margin-top: 2px;
     margin-bottom:9px;
+    cursor: pointer;
+}
+
+input[type=button]:hover{
+    opacity: 0.7;
+}
+
+#errorMsg{
+    font-family: font-text;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+    color: red;
+    display: none;
 }
 
 p span{
@@ -64,7 +82,15 @@ p span{
     font-size: 16px;
 }
 
-p:first-of-type{
+p span, p u{
+    cursor: pointer;
+}
+
+p span:hover, p u:hover{
+    opacity: 0.8;
+}
+
+p:first-of-type {
     margin-bottom: 27px;
 }
 
@@ -90,6 +116,7 @@ i {
     border-radius: 50%;
     color: white;
     font-size: 30px;
+    cursor: pointer;
 }
 
 i:first-child{
