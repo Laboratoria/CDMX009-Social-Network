@@ -8,11 +8,12 @@ body{
     justify-content: space-between;
   }
   .home {
-    width: 25%;
+    width: 35%;
+    padding-left: 5%;
   }
   .imagenUser {
-    width: 50px;
-    padding-right: 50px;
+    width: 40px;
+    padding-right: 30px;
   }
   /* Cointeiner Menu*/
   .mainConteiner {
@@ -21,15 +22,16 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-top: 7%;
   }
   
   .mainConteiner div {
     padding: 2%;
     margin: 2%;
     background-color: #FFE36B;
-    width: 400px;
-    height: 400px;
+    width: 40%;
     border-radius: 35px;
+    max-width: 250px;
   }
   
   .mainConteiner img {
@@ -37,31 +39,61 @@ body{
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 15px;
   }
   
   .mainConteiner p {
     font-family: Century Gothic;
-    font-size: 30px;
+    font-size: 1em;
     text-align: center;
   }
   
   
   /*Cointeiner option*/
   .DegreeAndGroup{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    margin-top: 5%;
   }
   
   .DegreeAndGroup select {
-    padding: 2%;
-    margin: 2%;
-    background-color: #FFFFFF;
-    width: 420px;
-    height: 50px;
-    border-radius: 100px;
+      padding: 2%;
+      margin: 2%;
+      background-color: #FFFFFF;
+      width: 45%;
+      height: 50px;
+      border-radius: 100px;
+      display: inline-block;
   }
   
+
+/*navigation bar*/
+footer{
+  background-color: #FFE36B;
+    padding: 10px 5px;
+    text-align: center;
+
+}
+
+#footer li{
+  display: inline;
+  padding-left: 10px;
+}
+
+#footer li:first-child{
+  padding-left: 0px;
+}
+
+footer li img {
+  width: 35px;
+}
+
+ul {
+  padding-left: 0px;
+}
+/*end navigation bar*/
+
+
+/*Profile*/
+.userNamePhoto{
+  
+}
+/*end profile*/

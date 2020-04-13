@@ -1,8 +1,8 @@
 export default () => {
-    const viewHome = `
+  const viewHome = `
     <header>
     <img src="https://raw.githubusercontent.com/IrisFyD/CDMX009-Social-Network/master/src/img/LogoBlancoDigiTarea.png" alt="" class="home">
-    <img src="imagenes/Usuario.svg" alt="" class="imagenUser">
+    <a href="#/profile"><img src="img/User.svg" alt="" class="imagenUser"></a>
 </header>
 
 <div class="DegreeAndGroup">
@@ -39,8 +39,8 @@ export default () => {
 </div>
 </div>
     `
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewHome;
+  const divElement = document.createElement('div')
+  divElement.innerHTML = viewHome;
 
-    return divElement;
+  return divElement;
 }
