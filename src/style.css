@@ -1,0 +1,19 @@
+body{
+    background-color:#023047;
+   
+}
+h1{
+    color: red;
+}
+.forms {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainLogo{
+    size: 12px;
+    margin:auto;
+    display: flex;
+    align-items: baseline;
+    
+}

@@ -4,9 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title> Memingos </title>
+  <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
+  <link rel = "icon" type = "image/png" href ="https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png">
+  <link rel = "apple-touch-icon" type = "image/png" href = "https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png"/>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/bulma.css.map">
+  <link rel="stylesheet" href="css/bulma.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script> -->
+
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD6boxRV32Ld50HrVuWx2Fkl5ZlYQyAabk",
+    authDomain: "memingos-abeea.firebaseapp.com",
+    databaseURL: "https://memingos-abeea.firebaseio.com",
+    projectId: "memingos-abeea",
+    storageBucket: "memingos-abeea.appspot.com",
+    messagingSenderId: "299345545979",
+    appId: "1:299345545979:web:a1d0095b63dc2c48e5be5e",
+    measurementId: "G-7SHPQ7YX96"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
 </head>
 <body>
+  <section class="forms" id="root"></section>
   <script type="module" src="index.js"></script>
 </body>
 </html>
