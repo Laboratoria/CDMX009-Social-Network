@@ -25,13 +25,9 @@ export default () => {
     const auth = firebase.auth()
 
   //sign in with firebase functions
-
   const promise = auth.signInWithEmailAndPassword(email, pass)
   promise.then (e=> changeView('#/home'))
   promise.catch(e=>console.log(alert(e.message)))
-
-    
-    console.log(email, pass)
   })
 
   return divElement
