@@ -1,0 +1,14 @@
+.content{
+    width: 753px;
+    height: 375px;
+    background-color: #f6f6f6;
+}
+
+footer{
+    display: block;
+}
+.menu {
+    background-color: #8dffb7;
+    width: 375px;
+    height: 60px;
+}
