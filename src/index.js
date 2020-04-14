@@ -1,11 +1,12 @@
 /* import { example } from './example.js';
 
 example(); */
-var db = firebase.firestore();
+const db = firebase.firestore();
+
 
 //login, instancia del provedor del servicio
-var provider = new firebase.auth.GoogleAuthProvider();
-var providerf = new firebase.auth.FacebookAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
+const providerf = new firebase.auth.FacebookAuthProvider();
 
 let div = document.querySelector('#root');
 //Autentificar con Google
@@ -15,12 +16,18 @@ btn.addEventListener('click', function () {
         .signInWithPopup(provider)//Se va a usar una popUp y se va a loguear con la var provider que es google
         .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
             console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
+
+
             guardaDatos(result.user)//Se le manda a la func guardDatos para hacer uns BD
             //ocultar el boton y mostrar la foto
             btn.classList.hide;
             div.innerHTML = `
                 <img src="${result.user.photoURL}"/>
             `
+
+        })
+        .catch(function (error) {
+            console.log('No tienes una cuenta Google');
 
         })
 });
@@ -97,6 +104,8 @@ function guardaDatosFb(user) {
     //console.log(user);
     /* firebase.database().ref("usersapp/" + user.uid)//la / y el + user.uid hace que no se duplique el usuario
         .set(usuario) */
+    let useremailFb = user.email
+    compareData(useremailFb)
     const docDataFb = db.doc('datausers/' + user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docDataFb.set({
         uid: user.uid,//Servirá para eliminar
@@ -113,9 +122,11 @@ function guardaDatosFb(user) {
             console.log('Hubo en error:', error);
 
         })
+
     updateDataFb(docDataFb)
 
 }
+
 
 //se leen los datos de la BD
 
@@ -127,6 +138,7 @@ function updateDataFb(docDataFb) {
 
     })
 }
+
 
 //Crear cuenta con email
 /* document.querySelector('#ingresar').addEventListener('submit', cargarEmail)
@@ -153,25 +165,53 @@ document.querySelector('#create').addEventListener('click', function (e) {
     //console.log(valEmail);
     //console.log(valPass);
 
-    return createUser(email, password)
+    createUser(email, password)
 })
 //Guardar los datos en firebase y BD
 function createUser(email, password) {
+    //console.log(user);
     console.log(email + password);
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function (user) {
-            console.log('Se ha creado la cuenta!');
-            console.log(user.user);
 
-        })
-        .catch(function (error) {
-            console.error(error);
+    const expRegEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+    const expRegPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/
 
-        })
-    const docData = db.doc('datausers/' + email);//la / y el + user.uid hace que no se duplique el usuario
-    docData.set({
+    if (expRegPass.test(password) === true && expRegEmail.test(email) === true) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+
+            .then(function (user) {
+                console.log('Se ha creado la cuenta!');
+                console.log(user.user);
+                //useremail = user.user.email
+                saveEmailBD(email, password, user)
+                //compareData(useremail)
+
+
+            })
+
+            .catch(function (error) {//Si la cuenta se ha creado se muestra el error
+                console.log(error.message);
+
+            })
+
+    } else {
+        alert('Comprueba tu correo o contraseña (debe contener al menos 6 caracteres,un número, una minúscula y al menos una mayúscula).')
+    }
+
+
+}
+function compareData(useremailFb) {
+    console.log(useremailFb);
+
+    //console.log(useremail);
+
+}
+
+function saveEmailBD(email, password, user) {
+    const docDataEm = db.doc('datausers/' + user.user.uid);//la / y el + user.uid hace que no se duplique el usuario
+    docDataEm.set({
         email: email,
-        password: password
+        password: password,
+        uid: user.user.uid
     })
 
         .then(function () {
@@ -183,10 +223,11 @@ function createUser(email, password) {
 
         })
 
+
 }
 
 
-//Leer y guardar los datos del us. para despues comparar con los datos almacenados en la BD
+//Leer y guardar los datos del us. para despues comparar con los datos almacenados en la autenticación
 document.querySelector('#enter').addEventListener('click', function (e) {
     e.preventDefault()
     //Leer variables del form
@@ -195,7 +236,7 @@ document.querySelector('#enter').addEventListener('click', function (e) {
 
     //console.log(email);
     //console.log(password)
-    return loginUser(email, password)
+    loginUser(email, password)
 })
 
 //Comparar los datos del usuario con los datos que usó para crear cuenta
@@ -212,10 +253,16 @@ function loginUser(email, password) {
 
 }
 
+
+
+
 //salir de la sesión
 const btnexit = document.querySelector('#salir')
 btnexit.addEventListener('click', signoutUser)
 
-function signoutUser() {
+function signoutUser(e) {
+    e.preventDefault()
     firebase.auth().signOut();
+    console.log('Adiós Bye');
+
 }
