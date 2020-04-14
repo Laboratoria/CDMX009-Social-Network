@@ -1,0 +1,57 @@
+.overSmall{
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; 
+    }
+    .active{
+      visibility: visible;
+    }
+    .popSmall{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      width: 500px;
+      height: 700px;
+      background: #F8F8F8;
+      border-radius: 10%;
+      margin-top: 5%;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  }
+  .containerPop{
+      
+      margin: 50px;
+      text-align: center;
+  }
+  .closeButton{
+    display: block;
+    text-align: center;
+    margin-right: 7%;
+  }
+   .btn-cerrar-popup{
+    font-size: 40px;
+     display: flex;
+    color: #BBB;
+   }
+   .textSmall{
+       text-align: center;
+   }
+   .imagePop{
+       font-size: 100px;
+   }
+   .acceptDelete{
+    font-size: 70px;
+    color: rgb(11, 155, 18);
+   }
+   .cancelDelete{
+    font-size: 60px;
+    color: rgb(243, 26, 26);
+   }
