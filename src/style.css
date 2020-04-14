@@ -66,8 +66,7 @@ body{
     border-radius: 100px;
   }
   
-  /*  View LOGIN
-      Nav*/
+  /*  View LOGIN  */
   .mainConteinerLogin{
     width: 100%;
     display: flex;
@@ -116,3 +115,32 @@ body{
     text-decoration: none;
   }
 
+/*  View CALENDAR  */
+.mainConteinerCalendar{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+.titleCalendar{
+font-size: 50px;
+color: #FFFFFF;
+text-align: center;
+}
+.calendar{
+width: 400px;  
+}
+.infoConteinerCalendar{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: flex-end;
+}
+.infoConteinerCalendar img{
+  width: 30px;
+  }
+
+.infoConteinerCalendar p{
+  margin-bottom: 0em;
+}
