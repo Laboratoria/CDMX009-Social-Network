@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
     
@@ -21,9 +22,10 @@ h3{
     min-height: 100vh;
 }
 
-.card-flex-box{
+.card-align{
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
    
 }
 .form-container{
@@ -69,9 +71,14 @@ h3{
     background-color: #FFB82E;
 }
 .forgotten-password{
-    color: #FFB82E;
+    color: #FFB82E!important;
     font-size: .9em;
     font-weight: 600;
+}
+.eye-icon{
+    position: absolute;
+    top:31%;
+    right: 10%;
 }
 .forgotten-password:hover{
     color: #385A64;
@@ -92,7 +99,7 @@ h3{
 }
 
 .facebook{
-    padding: 18px 29px;
+    padding: 16px 29px;
     background: #3B5998;
     border-radius: 6px;
     color: #fff;
@@ -102,7 +109,7 @@ h3{
     padding-right: 12px;
 }
 .google{
-    padding: 18px 36px;
+    padding: 16px 36px;
     background: #fff;
     border-radius: 6px;
     color: rgb(71, 71, 71);
@@ -112,3 +119,56 @@ h3{
     color: #3B5998;
 }
 
+/*Menu*/
+
+.user-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    padding-top: 10%;
+
+}
+.user-img img{
+    width: 30%;
+    border-radius: 50%;
+    margin: 10px 0px;
+}
+.menu-container{
+    padding: 15%;
+
+}
+.my-navbar{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 0;
+    list-style: none
+}
+.my-navbar li a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+.nav-item{
+    margin: 3px;
+}
+.menu-icons{
+    float: right;
+    color: #FFB82E;
+}
+.set-icon{
+    position: relative;
+    float: right;
+}
+.set-icon img{
+    width: 22px;
+}
+.exit{
+    font-family: 'Raleway', sans-serif;
+    float: right;
+}
