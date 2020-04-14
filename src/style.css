@@ -2,7 +2,8 @@ body{
     background-color: #A698FF;
     font-family: Century Gothic;
   }
-  /*Nav*/
+  /*  View HOME
+      Nav*/
   header{
     display: flex;
     justify-content: space-between;
@@ -65,3 +66,53 @@ body{
     border-radius: 100px;
   }
   
+  /*  View LOGIN
+      Nav*/
+  .mainConteinerLogin{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .mainConteinerLogin input{
+    width: 30%;
+    height: 30px;
+    border-radius:35px;
+    margin: 10px;
+    padding-left: 10px;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+  }
+
+  .btnRedes{
+    width: 30px;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btnLogin{
+    margin:10px;
+    width: 15%;
+    height: 30px;
+    border-radius: 30px;
+    background-color:#FFE36B;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .mainConteinerLogin a{
+    color: #FFE36B;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
