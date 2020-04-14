@@ -1,6 +1,6 @@
 .content{
-    width: 753px;
-    height: 375px;
+    width: 375px;
+    height: 753px;
     background-color: #f6f6f6;
 }
 
@@ -12,3 +12,22 @@ footer{
     width: 375px;
     height: 60px;
 }
+
+header{
+    background-color: coral;
+    width: 375px;
+}
+
+.btnNav{
+    background-color: transparent;
+    border: none;
+}
+
+#profile {
+    width: 45px;
+    height: 45px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: white;
+} 
