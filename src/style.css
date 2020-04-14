@@ -1,0 +1,326 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+#firstPage {
+    width: auto;
+    height: auto;
+    background: linear-gradient(275.19deg, #C80A48 1.46%, #48020D 89.22%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 10px ;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    display: block;
+  }
+  
+  #firstElement {
+    padding: 70px;
+    margin: 5px;
+    flex-basis: auto;
+    height: auto;
+    text-align: center;
+    border-radius: 0px;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+
+  .boxInput{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px; 
+    border-color: #FFFFFF;
+    width: 260px;
+    height: 41px;
+    font-size: 18px;
+
+
+  }
+  .logIn {
+    background: #C87B7B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    border-color: #C87B7B;
+    color: #FFFFFF;
+    width: 123px;
+    height: 34px;
+    font-size: 18px;
+  }
+  #newUser {
+      font-size: 14px;
+  }
+  #createUser {
+    display:none;
+  }
+  #logingUsers {
+    display: block;
+  }
+
+#allTheSite {
+  display:none;
+}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /*general*/
+  body {
+    background-color: #F5F1F1;
+  }
+ 
+  .subtitle h3 {
+    font-family: "Roboto";
+    color: #040404;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin: 10px 0px 10px 5px;
+  }
+  
+  .hide{
+    display: none;
+  }
+  .mobile-view{
+    display: contents;
+  }
+  .desktop-view{
+    display: none;
+  }
+  .margin-top {
+    margin-top: 40px;
+  }
+ 
+  /*header*/
+  .my-header {
+    position: sticky;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(336.74deg, #C80A48 1.46%, #48020D 85.12%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 50px 0px;
+  }
+  .logo img {
+    width: 250px;
+    padding: 10px 20px 10px 15px;
+   
+  }
+ 
+  .user img {
+    width: 50px;
+    border-radius: 50%;
+    padding: 8px;
+    margin-left: 4px;
+  }
+  .flex-box-horizontal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
+  /*card*/
+  .text-box {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: "Montserrat";
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    color: #5e6973;
+    letter-spacing: 1px;
+  }
+ 
+  .number-bold {
+    font-size: 3em;
+    font-weight: 600;
+  }
+  .divition-line {
+    border-right: 3px  #C80A48 1.46%, #48020D solid;
+    padding-right: 75px;
+  }
+  .data {
+    margin: 20px 0px;
+  }
+  .width-data{
+    width: 50%;
+  }
+  .blue-line{
+    border-right: 3px  #C80A48 1.46%, #48020D solid;
+  }
+  /*card2*/
+  .card2 {
+    background-color:#ffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-family: "Montserrat";
+  }
+  /*tab*/
+  .tabs {
+    width: 100%;
+    float: none;
+    list-style: none;
+    position: relative;
+    margin: 40px 0px;
+    text-align: left;
+  }
+  .tabs li {
+    float: left;
+    display: block;
+  }
+  .tabs input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+  }
+  .tabs li{
+    width: 50%;
+  }
+  .tabs label {
+    display: block;
+  padding: 14px 21px;
+  border-radius: 1px 1px 0 0;
+  font-size: 1em;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  font-weight: normal;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  width: 100%;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  }
+  .tabs label:hover {
+    background: linear-gradient(336.74deg, #C80A48 1.46%, #48020D 85.12%);
+    color: #fff;
+  }
+  .tabs .tab-content {
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 25px;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    background: #fce7e7;
+    border-radius: 10px;
+  }
+  .tabs [id^="tab"]:checked + label {
+    top: 0;
+    padding-top: 17px;
+    background: linear-gradient(336.74deg, #C80A48 1.46%, #48020D 85.12%);
+    color: #fff;;
+    color: #fff;
+  }
+  .tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+  }
+  #text-box{
+      border-radius: 8px 8px 8px 8px;
+      width: 50%;
+      height: 200%;
+  }
+
+  #search{
+    border-radius: 8px 8px 8px 8px;
+
+  }
+ 
+  /*Card modal*/
+  .card-modal{
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal{
+    font-family: "Roboto";
+    color: #5e6973;
+    letter-spacing: 1px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 35px;
+    width: 90%; /* Could be more or less, depending on screen size */
+    margin: 50% auto; /* 15% from the top and centered */
+  }
+  
+
+  
+  /*Media querys*/
+  @media screen and (min-width: 450px) {
+    .my-header {
+      border-radius: 0px;
+    }
+    .modal{
+      width: 70%; /* Could be more or less, depending on screen size */
+      margin: 30% auto; /* 15% from the top and centered */
+    }
+  }
+  @media screen and (min-width: 500px) {
+    .col-8{
+      width: 60%;
+      padding: 0px 15px;
+    }
+    .col-6{
+      width: 50%;
+      padding: 0px 15px 0px 0px; 
+    }
+    .col-4{
+      width: 40%;
+      padding: 0px 15px;
+    }
+    .text-box{
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .img{
+        width: 100%;
+        height: auto;
+      
+    }
+
+    
+    .col-4, .col-8{
+      float: right;
+    }
+    .desktop-view{
+      display: contents;
+    }
+    ul .mobile-view{
+      display: none;
+      width: 100%;
+    }
+    .tabs li{
+      width: 100%;
+    }
+   
+
+    .modal{
+      width: 35%; /* Could be more or less, depending on screen size */
+      margin: 15% auto; /* 15% from the top and centered */
+    }
+    
+   
