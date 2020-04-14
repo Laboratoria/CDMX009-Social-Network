@@ -5,3 +5,8 @@
 a{
   text-decoration: none;
 }
+
+.btn{
+  background-color:#fc8d97;
+  border: 0; 
+}
