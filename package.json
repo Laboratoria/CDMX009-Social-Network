@@ -32,5 +32,20 @@
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
-  }
+  },
+  "dependencies": {
+    "bulma": "^0.8.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kari2406/CDMX009-Social-Network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Kari2406/CDMX009-Social-Network/issues"
+  },
+  "homepage": "https://github.com/Kari2406/CDMX009-Social-Network#readme"
 }
