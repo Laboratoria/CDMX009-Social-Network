@@ -16,6 +16,8 @@ const changeView = (route) => {
     { return root.appendChild(components.Releases())}
     case '#/login':
     { return root.appendChild(components.Login())}
+    case '#/register':
+    { return root.appendChild(components.Register())}
     case '#/profile':
     { return root.appendChild(components.Profile())}
     default:

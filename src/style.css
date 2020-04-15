@@ -1,6 +1,6 @@
 body{
     background-color: #A698FF;
-    font-family: Century Gothic;
+    font-family: 'Roboto', sans-serif;
   }
   /*Nav*/
   header{
@@ -92,8 +92,41 @@ ul {
 /*end navigation bar*/
 
 
-/*Profile*/
+/*PROFILE*/
 .userNamePhoto{
+
+}
+
+.userNamePhoto img {
+
+    height: 100px;
+
+}
+/*END PROFILE*/
+
+/*REGISTER*/
+.header img{
+  margin-left: 25%;
+  margin-top: 10px;
+  height: 85px;
+  display: block;
   
 }
-/*end profile*/
+
+.header h4{
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.form input{
+  margin: 5%;
+  width: 85%;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.header button{
+  border-radius: 30px;
+}
+/*END REGISTER*/
