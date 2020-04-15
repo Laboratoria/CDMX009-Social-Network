@@ -189,19 +189,19 @@ nav {
 }
 
 .navletters {
-    color: #444444;
+    color: #a7a7a7;
     font-weight: bolder;
 }
 
 .navletters:hover {
-    background-color: #ff2255;
-    color: white;
+    background-color: white;
+    color: #e6007e;
 }
 
 .log {
     height: auto;
-    width: 34%;
-    padding-top: 3%;
+    padding-top: 6px;
+    max-width: 25%;
 }
 
 .colorHeader {
@@ -276,10 +276,20 @@ i.fas.fa-globe-americas {
     color: #6a1b9a
 }
 
+.informationBox {
+    display: flex;
+    align-items: center;
+}
+
 .points {
     color: #6a1b9a;
     padding-left: 10px;
     text-align: right;
+}
+
+button.waves-effect.waves-light.btn-small.btn-enter {
+    background-color: #662483;
+    opacity: 0.9;
 }
 
 p.coments {
@@ -377,6 +387,18 @@ p.chip.boxStyle2 {
     margin-bottom: 80px;
 }
 
+.publication {
+    background-color: #662483;
+    opacity: 0.9;
+    border-radius: 8px;
+}
+
+.publication2 {
+    background-color: #662483;
+    opacity: 0.9;
+    border-radius: 8px;
+}
+
 .formPerfil {
     max-width: 80%;
     text-align: center;
@@ -386,27 +408,29 @@ p.chip.boxStyle2 {
 
 button.waves-effect.waves-light.btn-small.btn-login {
     margin-top: 20px;
+    background-color: #662483;
+    opacity: 0.9;
 }
 
 
 /* ******************estilos de esther *************/
 
-.logo {
-    max-width: 22%;
+/* .logo {
+    max-width: 20%;
     height: auto;
     padding: 8px 0;
     display: block;
     margin: 0 auto;
-}
+} */
 
-.colorHeader {
+/* .colorHeader {
     background-color: #662483;
     opacity: 0.9;
-}
+} */
 
 .intro {
     text-align: center;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     font-size: 1.2em;
     line-height: 25px;
 }
@@ -469,7 +493,8 @@ button.waves-effect.waves-light.btn-small.btn-login {
     font-size: 1.1em;
     text-align: center;
     line-height: 20px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
+    margin: 25px auto;
 }
 
 .choose {
@@ -484,6 +509,8 @@ button.waves-effect.waves-light.btn-small.btn-login {
     max-width: 42%;
     margin-bottom: 22px;
     border-radius: 10px;
+    background-color: #662483;
+    opacity: 0.9;
 }
 
 .fab.fa-facebook,
@@ -497,6 +524,8 @@ button.waves-effect.waves-light.btn-small.btn-login {
     max-width: 42%;
     margin-bottom: 22px;
     border-radius: 10px;
+    background-color: #662483;
+    opacity: 0.9;    
 }
 
 .pag2Header {
