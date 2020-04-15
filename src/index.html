@@ -2,22 +2,230 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>CodeDev</title>
 
 </head>
 
 <body>
+    <section id="esther">
+        <nav>
+            <div class="nav-wrapper colorHeader">
+                <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="navletters" href="practicfirebase.html" target="_blank">Inicio</a></li>
+                    <li><a class="navletters" href="practicfirebase.html" target="_blank">Foro</a></li>
+                    <li><a class="navletters" href="perfil">Perfil</a></li>
+                    <li><a class="navletters" href="editar perfil">Editar perfil</a></li>
+                    <li><a class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
 
-  <h2>Hey! Babies Este es el cambio de Vero</h2>
-  <h1>Este es el cambio de Esther</h1>
-  <h3>este es el cambio de dian</h3>
+            </div>
+        </nav>
 
-  <script type="module" src="index.js"></script>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="colorMenu" href="inicio">Inicio</a></li>
+            <li><a class="colorMenu" href="foro">Foro</a></li>
+            <li><a class="colorMenu" href="perfil">Perfil</a></li>
+            <li><a class="colorMenu" href="editar perfil">Editar perfil</a></li>
+            <li><a class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
+        </ul>
 
+        <main>
+            <div class="description">
+                <p class="intro">Una red social pensada para los que hacemos Desarrollo Web</p>
+            </div>
+
+            <div class="iconUsers">
+                <i class="material-icons medium lines">remove</i>
+                <i class="material-icons star">stars</i>
+                <i class="material-icons medium lines">remove</i>
+            </div>
+
+            <form action="" class="form">
+                <label for="" class="fieldUser">
+        <input type="email" class="validate user" required="" aria-required="true" placeholder="Usuario" id="email">
+      </label>
+                <label for="" class="fieldPassword">
+        <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true" id="pass">
+      </label>
+                <!-- <button type="submit" class="waves-effect waves-light btn-small btn-login">Login</button> -->
+                <button id="doLogin">Enviar</button>
+            </form>
+
+            <div class="register">
+                <p class="account">No tienes cuenta? <a href="#register2" class="register2">Registrate</a> </p>
+            </div>
+
+            <div>
+                <p class="description">Sé parte de nuestra comunidad y fortalece tus ideas y conocimientos.</p>
+            </div>
+
+            <div class="loginSocialNetwork">
+                <p class="choose">Si no tienes una cuenta? <br>Ingresa con:</p>
+                <a class="waves-effect waves-light btn center iconWeb1"><i class="fab fa-facebook"></i>Facebook</a>
+
+                <a class="waves-effect waves-light btn center iconWeb2"><i class="fab fa-google"></i>Google</a>
+            </div>
+        </main>
+
+        <!-- ************ PAGINA 2 REGISTRO ********** -->
+
+        <header class="pag2Header">
+            <div class="nav-wrapper gradient colorHeader">
+                <a href="#!" class="brand-logo center"><img class="logo" src="images/logo_ok2.png" alt="logo"></a>
+            </div>
+        </header>
+
+        <main>
+            <div class="loginRequired">
+                <p class="description">Por favor llena los siguientes campos <br>Obligatorio *</p>
+            </div>
+
+            <div class="iconUsers">
+                <i class="material-icons medium lines">remove</i>
+                <i class="material-icons star">stars</i>
+                <i class="material-icons medium lines">remove</i>
+            </div>
+
+            <form action="" class="form">
+                <label for="" class="fieldUser">
+        <input type="text" class="validate user" required="" aria-required="true" placeholder="Nombre Completo">
+      </label>
+                <label for="">
+        <input type="email" class="validate user" required="" aria-required="true" placeholder="Email">
+      </label>
+                <label for="" class="fieldPassword">
+        <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true">
+      </label>
+                <label for="" class="fieldPassword ">
+        <input type="password" placeholder="Confirma Contraseña" class="validate user password confP2" required="" aria-required="true">
+      </label>
+                <!-- <button type="submit" class="waves-effect waves-light btn-small btn-enter">Entrar</button> -->
+                <button id="doRegister">Registro</button>
+            </form>
+
+            <div class="descriptionP2">
+                <p>Sé parte de nuestra comunidad y fortalece tus ideas y conocimientos.</p>
+            </div>
+        </main>
+
+    </section>
+
+    <section class="profileInformation" id="vero y dian">
+        <div>
+            <div class="littleCircle">
+                <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
+            </div>
+
+            <div class="personalInformationPerfilUser">
+                <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López<i class="material-icons center editProfileIcon">edit</i></strong></div>
+                <div class="professionDescription">Developer Sr. en Accenture</div>
+            </div>
+        </div>
+    </section>
+    <form>
+        <p>
+            <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
+        </p>
+        <div class="right-align">
+            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit"><i class="material-icons right">computer</i>Publicar</button>
+        </div>
+    </form>
+    <div>
+        <div class="informationBox">
+
+            <div class="chip boxStyle">
+                <img src="images/foto_perfil_circulo.png" alt="Contact Person">
+                <p>Taco Perez</p>
+            </div>
+            <i class="fas fa-globe-americas world"></i>
+            <i class="material-icons center points">more_vert</i>
+            <p class="coments">¿Cómo centrar texto en HTML?</p>
+        </div>
+        <div class="punchButtons">
+            <div class="likeButton">
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
+                <span class="likeCounter">5</span>
+            </div>
+            <div class="commentButton">
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
+                <span class="commentCounter">2</span>
+            </div>
+        </div>
+    </div>
+    <form>
+        <p>
+            <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
+        </p>
+        <div class="right-align">
+            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit"><i class="material-icons right">computer</i>Comentar</button>
+        </div>
+    </form>
+
+    <!-- *********** Editar perfil   *********** -->
+    <nav>
+        <div class="nav-wrapper colorHeader">
+            <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="navletters" href="inicio">Inicio</a></li>
+                <li><a class="navletters" href="foro">Foro</a></li>
+                <li><a class="navletters" href="perfil">Perfil</a></li>
+                <li><a class="navletters" href="editar perfil">Editar perfil</a></li>
+                <li><a class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="colorMenu" href="inicio">Inicio</a></li>
+        <li><a class="colorMenu" href="foro">Foro</a></li>
+        <li><a class="colorMenu" href="perfil">Perfil</a></li>
+        <li><a class="colorMenu" href="editar perfil">Editar perfil</a></li>
+        <li><a class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
+    </ul>
+
+    <div>
+        <p class="chip boxStyle2">Editar Perfil</p>
+    </div>
+
+    <div class="littleCircle secondCircle">
+        <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
+        <p class="changePhoto">Cambiar foto</p>
+    </div>
+
+    <form action="" class="formPerfil">
+        <label for="" class="perfilChanges">
+        <input type="text" class="chageName" required="" aria-required="true" placeholder="Cambia tu nombre">
+      </label>
+        <label for="" class="perfilChanges">
+        <input type="text" class="chageProfession" required="" aria-required="true" placeholder="Cambia tu profesión">
+      </label>
+        <label for="" class="changePassword">
+        <input type="password" placeholder="Cambia tu contraseña" class="validatePassword" required="" aria-required="true">
+      </label>
+        <label for="" class="changePassword">
+        <input type="password" placeholder="Confirma tu contraseña" class="validatePassword" required="" aria-required="true">
+      </label>
+        <button type="submit" class="waves-effect waves-light btn-small btn-login">Guardar cambios</button>
+    </form>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>
