@@ -180,10 +180,6 @@ body {
     /*nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/
 }
 
-nav {
-    background: #ccddcc;
-}
-
 .nav-wrapper {
     margin-bottom: 20px;
 }
@@ -207,6 +203,29 @@ nav {
 .colorHeader {
     background-color: #662483;
     opacity: 0.9;
+}
+
+input.validate.user.boxEmail {
+    border: 1px solid #662483;
+    border-radius: 10px;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    margin-bottom: 15px;
+    text-align: center;
+}
+input.validate.user.boxPassword {
+    border: 1px solid #662483;
+    border-radius: 10px;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.validate.user.boxFields {
+    border: 1px solid #662483;
+    border-radius: 10px;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 img.responsive-img {
@@ -249,6 +268,14 @@ img.responsive-img {
     margin: 0 auto;
     display: block;
     margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1.5px solid #662483;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+}
+
+textarea.comentUser {
+    padding-top: 10px;
 }
 
 .right-align {
@@ -356,8 +383,8 @@ ul#mobile-demo {
 }
 
 .editProfileIcon {
-    width: 8%;
-    height: 8%;
+    max-width: 10%;
+    height: a;
     color: #6a1b9a;
     background-color: #26a69a;
     border: 1px solid #26a69a;
@@ -449,6 +476,7 @@ button.waves-effect.waves-light.btn-small.btn-login {
 .star {
     color: #662483;
     font-size: 1.2em;
+    margin-bottom: 25px;
 }
 
 .form {
@@ -531,6 +559,15 @@ button.waves-effect.waves-light.btn-small.btn-login {
 .pag2Header {
     margin-bottom: 20px;
 }
+
+input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields{
+    border: 1px solid #662483;
+    border-radius: 10px;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 
 .btn-enter {
     margin: 0 auto;
