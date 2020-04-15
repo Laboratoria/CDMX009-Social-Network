@@ -6,15 +6,3 @@ const init = () => {
     
 }
 window.addEventListener('load', init)
-
-
-/* function Log in Google
-function registrar(){
-    console.log("Click!! funciona")
-}
-
-//button log in Google
-const loginGoogle = document.getElementById('btnGmail');
-if (loginGoogle){
-loginGoogle.addEventListener('click', registrar);
-}*/

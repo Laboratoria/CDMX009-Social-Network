@@ -1,4 +1,7 @@
+import loginGoogle from '../firebase.js';
+
 export default () => {
+    const root = document.getElementById('root')
     const viewLogin = `
     <div class="mainConteinerLogin">
     <img src="imagenes/portada.jpg" alt="">
@@ -14,12 +17,12 @@ export default () => {
     `
     const divElement = document.createElement('div')
     divElement.innerHTML = viewLogin;
+    root.appendChild(divElement)
 
-    /* button create out of templete view Login
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.innerText = 'Inicia con google';
-    document.body.appendChild(button);*/
+    // function Log in Google
+
+    const btnGmail = document.querySelector('#btnGmail')
+          btnGmail.addEventListener('click', loginGoogle)
 
     return divElement;
 

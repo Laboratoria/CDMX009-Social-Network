@@ -21,21 +21,19 @@
   </nav>
 </header> -->
 <main>
+  
   <div id="root"></div>
+
 </main>
+<!-- El SDK básico de Firebase JS siempre se requiere y debe aparecer primero  -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 
-
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-<script type="module" src="index.js"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-
+<!-- TODO: Agregue SDK para los productos de Firebase que desea usar
+      https://firebase.google.com/docs/web/setup#available-libraries -->
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -49,8 +47,9 @@
     appId: "1:155697408797:web:828dffb194882a783b0ff4"
   };
   // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 </script>
 
+<script type="module" src="index.js"></script>
 </body>
 </html>
