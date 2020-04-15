@@ -1,212 +1,520 @@
-    a,
-    abbr,
-    acronym,
-    address,
-    applet,
-    article,
-    aside,
-    audio,
-    big,
-    blockquote,
-    body,
-    caption,
-    cite,
-    code,
-    dd,
-    del,
-    dfn,
-    dialog,
-    div,
-    dl,
-    dt,
-    em,
-    fieldset,
-    figure,
-    font,
-    footer,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    header,
-    hgroup,
-    html,
-    iframe,
-    img,
-    ins,
-    kbd,
-    label,
-    legend,
-    li,
-    mark,
-    menu,
-    nav,
-    object,
-    ol,
-    p,
-    pre,
-    q,
-    s,
-    samp,
-    section,
-    small,
-    span,
-    strike,
-    sub,
-    sup,
-    table,
-    tbody,
-    td,
-    tfoot,
-    th,
-    thead,
-    time,
-    tr,
-    tt,
-    ul,
-    var,
-    video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-weight: inherit;
-        font-style: inherit;
-        font-size: 100%
-    }
-    
-    article,
-    aside,
-    dialog,
-    figure,
-    footer,
-    header,
-    hgroup,
-    nav,
-    section {
-        display: block
-    }
-    
-    legend {
-        display: none
-    }
-    
-     :focus {
-        outline: 0
-    }
-    
-    table {
-        border-collapse: collapse;
-        border-spacing: 0
-    }
-    
-    caption,
-    td,
-    th {
-        text-align: left;
-        font-weight: 400
-    }
-    
-    a img,
-    iframe {
-        border: none
-    }
-    
-    ul {
-        list-style: none
-    }
-    
-    button,
-    input,
-    select,
-    textarea {
-        font-size: 100%;
-        font-family: inherit
-    }
-    
-    input,
-    select {
-        vertical-align: middle
-    }
-    
-    select {
-        margin: inherit
-    }
-    
-    button {
-        border: 0;
-        padding: 0;
-        background: 0 0;
-        cursor: pointer
-    }
-    
-    ol {
-        margin-left: 2em
-    }
-    
-    .clearfix:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden
-    }
-    
-    * html .clearfix {
-        height: 1%
-    }
-    
-    .clearfix {
-        display: block
-    }
-    /*empezamos con los estilos generales*/
-    
-    @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
-    body {
-        font-family: 'Montserrat', sans-serif;
-    }
-    
-    * {
-        margin: 0px;
-        /*quitamos todos los margenes*/
-        padding: 0px;
-        /*quitamos los rellemos*/
-        box-sizing: border-box;
-        /*nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/
-    }
-    
-    nav {
-        background: #ccddcc;
-    }
-    
-    .navletters {
-        color: #444444;
-        font-weight: bolder;
-    }
-    
-    .navletters:hover {
-        background-color: #ff2255;
-        color: white;
-    }
-    
-    img.logo {
-        height: auto;
-        width: 34%;
-        padding-top: 3%;
-    }
-    
-    img.responsive-img,
-    video.responsive-video {
-        max-width: 24%;
-        height: auto;
-        padding-top: 1%;
-        padding-left: 1%;
-    }
-    
-    .personalInformationPerfilUser {
-        text-align: center;
-        display: inline-block;
-    }
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+fieldset,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strike,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%
+}
+
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block
+}
+
+legend {
+    display: none
+}
+
+ :focus {
+    outline: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption,
+td,
+th {
+    text-align: left;
+    font-weight: 400
+}
+
+a img,
+iframe {
+    border: none
+}
+
+ul {
+    list-style: none
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    font-family: inherit
+}
+
+input,
+select {
+    vertical-align: middle
+}
+
+select {
+    margin: inherit
+}
+
+button {
+    border: 0;
+    padding: 0;
+    background: 0 0;
+    cursor: pointer
+}
+
+ol {
+    margin-left: 2em
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+* html .clearfix {
+    height: 1%
+}
+
+.clearfix {
+    display: block
+}
+
+
+/*empezamos con los estilos generales*/
+
+@import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0px;
+    /*quitamos todos los margenes*/
+    padding: 0px;
+    /*quitamos los rellemos*/
+    box-sizing: border-box;
+    /*nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/
+}
+
+nav {
+    background: #ccddcc;
+}
+
+.nav-wrapper {
+    margin-bottom: 20px;
+}
+
+.navletters {
+    color: #444444;
+    font-weight: bolder;
+}
+
+.navletters:hover {
+    background-color: #ff2255;
+    color: white;
+}
+
+.log {
+    height: auto;
+    width: 34%;
+    padding-top: 3%;
+}
+
+.colorHeader {
+    background-color: #662483;
+    opacity: 0.9;
+}
+
+img.responsive-img {
+    width: 27%;
+    height: auto;
+    padding-top: 1%;
+    padding-left: 1%;
+    border-radius: 70px;
+    margin: 0 auto;
+    display: block;
+}
+
+.littleCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.littleCircle>.photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: block;
+    margin: 10px auto;
+}
+
+.personalInformationPerfilUser {
+    text-align: center;
+    display: block;
+}
+
+.profileInformation {
+    margin-bottom: 10px;
+}
+
+.comentUser {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.right-align {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+img.responsive-img.mySecondImage {
+    max-width: 13%;
+    height: auto;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+.profileName {
+    text-align: center;
+    display: inline-block;
+}
+
+i.fas.fa-globe-americas {
+    text-align: right;
+    padding-left: 40px;
+    color: #6a1b9a
+}
+
+.points {
+    color: #6a1b9a;
+    padding-left: 10px;
+    text-align: right;
+}
+
+p.coments {
+    padding-top: 10px;
+    font-size: 0.8em;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+a.waves-effect.waves-light.btn-small {
+    width: 35px;
+    margin-left: 15px;
+    border-radius: 100px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding: 7px;
+    line-height: 18px;
+}
+
+i.material-icons.left.like {
+    font-size: 1.5em;
+    color: #6a1b9a;
+}
+
+.iconComment {
+    width: 35px;
+    margin-left: 15px;
+    border-radius: 100px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding: 7px;
+    line-height: 18px;
+}
+
+.likeButton {
+    display: inline;
+}
+
+.commentButton {
+    display: inline;
+}
+
+.punchButtons {
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+.chip.boxStyle {
+    background: #b87df75c;
+    width: 60%;
+    color: #6a1b9a;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+ul#mobile-demo {
+    background: #64ffda;
+}
+
+.sidenav li>a {
+    color: #6a1b9a;
+    font-weight: bold;
+}
+
+.editProfileIcon {
+    width: 8%;
+    height: 8%;
+    color: #6a1b9a;
+    background-color: #26a69a;
+    border: 1px solid #26a69a;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: right;
+    margin-left: 15px;
+}
+
+
+/******** Página 2 editar perfil **********/
+
+p.chip.boxStyle2 {
+    background: #b87df75c;
+    color: #6a1b9a;
+    padding-left: 10px;
+    margin-left: 20px;
+    display: inline;
+}
+
+.changePhoto {
+    text-align: center;
+    font-weight: bold;
+}
+
+.secondCircle {
+    margin-bottom: 80px;
+}
+
+.formPerfil {
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+button.waves-effect.waves-light.btn-small.btn-login {
+    margin-top: 20px;
+}
+
+
+/* ******************estilos de esther *************/
+
+.logo {
+    max-width: 22%;
+    height: auto;
+    padding: 8px 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.colorHeader {
+    background-color: #662483;
+    opacity: 0.9;
+}
+
+.intro {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1.2em;
+    line-height: 25px;
+}
+
+.iconUsers {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: -10px;
+}
+
+.lines {
+    color: #26a69a;
+    max-width: 80px;
+}
+
+.star {
+    color: #662483;
+    font-size: 1.2em;
+}
+
+.form {
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.btn-login {
+    margin: 0 auto;
+    display: block;
+    max-width: 40%;
+    margin-bottom: 22px;
+    border-radius: 10px;
+}
+
+.user {
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.password {
+    padding: 7px;
+    border-radius: 8px;
+    margin-bottom: 200px;
+}
+
+.register {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.register2 {
+    margin-left: 14px;
+    color: #662483;
+}
+
+.description {
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+
+.choose {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.waves-effect.waves-light.btn.center.iconWeb1 {
+    margin: 0 auto;
+    display: block;
+    max-width: 42%;
+    margin-bottom: 22px;
+    border-radius: 10px;
+}
+
+.fab.fa-facebook,
+.fab.fa-google {
+    margin-right: 10px;
+}
+
+.waves-effect.waves-light.btn.center.iconWeb2 {
+    margin: 0 auto;
+    display: block;
+    max-width: 42%;
+    margin-bottom: 22px;
+    border-radius: 10px;
+}
+
+.pag2Header {
+    margin-bottom: 20px;
+}
+
+.btn-enter {
+    margin: 0 auto;
+    display: block;
+    max-width: 40%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.descriptionP2 {
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 50px;
+}
