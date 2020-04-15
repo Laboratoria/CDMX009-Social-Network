@@ -28,8 +28,7 @@
                     <li><a class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
                 </ul>
             </div>
-        </nav>
-    
+        </nav>    
 
         <main>
             <div class="description">
@@ -37,18 +36,20 @@
             </div>
 
             <div class="iconUsers">
-                <i class="material-icons medium lines">remove</i>
+               <i class="material-icons medium lines">remove</i>
                 <i class="material-icons star">stars</i>
                 <i class="material-icons medium lines">remove</i>
             </div>
 
             <form action="" class="form">
                 <label for="" class="fieldUser">
-        <input type="email" class="validate user" required="" aria-required="true" placeholder="Usuario" id="email">
-      </label>
+                    <input type="email" class="validate user boxEmail" required="" aria-required="true"
+                        placeholder="Usuario">
+                </label>
                 <label for="" class="fieldPassword">
-        <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true" id="pass">
-      </label>
+                    <input type="password" placeholder="Contraseña" class="validate user password boxPassword" required=""
+                        aria-required="true">
+                </label>
                 <button type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
                 <!-- <button id="doLogin">Enviar</button> -->
             </form>
@@ -98,17 +99,20 @@
 
             <form action="" class="form">
                 <label for="" class="fieldUser">
-        <input type="text" class="validate user" required="" aria-required="true" placeholder="Nombre Completo">
-      </label>
+                    <input type="text" class="validate user boxFields" required="" aria-required="true"
+                        placeholder="Nombre Completo">
+                </label>
                 <label for="">
-        <input type="email" class="validate user" required="" aria-required="true" placeholder="Email">
-      </label>
+                    <input type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
+                </label>
                 <label for="" class="fieldPassword">
-        <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true">
-      </label>
+                    <input type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
+                        aria-required="true">
+                </label>
                 <label for="" class="fieldPassword ">
-        <input type="password" placeholder="Confirma Contraseña" class="validate user password confP2" required="" aria-required="true">
-      </label>
+                    <input type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
+                        required="" aria-required="true">
+                </label>
                 <button type="submit" class="waves-effect waves-light btn-small btn-enter">Entrar</button>
                 <!-- <button id="doRegister">Registro</button> -->
             </form>
@@ -120,7 +124,8 @@
 
     </section>
 
-    <!-- ******************** -->
+    <!-- ***********PAGINA 3********* -->
+
     <nav>
         <div class="nav-wrapper colorHeader">
             <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
@@ -142,8 +147,6 @@
         <li><a class="colorMenu" href="editar perfil">Editar perfil</a></li>
         <li><a class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
     </ul>
-
-    <!-- ******************** -->
 
     <section class="profileInformation" id="vero y dian">
         <div>
@@ -176,10 +179,11 @@
             <i class="fas fa-globe-americas world"></i>
             <i class="material-icons center points">more_vert</i>            
         </div>
-        <div>
+
+        <div class="comentsAndLikes">
             <p class="coments">¿Cómo centrar texto en HTML?</p>
         </div>
-        <div class="punchButtons">
+        <div class="punchButtons comentsAndLikes">
             <div class="likeButton">
                 <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
                 <span class="likeCounter">5</span>
@@ -200,7 +204,7 @@
         </div>
     </form>
 
-    <!-- *********** Editar perfil   *********** -->
+    <!-- *********** PAGINA 4 EDITAR PERFIL   *********** -->
     <nav>
         <div class="nav-wrapper colorHeader">
             <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
@@ -234,16 +238,16 @@
 
     <form action="" class="formPerfil">
         <label for="" class="perfilChanges">
-        <input type="text" class="chageName" required="" aria-required="true" placeholder="Cambia tu nombre">
+        <input type="text" class="chageName boxFields" required="" aria-required="true" placeholder="Cambia tu nombre">
       </label>
         <label for="" class="perfilChanges">
-        <input type="text" class="chageProfession" required="" aria-required="true" placeholder="Cambia tu profesión">
+        <input type="text" class="chageProfession boxFields" required="" aria-required="true" placeholder="Cambia tu profesión">
       </label>
         <label for="" class="changePassword">
-        <input type="password" placeholder="Cambia tu contraseña" class="validatePassword" required="" aria-required="true">
+        <input type="password" placeholder="Cambia tu contraseña" class="validatePassword boxFields" required="" aria-required="true">
       </label>
         <label for="" class="changePassword">
-        <input type="password" placeholder="Confirma tu contraseña" class="validatePassword" required="" aria-required="true">
+        <input type="password" placeholder="Confirma tu contraseña" class="validatePassword  boxFields" required="" aria-required="true">
       </label>
         <button type="submit" class="waves-effect waves-light btn-small btn-login">Guardar cambios</button>
     </form>
