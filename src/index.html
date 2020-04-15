@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <html class="has-navbar-fixed-bottom has-background-grey-dark">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Red social microcuentos ilustrados</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  
 </head>
 <body>
-  <script type="module" src="index.js"></script>
+
+  <section class="section">
+    <div class="container has-text-white">
+      <h1> Escribe tu microcuento:</h1>
+      <input class="input is-success" type="text" placeholder="Título">
+      <textarea class="textarea is-success is-large" type="text" placeholder="Escribe acá tu cuento"></textarea>
+      <div class="field is-horizontal">
+        <label class="label has-text-white">Autor:</label>
+      <div class="field-body">
+        <input class="input is-static has-text-white" type="text" value="User.name" readonly>
+        </div>
+
+        <div class="file is-primary">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Agrega una ilustración...
+              </span>
+            </span>
+          </label>
+        </div>
+
+    <button class="button  is-fullwidth is-primary is-large">Publicar</button>
+  </section>
+
+  <nav class="navbar is-fixed-bottom is-hoverable is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-expanded" href="#">Muro</a>
+      <a class="navbar-item is-expanded" href="#/Post">Publicar</a>
+      <a class="navbar-item is-expanded" href="#/My_profile">Mi perfil</a>
+      <a class="navbar-item is-expanded" href="#/Exit">Salir</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="active" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>
