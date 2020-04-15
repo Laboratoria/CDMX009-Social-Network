@@ -163,12 +163,13 @@ ol {
     display: block
 }
 
-
 /*empezamos con los estilos generales*/
 
 @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
 body {
+    width: 78%;
     font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
 }
 
 * {
@@ -303,11 +304,6 @@ i.fas.fa-globe-americas {
     color: #6a1b9a
 }
 
-.informationBox {
-    display: flex;
-    align-items: center;
-}
-
 .points {
     color: #6a1b9a;
     padding-left: 10px;
@@ -365,9 +361,14 @@ i.material-icons.left.like {
     padding-bottom: 25px;
 }
 
+.informationBox {
+    display: flex;
+    align-items: center;
+}
+
 .chip.boxStyle {
     background: #b87df75c;
-    width: 60%;
+    width: 50%;
     color: #6a1b9a;
     padding-left: 10px;
     margin-left: 20px;
@@ -394,7 +395,6 @@ ul#mobile-demo {
     margin-left: 15px;
 }
 
-
 /******** Página 2 editar perfil **********/
 
 p.chip.boxStyle2 {
@@ -403,6 +403,7 @@ p.chip.boxStyle2 {
     padding-left: 10px;
     margin-left: 20px;
     display: inline;
+    font-size: 1em;
 }
 
 .changePhoto {
@@ -438,22 +439,6 @@ button.waves-effect.waves-light.btn-small.btn-login {
     background-color: #662483;
     opacity: 0.9;
 }
-
-
-/* ******************estilos de esther *************/
-
-/* .logo {
-    max-width: 20%;
-    height: auto;
-    padding: 8px 0;
-    display: block;
-    margin: 0 auto;
-} */
-
-/* .colorHeader {
-    background-color: #662483;
-    opacity: 0.9;
-} */
 
 .intro {
     text-align: center;
@@ -568,7 +553,6 @@ input.chageName.boxFields, input.chageProfession.boxFields, input.validatePasswo
     text-align: center;
 }
 
-
 .btn-enter {
     margin: 0 auto;
     display: block;
@@ -584,3 +568,57 @@ input.chageName.boxFields, input.chageProfession.boxFields, input.validatePasswo
     line-height: 20px;
     margin-bottom: 50px;
 }
+
+/* *********MediasQuerys*********** */
+
+@media (min-width: 1280px) {
+    input.validate.user.boxEmail, input.validate.user.password.boxPassword, input.validate.user.boxFields, input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields, input.validatePassword.boxFields {
+        max-width: 50%;
+    } 
+    
+    a.waves-effect.waves-light.btn.center.iconWeb1, a.waves-effect.waves-light.btn.center.iconWeb2 {
+        max-width: 20%;
+    } 
+
+    textarea.comentUser {
+        max-width: 40%;
+    } 
+
+    p.chip.boxStyle2 {
+        margin-left: 40px;
+    }
+
+    .informationBox {
+        display: flex;
+        justify-content: center;  
+        align-items: center;  
+    }
+    
+    .comentsAndLikes {
+        display: flex;
+        justify-content: center;    
+    }
+
+    .chip.boxStyle {
+        width: 30%;
+    } 
+  }
+
+  @media (max-width: 640px) {
+      body {
+        width: 100%;
+      }
+  }
+
+  
+
+   
+        
+
+
+
+
+
+
+
+
