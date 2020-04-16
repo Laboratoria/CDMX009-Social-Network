@@ -2,24 +2,54 @@ import { components } from '../view/index.js'
 
 const changeView = (route) => {
   const root = document.getElementById('root')
+  const footer = document.getElementById('footer')
   root.innerHTML = '';
+  footer.innerHTML = '';
   switch (route){
     case '#/':
-    { return root.appendChild(components.Home())}
+    {
+      root.appendChild(components.Home());
+       return footer.appendChild(components.Footer());
+      }
+    case '#/splash':
+    {
+       return root.appendChild(components.Splash());
+      }
     case '#/calendar':
-    { return root.appendChild(components.Calendar())}
+    {
+      root.appendChild(components.Calendar());
+       return footer.appendChild(components.Footer());
+      }
     case '#/homework':
-    { return root.appendChild(components.Homework())}
+    {
+      root.appendChild(components.Homework());
+       return footer.appendChild(components.Footer());
+      }
     case '#/parentPanel':
-    { return root.appendChild(components.ParentPanel())}
+    {
+      root.appendChild(components.ParentPanel());
+       return footer.appendChild(components.Footer());
+      }
     case '#/releases':
-    { return root.appendChild(components.Releases())}
+    {
+      root.appendChild(components.Releases());
+       return footer.appendChild(components.Footer());
+      }
     case '#/login':
-    { return root.appendChild(components.Login())}
-    case '#/register':
-    { return root.appendChild(components.Register())}
+    {
+      root.appendChild(components.Login());
+       return footer.appendChild(components.Footer());
+      }
+    case '#/signUp':
+    {
+      root.appendChild(components.SignUp());
+       return footer.appendChild(components.Footer());
+      }
     case '#/profile':
-    { return root.appendChild(components.Profile())}
+    {
+      root.appendChild(components.Profile());
+       return footer.appendChild(components.Footer());
+      }
     default:
       break;
 

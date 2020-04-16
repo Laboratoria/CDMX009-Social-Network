@@ -1,7 +1,4 @@
 export default () => {
-<<<<<<< HEAD
-  const viewCalendar = `<h1 class="titulo"> !Este seria el calendario! </h2>
-=======
     const viewCalendar = `
     <h2 class="titleCalendar"> CALENDARIO </h2>
     <div class="mainConteinerCalendar">
@@ -20,7 +17,6 @@ export default () => {
     <img class="markerDayOf" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjMg%0D%0AMTIzIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZTM2Yjt9PC9zdHlsZT48L2RlZnM+PHRp%0D%0AdGxlPlJlY3Vyc28gNDwvdGl0bGU+PGcgaWQ9IkNhcGFfMiIgZGF0YS1uYW1lPSJDYXBhIDIiPjxn%0D%0AIGlkPSJDYXBhXzEtMiIgZGF0YS1uYW1lPSJDYXBhIDEiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lk%0D%0AdGg9IjEyMyIgaGVpZ2h0PSIxMjMiIHJ4PSI2MS41Ii8+PC9nPjwvZz48L3N2Zz4=" alt="">
     <p class=""> Dias feriados </p>
     </div>
->>>>>>> 4b70e15c6b67028c95de790d2855c47d9313c277
     `
   const divElement = document.createElement('div')
   divElement.innerHTML = viewCalendar;

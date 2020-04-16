@@ -5,7 +5,9 @@ import parentPanel from "./parentPanel.js";
 import releases from "./releases.js";
 import login from "./login.js";
 import profile from "./profile.js"
-import register from "./register.js"
+import signUp from "./signUp.js"
+import splash from "./splash.js"
+import footer from "./footer.js"
 
 const components = {
   Calendar: calendar,
@@ -15,7 +17,9 @@ const components = {
   Releases: releases,
   Login: login,
   Profile: profile,
-  Register: register,
+  SignUp: signUp,
+  Splash: splash,
+  Footer: footer,
 }
 
 export {components}

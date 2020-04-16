@@ -24,7 +24,7 @@ export default () => {
         <p>Grado: ${grade}</p>
         <p>Grupo: ${group}</p>
         <p>Docente: ${teacher}</p>
-        <img src="img/engine.svg">
+        <img class="engine" src="img/engine.svg">
     </div>
   </section>
   <section class="commentBox">
