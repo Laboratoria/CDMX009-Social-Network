@@ -1,189 +1,89 @@
-.gmail{
-    border-radius: 15px;
-    }
-    #FB{
-       border-radius: 30px;
-    }
-    body{
-        background-image: url(./img/portada.jpg);
-        background-repeat: no-repeat;
-    }
-    h1{
-    position: absolute;
-    width: 265.94px;
-    height: 45.33px;
-    left: 52.03px;
-    top: 165px;
-    
-    font-family: Rajdhani;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 23px;
+body{
+    font-family: 'Raleway', sans-serif;
+}
+.container{
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.imgportada{
+   background-size: cover;
+   width: 100%;
+   padding: auto;
+}
+.estilobienvenida{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+.imglogo{
+    width: 20px;
+    height: 26px;
+}
+input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 25px;
+    margin-left: 65px;
     text-align: center;
     
-    color: #000000;
-    }
-    img{
-    
-    position: absolute;
-    width: 106.38px;
-    height: 96px;
-    left: 132.12px;
-    top: 230px;
-    }
-    p{
-    position: absolute;
-    width: 39.59px;
-    height: 16px;
-    left: 170px;
-    top: 272px;
-    }
-    #gmail{
-     position: absolute;
-    width: 230px;
-    height: 30px;
-    left: 61.5px;
-    top: 337px;
-    
+
+  }
+  .email{
+      margin-top: 50px;
+      margin-bottom: 8px;
+      background: rgba(147, 72, 232, 0.3);
+  }
+  .password{
     background: rgba(147, 72, 232, 0.3);
-    border-radius: 25px;
-    }
-    #Password{
-        position: absolute;
-        width: 230px;
-        height: 30px;
-        left: 64.5px;
-        top: 379px;
-        
-        background: rgba(147, 72, 232, 0.3);
-        border-radius: 25px;
-    }
-    #Ingresa{
-        position: absolute;
-    width: 130px;
-    height: 25px;
-    left: 116px;
-    top: 420px;
-    
-    background: rgba(147, 72, 232, 0.3);
-    border-radius: 25px;
-    }
-    .pas{
-        position: relative;
-        width: 110px;
-        height: 17px;
-        left: 124.5px;
-        top: 440px;
-        
-        font-family: Rajdhani;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 13px;
-        line-height: 17px;
-        /* identical to box height */
-        text-decoration-line: underline;
-        color: #2641D0;
-    }
-    .pass{
-        position: absolute;
-    width: 72px;
-    height: 18px;
-    left: 148px;
-    top: 459px;
-    
-    font-family: Rajdhani;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    /* identical to box height */
-    
-    display: flex;
-    align-items: flex-end;
-    
-    color: #000000;
-    }
-    #gm{
-        position: absolute;
-    width: 45px;
-    height: 45px;
-    left: 127px;
-    top: 499px;
-    }
-    #FB{
-        position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 196px;
-    top: 500px;
-    }
-    .p{
-        position: absolute;
-    width: 141px;
-    height: 23px;
-    left: 119px;
-    top: 538px;
-    
-    font-family: Rajdhani;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-    
-    
-    color: #000000;
-    }
-    .re{
-        position: absolute;
-    width: 76px;
-    height: 23px;
-    left: 145px;
-    top: 560px;
-    
-    font-family: Rajdhani;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-    
-    display: flex;
-    align-items: flex-end;
+  }
+   .ingresa{
+       margin-top: 8px;
+       width: 130px;
+       margin-left: 115px;
+       background: rgba(147, 72, 232, 0.3);
+   }
+   p.pas{
+    font-family: 'Raleway', sans-serif;
     text-decoration-line: underline;
-    
     color: #2641D0;
-    }
-    .dr{
-        position: absolute;
-    width: 159px;
-    height: 18px;
-    left: 115px;
-    top: 622px;
-    
-    font-family: Rajdhani;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    text-decoration-line: underline;
-    
-    color: #000000;
-    
-    }
-    h2{
-        position: absolute;
-    width: 249.25px;
+    text-align: center;
+   }
+ .logoF{
+    border-radius: 50px;
+    margin-left: 120px;
+    margin-right: 20px;
     height: 40px;
-    left: 40px;
-    top: 10.42px;
-    
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 33px;
-    line-height: 39px;
-    
-    color: #000000;
-    }
+    width: 40px;
+    display: inline-block;
+ }
+ .logoG{
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+ }
+ .sincuenta{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+ }
+ .re{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #2641D0;
+ }
+ .dr{
+     text-align: center;
+     font-family: 'Raleway', sans-serif;
+     margin-top: 2px;
+     margin-bottom: 2px;
+ }
+ .imagen{
+   width: 360px;
+    height: 179px;
+    left: 0px;
+    top: -1.5px;
+ }
+
+ 
