@@ -25,10 +25,11 @@
                     <li><a class="navletters" href="foro">Foro</a></li>
                     <li><a class="navletters" href="perfil">Perfil</a></li>
                     <li><a class="navletters" href="editar perfil">Editar perfil</a></li>
-                    <li><a class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
+                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
                 </ul>
             </div>
-        </nav>    
+        </nav>
+
 
         <main>
             <div class="description">
@@ -36,7 +37,7 @@
             </div>
 
             <div class="iconUsers">
-               <i class="material-icons medium lines">remove</i>
+                <i class="material-icons medium lines">remove</i>
                 <i class="material-icons star">stars</i>
                 <i class="material-icons medium lines">remove</i>
             </div>
@@ -44,13 +45,13 @@
             <form action="" class="form">
                 <label for="" class="fieldUser">
                     <input type="email" class="validate user boxEmail" required="" aria-required="true"
-                        placeholder="Usuario">
+                        placeholder="Usuario" id="email">
                 </label>
                 <label for="" class="fieldPassword">
                     <input type="password" placeholder="Contraseña" class="validate user password boxPassword" required=""
-                        aria-required="true">
+                        aria-required="true" id="pass">
                 </label>
-                <button type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
+                <button id="doLogin" type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
                 <!-- <button id="doLogin">Enviar</button> -->
             </form>
 
@@ -64,9 +65,10 @@
 
             <div class="loginSocialNetwork">
                 <p class="choose">Si no tienes una cuenta? <br>Ingresa con:</p>
-                <a class="waves-effect waves-light btn center iconWeb1"><i class="fab fa-facebook"></i>Facebook</a>
-
-                <a class="waves-effect waves-light btn center iconWeb2"><i class="fab fa-google"></i>Google</a>
+                <a class="waves-effect waves-light btn center iconWeb1" id="loginFacebook"><i class="fab fa-facebook"></i>Facebook</a>
+                <!-- <button id="LoginFacebook">Ingresa con Facebook</button> -->
+                <a class="waves-effect waves-light btn center iconWeb2" id="loginGoogle"><i class="fab fa-google"></i>Google</a>
+                <!-- <button id="LoginGoogle">Ingresa con Google</button> -->
             </div>
         </main>
 
@@ -99,22 +101,20 @@
 
             <form action="" class="form">
                 <label for="" class="fieldUser">
-                    <input type="text" class="validate user boxFields" required="" aria-required="true"
-                        placeholder="Nombre Completo">
+                <input id="registerLoginName2" type="text" class="validate user boxFields" required="" aria-required="true" placeholder="Nombre Completo">
                 </label>
                 <label for="">
-                    <input type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
+                    <input id="registerLoginEmail2" type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
                 </label>
                 <label for="" class="fieldPassword">
-                    <input type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
+                    <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
                         aria-required="true">
                 </label>
                 <label for="" class="fieldPassword ">
-                    <input type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
+                    <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
                         required="" aria-required="true">
                 </label>
-                <button type="submit" class="waves-effect waves-light btn-small btn-enter">Entrar</button>
-                <!-- <button id="doRegister">Registro</button> -->
+                <button type="submit" class="waves-effect waves-light btn-small btn-enter" id="doRegister">Registrar</button>
             </form>
 
             <div class="descriptionP2">
@@ -177,7 +177,7 @@
                 <p>Taco Perez</p>
             </div>
             <i class="fas fa-globe-americas world"></i>
-            <i class="material-icons center points">more_vert</i>            
+            <i class="material-icons center points">more_vert</i>
         </div>
 
         <div class="comentsAndLikes">
