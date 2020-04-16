@@ -4,7 +4,7 @@ export default () => {
                 <input type="email" required id="loginMail" placeholder= "Correo electrónico">
                 <input type="password" required id="loginPassword" minlength="6" placeholder="Contraseña">
                 <button type="submit" class="registerButton" id="loginButton">INICIAR SESIÓN</button>
-                <p><a href="#/passwordRecovery">¿Has olvidado la contraseña?</a></p>
+                <p><a href="#/passwordRecovery" id="recover">¿Has olvidado la contraseña?</a></p>
             </form> 
             <div class="or"><h3>o</h3></div>
             <div class="conectWithSocialMedia">
@@ -15,5 +15,20 @@ export default () => {
   const views = document.createElement('div');
   views.setAttribute('class', 'viewsStyle');
   views.innerHTML = mainView;
+
+  // const loginButton = views.querySelector('#loginButton');
+  // const passRec = views.querySelector('#recover');
+  // const facebookLogin = views.querySelector('#facebookLogin');
+  const googleLogin = views.querySelector('#googleLogin');
+
+  const provider = new firebase.auth.GoogleAuthProvider();
+  googleLogin.addEventListener('click', () => {
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result.user);
+      });
+  });
+
   return views;
 };

@@ -8,15 +8,15 @@ const router = (route) => {
     case '#/':
     case '#/login': {
       container.appendChild(components.principal());
-      return;
+      break;
     }
     case '#/register': {
       container.appendChild(components.register());
-      return;
+      break;
     }
     case '#/passwordRecovery': {
       container.appendChild(components.recoveryPass());
-      return;
+      break;
     }
     default: {
       break;
