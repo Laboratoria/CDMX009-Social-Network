@@ -4,7 +4,6 @@ import {authGoogle, authFacebook} from './loginByProvider.js';
 const closeSesion = () =>{
   firebase.auth().signOut().then(function(){
     console.log('Cerrando sesión');
-    //clear();
   }).catch(function(error){
     console.log(error);
   })
@@ -37,15 +36,6 @@ const getLoginData = () => {
 
   firebase.auth()
   .signInWithEmailAndPassword(loginEmail.value, loginPsw.value)
-  /*
-  .then(f => {
-    var user = firebase.auth().currentUser;
-    user.sendEmailVerification().then(function() {
-      console.log('Enviando mail');
-    }).catch(function(error) {
-      console.log('Algo salió mal con el correo de verificación');
-    });
-  })*/
   .catch(error => {
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -93,8 +83,6 @@ const renderLogin = () =>{
   let socialBtns = document.querySelectorAll(".fab");
   let signinLink = document.querySelector("#signinLink");
 
-  //loginBtn.onclick = getLoginData();
-  
   loginBtn.addEventListener("click", getLoginData);
   forgotPsw.addEventListener("click", f => {
     console.log('Olvidó contraseña');
