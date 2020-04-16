@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>TripLife</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/png" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link title="styleSheet" rel="stylesheet" href="" />
 </head>
 <body>
+  <section id="main">
+    
+  </section>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDHkDChMugsG2GomKvzryoKiEcnVk-IPPk",
+      authDomain: "triplife-c3b62.firebaseapp.com",
+      databaseURL: "https://triplife-c3b62.firebaseio.com",
+      projectId: "triplife-c3b62",
+      storageBucket: "triplife-c3b62.appspot.com",
+      messagingSenderId: "403284651018",
+      appId: "1:403284651018:web:b83690e5e148f0177243f3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+ 
+  <!-- Manage of DOM -->
   <script type="module" src="index.js"></script>
 </body>
 </html>
+
