@@ -2,7 +2,8 @@ body{
     background-color: #A698FF;
     font-family: 'Roboto', sans-serif;
   }
-  /*Nav*/
+  /*  View HOME
+      Nav*/
   header{
     display: flex;
     justify-content: space-between;
@@ -64,6 +65,7 @@ body{
       display: inline-block;
   }
   
+<<<<<<< HEAD
 
 /*navigation bar*/
 footer{
@@ -130,3 +132,83 @@ ul {
   border-radius: 30px;
 }
 /*END REGISTER*/
+=======
+  /*  View LOGIN  */
+  .mainConteinerLogin{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .mainConteinerLogin input{
+    width: 30%;
+    height: 30px;
+    border-radius:35px;
+    margin: 10px;
+    padding-left: 10px;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+  }
+
+  .btnRedes{
+    width: 30px;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btnLogin{
+    margin:10px;
+    width: 15%;
+    height: 30px;
+    border-radius: 30px;
+    background-color:#FFE36B;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .mainConteinerLogin a{
+    color: #FFE36B;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+/*  View CALENDAR  */
+.mainConteinerCalendar{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+.titleCalendar{
+font-size: 50px;
+color: #FFFFFF;
+text-align: center;
+}
+.calendar{
+width: 400px;  
+}
+.infoConteinerCalendar{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: flex-end;
+}
+.infoConteinerCalendar img{
+  width: 30px;
+  }
+
+.infoConteinerCalendar p{
+  margin-bottom: 0em;
+}
+>>>>>>> 4b70e15c6b67028c95de790d2855c47d9313c277
