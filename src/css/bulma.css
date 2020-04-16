@@ -10834,14 +10834,16 @@ label.panel-block:hover {
 }
 
 .hero-body {
-  flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+  margin-bottom: 50px;
 }
 
 .section {
-  padding: 10rem 1.5rem;
-  /* height: 1000px; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 @media screen and (min-width: 1024px) {
@@ -10856,5 +10858,9 @@ label.panel-block:hover {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
+}
+.has-image-centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=bulma.css.map */

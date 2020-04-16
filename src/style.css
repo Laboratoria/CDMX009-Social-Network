@@ -14,3 +14,9 @@
     align-items: baseline;
       
 }
+.logoMemingos {
+    text-align: right;
+}
+#mLogo {
+    vertical-align: top;
+}

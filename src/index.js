@@ -1,14 +1,14 @@
 import database from './database.js';
 
 const root = document.querySelector('#root');
-const logo = `<div class="hero-body "><img width="200px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
-const logoM = `<div class="hero-body "><img width="200px" class="logoMemingos" src="https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png"></div>`;
-
+const logo = `<div class=""> <img width="200px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
+const logoM = ` <div class="logoMemingos"> <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"></div>`;
 const renderSignIn = () => {
     const signInForm = `
     <div class="has-text-centered has-text-white title is-4">
         <h4> Bienvenido(a) </h4>
     </div>
+    <div>
         <div class="field">
             <div class= "file is-small file is-centered"> 
                 <p class="control has-icons-left has-icons-right">
@@ -30,6 +30,7 @@ const renderSignIn = () => {
                 </span>
             </p>
         </div> 
+    </div>
         <div class="field">
             <div class="file is-centered">
                 <p class="control">
@@ -71,7 +72,7 @@ const renderSignUp = () => {
         <div class="has-text-centered has-text-white title is-4 ">
             <h4> Bienvenido(a) </h4>
         </div>
- 
+    <div>
         <div class="field file is-small file is-centered ">
             <p class="control has-icons-left has-icons-right ">
                 <input id="regEmail" class="input is-rounded " type="email" placeholder="Email">
@@ -90,7 +91,8 @@ const renderSignUp = () => {
                     <i class="fas fa-lock"></i>
                 </span>
             </p>
-        </div>  
+        </div>
+    </div>
         <div class="field">
             <div class="file is-centered">
                 <p class="control ">
@@ -124,20 +126,17 @@ const renderSignUp = () => {
 
     root.innerHTML = `${logo}${signUpForm}`;
 };
-
 document.addEventListener('click',function(event) {
     if (event.target && event.target.id === 'register') {
         database.signUp();
     } 
  });
-
  document.addEventListener('click',function(event) {
     const item = event.target.closest('a');
    if (item && item.id === 'facebookSignIn') {
        database.signInFacebook();
    } 
 });
-
 document.addEventListener('click',function(event) {
     const item = event.target.closest('a');
    if (item && item.id === 'googleSignIn') {
@@ -156,17 +155,19 @@ document.addEventListener('click',function(event) {
 });
 renderSignUp();
 
-
 export const renderFirstProfile = () => {
     root.classList.remove("signUpAndIn");
     const firstProfile = `
-    <figure class="image is-96x96">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-    </figure>
-
+    <div class="figure">
+        <div class="file is-centered">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+        </div>
+    </div>
         <div class="file is-centered">
             <label class="file-label">
-                <input class="file-input" type="file" name="profile">
+                <input id="profilePicture" class="file-input" type="file" name="profile">
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class=fas fa-upload"> </i>
@@ -177,9 +178,9 @@ export const renderFirstProfile = () => {
               </span>
             </label>
           </div>
-        <div class="field">
+        <div class="file is-centered">
           <div class="control">
-            <input class="input is-primary" type="text">
+            <input class="is-small" type="text">
           </div>
         </div>
     <div class="has-text-centered has-text-black title is-6">
