@@ -1,32 +1,27 @@
-import {renderHomeView, renderPostView, renderProfileView, renderExitView } from './views.js';
+import { changeView } from './views/viewcontroler.js'
+import {renderHomeView} from "./views/home.js"
+import {renderPostView} from "./views/post.js"
+import {renderProfileView} from "./views/profile.js"
+import {renderLoginView} from "./views/login.js"
+import {renderExitView} from "./views/exit.js" 
 
 // Nodos
-export const container = document.querySelector('#container');
-const homeButton = document.querySelector('#/Home');
-const postButton = document.querySelector('#/Post');
-const profileButton = document.querySelector('#/My_profile');
-const exitButton = document.querySelector('#/Exit');
+export const root = document.querySelector('#root');
+const homeButton = document.querySelector('#home');
+const postButton = document.querySelector('#post');
+const profileButton = document.querySelector('#profile');
+const loginButton = document.querySelector('#login');
+const exitButton = document.querySelector('#exit');
 
 // listeners
-homeButton.onclick = renderHomeView();
-postButton.onclick = renderPostView();
+homeButton.onclick = renderHomeView;
+postButton.onclick = renderPostView;
 profileButton.onclick = renderProfileView();
+loginButton.onclick = renderLoginView();
 exitButton.onclick = renderExitView();
 
-
-
-const init = () =>  {
-    window.addEventListener("hashchange", () => console.log(window.location.hash))
+// Función de inicio que cambia la URL
+const init = () => {
+  window.addEventListener('hashchange', () => changeView(window.location.hash))
 }
-window.addEventListener("load", init)
-
-
-//Función para el File upload
-
-const fileInput = document.querySelector('#file-js-example input[type=file]');
-fileInput.onchange = () => {
-  if (fileInput.files.length > 0) {
-    const fileName = document.querySelector('#file-js-example .file-name');
-    fileName.textContent = fileInput.files[0].name;s
-  }
-}
+window.addEventListener('load', init);
