@@ -25,11 +25,11 @@
                     <li><a class="navletters" href="foro">Foro</a></li>
                     <li><a class="navletters" href="perfil">Perfil</a></li>
                     <li><a class="navletters" href="editar perfil">Editar perfil</a></li>
-                    <li><a class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
+                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
                 </ul>
             </div>
         </nav>
-    
+
 
         <main>
             <div class="description">
@@ -49,8 +49,8 @@
                 <label for="" class="fieldPassword">
         <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true" id="pass">
       </label>
-                <button type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
-                <!-- <button id="doLogin">Enviar</button> -->
+
+                <button id="doLogin" class="waves-effect waves-light btn-small btn-login">Entrar</button>
             </form>
 
             <div class="register">
@@ -63,9 +63,10 @@
 
             <div class="loginSocialNetwork">
                 <p class="choose">Si no tienes una cuenta? <br>Ingresa con:</p>
-                <a class="waves-effect waves-light btn center iconWeb1"><i class="fab fa-facebook"></i>Facebook</a>
-
-                <a class="waves-effect waves-light btn center iconWeb2"><i class="fab fa-google"></i>Google</a>
+                <a class="waves-effect waves-light btn center iconWeb1" id="loginFacebook"><i class="fab fa-facebook"></i>Facebook</a>
+                <!-- <button id="LoginFacebook">Ingresa con Facebook</button> -->
+                <a class="waves-effect waves-light btn center iconWeb2" id="loginGoogle"><i class="fab fa-google"></i>Google</a>
+                <!-- <button id="LoginGoogle">Ingresa con Google</button> -->
             </div>
         </main>
 
@@ -98,18 +99,18 @@
 
             <form action="" class="form">
                 <label for="" class="fieldUser">
-        <input type="text" class="validate user" required="" aria-required="true" placeholder="Nombre Completo">
+        <input id="registerLoginName2" type="text" class="validate user" required="" aria-required="true" placeholder="Nombre Completo">
       </label>
                 <label for="">
-        <input type="email" class="validate user" required="" aria-required="true" placeholder="Email">
+        <input id="registerLoginEmail2" type="email" class="validate user" required="" aria-required="true" placeholder="Email">
       </label>
                 <label for="" class="fieldPassword">
-        <input type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true">
+        <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password" required="" aria-required="true">
       </label>
                 <label for="" class="fieldPassword ">
-        <input type="password" placeholder="Confirma Contraseña" class="validate user password confP2" required="" aria-required="true">
+        <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2" required="" aria-required="true">
       </label>
-                <button type="submit" class="waves-effect waves-light btn-small btn-enter">Entrar</button>
+                <button type="submit" class="waves-effect waves-light btn-small btn-enter" id="doRegister">Registrar</button>
                 <!-- <button id="doRegister">Registro</button> -->
             </form>
 
@@ -174,7 +175,7 @@
                 <p>Taco Perez</p>
             </div>
             <i class="fas fa-globe-americas world"></i>
-            <i class="material-icons center points">more_vert</i>            
+            <i class="material-icons center points">more_vert</i>
         </div>
         <div>
             <p class="coments">¿Cómo centrar texto en HTML?</p>
