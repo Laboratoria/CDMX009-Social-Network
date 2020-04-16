@@ -6,5 +6,5 @@ export default () => {
     divElement.innerHTML = viewHomework;
     root.appendChild(divElement)
 
-    return divElement;
+  return divElement;
 }

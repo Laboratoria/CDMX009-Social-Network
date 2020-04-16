@@ -5,6 +5,5 @@ export default () => {
     const divElement = document.createElement('div')
     divElement.innerHTML = viewReleases;
     root.appendChild(divElement)
-
-    return divElement;
+  return divElement;
 }

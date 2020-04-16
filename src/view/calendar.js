@@ -19,10 +19,11 @@ export default () => {
     <p class=""> Dias feriados </p>
     </div>
     `
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewCalendar;
+  const divElement = document.createElement('div')
+  divElement.innerHTML = viewCalendar;
 
-    root.appendChild(divElement)
+  root.appendChild(divElement)
 
-    return divElement;
+  return divElement;
+
 }
