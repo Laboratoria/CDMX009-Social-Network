@@ -1,15 +1,28 @@
 import  login  from './login.js';
+import {renderSignin} from './signin.js';
 
-const router = (route) =>{
+const appendStyleSheet = (nameSheet) => {
+  let link = document.querySelector('[title="styleSheet"]');
+  link.removeAttribute('href');
+  link.setAttribute('href',nameSheet);
+  console.log(link);
+}
+
+export const router = (route) =>{
     // console.log(route)
     switch(route){
        case 'profil':
          login.profil();
          break;
-       case '':
-         
+       case 'signin':
+         console.log('Entre a la vista de registro');
+        // let nameSheet = 'signinStyle.css';
+         appendStyleSheet('signinStyle.css');
+         renderSignin();
          break;
        default:
+         //let nameSheet = 'loginStyle.css';
+         appendStyleSheet('loginStyle.css');
          login.renderLogin();
          break;
     }
@@ -48,6 +61,8 @@ const userStatus = () => {
 }
 
 userStatus();
+
+
 
 
 
