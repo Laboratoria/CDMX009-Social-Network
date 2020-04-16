@@ -891,7 +891,7 @@ table th {
 }
 
 a.has-text-white:hover, a.has-text-white:focus {
-  color: #e6e6e6 !important;
+  color: #07EFDD !important;
 }
 
 .has-background-white {
@@ -983,7 +983,7 @@ a.has-text-success:hover, a.has-text-success:focus {
 }
 
 .has-text-warning {
-  color: #ffdd57 !important;
+  color: #FCC500 !important;
 }
 
 a.has-text-warning:hover, a.has-text-warning:focus {
@@ -991,7 +991,7 @@ a.has-text-warning:hover, a.has-text-warning:focus {
 }
 
 .has-background-warning {
-  background-color: #ffdd57 !important;
+  background-color: #FCC500 !important;
 }
 
 .has-text-danger {
@@ -2450,7 +2450,8 @@ fieldset[disabled] .button.is-info.is-inverted.is-outlined {
 .button.is-success {
   background-color: #48c774;
   border-color: transparent;
-  color: #fff;
+  color:#023047;
+  font-weight: bold;
 }
 
 .button.is-success:hover, .button.is-success.is-hovered {
@@ -10839,7 +10840,8 @@ label.panel-block:hover {
 }
 
 .section {
-  padding: 3rem 1.5rem;
+  padding: 10rem 1.5rem;
+  /* height: 1000px; */
 }
 
 @media screen and (min-width: 1024px) {

@@ -1,10 +1,7 @@
-body{
-    background-color:#023047;
-   
+.signUpAndIn {
+    background-color: #023047;
 }
-h1{
-    color: red;
-}
+
 .forms {
     display: flex;
     flex-direction: column;
@@ -15,5 +12,5 @@ h1{
     margin:auto;
     display: flex;
     align-items: baseline;
-    
+      
 }

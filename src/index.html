@@ -8,9 +8,21 @@
   <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
   <link rel = "icon" type = "image/png" href ="https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png">
   <link rel = "apple-touch-icon" type = "image/png" href = "https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png"/>
+
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.1/css/bulma.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.1/css/bulma.css.map"> -->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.1/css/bulma.min.css"> -->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-social/0.8.1/bin/bulma-social.min"> -->
+<!-- <link rel="stylesheet" href="https://fontawesome.com/?from=io"> -->
+
+    
   <link rel="stylesheet" href="css/bulma.min.css">
   <link rel="stylesheet" href="css/bulma.css.map">
   <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/bulma-social.min.css">
+  <link rel="stylesheet" href="css/spacing.sass">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
@@ -25,7 +37,7 @@
 
 <script>
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  let firebaseConfig = {
     apiKey: "AIzaSyD6boxRV32Ld50HrVuWx2Fkl5ZlYQyAabk",
     authDomain: "memingos-abeea.firebaseapp.com",
     databaseURL: "https://memingos-abeea.firebaseio.com",
@@ -42,7 +54,43 @@
 
 </head>
 <body>
-  <section class="forms" id="root"></section>
+  
+  <section class="section signUpAndIn" id="root">
+
+  </section>
+
+  <section class="firstLogin" id="firstRegister">
+    
+  </section>
+
   <script type="module" src="index.js"></script>
+  <script type="module" src="database.js"></script>
+
+  
+<script>
+  
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '844392916082779',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v6.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> 
+ 
+  
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>
