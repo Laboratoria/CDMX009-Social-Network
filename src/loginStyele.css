@@ -1,0 +1,187 @@
+@font-face {
+    font-family: font-text;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+  }
+
+html, body{
+  
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body, section, div{
+    /*border: 2px solid red;*/
+    
+}
+
+#main{
+   box-sizing: border-box;
+   margin: 0;
+   background: linear-gradient(180deg, #FAF7EE 8.33%, #E5F6FF 32.81%, #99D8DD 60.94%, #5CB3C1 82.29%, #01587A 100%);
+   background-repeat: no-repeat;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ /*   width: 100%;
+    height: 100%;*/
+}
+
+figure{
+    max-width: 340px;
+    margin:auto;
+    margin-top: 64px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+input[type=text], input[type=password] {
+    box-sizing: border-box;
+    padding-left: 15px;
+    border-radius: 15px;
+    width: 359px;
+    height: 54px;
+    margin: auto;
+    margin-bottom: 15px;
+    font-family: font-text;
+    font-size: 18px;
+    background-color: #E1E8EC;
+    opacity: 0.5;
+    border: 1px solid#E1E8EC;
+}
+
+input[type=button]{
+    width: 195px;
+    height: 54px;
+    background-color: #F3BA00;
+    opacity: 0.8;
+    border-radius: 30px;
+    border: #F3BA00;
+    font-family: font-text;
+    font-size: 18px;
+    margin:auto; 
+    margin-top: 2px;
+    margin-bottom:9px;
+    cursor: pointer;
+}
+
+input[type=button]:hover{
+    opacity: 0.7;
+}
+
+#errorMsg{
+    font-family: font-text;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+    color: red;
+    display: none;
+}
+
+p span{
+    font-family: font-text;
+    font-size: 16px;
+}
+
+p span, p u{
+    cursor: pointer;
+}
+
+p span:hover, p u:hover{
+    opacity: 0.8;
+}
+
+p:first-of-type {
+    margin-bottom: 27px;
+}
+
+p{
+    margin: auto;
+    font-family: font-text;
+    font-size: 18px;
+}
+
+::placeholder{
+    color:black;
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+    margin-bottom: 33px;
+}
+
+i {
+  /*  border: 1px solid black;*/
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+i:first-child{
+    padding:16px 23px;
+    margin-right: 13.5px;
+    background-color:#3B5998 ;
+}
+
+i:last-child{
+    padding:16px;
+    margin-left: 13.5px;
+    background-color: #DB4A39;
+}
+
+p:last-of-type{
+    margin-bottom: 20px;
+}
+
+@media (min-height: 650px) {
+    #main{
+        width: 100%; 
+        height: 100%;
+    }
+}
+
+@media (max-width: 414px) {
+    input[type=text], input[type=password] {
+         width: 300px;
+         
+     }
+}
+
+
+/*
+section, div{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+div{
+    border: 2px solid #FFFFa7;
+  
+}
+input{
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+p{
+    font-size: 30px;
+   
+}
+*/

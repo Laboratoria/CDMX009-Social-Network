@@ -62,7 +62,3 @@ const userStatus = () => {
 
 userStatus();
 
-
-
-
-
