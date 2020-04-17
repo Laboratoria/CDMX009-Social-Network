@@ -1,11 +1,23 @@
+
 //Login Google
 function loginGoogle(){
-  let provider = new firebase.auth.GoogleAuthProvider();
+  let providerG = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
-  .signInWithPopup(provider)
+  .signInWithPopup(providerG)
+  .then(function(result) {
+    console.log(result.user);
+    if (result.user.emailVerified){
+      window.open('#home','_self')
+    }
+  });
+}
+
+function loginFB(){
+  let providerFB = new firebase.auth.FacebookAuthProvider();
+  firebase.auth()
+  .signInWithPopup(providerFB)
   .then(function(result) {
     console.log(result.user);
   });
 }
-
-export default loginGoogle
+export  { loginGoogle, loginFB };
