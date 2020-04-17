@@ -1,65 +1,63 @@
-import { example } from './example.js';
-//import { Send } from './example.js';
-// pointer
-let currentRoute = "home"
-// main nodes
-let root = document.querySelector('#root')
-let btns = document.querySelectorAll('.btn')
+import  login  from './login.js';
+import {renderSignin} from './signin.js';
 
-
-
-// loginView
-function renderLogin(){
-  let loginView = `<div>
-  <h2> Inicia sesión </h2>
-  <input id="email" placeholder="Email" />
-  <input id="password" placeholder="password" />
-  <button id="entrar" >Iniciar</button>
-</div>`
-  root.innerHTML = loginView
+const appendStyleSheet = (nameSheet) => {
+  let link = document.querySelector('[title="styleSheet"]');
+  link.removeAttribute('href');
+  link.setAttribute('href',nameSheet);
+  console.log(link);
 }
 
-// first view
-function renderHome(){
-  let homeView = `<div>
-  <h2>Bienvenidas! ヽ(^o^)ノ </h2>
-  <br><button id="Google">Google</button>
-  <br><button id="Facebook">Facebook</button>
-</div>`
-  root.innerHTML = homeView
+export const router = (route) =>{
+    // console.log(route)
+    switch(route){
+       case 'profil':
+         login.profil();
+         break;
+       case 'signin':
+         console.log('Entre a la vista de registro');
+        // let nameSheet = 'signinStyle.css';
+         appendStyleSheet('signinStyle.css');
+         renderSignin();
+         break;
+       default:
+         //let nameSheet = 'loginStyle.css';
+         appendStyleSheet('loginStyle.css');
+         login.renderLogin();
+         break;
+    }
 }
 
-// router
-function router(route){
-  //console.log(route)
-  switch(route){
-    case 'login':
-      renderLogin()
-      break;
-    default:
-      renderHome()
-      break;
-         }
+const userStatus = () => {
+  
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log("Activo");
+        router('profil');
+        // User is signed in.
+        var displayName = user.displayName;
+        console.log('displayName: ' + displayName);
+        var email = user.email;
+        console.log('email: ' + email);
+        var emailVerified = user.emailVerified;
+        console.log('emailVerified: ' + emailVerified);
+        var photoURL = user.photoURL;
+        console.log('photoURL: ' + photoURL);
+        var isAnonymous = user.isAnonymous;
+        console.log('isAnonymous: ' + isAnonymous);
+        var uid = user.uid;
+        console.log('uid: ' + uid);
+        var providerData = user.providerData;
+        console.log('providerData: ' + providerData);
+        // ...
+      } else {
+        console.log("Inactivo");
+        router();
+        // User is signed out.
+        // ...
+      }
+      
+    });
 }
 
-// btn listener
-btns.forEach(btn=>btn.onclick=e=>router(e.target.id))
-// init
-router()
-
-
-/*document.querySelector('#entrar').addEventListener('click', () =>{ 
-  const email = document.querySelector('#email').value; 
-  const password = document.querySelector('#password').value; 
-  console.log(email); 
-  console.log(password); 
- /* firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-// return;  
-  }).then(function(){
-    alert("Usuario Registrado"); 
-  });*/ 
-//});
-
+userStatus();
