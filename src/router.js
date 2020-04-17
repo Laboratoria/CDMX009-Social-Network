@@ -1,11 +1,13 @@
 import renderLogin from './screens/login.js';
 import renderAbout from './screens/profile.js';
 import renderHome from './screens/posts.js';
+import logFb from './screens/logFacebook.js';
 
 let currentRoute = "/"
     // main nodes
 let root = document.querySelector('#root')
 let btns = document.querySelectorAll('.btn')
+
 
 // router
 function router(route) {
@@ -16,6 +18,9 @@ function router(route) {
             break;
         case '/login':
             renderLogin();
+            break;
+        case '/logInFb':
+            logFb();
             break;
         default:
             renderHome();

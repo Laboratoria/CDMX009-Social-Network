@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.css">
     <title>Document</title>
 </head>
 
@@ -14,22 +13,35 @@
         <button id="/" class="btn">Home</button>
         <button id="/login" class="btn">Login</button>
         <button id="/about" class="btn">About</button>
+        <button id="/face" class="btn">Log in with FB</button>
 
     </nav>
     <div id="root"></div>
 
-    <!-- <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
-    <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script type="module" src="router.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script> -->
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script> -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDz4Hbhdbb_EAGniVZ9sZ60ZN2wg_WvWjE",
+            authDomain: "grislab-9796e.firebaseapp.com",
+            databaseURL: "https://grislab-9796e.firebaseio.com",
+            projectId: "grislab-9796e",
+            storageBucket: "grislab-9796e.appspot.com",
+            messagingSenderId: "300427088655",
+            appId: "1:300427088655:web:2263b53b6a3b79b268a47a",
+            measurementId: "G-ZR5X5SBQ10"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
 
 </body>
 
