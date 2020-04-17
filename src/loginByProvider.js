@@ -48,16 +48,18 @@ export const authFacebook = () => {
        .set(usuario);  
  })
   .catch(function(error) {
-    console.log('Hay un error para Facebook');
-      var errorCode = error.code;
-      console.log(errorCode);
-      var errorMessage = error.message;
-      console.log(errorMessage);
-      var email = error.email;
-      console.log(email);
-      var credential = error.credential;
-      console.log(credential);
-      // ...
-    }); 
-}      
+  console.log('Hay un error en Facebook');
+    var errorCode = error.code;
+    console.log(errorCode);
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    var email = error.email;
+    console.log(email);
+    var credential = error.credential;
+    console.log(credential);
+   
+  });
+} 
+
+
 

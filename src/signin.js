@@ -42,7 +42,7 @@ function send() {
     registerAuthentication(usuario);
     // Enviar correo de confirmacion
   } else{
-    alert(msgError);
+    console.log(msgError);
   }
 }
 
@@ -74,30 +74,38 @@ export const renderSignin = () => {
 
 } 
 
-
 function registerAuthentication(usuario) {
   firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
-    .catch(function(error) {
+  .then(function(data){
+    registerUser(usuario, data);
+  }) 
+  .catch(function(error) {
       // let errorCode = error.code;
       let errorMessage = error.message;
-      alert("Error: " + errorMessage);
-    }).then(function(user){
-      registerUser(usuario);
+      console.log("Error: " + errorMessage);
   });
 } 
 
-function registerUser (usuario) {
-  dataBase.collection("users").add({
+function registerUser (usuario, data) {
+  console.log(data.user.uid);
+  dataBase.collection("users").doc(data.user.uid).set({
     "name": usuario.name,
     "lastName": usuario.lastName,
     "email": usuario.email,
     "password": usuario.password
   })
+  /*
+  dataBase.collection("users").add({
+    "name": usuario.name,
+    "lastName": usuario.lastName,
+    "email": usuario.email,
+    "password": usuario.password
+  })*/
   .then((data) => {
     sentEmailConfirmation(usuario.email);
-    alert("Usuario registrado confirme su cuenta");
+    console.log("Usuario registrado confirme su cuenta");
   }).catch((error)=> {
-    alert("Usuario NO  registrado correctamente: " + error);
+    console.log("Usuario NO  registrado correctamente: " + error);
   });
 } 
 
@@ -108,7 +116,7 @@ function sentEmailConfirmation() {
     // window.localStorage.setItem('emailForSignIn', email);
   })
   .catch(function(error) {
-    alert("Usuario NO  registrado correctamente: " + error);
+    console.log("Usuario NO  registrado correctamente: " + error);
   });
 }
 
