@@ -48,15 +48,16 @@ $('#login-submit').click(function login(){
 function observer() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            console.log('activo');
+            console.log(user);
          // Usuario logueado.
-        /*  var displayName = user.displayName;
+          var displayName = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
             var photoURL = user.photoURL;
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
-            var providerData = user.providerData; */
+            var providerData = user.providerData;             
+
         } else {
             console.log('no activo');
             // Usuario no logueado.
