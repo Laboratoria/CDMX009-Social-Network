@@ -1,3 +1,5 @@
+import loginFunctions from '../firebase/login.js';
+
 export default () => {
   const regView = document.createElement('div');
   regView.setAttribute('class', 'viewsStyle');
@@ -9,12 +11,22 @@ export default () => {
             <input type="image" src="images/Google.PNG" id="googleLogin" class="buttons"></button>
         </div>
         <form action="" class="registerForm">
-            <input type="email" required id="registerMail" placeholder="Correo Electronico"><br>
-            <input type="text" required id="registerUsername" placeholder="Nombre de Usuario"><br>
+            <input type="email" required id="registerEmail" placeholder="Correo Electronico"><br>
             <input type="password" id="registerPassword" minlength="6" required placeholder="Contraseña(mínimo 6 caracteres)"><br>
-            <input type="password" id="confirmRegisterPassword" minlength="6" required placeholder="Confirmar Contraseña"><br>
-            <button type="submit" id="registerButton1" class="registerButton">REGISTRAR</button>
+            <input type="submit" id="registerButton1" class="registerButton" value="REGISTRAR">
             <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
         </form>  `;
+
+  const registerEmail = regView.querySelector('#registerEmail');
+  const registerPassword = regView.querySelector('#registerPassword');
+  const registerButton1 = regView.querySelector('#registerButton1');
+  const googleLogin = regView.querySelector('#googleLogin');
+
+  googleLogin.addEventListener('click', loginFunctions.google);
+  registerButton1.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginFunctions.email(registerEmail.value, registerPassword.value);
+  });
+
   return regView;
 };

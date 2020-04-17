@@ -1,3 +1,5 @@
+import loginFunctions from '../firebase/login.js';
+
 export default () => {
   const mainView = `
             <form class="registerForm">
@@ -18,17 +20,9 @@ export default () => {
 
   // const loginButton = views.querySelector('#loginButton');
   // const passRec = views.querySelector('#recover');
-  // const facebookLogin = views.querySelector('#facebookLogin');
+  const facebookLogin = views.querySelector('#facebookLogin');
   const googleLogin = views.querySelector('#googleLogin');
-
-  const provider = new firebase.auth.GoogleAuthProvider();
-  googleLogin.addEventListener('click', () => {
-    firebase.auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log(result.user);
-      });
-  });
-
+  googleLogin.addEventListener('click', loginFunctions.google);
+  facebookLogin.addEventListener('click', loginFunctions.facebook);
   return views;
 };

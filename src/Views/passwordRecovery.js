@@ -1,3 +1,5 @@
+import loginFunctions from '../firebase/login.js';
+
 export default () => {
   const recView = document.createElement('div');
   recView.setAttribute('class', 'viewsStyle');
@@ -16,5 +18,9 @@ export default () => {
                   <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
                   <p>¿No tienes cuenta?<a href="#/register">Registrate</a></p>
               </div>  `;
+
+  const googleLogin = recView.querySelector('#googleLogin');
+  googleLogin.addEventListener('click', loginFunctions.google);
+
   return recView;
 };
