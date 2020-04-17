@@ -1,18 +1,6 @@
 import User from "./user.js";
 import {router} from './index.js';
 
-/*
- export const firebaseConfig = {
-    apiKey: "AIzaSyAxz1HP9cPkI4VO2gXoj4GVnFxZK2kKUVw",
-    authDomain: "desarrolloweb-44294.firebaseapp.com",
-    databaseURL: "https://desarrolloweb-44294.firebaseio.com",
-    projectId: "desarrolloweb-44294",
-    storageBucket: "desarrolloweb-44294.appspot.com",
-    messagingSenderId: "236290236182",
-    appId: "1:236290236182:web:038028ae2f66e945743a37"
-  };
-
-firebase.initializeApp(firebaseConfig);*/
 let dataBase= firebase.firestore();
 
 function send() {
@@ -39,7 +27,7 @@ function send() {
     showError(document.querySelector('#password'));
   }else if(savePassword2 == null || savePassword2 == '' || savePassword2 == undefined ||savePassword != savePassword2 ){
     msgError ="Password no coicide";
-    showError(document.querySelector('#`password2'));
+    showError(document.querySelector('#password2'));
   }
 
   if(msgError == null) {
