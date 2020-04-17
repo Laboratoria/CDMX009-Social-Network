@@ -15,7 +15,6 @@ import {router} from './index.js';
 firebase.initializeApp(firebaseConfig);*/
 let dataBase= firebase.firestore();
 
-
 function send() {
   let msgError = null;
 
@@ -28,12 +27,19 @@ function send() {
   // Validar datos
   if(saveName == null || saveName == '' || saveName == undefined ){
     msgError ="Completa el campo name";
+    showError(document.querySelector('#name'));
   }else if(saveLastName == null || saveLastName == '' || saveLastName == undefined){
     msgError ="Completa el campo Lastname";
+    showError(document.querySelector('#lastName'));
+  }else if(saveEmail == null || saveEmail == '' || saveEmail == undefined){
+    msgError ="Completa el campo email";
+    showError(document.querySelector('#email'));
   }else if(savePassword == null || savePassword == '' || savePassword == undefined){
     msgError ="Completa el campo password";
-  }else if(savePassword2 == null || savePassword2 == '' || savePassword2 == undefined){
+    showError(document.querySelector('#password'));
+  }else if(savePassword2 == null || savePassword2 == '' || savePassword2 == undefined ||savePassword != savePassword2 ){
     msgError ="Password no coicide";
+    showError(document.querySelector('#`password2'));
   }
 
   if(msgError == null) {
@@ -41,8 +47,6 @@ function send() {
 
     registerAuthentication(usuario);
     // Enviar correo de confirmacion
-  } else{
-    alert(msgError);
   }
 }
 
@@ -74,17 +78,24 @@ export const renderSignin = () => {
 
 } 
 
-
 function registerAuthentication(usuario) {
   firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
-    .catch(function(error) {
+  .then(function(user){
+    registerUser(usuario);
+  }) 
+  .catch(function(error) {
       // let errorCode = error.code;
       let errorMessage = error.message;
       alert("Error: " + errorMessage);
-    }).then(function(user){
-      registerUser(usuario);
   });
-} 
+}
+
+function showError(campo){
+  campo.style.border = "2px solid red";
+  document.querySelector('#errorMsg').style.display = "block";
+  setTimeout(function(){ campo.style.border = ""; 
+  document.querySelector('#errorMsg').style.display = "none";}, 2000);
+}
 
 function registerUser (usuario) {
   dataBase.collection("users").add({
