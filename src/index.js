@@ -12,7 +12,7 @@ function paginaDeInicio(){
         <div class="media-center">
         <div id="mainImages" >
             <figure class="image is-2by1">
-                <img src="imagen1.png">
+                <img src="imagen1.png" id="mainImage">
             </figure>
             <div class="columns is-mobile is-centered">
                 <figure class="image">
@@ -22,7 +22,7 @@ function paginaDeInicio(){
         </div> 
         <br>
         <div class="columns is-mobile is-centered">
-            <h1 class="title has-text-centered">¡Bienvenidx repostero!</h1>
+            <h2 class="subtitle has-text-centered">¡Bienvenidx repostero!</h2>
         </div>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
@@ -47,15 +47,15 @@ function paginaDeInicio(){
             <button class="button is-rounded "  id="logIn">LOG IN</button>
             </div>
         <div class="columns is-mobile is-centered">
-            <p class="subtitle">Ingresa con</p>
+            <p class="subtitle2">Ingresa con</p>
         </div>
         <a class="level-item">
-        <img src="faceImage.png" class="face">
+        <button class="button" id="btn" src="faceImage.png" class="face"></button>
         <div style="width: 100px; height: 39px" ></div>
         <img src="gmailImage.png" class="gmail">
         </a>
         <div id="fin">
-            <p class="subtitle has-text-centered">No tienes cuenta? <button id="liga" class="subtitle">Regístrate</button> gratis</p>
+            <p class="subtitle2 has-text-centered">No tienes cuenta? <button id="liga" class="subtitle2">Regístrate</button> gratis</p>
         <br>
         </div>
         </div>
@@ -65,6 +65,8 @@ function paginaDeInicio(){
   root.appendChild(homeView)  
   let loginButton = document.querySelector('#liga')
   loginButton.onclick = renderLogin
+  let btn=document.querySelector("#btn")
+  btn.onclick =login
 }
 
 //paginaDeInicio()
@@ -77,7 +79,7 @@ function renderLogin(){
         <div class="media-center">
             <div id="mainImages" >
                 <figure class="image is-2by1">
-                    <img src="imagen1.png">
+                    <img src="imagen1.png" id="mainImage">
                 </figure>
                 <div class="columns is-mobile is-centered">
                     <figure class="image">
@@ -87,7 +89,7 @@ function renderLogin(){
             </div> 
             <br>
             <div class="columns is-mobile is-centered">
-                <h1 class="title has-text-centered">¡Registrate!</h1>
+                <h1 class="subtitle has-text-centered">¡Registrate!</h1>
             </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
@@ -131,14 +133,14 @@ function renderLogin(){
                 <button class="button is-rounded"  id="singUp">SING UP</button>
             </div>
             
-            <p class="subtitle has-text-centered">Ingresa con</p>
+            <p class="subtitle2 has-text-centered">Ingresa con</p>
             <a class="level-item">
                 <img src="faceImage.png" class="face2" style="width: 43px; height: 39px">
                 <div style="width: 100px; height: 39px" ></div>
-                    <img src="gmailImage.png" class="gmail2" style="width: 43px; height: 39px">
+                <img src="gmailImage.png" class="gmail" id="gmail2">
              </a>
             <div id="fin">
-                <p class="subtitle has-text-centered">Ya tienes cuenta? <button id="liga2" class="subtitle">Inicia sesion </button></p>
+                <p class="subtitle2 has-text-centered">Ya tienes cuenta? <button id="liga2" class="subtitle2">Inicia sesion </button></p>
             </div>
             <br>
         </div>
@@ -156,3 +158,69 @@ paginaDeInicio()
 // let singUpButton = document.querySelector('#liga2')
 //singUpButton.onclick = root.innerHTML = " "
 //singUpButton.onclick = paginaDeInicio
+
+
+
+//let btn=document.querySelector("#btn")
+    function login(){
+        var provider = new firebase.auth.FacebookAuthProvider();
+      return firebase.auth().signInWithPopup(provider)
+      .then(data=>{
+          console.log(data.user)
+          root.innerHTML =" "
+          let box = document.createElement('div')
+    box.innerHTML = `
+    <div class="box" id="boxLogo">
+  <article class="media">
+  </article>
+    </div>
+
+  <div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-150x150">
+        <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <br>
+           Nullam condimentum luctus turpis.
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item" aria-label="share">
+            <span class="icon is-small">
+              <i class="fas fa-share" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="save">
+            <span class="icon is-small">
+              <i class="fas fa-save" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="like">
+            <span class="icon is-small">
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>
+<div class="box" id="boxLast">
+<article>
+
+</article>
+</div>
+    `
+    root.appendChild(box) 
+      })
+       
+    }
+    //btn.onclick =login
+    

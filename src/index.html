@@ -9,16 +9,27 @@
   <title>Document</title>
 </head>
 <body>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="/__/firebase/7.14.0/firebase-app.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-      https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="/__/firebase/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAPfCLxiFA43Ovy7_4rSk-4lw5p0x3oaCc",
+    authDomain: "intentologinface.firebaseapp.com",
+    databaseURL: "https://intentologinface.firebaseio.com",
+    projectId: "intentologinface",
+    storageBucket: "intentologinface.appspot.com",
+    messagingSenderId: "456284442373",
+    appId: "1:456284442373:web:a2269dfc53fafa12e1316c",
+    measurementId: "G-2ST3KTJE1G"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-  
+
 
   <script type="module" src="index.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>

@@ -1,12 +1,24 @@
+body{
+  display: flex;
+}
 .face{
   width:43px; 
   height: 39px;
 }
-.gmail{
+.gmail , #gmail2{
   width:43px; 
   height: 39px;
 }
+#mainImage{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
 #logo{
+  display: flex;
+  justify-content: center;
+  align-content: center;
   width:133px; 
   height:77px;
 }
@@ -51,4 +63,26 @@
 #fin{
   display: flex;
   align-content: flex-end;
+}
+
+#btn{
+  background-image: url(faceImage.png);
+  background-position: center;
+  background-size: 43px;
+  height: 43px;
+  width: 43px;
+}
+
+#boxLogo{
+  background: linear-gradient(180deg, #41B6D0 0%, #DA70C2 100%);
+  width: 100%;
+  position: fixed;
+}
+
+#boxLast{
+  background: linear-gradient(180deg, #41B6D0 0%, #DA70C2 100%);
+  width: 100%;
+  justify-content:flex-end;
+  align-content: flex-end;
+  position: fixed;
 }
