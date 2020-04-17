@@ -4,9 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Social Network</title>
+
+
+  <!--Esto es firebase-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"> </script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDsPJ2yzzgrFwK5Q4yhGMBnYrQEm25v0Wk",
+    authDomain: "social-netwoork.firebaseapp.com",
+    databaseURL: "https://social-netwoork.firebaseio.com",
+    projectId: "social-netwoork",
+    storageBucket: "social-netwoork.appspot.com",
+    messagingSenderId: "1064927720184",
+    appId: "1:1064927720184:web:9e3470be6171d89880410d",
+    measurementId: "G-0N67YBL0EX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth = firebase.auth ();
+</script>
 </head>
+
 <body>
-  <script type="module" src="index.js"></script>
-</body>
+<h1>Healt & Fitness</h1>
+<h2>Inicia Sesion</h2>
+
+<div class="login">
+  
+  <input id="emailLogIn" type="email" placeholder="Tu email va aqui" name="email" />
+  <input  id="passLogIn" type="password" placeholder="Y tu password aca" />
+  <button id="logIn" >Inicia sesión</button>
+</div>
+
+<button id="logInGoogle"> Google</button>
+<button id="logInFacebook"> Facebook</button>
+<p>No tienes Cuenta?</p>
+<div class="creatAccount">
+  <button id="creatAccount"> Crear Cuenta</button>
+</div>
+
+<div id="root"></div>
+
+
+<script type="module" src="index.js"></script>
+
+  </body>
 </html>
