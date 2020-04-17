@@ -4,6 +4,7 @@ import {authGoogle, authFacebook} from './loginByProvider.js';
 const closeSesion = () =>{
   firebase.auth().signOut().then(function(){
     console.log('Cerrando sesión');
+
   }).catch(function(error){
     console.log(error);
   })
