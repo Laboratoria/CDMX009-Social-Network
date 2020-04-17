@@ -21,3 +21,19 @@ const changeView = (route) =>{
 }
 
 export { changeView }
+
+
+
+//class upLoader{
+  //   constructor(id){
+  //     this.id = id || 'signupForm'
+  //     this.getElements()
+  //   }
+   
+  //   getElements(){
+  //     this.formSu =document.getElementById(this.id)
+  
+  //     console.log(this.formSu)
+  //   }
+  // }
+  // let uploader1 = new upLoader()

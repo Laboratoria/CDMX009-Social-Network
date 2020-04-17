@@ -1,3 +1,4 @@
+
 import { changeView } from '../view-controler/router.js'
 export default () =>{
   const viewNewUser = `
@@ -7,11 +8,13 @@ export default () =>{
         </div>
         <div class = "formContainer">
             <form class = "inputForm" id = "form">
+              <div id= 'imgContainer'>
                 <input type="file" id="img" name="img" accept="image/*">
+              </div>
                 <input class = "registerInput" id = "signupUser" type = "text" placeholder = "Username" required>
                 <input class = "registerInput" id = "signupEmail" type = "email" placeholder = "Email" required> 
                 <input class = "registerInput" id = "signupPassword" type = "password" placeholder = "Password" required> 
-                <button class= "btn" id = "signup"> Sign up! </button>
+                <input class= "btn" id = "signup" type = "submit"> Sign up! 
             </form>
         </div>
         <div class = "createAccout">
@@ -28,6 +31,7 @@ export default () =>{
   divElement.innerHTML = viewNewUser
 
   //Nodes from DOM elements 
+  const username = divElement.querySelector("#signupUser")
   const emailText = divElement.querySelector('#signupEmail')
   const passwordText = divElement.querySelector('#signupPassword')
   const signupBtn = divElement.querySelector('#signup')
@@ -36,11 +40,19 @@ export default () =>{
   
   //signup with Email
   signupBtn.addEventListener('click', e =>{
+    e.preventDefault();
     const email = emailText.value;
     const pass = passwordText.value;
     const auth = firebase.auth()
   
   const promise = auth.createUserWithEmailAndPassword(email, pass)
+  promise.then(data => {
+    let name = username.value;
+    data.user.updateProfile({
+      displayName : name
+    })
+    console.log(promise)
+  })
   promise.then (e=> changeView('#/login'))
   })
   
@@ -72,5 +84,3 @@ export default () =>{
  })
   return divElement
 }
-
-

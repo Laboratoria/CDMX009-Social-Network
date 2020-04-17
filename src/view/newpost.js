@@ -1,5 +1,6 @@
 export default () =>{
   const viewNewPost = `<div class = "gridContainer">
+  
   <main>
       <form class = "inputForm">
           <input type="file" id="img" name="img" accept="image/*">
@@ -20,3 +21,8 @@ export default () =>{
   divElement.innerHTML = viewNewPost
   return divElement
 }
+
+
+
+
+

@@ -10,3 +10,13 @@ a{
   background-color:#fc8d97;
   border: 0; 
 }
+#img{
+  width: 90px;
+  height: auto;
+  font-size: 9px;
+}
+#imgContainer{
+  width: 100px;
+  height: 100px;
+  background: palevioletred;
+}

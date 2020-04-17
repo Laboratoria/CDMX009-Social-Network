@@ -26,6 +26,7 @@ export default () => {
 
   //sign in with firebase functions
   const promise = auth.signInWithEmailAndPassword(email, pass)
+  promise.then (console.log(promise))
   promise.then (e=> changeView('#/home'))
   promise.catch(e=>console.log(alert(e.message)))
   })
