@@ -2,7 +2,7 @@ import { changeView } from '../view-controler/router.js'
 
 export default () => {
 //var globales
-var db = firebase.firestore();
+//var db = firebase.firestore();
 const storage = firebase.storage() 
 let url
 
@@ -53,7 +53,7 @@ let url
     })
     .then(link => {
       url = link
-      console.log('yes bro...' + url)
+      console.log(url)
     })
   })
 
