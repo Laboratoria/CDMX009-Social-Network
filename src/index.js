@@ -1,7 +1,8 @@
 import database from './database.js';
 
+
 const root = document.querySelector('#root');
-const logo = `<div class=""> <img width="200px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
+const logo = `<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
 const logoM = ` <div class="logoMemingos"> <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"></div>`;
 const renderSignIn = () => {
     const signInForm = `
@@ -161,7 +162,7 @@ export const renderFirstProfile = () => {
     <div class="figure">
         <div class="file is-centered">
             <figure class="image is-128x128">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" id="img">
             </figure>
         </div>
     </div>
@@ -178,24 +179,50 @@ export const renderFirstProfile = () => {
               </span>
             </label>
           </div>
+        <div class="field">
+            <div class="file is-centered">
+                <button id="uploadProfilePicture" class="button is success button is-small has-background-warning is-rounded">
+                SUBIR
+                </button>
+            </div>
+        </div>
         <div class="file is-centered">
           <div class="control">
-            <input class="is-small" type="text">
+            <input id="userName" class="is-small" type="text">
+                <div class="has-text-centered has-text-black title is-6">
+                    <h6> Username </h6>
+                </div>
           </div>
         </div>
-    <div class="has-text-centered has-text-black title is-6">
-        <h6> Username </h6>
-    </div>
     <div class="field">
         <div class="file is-centered">
             <p class="control">
-                <button  id="confirm" class=" button is-success button is-medium  has-background-warning is-rounded">
+                <button  id="confirm" class="button is-success button is-medium  has-background-warning is-rounded">
                 CONFIRMAR
                 </button>   
+
+                <button id="logout" class=" button is-success button is-medium  has-background-warning is-rounded">
+                Cerrar Sesion
+                </button> 
             </p>
         </div>
     </div>
     `
     root.innerHTML = `${logoM}${firstProfile}`;
+    let  file = {};
 };
-
+document.addEventListener('click',function(event) {
+    if (event.target && event.target.id === 'confirm') {
+        database.saveData();
+    }
+});
+document.addEventListener('click',function(event) {
+    if (event.target && event.target.id === 'uploadProfilePicture') {
+        database.uploadPicture();
+    }
+});
+document.addEventListener('click',function(event) {
+    if (event.target && event.target.id === 'logout') {
+        database.logout();
+    }
+});
