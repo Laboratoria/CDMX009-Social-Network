@@ -9,8 +9,7 @@
 
   <!--Esto es firebase-->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-<script src = "https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"> </script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -37,19 +36,24 @@
 
 <body>
 <h1>Healt & Fitness</h1>
-<h2>Inicia Sesion</h2>
 
-<div class="login">
+<div id="init">
+<h2>Inicia Sesion</h2>
+</div>
+
+<div id="logInUser" class="logIn">
   
   <input id="emailLogIn" type="email" placeholder="Tu email va aqui" name="email" />
   <input  id="passLogIn" type="password" placeholder="Y tu password aca" />
   <button id="logIn" >Inicia sesión</button>
 </div>
 
+<div id="logInNetwoork">
 <button id="logInGoogle"> Google</button>
 <button id="logInFacebook"> Facebook</button>
-<p>No tienes Cuenta?</p>
-<div class="creatAccount">
+</div>
+<div id="LogInNewUser" class="creatAccount">
+  <p>No tienes Cuenta?</p>
   <button id="creatAccount"> Crear Cuenta</button>
 </div>
 
