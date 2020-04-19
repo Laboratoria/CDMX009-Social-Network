@@ -8,44 +8,27 @@
   <title>lifestyle</title>
 </head>
 <body>
-  <header id="header" class="header">Soy el header</header>
+  <header id="header" class="header"></header>
   <main>
-    <section id="content" class="content">CUERPO DE LA PÁGINA</section>
+    <section id="root" class="root"></section>
   </main>
   <footer>
     <section id="staticMenu" class="menu">
     <nav class="nav">
-     <button id="logo" class="btnNav"><img src="images/logoWhite.png"> </button> 
-     <button id="browser" class="btnNav"><img src="images/browser.png"></button>
-     <button id="favorites" class="btnNav"><img src="images/whiteHeart.png"></button>
-     <button id="oupladContent" class="btnNav"><img src="images/camera.png"></button>
-     <button id="profile" class="btnNav"></button>
+     <button id="logo" href="#/" class="btnNav"><img src="images/logoWhite.png"> </button> 
+     <button id="browser" href="#/browser" class="btnNav"><img src="images/browser.png"></button>
+     <button id="favorites" href="#/favorites" class="btnNav"><img src="images/whiteHeart.png"></button>
+     <button id="oupladContent" href="#/newpost" class="btnNav"><img src="images/camera.png"></button>
+     <button id="profile" href="#/profile" class="btnNav"></button>
     </nav>
     </section>
   </footer>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBuxP-xlUpYjWc5KNNt6q0hKbsxc8L4cE4",
-    authDomain: "cdmx009-f4cac.firebaseapp.com",
-    databaseURL: "https://cdmx009-f4cac.firebaseio.com",
-    projectId: "cdmx009-f4cac",
-    storageBucket: "cdmx009-f4cac.appspot.com",
-    messagingSenderId: "206411662308",
-    appId: "1:206411662308:web:8c3266d5640e307ca57df1",
-    measurementId: "G-L6NB5984DB"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
   <script type="module" src="index.js"></script>
 </body>
 </html>
