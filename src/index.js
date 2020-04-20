@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(function() {
             // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
             var buttonLogin = document.querySelector('#doLogin');
-            console.log(buttonLogin)
             buttonLogin.addEventListener('click', function(e) {
                 e.preventDefault();
                 loginPageOne();
@@ -30,12 +29,28 @@ document.addEventListener("DOMContentLoaded", function() {
                 facebookButton();
             });
         })
+        .then(function() {
+            var ntAccount = document.getElementById('reg');
+            ntAccount.addEventListener('click', function(e) {
+                e.preventDefault();
+                viewRegister()
+                    .then(function() {
+                        var buttonReg = document.querySelector('#doRegister');
+                        buttonReg.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            register();
+                        });
+                    })
+
+            });
+        })
+
 
 
 })
 
 
-// document.getElementById('root').innerHTML = '';
+// por si quiero limpiar root: document.getElementById('root').innerHTML = '';
 
 // Navegador en móvil
 
@@ -80,7 +95,7 @@ function viewLogin() {
                 </form>
 
                 <div class="register">
-                    <p class="account">No tienes cuenta? <a href="#register2" class="register2">Registrate</a> </p>
+                    <p class="account">No tienes cuenta? <a href="#register2" class="register2" id="reg">Registrate</a> </p>
                 </div>
 
                 <div>
@@ -110,17 +125,14 @@ function viewLogin() {
 function loginPageOne() {
     var email = document.getElementById('email').value;
     var pass = document.getElementById('pass').value;
-    // alert("email=" + email + " pass=" + pass);
-
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
-            // document.getElementById('root').innerHTML = '';
             viewForum();
 
         })
         .catch(function(error) {
-            console.log(error)
-                // Handle Errors here. puedo hacer algo despues del login, si salio mal
+            alert('Los datos ingresados no son correctos');
+            // Handle Errors here. puedo hacer algo despues del login, si salio mal
             var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage);
@@ -208,6 +220,38 @@ function facebookButton() {
 //         });
 // }
 
+
+
+
+function register() {
+    var registerNameLogin2 = document.getElementById('registerLoginName2').value;
+    var registerEmailLogin2 = document.getElementById('registerLoginEmail2').value;
+    var registerPassLogin2 = document.getElementById('registerLoginPass2').value;
+    var registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
+
+
+    if (registerPassLogin2 != registerConfirmPassLogin2) {
+        alert('Las contraseñas deben coincidir');
+    } else {
+
+        firebase.auth().createUserWithEmailAndPassword(registerEmailLogin2, registerPassLogin2)
+            .then((data) => {
+                // alert('Bienvenido ' + data.user.email);
+                viewForum();
+            })
+            .catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode == 'auth/weak-password') {
+                    alert('The password is too weak.');
+                } else {
+                    alert(errorMessage);
+                }
+            });
+    }
+}
+
 function viewRegister() {
     return new Promise(function(resolve, rejected) {
         let registerView = `
@@ -271,7 +315,7 @@ function viewForum() {
                     <li><a class="navletters" href="foro" id="/forumNavD">Foro</a></li>
                     <li><a class="navletters" href="perfil" id="/profileNavD">Perfil</a></li>
                     <li><a class="navletters" href="editar perfil" id="/editProfileNavD">Editar perfil</a></li>
-                    <li><a id="signOut" class="navletters" href="cerrar sesion" id="/singOutNavD">Cerrar sesión</a></li>
+                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -280,7 +324,7 @@ function viewForum() {
             <li><a class="colorMenu" href="foro" id="/forumNavM">Foro</a></li>
             <li><a class="colorMenu" href="perfil" id="/ProfileNavM">Perfil</a></li>
             <li><a class="colorMenu" href="editar perfil" id="/editProfileNavM">Editar perfil</a></li>
-            <li><a id="signOut" class="colorMenu" href="cerrar sesion" id="/singOutNavM">Cerrar sesión</a></li>
+            <li><a id="signOut" class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
         </ul>
 
         <section class="profileInformation" id="vero y dian">
@@ -340,6 +384,62 @@ function viewForum() {
         </form>
     </div>`
         root.innerHTML = forumView;
+        resolve();
+    });
+}
+
+function EditionOfProfile() {
+    return new Promise(function(resolve, rejected) {
+        let editProfileVieView = ` 
+    <!-- *********** PAGINA 4 EDITAR PERFIL   *********** -->
+    <div id="containerFour">
+        <nav>
+            <div class="nav-wrapper colorHeader">
+                <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="navletters" href="foro" id="/forumNavD">Foro</a></li>
+                    <li><a class="navletters" href="perfil" id="/profileNavD">Perfil</a></li>
+                    <li><a class="navletters" href="editar perfil" id="/editProfileNavD">Editar perfil</a></li>
+                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a class="colorMenu" href="foro" id="/forumNavM">Foro</a></li>
+            <li><a class="colorMenu" href="perfil" id="/ProfileNavM">Perfil</a></li>
+            <li><a class="colorMenu" href="editar perfil" id="/editProfileNavM">Editar perfil</a></li>
+            <li><a id="signOut" class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
+        </ul>
+
+        <div>
+            <p class="chip boxStyle2">Editar Perfil</p>
+        </div>
+
+        <div class="littleCircle secondCircle">
+            <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
+            <p class="changePhoto">Cambiar foto</p>
+        </div>
+
+        <form action="" class="formPerfil">
+            <label for="" class="perfilChanges">
+        <input type="text" class="chageName boxFields" required="" aria-required="true" placeholder="Cambia tu nombre">
+      </label>
+            <label for="" class="perfilChanges">
+        <input type="text" class="chageProfession boxFields" required="" aria-required="true" placeholder="Cambia tu profesión">
+      </label>
+            <label for="" class="changePassword">
+        <input type="password" placeholder="Cambia tu contraseña" class="validatePassword boxFields" required="" aria-required="true">
+      </label>
+            <label for="" class="changePassword">
+        <input type="password" placeholder="Confirma tu contraseña" class="validatePassword  boxFields" required="" aria-required="true">
+      </label>
+            <button type="submit" class="waves-effect waves-light btn-small btn-login">Guardar cambios</button>
+        </form>
+    </div>
+        `
+        root.innerHTML = editProfileVieView;
         resolve();
     });
 }
