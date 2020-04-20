@@ -1,31 +1,6 @@
 import {router} from './index.js';
 import {authGoogle, authFacebook} from './loginByProvider.js';
 
-const closeSesion = () =>{
-  firebase.auth().signOut().then(function(){
-    console.log('Cerrando sesión');
-
-  }).catch(function(error){
-    console.log(error);
-  })
-}
-
-const profil = () =>{
-  let main = document.querySelector('#main');
-  let user = 'Dors';
-
-  let profilView = `
-    <p>Welcome ${user}</p>
-    <p> Congratulations!! This is your personal account.</p>
-    <input id="logout" type="button" value="Log out">
-  `
-  main.innerHTML = profilView;
-
-  let logout = document.querySelector("#logout");
-  logout.addEventListener("click", closeSesion);
-}
-
-
 const getLoginData = () => {
 
   console.log('Obteniendo datos de logeado');  
@@ -43,7 +18,7 @@ const getLoginData = () => {
     console.log(errorCode);
     console.log(errorMessage);
     var user = firebase.auth().currentUser;
-    if(errorCode == 'auth/invalid-email') {
+    if(errorCode == 'auth/invalid-email' || errorCode == 'auth/user-not-found') {
       loginEmail.style.border = "2px solid red";
       document.querySelector('#errorMsg').style.display = "block";
       setTimeout(function(){ loginEmail.style.border = ""; document.querySelector('#errorMsg').style.display = "none";}, 2000);
@@ -115,8 +90,7 @@ const renderLogin = () =>{
 
 const login = {
   renderLogin,
-  getLoginData,
-  profil
+  getLoginData
 };
 
 export default login;

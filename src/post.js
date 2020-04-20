@@ -11,7 +11,7 @@ export default class Post {
     constructor(text,imageLink,date,privacy,location,likes,uid){
         this.text = text;
         this.imageLink = imageLink;
-        this.date = date;
+        this.date = new Date();
         this.privacy = privacy;
         this.location = location;
         this.likes = likes;

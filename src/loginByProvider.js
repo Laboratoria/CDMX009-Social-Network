@@ -42,7 +42,7 @@ export const authFacebook = () => {
       uid:result.user.uid,
       nombre:result.user.displayName, 
       email:result.user.email, 
-       foto:result.user.photoURL
+      foto:result.user.photoURL
      }
      usersRef.doc(result.user.uid)
        .set(usuario);  

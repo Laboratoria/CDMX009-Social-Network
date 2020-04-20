@@ -1,5 +1,6 @@
 import  login  from './login.js';
 import {renderSignin} from './signin.js';
+import {profil} from './createPost.js';
 
 const appendStyleSheet = (nameSheet) => {
   let link = document.querySelector('[title="styleSheet"]');
@@ -12,7 +13,7 @@ export const router = (route) =>{
     // console.log(route)
     switch(route){
        case 'profil':
-         login.profil();
+         profil();
          break;
        case 'signin':
          console.log('Entre a la vista de registro');
@@ -35,6 +36,7 @@ const userStatus = () => {
         console.log("Activo");
         router('profil');
         // User is signed in.
+        /*
         var displayName = user.displayName;
         console.log('displayName: ' + displayName);
         var email = user.email;
@@ -49,7 +51,7 @@ const userStatus = () => {
         console.log('uid: ' + uid);
         var providerData = user.providerData;
         console.log('providerData: ' + providerData);
-        // ...
+        */
       } else {
         console.log("Inactivo");
         router();

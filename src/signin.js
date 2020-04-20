@@ -32,6 +32,7 @@ function send() {
 
   if(msgError == null) {
     let usuario = new User(saveName,saveLastName,saveEmail,savePassword);
+    //(name,lastName,email,photo,description,date,password,uid)
 
     registerAuthentication(usuario);
     // Enviar correo de confirmacion
@@ -69,6 +70,7 @@ export const renderSignin = () => {
 } 
 
 function registerAuthentication(usuario) {
+  console.log(usuario.password);
   firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
   .then(function(data){
     registerUser(usuario, data);
@@ -93,7 +95,7 @@ function registerUser (usuario, data) {
     "name": usuario.name,
     "lastName": usuario.lastName,
     "email": usuario.email,
-    "password": usuario.password
+    "uid":data.user.uid,
   })
   /*
   dataBase.collection("users").add({
