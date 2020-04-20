@@ -8,22 +8,17 @@
   <title>Document</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/90e469c395.js" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 </head>
 
-<body>
-  <h1>Inicia Sesión</h1>
-  <button id="login">Inicia con Google</button>
-  <button id="loginfb">Inicia con Facebook</button>
 
-  Ingresa a tu cuenta
-  <form id="ingresar">
-    <input type="email" placeholder="Correo Electronico" value="email" id="email">
-    <input type="password" placeholder="Contraseña" value="password" id="password">
-    <button id="create">Crear cuenta</button>
-    <button id="enter">Entrar</button>
-    <button id="salir">Salir</button>
-  </form>
+<body>
+  <button id="goOut">Cerrar Sesión</button>
+  <button id="showLogin">Vista Login</button>
   <div id="root"></div>
+
+
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
@@ -55,7 +50,7 @@
     //firebase.analytics();
   </script>
   <script type="module" src="index.js"></script>
-  <!-- <script src="example.js"></script> -->
+  <!-- <script src="pops.js"></script> -->
 </body>
 
 </html>
