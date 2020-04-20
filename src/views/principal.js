@@ -1,7 +1,7 @@
 export default () => {
-    const vista = `
+    const principal = `
         <button class = "button is-rounded container-separate is-primary" id="goLogin">Iniciar</button>
     
     `
-    return vista
+    return principal
 }

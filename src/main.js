@@ -1,11 +1,38 @@
-import vista from '/vista.js'
-import login from '/login.js'
-import signIn from '/signIn.js'
+import { changeView } from './views/viewcontroler.js'
+import { renderHomeView } from "./views/home.js"
+import { renderPostView } from "./views/post.js"
+import { renderProfileView } from "./views/profile.js"
+import { renderExitView } from "./views/exit.js"
+import login from "./views/login.js"
+import signIn from "./views/signIn.js"
+import principal from "./views/principal.js"
+
 import { loginGoogle } from '/index.js'//Se importa para usar addEventListener
 import { loginFacebook } from '/index.js'
 import { createUser } from '/index.js'
 import { loginUser } from '/index.js'
 import { signoutUser } from '/index.js'
+
+// Nodos
+export const root = document.querySelector('#root');
+const homeButton = document.querySelector('#home');
+const postButton = document.querySelector('#post');
+const profileButton = document.querySelector('#profile');
+//const loginButton = document.querySelector('#login');
+const exitButton = document.querySelector('#exit');
+
+// listeners
+homeButton.onclick = renderHomeView;
+postButton.onclick = renderPostView;
+profileButton.onclick = renderProfileView();
+//loginButton.onclick = renderLoginView();
+exitButton.onclick = renderExitView();
+
+// Función de inicio que cambia la URL
+const init = () => {
+    window.addEventListener('hashchange', () => changeView(window.location.hash))
+}
+window.addEventListener('load', init);
 
 //Boton para mostrar iniciar sesión
 const btnshow = document.querySelector('#showLogin')
@@ -17,16 +44,16 @@ btnExit.addEventListener('click', signoutUser)
 
 //Mostrar vista (una antes de iniciar sesión)
 function principalView() {
-    const divRoot = document.querySelector('#root')
-    divRoot.innerHTML = vista()
+    //const divRoot = document.querySelector('#root')
+    root.innerHTML = principal()
     let goLogin = document.querySelector('#goLogin')
     goLogin.addEventListener('click', viewLogin)
 }
 
 //Mostrar vista iniciar sesión
 export function viewLogin() {
-    const divRoot = document.querySelector('#root')
-    divRoot.innerHTML = login()
+    //const divRoot = document.querySelector('#root')
+    root.innerHTML = login()
     let goSignIn = document.querySelector('#goSignIn')
 
     //Listeners modales
@@ -63,8 +90,8 @@ export function viewLogin() {
 export function viewSign(goSignIn) {
     goSignIn.addEventListener('click', (e) => {
         e.preventDefault()
-        const divRoot = document.querySelector('#root')
-        divRoot.innerHTML = signIn()
+        //const divRoot = document.querySelector('#root')
+        root.innerHTML = signIn()
 
         //Listeners Modales
         const btnCloseError = document.querySelector('#btn-cerrar-error');

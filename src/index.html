@@ -17,7 +17,20 @@
   <button id="goOut">Cerrar Sesión</button>
   <button id="showLogin">Vista Login</button>
   <div id="root"></div>
-
+  <nav class="navbar is-fixed-bottom is-hoverable is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="#/Home" id="home" class="navbar-item is-expanded is-primary">Mi muro</a>
+      <a href="#/Login" id="login" class="navbar-item is-expanded is-primary">Sign in</a>
+      <a href="#/Post" id="post" class="navbar-item is-expanded is-primary">Publicar</a>
+      <a href="#/My_profile" id="profile" class="navbar-item is-expanded">Mi perfil</a>
+      <a href="#/Exit" id="exit" class="navbar-item is-expanded">Salir</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="active" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
@@ -49,7 +62,7 @@
     firebase.initializeApp(firebaseConfig);
     //firebase.analytics();
   </script>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="main.js"></script>
   <!-- <script src="pops.js"></script> -->
 </body>
 
