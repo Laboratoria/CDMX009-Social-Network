@@ -1,9 +1,12 @@
 import { changeView } from '../view-controler/router.js'
 
 export default () => {
-//var globales
-//var db = firebase.firestore();
-const storage = firebase.storage() 
+//firebase
+let db = firebase.firestore()
+let storage = firebase.storage() 
+let docRef = db.collection('posts')
+
+//var globales 
 let url
 
   const viewNewPost = `<div class = "gridContainer">
@@ -31,9 +34,9 @@ let url
 
   //get the div elements 
   const imgUpload = divElement.querySelector('#imgUpload')
-  const loadImg = divElement.querySelector('#btnLoad')
-  //const registerDescription = divElement.querySelector('#registerDescription')
-  //const registerLocation = divElement.querySelector('#registerLocation')
+  const shareImg = divElement.querySelector('#btnShare')
+  const registerDescription = divElement.querySelector('#registerDescription')
+  const registerLocation = divElement.querySelector('#registerLocation')
   
   //func + listener for uploading the image to storage 
 
@@ -44,7 +47,7 @@ let url
     const imageName = image.name
 
     //create storage reference --where the images will be uploaded and saved--
-    const storageRef = storage.ref('images/'+imageName)
+    const storageRef = storage.ref(`images/${imageName}`);
 
     //upload the image to storage 
      storageRef.put(image)
@@ -57,71 +60,19 @@ let url
     })
   })
 
+//sending the info to firestore 
+  shareImg.addEventListener('click', e => {
+    const descr = registerDescription.value 
+    const loc = registerLocation.value
 
+    docRef.add({
+      postimg: url,
+      description: descr,
+      location: loc, 
+      date: firebase.firestore.Timestamp.fromDate(new Date()),
+    }).then(e=>console.log('ok'))
+  })
 
-
-
-  //func + listener to upload the info to firestore
-  /*loadImg.addEventListener('click', e =>{
-    const docRef = db.doc("posts/feed")
-    const descriptionValue = registerDescription.value 
-    const locationValue = registerLocation.value
-
-    docRef.set({
-      description: descriptionValue,
-      location: locationValue
-    }).then((e) => {
-      console.log(':) OK!');
-    }).catch((e) => {
-      console.log(':( notOk!');
-    });
-  });
-
-  /*func + listener to upload the info to realtime database
-  loadImg.addEventListener('click', e =>{
-
-    //create database reference 
-    
-    const databaseRef = database.ref('post-data')
-
-    const data = {
-      description: registerDescription.value,
-      location: registerLocation.value
-    }
-
-    databaseRef.push(data)
-
-  })*/
-
-  
-  
   return divElement
 
 } 
-
-/*
-
-  shareImg.addEventListener('click', (e) => {
-    const imgToSave = uploadImg.value;
-    console.log(imgToSave);
-    docRef.set({
-      newImg: imgToSave,
-    }).then((e) => {
-      console.log(':) OK!');
-    }).catch((e) => {
-      console.log(':( notOk!');
-    });
-  });
-
-  // with LOAD button
-  loadImg.addEventListener('click', (e) => {
-    docRef.get().then((doc) => {
-      if (doc && doc.exists) {
-        const myData = doc.data();
-        newImg.src = myData;
-      }
-    });
-  });
-
-  return divElement;
-};*/

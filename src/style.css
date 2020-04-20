@@ -10,3 +10,24 @@ a{
   background-color:#fc8d97;
   border: 0; 
 }
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.navigation{
+  list-style: none;
+}
+
+.container-link{
+  padding-right: 1rem;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
