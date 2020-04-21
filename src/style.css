@@ -2,6 +2,7 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
+
 h3 {
   text-align: center;
   letter-spacing: 2px;
@@ -182,8 +183,8 @@ nav .bg-nav{
 }
 .menu-icons {
   float: right;
-  color: #ffb82e;<i class="fas fa-filter"></i>
-}
+  color: #ffb82e;
+};
 .set-icon {
   position: relative;
   left: 85%;
@@ -359,4 +360,16 @@ nav .bg-nav{
   margin: 0;
   font-size: .9em;
   color: #747474;
+}
+
+.test{
+  color: black;
+}
+
+.img-edit{
+  width: 5%;
+}
+
+.img-add-friend{
+  width: 10%;
 }

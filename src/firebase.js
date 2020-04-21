@@ -1,4 +1,4 @@
-import { example } from './example.js';
+/* import { viewHome } from './view/home'; */
 
 var firebaseConfig = {
   apiKey: "AIzaSyBqImEvm_hfsvsj2vN8KWBn6Ewr2zFb9CQ",
@@ -21,21 +21,11 @@ $('#email-submit').click(function(){
     firebase.auth().createUserWithEmailAndPassword(emailUser, passwordUser)
         .catch(function (error) {
             // Errores
-            var errorCode = error.code;
             var errorMessage = error.message;
-                    //let invalidEmail = document.querySelector('#invalid-email')
-                    //invalidEmail.innerHTML = 
-                    //`
-                    //<p>Correo ya registrado</p>
-                    //`
-            console.log(errorCode)
             console.log(errorMessage)
             if(errorMessage){
                 let invalidEmail = document.querySelector('#invalid-email')
-                    invalidEmail.innerHTML = 
-                `
-                <p>Correo ya registrado</p>
-                `
+                     invalidEmail.innerHTML = errorMessage
             }
         });
 });
@@ -44,48 +34,54 @@ $('#email-submit').click(function(){
 $('#login-submit').click(function login(){
     let emailLogin = document.querySelector('#email-login').value;
     let passwordLogin = document.querySelector('#password-login').value;
+    let emailError = document.querySelector('#email-error');
     console.log(emailLogin, passwordLogin);
 
     firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
     .catch(function (error) {
-        //Errores
-        var errorCode = error.code;
+        //Error
         var errorMessage = error.message;
-        console.log(errorCode)
-        console.log(errorMessage)
+        emailError.innerHTML = errorMessage,    
+        console.log(errorMessage) 
     });
-})
-
-//Observador 
-function observer() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            console.log(user);
-         // Usuario logueado.
-          var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
-            var providerData = user.providerData;             
-
-        } else {
-            console.log('no activo');
-            // Usuario no logueado.
-        }
-    });
-}
-observer();
+});
 
 //Login Google
-var provider = new firebase.auth.GoogleAuthProvider();
-
-$('.google').click(function(){
-    firebase.auth().signInWithRedirect(provider).then(function(result) {
-    console.log(result.user);
+$('.google').click(function loginGoogle(){
+    let provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithRedirect(provider)
+    .then(function(result) {
+        
+    console.log(result);
     }); 
 });
 
+//Login Facebook
+$('.facebook').click(function loginFb(){
+    let provider = new firebase.auth.FacebookAuthProvider()
+    return firebase.auth().signInWithRedirect(provider)
+    .then(function(result) {
 
-example();
+        console.log(result);
+    });
+});
+
+//Observador 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log('estas activo', user)
+        let displayName = user.displayName;
+        let userName = document.querySelector('#user-displayName');
+        let userPic = document.querySelector('#user-photoURL');
+        let photoURL = user.photoURL;
+
+        userName.innerHTML = displayName;
+        userPic.innerHTML = `<img src="${photoURL}"/>`
+      // User is signed in.
+    } else {
+        console.log('no activo');
+      // No user is signed in.
+    };
+  });
+  
+
