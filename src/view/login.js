@@ -1,4 +1,4 @@
-import loginGoogle from '../firebase.js';
+import {loginGoogle, loginFB} from '../firebase.js';
 
 export default () => {
     const root = document.getElementById('root')
@@ -25,6 +25,9 @@ export default () => {
 
     const btnGmail = document.querySelector('#btnGmail')
           btnGmail.addEventListener('click', loginGoogle)
+
+    const btnFB = document.querySelector('#btnFB')
+          btnFB.addEventListener('click', loginFB)
 
     return divElement;
 

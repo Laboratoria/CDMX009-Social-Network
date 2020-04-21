@@ -51,14 +51,17 @@ header{
   display: flex;
   justify-content: space-between;
 }
+
 .home {
   width: 35%;
   padding-left: 5%;
 }
+
 .imagenUser {
   width: 40px;
   padding-right: 30px;
 }
+
 /* Cointeiner Menu*/
 .mainConteiner {
   width: 100%;
@@ -98,20 +101,20 @@ header{
 }
 
 .DegreeAndGroup select {
-    padding: 2%;
-    margin: 2%;
-    background-color: #FFFFFF;
-    width: 45%;
-    height: 50px;
-    border-radius: 100px;
-    display: inline-block;
+  padding: 2%;
+  margin: 2%;
+  background-color: #FFFFFF;
+  width: 45%;
+  height: 50px;
+  border-radius: 100px;
+  display: inline-block;
 }
 
 /*navigation bar*/
 footer{
 background-color: #FFE36B;
-  padding: 10px 5px;
-  text-align: center;
+padding: 10px 5px;
+text-align: center;
 }
 
 #footer li{
@@ -165,23 +168,30 @@ padding-left: 0px;
 
 .user-data .engine{
   width: 20px;
-  padding-left:58% ;
+  padding-left:38%;
 }
 
  hr{
     width:75%;
 }
 
-.commentBox{
+.commentBox {
   padding-left: 30%; 
+  height: 150%;
+  background-color: #C4C4C4;
+}
+
+.commentBox .containerbx {
+  background-color:#EDE9E9;
+  width: 55%;
   height: 100%;
-  background: rgb(196,196,196);
-background: linear-gradient(45deg, rgba(196,196,196,1) 0%, rgba(196,196,196,1) 0%);
+  border-radius:15px;
+  margin: 10px; 
 }
 
 .commentBox .comment {
   background-color: #ffffff;
-  width: 55%;
+  width: 94%;
   height: 100px;
   border-radius:15px;
   margin: 10px; 
@@ -195,7 +205,7 @@ background: linear-gradient(45deg, rgba(196,196,196,1) 0%, rgba(196,196,196,1) 0
 
 .commentBox .answer {
   background-color: #ffffff;
-  width: 55%;
+  width: 94%;
   height: 100px;
   border-radius:15px;
   margin: 10px; 
@@ -207,10 +217,19 @@ background: linear-gradient(45deg, rgba(196,196,196,1) 0%, rgba(196,196,196,1) 0
   border-color: #BEB4FF;
   }
 
+.editIcon img {
+  height: auto;
+  width: 20px;
+  padding-left:93%;
+  margin-bottom: 0;
+  }
+
 .likes img {
 height: auto;
 width: 20px;
 align-items: center;
+padding-left: 5%;
+margin-top: 0;
 }
 /*END PROFILE*/
 
@@ -271,7 +290,6 @@ font-size: 17px;
 /*  View LOGIN  */
 .imageLogin{
   width: auto;
- 
 }
 
 .mainConteinerLogin{
@@ -334,14 +352,17 @@ flex-direction: row;
 flex-wrap: wrap;
 justify-content: center;
 }
+
 .titleCalendar{
 font-size: 50px;
 color: #FFFFFF;
 text-align: center;
 }
+
 .calendar{
 width: 400px;  
 }
+
 .infoConteinerCalendar{
 display: flex;
 flex-direction: row;
@@ -349,6 +370,7 @@ flex-wrap: wrap;
 justify-content: space-around;
 align-items: flex-end;
 }
+
 .infoConteinerCalendar img{
 width: 30px;
 }
@@ -423,7 +445,7 @@ body{
   overflow-x: hidden;
 }
 /*homework table cell*/
-  .table {
+.table {
   display: inline-table;
   align-content: space-around;
   overflow: auto;
@@ -479,15 +501,15 @@ body{
   flex-direction: column;
   }
 
-  .form input{
-    width: 50%;
-    height: 30px;
-    border-radius:35px;
-    margin: 10px;
-    padding-left: 10px;
-    border: none;
-    font-family:Century Gothic;
-    font-size: 15px;
+.form input{
+  width: 50%;
+  height: 30px;
+  border-radius:35px;
+  margin: 10px;
+  padding-left: 10px;
+  border: none;
+  font-family:Century Gothic;
+  font-size: 15px;
   }
 
   .sign-btn{
@@ -521,14 +543,18 @@ body{
   }
   
   .user-data .engine {
-   
-      width: 18px;
-      padding-left: 70%;
+    width: 18px;
+    padding-left: 75%;
   }
   
   .commentBox{
     font-size: 15px;
-    padding-left: 7%;
+    padding-left: 5%;
+    border-radius: 15px;
+  }
+
+  .commentBox .containerbx {
+    width: 90%;
   }
 
   .commentBox .comment {
@@ -546,6 +572,19 @@ body{
     text-align: center;
     padding: 3px;
     }
+  
+  .editIcon img {
+    width: 17px;
+    padding-left: 85%;
+    margin-bottom: 0;
+    }
+  
+  .likes img {
+   width: 17px;
+   align-items: center;
+   padding-left: 10%;
+   margin-top: 0;
+  }
     
   }
  
