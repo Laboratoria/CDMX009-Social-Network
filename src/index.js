@@ -159,26 +159,21 @@ renderSignUp();
 export const renderFirstProfile = () => {
     root.classList.remove("signUpAndIn");
     const firstProfile = `
-    <div class="figure">
-        <div class="file is-centered">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" id="img">
-            </figure>
-        </div>
+    <div id="prof"  class="file is-centered">
     </div>
         <div class="file is-centered">
             <label class="file-label">
-                <input id="profilePicture" class="file-input" type="file" name="profile">
+                <input id="profilePicture" class="file-input" type="file" name="profile"/>
                 <span class="file-cta">
-                  <span class="file-icon">
-                    <i class=fas fa-upload"> </i>
-                  </span>
-                  <span class="file-label">
-                  Añadir foto de perfil
+                    <span class="file-icon">
+                        <i class=fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Editar foto de perfil
+                    </span>
                 </span>
-              </span>
             </label>
-          </div>
+        </div>    
         <div class="field">
             <div class="file is-centered">
                 <button id="uploadProfilePicture" class="button is success button is-small has-background-warning is-rounded">
@@ -187,29 +182,38 @@ export const renderFirstProfile = () => {
             </div>
         </div>
         <div class="file is-centered">
-          <div class="control">
-            <input id="userName" class="is-small" type="text">
+            <div class="control">
                 <div class="has-text-centered has-text-black title is-6">
-                    <h6> Username </h6>
+                    <h3> Información </h3>
                 </div>
-          </div>
+                <div class="has-text-centered has-text-black title is-6">                  
+                    <input id="profileName" class="input is-rounded" type="text" placeholder="Nombre">      
+                </div>
+                <div class="has-text-centered has-text-black title is-6">
+                <input id="userName" class="input is-rounded" type="text" placeholder="Usuario">            
+                </div>
+                <div class="field">
+                    <div class="control">
+                         <textarea id="biography" class="textarea is-small" placeholder="Acerca de mi"></textarea>
+                    </div>
+                </div>
+               
+            </div> 
         </div>
-    <div class="field">
-        <div class="file is-centered">
-            <p class="control">
+        <div class="field">
+            <div class="file is-centered">
+                <p class="control">
                 <button  id="confirm" class="button is-success button is-medium  has-background-warning is-rounded">
-                CONFIRMAR
+                    CONFIRMAR
                 </button>   
-
                 <button id="logout" class=" button is-success button is-medium  has-background-warning is-rounded">
-                Cerrar Sesion
+                    Cerrar Sesion
                 </button> 
-            </p>
+                </p>
+            </div>
         </div>
-    </div>
-    `
+        `;
     root.innerHTML = `${logoM}${firstProfile}`;
-    let  file = {};
 };
 document.addEventListener('click',function(event) {
     if (event.target && event.target.id === 'confirm') {
