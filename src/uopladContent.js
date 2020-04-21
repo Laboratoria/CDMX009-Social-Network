@@ -1,12 +1,15 @@
 import singIn from './login.js'
 import profile from './profile.js'
+import welcomeView from './welcome.js'
 
 document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
 let content= document.querySelector(".root");
 let header= document.querySelector(".header");
 let staticMenu= document.querySelector("#staticMenu");
 
+
 export function showOupladWindow (){
+    let url;
     let btnOut= document.createElement("buttom");
     btnOut.id= "out";
     btnOut.innerHTML= `<img src="images/logOut.png">`
@@ -19,26 +22,72 @@ export function showOupladWindow (){
     <input type="file" accept="image/*" class="addImage" id="addImage">
     </div>
     <div id="previewImage"></div>
-    <label>
     Título
-    <input type="text" placeholder="Máximo 70 carácteres"/>
-    </label>
-    <label>
+    <div>
+    <textarea id="tittle" placeholder="Máximo 70 carácteres" cols="30" rows="10"></textarea>
+    </div>
     Descripción
-    <input type="text" id="title" placeholder="Máximo 200 carácteres"/>
-    </label>
+    <div>
+    <textarea id="description" placeholder="Máximo 200 carácteres" cols="30" rows="10"></textarea>
+    </div>
     <button id="toPost">PUBLICAR</button>
+    <div id="test"></div>
     </section>`
     content.innerHTML= oupladView;
     let post= document.querySelector('#toPost');
-    post.onclick= profile;
+    // post.onclick= profile;
     let out= document.querySelector('#out');
     out.onclick= singIn;
+    let preview= document.querySelector("#previewImage");
     let inputFile= document.querySelector("#addImage");
     inputFile.onchange= (e) => {
         let file= e.target.files[0];
         firebase.storage().ref("publications").child(file.name).put(file)
+        .then (snap =>{
+            return snap.ref.getDownloadURL();
+        })
+        .then(link => { 
+            url= link;
+            let img= document.createElement('img');
+            img.src= link;
+            preview.appendChild(img);
+            post.onclick= welcomeView;
+        })
+        let publishBtn= document.querySelector("#toPost");
+        publishBtn.onclick= (e) => {
+            let post = {
+                user: "Edith",
+                title: tittle.value,
+                description: description.value,
+                img: url,
+                date: new Date(),
+            }
+            newPublication(post)
+                .then(accept =>{
+                console.log(accept);
+                })
+                .catch(error => {
+                console.log(error)
+                })
+        }
     }
+    let dataBase= firebase.firestore();
+let postsNew= dataBase.collection('posts');
+function newPublication(post ={user:"Edith", title: "hola", description:"Cómo están??", date: Date.now()}) {
+    return postsNew.add(post);
+}
+postsNew.onSnapshot(snap =>{
+    let textarea= document.querySelector("#test");
+    textarea.innerHTML= '';
+    snap.forEach( doc =>{
+        let div = `<div>
+            <p>${doc.data().description}</p>
+        </div>`
+        let nodo = document.createElement('div');
+        nodo.innerHTML = div;
+        textarea.appendChild(nodo); 
+    })   
+})
 };
 
-export default showOupladWindow;
+export default showOupladWindow; 

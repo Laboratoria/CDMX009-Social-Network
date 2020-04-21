@@ -60,13 +60,18 @@ header{
 #previewImage {
     width: 283px;
     height: 283px;
-    border-color: #8dffb7;
-    border: 8px;
+    border: #8dffb7 8px solid;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background: red;
+    background: transparent;
     /*Flex*/
+}
+
+#previewImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }
 
 #divFile {
@@ -89,4 +94,12 @@ header{
 
 #labelImage {
     position: relative;
+}
+
+#tittle {
+    height: 25px;
+}
+
+#description {
+    height: 50px;
 }
