@@ -18,6 +18,10 @@ const router = (route) => {
       container.appendChild(components.recoveryPass());
       break;
     }
+    case '#/home': {
+      container.appendChild(components.home());
+      break;
+    }
     default: {
       break;
     }

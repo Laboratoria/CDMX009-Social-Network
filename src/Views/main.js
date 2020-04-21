@@ -18,10 +18,12 @@ export default () => {
   views.setAttribute('class', 'viewsStyle');
   views.innerHTML = mainView;
 
+  // Nodos
   // const loginButton = views.querySelector('#loginButton');
-  // const passRec = views.querySelector('#recover');
   const facebookLogin = views.querySelector('#facebookLogin');
   const googleLogin = views.querySelector('#googleLogin');
+
+  // Listeners
   googleLogin.addEventListener('click', loginFunctions.google);
   facebookLogin.addEventListener('click', loginFunctions.facebook);
   return views;
