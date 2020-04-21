@@ -163,6 +163,7 @@ ol {
     display: block
 }
 
+
 /*empezamos con los estilos generales*/
 
 @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
@@ -213,6 +214,7 @@ input.validate.user.boxEmail {
     margin-bottom: 15px;
     text-align: center;
 }
+
 input.validate.user.boxPassword {
     border: 1px solid #662483;
     border-radius: 10px;
@@ -383,6 +385,10 @@ ul#mobile-demo {
     font-weight: bold;
 }
 
+.sidenav-trigger {
+    display: none;
+}
+
 .editProfileIcon {
     max-width: 10%;
     height: a;
@@ -394,6 +400,7 @@ ul#mobile-demo {
     text-align: right;
     margin-left: 15px;
 }
+
 
 /******** Página 2 editar perfil **********/
 
@@ -538,14 +545,16 @@ button.waves-effect.waves-light.btn-small.btn-login {
     margin-bottom: 22px;
     border-radius: 10px;
     background-color: #662483;
-    opacity: 0.9;    
+    opacity: 0.9;
 }
 
 .pag2Header {
     margin-bottom: 20px;
 }
 
-input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields{
+input.chageName.boxFields,
+input.chageProfession.boxFields,
+input.validatePassword.boxFields {
     border: 1px solid #662483;
     border-radius: 10px;
     box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
@@ -569,56 +578,51 @@ input.chageName.boxFields, input.chageProfession.boxFields, input.validatePasswo
     margin-bottom: 50px;
 }
 
+
 /* *********MediasQuerys*********** */
 
 @media (min-width: 1280px) {
-    input.validate.user.boxEmail, input.validate.user.password.boxPassword, input.validate.user.boxFields, input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields, input.validatePassword.boxFields {
+    input.validate.user.boxEmail,
+    input.validate.user.password.boxPassword,
+    input.validate.user.boxFields,
+    input.chageName.boxFields,
+    input.chageProfession.boxFields,
+    input.validatePassword.boxFields,
+    input.validatePassword.boxFields {
         max-width: 50%;
-    } 
-    
-    a.waves-effect.waves-light.btn.center.iconWeb1, a.waves-effect.waves-light.btn.center.iconWeb2 {
+    }
+    a.waves-effect.waves-light.btn.center.iconWeb1,
+    a.waves-effect.waves-light.btn.center.iconWeb2 {
         max-width: 20%;
-    } 
-
+    }
     textarea.comentUser {
         max-width: 40%;
-    } 
-
+    }
     p.chip.boxStyle2 {
         margin-left: 40px;
     }
-
     .informationBox {
         display: flex;
-        justify-content: center;  
-        align-items: center;  
+        justify-content: center;
+        align-items: center;
     }
-    
     .comentsAndLikes {
         display: flex;
-        justify-content: center;    
+        justify-content: center;
     }
-
     .chip.boxStyle {
         width: 30%;
-    } 
-  }
+    }
+    .sidenav-trigger {
+        display: none;
+    }
+}
 
-  @media (max-width: 640px) {
-      body {
+@media (max-width: 640px) {
+    body {
         width: 100%;
-      }
-  }
-
-  
-
-   
-        
-
-
-
-
-
-
-
-
+    }
+    .sidenav-trigger {
+        display: block;
+    }
+}

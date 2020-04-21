@@ -1,7 +1,5 @@
-// import { loginPageOne } from './view/loginandexit.js';
-
-
 document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('hideAndShow').style.display = 'none ';
     viewLogin()
         .then(function() {
             // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
@@ -10,9 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.preventDefault();
                 loginPageOne();
             });
-
-        })
-        .then(function() {
+        }).then(function() {
             // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
             var buttonGoogle = document.querySelector('#loginGoogle');
             buttonGoogle.addEventListener('click', function(e) {
@@ -27,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
             buttonFacebook.addEventListener('click', function(e) {
                 e.preventDefault();
                 facebookButton();
+                viewForum();
+                document.getElementById('hideAndShow').style.display = 'block';
             });
         })
         .then(function() {
@@ -45,45 +43,60 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         })
         .then(function() {
-            var viewRedirectionForum = document.getElementById('/Foro');
-            viewRedirectionForum.addEventListener('click', function(e) {
+            var viewRedirectionForum = document.querySelectorAll('.foro');
+            console.log("Foro", viewRedirectionForum);
+            viewRedirectionForum.forEach(nodo => nodo.addEventListener('click', function(e) {
                 e.preventDefault();
                 viewForum();
                 window.history.pushState('Foro', 'Foro', '/Foro')
-            });
+            }));
         }).then(function() {
-            var viewRedirectionProfile = document.getElementById('/Perfil');
-            viewRedirectionProfile.addEventListener('click', function(e) {
+            var viewRedirectionProfile = document.querySelectorAll('.perfil');
+            console.log("Profile", viewRedirectionProfile);
+            viewRedirectionProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
                 e.preventDefault();
                 viewProfile();
                 window.history.pushState('perfil', 'Perfil', '/Perfil');
-            });
+            }));
         })
         .then(function() {
-            var viewRedirectionEditProfile = document.getElementById('/editarPerfil');
-            viewRedirectionEditProfile.addEventListener('click', function(e) {
+            var viewRedirectionEditProfile = document.querySelectorAll('.editarPerfil');
+            console.log("Foro", viewRedirectionEditProfile);
+            viewRedirectionEditProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
                 e.preventDefault();
                 editionOfProfile();
-                window.history.pushState('Editar Perfil', 'Editar Perfil', '/editarPerfil');
+                window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
+            }));
+        })
+        .then(function() {
+            var viewRedirectionGetOut = document.querySelectorAll('.cerrarSesion');
+            console.log("cerrarSesion", viewRedirectionGetOut);
+            viewRedirectionGetOut.forEach(nodo => nodo.addEventListener('click', function(e) {
+                e.preventDefault();
+                viewLogin();
+                window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
+            }));
+        })
+        .then(function() {
+            var getOut = document.querySelector('.cerrarSesion');
+            getOut.addEventListener('click', function(e) {
+                e.preventDefault();
+                out();
             });
         })
-
 })
 
 
 // por si quiero limpiar root: document.getElementById('root').innerHTML = '';
 
 // Navegador en móvil
-
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 });
 
-// let currentRoute = "/"
-// let navegationsButtons = document.querySelectorAll('.colorMenu');
 
-// navegationsButtons.forEach(colorMenu => colorMenu.onclick = e => router(e.target.id))
+
 
 
 function viewLogin() {
@@ -124,7 +137,7 @@ function viewLogin() {
                 </div>
 
                 <div class="loginSocialNetwork">
-                    <p class="choose">Si no tienes una cuenta? <br>Ingresa con:</p>
+                    <p class="choose">¿Si no tienes una cuenta? <br>Ingresa con:</p>
                     <a class="waves-effect waves-light btn center iconWeb1" id="loginFacebook"><i class="fab fa-facebook"></i>Facebook</a>
                     <!-- <button id="LoginFacebook">Ingresa con Facebook</button> -->
                     <a class="waves-effect waves-light btn center iconWeb2" id="loginGoogle"><i class="fab fa-google"></i>Google</a>
@@ -140,16 +153,15 @@ function viewLogin() {
 
 }
 
-
 // En esta parte hago la funcion que va tener mi boton al hacer click
-// en entar a la aplicación en esta parte  la que me hace entrar a la app (login)
+// en entar a la aplicación en esta parte la que me hace entrar a la app (login)
 function loginPageOne() {
     var email = document.getElementById('email').value;
     var pass = document.getElementById('pass').value;
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
             viewForum();
-
+            document.getElementById('hideAndShow').style.display = 'block';
         })
         .catch(function(error) {
             alert('Los datos ingresados no son correctos');
@@ -160,16 +172,10 @@ function loginPageOne() {
             // borrar o cambiar la pantalla
             // renderLogin()
         });
-
-    var cred = firebase.auth.EmailAuthProvider.credential(
-        email,
-        password
-    );
+    var cred = firebase.auth.EmailAuthProvider.credential(email, pass);
 }
 
 // **************** L O G I N     G O O G L E*******
-
-
 // En esta parte hago la funcion que va tener mi boton al hacer click
 // en entar a la aplicación en esta parte  la que me hace entrar a la app con google (google)
 function googleButton() {
@@ -183,8 +189,7 @@ function googleButton() {
         // The signed-in user info.
         var user = result.user;
         viewForum();
-
-
+        document.getElementById('hideAndShow').style.display = 'block';
         // ...
     }).catch(function(error) {
         // Handle Errors here.
@@ -200,43 +205,34 @@ function googleButton() {
 
 // **************** L O G I N     F A C E B O O K *******
 
-
-
 // En esta parte hago la funcion que va tener mi boton al hacer click
 // en entar a la aplicación en esta parte  la que me hace entrar a la app con facebook (facebook)
 function facebookButton() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        alert('bienvenido');
-
-        // ...
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-    });
+    firebase.auth().signInWithPopup(provider)
+        .then(function(result) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            viewForum();
+            document.getElementById('hideAndShow').style.display = 'block';
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+        });
 }
-
 // ******** LOG OUT FUNCTION 
-
-var getOut = document.querySelector('#signOut');
-getOut.addEventListener('click', function(e) {
-    e.preventDefault();
-    out();
-});
-
 function out() {
     firebase.auth().signOut()
         .then(function() {
             viewLogin();
+            document.getElementById('hideAndShow').style.display = 'none ';
         })
         .catch(function(error) {
             console.log(error);
@@ -249,15 +245,14 @@ function register() {
     var registerPassLogin2 = document.getElementById('registerLoginPass2').value;
     var registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
 
-
     if (registerPassLogin2 != registerConfirmPassLogin2) {
         alert('Las contraseñas deben coincidir');
     } else {
-
         firebase.auth().createUserWithEmailAndPassword(registerEmailLogin2, registerPassLogin2)
             .then((data) => {
                 // alert('Bienvenido ' + data.user.email);
                 viewForum();
+                document.getElementById('hideAndShow').style.display = 'block';
             })
             .catch(function(error) {
                 // Handle Errors here.
@@ -277,7 +272,6 @@ function viewRegister() {
         let registerView = `
         <!-- ************ PAGINA 2 REGISTRO ********** -->
     <div id="containerTwo">
-      
         <main>
             <div class="loginRequired">
                 <p class="description">Por favor llena los siguientes campos <br>Obligatorio *</p>
@@ -322,8 +316,6 @@ function viewForum() {
     return new Promise(function(resolve, rejected) {
         let forumView = ` <!-- ***********PAGINA 3********* -->
     <div id="containerThree">
-      
-
         <section class="profileInformation">
             <div>
                 <div class="littleCircle">
@@ -454,8 +446,6 @@ function editionOfProfile() {
     });
 }
 
-
-
 function viewProfile() {
     return new Promise(function(resolve, rejected) {
         let profileView = `
@@ -521,14 +511,4 @@ function viewProfile() {
         root.innerHTML = profileView;
         resolve();
     })
-
-}
-
-function hideAndShow(hide) {
-    document.getElementById(hide).style.display = 'none';
-
-}
-
-function show(show) {
-    document.getElementById(show).style.display = 'block';
 }
