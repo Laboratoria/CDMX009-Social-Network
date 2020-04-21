@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('hideAndShow').style.display = 'none ';
+    document.getElementById('hideAndShow').style.display = 'none';
+    document.getElementById('movilIcon').style.display = 'none';
     viewLogin()
         .then(function() {
             // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         })
         .then(function() {
-            var ntAccount = document.getElementById('reg');
+            var ntAccount = document.querySelector('#reg');
             ntAccount.addEventListener('click', function(e) {
                 e.preventDefault();
                 viewRegister()
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         buttonReg.addEventListener('click', function(e) {
                             e.preventDefault();
                             register();
+
                         });
                     })
 
