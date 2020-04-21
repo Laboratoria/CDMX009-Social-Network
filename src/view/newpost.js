@@ -11,7 +11,8 @@ let url
 
   const viewNewPost = `<div class = "gridContainer">
   <main>
-      <form class = "inputForm">
+  <h1 class="flex">Bichigram</h1> 
+      <form class = "inputForm flex">
           <input type="file" id="imgUpload" name="img" accept="image/*">
           <img src="" id="newPost">
           <input id="registerDescription" type = "text" placeholder = "Descripción" required>
@@ -20,12 +21,13 @@ let url
           <button class="btn" id="btnLoad"> Load </button>
       </form>
   </main>
-  <footer>
+
+  <div class="icons"> 
       <div class = "feedOptions">
       <button class = "btn" id = "homeSH"> home </button>
       <button class = "btn" id= "profileSH"> profile </button>
       </div>
-  </footer>
+  </div>
 </div>`;
 
   // nodos
