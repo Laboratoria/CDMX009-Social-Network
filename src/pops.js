@@ -1,9 +1,38 @@
-/* export const example = () => {
-    // aquí tu código
-} */
+const areYouSure = `
+<div class="modal is-active" id="areYouSureModal">
+    <div class="modal-background"></div>
+    <div class="modal-content>
+        <div class = "containerPop">
+            <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-error"></button>
+            <a href = "#" id="youSure" class = "imagePop"><i class="far fa-frown-open"></i></a>
+            <p>Estás seguro que quieres eliminar el elemento?</p>
+            <button type="button" id="acceptDelete" class = "acceptDelete"><i class="fas fa-check"></i></button>
+             <button type="button" id="cancelDelete" class = "cancelDelete"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+</div>
+
+`
+
+
+const saveChange = `
+<div class="modal is-active" id="saveChange">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class = "containerPop">
+            <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-error"></button>
+            <a href = "#" id="dataComplete" class = "imagePop"><i class="far fa-grin"></i></i></a>
+            <p>Se han guardado tus cambios </p>
+        </div>
+    </div>
+</div>
+
+`
+const divRoot = document.querySelector('#root')
+divRoot.innerHTML = saveChange
 
 // Are you sure that you want to delete the element?
-const overDelete = document.createElement('div');
+/* const overDelete = document.createElement('div');
 overDelete.className = 'overSmall';
 overDelete.id = 'overDelete';
 overDelete.innerHTML = `
@@ -15,17 +44,15 @@ overDelete.innerHTML = `
             <div class = "textSmall">
                 <a href = "#" id="youSure" class = "imagePop"><i class="far fa-frown-open"></i></a>
                 <p>Estás seguro que quieres eliminar el elemento?</p>
-                
+
                 <a href = "#" id="acceptDelete" class = "acceptDelete"><i class="fas fa-check"></i></a>
                 <a href = "#" id="cancelDelete" class = "cancelDelete"><i class="fas fa-times"></i></a>
             </div>
-            
+
         </div>
     </div>
 `
 document.body.appendChild(overDelete);
-
-
 
 // Open PopUpDelete
 const btnPop = document.querySelector('#pop')
@@ -43,7 +70,6 @@ function cerrarPopup() {
     overlayDelete.classList.remove('active');
     popup.classList.remove('active');
 }
-
 
 //Task Completed
 
@@ -66,7 +92,6 @@ overComplete.innerHTML = `
 `
 document.body.appendChild(overComplete);
 
-
 // Open PopUp Task Complete
 const btnComplete = document.querySelector('#taskCompleted')
 const overComp = document.querySelector('#overComplete');// el id lo tiene el overlay
@@ -84,7 +109,6 @@ function closeComplete() {
     popuptask.classList.remove('active');
 }
 
-
 //Show Error
 
 const overError = document.createElement('div');
@@ -92,7 +116,7 @@ overError.className = 'overSmall';
 overError.id = 'overError';
 overError.innerHTML = `
     <div class = "popSmall">
-        <div class = "containerPop">   
+        <div class = "containerPop">
             <div class = "textSmall">
                 <h1>ERROR</h1>
                 <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
@@ -107,8 +131,7 @@ overError.innerHTML = `
 `
 document.body.appendChild(overError);
 
-
-// Open PopUp Task Complete
+// Open PopUp error
 const btnError = document.querySelector('#showError')
 const overErr = document.querySelector('#overError');// el id lo tiene el overlay
 const popupError = document.querySelector('.popSmall');
@@ -124,8 +147,7 @@ function closeError() {
     overErr.classList.remove('active');
     popupError.classList.remove('active');
 }
-
-
+ */
 
 /* const profileCard = document.createElement('div');
 profileCard.className = 'profileCard';

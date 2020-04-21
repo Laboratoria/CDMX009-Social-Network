@@ -1,221 +1,227 @@
-/* import { example } from './example.js';
+import { viewLogin } from '/main.js'
+import { viewSign } from '/main.js'
+import { renderHomeView } from "./views/home.js"
+import { renderPostView } from "./views/post.js"
+import { renderProfileView } from "./views/profile.js"
+//import { renderLoginView } from "./views/login.js"
+import { renderExitView } from "./views/exit.js"
 
-example(); */
-var db = firebase.firestore();
+export const components = {
+    home: renderHomeView,
+    post: renderPostView,
+    profile: renderProfileView,
+    //login: renderLoginView,
+    exit: renderExitView
+};
+
+
+//Instanciar Firestore
+const db = firebase.firestore();
 
 //login, instancia del provedor del servicio
-var provider = new firebase.auth.GoogleAuthProvider();
-var providerf = new firebase.auth.FacebookAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
+const providerf = new firebase.auth.FacebookAuthProvider();
 
-let div = document.querySelector('#root');
-//Autentificar con Google
-let btn = document.querySelector('#login');
-btn.addEventListener('click', function () {
-    firebase.auth()//Se llama a la func autenticar
-        .signInWithPopup(provider)//Se va a usar una popUp y se va a loguear con la var provider que es google
-        .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
-            console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
-            guardaDatos(result.user)//Se le manda a la func guardDatos para hacer uns BD
-            //ocultar el boton y mostrar la foto
-            btn.classList.hide;
-            div.innerHTML = `
-                <img src="${result.user.photoURL}"/>
-            `
+//Autenticar con Google
+export function loginGoogle(errorGooFbkModal) {
+    //console.log(viewLogin);
+    let btngoGoogle = document.querySelector('#goGoogle')
+    btngoGoogle.addEventListener('click', (e) => {
+        e.preventDefault()
+        firebase.auth()//Se llama a la func autenticar
+            .signInWithPopup(provider)//Se va a usar una popUp y se va a loguear con la var provider que es google
+            .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
+                console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
+                saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
+                //div.innerHTML = `<img src="${result.user.photoURL}"/>`
+            })
+            .catch(function (error) {
+                errorGooFbkModal.classList.add('is-active');
+                console.log('error:', error);
+            })
+    });
+}
 
-        })
-});
-
-//const docData = db.doc('datausers/users');
-//func que guarda los datos gmail automaticamente
-function guardaDatos(user) {
+//Guardar datos gmail en BD
+function saveDataG(user) {
     //console.log(user);
-    /* firebase.database().ref("usersapp/" + user.uid)//la / y el + user.uid hace que no se duplique el usuario
-        .set(usuario) */
-    const docData = db.doc('datausers/' + user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docData.set({
+    const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+    docRef.set({
         uid: user.uid,//Servirá para eliminar
         nombre: user.displayName,//Se obtiene el nom
         email: user.email,
         foto: user.photoURL
     })
-
         .then(function () {
             console.log('Los datos se guardaron');
-
         })
         .catch(function (error) {
             console.log('Hubo en error:', error);
-
         })
-    updateData(docData)
-
+    updateData(docRef)
 }
 
-
-//se leen los datos de la BD
-
-function updateData(docData) {
-    docData.get().then(function (snapshot) {
+//Leer los datos de la BD
+function updateData(docRef) {
+    docRef.get().then(function (snapshot) {
         let myData = snapshot.data();
         console.log(myData);
-        div.innerHTML = `Hola ${myData.nombre}`
-
+        /*  div.innerHTML = `Hola ${myData.nombre}` */
     })
 }
 
-//se leen los datos de la BD
-/* firebase.database().ref("datausers/users")//cuando alguien agregue un elemen a la rama
-    .on("child_added", function (snapshot) {//on escucha si se agrega algo(child_added), recibe snapshot que es el nodo con toda la info del obj telmex
-        //Se agregan las fotos de las personas que ingresan
-        var user = snapshot.val()//val tiene los datos (obj con key y val)
-        div.innerHTML = `
-                <img src="${user.foto}"/>
-            `
- 
- 
-    }) */
 
-//Autentificar con facebook
-let btnfb = document.querySelector('#loginfb');
-btnfb.addEventListener('click', function () {
-    firebase.auth()//Se llama a la func autenticar
-        .signInWithPopup(providerf)//Se va a usar una popUp y se va a loguear con la var provider que es google
-        .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
-            console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
-            guardaDatosFb(result.user)//Se le manda a la func guardDatos para hacer una BD
-            //ocultar el boton y mostrar la foto
-            btn.classList.hide;
-            div.innerHTML = `
-                <img src="${result.user.photoURL}"/>
-            `
+//Autenticar con facebook
+export function loginFacebook(errorGooFbkModal) {
+    let btngoFacebook = document.querySelector('#goFacebook');
+    btngoFacebook.addEventListener('click', function (e) {
+        e.preventDefault()
+        firebase.auth()//Se llama a la func autenticar
+            .signInWithPopup(providerf)//Se va a usar una popUp y se va a loguear con la var provider que es google
+            .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
+                console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
+                console.log(result.credential);
+                saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
+                //div.innerHTML = `<img src="${result.user.photoURL}"/>`
+            })
+            .catch(function (error) {
+                errorGooFbkModal.classList.add('is-active');
+                console.log('Hubo en error:', error);
+            })
+    });
+}
 
-        })
-});
-
-//func que guarda los datos gmail automaticamente
-function guardaDatosFb(user) {
+//Guardar datos Fb en BD
+function saveDataF(user) {
     //console.log(user);
-    /* firebase.database().ref("usersapp/" + user.uid)//la / y el + user.uid hace que no se duplique el usuario
-        .set(usuario) */
-    const docDataFb = db.doc('datausers/' + user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docDataFb.set({
-        uid: user.uid,//Servirá para eliminar
-        nombre: user.displayName,//Se obtiene el nom
+    const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+    docRef.set({
+        uid: user.uid,
+        nombre: user.displayName,
         email: user.email,
         foto: user.photoURL
     })
-
         .then(function () {
             console.log('Los datos se guardaron');
-
         })
         .catch(function (error) {
             console.log('Hubo en error:', error);
-
         })
-    updateDataFb(docDataFb)
-
+    updateDataFb(docRef)
 }
 
-//se leen los datos de la BD
-
-function updateDataFb(docDataFb) {
-    docDataFb.get().then(function (snapshot) {
+//Leer los datos de la BD
+function updateDataFb(docRef) {
+    docRef.get().then(function (snapshot) {
         let myData = snapshot.data();
         console.log(myData);
-        div.innerHTML = `Hola <img src='${myData.foto}'> ${myData.nombre} `
-
+        /* div.innerHTML = `Hola <img src='${myData.foto}'> ${myData.nombre} ` */
     })
 }
+
 
 //Crear cuenta con email
-/* document.querySelector('#ingresar').addEventListener('submit', cargarEmail)
- 
-function cargarEmail(e) {
-    e.preventDefault();
- 
-    //Leer variables del form
-    const valEmail = document.querySelector('#email').value
-    const valPass = document.querySelector('#password').value
- 
-    console.log(valEmail);
-    console.log(valPass);
- 
- 
-} */
-//Leer y guardar los datos del usuario para crear cuenta
-document.querySelector('#create').addEventListener('click', function (e) {
-    e.preventDefault()
-    //Leer variables del form
-    const email = document.querySelector('#email').value
-    const password = document.querySelector('#password').value
+//Registrarse:
+export function createUser(newName, newEmail, newPassword, registryModal, alreadyExistModal) {
+    //console.log(user);
+    console.log(newName + newEmail + newPassword);
+    //const expRegName = /^[a-z0-9_-]{3,16}$/
+    const expRegEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+    const expRegPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+    if (expRegPass.test(newPassword) === true && expRegEmail.test(newEmail) === true) {
+        firebase.auth().createUserWithEmailAndPassword(newEmail, newPassword)
 
-    //console.log(valEmail);
-    //console.log(valPass);
+            .then(function (user) {
+                console.log('Se ha creado la cuenta!');
+                console.log(user.user);
+                saveEmailBD(newName, newEmail, newPassword, user)
+            })
+            .catch(function (error) {//Si la cuenta se ha creado se muestra el error
+                alreadyExistModal.classList.add('is-active');
+                console.log(error.message);
+            })
+    } else {
+        registryModal.classList.add('is-active');
+        //alert('Comprueba tu correo o contraseña (debe contener al menos 6 caracteres,un número, una minúscula y al menos una mayúscula).')
+    }
+}
 
-    return createUser(email, password)
-})
-//Guardar los datos en firebase y BD
-function createUser(email, password) {
-    console.log(email + password);
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function (user) {
-            console.log('Se ha creado la cuenta!');
-            console.log(user.user);
-
-        })
-        .catch(function (error) {
-            console.error(error);
-
-        })
-    const docData = db.doc('datausers/' + email);//la / y el + user.uid hace que no se duplique el usuario
-    docData.set({
-        email: email,
-        password: password
+//:Guardar los datos en BD
+function saveEmailBD(newName, newEmail, newPassword, user) {
+    const docRef = db.collection('datausers/').doc(user.user.uid);//la / y el + user.uid hace que no se duplique el usuario
+    docRef.set({
+        name: newName,
+        email: newEmail,
+        password: newPassword,
+        uid: user.user.uid
     })
-
         .then(function () {
             console.log('Los datos se guardaron');
-
         })
         .catch(function (error) {
             console.log('Hubo en error:', error);
-
         })
-
 }
 
 
-//Leer y guardar los datos del us. para despues comparar con los datos almacenados en la BD
-document.querySelector('#enter').addEventListener('click', function (e) {
-    e.preventDefault()
-    //Leer variables del form
-    const email = document.querySelector('#email').value
-    const password = document.querySelector('#password').value
-
-    //console.log(email);
-    //console.log(password)
-    return loginUser(email, password)
-})
-
-//Comparar los datos del usuario con los datos que usó para crear cuenta
-function loginUser(email, password) {
-    console.log(email + password);
+//Inicio de Sesión:
+//:Comparar los datos del usuario con los datos que usó para crear cuenta
+export function loginUser(email, password, errorModal) {
+    //console.log(email + password + errorModal);
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function (user) {
             console.log('Datos correctos, bienvenido!')
+            //console.log(user);
         })
         .catch(function (error) {
-            alert('Upsi, datos incorrectos');
-
+            errorModal.classList.add('is-active');
+            //alert('Upsi, datos incorrectos');
         })
 
 }
 
-//salir de la sesión
-const btnexit = document.querySelector('#salir')
-btnexit.addEventListener('click', signoutUser)
 
-function signoutUser() {
+//Salir de la sesión:
+export function signoutUser() {
+    //e.preventDefault()
     firebase.auth().signOut();
+    console.log('Adiós Bye');
+    const divRoot = document.querySelector('#root')
+    divRoot.innerHTML = ""
 }
+
+//Nos dice que usuario tiene sesión abierta y nos trae sus datos de la BD
+function userObserver() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            const docRef = db.collection('datausers/').doc(user.uid);
+            docRef.get().then(function (snapshot) {
+                let myData = snapshot.data();
+                console.log(myData);
+                /* div.innerHTML = `Hola <img src='${myData.foto}'> ${myData.nombre} ` */
+            })
+        } else {
+            // No user is signed in.
+            console.log('No user');
+        }
+    });
+}
+userObserver()
+
+//Actualización de perfil
+/* function profileUpdate(user) {
+    //var user = firebase.auth().currentUser;
+
+    user.updateProfile({
+        displayName: "Lizeth",
+        photoURL: ""
+    }).then(function () {
+        console.log('los dtos se actualizaron');
+
+        // Update successful.
+    }).catch(function (error) {
+        // An error happened.
+        console.log(error);
+
+    });
+} */
