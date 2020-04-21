@@ -14,8 +14,28 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper colorHeader">
+            <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
+            <a id="movilIcon" href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="hideAndShow" class="right hide-on-med-and-down">
+                <li><a class="navletters" href="#" id="/Foro">Foro</a></li>
+                <li><a class="navletters" href="#" id="/Perfil">Perfil</a></li>
+                <li><a class="navletters" href="#" id="/editarPerfil">Editar perfil</a></li>
+                <li><a id="signOut" class="navletters" href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="colorMenu" href="#" id="/">Foro</a></li>
+        <li><a class="colorMenu" href="#" id="/ProfileNavM">Perfil</a></li>
+        <li><a class="colorMenu" href="#" id="/editProfileNavM">Editar perfil</a></li>
+        <li><a id="signOut" class="colorMenu" href="#">Cerrar sesión</a></li>
+    </ul>
 
     <div id="root"></div>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>

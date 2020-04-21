@@ -44,8 +44,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
             });
         })
-
-
+        .then(function() {
+            var viewRedirectionForum = document.getElementById('/Foro');
+            viewRedirectionForum.addEventListener('click', function(e) {
+                e.preventDefault();
+                viewForum();
+                window.history.pushState('Foro', 'Foro', '/Foro')
+            });
+        }).then(function() {
+            var viewRedirectionProfile = document.getElementById('/Perfil');
+            viewRedirectionProfile.addEventListener('click', function(e) {
+                e.preventDefault();
+                viewProfile();
+                window.history.pushState('perfil', 'Perfil', '/Perfil');
+            });
+        })
+        .then(function() {
+            var viewRedirectionEditProfile = document.getElementById('/editarPerfil');
+            viewRedirectionEditProfile.addEventListener('click', function(e) {
+                e.preventDefault();
+                editionOfProfile();
+                window.history.pushState('Editar Perfil', 'Editar Perfil', '/editarPerfil');
+            });
+        })
 
 })
 
@@ -54,22 +75,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Navegador en móvil
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.sidenav');
-//     var instances = M.Sidenav.init(elems);
-// });
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+});
+
+// let currentRoute = "/"
+// let navegationsButtons = document.querySelectorAll('.colorMenu');
+
+// navegationsButtons.forEach(colorMenu => colorMenu.onclick = e => router(e.target.id))
+
 
 function viewLogin() {
     return new Promise(function(resolve, rejected) {
         let homeView = `
           <div id="containerOne">
         <section id="esther">
-            <nav>
-                <div class="nav-wrapper colorHeader">
-                    <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
-                </div>
-            </nav>
-
             <main>
                 <div class="description">
                     <p class="intro">Una red social pensada para los que hacemos Desarrollo Web</p>
@@ -161,7 +182,9 @@ function googleButton() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        alert('Bienvenido ' + user.email);
+        viewForum();
+
+
         // ...
     }).catch(function(error) {
         // Handle Errors here.
@@ -180,7 +203,7 @@ function googleButton() {
 
 
 // En esta parte hago la funcion que va tener mi boton al hacer click
-// en entar a la aplicación en esta parte  la que me hace entrar a la app con facebook (facebook
+// en entar a la aplicación en esta parte  la que me hace entrar a la app con facebook (facebook)
 function facebookButton() {
     var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -188,8 +211,8 @@ function facebookButton() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(user);
-        alert('Bienvenido ' + user.email);
+        alert('bienvenido');
+
         // ...
     }).catch(function(error) {
         // Handle Errors here.
@@ -199,29 +222,26 @@ function facebookButton() {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
     });
 }
 
 // ******** LOG OUT FUNCTION 
 
-// var getOut = document.querySelector('#signOut');
-// getOut.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     out();
-// });
+var getOut = document.querySelector('#signOut');
+getOut.addEventListener('click', function(e) {
+    e.preventDefault();
+    out();
+});
 
-// function out() {
-//     firebase.auth().signOut()
-//         .then(function() {
-//             alert('Good Bye');
-//         }).catch(function(error) {
-//             console.log(error);
-//         });
-// }
-
-
-
+function out() {
+    firebase.auth().signOut()
+        .then(function() {
+            viewLogin();
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+}
 
 function register() {
     var registerNameLogin2 = document.getElementById('registerLoginName2').value;
@@ -257,12 +277,7 @@ function viewRegister() {
         let registerView = `
         <!-- ************ PAGINA 2 REGISTRO ********** -->
     <div id="containerTwo">
-        <nav>
-            <div class="nav-wrapper colorHeader">
-                <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
-            </div>
-        </nav>
-
+      
         <main>
             <div class="loginRequired">
                 <p class="description">Por favor llena los siguientes campos <br>Obligatorio *</p>
@@ -307,27 +322,9 @@ function viewForum() {
     return new Promise(function(resolve, rejected) {
         let forumView = ` <!-- ***********PAGINA 3********* -->
     <div id="containerThree">
-        <nav>
-            <div class="nav-wrapper colorHeader">
-                <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="navletters" href="foro" id="/forumNavD">Foro</a></li>
-                    <li><a class="navletters" href="perfil" id="/profileNavD">Perfil</a></li>
-                    <li><a class="navletters" href="editar perfil" id="/editProfileNavD">Editar perfil</a></li>
-                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
-                </ul>
-            </div>
-        </nav>
+      
 
-        <ul class="sidenav" id="mobile-demo">
-            <li><a class="colorMenu" href="foro" id="/forumNavM">Foro</a></li>
-            <li><a class="colorMenu" href="perfil" id="/ProfileNavM">Perfil</a></li>
-            <li><a class="colorMenu" href="editar perfil" id="/editProfileNavM">Editar perfil</a></li>
-            <li><a id="signOut" class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
-        </ul>
-
-        <section class="profileInformation" id="vero y dian">
+        <section class="profileInformation">
             <div>
                 <div class="littleCircle">
                     <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
@@ -382,37 +379,50 @@ function viewForum() {
                 <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
             </div>
         </form>
+         <div class="informationBox">
+
+                <div class="chip boxStyle">
+                    <img src="images/foto_perfil_circulo.png" alt="Contact Person">
+                    <p>Taco Perez</p>
+                </div>
+                <i class="fas fa-globe-americas world"></i>
+                <i class="material-icons center points">more_vert</i>
+            </div>
+
+            <div class="comentsAndLikes">
+                <p class="coments">¿Comunidad, cómo le hago para enrutar con Javascript?</p>
+            </div>
+            <div class="punchButtons comentsAndLikes">
+                <div class="likeButton">
+                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
+                    <span class="likeCounter">5</span>
+                </div>
+                <div class="commentButton">
+                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
+                    <span class="commentCounter">2</span>
+                </div>
+            </div>
+        </div>
+        <form>
+            <p>
+                <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
+            </p>
+            <div class="right-align">
+                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
+            </div>
+        </form>
     </div>`
         root.innerHTML = forumView;
         resolve();
     });
 }
 
-function EditionOfProfile() {
+function editionOfProfile() {
     return new Promise(function(resolve, rejected) {
         let editProfileVieView = ` 
     <!-- *********** PAGINA 4 EDITAR PERFIL   *********** -->
     <div id="containerFour">
-        <nav>
-            <div class="nav-wrapper colorHeader">
-                <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="navletters" href="foro" id="/forumNavD">Foro</a></li>
-                    <li><a class="navletters" href="perfil" id="/profileNavD">Perfil</a></li>
-                    <li><a class="navletters" href="editar perfil" id="/editProfileNavD">Editar perfil</a></li>
-                    <li><a id="signOut" class="navletters" href="cerrar sesion">Cerrar sesión</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <ul class="sidenav" id="mobile-demo">
-            <li><a class="colorMenu" href="foro" id="/forumNavM">Foro</a></li>
-            <li><a class="colorMenu" href="perfil" id="/ProfileNavM">Perfil</a></li>
-            <li><a class="colorMenu" href="editar perfil" id="/editProfileNavM">Editar perfil</a></li>
-            <li><a id="signOut" class="colorMenu" href="cerrar sesion">Cerrar sesión</a></li>
-        </ul>
-
         <div>
             <p class="chip boxStyle2">Editar Perfil</p>
         </div>
@@ -442,4 +452,83 @@ function EditionOfProfile() {
         root.innerHTML = editProfileVieView;
         resolve();
     });
+}
+
+
+
+function viewProfile() {
+    return new Promise(function(resolve, rejected) {
+        let profileView = `
+       <!-- ***********PAGINA profile********* -->
+<div id="profilepage"> 
+      <section class="profileInformation">
+        <div>
+            <div class="littleCircle">
+                <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
+            </div>
+
+            <div class="personalInformationPerfilUser">
+                <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López<i class="material-icons center editProfileIcon">edit</i></strong></div>
+                <div class="professionDescription">Developer Sr. en Accenture</div>
+            </div>
+        </div>
+    </section>
+    <form>
+        <p>
+            <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
+        </p>
+        <div class="right-align">
+            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
+        </div>
+    </form>
+    <div>
+        <div class="informationBox">
+
+            <div class="chip boxStyle">
+                <img src="images/foto_perfil_circulo.png" alt="Contact Person">
+                <p>Taco Perez</p>
+            </div>
+            <i class="fas fa-globe-americas world"></i>
+            <i class="material-icons center points">more_vert</i>
+        </div>
+
+        <div class="comentsAndLikes">
+            <p class="coments">¿Cómo centrar texto en HTML?</p>
+        </div>
+        <div class="punchButtons comentsAndLikes">
+            <div class="likeButton">
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
+                <span class="likeCounter">5</span>
+            </div>
+            <div class="commentButton">
+                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
+                <span class="commentCounter">2</span>
+            </div>
+        </div>
+    </div>
+    <form>
+        <p>
+            <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
+        </p>
+        <div class="right-align">
+            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
+        </div>
+    </form>
+    <div> 
+    `
+        root.innerHTML = profileView;
+        resolve();
+    })
+
+}
+
+function hideAndShow(hide) {
+    document.getElementById(hide).style.display = 'none';
+
+}
+
+function show(show) {
+    document.getElementById(show).style.display = 'block';
 }
