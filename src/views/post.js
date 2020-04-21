@@ -1,11 +1,11 @@
 import { root } from "../main.js";
-
+//Esto dibuja la vista donde se puede agregar un post
 export const renderPostView = () => {
     `<section id="container">
     <div class="container has-text-white">
       <h1> Escribe tu microcuento:</h1>
-      <input class="input is-success" type="text" placeholder="Título">
-      <textarea class="textarea is-success is-large" type="text" placeholder="Escribe acá tu cuento"></textarea>
+      <input id="title" class="input is-success" type="text" placeholder="Título">
+      <textarea id="body" class="textarea is-success is-large" type="text" placeholder="Escribe acá tu cuento"></textarea>
       <div class="field is-horizontal">
         <label class="label has-text-white">Autor:</label>
       <div class="field-body">
@@ -14,7 +14,7 @@ export const renderPostView = () => {
     
         <div class="file is-primary is-centered">
           <label class="file-label">
-            <input class="file-input" type="file" name="resume">
+            <input id="file" class="file-input" type="file" name="resume">
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>
@@ -26,12 +26,55 @@ export const renderPostView = () => {
           </label>
         </div>
     
-    <button class="button  is-fullwidth is-primary is-large">Publicar</button>
+    <button id="publish" class="button  is-fullwidth is-primary is-large">Publicar</button>
+    <section id="posts"></section>
     </section>`
-    root.innerHTML = renderPostView;
-};
+        root.innerHTML = renderPostView;
+        
+        const fileInput = document.querySelector("#file")
+        fileInput.onchange = (e) =>{
+          const file =  e.target.file
+          firebase.storage().ref("postsList").child(file.name).put(file)
+          .then(snap => {
+            return snap.ref.getDownloadURL()
+      })
+        .then(link => {
+        url = link
+        let img= document.createElement("img")
+        img.src = link
+        document.body.appendChild(img)
+        })
+        .catch(err =>{
+        alert("Error al cargar el documento");
+        })
+      }
 
-// //Función para el file upload
+//Esto agrega un post nuevo a la lista de posts
+
+      //NODOS
+      const text = document.querySelector('#body')
+      const title = document.querySelector("#title")
+      const newPost = document.querySelector("#newPost")
+      //Función que trae el texto
+      newPost.onclick = ()=> {
+        let post = {
+            title: title.value,
+            text: text.value,
+            // user: user.name.value,
+            date: new Date(),
+            img: url
+        }
+      addNewPost(post)
+      .then (res=> {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log("No hay nuevo post", err)
+      })
+    }
+  }
+
+// //Función para que el file upload traiga el nombre
 
 // const fileInput = document.querySelector('#file-js-example input[type=file]');
 // fileInput.onchange = () => {
@@ -40,3 +83,28 @@ export const renderPostView = () => {
 //     fileName.textContent = fileInput.files[0].name;
 //   }
 // }
+
+//Funciones de Firebase
+let db = firebase.firestore()
+let postRef = db.collection("postsList")
+
+//Esto agrega el post al storage
+function addNewPost(post)
+{return firebase.firestore().collection("postsList").add(post)
+}
+//Esto muestra el post nuevo
+firebase.firestore().collection("postsList").onSnapshot(snap=>{
+  const post = document.querySelector("#posts");
+  post.innerHTML = ''
+  snap.forEach(doc=> {
+    let renderPosts = `<div>
+    <p>${doc.data().title}</p>
+    <p>${doc.data().body}</p>
+    <p> Author:${doc.data().author}</p>
+    <img max- width="200" src="${doc.data().img}" />
+  </div>`
+  const newNode = document.createElement("div")
+  newNode.innerHTML = renderPosts
+  post.appendChild(newNode)
+  })
+})
