@@ -184,7 +184,11 @@ nav .bg-nav{
 .menu-icons {
   float: right;
   color: #ffb82e;
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> 7e2774ad8d42f013e863ed2000302d1f630bd5b5
 .set-icon {
   position: relative;
   left: 85%;

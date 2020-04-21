@@ -66,40 +66,44 @@
                   </span>
                   </div>
 
-                  <a class="forgotten-password">¿Olvidaste tu contraseña?</a>
-                  <input
-                    id="login-submit"
-                    class="submit-button"
-                    type="button"
-                    name="submit"
-                    value="Ingresar"
-                  />
-                </form>
-                <p class="scial-mdia-prgph">Puedes ingresar con:</p>
-                <div class="scial-mdia-btn">
-                  <button class="facebook">
-                    <i class="fab fa-facebook-f"></i>Facebook
-                  </button>
-                  <button class="google">
-                    <i class="fab fa-google"></i>Google
-                  </button>
-                </div>
-                <p class="scial-mdia-prgph">
-                  ¿No tienes una cuenta?
-                  <a class="forgotten-password">Regístrate ahora</a>
-                </p>
+          <div class="form-container control has-icons-right">
+            <h3>Inicia sesión</h3>
+            <form class="login-form">
+              <input class="login-input" id="email-login" type="email" name="email" placeholder="Email" />
+              <div>
+                <input class="login-input" id="password-login" type="password" name="email" placeholder="Password" />
+                <span class="eye-icon"><i class="fas fa-eye"></i>
+                </span>
               </div>
-           
- 
+
+              <div id="email-error"></div>
+              <a class="forgotten-password">¿Olvidaste tu contraseña?</a>
+              <input id="login-submit" class="submit-button" type="button" name="submit" value="Ingresar" />
+            </form>
+            <p class="scial-mdia-prgph">Puedes ingresar con:</p>
+            <div class="scial-mdia-btn">
+              <button class="facebook">
+                <i class="fab fa-facebook-f"></i>Facebook
+              </button>
+              <button class="google">
+                <i class="fab fa-google"></i>Google
+              </button>
+            </div>
+            <p class="scial-mdia-prgph">
+              ¿No tienes una cuenta?
+              <a class="forgotten-password">Regístrate ahora</a>
+            </p>
+          </div>
+
           <div class="card-flex-box">
             <div class="form-container">
               <h3>¡Únete a la comunidad!</h3>
               <form class="login-form">
-                <input class="login-input" type="text" name="name" placeholder="Nombre"/>
-                <input class="login-input" id="email-new" type="email" name="email" placeholder="Email"/>
-                <input class="login-input" id="password-new" type="password" name="email" placeholder="Password"/>
-                <div id= 'invalid-email'></div>
-                
+                <input class="login-input" type="text" name="name" placeholder="Nombre" />
+                <input class="login-input" id="email-new" type="email" name="email" placeholder="Email" />
+                <input class="login-input" id="password-new" type="password" name="email" placeholder="Password" />
+                <div id='invalid-email'></div>
+
                 <input class="submit-button" id="email-submit" type="button" name="submit" value="Registrar">
               </form>
               <p class="scial-mdia-prgph">O crear cuenta con:</p>
@@ -107,9 +111,8 @@
                 <button class="facebook"><i class="fab fa-facebook-f"></i>Facebook</button>
                 <button class="google"><i class="fab fa-google"></i>Google</button>
               </div>
-              
+              <div id="rootHome"></div>
             </div>
-          </div> 
           </div>
         </div>
       </div> 
@@ -165,11 +168,10 @@
             <div class="set-icon">
               <img src="img/icons/set.svg">
             </div>
-            <div class="user-img">
-              <img src="img/xel.jpeg" alt="member">
+            <div class="user-img" id="user-photoURL">
             </div>
             <div class="white">
-              <h3>Xel Jmz</h3>
+              <h3 id="user-displayName"></h3>
             </div>
             <ul class="my-navbar mr-auto menu-container">
               <li class="nav-item active ">
@@ -229,7 +231,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="firebase.js"></script>
   <script type="module" src="main.js"></script>
   <script type="text" src="newPost.js"></script>
 </body>
