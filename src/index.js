@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 buttonLogin.addEventListener('click', function(e) {
                     e.preventDefault();
                     loginPageOne();
+                    movilIcon.classList.add('shown');
                 });
             }).then(function() {
                 // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     facebookButton();
                     viewForum();
                     document.getElementById('hideAndShow').style.display = 'block';
+                    movilIcon.classList.add('shown');
                 });
             })
             .then(function() {
@@ -181,6 +183,7 @@ function googleButton() {
     // Aquí se crea una instancia del objeto del proveedor de Google y facebook
     // esta instancia es para que me redireccione a google o de facebook, es la parte que me lleva a ellos.
     var provider = new firebase.auth.GoogleAuthProvider();
+    var movilIcon = document.getElementById('movilIcon');
 
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -189,6 +192,7 @@ function googleButton() {
         var user = result.user;
         viewForum();
         document.getElementById('hideAndShow').style.display = 'block';
+        movilIcon.classList.add('shown');
         // ...
     }).catch(function(error) {
         // Handle Errors here.
@@ -208,6 +212,7 @@ function googleButton() {
 // en entar a la aplicación en esta parte  la que me hace entrar a la app con facebook (facebook)
 function facebookButton() {
     var provider = new firebase.auth.FacebookAuthProvider();
+    var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithPopup(provider)
         .then(function(result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -215,6 +220,7 @@ function facebookButton() {
             // The signed-in user info.
             var user = result.user;
             viewForum();
+            movilIcon.classList.add('shown');
             document.getElementById('hideAndShow').style.display = 'block';
         }).catch(function(error) {
             // Handle Errors here.
@@ -228,12 +234,12 @@ function facebookButton() {
 }
 // ******** LOG OUT FUNCTION 
 function out() {
-
+    var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signOut()
         .then(function() {
             viewLogin();
-            document.getElementById('hideAndShow').style.display = 'none ';
-
+            document.getElementById('hideAndShow').style.display = 'none';
+            movilIcon.classList.add('shown');
         })
         .catch(function(error) {
             console.log(error);
@@ -245,7 +251,7 @@ function register() {
     var registerEmailLogin2 = document.getElementById('registerLoginEmail2').value;
     var registerPassLogin2 = document.getElementById('registerLoginPass2').value;
     var registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
-
+    var movilIcon = document.getElementById('movilIcon');
     if (registerPassLogin2 != registerConfirmPassLogin2) {
         alert('Las contraseñas deben coincidir');
     } else {
@@ -254,6 +260,7 @@ function register() {
                 // alert('Bienvenido ' + data.user.email);
                 viewForum();
                 document.getElementById('hideAndShow').style.display = 'block';
+                movilIcon.classList.add('shown');
             })
             .catch(function(error) {
                 // Handle Errors here.
