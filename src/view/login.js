@@ -14,7 +14,7 @@ export default () => {
     <button id="btnFB"class="btnRedes"><img src="https://raw.githubusercontent.com/IrisFyD/CDMX009-Social-Network/master/src/img/facebook.png" alt="" class="btnRedes"></button>
     </div>
     <p class="txt">¿No tienes una cuenta?</p>
-    <a href="#/SignUp">Regístrate</a>
+    <a href="#signUp">Regístrate</a>
     </div>
     `
     const divElement = document.createElement('div')

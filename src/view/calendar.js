@@ -1,6 +1,12 @@
 export default () => {
     const root = document.getElementById('root')
     const viewCalendar = `
+    <div class="img-Logo">
+    <img src="img/LogoBlancoDigiTarea.png">
+    </div>
+    <div class="userNamePh">
+        <img src="img/User.svg">
+    </div>
     <h2 class="titleCalendar"> CALENDARIO </h2>
     <div class="mainConteinerCalendar">
     <img class="calendar" src="https://github.com/IrisFyD/CDMX009-Social-Network/blob/master/src/img/Calendar-01.png?raw=true" alt="">

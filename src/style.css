@@ -3,6 +3,35 @@ body{
   font-family:Century Gothic;
   overflow-x: hidden;
 }
+/*User photo*/
+/*
+.userNamePh {
+  display: flex;
+  flex-direction: row;
+}*/
+
+.userNamePh img {
+  margin-top: 40px;
+  background-color:#ffffff;
+  padding: 5px;
+  border-radius: 60px;
+  margin: 10px 20px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+.img-Logo img{
+margin-left: 5%;
+margin-top: 40px;
+height: 100px;
+width: 160px;
+display: flex;
+flex-direction: column;
+
+}
 
 /*VIEW SPLASH*/
 .splash{
@@ -354,7 +383,7 @@ justify-content: center;
 }
 
 .titleCalendar{
-font-size: 50px;
+font-size: 30px;
 color: #FFFFFF;
 text-align: center;
 }

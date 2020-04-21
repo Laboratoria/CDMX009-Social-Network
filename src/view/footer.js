@@ -1,5 +1,6 @@
 
 export default () => {
+  const root = document.getElementById('root')
     const viewFooter = `<div>
 <ul>
   <li><a href="#/calendar"><img src="img/calendar.svg"></a></li>

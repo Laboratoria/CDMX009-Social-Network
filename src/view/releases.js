@@ -1,5 +1,12 @@
 export default () => {
+    const root = document.getElementById('root')
     const viewReleases = `
+    <div class="img-Logo">
+    <img src="img/LogoBlancoDigiTarea.png">
+    </div>
+    <div class="userNamePh">
+        <img src="img/User.svg">
+    </div>
     <div class="release">
   <h2>COMUNICADOS</h2>
 </div>
