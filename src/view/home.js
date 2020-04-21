@@ -45,36 +45,7 @@ export default () => {
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="post">
-        <img src="img/pictures/helado1.jpg">
-        <div class="txt-post-container">
-          <p class="info-post"><span class="title-post">Karina Sr</span><br>
-            Los bowls
-          </p>
-          <p class="info-post justify-right">#comida<br>
-            Hace 2 hrs
-          </p>
-        </div>
-        <span class="stars-post">
-          <i class="fas fa-star">4.4</i>
-        </span>
-        </div>
-      <div class="post">
-        <img src="img/pictures/dog_shower.jpg">
-        <div class="txt-post-container">
-          <p class="info-post"><span class="title-post">Karina Sr</span><br>
-            Los bowls
-          </p>
-          <p class="info-post justify-right">#comida<br>
-            Hace 2 hrs
-          </p>
-        </div>
-        <span class="stars-post">
-          <i class="fas fa-star">4.4</i>
-        </span>
-      </div>
-    </div>
+
     `;
 
     const divElemt = document.createElement('div');

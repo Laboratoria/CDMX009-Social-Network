@@ -6,7 +6,6 @@ import Saved from './saved.js';
 import Followers from './followers.js';
 import Follow from './follow.js';
 import Menu from './menu.js';
-import NewPost from './newPost.js';
 import Different from './404.js';
 
 
@@ -19,7 +18,6 @@ const components = {
     followers: Followers,
     follow: Follow,
     menu: Menu,
-    newPost: NewPost,
     different: Different
 }
 

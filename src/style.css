@@ -184,7 +184,11 @@ nav .bg-nav{
 .menu-icons {
   float: right;
   color: #ffb82e;
+<<<<<<< HEAD
+}
+=======
 };
+>>>>>>> 7e2774ad8d42f013e863ed2000302d1f630bd5b5
 .set-icon {
   position: relative;
   left: 85%;
@@ -348,8 +352,6 @@ nav .bg-nav{
   justify-content: center;
 }
 .card-text{
-  position: absolute;
-  top: 40%;
   width: 75%;
   background-color: #fff;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
@@ -372,4 +374,42 @@ nav .bg-nav{
 
 .img-add-friend{
   width: 10%;
+}
+
+
+/*Modal posts*/
+.modal-img{
+  display: flex;
+  justify-content: center!important;
+  align-items: center!important;
+  height: 300px;
+}
+
+/*view-posts*/
+.card-post-container{
+  display: flex!important;
+  justify-content: center!important;
+}
+.card-title-post{
+  position: relative;
+  background-color: #fff;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 17px 17px 0px 17px;
+  width: 90%;
+}
+
+.edit-delete-icons{
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  left: 70%;
+  top: 20%;
+}
+.edit-delete-icons i{
+  padding: 5px;
+}
+.subtitle-post{
+  display: flex;
+  justify-content: space-between;
 }
