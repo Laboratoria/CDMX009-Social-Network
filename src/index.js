@@ -1,103 +1,98 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('hideAndShow').style.display = 'none';
-    document.getElementById('movilIcon').style.display = 'none';
-    viewLogin()
-        .then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
-            var buttonLogin = document.querySelector('#doLogin');
-            buttonLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                loginPageOne();
-            });
-        }).then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
-            var buttonGoogle = document.querySelector('#loginGoogle');
-            buttonGoogle.addEventListener('click', function(e) {
-                e.preventDefault();
-                googleButton();
-            });
-        })
-        .then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al
-            // que quiero darle el click en este caso el ingreso con facebook
-            var buttonFacebook = document.querySelector('#loginFacebook');
-            buttonFacebook.addEventListener('click', function(e) {
-                e.preventDefault();
-                facebookButton();
-                viewForum();
-                document.getElementById('hideAndShow').style.display = 'block';
-            });
-        })
-        .then(function() {
-            var ntAccount = document.querySelector('#reg');
-            ntAccount.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewRegister()
-                    .then(function() {
-                        var buttonReg = document.querySelector('#doRegister');
-                        buttonReg.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            register();
+        document.getElementById('hideAndShow').style.display = 'none';
+        document.getElementById('movilIcon').style.display = 'none';
+        viewLogin()
+            .then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
+                var buttonLogin = document.querySelector('#doLogin');
+                buttonLogin.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginPageOne();
+                });
+            }).then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
+                var buttonGoogle = document.querySelector('#loginGoogle');
+                buttonGoogle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    googleButton();
+                });
+            })
+            .then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al
+                // que quiero darle el click en este caso el ingreso con facebook
+                var buttonFacebook = document.querySelector('#loginFacebook');
+                buttonFacebook.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    facebookButton();
+                    viewForum();
+                    document.getElementById('hideAndShow').style.display = 'block';
+                });
+            })
+            .then(function() {
+                var ntAccount = document.querySelector('#reg');
+                ntAccount.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    viewRegister()
+                        .then(function() {
+                            var buttonReg = document.querySelector('#doRegister');
+                            buttonReg.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                register();
+                            });
+                        })
 
-                        });
-                    })
-
-            });
-        })
-        .then(function() {
-            var viewRedirectionForum = document.querySelectorAll('.foro');
-            console.log("Foro", viewRedirectionForum);
-            viewRedirectionForum.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewForum();
-                window.history.pushState('Foro', 'Foro', '/Foro')
-            }));
-        }).then(function() {
-            var viewRedirectionProfile = document.querySelectorAll('.perfil');
-            console.log("Profile", viewRedirectionProfile);
-            viewRedirectionProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewProfile();
-                window.history.pushState('perfil', 'Perfil', '/Perfil');
-            }));
-        })
-        .then(function() {
-            var viewRedirectionEditProfile = document.querySelectorAll('.editarPerfil');
-            console.log("Foro", viewRedirectionEditProfile);
-            viewRedirectionEditProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                editionOfProfile();
-                window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
-            }));
-        })
-        .then(function() {
-            var viewRedirectionGetOut = document.querySelectorAll('.cerrarSesion');
-            console.log("cerrarSesion", viewRedirectionGetOut);
-            viewRedirectionGetOut.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewLogin();
-                window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
-            }));
-        })
-        .then(function() {
-            var getOut = document.querySelector('.cerrarSesion');
-            getOut.addEventListener('click', function(e) {
-                e.preventDefault();
-                out();
-            });
-        })
-})
-
-
-// por si quiero limpiar root: document.getElementById('root').innerHTML = '';
+                });
+            })
+            .then(function() {
+                var viewRedirectionForum = document.querySelectorAll('.foro');
+                console.log("Foro", viewRedirectionForum);
+                viewRedirectionForum.forEach(nodo => nodo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    viewForum();
+                    window.history.pushState('Foro', 'Foro', '/Foro')
+                }));
+            }).then(function() {
+                var viewRedirectionProfile = document.querySelectorAll('.perfil');
+                console.log("Profile", viewRedirectionProfile);
+                viewRedirectionProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    viewProfile();
+                    window.history.pushState('perfil', 'Perfil', '/Perfil');
+                }));
+            })
+            .then(function() {
+                var viewRedirectionEditProfile = document.querySelectorAll('.editarPerfil');
+                console.log("Foro", viewRedirectionEditProfile);
+                viewRedirectionEditProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    editionOfProfile();
+                    window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
+                }));
+            })
+            .then(function() {
+                var viewRedirectionGetOut = document.querySelectorAll('.cerrarSesion');
+                console.log("cerrarSesion", viewRedirectionGetOut);
+                viewRedirectionGetOut.forEach(nodo => nodo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    viewLogin();
+                    window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
+                }));
+            })
+            .then(function() {
+                var getOut = document.querySelector('.cerrarSesion');
+                getOut.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    out();
+                });
+            })
+    })
+    // por si quiero limpiar root: document.getElementById('root').innerHTML = '';
 
 // Navegador en móvil
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 });
-
-
 
 
 
@@ -160,10 +155,12 @@ function viewLogin() {
 function loginPageOne() {
     var email = document.getElementById('email').value;
     var pass = document.getElementById('pass').value;
+    var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
             viewForum();
             document.getElementById('hideAndShow').style.display = 'block';
+            movilIcon.classList.add('shown');
         })
         .catch(function(error) {
             alert('Los datos ingresados no son correctos');
@@ -231,10 +228,12 @@ function facebookButton() {
 }
 // ******** LOG OUT FUNCTION 
 function out() {
+
     firebase.auth().signOut()
         .then(function() {
             viewLogin();
             document.getElementById('hideAndShow').style.display = 'none ';
+
         })
         .catch(function(error) {
             console.log(error);

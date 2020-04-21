@@ -618,11 +618,11 @@ input.validatePassword.boxFields {
     }
 }
 
-@media (max-width: 640px) {
+@media only screen and (max-width: 640px) {
     body {
         width: 100%;
     }
-    .sidenav-trigger {
-        display: block;
+    .sidenav-trigger.shown {
+        display: block !important;
     }
 }
