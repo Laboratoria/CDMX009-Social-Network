@@ -76,16 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("cerrarSesion", viewRedirectionGetOut);
                 viewRedirectionGetOut.forEach(nodo => nodo.addEventListener('click', function(e) {
                     e.preventDefault();
-                    viewLogin();
-                    window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
-                }));
-            })
-            .then(function() {
-                var getOut = document.querySelector('.cerrarSesion');
-                getOut.addEventListener('click', function(e) {
-                    e.preventDefault();
                     out();
-                });
+
+                }));
             })
     })
     // por si quiero limpiar root: document.getElementById('root').innerHTML = '';
@@ -234,15 +227,15 @@ function facebookButton() {
 }
 // ******** LOG OUT FUNCTION 
 function out() {
-    var movilIcon = document.getElementById('movilIcon');
 
     firebase.auth().signOut()
         .then(function() {
-            viewLogin();
-            // movilIcon.classList.remove('shown');
+            document.getElementById('movilIcon').classList.toggle('shown');
             document.getElementById('hideAndShow').style.display = 'none';
-
-
+        })
+        .then(function() {
+            viewLogin();
+            window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
         })
         .catch(function(error) {
             console.log(error);
