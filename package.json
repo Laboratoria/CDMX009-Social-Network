@@ -32,5 +32,10 @@
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
+  },
+  "dependencies": {
+    "@firebase/firestore": "^1.14.1",
+    "@firebase/storage": "^0.3.32",
+    "@google-cloud/storage": "^4.7.0"
   }
 }
