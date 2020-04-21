@@ -1,7 +1,6 @@
 *,body, html{
   font-family: 'Raleway', sans-serif;
   margin: 0;
-  
 }
 
 a{
@@ -101,4 +100,5 @@ font-size: 18px;
 
 .newuser-text{
   color: #fff; 
+  text-shadow: 2px 1px 2px #515457;
 }
