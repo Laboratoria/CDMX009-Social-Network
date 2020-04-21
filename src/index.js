@@ -87,14 +87,32 @@ $('.google').click(function(){
 });
 
 
-//Post/Firestore
-
 
 //Initialize Cloud Firestore through Firebase
 let db = firebase.firestore();
 
+
+
+
 //nodos
 let savePost = document.querySelector('#savePost');
+let fileInput = document.querySelector('#file');
+let url
+
+
+fileInput.onchange = e => {
+    let file = e.target.files[0]
+    firebase.storage().ref("img").child(file.name).put(file)
+        .then(snap => {
+            return snap.ref.getDownloadURL()
+        })
+        .then(link => {
+            url = link
+            let img = document.createElement('img')
+            img.src = link
+            document.body.appendChild(img)
+        })
+}
 
 
 //Add users
@@ -106,10 +124,10 @@ savePost.onclick = () => {
   let description = document.querySelector('#recipientDescription').value;
 
     db.collection("posts").add({
-      titulo: title,
-      actividad: activity,
-      ubicacion: location,
-      descripcion: description
+      title: title,
+      activity: activity,
+      location: location,
+      description: description
     })
       .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -124,27 +142,43 @@ savePost.onclick = () => {
 }
 
 
-//Leer documentos
-let post = document.querySelector('#printInfo');
-  db.collection("posts")
-    .onSnapshot((querySnapshot) => {
+//Read documents
+let post = document.querySelector('#contentCreated');
+  db.collection("posts").onSnapshot((querySnapshot) => {
       
       post.innerHTML = '';
       querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().first}`);
+        console.log(`${doc.id} => ${doc.data().title}`);
           post.innerHTML += `   
-          <p id="titlePost">${doc.data().titulo}</p>
-          <p id="activityPost">${doc.data().actividad}</p>
-          <p id="locationPost">${doc.data().ubicacion}</p>
-          <p id="descriptionPost">${doc.data().descripcion}</p>       
-
+          <div class="container">
+            <div class="post-img">
+              
+            </div>
+            <div class="card-post-container">
+              <div class="card-title-post">
+                <h4 id="titlePost">${doc.data().title}</h4>
+                <span class="edit-delete-icons">
+                  <p>
+                    <i class="far fa-trash-alt" onclick="deletePost('${doc.id}')"></i>
+                  </p>
+                  <i class="fas fa-pencil-alt" onclick="editPost('${doc.id}', '${doc.data().title}','${doc.data().activity}','${doc.data().location}','${doc.data().description}')"></i>
+                </span>
+                <div class="subtitle-post">
+                  <p id="activityPost">${doc.data().activity}</p>
+                  <p id="locationPost">${doc.data().location}</p>
+                </div>
+              </div>
+            </div>
+              <p id="descriptionPost">${doc.data().description}</p>  
+          </div>     
           `
   });
 });
-/* 
-//borrar documentos
-function deleteUser(idUser){
-  db.collection("users").doc(idUser).delete()
+
+
+//delete documents
+function deletePost(idPost){
+  db.collection("posts").doc(idPost).delete()
     .then(function() {
       console.log("Document successfully deleted!");
     }).catch(function(error) {
@@ -152,33 +186,37 @@ function deleteUser(idUser){
   });
 }
 
-//editar documentos
-function editUser(idUser, name, lastName, date){
-  document.querySelector('#name').value = name;
-  document.querySelector('#lastName').value = lastName;
-  document.querySelector('#date').value = date;
+//edit documents
+function editPost(idUser, title, activity, location, description){
+  document.querySelector('#recipientTitle').value = title;
+  document.querySelector('#recipientActivity').value = activity;
+  document.querySelector('#recipientLocation').value = location;
+  document.querySelector('#recipientDescription').value = description;
 
-  let saveChangesUser = document.querySelector('#saveUser');
+  let saveChangesPost = document.querySelector('#saveUser');
   saveChangesUser.innerHTML = 'Editar';
 
-  saveChangesUser.onclick = () => {
-    var user = db.collection("users").doc(idUser);
+  saveChangesPost.onclick = () => {
+    var post = db.collection("posts").doc(idUser);
 
-    let name = document.querySelector('#name').value;
-    let lastName = document.querySelector('#lastName').value;
-    let date = document.querySelector('#date').value;
+    let title = document.querySelector('#recipientTitle').value;
+    let activity = document.querySelector('#recipientActivity').value;
+    let location = document.querySelector('#recipientLocation').value;
+    let description = document.querySelector('#recipientDescription').value;
 
-      return user.update({
-        first: name,
-        last: lastName,
-        born: date
+      return post.update({
+        title: title,
+        activity: activity,
+        location: location,
+        description: description
       })
       .then(function() {
         console.log("Document successfully updated!");
-        saveChangesUser.innerHTML = 'Guardar';
-        document.querySelector('#name').value = '';
-        document.querySelector('#lastName').value = '';
-        document.querySelector('#date').value = '';
+        saveChangesPost.innerHTML = 'Guardar';
+        document.querySelector('#recipientTitle').value = '';
+        document.querySelector('#recipientActivity').value = '';
+        document.querySelector('#recipientLocation').value = '';
+        document.querySelector('#recipientDescription').value = '';
       })
       .catch(function(error) {
         // The document probably doesn't exist.
@@ -187,5 +225,14 @@ function editUser(idUser, name, lastName, date){
   }
 
 }
- */
  
+ 
+//storage
+// Only authenticated users can read or write to the bucket
+/* service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+} */

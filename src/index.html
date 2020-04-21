@@ -28,12 +28,6 @@
       href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@300;400&family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
     <script
       src="https://kit.fontawesome.com/1197ff44ad.js"
       crossorigin="anonymous"
@@ -126,7 +120,9 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content" id="modalContent">
             <div class="modal-header">
-              <button type="file">Subir foto</button>
+              <div class="modal-img">
+                <input type="file" id="file" value=""></input>
+              </div>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button> <!-- boton cerrar -->
@@ -134,9 +130,13 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="recipientTitle" placeholder="titulo de la publicación">
-                  <input type="text" class="form-control" id="recipientActivity" placeholder="#actividades">
-                  <input type="text" class="form-control" id="recipientLocation" placeholder="ubicación">
+                  <div class="card-post-container">
+                    <div class="card-text">
+                      <input type="text" class="form-control" id="recipientTitle" placeholder="Titulo de la publicación">
+                      <input type="text" class="form-control" id="recipientActivity" placeholder="#categoría">
+                      <input type="text" class="form-control" id="recipientLocation" placeholder="Ubicación">
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <textarea class="form-control" id="recipientDescription" placeholder="Escribe aqui tu reseña o actividad"></textarea>
@@ -146,16 +146,13 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" id="savePost">publicar</button>
             </div>
-            <div id="printInfo">
-
-            </div>
           </div>
         </div>
       </div>
     </section>
 <section class="menu bg-color">
     <header>
-      <div id="header"></div>
+      <div id="header">
       <div class="container header-container">
         <nav class="bg-nav navbar-expand-lg navbar-light">
           <button class="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -213,10 +210,13 @@
           </a>
         </div>
       </div>
-      <div class="container"></div>
+    </div>
+    </header>
+
+      <div class="container">
+      </div>
 
     </section> 
-
    
     <section id="contentCreated"></section>
 
