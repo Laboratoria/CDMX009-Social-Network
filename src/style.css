@@ -183,8 +183,8 @@ nav .bg-nav{
 }
 .menu-icons {
   float: right;
-  color: #ffb82e;<i class="fas fa-filter"></i>
-}
+  color: #ffb82e;
+};
 .set-icon {
   position: relative;
   left: 85%;
