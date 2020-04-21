@@ -1,5 +1,5 @@
 import renderLogin from './screens/login.js';
-import renderAbout from './screens/profile.js';
+import addNewPost from './screens/profile.js';
 import renderHome from './screens/posts.js';
 import logFb from './screens/logFacebook.js';
 
@@ -14,7 +14,7 @@ function router(route) {
     console.log(route)
     switch (route) {
         case '/about':
-            renderAbout();
+            addNewPost();
             break;
         case '/login':
             renderLogin();
