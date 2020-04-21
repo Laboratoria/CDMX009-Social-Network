@@ -32,7 +32,7 @@ export function loginGoogle(errorGooFbkModal) {
             .signInWithPopup(provider)//Se va a usar una popUp y se va a loguear con la var provider que es google
             .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
-                guardaDatos(result.user)//Se le manda a la func guardDatos para hacer uns BD
+                saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
             })
             .catch(function (error) {
@@ -43,7 +43,7 @@ export function loginGoogle(errorGooFbkModal) {
 }
 
 //Guardar datos gmail en BD
-function guardaDatos(user) {
+function saveDataG(user) {
     //console.log(user);
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
@@ -81,7 +81,7 @@ export function loginFacebook(errorGooFbkModal) {
             .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 console.log(result.credential);
-                guardaDatosFb(result.user)//Se le manda a la func guardDatos para hacer una BD
+                saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
             })
             .catch(function (error) {
@@ -92,7 +92,7 @@ export function loginFacebook(errorGooFbkModal) {
 }
 
 //Guardar datos Fb en BD
-function guardaDatosFb(user) {
+function saveDataF(user) {
     //console.log(user);
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({

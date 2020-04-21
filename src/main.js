@@ -44,7 +44,6 @@ btnExit.addEventListener('click', signoutUser)
 
 //Mostrar vista (una antes de iniciar sesión)
 function principalView() {
-    //const divRoot = document.querySelector('#root')
     root.innerHTML = principal()
     let goLogin = document.querySelector('#goLogin')
     goLogin.addEventListener('click', viewLogin)
@@ -52,15 +51,14 @@ function principalView() {
 
 //Mostrar vista iniciar sesión
 export function viewLogin() {
-    //const divRoot = document.querySelector('#root')
     root.innerHTML = login()
     let goSignIn = document.querySelector('#goSignIn')
 
     //Listeners modales
-    const btnCloseError = document.querySelector('#btn-cerrar-error');
+    const btnCloseError = document.querySelector('#btnCloseError');
     btnCloseError.addEventListener('click', closeError);
     const errorGooFbkModal = document.querySelector('#noAccountGooFbk');
-    const btnCloseGoogleError = document.querySelector('#btn-cerrar-noGooFbk');
+    const btnCloseGoogleError = document.querySelector('#btnCloseNoGooFbk');
     btnCloseGoogleError.addEventListener('click', closeGooFbkError)
 
     //Ingresar
@@ -90,17 +88,16 @@ export function viewLogin() {
 export function viewSign(goSignIn) {
     goSignIn.addEventListener('click', (e) => {
         e.preventDefault()
-        //const divRoot = document.querySelector('#root')
         root.innerHTML = signIn()
 
         //Listeners Modales
-        const btnCloseError = document.querySelector('#btn-cerrar-error');
+        const btnCloseError = document.querySelector('#btnCloseError');
         btnCloseError.addEventListener('click', closeError);
-        const btnCloseExist = document.querySelector('#btn-cerrar-exist-error');
+        const btnCloseExist = document.querySelector('#btnCloseExistAccount');
         btnCloseExist.addEventListener('click', closeErrorExist);
         let btnBack = document.querySelector('#backOne')
         const errorGooFbkModal = document.querySelector('#noAccountGooFbk');
-        const btnCloseGoogleError = document.querySelector('#btn-cerrar-noGooFbk');
+        const btnCloseGoogleError = document.querySelector('#btnCloseNoGooFbk');
         btnCloseGoogleError.addEventListener('click', closeGooFbkError)
 
         //Crear cuenta
@@ -140,8 +137,7 @@ export function viewSign(goSignIn) {
 function arrowBack(btnBack) {
     btnBack.addEventListener('click', (e) => {
         e.preventDefault()
-        const divRoot = document.querySelector('#root')
-        divRoot.innerHTML = login()
+        root.innerHTML = login()
         viewLogin()
     })
 }

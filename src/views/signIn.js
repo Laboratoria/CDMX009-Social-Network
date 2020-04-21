@@ -43,7 +43,7 @@ export default () => {
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class = "containerPop">
-                <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-error"></button>
+                <button class="modal-close is-large" aria-label="close"  id="btnCloseError"></button>
                 <h1 class="title">ERROR</h1>
                 <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
                 <p>Comprueba tu correo o contraseña: debe contener al menos 6 caracteres,un número, una minúscula y una mayúscula.</p>
@@ -55,7 +55,7 @@ export default () => {
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class = "containerPop">
-                <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-exist-error"></button>
+                <button class="modal-close is-large" aria-label="close"  id="btnCloseExistAccount"></button>
                 <h1 class="title">ERROR</h1>
                 <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
                 <p>La cuenta ya existe</p>
@@ -71,7 +71,7 @@ export default () => {
             <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
             <p>No tienes una cuenta</p>
         </div>
-            <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-noGooFbk"></button>
+            <button class="modal-close is-large" aria-label="close"  id="btnCloseNoGooFbk"></button>
     </div>
 </div>
 

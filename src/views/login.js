@@ -44,7 +44,7 @@ export default () => {
             <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
             <p>Intenta de nuevo, alguno de tus datos no coincide</p>
         </div>
-            <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-error"></button>
+            <button class="modal-close is-large" aria-label="close"  id="btnCloseError"></button>
     </div>
 </div>
 
@@ -56,7 +56,7 @@ export default () => {
             <a href = "#" id="error" class = "imagePop"><i class="far fa-dizzy"></i></a>
             <p>No tienes una cuenta</p>
         </div>
-            <button class="modal-close is-large" aria-label="close"  id="btn-cerrar-noGooFbk"></button>
+            <button class="modal-close is-large" aria-label="close"  id="btnCloseNoGooFbk"></button>
     </div>
 </div>
 
