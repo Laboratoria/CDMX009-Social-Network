@@ -159,10 +159,13 @@ renderSignUp();
 export const renderFirstProfile = () => {
     root.classList.remove("signUpAndIn");
     const firstProfile = `
-    <div id="prof"  class="file is-centered">
+
+    <div class="file is-centered is-rounded">
+    <img width="100" id="pp"/>
     </div>
         <div class="file is-centered">
             <label class="file-label">
+            
                 <input id="profilePicture" class="file-input" type="file" name="profile"/>
                 <span class="file-cta">
                     <span class="file-icon">
@@ -174,13 +177,6 @@ export const renderFirstProfile = () => {
                 </span>
             </label>
         </div>    
-        <div class="field">
-            <div class="file is-centered">
-                <button id="uploadProfilePicture" class="button is success button is-small has-background-warning is-rounded">
-                SUBIR
-                </button>
-            </div>
-        </div>
         <div class="file is-centered">
             <div class="control">
                 <div class="has-text-centered has-text-black title is-6">
@@ -213,20 +209,82 @@ export const renderFirstProfile = () => {
             </div>
         </div>
         `;
-    root.innerHTML = `${logoM}${firstProfile}`;
+        root.innerHTML = `${logoM}${firstProfile}`;
+
+    database.getProfilePic()
+    .then(data=>{
+        console.log(data)
+document.querySelector('#pp').src=data.url
+    })
+    
+    document.querySelector('#profilePicture').addEventListener('change',function(event) {
+           database.uploadPicture(event.target.files[0]);
+    });
 };
+
+    /*const formCommit = () => {
+        const formPic = document.querySelector('profilePicture').value;
+        const formUser = document.querySelector('userName').value;
+        if (formPic && formUser) {
+            console.log('yes image,yes form');
+        } else if (!formPic && formUser) {
+            console.log('No image,yes form');
+        } else if (formPic && !formUser) {
+            console.log('yes image,no form');
+        } else if (!formPic && !formUser) {
+            console.log('no image,no form');
+        }
+    };*/
+
 document.addEventListener('click',function(event) {
     if (event.target && event.target.id === 'confirm') {
         database.saveData();
+        //formCommit();
     }
 });
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'uploadProfilePicture') {
-        database.uploadPicture();
-    }
-});
+
 document.addEventListener('click',function(event) {
     if (event.target && event.target.id === 'logout') {
         database.logout();
     }
 });
+const renderFeed = () => {
+    root.classList.remove("signUpAndIn");
+    root.classList.remove("renderFirstProfile");
+    const feed = `
+    <div class="navbar is-inline-flex is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="https://ibb.co/Gsk8bhg" width="112" height="28">
+            </a>
+        </div>
+        <div class="navbar-item is-flex-touch">
+            <a class="navbar-item">
+                <i class="material-icons"> Home </i>
+            </a>
+            <a class="navbar-item">
+                <i class="material-icons"> Agregar </i>
+            </a>
+            <a class="navbar-item">
+                <i class="material-icons"> Profile </i>
+            </a>
+        </div>
+    </div>
+    <div class="columns body-columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="card">
+            <div class="header">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="https://ibb.co/hfbXZQH" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4"> Pipo Rodríguez </p>
+                        <p class="subtitle is-6">@Pipopistolas</p>
+                    </div>
+                </div>
+            </div>
+    ` 
+}

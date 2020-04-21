@@ -100,6 +100,14 @@ const database = {
       // ...
     });
   },
+  getProfilePic:()=>{
+    let uid = firebase.auth().currentUser.uid
+    return firebase.firestore().collection('image').doc(uid).get()
+    .then(doc=>{
+      return doc.data()
+    })
+  },
+  /*
   showImage: () =>{
     imageRef.on("value", function(snapshot){
       let data = snapshot.val();
@@ -111,12 +119,13 @@ const database = {
       }
       document.getElementById("prof").innerHTML = result;
     });
-  },  
-  uploadPicture: () => {
-    database.showImage();
-    let image = document.getElementById('profilePicture');
-    let uploadPicture = image.files[0];
-    let uploadTask = storage.child('profilePictures/' + uploadPicture.name).put(uploadPicture);
+  },  funcion para mostrar postesesss*/
+  uploadPicture: (file) => {
+    
+    
+    //let image = document.getElementById('profilePicture');
+    //let uploadPicture = image.files[0];
+    let uploadTask = storage.child('profilePictures/' + file.name).put(file);
 
     uploadTask.on('state_changed', function(snapshot){
       // Observe state change events such as progress, pause, and resume
@@ -137,18 +146,21 @@ const database = {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+      
         console.log('File available at', downloadURL);
-        database.createNodeFirebase(uploadPicture.name, downloadURL);
+        database.createNodeFirebase(file.name, downloadURL);
+        database.getProfilePic();
+   
       });
     });
 
   },  
   createNodeFirebase: (nameImage, url) => {
     imageRef.push({name: nameImage, url: url }) //tiempo real
-    db.collection("image").add({ 
+    db.collection("image").doc(firebase.auth().currentUser.uid).set({ 
       name: nameImage, 
       url: url,
-      uid: firebase.auth().currentUser.uid,
+      uid: firebase.auth().currentUser.uid
     });
   },
   
