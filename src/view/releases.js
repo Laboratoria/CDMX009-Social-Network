@@ -28,6 +28,7 @@ export default () => {
 
     const divElement = document.createElement('div')
     divElement.innerHTML = viewReleases;
-  
-    return divElement;
-  }
+    root.appendChild(divElement)
+  return divElement;
+}
+

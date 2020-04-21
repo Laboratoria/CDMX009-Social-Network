@@ -30,7 +30,6 @@ export default () => {
         </tr>
       </tbody>
     </table>
-    
       <div class="homework">
     <p>Semana 30 Marzo - 3 Abril</p>
  </div>
@@ -63,6 +62,8 @@ export default () => {
 
     const divElement = document.createElement('div')
     divElement.innerHTML = viewHomework;
-  
-    return divElement;
-  }
+    root.appendChild(divElement)
+
+  return divElement;
+}
+
