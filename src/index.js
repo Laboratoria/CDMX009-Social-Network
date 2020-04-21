@@ -235,14 +235,18 @@ function facebookButton() {
 // ******** LOG OUT FUNCTION 
 function out() {
     var movilIcon = document.getElementById('movilIcon');
+
     firebase.auth().signOut()
         .then(function() {
             viewLogin();
+            // movilIcon.classList.remove('shown');
             document.getElementById('hideAndShow').style.display = 'none';
-            movilIcon.classList.add('shown');
+
+
         })
         .catch(function(error) {
             console.log(error);
+
         });
 }
 
