@@ -16,18 +16,19 @@ function loginGoogle(){
     }
   });
 }
-
+//Login facebook
 function loginFB(){
   firebase.auth()
   .signInWithPopup(providerFB)
   .then(function(result) {
-    //console.log(result.user);
+    console.log(result.user);
     saveDataUser(result.user);
     if (result.user.emailVerified){
       window.open('#home','_self')
     }
   });
 }
+
 //Save user by login
 function saveDataUser(user){
 let userNew = {
