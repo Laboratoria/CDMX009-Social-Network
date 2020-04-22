@@ -1,6 +1,5 @@
 export default () => {
-   const root = document.getElementById('root')
-    const viewReleases = `
+  const viewReleases = `
     <div class="release">
   <h2>COMUNICADOS</h2>
 </div>
@@ -27,9 +26,8 @@ export default () => {
 </section>
       `
 
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewReleases;
-    root.appendChild(divElement)
-  return divElement;
-}
+  const divElement = document.createElement("div");
+  divElement.innerHTML = viewReleases;
 
+  return divElement;
+};

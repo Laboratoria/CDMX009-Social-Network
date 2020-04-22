@@ -1,6 +1,6 @@
 export default () => {
-  const root = document.getElementById('root')
-    const viewHomework = `
+
+  const viewHomework = `
     <div class="homework">
     <h1>TAREAS</h1>
     <p>Semana 6 - 10 Abril</p>
@@ -61,9 +61,8 @@ export default () => {
   </table>
       `
 
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewHomework;
-    root.appendChild(divElement)
+  const divElement = document.createElement('div')
+  divElement.innerHTML = viewHomework;
 
   return divElement;
 }
