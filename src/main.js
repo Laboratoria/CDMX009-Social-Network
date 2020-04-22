@@ -104,6 +104,7 @@ export function viewSign(goSignIn) {
         let btnRegister = document.querySelector('#signIn')
         btnRegister.addEventListener('click', function (e) {
             e.preventDefault()
+
             //Leer variables del form
             const newName = document.querySelector('#newName').value
             const newEmail = document.querySelector('#newEmail').value
@@ -114,6 +115,7 @@ export function viewSign(goSignIn) {
             console.log(newEmail);
             console.log(newPassword); */
             createUser(newName, newEmail, newPassword, registryModal, alreadyExistModal)
+
 
         })
         //Ocultar Modales

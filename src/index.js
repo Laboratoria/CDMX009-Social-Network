@@ -1,3 +1,4 @@
+import { root } from "../main.js";
 import { viewLogin } from '/main.js'
 import { viewSign } from '/main.js'
 import { renderHomeView } from "./views/home.js"
@@ -5,6 +6,7 @@ import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
 //import { renderLoginView } from "./views/login.js"
 import { renderExitView } from "./views/exit.js"
+import { userObserverProfile } from "./views/profile.js"
 
 export const components = {
     home: renderHomeView,
@@ -34,6 +36,7 @@ export function loginGoogle(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
+
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -48,9 +51,9 @@ function saveDataG(user) {
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
         uid: user.uid,//Servirá para eliminar
-        nombre: user.displayName,//Se obtiene el nom
+        name: user.displayName,//Se obtiene el nom
         email: user.email,
-        foto: user.photoURL
+        photo: user.photoURL
     })
         .then(function () {
             console.log('Los datos se guardaron');
@@ -82,6 +85,7 @@ export function loginFacebook(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 console.log(result.credential);
                 saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
+
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
             })
             .catch(function (error) {
@@ -97,9 +101,9 @@ function saveDataF(user) {
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
         uid: user.uid,
-        nombre: user.displayName,
+        name: user.displayName,
         email: user.email,
-        foto: user.photoURL
+        photo: user.photoURL
     })
         .then(function () {
             console.log('Los datos se guardaron');
@@ -135,6 +139,7 @@ export function createUser(newName, newEmail, newPassword, registryModal, alread
                 console.log('Se ha creado la cuenta!');
                 console.log(user.user);
                 saveEmailBD(newName, newEmail, newPassword, user)
+                userObserverProfile()
             })
             .catch(function (error) {//Si la cuenta se ha creado se muestra el error
                 alreadyExistModal.classList.add('is-active');
@@ -198,13 +203,15 @@ function userObserver() {
             docRef.get().then(function (snapshot) {
                 let myData = snapshot.data();
                 console.log(myData);
-                /* div.innerHTML = `Hola <img src='${myData.foto}'> ${myData.nombre} ` */
+
             })
         } else {
             // No user is signed in.
             console.log('No user');
         }
+
     });
+
 }
 userObserver()
 

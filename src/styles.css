@@ -89,3 +89,9 @@ a{
         color:#2E2F32;
        
 }
+.ocultEditProfile{
+    visibility: hidden;
+}
+.active{
+    visibility: visible;
+}
