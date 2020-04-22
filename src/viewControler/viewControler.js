@@ -1,7 +1,7 @@
 import { components } from "../view/index.js";
 
 const changeView = (route) => {
-<<<<<<< HEAD
+
     const root = document.getElementById('root')
     //const footer = document.getElementById('footer')
     root.innerHTML = '';
@@ -27,7 +27,7 @@ switch (route){
   /*switch (route){
     case '#/':
     {
-=======
+
   const root = document.getElementById("root");
   const footer = document.getElementById("footer-container");
   const header = document.getElementById("header-container");
@@ -37,9 +37,12 @@ switch (route){
   switch (route) {
     case "#/": {
       header.appendChild(components.Header());
->>>>>>> development
+
       root.appendChild(components.Home());
       return footer.appendChild(components.Footer());
+
+      return root.appendChild(components.Home());
+
     }
     case "": {
       root.appendChild(components.Splash());
@@ -65,26 +68,28 @@ switch (route){
       return footer.appendChild(components.Footer());
     }
     case "#/login": {
-      root.appendChild(components.Login());
-      return footer.appendChild(components.Footer());
+      return root.appendChild(components.Login());
     }
     case "#/SignUp": {
-      root.appendChild(components.SignUp());
-      return footer.appendChild(components.Footer());
+      return root.appendChild(components.SignUp());
     }
     case "#/profile": {
       header.appendChild(components.Header());
       root.appendChild(components.Profile());
-<<<<<<< HEAD
+
        return footer.appendChild(components.Footer());
-      }*/
-=======
+      }
+
       return footer.appendChild(components.Footer());
     }
->>>>>>> development
+
+      return footer.appendChild(components.Footer());
+    }
+
     default:
       break;
   }
 };
 
-export { changeView };
+export { changeView }
+};*/

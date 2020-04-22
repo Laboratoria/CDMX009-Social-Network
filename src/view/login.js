@@ -1,7 +1,6 @@
-import {loginGoogle, createEmailPass} from '../firebase.js';
+import { loginGoogle, loginFB } from '../firebase.js';
 
 export default () => {
-
     const root = document.getElementById('root')
     const viewLogin = `
     <div class="mainConteinerLogin">
@@ -29,13 +28,5 @@ export default () => {
 
     const btnFB = document.querySelector('#btnFB')
           btnFB.addEventListener('click', loginFB)
-
-    const SignUp = document.querySelector('#SignUp')
-          SignUp.addEventListener('click', () => {
-            location.href = '#signUp';
-          });
-
- 
-
 return divElement;
 }

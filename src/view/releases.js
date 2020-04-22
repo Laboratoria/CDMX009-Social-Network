@@ -1,12 +1,5 @@
 export default () => {
-    const root = document.getElementById('root')
-    const viewReleases = `
-    <div class="img-Logo">
-    <img src="img/LogoBlancoDigiTarea.png">
-    </div>
-    <div class="userNamePh">
-        <img src="img/User.svg">
-    </div>
+  const viewReleases = `
     <div class="release">
   <h2>COMUNICADOS</h2>
 </div>
@@ -31,11 +24,10 @@ export default () => {
       que el lunes 24 de febrero se tomará la foto grupal.
    </div>
 </section>
-      `;
+      `
 
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewReleases;
-    root.appendChild(divElement)
+  const divElement = document.createElement("div");
+  divElement.innerHTML = viewReleases;
+
   return divElement;
-}
-
+};

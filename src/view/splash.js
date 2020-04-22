@@ -16,6 +16,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
         const splash = document.querySelector('.splash');
         window.open('#/login', '_self');
     splash.classList.add('display-none');
-  }, 5000);
+  }, 3000);
 }
 }); 

@@ -1,4 +1,4 @@
-import {registerUser} from '../firebase.js';
+import { registerUser } from '../firebase.js';
 
 export default () => {
     const viewSignUp = `

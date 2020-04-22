@@ -17,9 +17,9 @@ const components = {
   ParentPanel: parentPanel,
   Releases: releases,
   Login: login,
+  Splash: splash,
   Profile: profile,
   SignUp: signUp,
-  //Splash: splash,
   Footer: footer,
   Header: header,
 }

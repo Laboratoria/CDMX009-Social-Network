@@ -1,6 +1,7 @@
 body{
     background-color: #A698FF;
-    font-family: 'Roboto', sans-serif;
+    font-family: Century Gothic;
+    margin: 0px;
   }
 
 /*VIEW SPLASH*/
@@ -43,8 +44,14 @@ body{
 
 /*END SPLASH
 
+/* HEADER */
+header{
+  margin-top: 15px;
+}
+/* end Header */
+
   /*  View HOME
-      Nav*/
+      Nav */
   header{
     display: flex;
     justify-content: space-between;
@@ -70,6 +77,7 @@ body{
   .mainConteiner div {
     padding: 2%;
     margin: 2%;
+    margin-bottom: 10%;
     background-color: #FFE36B;
     width: 40%;
     border-radius: 35px;
@@ -93,7 +101,7 @@ body{
   
   /*Cointeiner option*/
   .DegreeAndGroup{
-    margin-top: 5%;
+    margin-top: 8%;
   }
   
   .DegreeAndGroup select {
@@ -126,6 +134,7 @@ footer{
 
 footer li img {
   width: 35px;
+  padding: 10px;
 }
 
 ul {
@@ -135,9 +144,9 @@ ul {
 
 
 /*PROFILE*/
-.userNamePhoto{
+/*.userNamePhoto{
 }
-
+*/
 /*User photo*/
 /*
 .userNamePh {
@@ -165,9 +174,10 @@ height: 100px;
 width: 160px;
 display: flex;
 flex-direction: column;
-
+}
   /*  View LOGIN  */
-  .mainConteinerLogin{
+
+  .mainConteinerLogin {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -177,7 +187,7 @@ flex-direction: column;
   }
 
 /*navigation bar*/
-footer{
+footer {
 background-color: #FFE36B;
 padding: 10px 5px;
 text-align: center;
@@ -363,6 +373,7 @@ font-size: 17px;
 /*  View LOGIN  */
 .imageLogin{
   width: auto;
+  margin-bottom: 30px;
 }
 
 .mainConteinerLogin{
@@ -512,6 +523,39 @@ text-align: center;
 }
 /*releases container*/
 
+/*PARENT PANEL*/
+.post h1{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.button-add{
+  margin-top: 10px;
+  background-color: #FFE36B;
+  border-radius: 10px;
+  border: #FFE36B;
+  padding: 8px;
+  font-weight: bold;
+  color: black;
+}
+
+.container__box--answer {
+  background: white;
+}
+
+.logo-likes{
+  height: 20px;
+}
+
+.comment-box{
+  display: block;
+  resize: none;
+  height: 100px;
+  width: 100%;
+  max-width: 250px;
+  margin: auto;
+}
+
 /*responsive design*/
 @media screen and (max-width:480px) {
 body{
@@ -659,35 +703,6 @@ body{
    margin-top: 0;
   }
 
-  /*PARENT PANEL*/
-  .post h1{
-    padding-top: 10px;
-    text-align: center;
-  }
+  
+}
 
-  .button-add{
-    margin-top: 10px;
-    background-color: #FFE36B;
-    border-radius: 10px;
-    border: #FFE36B;
-    padding: 8px;
-    font-weight: bold;
-    color: black;
-  }
-
-  .container__box--answer {
-    background: white;
-  }
-
-  .logo-likes{
-    height: 20px;
-  }
-
-  .comment-box{
-    display: block;
-    resize: none;
-    height: 100px;
-    width: 100%;
-    max-width: 250px;
-    margin: auto;
-  }

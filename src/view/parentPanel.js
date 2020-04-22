@@ -18,6 +18,5 @@ export default () => {
     `
   const divElement = document.createElement('div')
   divElement.innerHTML = viewParentPanel;
-  root.appendChild(divElement)
   return divElement;
 }

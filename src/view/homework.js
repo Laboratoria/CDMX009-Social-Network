@@ -1,11 +1,6 @@
 export default () => {
-    const viewHomework = `
-    <div class="img-Logo">
-    <img src="img/LogoBlancoDigiTarea.png">
-    </div>
-    <div class="userNamePh">
-        <img src="img/User.svg">
-    </div>
+
+  const viewHomework = `
     <div class="homework">
     <h1>TAREAS</h1>
     <p>Semana 6 - 10 Abril</p>
@@ -66,9 +61,8 @@ export default () => {
   </table>
       `
 
-    const divElement = document.createElement('div')
-    divElement.innerHTML = viewHomework;
-    root.appendChild(divElement)
+  const divElement = document.createElement('div')
+  divElement.innerHTML = viewHomework;
 
   return divElement;
 }
