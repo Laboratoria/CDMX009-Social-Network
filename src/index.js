@@ -13,6 +13,7 @@ export const router = (route) =>{
     // console.log(route)
     switch(route){
        case 'profil':
+         appendStyleSheet('profileStyle.css');
          profil();
          break;
        case 'signin':
