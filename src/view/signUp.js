@@ -1,4 +1,5 @@
 export default () => {
+    const root = document.getElementById('root')
     const viewSignUp = `
     <div class=header>
     <img src="https://raw.githubusercontent.com/IrisFyD/CDMX009-Social-Network/master/src/img/LogoBlancoDigiTarea.png">
@@ -15,7 +16,7 @@ export default () => {
         `
     const divElement = document.createElement('div')
     divElement.innerHTML = viewSignUp;
-  
+    root.appendChild(divElement)
     return divElement;
   }
 

@@ -1,4 +1,5 @@
 export default () => {
+  const root = document.getElementById('root')
   const userName = "Humpty Alexander Dumpty";
   const student = "Gato con botas";
   const school = "Escuela de la vida";
@@ -60,6 +61,6 @@ export default () => {
   
     const divElement = document.createElement('div')
     divElement.innerHTML = viewProfile;
-  
+    root.appendChild(divElement)
     return divElement;
   }

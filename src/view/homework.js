@@ -1,4 +1,5 @@
 export default () => {
+  const root = document.getElementById('root')
     const viewHomework = `
     <div class="homework">
     <h1>TAREAS</h1>

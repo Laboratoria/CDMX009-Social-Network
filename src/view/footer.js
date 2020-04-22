@@ -1,5 +1,6 @@
 
 export default () => {
+    const root = document.getElementById('root')
     const viewFooter = `<div>
 <ul>
   <li><a href="#/calendar"><img src="img/calendar.svg"></a></li>
@@ -12,6 +13,7 @@ export default () => {
 
 const divElement = document.createElement('div')
 divElement.innerHTML = viewFooter;
+root.appendChild(divElement)
 
 return divElement;
 }

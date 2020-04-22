@@ -1,4 +1,5 @@
 export default () => {
+   const root = document.getElementById('root')
     const viewReleases = `
     <div class="release">
   <h2>COMUNICADOS</h2>
