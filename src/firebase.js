@@ -44,14 +44,4 @@ db.collection("users").doc(userNew.uid).set(userNew)
 
 export  { loginGoogle, loginFB };
 
-//SignUp username email password
-
-/*
-const email= signupform['signup-email'].value;
-const password= signupform['signup-password'].value;
-const name= signupform['signup-name'].value;
-const confirm= signupform['signup-confirm'].value;
-
-console.log(email,password, name, confirm)*/
-
 

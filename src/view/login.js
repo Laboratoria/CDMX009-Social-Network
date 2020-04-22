@@ -14,20 +14,27 @@ export default () => {
     <button id="btnFB"class="btnRedes"><img src="https://raw.githubusercontent.com/IrisFyD/CDMX009-Social-Network/master/src/img/facebook.png" alt="" class="btnRedes"></button>
     </div>
     <p class="txt">¿No tienes una cuenta?</p>
-    <a href="#signUp">Regístrate</a>
+    <a href="#signUp" id="SignUp">Regístrate</a>
     </div>
     `
     const divElement = document.createElement('div')
     divElement.innerHTML = viewLogin;
     root.appendChild(divElement)
 
-    // function Log in Google
+    // function Log in Google fb 
 
     const btnGmail = document.querySelector('#btnGmail')
           btnGmail.addEventListener('click', loginGoogle)
 
     const btnFB = document.querySelector('#btnFB')
           btnFB.addEventListener('click', loginFB)
+
+    const SignUp = document.querySelector('#SignUp')
+          SignUp.addEventListener('click', () => {
+            location.href = '#signUp';
+          });
+
+ 
 
 return divElement;
 }
