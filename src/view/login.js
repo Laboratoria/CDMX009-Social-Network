@@ -28,6 +28,5 @@ export default () => {
 
     const btnFB = document.querySelector('#btnFB')
           btnFB.addEventListener('click', loginFB)
-
 return divElement;
 }
