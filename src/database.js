@@ -30,6 +30,10 @@ const database = {
     let logEmail = document.getElementById('logEmail').value;
     let logPassword = document.getElementById('logPassword').value;
     firebase.auth().signInWithEmailAndPassword(logEmail, logPassword)
+    .then((auth) => {
+      if (!auth.user.uid) return;
+
+    })
       .catch(function(error) {
         let errorCode = error.code;
         let errorMessage = error.message;
@@ -107,6 +111,7 @@ const database = {
       return doc.data()
     })
   },
+  
   /*
   showImage: () =>{
     imageRef.on("value", function(snapshot){
@@ -121,12 +126,7 @@ const database = {
     });
   },  funcion para mostrar postesesss*/
   uploadPicture: (file) => {
-    
-    
-    //let image = document.getElementById('profilePicture');
-    //let uploadPicture = image.files[0];
     let uploadTask = storage.child('profilePictures/' + file.name).put(file);
-
     uploadTask.on('state_changed', function(snapshot){
       // Observe state change events such as progress, pause, and resume
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -146,11 +146,9 @@ const database = {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-      
         console.log('File available at', downloadURL);
         database.createNodeFirebase(file.name, downloadURL);
         database.getProfilePic();
-   
       });
     });
 
@@ -169,25 +167,21 @@ const database = {
       const userName = document.getElementById('userName').value;
       const profileName = document.getElementById('profileName').value; 
       const biography = document.getElementById('biography').value;
-      //const profilePicture = document.getElementById('profilePicture').value;
-      db.collection("users").add({ 
+      db.collection("users").doc(firebase.auth().currentUser.uid).set({ 
         uid: firebase.auth().currentUser.uid,
         userName: userName,
         profileName: profileName,
-        biography: biography        
-         
-      //  
-        // photo: profilePicture,
-      
-      })
+        biography: biography
+      });/*
       .then(function(docRef){
         document.getElementById('userName').value = '';
         console.log("Document ID ", docRef.id);
       })
       .catch(function(error){
         console.error("Error adding document: ", error);
-      })
+      })*/
     },
+    
     logout: () => {
       firebase.auth().signOut().then(function() {
         // this.user = null;

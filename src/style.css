@@ -27,3 +27,13 @@ figure{
     border-left-width: thin;
 }
 
+.imgCircle{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+}
+.imgProfile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}

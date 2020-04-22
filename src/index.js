@@ -3,7 +3,7 @@ import database from './database.js';
 
 const root = document.querySelector('#root');
 const logo = `<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
-const logoM = ` <div class="logoMemingos"> <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"></div>`;
+const logoM = `<div class="logoMemingos"> <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"></div>`;
 const renderSignIn = () => {
     const signInForm = `
     <div class="has-text-centered has-text-white title is-4">
@@ -58,18 +58,18 @@ const renderSignIn = () => {
         </div>
         
             <div class=" has-text-centered has-text-white is size-2">
-                <td> ¿No tienes cuenta? </td> <a id="singUpLink"> Regístrate </a>
+                <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
             </div>`;
         root.innerHTML = `${logo}${signInForm}`;
+        document.querySelector('#signUpLink').addEventListener('click', function(event) {
+            renderSignUp();
+        });
+        document.querySelector('#logIn').addEventListener('click', function(event) {
+            database.signIn();
+        });
 };
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'logIn') {
-        database.signIn();
-    }
-});
 const renderSignUp = () => {
     const signUpForm = `
-     
         <div class="has-text-centered has-text-white title is-4 ">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -121,47 +121,32 @@ const renderSignUp = () => {
     
     
         <div class=" has-text-centered has-text-white">
-            <td> ¿Ya tienes cuenta? </td> <a id="singInLink"> Inicia sesión </a>
+            <td> ¿Ya tienes cuenta? </td> <a id="signInLink"> Inicia sesión </a>
         </div>
          `;
-
     root.innerHTML = `${logo}${signUpForm}`;
-};
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'register') {
+    document.querySelector('#register').addEventListener('click', function (event) {
         database.signUp();
-    } 
- });
- document.addEventListener('click',function(event) {
-    const item = event.target.closest('a');
-   if (item && item.id === 'facebookSignIn') {
-       database.signInFacebook();
-   } 
-});
-document.addEventListener('click',function(event) {
-    const item = event.target.closest('a');
-   if (item && item.id === 'googleSignIn') {
-       database.signInGoogle();
-   } 
-});
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'singInLink') {
+    });
+    document.querySelector('#facebookSignIn').addEventListener('click', function (event) {
+        database.signInFacebook();
+    });
+    document.querySelector('#googleSignIn').addEventListener('click', function (event) {
+        database.signInGoogle();
+    });
+    document.querySelector('#signInLink').addEventListener('click', function (event) {
         renderSignIn();
-    }
-});
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'singUpLink') {
-        renderSignUp();
-    }
-});
+    });
+};
 renderSignUp();
 
 export const renderFirstProfile = () => {
     root.classList.remove("signUpAndIn");
     const firstProfile = `
-
-    <div class="file is-centered is-rounded">
-    <img width="100" id="pp"/>
+    <div class="file is-centered">
+    <figure class="image is-128x128">
+    <img id="showImg" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
     </div>
         <div class="file is-centered">
             <label class="file-label">
@@ -202,89 +187,129 @@ export const renderFirstProfile = () => {
                 <button  id="confirm" class="button is-success button is-medium  has-background-warning is-rounded">
                     CONFIRMAR
                 </button>   
-                <button id="logout" class=" button is-success button is-medium  has-background-warning is-rounded">
-                    Cerrar Sesion
-                </button> 
                 </p>
             </div>
         </div>
         `;
         root.innerHTML = `${logoM}${firstProfile}`;
-
-    database.getProfilePic()
-    .then(data=>{
+        const showImg = document.querySelector('#showImg');
+        let imgSrc;
+        database.getProfilePic()
+        .then(data=>{
         console.log(data)
-document.querySelector('#pp').src=data.url
+        imgSrc = data.url
+        showImg.src = imgSrc
     })
-    
     document.querySelector('#profilePicture').addEventListener('change',function(event) {
-           database.uploadPicture(event.target.files[0]);
+        database.uploadPicture(event.target.files[0]);
+        console.log(imgSrc)
+        showImg.src = imgSrc;
+    });
+    document.querySelector('#confirm').addEventListener('click', function(event) {
+        root.innerHTML = '';
+        renderFeed();
+        database.saveData();
     });
 };
-
-    /*const formCommit = () => {
-        const formPic = document.querySelector('profilePicture').value;
-        const formUser = document.querySelector('userName').value;
-        if (formPic && formUser) {
-            console.log('yes image,yes form');
-        } else if (!formPic && formUser) {
-            console.log('No image,yes form');
-        } else if (formPic && !formUser) {
-            console.log('yes image,no form');
-        } else if (!formPic && !formUser) {
-            console.log('no image,no form');
-        }
-    };*/
-
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'confirm') {
-        database.saveData();
-        //formCommit();
-    }
-});
-
-document.addEventListener('click',function(event) {
-    if (event.target && event.target.id === 'logout') {
-        database.logout();
-    }
-});
 const renderFeed = () => {
-    root.classList.remove("signUpAndIn");
-    root.classList.remove("renderFirstProfile");
     const feed = `
-    <div class="navbar is-inline-flex is-transparent">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="https://ibb.co/Gsk8bhg" width="112" height="28">
-            </a>
-        </div>
-        <div class="navbar-item is-flex-touch">
-            <a class="navbar-item">
-                <i class="material-icons"> Home </i>
-            </a>
-            <a class="navbar-item">
-                <i class="material-icons"> Agregar </i>
-            </a>
-            <a class="navbar-item">
-                <i class="material-icons"> Profile </i>
-            </a>
-        </div>
-    </div>
-    <div class="columns body-columns">
-    <div class="column is-half is-offset-one-quarter">
+    <div class="column body-columns">
         <div class="card">
             <div class="header">
-                <div class="media">
+                    <div class="media">
                     <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img src="https://ibb.co/hfbXZQH" alt="Placeholder image">
+                        <figure class="image is-128x128">
+                            <img id="profilePic" alt="Placeholder image"/>
                         </figure>
                     </div>
+                    
                     <div class="media-content">
-                        <p class="title is-4"> Pipo Rodríguez </p>
-                        <p class="subtitle is-6">@Pipopistolas</p>
+                        <p id="profileNameSaved" class="title is-4">d </p>
+                        <p id="profileUserNameSaved" class="subtitle is-6">  </p>
+                    </div>
+                </div> 
+                <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="level is-mobile">
+                    <div class="level-left">
+                        <div class="level-item has-text-centered">
+                            <a href="">
+                                <i class="material-icons">favorite_border</i>
+                            </a>
+                        </div>
+                        <div class="level-item has-text-centered">
+                            <div>
+                                <a href="">
+                                    <i class="material-icons">chat_bubble_outline</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <p>
+                        <strong>32 Likes</strong>
+                    </p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                    <a>@bulmaio</a>.
+                    <a href="#">#css</a>
+                    <a href="#">#responsive</a>
+                    <br>
+                    <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="columns is-mobile">
+                    <div class="column is-11">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column has-text-centered">
                     </div>
                 </div>
             </div>
-    ` 
+        </div>
+                <div class="navbar is-inline-flex is-transparent">
+                    <div class="navbar-item is-flex-touch">
+                        <a class="navbar-item">
+                            <img src="https://i.ibb.co/C0y75x1/home-rgb2.png" class="material-icons"/>
+                        </a>
+                        <a class="navbar-item">
+                            <img src="https://i.ibb.co/6DBT2jD/add-rgb2.png" class="material-icons"/>
+                        </a>
+                        <a class="navbar-item">
+                            <img src="https://i.ibb.co/vkqHbpD/profile-rgb2.png" class="material-icons"/>
+                        </a>
+                        <a class="navbar-item">
+                            <i class="material-icons"> Cerrar Sesión </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    ` ;
+    root.innerHTML = `${logoM}${feed}`;
+        const showImg = document.querySelector('#profilePic');
+        let imgSrc;
+        database.getProfilePic()
+        .then(data=>{
+        console.log(data)
+        imgSrc = data.url
+        showImg.src = imgSrc
+        
+});
 }
+document.addEventListener('click',function(event) {
+     if (event.target && event.target.id === 'logout') {
+         database.logout();
+     }
+ });
