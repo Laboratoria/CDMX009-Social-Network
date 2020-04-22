@@ -1,33 +1,46 @@
-// function register() {
-//     var registerNameLogin2 = document.getElementById('registerLoginName2').value;
-//     var registerEmailLogin2 = document.getElementById('registerLoginEmail2').value;
-//     var registerPassLogin2 = document.getElementById('registerLoginPass2').value;
-//     var registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
+function viewRegister() {
+    return new Promise(function(resolve, rejected) {
+        let registerView = `
+        <!-- ************ PAGINA 2 REGISTRO ********** -->
+    <div id="containerTwo">
+        <main>
+            <div class="loginRequired">
+                <p class="description">Por favor llena los siguientes campos <br>Obligatorio *</p>
+            </div>
 
-//     var buttonReg = document.querySelector('#doRegister');
-//     buttonReg.addEventListener('click', function(e) {
-//         e.preventDefault();
-//         register();
-//     });
+            <div class="iconUsers">
+                <i class="material-icons medium lines">remove</i>
+                <i class="material-icons star">stars</i>
+                <i class="material-icons medium lines">remove</i>
+            </div>
 
-//     if (registerPassLogin2 != registerConfirmPassLogin2) {
-//         alert('Las contraseñas deben coincidir');
-//     } else {
+            <form action="" class="form">
+                <label for="" class="fieldUser">
+                <input id="registerLoginName2" type="text" class="validate user boxFields" required="" aria-required="true" placeholder="Nombre Completo">
+                </label>
+                <label for="">
+                    <input id="registerLoginEmail2" type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
+                </label>
+                <label for="" class="fieldPassword">
+                    <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
+                        aria-required="true">
+                </label>
+                <label for="" class="fieldPassword ">
+                    <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
+                        required="" aria-required="true">
+                </label>
+                <button type="submit" class="waves-effect waves-light btn-small btn-enter" id="doRegister">Registrar</button>
+            </form>
 
-//         firebase.auth().createUserWithEmailAndPassword(registerEmailLogin2, registerPassLogin2)
-//             .then((data) => {
-//                 alert('Bienvenido ' + data.user.email);
-//             })
-//             .catch(function(error) {
-//                 // Handle Errors here.
-//                 var errorCode = error.code;
-//                 var errorMessage = error.message;
-//                 if (errorCode == 'auth/weak-password') {
-//                     alert('The password is too weak.');
-//                 } else {
-//                     alert(errorMessage);
-//                 }
-//                 console.log(error);
-//             });
-//     }
-// }
+            <div class="descriptionP2">
+                <p>Sé parte de nuestra comunidad y fortalece tus ideas y conocimientos.</p>
+            </div>
+        </main>
+    </div>
+    `
+        root.innerHTML = registerView;
+        resolve();
+    });
+};
+
+export { viewRegister }

@@ -1,3 +1,10 @@
+import { viewLogin } from './view/login.js';
+import { viewRegister } from './view/register.js';
+import { viewForum } from './view/fuorum.js';
+import { editionOfProfile } from './view/editprofile.js';
+import { viewProfile } from './view/profile.js';
+
+
 document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('hideAndShow').style.display = 'none';
         document.getElementById('movilIcon').style.display = 'none';
@@ -89,62 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems);
 });
 
-
-
-function viewLogin() {
-    return new Promise(function(resolve, rejected) {
-        let homeView = `
-          <div id="containerOne">
-        <section id="esther">
-            <main>
-                <div class="description">
-                    <p class="intro">Una red social pensada para los que hacemos Desarrollo Web</p>
-                </div>
-
-                <div class="iconUsers">
-                    <i class="material-icons medium lines">remove</i>
-                    <i class="material-icons star">stars</i>
-                    <i class="material-icons medium lines">remove</i>
-                </div>
-
-                <form action="" class="form">
-                    <label for="" class="fieldUser">
-                    <input type="email" class="validate user boxEmail" required="" aria-required="true"
-                        placeholder="Usuario" id="email">
-                </label>
-                    <label for="" class="fieldPassword">
-                    <input type="password" placeholder="Contraseña" class="validate user password boxPassword" required=""
-                        aria-required="true" id="pass">
-                </label>
-                    <button id="doLogin" type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
-                    <!-- <button id="doLogin">Enviar</button> -->
-                </form>
-
-                <div class="register">
-                    <p class="account">No tienes cuenta? <a href="#register2" class="register2" id="reg">Registrate</a> </p>
-                </div>
-
-                <div>
-                    <p class="description">Sé parte de nuestra comunidad y fortalece tus ideas y conocimientos.</p>
-                </div>
-
-                <div class="loginSocialNetwork">
-                    <p class="choose">¿Si no tienes una cuenta? <br>Ingresa con:</p>
-                    <a class="waves-effect waves-light btn center iconWeb1" id="loginFacebook"><i class="fab fa-facebook"></i>Facebook</a>
-                    <!-- <button id="LoginFacebook">Ingresa con Facebook</button> -->
-                    <a class="waves-effect waves-light btn center iconWeb2" id="loginGoogle"><i class="fab fa-google"></i>Google</a>
-                    <!-- <button id="LoginGoogle">Ingresa con Google</button> -->
-                </div>
-            </main>
-        </section>
-    </div>
-    `
-        root.innerHTML = homeView;
-        resolve();
-    })
-
-}
-
 // En esta parte hago la funcion que va tener mi boton al hacer click
 // en entar a la aplicación en esta parte la que me hace entrar a la app (login)
 function loginPageOne() {
@@ -153,7 +104,7 @@ function loginPageOne() {
     var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
-            viewForum();
+            viewForum(data.user);  //BLISS
             document.getElementById('hideAndShow').style.display = 'block';
             movilIcon.classList.add('shown');
         })
@@ -255,7 +206,7 @@ function register() {
         firebase.auth().createUserWithEmailAndPassword(registerEmailLogin2, registerPassLogin2)
             .then((data) => {
                 // alert('Bienvenido ' + data.user.email);
-                viewForum();
+                viewForum(data.user);
                 document.getElementById('hideAndShow').style.display = 'block';
                 movilIcon.classList.add('shown');
             })
@@ -272,248 +223,9 @@ function register() {
     }
 }
 
-function viewRegister() {
-    return new Promise(function(resolve, rejected) {
-        let registerView = `
-        <!-- ************ PAGINA 2 REGISTRO ********** -->
-    <div id="containerTwo">
-        <main>
-            <div class="loginRequired">
-                <p class="description">Por favor llena los siguientes campos <br>Obligatorio *</p>
-            </div>
 
-            <div class="iconUsers">
-                <i class="material-icons medium lines">remove</i>
-                <i class="material-icons star">stars</i>
-                <i class="material-icons medium lines">remove</i>
-            </div>
 
-            <form action="" class="form">
-                <label for="" class="fieldUser">
-                <input id="registerLoginName2" type="text" class="validate user boxFields" required="" aria-required="true" placeholder="Nombre Completo">
-                </label>
-                <label for="">
-                    <input id="registerLoginEmail2" type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
-                </label>
-                <label for="" class="fieldPassword">
-                    <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
-                        aria-required="true">
-                </label>
-                <label for="" class="fieldPassword ">
-                    <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
-                        required="" aria-required="true">
-                </label>
-                <button type="submit" class="waves-effect waves-light btn-small btn-enter" id="doRegister">Registrar</button>
-            </form>
 
-            <div class="descriptionP2">
-                <p>Sé parte de nuestra comunidad y fortalece tus ideas y conocimientos.</p>
-            </div>
-        </main>
-    </div>
-    `
-        root.innerHTML = registerView;
-        resolve();
-    });
-}
 
-function viewForum() {
-    return new Promise(function(resolve, rejected) {
-        let forumView = ` <!-- ***********PAGINA 3********* -->
-    <div id="containerThree">
-        <section class="profileInformation">
-            <div>
-                <div class="littleCircle">
-                    <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
-                </div>
 
-                <div class="personalInformationPerfilUser">
-                    <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López<i class="material-icons center editProfileIcon">edit</i></strong></div>
-                    <div class="professionDescription">Developer Sr. en Accenture</div>
-                </div>
-            </div>
-        </section>
-        <form>
-            <p>
-                <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
-            </p>
-            <div class="right-align">
-                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
-            </div>
-        </form>
-        <div>
-            <div class="informationBox">
 
-                <div class="chip boxStyle">
-                    <img src="images/foto_perfil_circulo.png" alt="Contact Person">
-                    <p>Taco Perez</p>
-                </div>
-                <i class="fas fa-globe-americas world"></i>
-                <i class="material-icons center points">more_vert</i>
-            </div>
-
-            <div class="comentsAndLikes">
-                <p class="coments">¿Cómo centrar texto en HTML?</p>
-            </div>
-            <div class="punchButtons comentsAndLikes">
-                <div class="likeButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                    <span class="likeCounter">5</span>
-                </div>
-                <div class="commentButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                    <span class="commentCounter">2</span>
-                </div>
-            </div>
-        </div>
-        <form>
-            <p>
-                <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
-            </p>
-            <div class="right-align">
-                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
-            </div>
-        </form>
-         <div class="informationBox">
-
-                <div class="chip boxStyle">
-                    <img src="images/foto_perfil_circulo.png" alt="Contact Person">
-                    <p>Taco Perez</p>
-                </div>
-                <i class="fas fa-globe-americas world"></i>
-                <i class="material-icons center points">more_vert</i>
-            </div>
-
-            <div class="comentsAndLikes">
-                <p class="coments">¿Comunidad, cómo le hago para enrutar con Javascript?</p>
-            </div>
-            <div class="punchButtons comentsAndLikes">
-                <div class="likeButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                    <span class="likeCounter">5</span>
-                </div>
-                <div class="commentButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                    <span class="commentCounter">2</span>
-                </div>
-            </div>
-        </div>
-        <form>
-            <p>
-                <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
-            </p>
-            <div class="right-align">
-                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
-            </div>
-        </form>
-    </div>`
-        root.innerHTML = forumView;
-        resolve();
-    });
-}
-
-function editionOfProfile() {
-    return new Promise(function(resolve, rejected) {
-        let editProfileVieView = ` 
-    <!-- *********** PAGINA 4 EDITAR PERFIL   *********** -->
-    <div id="containerFour">
-        <div>
-            <p class="chip boxStyle2">Editar Perfil</p>
-        </div>
-
-        <div class="littleCircle secondCircle">
-            <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
-            <p class="changePhoto">Cambiar foto</p>
-        </div>
-
-        <form action="" class="formPerfil">
-            <label for="" class="perfilChanges">
-        <input type="text" class="chageName boxFields" required="" aria-required="true" placeholder="Cambia tu nombre">
-      </label>
-            <label for="" class="perfilChanges">
-        <input type="text" class="chageProfession boxFields" required="" aria-required="true" placeholder="Cambia tu profesión">
-      </label>
-            <label for="" class="changePassword">
-        <input type="password" placeholder="Cambia tu contraseña" class="validatePassword boxFields" required="" aria-required="true">
-      </label>
-            <label for="" class="changePassword">
-        <input type="password" placeholder="Confirma tu contraseña" class="validatePassword  boxFields" required="" aria-required="true">
-      </label>
-            <button type="submit" class="waves-effect waves-light btn-small btn-login">Guardar cambios</button>
-        </form>
-    </div>
-        `
-        root.innerHTML = editProfileVieView;
-        resolve();
-    });
-}
-
-function viewProfile() {
-    return new Promise(function(resolve, rejected) {
-        let profileView = `
-       <!-- ***********PAGINA profile********* -->
-<div id="profilepage"> 
-      <section class="profileInformation">
-        <div>
-            <div class="littleCircle">
-                <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
-            </div>
-
-            <div class="personalInformationPerfilUser">
-                <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López<i class="material-icons center editProfileIcon">edit</i></strong></div>
-                <div class="professionDescription">Developer Sr. en Accenture</div>
-            </div>
-        </div>
-    </section>
-    <form>
-        <p>
-            <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
-        </p>
-        <div class="right-align">
-            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
-        </div>
-    </form>
-    <div>
-        <div class="informationBox">
-
-            <div class="chip boxStyle">
-                <img src="images/foto_perfil_circulo.png" alt="Contact Person">
-                <p>Taco Perez</p>
-            </div>
-            <i class="fas fa-globe-americas world"></i>
-            <i class="material-icons center points">more_vert</i>
-        </div>
-
-        <div class="comentsAndLikes">
-            <p class="coments">¿Cómo centrar texto en HTML?</p>
-        </div>
-        <div class="punchButtons comentsAndLikes">
-            <div class="likeButton">
-                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                <span class="likeCounter">5</span>
-            </div>
-            <div class="commentButton">
-                <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                <span class="commentCounter">2</span>
-            </div>
-        </div>
-    </div>
-    <form>
-        <p>
-            <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
-        </p>
-        <div class="right-align">
-            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-            <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
-        </div>
-    </form>
-    <div> 
-    `
-        root.innerHTML = profileView;
-        resolve();
-    })
-}

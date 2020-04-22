@@ -578,6 +578,12 @@ input.validatePassword.boxFields {
     margin-bottom: 50px;
 }
 
+.footer {
+    text-align: center;
+    color: #fff;
+    font-size: .8em;
+    line-height: 2.5em;
+}
 
 /* *********MediasQuerys*********** */
 
