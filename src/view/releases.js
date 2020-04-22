@@ -31,7 +31,7 @@ export default () => {
       que el lunes 24 de febrero se tomará la foto grupal.
    </div>
 </section>
-      `
+      `;
 
     const divElement = document.createElement('div')
     divElement.innerHTML = viewReleases;

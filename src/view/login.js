@@ -1,6 +1,7 @@
-import { loginGoogle, loginFB } from '../firebase.js';
+import {loginGoogle, createEmailPass} from '../firebase.js';
 
 export default () => {
+
     const root = document.getElementById('root')
     const viewLogin = `
     <div class="mainConteinerLogin">

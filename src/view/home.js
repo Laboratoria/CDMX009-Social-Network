@@ -39,12 +39,11 @@ export default () => {
 <p>Calendario</p>
 </div>
 </div>
-    `
-  const divElement = document.createElement('div')
+    `;
+  const divElement = document.createElement("div");
   divElement.innerHTML = viewHome;
 
-  root.appendChild(divElement)
+  root.appendChild(divElement);
 
   return divElement;
-
-}
+};
