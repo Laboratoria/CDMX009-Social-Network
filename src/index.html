@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <html class="has-navbar-fixed-bottom">
+  <html class="has-navbar-fixed-bottom has-background-grey-dark">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Red social microcuentos ilustrados</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  
+  <!-- <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script> -->
+
 </head>
 <body>
   <div id="root"></div>
@@ -25,11 +26,32 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
+
+
   </nav>
+ 
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+ 
+ 
+   <script>
+     // Your web app's Firebase configuration
+     var firebaseConfig = {
+       apiKey: "AIzaSyCBWMiBIM_0KMxQgbZZarPb4R_htLsd9UE",
+       authDomain: "socialnetwork-15a5f.firebaseapp.com",
+       databaseURL: "https://socialnetwork-15a5f.firebaseio.com",
+       projectId: "socialnetwork-15a5f",
+       storageBucket: "socialnetwork-15a5f.appspot.com",
+       messagingSenderId: "863801306874",
+       appId: "1:863801306874:web:c6631f9d9d65117d44a343",
+       measurementId: "G-YSFLLZDYTT"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     //firebase.analytics();
+   </script>
 
-
-
-  <!--      <div class="navbar-item"><button id="home">Muro</button> </div>  -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
