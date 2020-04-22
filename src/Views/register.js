@@ -29,7 +29,7 @@ export default () => {
 
   registerButton1.addEventListener('click', (e) => {
     e.preventDefault();
-    loginFunctions.email(registerEmail.value, registerPassword.value);
+    loginFunctions.emailRegister(registerEmail.value, registerPassword.value);
   });
 
   return regView;

@@ -3,7 +3,7 @@ import loginFunctions from '../firebase/login.js';
 export default () => {
   const mainView = `
             <form class="registerForm">
-                <input type="email" required id="loginMail" placeholder= "Correo electrónico">
+                <input type="email" required id="loginEmail" placeholder= "Correo electrónico">
                 <input type="password" required id="loginPassword" minlength="6" placeholder="Contraseña">
                 <button type="submit" class="registerButton" id="loginButton">INICIAR SESIÓN</button>
                 <p><a href="#/passwordRecovery" id="recover">¿Has olvidado la contraseña?</a></p>
@@ -18,11 +18,19 @@ export default () => {
   views.setAttribute('class', 'viewsStyle');
   views.innerHTML = mainView;
 
-  // const loginButton = views.querySelector('#loginButton');
-  // const passRec = views.querySelector('#recover');
+  // Nodos
+  const loginEmail = views.querySelector('#loginEmail');
+  const loginPassword = views.querySelector('#loginPassword');
+  const loginButton = views.querySelector('#loginButton');
   const facebookLogin = views.querySelector('#facebookLogin');
   const googleLogin = views.querySelector('#googleLogin');
+
+  // Listeners
   googleLogin.addEventListener('click', loginFunctions.google);
   facebookLogin.addEventListener('click', loginFunctions.facebook);
+  loginButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginFunctions.emailLogIn(loginEmail.value, loginPassword.value);
+  });
   return views;
 };

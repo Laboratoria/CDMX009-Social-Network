@@ -16,16 +16,20 @@ export default () => {
             <input type="submit" id="registerButton1" class="registerButton" value="REGISTRAR">
             <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
         </form>  `;
-
+  // Nodos
   const registerEmail = regView.querySelector('#registerEmail');
   const registerPassword = regView.querySelector('#registerPassword');
   const registerButton1 = regView.querySelector('#registerButton1');
   const googleLogin = regView.querySelector('#googleLogin');
+  const facebookLogin = regView.querySelector('#facebookLogin');
 
+  // Listeners
   googleLogin.addEventListener('click', loginFunctions.google);
+  facebookLogin.addEventListener('click', loginFunctions.facebook);
+
   registerButton1.addEventListener('click', (e) => {
     e.preventDefault();
-    loginFunctions.email(registerEmail.value, registerPassword.value);
+    loginFunctions.emailRegister(registerEmail.value, registerPassword.value);
   });
 
   return regView;

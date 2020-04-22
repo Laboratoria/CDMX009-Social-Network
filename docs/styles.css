@@ -75,8 +75,57 @@ button {
     background: #EBE134;
     font-weight: bold;
 }
-.spanLink {
-    font: bold;
-    color: blue;
-    cursor: pointer;
+
+
+/* vista de home */
+.Home {
+    width: 112%;
+    height: auto;
 }
+.homeOptions {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+    .btnHeader {width: 2rem; height: 2rem;}
+.sesionPrincipal {
+    padding: 0;
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newPost {width: 90%; align-content: center;}
+.postForm {width: 100%;}
+#submitNewPost {width: 25%; align-self: flex-start; height: 1.5rem;}
+hr {width: 90%; border-color: #EBE134;}
+.postContainer {
+    width: 90%; 
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    border: #ffffff 0.2rem ridge;
+}
+    .post {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+    }
+        .postAuthor {
+            width: 4rem; 
+            height: 4rem;
+        }
+        .postContent {
+            width: 85%; 
+            height: 4rem; 
+            border: #ffffff 0.2rem ridge;
+        }
+    .postOptions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+        .likes {width: 1rem; height: 1rem;}

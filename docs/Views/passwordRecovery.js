@@ -19,8 +19,13 @@ export default () => {
                   <p>¿No tienes cuenta?<a href="#/register">Registrate</a></p>
               </div>  `;
 
+  // Nodos
   const googleLogin = recView.querySelector('#googleLogin');
+  const facebookLogin = recView.querySelector('#facebookLogin');
+
+  // Listeners
   googleLogin.addEventListener('click', loginFunctions.google);
+  facebookLogin.addEventListener('click', loginFunctions.facebook);
 
   return recView;
 };
