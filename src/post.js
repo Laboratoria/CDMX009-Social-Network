@@ -15,6 +15,6 @@ export default class Post {
         //this.location = location;
         this.likes = likes;
         this.uid = uid;
-        this.date = new Date();
+        this.date = date;
     }
 }

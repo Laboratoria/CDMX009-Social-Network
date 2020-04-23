@@ -2,18 +2,68 @@ import Post from "./post.js";
 
 
 let db= firebase.firestore();
-let postsRef = db.collection('users');
+let usersRef = db.collection('users');
+let postsRef = db.collection('posts');
+let storage = firebase.storage();
+let imgRef = storage.ref('images');
 let main = document.querySelector('#main');
 
 
 const closeSession = () =>{
-    firebase.auth().signOut().then(function(){
-      console.log('Cerrando sesión');
+  firebase.auth().signOut().then(function(){
+    console.log('Cerrando sesión');
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}
+
+const clean = () =>{
   
-    }).catch(function(error){
-      console.log(error);
-    })
-  }
+  let textareaPost = document.querySelector("#postText");
+  let imagePost = document.querySelector("#imagePost");
+  let statusLabel = document.querySelector("label[for=statusPost]");
+  let status;
+  let imageUrl;
+  let sendPostBtn = document.querySelector("#sendPostBtn");
+  let imagesContainer = document.querySelector("#imagesContainer");
+
+  textareaPost.value = null;
+  sendPostBtn.disabled = true;
+  let image = ``
+  imagesContainer.innerHTML = image;
+  imagePost.value = null;
+  console.log(imagePost.files);
+  let publicStatus = `
+    <i class="fas fa-unlock" title="Público"></i>
+    `
+  statusLabel.innerHTML = publicStatus;
+  status = 'public';
+  imageUrl='';  
+}
+
+const sendPost = (post) => {
+
+  console.log(post);
+ 
+  postsRef.add({
+    "text": post.text,
+    "imageUrl": post.imageLink,
+    "privacy": post.privacy,
+    "likes": post.likes,
+    "date" : post.date,
+    "uid": post.uid
+  })
+  .then((data) => {
+    console.log("Post guardado: " + data);
+    
+    modal.style.display = "none";
+    clean();
+  })
+  .catch((error)=> {
+    console.log("Error al guardar post: " + error);
+  });
+}
 
 const renderProfil = (userName, uid) =>{
    
@@ -61,6 +111,8 @@ const renderProfil = (userName, uid) =>{
   let statusPost = document.querySelector("#statusPost");
   let statusLabel = document.querySelector("label[for=statusPost]");
   let status = 'public';
+  let imageUrl='';
+  let likes = 0;
   let sendPostBtn = document.querySelector("#sendPostBtn");
   let imagesContainer = document.querySelector("#imagesContainer");
     
@@ -71,33 +123,13 @@ const renderProfil = (userName, uid) =>{
 
   span.onclick = function() {
     modal.style.display = "none";
-    textareaPost.value = null;
-    sendPostBtn.disabled = true;
-    let image = ``
-    imagesContainer.innerHTML = image;
-    imagePost.value = null;
-    console.log(imagePost.files);
-    let publicStatus = `
-      <i class="fas fa-unlock" title="Público"></i>
-      `
-      statusLabel.innerHTML = publicStatus;
-      status = 'public';
+    clean();
   }
 
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
-      textareaPost.value = null;
-      sendPostBtn.disabled = true;
-      let image = ``
-      imagesContainer.innerHTML = image;
-      imagePost.value = null;
-      console.log(imagePost.files);
-      let publicStatus = `
-      <i class="fas fa-unlock" title="Público"></i>
-      `
-      statusLabel.innerHTML = publicStatus;
-      status = 'public';
+      clean();
     }
   }
 
@@ -150,71 +182,52 @@ const renderProfil = (userName, uid) =>{
   });
 
   sendPostBtn.addEventListener("click", e => {
+    
+    sendPostBtn.disabled = true;
+     
     let text =  textareaPost.value;
     let img = imagePost.files[0];
-    console.log(text);
+    let date = new Date();
+    let idImg = date.getTime();
+    
+    
+    console.log(textareaPost.value);
     console.log(status);
-    console.log(img);
-
-    /*  
-    console.log(imagePost.files.length);
-    console.log(imagePost.files);
     console.log(imagePost.files[0]);
-    console.log(imagePost.value);*/
+    
     if(img){
+      let token = idImg+'_'+img.name; 
       console.log("Subiendo img");  
-      firebase.storage().ref("images").child(img.name).put(img)
+      //firebase.storage().ref("images").child(img.name).put(img)
+      imgRef.child(token).put(img)
       .then(snap => {
         return snap.ref.getDownloadURL();
       })
       .then(link => {
-          let url = link;
-          console.log(url);
-
-          /*
-          let img = document.createElement('img')
-          img.src = link
-          document.body.appendChild(img)*/
+          imageUrl = link;
+          console.log(imageUrl);
+          let post = new Post(text, imageUrl, status, likes, uid, date);
+          sendPost(post);
       })
+      .catch((error)=> {
+        console.log("Error al guardar imagen: " + error);
+      });
     }else{
       console.log("No hay img");
+      let post = new Post(text, imageUrl, status, likes, uid, date);
+      sendPost(post);
     }
-    //let postInfo = new Post(text,imageLink,privacy,location,likes,uid);
-    //console.log(postInfo);
-   // sendPost(textareaPost.value);
   });
-
 }
 
-function sendPost (postInfo) {
-  
-  console.log(postInfo);
- /*
-  dataBase.collection("users").doc(data.user.uid).set({
-    "name": usuario.name,
-    "lastName": usuario.lastName,
-    "email": usuario.email,
-    "uid":data.user.uid,
-  })*/
-  /*
-  dataBase.collection("post").add({
-    "textPost": textareaPost.value,
-    
-  })
-  .then((data) => {
-    console.log("Post guardado");
-  }).catch((error)=> {
-    console.log("Error al guardar post: " + error);
-  });*/
-}
 
 export const profil = () =>{
   let uid = firebase.auth().currentUser.uid;
   console.log(uid);    
-  postsRef.doc(uid).get().then(info => {
-    let postInfo = info.data();
-    console.log(postInfo.email);
-    let userName = `${postInfo.name} ${postInfo.lastName}`; 
+  usersRef.doc(uid).get().then(info => {
+    let userInfo = info.data();
+    console.log(userInfo.email);
+    let userName = `${userInfo.name} ${userInfo.lastName}`; 
     renderProfil(userName, uid);
   });
 }
