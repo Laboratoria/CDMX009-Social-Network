@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8" />
@@ -20,6 +21,48 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 </head>
 
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Civitas</title>
+    <meta
+      name="author"
+      content="Brenda Carranco, Xel Jimenez, Karina Sánchez"
+    />
+    <meta
+      name="description"
+      content="Somos una red de conexión entre personas"
+    />
+    <meta
+      name="keywords"
+      content="reviews, reseñas, people, comunidad, likes, followers"
+    />
+    <link rel="icon" type="image/png" href="/src/img/favicon/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@300;400&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1197ff44ad.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script> 
+  </head>
+  
+>>>>>>> e6f058d37dbba87553af808231306d0fe7f8d2d3
 <body>
 <!--   <section class="bg-img card-align" id="login">
     <div class="container">
@@ -75,6 +118,7 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
   </section> -->
   <section>
@@ -86,6 +130,21 @@
           <div class="modal-header">
             <div class="modal-img">
               <input type="file" id="file" value=""></input>
+=======
+      </div> 
+    </section>  -->
+    <section>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" id="modalContent">
+            <div class="modal-header">
+              <div class="modal-img">
+                <input type="file" id="file" value=""></input>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> <!-- boton cerrar -->
+>>>>>>> e6f058d37dbba87553af808231306d0fe7f8d2d3
             </div>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -115,56 +174,26 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="menu bg-color">
-    <header>
+    </section>
+<section class="menu bg-color">
+    <header class="header-size">
       <div id="header">
-        <div class="container header-container">
-          <nav class="bg-nav navbar-expand-lg navbar-light">
-            <button class="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="bars-icon">
-                <i class="fas fa-bars"></i>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="set-icon">
-                <img src="img/icons/set.svg">
-              </div>
-              <div class="user-img" id="user-photoURL">
-              </div>
-              <div class="white">
-                <h3 id="user-displayName"></h3>
-              </div>
-              <ul class="my-navbar mr-auto menu-container">
-                <li class="nav-item active ">
-                  <a class="nav-link" href="#/profile">Perfil<span class="menu-icons"><i
-                        class="far fa-user"></i></span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#/favorites">Favoritos<span class="menu-icons"><i
-                        class="far fa-heart"></i></span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#/reviews">Reseñas<span class="menu-icons"><i
-                        class="far fa-sticky-note"></i></span> </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#/saved">Guardados<span class="menu-icons"><i
-                        class="far fa-bookmark"></i></span></a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#/ id=" navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Mis conexiones
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#/followers">Seguidores</a>
-                    <a class="dropdown-item" href="#/follow">Seguidos</a>
-                </li>
-              </ul>
-              </ul>
+      <div class="container header-container">
+        <nav class="bg-nav">
+          <button class="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="bars-icon">
+              <i class="fas fa-bars"></i>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="set-icon">
+              <img src="img/icons/set.svg">
+            </div>
+            <div class="user-img" id="user-photoURL">
+            </div>
+            <div class="white">
+              <h3 id="user-displayName"></h3>
             </div>
           </nav>
           <div class="logo-civitas-dashboard">
@@ -175,9 +204,22 @@
               data-whatever="@mdo"><i class="far fa-edit"></i>
             </a>
           </div>
+<<<<<<< HEAD
+=======
+        </nav>
+        <div class="logo-newpost-container"></div>
+        <div class="logo-civitas-dashboard">
+          <a class="nav-link-" href="#/home"><img src="img/icons/logo.svg"></a>
+        </div>
+        <div class="new-post-icon">
+          <a href="#/newPost" class="btn" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo"><i class="far fa-edit"></i>
+          </a>
+>>>>>>> e6f058d37dbba87553af808231306d0fe7f8d2d3
         </div>
       </div>
     </header>
+<<<<<<< HEAD
 
     <div class="container">
     </div>
@@ -191,6 +233,63 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
+=======
+    <section>
+      <div class="container">
+        <div class="categories-btn">
+          <div>
+            <div class="categorie-btn">
+              <a>
+                <img src="img/icons/food.svg">
+              </a>
+            </div>
+            <p>Comida</p>
+          </div>
+          <div>
+            <div class="categorie-btn">
+              <a>
+                <img src="img/icons/drug.svg">
+              </a>
+            </div>
+            <p>Salud</p>
+          </div>
+          <div>
+            <div class="categorie-btn">
+              <a>
+                <img src="img/icons/dog.svg">
+              </a>
+            </div>
+            <p>Mascotas</p>
+          </div>
+          <div>
+            <div class="categorie-btn">
+              <a>
+                <img src="img/icons/home-run.svg">
+              </a>
+            </div>
+            <p>En casa</p>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="search-input-container">
+            <input class="search-input" type="search" name="search" placeholder="Buscar"/>
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="filters-icon">
+            <a><i class="fas fa-filter"></i></a>
+          </div>
+        </div>
+      </div>
+    </section> 
+   
+    <section id="contentCreated">
+      
+    </section>
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+>>>>>>> e6f058d37dbba87553af808231306d0fe7f8d2d3
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
