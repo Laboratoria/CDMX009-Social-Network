@@ -1,5 +1,6 @@
 import { root } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
+
 let db = firebase.firestore()
 
 export function renderPostView() {
@@ -29,7 +30,6 @@ export function renderPostView() {
             </span>
           </label>
         </div>
-    
     <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
     <section id="putPosts"></section>
     </section>`
