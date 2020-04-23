@@ -133,7 +133,7 @@ function edit() {
      });
    } */
   function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile) {
-    var user = firebase.auth().currentUser;
+    let user = firebase.auth().currentUser;
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
       name: newNameProfile,

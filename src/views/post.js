@@ -1,9 +1,13 @@
 import { root } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
-export const renderPostView = () => {
-  `<section id="container">
+let db = firebase.firestore()
+
+export function renderPostView() {
+  const posts =
+    `<section id="container">
     <div class="container has-text-white">
       <h1> Escribe tu microcuento:</h1>
+      <h1>Titulo:</h1>
       <input id="title" class="input is-success" type="text" placeholder="Título">
       <textarea id="body" class="textarea is-success is-large" type="text" placeholder="Escribe acá tu cuento"></textarea>
       <div class="field is-horizontal">
@@ -14,7 +18,7 @@ export const renderPostView = () => {
     
         <div class="file is-primary is-centered">
           <label class="file-label">
-            <input id="file" class="file-input" type="file" name="resume">
+            <input id="file" class="file-input" type="file" accept = "image/*" name="resume">
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>
@@ -26,41 +30,58 @@ export const renderPostView = () => {
           </label>
         </div>
     
-    <button id="publish" class="button  is-fullwidth is-primary is-large">Publicar</button>
-    <section id="posts"></section>
+    <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
+    <section id="putPosts"></section>
     </section>`
-  root.innerHTML = renderPostView;
-
+  root.innerHTML = posts
+  //Nodos Imagen
   const fileInput = document.querySelector("#file")
+  const sectionPosts = document.querySelector("#putPosts")
+  //Nodos publicación
+
+  const newPost = document.querySelector("#newPost")
+  newPost.addEventListener('click', readText)
+
+  readFile(fileInput, sectionPosts)
+
+  showPosts(sectionPosts)
+
+}
+
+function readFile(fileInput, sectionPosts) {
+  let url
+  //const fileInput = document.querySelector("#file")
   fileInput.onchange = (e) => {
-    const file = e.target.file
+    console.log(e);
+    let file = e.target.files[0]
+    console.log(file);
     firebase.storage().ref("postsList").child(file.name).put(file)
       .then(snap => {
+        console.log(snap);
         return snap.ref.getDownloadURL()
+
       })
       .then(link => {
         url = link
-        let img = document.createElement("img")
-        img.src = link
-        document.body.appendChild(img)
+        console.log(url);
+        const img = document.createElement('img')
+        img.src = url
+        sectionPosts.appendChild(img)
+        textImage()
       })
       .catch(err => {
-        alert("Error al cargar el documento");
+        alert("Error:", err);
       })
   }
-
-  //Esto agrega un post nuevo a la lista de posts
-
-  //NODOS
-  const text = document.querySelector('#body')
-  const title = document.querySelector("#title")
-  const newPost = document.querySelector("#newPost")
-  //Función que trae el texto
-  newPost.onclick = () => {
+  function textImage() {
+    const text = document.querySelector('#body').value
+    const title = document.querySelector("#title").value
+    let user = firebase.auth().currentUser;
     let post = {
-      title: title.value,
-      text: text.value,
-      // user: user.name.value,
+      title: title,
+      text: text,
+      user: user.displayName,
+      photo: user.photoURL,
       date: new Date(),
       img: url
     }
@@ -71,40 +92,94 @@ export const renderPostView = () => {
       .catch(err => {
         console.log("No hay nuevo post", err)
       })
+    addPostBD(post)
+
   }
 }
 
-// //Función para que el file upload traiga el nombre
+function readText() {
+  const text = document.querySelector('#body').value
+  const title = document.querySelector("#title").value
+  let user = firebase.auth().currentUser;
+  let post = {
+    title: title,
+    text: text,
+    user: user.displayName,
+    photo: user.photoURL,
+    date: new Date(),
+  }
+  addNewPost(post)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log("No hay nuevo post", err)
+    })
+  addPostBD(post)
+}
+//Esto agrega un post nuevo a la lista de posts
 
-// const fileInput = document.querySelector('#file-js-example input[type=file]');
-// fileInput.onchange = () => {
-//   if (fileInput.files.length > 0) {
-//     const fileName = document.querySelector('#file-js-example .file-name');
-//     fileName.textContent = fileInput.files[0].name;
-//   }
-// }
 
 //Funciones de Firebase
-let db = firebase.firestore()
-let postRef = db.collection("postsList")
 
-//Esto agrega el post al storage
+//Se agrega el post a la collección postsList en la BD 
 function addNewPost(post) {
   return firebase.firestore().collection("postsList").add(post)
 }
-//Esto muestra el post nuevo
-firebase.firestore().collection("postsList").onSnapshot(snap => {
-  //const post = document.querySelector("#posts");
-  post.innerHTML = ''
-  snap.forEach(doc => {
-    let renderPosts = `<div>
-    <p>${doc.data().title}</p>
-    <p>${doc.data().body}</p>
-    <p> Author:${doc.data().author}</p>
-    <img max- width="200" src="${doc.data().img}" />
-  </div>`
-    const newNode = document.createElement("div")
-    newNode.innerHTML = renderPosts
-    post.appendChild(newNode)
+
+//Se agregan los post al perfil del usuario 
+function addPostBD(post) {
+  let user = firebase.auth().currentUser;
+  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+  docRef.update({
+    post: firebase.firestore.FieldValue.arrayUnion(post)
   })
-})
+}
+
+//Muestra los posts en tiempo real
+function showPosts(sectionPosts) {
+
+  firebase.firestore().collection("postsList").onSnapshot(snap => {
+    limpiar(sectionPosts)
+    snap.forEach(doc => {
+      if (doc.data().img === undefined && doc.data().photo === undefined) {
+        let renderPosts = `<div>
+        <p>${doc.data().user}</p>
+      <p>${doc.data().title}</p>
+      <p>${doc.data().text}</p>
+    </div>`
+        const newNode = document.createElement("div")
+        newNode.innerHTML = renderPosts
+        sectionPosts.appendChild(newNode)
+      } if (doc.data().photo != undefined) {
+        let renderPosts = `<div>
+        <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
+      <p>Titulo:${doc.data().title}</p>
+      <p>${doc.data().text}</p>
+      <img max- width="200" src="${doc.data().img}" />
+      
+    </div>`
+        const newNode = document.createElement("div")
+        newNode.innerHTML = renderPosts
+        sectionPosts.appendChild(newNode)
+      } else {
+        let renderPosts = `<div>
+        <p> Autor: ${doc.data().user}</p>
+      <p>Titulo:${doc.data().title}</p>
+      <p>${doc.data().text}</p>
+      <img max- width="200" src="${doc.data().img}" />
+      
+    </div>`
+        const newNode = document.createElement("div")
+        newNode.innerHTML = renderPosts
+        sectionPosts.appendChild(newNode)
+      }
+
+    })
+  })
+}
+
+//Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
+function limpiar(sectionPosts) {
+  sectionPosts.innerHTML = '';
+}

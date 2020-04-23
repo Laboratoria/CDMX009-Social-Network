@@ -36,7 +36,7 @@ export function loginGoogle(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
-
+                renderPostView()
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -85,8 +85,9 @@ export function loginFacebook(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 console.log(result.credential);
                 saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
-
+                userObserverProfile()
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
+
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -139,7 +140,8 @@ export function createUser(newName, newEmail, newPassword, registryModal, alread
                 console.log('Se ha creado la cuenta!');
                 console.log(user.user);
                 saveEmailBD(newName, newEmail, newPassword, user)
-                userObserverProfile()
+
+
             })
             .catch(function (error) {//Si la cuenta se ha creado se muestra el error
                 alreadyExistModal.classList.add('is-active');
@@ -159,6 +161,7 @@ function saveEmailBD(newName, newEmail, newPassword, user) {
         email: newEmail,
         password: newPassword,
         uid: user.user.uid
+
     })
         .then(function () {
             console.log('Los datos se guardaron');
