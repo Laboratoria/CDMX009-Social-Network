@@ -1,13 +1,27 @@
 /* rgb(122, 190, 212); */
 
 
+/*.flex-container {
+  display: flex;
+}*/
+
 html {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Economica', sans-serif;
+    text-decoration-color: #0B0B3B;
   }
   
   body {
-    background-color: blue;
+    /*background-color: #2ECCFA;*/
+    background: rgba(148,228,250,1);
+background: -moz-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(148,228,250,1)), color-stop(14%, rgba(46,202,250,1)), color-stop(45%, rgba(148,228,250,1)), color-stop(62%, rgba(46,202,250,1)), color-stop(100%, rgba(63,63,117,1)));
+background: -webkit-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94e4fa', endColorstr='#3f3f75', GradientType=1 );
+Copy text,
     margin: 0;
     height: 100%;
   }
@@ -19,6 +33,9 @@ html {
     display: inline-block;
   }
   
+  #logo-login img{
+    max-width: 65px;
+  }
   
   .login {
     padding: 0 10px;
@@ -28,8 +45,6 @@ html {
     margin: 10px;
     width: 250px;
     cursor: pointer;
-    
-    
   }
   
   #friends {
@@ -44,9 +59,9 @@ html {
   
   .login p {
     margin: 1em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Economica', sans-serif;
     display: inline-block;
-    color: #737373
+    color: #737373;
   }
   
   #root {
@@ -86,9 +101,8 @@ html {
     margin: 10px auto;
     padding: 12px;
     border-radius: 10px;
-    font-family: 'Roboto', sans-serif !important;
-    border: 0.5px solid pink;
-  
+    font-family: 'Economica', sans-serif !important;
+    border: 1px solid #DF3A01;
   }
   
   .login-input:focus, .post-input:focus, .comment-input {
@@ -99,12 +113,12 @@ html {
   .login-btn, #post-it, #cancel, .comment-btn, #update-profile {
     display: block;
     margin: 10px auto;
-    font-family: 'Roboto', sans-serif;
-    border: 0.5px solid red;;
+    font-family: 'Economica', sans-serif;
+    border: 1px solid #DF3A01;
     padding: 10px;
-    background: white;
+    background: #0B0B3B;
     border-radius: 10px;
-    color: green;
+    color: #FFFFFF;
     font-size: 16px;
     cursor: pointer;
   }
@@ -182,16 +196,29 @@ html {
   #user-name {
     text-align: center;
     /* word-break: break-word; */
-    font-size: 18px;
-    
+    font-size: 20px;
   }
   
+  #user-pic img{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    box-shadow: -1px 9px 18px 2px rgba(11,11,59,0.68);
+  }
+ 
+  #profile-item{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    box-shadow: -1px 9px 18px 2px rgba(11,11,59,0.68);
+  }
+
   .side-option {
     max-width: 90%;
     height: 10%;
     display: flex;
     margin: 8% auto;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
   
   }
@@ -221,7 +248,7 @@ html {
     min-height: 20%;
     margin: 5% auto;
     padding: 2%;
-    border: 1px solid rgb(33, 126, 156);
+    border: 1px solid #DF3A01);
     background-color: whitesmoke;
     border-radius: 10px;
   
@@ -256,9 +283,9 @@ html {
   #search {
     border-radius: 10px;
     line-height: 30px;
-    border: 1px solid rgb(11, 89, 116);
+    border: 1px solid #DF3A01;
     padding: 5px;
-    font-size: 14px;
+    font-size: 15px;
     max-width: 70%;
     height: min-content;
     margin: auto;
@@ -359,7 +386,7 @@ html {
     float: right;
     margin-right: 7%;
     color: white;
-    background-color: rgb(11, 89, 116);
+    background-color: #0B0B3B;
   }
   
   #cancel {
@@ -381,15 +408,15 @@ html {
     margin: 10px auto;
     padding: 12px;
     border-radius: 10px;
-    font-family: 'Roboto', sans-serif !important;
-    border: 0.5px solid rgb(11, 89, 116);
+    font-family: 'Economica', sans-serif !important;
+    border: 1px solid #DF3A01;
     height: 50px;
     resize: none;
   }
   .postUser{
     width: 100%;
     font-size: 16px;
-    color: black;
+    color: #0B0B3B;
     
   }
   
@@ -405,7 +432,7 @@ html {
   }
   .comment-btn {
     color: white;
-    background-color: rgb(11, 89, 116);
+    background-color:#0B0B3B;
     margin-right: 10px;
   }
   
@@ -431,6 +458,17 @@ html {
     margin-top: 5px; 
     cursor: pointer;
   } 
+
+  .WelcomeFont{
+    color: #DF3A01;
+    font-family: 'Economica', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 13px;
+    margin-top: 5px; 
+    cursor: pointer;
+  }
   
   .change-comment, .cancel_change{ 
     cursor: pointer;
@@ -475,7 +513,7 @@ html {
   .postUser, .coment_user{
     min-height: 20%;
     margin: 5% auto;
-    border: whitesmoke;
+    border: #FFFFFF;
     background-color: whitesmoke;
     border-radius: 14px;
     margin: auto 0; 
@@ -485,8 +523,7 @@ html {
     resize: vertical;
     word-wrap: normal;
     font-size: 17px;
-    color: black;
-  
+    color: #0B0B3B;
   }
   
   #profile-div {
@@ -521,7 +558,7 @@ html {
   
   .responsive-nav {
     display: flex;
-    border-bottom: solid 1px rgb(11, 89, 116);
+    border-bottom: solid 1px #0B0B3B;
     z-index: 100;
   }
   
@@ -554,26 +591,9 @@ html {
   .optionConfirmCancel, .button_confirm_edit{
     display: none;
   }
-  
-  .postUser, .coment_user{
-    min-height: 20%;
-    margin: 5% auto;
-    border: whitesmoke;
-    background-color: whitesmoke;
-    border-radius: 14px;
-    margin: auto 0; 
-    display: block; 
-    /* overflow: scroll; */
-    width: 102%;
-    resize: vertical;
-    word-wrap: normal;
-    font-size: 17px;
-    color: black;
-  
-  }
-  
+    
   textarea {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Economica', sans-serif;
   }
   
   

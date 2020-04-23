@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", event => {
       function loginPage() {
       
         document.getElementById("root").innerHTML = `
-        <div id="logo-login"><img src="imglogo.png"></div>
+        <div id="logo-login"><img src="./images/logoAppBco.png">
+        </div>
         <div id="logins">
+        <p class="WelcomeFont">Bienvenidx</p>
         <p class="teachers-font">¡Encuentra la solución a tus problemas!</p>
         <input type="text"  id="login-mail" class="login-input" placeholder="Email">
         <input type="password" id="login-pwd" class="login-input" placeholder="Contraseña">
@@ -29,7 +31,6 @@ document.addEventListener("DOMContentLoaded", event => {
         <span id="google-login" class="login"><img src="g.png" class="icon" alt="googleLogo"><p>Iniciar Sesión con Google</p></span>
         <span id="facebook-login" class="login facebook"><img src="f.png" class="icon" alt="facebookLogo"><p>Iniciar Sesión con Facebook</p></span>
         </div>
-        
         `
     
       
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", event => {
         // BOTON QUE LLEVA A PAGINA DE CREAR CUENTA
         document.getElementById("new-account").addEventListener("click", ()=> {
           document.getElementById("root").innerHTML = `
-          <div id="logo-login"><img src="imgLogo.png"></div>
+          <div id="logo-login"><img src="./images/logoAppBco.png"></div>
           <div id="create-account">
           <p class="teachers-font">Ingresa un correo y una contraseña para tu cuenta</p>
   
@@ -89,14 +90,13 @@ document.addEventListener("DOMContentLoaded", event => {
               
               <nav class="responsive-nav">
               <div id="div-logo">
-                  <img id="logo" src="./img/teachersLogo.png" alt="logo">
+                  <img id="logo" src="./images/LogoAppV.png" alt="logo">
               </div>
               <div id="search-nav"><input id="search" type="text" placeholder="Buscar.."><a id="search-tag"><i class="fas fa-search fa-lg"></i></a><a id="new-post2" class="nav-bar-desktop"><i class="fas fa-edit fa-2x"></i></a><a id="user-profile2" class="nav-bar-desktop"><img src="./img/userLogo.png" alt="userlogo" class="icon-large nav-bar-desktop"></a></div>
              </nav>
         
              <div id="content">
                  
-        
              </div>
              <div id="content2">
              </div>
@@ -318,7 +318,6 @@ document.addEventListener("DOMContentLoaded", event => {
                
                </div>
         </div>
-        
         `
     
         document.getElementById("comments-section-"+post).style.display = "none"
