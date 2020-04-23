@@ -1,4 +1,13 @@
+
 function viewForum(user) {
+
+    var EmailCortado = 'No hay email';
+    if(typeof user != 'undefined'){
+        var email = user.email;
+        var divisiones = email.split("@");
+        EmailCortado = divisiones[0];
+    }
+    
     return new Promise(function(resolve, rejected) {
         let forumView = ` <!-- ***********PAGINA 3********* -->
     <div id="containerThree">
@@ -10,21 +19,21 @@ function viewForum(user) {
 
                 <div class="personalInformationPerfilUser">
                     <div class="namePerfilUser"><strong class="black-text perfilName little">
-                    ${user.email}
+                    ${EmailCortado}
                     <i class="material-icons center editProfileIcon">edit</i></strong></div>
                     <div class="professionDescription">Developer Sr. en Accenture</div>
                 </div>
             </div>
         </section>
-        <form>
+        <div>
             <p>
-                <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
+                <textarea id="showComment" class="comentUser"  name="description" placeholder="Escribe un commit..."></textarea>
             </p>
             <div class="right-align">
-                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
+                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center" >image</i></button>
+                <button id="publish" class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2" ><i class="material-icons right">computer</i>Publicar</button>
             </div>
-        </form>
+        </div>
         <div>
             <div class="informationBox">
 

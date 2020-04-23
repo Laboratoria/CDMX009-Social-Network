@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 buttonFacebook.addEventListener('click', function(e) {
                     e.preventDefault();
                     facebookButton();
-                    viewForum();
                     document.getElementById('hideAndShow').style.display = 'block';
                     movilIcon.classList.add('shown');
                 });
@@ -57,7 +56,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("Foro", viewRedirectionForum);
                 viewRedirectionForum.forEach(nodo => nodo.addEventListener('click', function(e) {
                     e.preventDefault();
-                    viewForum();
+                    viewForum()
+                    .then(function() {
+                        publicPost();
+                    });
                     window.history.pushState('Foro', 'Foro', '/Foro')
                 }));
             }).then(function() {
@@ -104,7 +106,10 @@ function loginPageOne() {
     var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
-            viewForum(data.user);  //BLISS
+            viewForum(data.user)//BLISS
+            .then(function() {
+                publicPost();
+            });  
             document.getElementById('hideAndShow').style.display = 'block';
             movilIcon.classList.add('shown');
         })
@@ -134,7 +139,10 @@ function googleButton() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        viewForum();
+        viewForum(user)
+        .then(function() {
+            publicPost();
+        });
         document.getElementById('hideAndShow').style.display = 'block';
         movilIcon.classList.add('shown');
         // ...
@@ -163,7 +171,10 @@ function facebookButton() {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            viewForum();
+            viewForum(user)
+            .then(function() {
+                publicPost();
+            });
             movilIcon.classList.add('shown');
             document.getElementById('hideAndShow').style.display = 'block';
         }).catch(function(error) {
@@ -222,6 +233,126 @@ function register() {
             });
     }
 }
+
+
+
+
+
+
+
+
+/*************** FUNCIONALIDAD DE POSTS***************/
+
+ 
+//let fileInput = document.getElementById('file') //variable para la prueba de subir imagen
+
+//global
+// variable para que reciba el link(token) de la foto que esta en storage
+
+
+
+//listeners
+
+/*funcion para subir archivo o archivos en el post
+fileInput.onchange = e => {        
+    let file = e.target.files[0] //lleva el indice cuando se quiere subir varios archivo, si no, se quita el indice y se coloca la llave file
+    firebase.storage().ref("memes").child(file.name).put(file)
+        .then(snap => {   //¿Donde esta el archivo? En file.name
+            return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
+        })
+        .then(link => {
+            url = link
+            let img = document.createElement('img')
+            img.src = link
+            document.body.appendChild(img)
+        })
+}
+*/
+
+
+
+//traer la informacion del post cuando se le da clic en el boton
+function publicPost(){
+    let url = 'futura imagen'
+    let publicPost = document.getElementById('publish')
+    publicPost.onclick = function(){
+        let text = document.getElementById('showComment')//variable con id en donde se pintaran los post, textArea
+    // traer el texto
+    let post = {
+        texto: text.value,
+        user: "spiderman",
+        date: new Date(),
+        img: url //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+    }
+    //  [ASINCRONO] 
+
+    addNewPost(post)
+        // ESto es asíncrono
+        .then(function(post) { //esto es la promesa
+            alert('hello') //este es el resultado de la promesa
+        })
+        .catch(err => {
+            console.log("todo valió baby: ", err) //esto es el error cuando la respuesta es negativa
+        })
+    }
+    
+}
+
+// firebase
+
+
+
+
+
+
+//pasar a la funcion el objeto que se encuentra en la base de datos de firebase
+function addNewPost(post) { 
+    let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database 
+    return postsRef.add(post)
+    console.log('post')// <--- esto es una promesa
+}
+
+/* leer la coleccion de post
+postsRef.onSnapshot(snap => {
+    let p = document.querySelector('#posts')
+    p.innerHTML = ''
+    snap.forEach(doc => {
+        let div = `<div>
+            <img src="${doc.data().foto}" /> // doc.data xq ahi esta la data
+            <p>${doc.data().texto}</p>
+        </div>`
+        let nodo = document.createElement('div')
+        nodo.innerHTML = div
+        p.appendChild(nodo)
+
+    })
+})
+
+//Obtén un documento
+var docRef = db.collection("cities").doc("SF");
+
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+
+//Obtén todos los documentos de una colección
+db.collection("post").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+});
+
+
+*/
+
 
 
 
