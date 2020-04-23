@@ -212,7 +212,7 @@ const render = () => {
 
       deleteButtons.forEach(
         btn => btn.addEventListener('click', deleteHandler)
-      );
+      )
     });
 
 
