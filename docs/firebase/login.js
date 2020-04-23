@@ -9,6 +9,7 @@ export default {
       .then((result) => {
         const user = result.user;
         database.collection('users').add({
+          id: user.uid,
           name: user.displayName,
           email: user.email,
           photo: user.photoURL,
@@ -28,6 +29,7 @@ export default {
       .then((result) => {
         const user = result.user;
         database.collection('users').add({
+          id: user.uid,
           name: user.displayName,
           email: user.email,
           photo: user.photoURL,
@@ -43,11 +45,13 @@ export default {
   },
   emailRegister: (mail, password) => {
     firebase.auth().createUserWithEmailAndPassword(mail, password)
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
         database.collection('users').add({
-          name: '',
-          email: mail,
-          photo: '',
+          id: user.uid,
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
         })
           .then((docRef) => {
             console.log('Document written with ID: ', docRef.id);
