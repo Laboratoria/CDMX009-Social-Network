@@ -1,5 +1,5 @@
 import { registros } from './pantalla2.js'
-import { home } from './pantalla3.js'
+import { welcome } from './pantalla3.js'
 
 let root = document.querySelector('#root');
  export const login = () => {
@@ -34,8 +34,11 @@ function login (){
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
-        saveUser (result.user);
+        let user = {}
+        user.displayName = result.user.displayName
+        user.email = result.user.email
+        user.photoURL = result.user.photoURL
+        welcome(user)
         // ...
       }).catch(function(error) {
         // Handle Errors here.
@@ -59,7 +62,6 @@ function loginF(){
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        saveUser (result.user);
         // ...
       }).catch(function(error) {
         // Handle Errors here.
@@ -118,14 +120,6 @@ function loginF(){
    }
 
    //Guarda en B.D cloud firestore usuarios registrados en la colleccion usersRef
-   function saveUser (user){
-    let usuario = {
-      uid: user.uid,
-      nombre: user.displayName,
-      email: user.email,
-      foto: user.photoURL
-     }
-     usersRef.doc(user.uid).set(usuario)
-   }
+   
   
    

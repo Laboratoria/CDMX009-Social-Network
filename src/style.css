@@ -289,3 +289,95 @@ body{
         width:360px;
         height:640px;
     }
+      /* Estilos pantalla3 */
+    .encabezado {
+        background-color: #EACDCF;
+        font-size: 25px; 
+        height: 40px;
+
+    }
+     .inicio, .perfil, .salir{
+           background-color: #EACDCF;
+           border-radius: 10px;
+           margin-top: 10px;
+     }
+      .photo{
+        width: 20%;
+        height: 10%;
+        border-radius: 50%;
+        display: inline-block;
+        margin-top: -10px;
+      }
+       .bienUser{
+           font-size: 18px;
+           margin-left: 100px;
+           
+       }
+        .containerPost{
+            height: 150px;
+            border-style: solid;
+        }
+          .comp{
+              margin-top: 10px;
+              margin-left: 10px;
+              width: 320px;
+              height: 80px;
+              border: solid;
+              font-family: 'Raleway', sans-serif;
+              text-align: center;
+              font-size: 15px;
+          } 
+           /*Boton compartir*/
+           .share{
+              margin-left: 200px;
+              margin-bottom: 50px;
+              width: 20%;
+              border-radius: 10px;
+              
+           }
+            .upPhoto{
+                width: 50px;
+                height: 30px;
+                margin-top: 15px;
+                margin-left: 5px;
+                border-radius: 3px;
+            }
+              .save{
+                  border-radius: 5px;
+                  margin-top: 50px;
+                  margin-left: 220px;
+              }
+               .myfile{
+                   padding-left: -2px;
+               }
+
+/* Ventana Modal*/
+.myModal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #EACDCF;
+}
+ .modalContent{
+     background-color: white;
+     margin: 15% auto;
+     padding: 40px;
+     width: 70%;
+     height: 20%;
+ }
+   .close{
+       color: red;
+       float: right;
+       font-size: 28px;
+       font-weight: bold;
+   }
+    .close:hover, .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
