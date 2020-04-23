@@ -9,39 +9,33 @@ export default () => {
     const likeCount ="15";
     const answers ="";
     const viewProfile = `
-    <section class="userNamePhoto">
-      <div>
-          <img src="img/User.svg">
-      </div>
-      <div>
-          <p class="userName">${userName}</p>
-      </div>
-    </section> 
-    <section class="userData">
-      <div class="user-data">
-          <p>Alumno: ${student}</p>
-          <p>Escuela: ${school}</p>
-          <p>Grado: ${grade}</p>
-          <p>Grupo: ${group}</p>
-          <p>Docente: ${teacher}</p>
-          <img class="engine" src="img/engine.svg"> 
-        </div>
-        <hr>
     </section>
     <section class="commentBox">
-      <div>
-          <div class="comment">
-              <p>${comment}</p>
-          </div>
+    <div class="containerbx">
     <div>
-          <div class="likes">
-              <img src="img/like.svg">${likeCount}
-          </div>
-          <div class="answer"> 
-              <p>Comentarios${answers}</p>
-          </div>
-    </div>
-  </section>
+       <div class="comment">
+        <div class="editIcon">
+        <img src="img/edit.svg" href="/#">
+       </div>
+           <p>${comment}</p>
+       </div>
+   <div>
+       <div class="likes">
+           <img src="img/like.svg">${likeCount}
+       </div>
+        <div class="answer"> 
+          <div class="editIcon">
+           <img src="img/edit.svg" href="/#">
+           </div>
+            <p>Comentarios${answers}</p>
+       </div>
+       <div class="likes">
+           <img src="img/like.svg">${likeCount}
+       </div>
+ </div>
+ </div>
+ </div>
+</section>
     `
     
   

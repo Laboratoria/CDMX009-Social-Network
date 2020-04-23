@@ -3,7 +3,6 @@ let providerG = new firebase.auth.GoogleAuthProvider();
 let providerFB = new firebase.auth.FacebookAuthProvider();
 let db = firebase.firestore();
 
-
 //Login Google
 function loginGoogle(){
   firebase.auth()
@@ -69,4 +68,36 @@ function saveDataUser(user){
   })
   };
 
-export  { loginGoogle, loginFB, registerUser };
+//add post user
+function addUserPost(){
+  let post = document.getElementById("post").value;
+  let postNewPrint = document.querySelector("#postNew");
+  console.log(postNewPrint.appendChild("<p>prueba</p>"));
+  db.collection("post").add({
+    post: post,
+})
+.then(function(docRef) {
+  console.log("Document written with ID: ", docRef.id);
+    document.getElementById("post").value = '';
+    
+    showPostUser();
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+}
+
+//Show post user
+function showPostUser(){
+  db.collection("post").onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {;
+        console.log(`${doc.id} => ${doc.data().post}`);
+        /*let postNew = `
+        <p>${doc.id}</p>
+        `
+        postNewPrint.appendChild(postNew)*/
+      });
+});
+}
+
+export  { loginGoogle, loginFB, registerUser, addUserPost };

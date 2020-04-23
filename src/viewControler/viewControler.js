@@ -13,7 +13,7 @@ const changeView = (route) => {
       return root.appendChild(components.Home());
     }
     case "": {
-      root.appendChild(components.Splash());
+      return root.appendChild(components.Splash());
     }
     case "#/calendar": {
       header.appendChild(components.Header());
