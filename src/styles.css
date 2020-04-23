@@ -1,0 +1,97 @@
+#root{
+    height: 2000px; 
+}
+body{
+    /*background-color:#131515;*/
+
+     background-color:#232323; 
+     /* height: 600px; */
+     color: rgb(212, 144, 41);
+   
+}
+.form-container{
+    margin: 50px;
+    padding: 80px,80px,50px,80px;
+    justify-content: center;
+    color:#FAFAFA; 
+}
+.titles{
+    font-size: large;
+}
+
+.centerItem{
+    margin: 10px, 50px,10px,50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.container-separate{
+    margin-top: 20px;
+    
+}
+a{
+    text-decoration-color: #A5DED3;
+    text-decoration:none;
+    color: #A5DED3;
+}
+
+.btnIcon{
+    margin-top: 50px;
+    margin: 16px;
+}
+
+.registryLink{
+    margin-top: 80px;
+}
+.back{
+    padding: 20px;
+    justify-content:left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.rudyIcon{
+    justify-content: center;
+    color: #A5DED3;
+}
+
+.modal-content{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+.containerPop{
+        background-color: #E5E5E5;
+        color:#232323;
+        text-align: center;
+        margin: 15px;
+        padding: 15px;   
+    }
+    
+.imagePop{
+        font-size: 100px;
+        color: #000000;
+    }
+.acceptDelete{
+        font-size: 25px;
+        background-color: #47C674;
+        margin-right: 20px;
+        border-radius: 10px;
+        color:#2E2F32;
+        
+       }
+.cancelDelete{
+        font-size: 25px;
+        background-color: #FF385F;
+        margin-left: 20px;
+        border-radius: 12px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color:#2E2F32;
+       
+}
+.ocultEditProfile{
+    visibility: hidden;
+}
+.active{
+    visibility: visible;
+}

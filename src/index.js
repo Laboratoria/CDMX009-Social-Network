@@ -1,18 +1,6 @@
-import { viewLogin } from './main.js'
-import { viewSign } from './main.js'
-import { renderHomeView } from "./views/home.js"
-import { renderPostView } from "./views/post.js"
-import { renderExitView } from "./views/exit.js"
-
-export const components = {
-  home: renderHomeView,
-  post: renderPostView,
-  profile: viewLogin,
-  exit: renderExitView
-};
 
 
-//  Instanciar Firestore
+//Instanciar Firestore
 const db = firebase.firestore();
 
 //login, instancia del provedor del servicio
@@ -30,10 +18,6 @@ export function loginGoogle(errorGooFbkModal) {
             .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
-                //div.innerHTML = `<img src="${result.user.photoURL}"/>`
-            })
-            .catch(function (error) {
-                errorGooFbkModal.classList.add('is-active');
                 console.log('error:', error);
             })
     });
@@ -45,9 +29,9 @@ function saveDataG(user) {
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
         uid: user.uid,//Servirá para eliminar
-        nombre: user.displayName,//Se obtiene el nom
+        name: user.displayName,//Se obtiene el nom
         email: user.email,
-        foto: user.photoURL
+        photo: user.photoURL
     })
         .then(function () {
             console.log('Los datos se guardaron');
@@ -79,7 +63,9 @@ export function loginFacebook(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 console.log(result.credential);
                 saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
+                userObserverProfile()
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
+
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -94,15 +80,9 @@ function saveDataF(user) {
     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
     docRef.set({
         uid: user.uid,
-        nombre: user.displayName,
-        email: user.email,
-        foto: user.photoURL
-    })
-        .then(function () {
             console.log('Los datos se guardaron');
         })
         .catch(function (error) {
-            console.log('Hubo en error:', error);
         })
     updateDataFb(docRef)
 }
@@ -132,6 +112,8 @@ export function createUser(newName, newEmail, newPassword, registryModal, alread
                 console.log('Se ha creado la cuenta!');
                 console.log(user.user);
                 saveEmailBD(newName, newEmail, newPassword, user)
+
+
             })
             .catch(function (error) {//Si la cuenta se ha creado se muestra el error
                 alreadyExistModal.classList.add('is-active');
@@ -195,17 +177,14 @@ function userObserver() {
             docRef.get().then(function (snapshot) {
                 let myData = snapshot.data();
                 console.log(myData);
-                /* div.innerHTML = `Hola <img src='${myData.foto}'> ${myData.nombre} ` */
             })
         } else {
             // No user is signed in.
             console.log('No user');
         }
-    });
 }
 userObserver()
 
-//Actualización de perfil
 /* function profileUpdate(user) {
     //var user = firebase.auth().currentUser;
     user.updateProfile({
@@ -217,5 +196,6 @@ userObserver()
     }).catch(function (error) {
         // An error happened.
         console.log(error);
+
     });
 } */
