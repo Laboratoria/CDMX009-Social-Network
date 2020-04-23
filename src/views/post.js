@@ -1,8 +1,7 @@
-import {addNewPost} from "./postFunctions.js"
-
 import { root } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
-export const postTemplate = () => {
+export  function renderPostView () {
+   const posts =
     `<section id="container">
     <div class="container has-text-white">
       <h1> Escribe tu microcuento:</h1>
@@ -11,10 +10,10 @@ export const postTemplate = () => {
       <div class="field is-horizontal">
         <label class="label has-text-white">Autor:</label>
       <div class="field-body">
-        <input class="input is-static has-text-white" type="text" value="$Username" readonly>
+        <input class="input is-static has-text-white" type="text" value="User.name" readonly>
         </div>
     
-        <div class="file is-primary is-centered has-name">
+        <div class="file is-primary is-centered">
           <label class="file-label">
             <input id="file" class="file-input" type="file" name="resume">
             <span class="file-cta">
@@ -25,43 +24,44 @@ export const postTemplate = () => {
                 Agrega una ilustración...
               </span>
             </span>
-            <span  id="imageName" class="file-name">
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </span>
           </label>
         </div>
-
     
     <button id="publish" class="button  is-fullwidth is-primary is-large">Publicar</button>
-    <section id="feed"></section>
+    <section id="posts"></section>
     </section>`
-        root.innerHTML = postTemplate;
-        //NODOS
-        const fileInput = document.querySelector("#file");
-        const text = document.querySelector('#body');
-        const title = document.querySelector("#title");
-        const newPost = document.querySelector("#publish");
-        // Listeners
+        root.innerHTML = posts
+        const fileInput = document.querySelector("#file")
+        readFile(fileInput)
+        }
+        function readFile(fileInput){
         fileInput.onchange = (e) =>{
-          const file =  e.target.file
+          console.log(e);
+          let file =  e.target.files[0]
+          console.log(file);
+
           firebase.storage().ref("postsList").child(file.name).put(file)
           .then(snap => {
             return snap.ref.getDownloadURL()
       })
-          .then(link => {
-          url = link
-          let img= document.createElement("img")
-          img.src = link
-          document.body.appendChild(img)
-          })
-          .catch(err =>{
-          alert("Error al cargar el documento");
-          })
-        }
+        .then(link => {
+        url = link
+        let img= document.createElement("img")
+        img.src = link
+        document.body.appendChild(img)
+        })
+        .catch(err =>{
+        alert("Error al cargar el documento");
+        })
+      }
 
 //Esto agrega un post nuevo a la lista de posts
 
-      //Función que "recupera" el texto ingresado por el usuario
+      //NODOS
+      const text = document.querySelector('#body')
+      const title = document.querySelector("#title")
+      const newPost = document.querySelector("#newPost")
+      //Función que trae el texto
       newPost.onclick = ()=> {
         let post = {
             title: title.value,
@@ -70,10 +70,15 @@ export const postTemplate = () => {
             date: new Date(),
             img: url
         }
-       let addNewPost;
+      addNewPost(post)
+      .then (res=> {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log("No hay nuevo post", err)
+      })
     }
   }
-
 
 // //Función para que el file upload traiga el nombre
 
@@ -85,3 +90,27 @@ export const postTemplate = () => {
 //   }
 // }
 
+//Funciones de Firebase
+let db = firebase.firestore()
+let postRef = db.collection("postsList")
+
+//Esto agrega el post al storage
+function addNewPost(post)
+{return firebase.firestore().collection("postsList").add(post)
+}
+//Esto muestra el post nuevo
+firebase.firestore().collection("postsList").onSnapshot(snap=>{
+  const post = document.querySelector("#posts");
+  post.innerHTML = ''
+  snap.forEach(doc=> {
+    let renderPosts = `<div>
+    <p>${doc.data().title}</p>
+    <p>${doc.data().body}</p>
+    <p> Author:${doc.data().author}</p>
+    <img max- width="200" src="${doc.data().img}" />
+  </div>`
+  const newNode = document.createElement("div")
+  newNode.innerHTML = renderPosts
+  post.appendChild(newNode)
+  })
+})

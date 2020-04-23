@@ -1,6 +1,6 @@
 import { changeView } from './views/viewcontroler.js'
 import {renderHomeView} from "./views/home.js"
-import {postTemplate} from "./views/post.js"
+import {renderPostView} from "./views/post.js"
 import {renderProfileView} from "./views/profile.js"
 import {renderLoginView} from "./views/login.js"
 import {renderExitView} from "./views/exit.js" 
@@ -15,7 +15,7 @@ const exitButton = document.querySelector('#exit');
 
 // listeners
 homeButton.onclick = renderHomeView;
-postButton.onclick = postTemplate();
+postButton.onclick = renderPostView();
 profileButton.onclick = renderProfileView();
 loginButton.onclick = renderLoginView();
 exitButton.onclick = renderExitView();
