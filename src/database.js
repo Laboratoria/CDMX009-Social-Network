@@ -1,4 +1,4 @@
-import { renderFirstProfile } from './index.js';
+import { renderFeed } from './index.js';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 const provider1 = new firebase.auth.FacebookAuthProvider();
@@ -45,7 +45,7 @@ const database = {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log('existe usuario activo');
-        renderFirstProfile();
+        renderFeed();
         console.log('*****************');
         console.log(user.emailVerified);
         console.log('*****************');
@@ -108,6 +108,14 @@ const database = {
     let uid = firebase.auth().currentUser.uid
     return firebase.firestore().collection('image').doc(uid).get()
     .then(doc=>{
+      return doc.data()
+    })
+  },
+  getProfileName:()=>{
+    let uid = firebase.auth().currentUser.uid
+    return firebase.firestore().collection('users').doc(uid).get()
+    .then(doc=>{
+      console.log(doc.data())
       return doc.data()
     })
   },
