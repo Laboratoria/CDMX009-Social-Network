@@ -1,4 +1,5 @@
-import { changeView } from '../view-controler/router.js'
+// eslint-disable-next-line import/no-cycle
+import { changeView } from '../view-controler/router.js';
 
 export default () => {
   const viewLogin = `<div class = "gridContainer login-container">
@@ -18,36 +19,41 @@ export default () => {
     </main>
     </div>`;
 
-  //nodes (for the creation of the HTML elements)
-  const divElement = document.createElement('div')
-  divElement.innerHTML = viewLogin
+  //  nodes (for the creation of the HTML elements)
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewLogin;
 
-  //nodes (to get the DOM elements inside the form and initialize the login function)
-  const footer = document.querySelector('.footer')
-  const emailText = divElement.querySelector('#emailText')
-  const passwordText = divElement.querySelector('#passwordText')
-  const loginBtn = divElement.querySelector('#loginBtn')
-  
- function removeFooter(){
-    footer.classList.toggle('no-footer')
-    console.log('sirvo')
+  //  nodes (to get the DOM elements inside the form and initialize the login function)
+  const footer = document.querySelector('.footer');
+  const emailText = divElement.querySelector('#emailText');
+  const passwordText = divElement.querySelector('#passwordText');
+  const loginBtn = divElement.querySelector('#loginBtn');
+
+  function removeFooter() {
+    footer.classList.toggle('no-footer');
   }
-  window.addEventListener('load',removeFooter())
-  
- 
-  //login event
-  loginBtn.addEventListener('click', e => {
-    const email = emailText.value
-    const pass = passwordText.value 
-    const auth = firebase.auth()
+  window.addEventListener('load', removeFooter());
 
-  //sign in with firebase functions
-  const promise = auth.signInWithEmailAndPassword(email, pass)
-  promise.then (e=> changeView('#/home'))
-  promise.catch(e=>console.log(alert(e.message)))
-  })
+  //  login event
+  loginBtn.addEventListener('click', () => {
+    const email = emailText.value;
+    const pass = passwordText.value;
+    const auth = firebase.auth();
 
+    //  check the user status
+    auth.onAuthStateChanged(user => {
+      if(user){
+        console.log("user logged in" + user)
+      }else{
+        console.log("no user found ")
+      }
+    })
 
+    //  sign in with firebase functions
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+    promise.then(() => changeView('#/home'));
+    promise.catch(err => (err));
+  });
 
-  return divElement
-}
+  return divElement;
+};

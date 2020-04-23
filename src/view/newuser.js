@@ -1,6 +1,5 @@
 import { changeView } from '../view-controler/router.js'
 export default () =>{
-  
   const viewNewUser = `
   <div class = "gridContainer" id = "signupForm">
         <div class = "about">
@@ -31,59 +30,59 @@ export default () =>{
   const divElement = document.createElement('div')
   divElement.innerHTML = viewNewUser
 
+  //  firebase 
+  const storage = firebase.storage() 
+  const db = firebase.firestore() 
+  const auth = firebase.auth()
+
   //Nodes from DOM elements 
   let div= divElement.querySelector('#imgContainer')
   const image = divElement.querySelector('#img')
-  const username = divElement.querySelector("#signupUser")
+  const usernameText = divElement.querySelector("#signupUser")
   const emailText = divElement.querySelector('#signupEmail')
   const passwordText = divElement.querySelector('#signupPassword')
   const signupBtn = divElement.querySelector('#signup')
   const fbBtn = divElement.querySelector("#fb")
   const gBtn = divElement.querySelector("#google")
+  let url; 
+
+  auth.onAuthStateChanged(user => {
+    console.log(user)
+  })
 
   //profile img
   image.addEventListener('change', e => {
    let file = e.target.files[0]
       console.log(file)
    
-   let x =firebase.storage().ref("profilePics").child(file.name).put(file)
+   let x = storage.ref("profilePics").child(file.name).put(file)
         .then(snap => {
             return snap.ref.getDownloadURL()        
         })
         
-        .then(function(url){
+        .then(function(link){
+          url = link 
           let img = divElement.querySelector('#myimg')
-          //let img = document.getElementById('myimg');
-          img.src = url
-          //div.style.backgroundImage = url
+          img.src = link
           console.log(url)
-        })
-       
-     
-    console.log(x)
-     
+        })     
   } )
-  
  
-  
   //signup with Email
   signupBtn.addEventListener('click', e =>{
     e.preventDefault();
     const email = emailText.value;
     const pass = passwordText.value;
-    const auth = firebase.auth()
+    const username = usernameText.value; 
   
-  const promise = auth.createUserWithEmailAndPassword(email, pass)
-  promise.then(data => {
-    let photo = url.value
-    let name = username.value;
-    data.user.updateProfile({
-      displayName : name,
-      photoURL : photo
-    })
-    console.log(promise)
-  })
-  promise.then (e=> changeView('#/login'))
+    auth.createUserWithEmailAndPassword(email, pass).then(cred =>{
+      return db.collection('users').doc(cred.user.uid).set({
+        uid: cred.user.uid,
+        photoURL: url, 
+        displayName: username,
+        bio: "¿biologx o novatx?",
+      })
+    }).then( e => changeView('#/home'))
   })
   
   //facebook sign up
@@ -112,8 +111,5 @@ export default () =>{
       console.log(error)
     })
  })
-
- 
- 
   return divElement
 }
