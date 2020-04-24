@@ -7,19 +7,19 @@
 h3 {
   text-align: center;
   letter-spacing: 2px;
-  color: #385a64;
+  color: #304d55;
   font-size: 1.4em !important;
   font-weight: 600 !important;
 }
 h4{
   letter-spacing: .05em;
   text-align: left;
-  color: #385a64;
+  color: #304d55;
   font-size: 1.1em !important;
   font-weight: 700 !important;
 }
 .bg-img {
-  background-image: url(./img/bg-login.svg);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(./img/bg-login.svg);
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -38,6 +38,7 @@ h4{
   border: 1px solid #ffffff;
   box-sizing: border-box;
   border-radius: 20px;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logo-civitas {
@@ -66,7 +67,7 @@ h4{
 }
 
 .submit-button {
-  background: #385a64;
+  background: #304d55;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
   height: 38px;
@@ -92,22 +93,25 @@ h4{
 }
 
 .eye-icon {
+  position: relative;
+  color: #304d55;
+}
+.fa-eye{
   position: absolute;
-  top: 32%;
-  right: 4%;
-  color: #385a64;
+  top: 40%;
+  left: 91%;
 }
 .eye-icon:hover {
   color: rgb(81, 136, 153);
 }
 .forgotten-password:hover {
-  color: #385a64;
+  color: #304d55;
 }
 
 .scial-mdia-prgph {
   text-align: center;
   font-size: 0.9em;
-  color: #385a64;
+  color: #304d55;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
@@ -120,10 +124,13 @@ h4{
 
 .facebook {
   padding: 16px 29px;
-  background: #3b5998;
+  background: #345ca5;
   border-radius: 6px;
   color: #fff;
   border: none;
+}
+.facebook:hover {
+  background: #4d74bd;
 }
 .fab {
   padding-right: 12px;
@@ -134,6 +141,9 @@ h4{
   border-radius: 6px;
   color: rgb(71, 71, 71);
   border: 1px solid rgb(82, 82, 82);
+}
+.google:hover {
+  background: rgb(230, 230, 230);
 }
 .fa-google {
   color: #3b5998;
@@ -174,7 +184,7 @@ h4{
     color: #fff;
 }
 .bg-nav{
-    background-color: #385a64;
+    background-color: #304d55;
     position: absolute;
     z-index: 100;
 }
@@ -218,7 +228,7 @@ nav .bg-nav{
   }
 .new-post-icon{
     font-size: 1.6em;
-    color: #385a64;
+    color: #304d55;
   }
 .menu-btn{
   background-color: #fff;
@@ -257,7 +267,7 @@ nav .bg-nav{
   }
   .categorie-btn img{
     width: 30px;
-    color: #385a64;
+    color: #304d55;
   }
   .filters{
     display: flex;
@@ -283,7 +293,7 @@ nav .bg-nav{
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-color: #385a64;
+    background-color: #304d55;
     border-radius: 4px;
   }
   .fa-filter{
@@ -360,8 +370,19 @@ nav .bg-nav{
 
 
 
+/*Media querys*/
+@media screen and (min-width: 450px){
+    .facebook {
+      padding: 14px 24px;
+    }
+    .google {
+      padding: 14px 32px;
+    }
+}
 
+@media screen and (min-width: 769px){
 
+}
 
 
 

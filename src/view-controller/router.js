@@ -9,7 +9,7 @@ export const changeTmp = (hash) => {
         case '':
         case '#':
         case '#/':
-        case '#/home':
+        case '#/dashboard':
             { return sectionMain.appendChild(components.home()); }
         case '#/profile':
         case '#/favorites':
@@ -18,7 +18,6 @@ export const changeTmp = (hash) => {
         case '#/conexions':
         case '#/followers':
         case '#/follow':
-        case '#/menu':
         case '#/newPost':
 
             { return sectionMain.appendChild(components[id]()); }
