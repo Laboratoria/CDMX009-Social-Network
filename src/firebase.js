@@ -76,8 +76,7 @@ function addUserPost(){
     user: user.uid
 })
 .then(function(docRef) {
-  console.log("Document written with ID: ", docRef.id);
-    document.getElementById("addNewPost").value = '';
+  console.log("Document written with ID: ", docRef.id);  document.getElementById("addNewPost").value = '';
     showPostUser();
     
 })
