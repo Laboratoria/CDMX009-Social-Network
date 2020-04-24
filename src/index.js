@@ -92,6 +92,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(elems);
 });
 
+
+//*********************BLOQUE      UNO ****************************/
+
 // En esta parte hago la funcion que va tener mi boton al hacer click
 // en entar a la aplicación en esta parte la que me hace entrar a la app (login)
 function loginPageOne() {
@@ -118,6 +121,12 @@ function loginPageOne() {
         });
     var cred = firebase.auth.EmailAuthProvider.credential(email, pass);
 }
+
+
+
+//*********************BLOQUE      DOS ****************************/
+
+
 
 // **************** L O G I N     G O O G L E*******
 // En esta parte hago la funcion que va tener mi boton al hacer click
@@ -152,6 +161,10 @@ function googleButton() {
     });
 }
 
+
+
+//*********************BLOQUE      TRES ****************************/
+
 // **************** L O G I N     F A C E B O O K *******
 // En esta parte hago la funcion que va tener mi boton al hacer click
 // en entar a la aplicación en esta parte  la que me hace entrar a la app con facebook (facebook)
@@ -180,6 +193,8 @@ function facebookButton() {
             var credential = error.credential;
         });
 }
+
+//*********************BLOQUE      CUATRO ****************************/
 // ******** LOG OUT FUNCTION 
 function out() {
 
@@ -197,6 +212,9 @@ function out() {
 
         });
 }
+
+
+//*********************BLOQUE      CINCO ****************************/
 
 function register() {
     var registerNameLogin2 = document.getElementById('registerLoginName2').value;
@@ -226,6 +244,10 @@ function register() {
     }
 }
 
+
+//*********************BLOQUE      SEIS ****************************/
+
+
 /*************** FUNCIONALIDAD DE POSTS***************/
 
 //traer la informacion del post cuando se le da clic en el boton
@@ -244,7 +266,6 @@ function publicPost() {
                 console.log(imageUrl);
                 let img = document.createElement('img');
                 img.src = imageUrl;
-                document.body.appendChild(img);
                 document.getElementById("picturePerfect").appendChild(img);
             })
 
@@ -271,9 +292,56 @@ function publicPost() {
             })
 
     }
+
 }
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) {
     let postsRef = db.collection('Subiendo Imagen a localstorage') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
     return postsRef.add(post);
 }
+
+// // //P R O B A N D O        PERSISTENCIA DE DATOOOS
+// localStorage.setItem('post', JSON.stringify(post)); //aquí le digo que guarde como un json formateado mi objeto
+// var obtainingPersistenceData = localStorage.getItem('post') //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
+// console.log(obtainingPersistenceData)
+
+
+
+//funciones de vero para practicar
+/* leer la coleccion de post
+postsRef.onSnapshot(snap => {
+    let p = document.querySelector('#posts')
+    p.innerHTML = ''
+    snap.forEach(doc => {
+        let div = `<div>
+            <img src="${doc.data().foto}" /> // doc.data xq ahi esta la data
+            <p>${doc.data().texto}</p>
+        </div>`
+        let nodo = document.createElement('div')
+        nodo.innerHTML = div
+        p.appendChild(nodo)
+
+    })
+})
+
+//Obtén un documento
+var docRef = db.collection("cities").doc("SF");
+
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+
+// Obtén todos los documentos de una colección
+// db.collection("post").get().then(function(querySnapshot) {
+//     querySnapshot.forEach(function(doc) {
+//         // doc.data() is never undefined for query doc snapshots
+//         console.log(doc.id, " => ", doc.data());
+//     });
+// });
