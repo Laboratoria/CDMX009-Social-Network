@@ -29,17 +29,41 @@ export default () => {
         <hr>
     </section>
     <section class="commentBox">
-      <div>
+       <div class="containerbx">
+       <div>
           <div class="comment">
+          <div class="editIcon">
+          <div class="editImg">
+                <img src="img/edit.svg">
+          </div>
+                <ul>
+                <li><a href="/" id="edit">Editar publicación</a></li>
+                <li><a href="/" id="eliminate">Eliminar publicación</a></li>
+              </ul>
+         </div>
               <p>${comment}</p>
           </div>
-    <div>
+      <div>
           <div class="likes">
               <img src="img/like.svg">${likeCount}
           </div>
-          <div class="answer"> 
-              <p>Comentarios${answers}</p>
+           <div class="answer"> 
+           <div class="editIcon">
+           <div class="editImg">
+                 <img src="img/edit.svg">
+           </div>
+                 <ul>
+                 <li><a href="/" id="edit">Editar publicación</a></li>
+                 <li><a href="/" id="eliminate">Eliminar publicación</a></li>
+               </ul>
           </div>
+               <p>Comentarios${answers}</p>
+          </div>
+          <div class="likes">
+              <img src="img/like.svg">${likeCount}
+          </div>
+    </div>
+    </div>
     </div>
   </section>
     `

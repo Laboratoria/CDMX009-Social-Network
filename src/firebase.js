@@ -17,7 +17,6 @@ function loginGoogle(){
   });
 }
 //Login facebook
-/*
 function loginFB(){
   firebase.auth()
   .signInWithPopup(providerFB)
@@ -70,4 +69,4 @@ function saveDataUser(user){
   })
   };
 
-export  { loginGoogle, loginFB, registerUser };*/
+export  { loginGoogle, loginFB, registerUser };

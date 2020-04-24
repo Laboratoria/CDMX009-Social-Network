@@ -142,17 +142,11 @@ ul {
 }
 /*end navigation bar*/
 
-
-/*PROFILE*/
-/*.userNamePhoto{
-}
-*/
 /*User photo*/
-/*
 .userNamePh {
   display: flex;
   flex-direction: row;
-}*/
+}
 
 .userNamePh img {
   margin-top: 40px;
@@ -184,6 +178,13 @@ flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .mainConteinerLogin a {
+    color: #FFE36B;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
   }
 
 /*navigation bar*/
@@ -263,6 +264,7 @@ padding-left: 0px;
   height: 100%;
   border-radius:15px;
   margin: 10px; 
+  padding: 10px;
 }
 
 .commentBox .comment {
@@ -277,13 +279,6 @@ padding-left: 0px;
   padding: 3px;
   border-style: solid;
   border-color: #BEB4FF;
-  }
-
-  .mainConteinerLogin a {
-    color: #FFE36B;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
   }
 
 .commentBox .answer {
@@ -302,10 +297,55 @@ padding-left: 0px;
 
 .editIcon img {
   height: auto;
-  width: 20px;
-  padding-left:93%;
-  margin-bottom: 0;
-  }
+  width: 16px;
+  padding-left:320%;
+  display: flex;
+  justify-content: right;
+}
+
+.editIcon {
+  display: flex;
+  justify-content: right;
+  margin-right: 30px;
+}
+
+.editIcon ul{
+  display: none;
+  list-style: none;
+  padding: 3px;
+  position: absolute;
+  width: 490px;
+  text-align: right;
+}
+
+.editIcon:hover ul, li:hover {
+  display: block;
+}
+
+.editIcon ul li:hover a{
+  color: #A698FF;
+  background: #FFE36B;
+  width: 200px;
+}
+
+.editIcon li{
+  margin: 15px, 0px;
+}
+
+.editIcon li a{
+  color: #000000;
+  text-decoration: none;
+  font-size: 17px;
+  transition: all 0.3s;
+}
+
+.editImg {
+  margin-right: 8px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
 .likes img {
 height: auto;
@@ -672,6 +712,7 @@ body{
 
   .commentBox .containerbx {
     width: 90%;
+    padding: 3px;
   }
 
   .commentBox .comment {
@@ -692,8 +733,7 @@ body{
   
   .editIcon img {
     width: 17px;
-    padding-left: 85%;
-    margin-bottom: 0;
+    padding-left: 155%;
     }
   
   .likes img {
@@ -703,6 +743,42 @@ body{
    margin-top: 0;
   }
 
+/*navigation bar*/
+footer {
+  background-color: #FFE36B;
+  height: 30px;
+  width: 98%;
+  text-align: center;
+  margin-top: 15px;
+  }
+
+  footer li img {
+  margin-top: -28px;
+  width: 35px;
+  }
+
+/*  View CALENDAR  */
+
+  
+  .titleCalendar{
+  font-size: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  }
+  
+  .calendar{
+  width: 330px;  
+  }
+
+  .infoConteinerCalendar img{
+  padding-left: 5px;
+  width: 25px;
+  }
+  
+  
+  
+ 
+  
   
 }
 
