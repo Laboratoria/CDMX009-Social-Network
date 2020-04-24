@@ -8,7 +8,7 @@ export default () => {
               <img src="img/icons/food.svg">
             </a>
           </div>
-          <p>Comida</p>
+          <p>COMIDAASAADsaSDas</p>
         </div>
         <div>
           <div class="categorie-btn">

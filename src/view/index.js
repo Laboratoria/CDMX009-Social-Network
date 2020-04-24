@@ -1,6 +1,6 @@
 import Home from './home.js';
 import Profile from './profile.js';
-import Favorites from './favorites.js';
+import Login from './login.js';
 import Reviews from './reviews.js';
 import Saved from './saved.js';
 import Followers from './followers.js';
@@ -12,7 +12,7 @@ import Different from './404.js';
 const components = {
     home: Home,
     profile: Profile,
-    favorites: Favorites,
+    login: Login,
     reviews: Reviews,
     saved: Saved,
     followers: Followers,

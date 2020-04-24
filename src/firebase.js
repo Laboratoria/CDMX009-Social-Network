@@ -1,120 +1,142 @@
-/* import { viewHome } from './view/home'; */
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBqImEvm_hfsvsj2vN8KWBn6Ewr2zFb9CQ",
-  authDomain: "social-network-d33e4.firebaseapp.com",
-  databaseURL: "https://social-network-d33e4.firebaseio.com",
-  projectId: "social-network-d33e4",
-  storageBucket: "social-network-d33e4.appspot.com",
-  messagingSenderId: "957477248623",
-  appId: "1:957477248623:web:77fed7501ea9a56198b79a",
-  measurementId: "G-M3SME61YJ3"
-};
-firebase.initializeApp(firebaseConfig);
+let googleP = new firebase.auth.GoogleAuthProvider();
+let facebookP = new firebase.auth.FacebookAuthProvider();
+let db = firebase.firestore();
+// Firebase init
+/* firebase.storage(); */
 
-//Crear usuario con email
-$('#email-submit').click(function(){
-    let emailUser = document.querySelector('#email-new').value;
-    let passwordUser = document.querySelector('#password-new').value;
-    console.log(emailUser, passwordUser);
+//Log up email
+$('#email-submit').click(function () {
+  let emailUser = document.querySelector('#email-new').value;
+  let passwordUser = document.querySelector('#password-new').value;
+  console.log(emailUser, passwordUser);
 
-    firebase.auth().createUserWithEmailAndPassword(emailUser, passwordUser)
-        .catch(function (error) {
-            // Errores
-            var errorMessage = error.message;
-            console.log(errorMessage)
-            if(errorMessage){
-                let invalidEmail = document.querySelector('#invalid-email')
-                     invalidEmail.innerHTML = errorMessage
-            }
-        });
-});
-
-//Ingresar usuario existente
-$('#login-submit').click(function login(){
-    let emailLogin = document.querySelector('#email-login').value;
-    let passwordLogin = document.querySelector('#password-login').value;
-    let emailError = document.querySelector('#email-error');
-    console.log(emailLogin, passwordLogin);
-
-    firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
+  firebase.auth().createUserWithEmailAndPassword(emailUser, passwordUser)
     .catch(function (error) {
-        //Error
-        var errorMessage = error.message;
-        emailError.innerHTML = errorMessage,    
-        console.log(errorMessage) 
+      // Errors
+      var errorMessage = error.message;
+      console.log(errorMessage)
+      if (errorMessage) {
+        let invalidEmail = document.querySelector('#invalid-email')
+        invalidEmail.innerHTML = errorMessage
+      }
     });
 });
 
-//Login Google
-$('.google').click(function loginGoogle(){
-    let provider = new firebase.auth.GoogleAuthProvider();
-    return firebase.auth().signInWithRedirect(provider)
-    .then(function(result) {
-        
-    console.log(result);
-    }); 
+//Log in email
+ $('#login-submit').click(function login() {
+  let emailLogin = document.querySelector('#email-login').value;
+  let passwordLogin = document.querySelector('#password-login').value;
+  let emailError = document.querySelector('#email-error');
+  console.log(emailLogin, passwordLogin);
+
+  firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
+    .catch(function (error) {
+      //Error
+      var errorMessage = error.message;
+      emailError.innerHTML = errorMessage,
+        console.log(errorMessage)
+    });
+}); 
+
+function emailLog(email, password) {
+  let emailUser = document.querySelector('#email-login').value;
+  let passwordUser = document.querySelector('#password-login').value;
+firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+console.log(email, password)
+.catch(function(error) {
+  console.log
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
 });
+}
+/* function emailLogin (email, password) {
+  let email = document.querySelector('#email-login').value;
+  let password = document.querySelector('#password-login').value;
+  let emailError = document.querySelector('#email-error');
+  console.log(emailLogin, passwordLogin);
+  .catch(function(error){
+     //Error
+     var errorMessage = error.message;
+     emailError.innerHTML = errorMessage,
+       console.log(errorMessage)
+  });
+}
+ */
+
+
+function loginFb () {
+  firebase.auth().signInWithRedirect(facebookP)
+  .then(function(result){
+    console.log(result);
+  })
+}
+
+function loginGoogle(){
+  firebase.auth().signInWithRedirect(googleP)
+  .then(function(result) {
+    console.log(result)
+    //console.log(result.user);
+    /* saveDataUser(result.user);
+    if (result.user.emailVerified){
+      window.open('#/','_self')
+    } */
+  });
+}
+
+export { loginGoogle, loginFb, emailLog };
+
+
+
 
 //Login Facebook
-$('.facebook').click(function loginFb(){
-    let provider = new firebase.auth.FacebookAuthProvider()
-    return firebase.auth().signInWithRedirect(provider)
-    .then(function(result) {
+/* $('.facebook').click(function loginFb() {
+  let provider = new firebase.auth.FacebookAuthProvider()
+  return firebase.auth().signInWithRedirect(provider)
+    .then(function (result) {
 
-        console.log(result);
+      console.log(result);
     });
 });
-
-
-
+ */
+//Nodes
 let photoURL
 let displayName
-export let arr = [];
-let obj
 
-console.log(arr);
+//Observator 
+/* firebase.auth().onAuthStateChanged(function(user) {
 
-//Observador 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        console.log('estas activo', user)
+    if (user) { */
+/*       render();
+ */        /* console.log('estas activo', user) */
+/*         let userName = document.querySelector('#user-displayName');
+        let userPic = document.querySelector('#user-photoURL');
         displayName = user.displayName;
         photoURL = user.photoURL;
-          obj = {
-            nombre: displayName,
-            foto: photoURL
-          }
-          arr.push(obj)
-          
-        let userName = document.querySelector('#user-displayName');
-        let userPic = document.querySelector('#user-photoURL');
-        
 
+        localStorage.setItem('nameStorage', displayName);
+        localStorage.setItem('URLStorage', photoURL);
+        
         userName.innerHTML = displayName;
         userPic.innerHTML = `<img src="${photoURL}"/>`;
-
-
     } else {
-        console.log('no activo');
-      // No user is signed in.
-    };
-    
-  });
+        console.log('no activo'); */
+      // No user is signed in
+/*     };
+  }); */
   
-
-
-  
-  //Initialize Cloud Firestore through Firebase
-  let db = firebase.firestore();
+//Initialize Cloud Firestore through Firebase
+ /*  let db = firebase.firestore();
   let st = firebase.storage(); 
-
   
-  //nodos
+  //Nodes
   let savePost = document.querySelector('#savePost');
   let url
   let day
 
+  //Print time
   let timeSnap = () => {
     let now = new Date();
     let date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
@@ -130,16 +152,16 @@ firebase.auth().onAuthStateChanged(function(user) {
     let location = document.querySelector('#recipientLocation').value;
     let description = document.querySelector('#recipientDescription').value;
 
-
       db.collection("newPosts").add({
-    /*     user: displayName,
-        photoUser: photoURL, */
+
         title: title,
         activity: activity,
         location: location,
         description: description,
         image: url,
-        date: day
+        date: day,
+        displayName,
+        photoURL
       })
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
@@ -153,8 +175,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         });
   }
 
-
-  //add image
+//Add image
 
   let fileInput = document.querySelector('#file');
 
@@ -172,9 +193,10 @@ firebase.auth().onAuthStateChanged(function(user) {
             })
   }
   
-  //Read documents
-  let post = document.querySelector('#contentCreated');
+//Read documents
+
     let render = () => {
+      let post = document.querySelector('#contentCreated');
       db.collection("newPosts").onSnapshot((querySnapshot) => {
         post.innerHTML = '';
         querySnapshot.forEach((doc) => {
@@ -195,12 +217,12 @@ firebase.auth().onAuthStateChanged(function(user) {
                 </div>
                 <div class="" id="infoUserContainer">
                   <div class="info-user">
-                    <img src="${photoURL}">
-                    <h4>${displayName}</h4>
+                    <img src="${doc.data().photoURL}">
+                    <h4>${doc.data().displayName}</h4>
                   </div>
                   <span class="edit-delete-icons">
-                  <i class="far fa-trash-alt js-delete"></i>
-                  <i class="fas fa-pencil-alt" onclick="editPost('${doc.id}', '${doc.data().title}','${doc.data().activity}','${doc.data().location}','${doc.data().description}')"></i>
+                  <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
+                  <i class="fas fa-pencil-alt js-edit" onclick="editPost('${doc.id}', '${doc.data().title}','${doc.data().activity}','${doc.data().location}','${doc.data().description}')"></i>
                 </span>
                     <p id="descriptionPost">${doc.data().description}</p> 
                     <p>${doc.data().date}</p>
@@ -210,9 +232,9 @@ firebase.auth().onAuthStateChanged(function(user) {
           </div>     
             `
           let deletebutton = document.querySelectorAll('.js-delete');
-          let deletePost = () => {
-            console.log(doc);
-            db.collection('newPosts').doc(doc.id).delete()
+          let deletePost = (e) => {
+            console.log(e.target.id);
+            db.collection('newPosts').doc(e.target.id).delete()
               .then(function(){
                 console.log('Lo borraste, eres chido');
               })
@@ -220,67 +242,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                 console.log('No pudiste, ponte chido', error);
               });
           }
-            deletebutton.forEach(btn => btn.addEventListener('click', deletePost))
+            deletebutton.forEach(btn=> btn.addEventListener('click', deletePost))
        });
-     })
-     
+     }) 
     };
-    render();
-    
-
-  
-
-  
-  //delete documents
-/*   function deletePost(idPost){
-    db.collection("newPosts").doc(idPost).delete()
-    .then(function() {
-      console.log("Document successfully deleted!");
-    }).catch(function(error) {
-      console.error("Error removing document: ", error);
-  });
-  }
- */
-
-
-  //edit documents
-  function editPost(idUser, title, activity, location, description){
-    document.querySelector('#recipientTitle').value = title;
-    document.querySelector('#recipientActivity').value = activity;
-    document.querySelector('#recipientLocation').value = location;
-    document.querySelector('#recipientDescription').value = description;
-  
-    let saveChangesPost = document.querySelector('#saveUser');
-    saveChangesUser.innerHTML = 'Editar';
-  
-    saveChangesPost.onclick = () => {
-      var post = db.collection("newPosts").doc(idUser);
-  
-      let title = document.querySelector('#recipientTitle').value;
-      let activity = document.querySelector('#recipientActivity').value;
-      let location = document.querySelector('#recipientLocation').value;
-      let description = document.querySelector('#recipientDescription').value;
-  
-        return post.update({
-          title: title,
-          activity: activity,
-          location: location,
-          description: description
-        })
-        .then(function() {
-          console.log("Document successfully updated!");
-          saveChangesPost.innerHTML = 'Guardar';
-          document.querySelector('#recipientTitle').value = '';
-          document.querySelector('#recipientActivity').value = '';
-          document.querySelector('#recipientLocation').value = '';
-          document.querySelector('#recipientDescription').value = '';
-        })
-        .catch(function(error) {
-          // The document probably doesn't exist.
-          console.error("Error updating document: ", error);
-        });
-    }
-  
-  }
-  
-  
+    render(); */

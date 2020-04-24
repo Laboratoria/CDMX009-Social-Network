@@ -1,14 +1,13 @@
-import { arr } from '../firebase.js'
-
 export default () => {
-    const viewProfile = `
+    const viewProfile = 
+    `
     <section>
     <div class="user-img">
-        <img src="${arr[0].photoURL}" alt="member">
+       <img src="${localStorage.getItem('URLStorage')}" alt = 'member'/>  
     </div>
     <div>
         <div>
-            <h2 class="test">${arr[0].name}</h2>
+            <h2 class="test">${localStorage.getItem('nameStorage')}</h2>
             <img class="img-edit" src="./img/icons/pen.svg">
             <img class="img-add-friend" src="./img/icons/add-friend.svg">
         </div>
@@ -41,7 +40,10 @@ export default () => {
       </div>
     </section>
     `;
-
+     let head = document.querySelector('#dashboardHeader')
+     let pp = document.querySelector('#profilePage')
+      pp.onclick = head.classList.add('hiding') 
+    
     const divElemt = document.createElement('div');
     divElemt.classList.add('position')
     divElemt.innerHTML = viewProfile;
