@@ -13,7 +13,10 @@ export default () => {
   // initializing firestore
   const db = firebase.firestore();
   const postsRef = db.collection('posts');
+  const usersRef = db.collection('users')
   const auth = firebase.auth();
+  const user = auth.currentUser;
+  let name, photoUrl, uid;
 
   //  checking user status
   auth.onAuthStateChanged(user => {

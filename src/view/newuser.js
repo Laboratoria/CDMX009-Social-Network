@@ -34,6 +34,7 @@ export default () =>{
   const storage = firebase.storage() 
   const db = firebase.firestore() 
   const auth = firebase.auth()
+  let user = auth.currentUser;
 
   //Nodes from DOM elements 
   let div= divElement.querySelector('#imgContainer')
@@ -75,14 +76,12 @@ export default () =>{
     const pass = passwordText.value;
     const username = usernameText.value; 
   
-    auth.createUserWithEmailAndPassword(email, pass).then(cred =>{
-      return db.collection('users').doc(cred.user.uid).set({
-        uid: cred.user.uid,
-        photoURL: url, 
+    auth.createUserWithEmailAndPassword(email, pass).then(snap =>{
+      snap.user.updateProfile({
         displayName: username,
-        bio: "¿biologx o novatx?",
+        photoURL: url
       })
-    }).then( e => changeView('#/home'))
+    }).then( () => changeView('#/home'))
   })
   
   //facebook sign up
