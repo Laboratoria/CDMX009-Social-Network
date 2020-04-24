@@ -6,6 +6,7 @@ const db = firebase.firestore();
 // const storage = firebase.storage().ref('profilePicture/');
 const storage = firebase.storage().ref();
 const imageRef = firebase.database().ref().child("image"); //Tiempo real
+const imageRefPost = firebase.database().ref().child("post-image");
 // const imageRef = firebase.storage().ref();
 
 
@@ -115,24 +116,30 @@ const database = {
     let uid = firebase.auth().currentUser.uid
     return firebase.firestore().collection('users').doc(uid).get()
     .then(doc=>{
-      console.log(doc.data())
+      return doc.data()
+    })
+  },
+  getPostPic:()=>{
+    let uid = firebase.auth().currentUser.uid
+    return firebase.firestore().collection('post-image').doc(uid).get()
+    .then(doc=>{
       return doc.data()
     })
   },
   
-  /*
-  showImage: () =>{
-    imageRef.on("value", function(snapshot){
-      let data = snapshot.val();
-      let result = "";
-      // console.log(data);
-      for (var key in data){
-        result = '<img width="100" src="' + data[key].url + '"/>';
-        // result += '<img src="' + data[key].url + '"/>'; muestra todas las img guardadas
-      }
-      document.getElementById("prof").innerHTML = result;
-    });
-  },  funcion para mostrar postesesss*/
+  
+  // getPostPic:() =>{
+  //   imageRefPost.on("value", function(snapshot){
+  //     let data = snapshot.val();
+  //     let result = "";
+  //     // console.log(data);
+  //     for (var key in data){
+  
+  //       result += '<img src="' + data[key].url + '"/>'; 
+  //     }
+  //     document.getElementById("postI").innerHTML = result;
+  //   });
+  // },  
   uploadPicture: (file) => {
     let uploadTask = storage.child('profilePictures/' + file.name).put(file);
     uploadTask.on('state_changed', function(snapshot){
@@ -161,9 +168,45 @@ const database = {
     });
 
   },  
+  uploadPicturePost: (file) => {
+    let uploadTask = storage.child('postImage/' + file.name).put(file);
+    uploadTask.on('state_changed', function(snapshot){
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+          console.log('Upload is running');
+          break;
+      }
+    }, function(error) {
+      // Handle unsuccessful uploads
+    }, function() {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        console.log('File available at', downloadURL);
+        database.createNodeFirebaseForPost(file.name, downloadURL);
+        database.getPostPic();
+      });
+    });
+
+  }, 
   createNodeFirebase: (nameImage, url) => {
     imageRef.push({name: nameImage, url: url }) //tiempo real
     db.collection("image").doc(firebase.auth().currentUser.uid).set({ 
+      name: nameImage, 
+      url: url,
+      uid: firebase.auth().currentUser.uid
+    });
+  },
+  createNodeFirebaseForPost: (nameImage, url) => {
+    imageRefPost.push({name: nameImage, url: url }) //tiempo real
+    db.collection("post-image").add({ 
       name: nameImage, 
       url: url,
       uid: firebase.auth().currentUser.uid

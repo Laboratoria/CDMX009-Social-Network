@@ -37,6 +37,17 @@ figure{
     height: 100%;
     border-radius: 50%;
 }
-.navbar {
-    position: fixed;
+
+.navBarCenter {
+    display: flex;
+    justify-content:center;
+    
+}
+.navbaritem{
+    color: #4a4a4a;
+    display: block;
+    line-height: .1;
+    padding: .5rem 2.2rem;  
+    display: flex;
+    justify-content:space-between;
 }

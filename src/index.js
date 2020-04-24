@@ -141,14 +141,37 @@ const renderSignUp = () => {
     });
 };
 renderSignUp();
-const renderFirstProfile = () => {
+
+const renderNavBar = `
+<div class="">
+    <div class="navbar navBarCenter">
+        <div class="navbar is-inline-flex is-transparent">
+            <div class="navbar-item nav-center is-flex-touch">
+                <a class="navbaritem">
+                    <img id="home" src="https://i.ibb.co/C0y75x1/home-rgb2.png" class="material-icons"/>
+                </a>
+                <a class="navbaritem">
+                    <img id="add" src="https://i.ibb.co/6DBT2jD/add-rgb2.png" class="material-icons"/>
+                </a>
+                <a class="navbaritem">
+                    <img id="myProfile" src="https://i.ibb.co/vkqHbpD/profile-rgb2.png" class="material-icons"/>
+                </a>                
+            </div>
+        </div>
+    </div>
+    <div>
+`
+const renderProfile = () => {
     const firstProfile = `
+    <div class="logoMemingos"> 
+    <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
+    </div>
         <div class="file is-centered">
             <figure class="image is-96x96">
-                <img id="showImg" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+                <img id="showImg" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
             </figure>
-            
         </div>
+      
         <div class="file is-centered">
             <label class="file-label">
                 <input id="profilePicture" class="file-input" type="file" name="profile"/>
@@ -163,6 +186,8 @@ const renderFirstProfile = () => {
             </label>
            
         </div>   
+   
+ 
         <div class="file is-centered">
         
         <a id="logout" class="material-icons"> Cerrar Sesión </a>
@@ -170,7 +195,7 @@ const renderFirstProfile = () => {
         </div> 
         <div class="file is-centered">
             <div class="control">
-                <div class="has-text-centered has-text-black title is-6">
+                <div class="has-text-centered has-text-black title is-9">
                     <h3> Información </h3>
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
@@ -181,28 +206,35 @@ const renderFirstProfile = () => {
                 </div>
                 <div class="field">
                     <div class="control">
-                        <textarea id="biography" class="textarea is-small" placeholder="Acerca de mi" style=""></textarea>
-                        
+                        <textarea id="biography" class="textarea is-small" placeholder="Acerca de mi..." style=""></textarea>
                     </div>
                 </div>
             </div> 
         </div>
+   
         <div class="field">
             <div class="file is-centered">
                 <p class="control">
                     <button  id="confirm" class="button is-success button is-medium  has-background-warning is-rounded">
                         CONFIRMAR
                     </button>   
-                    
                 </p>
             </div>
+            
         </div>
+       
         `;
-    root.innerHTML = firstProfile;
+    root.innerHTML = `${firstProfile}${renderNavBar}`;
+    document.querySelector('#home').addEventListener('click', function(event) {
+        renderFeed();
+    });
+    document.querySelector('#add').addEventListener('click', function(event) {
+        renderNewPost();
+    });
     document.querySelector('#profilePicture').addEventListener('change',function(event) {
         database.uploadPicture(event.target.files[0]);
-        console.log(imgSrc)
         showImg.src = imgSrc;
+        window.setTimeout(renderProfile, 1500);
     });
     document.querySelector('#confirm').addEventListener('click', function(event) {
         database.saveData();
@@ -210,26 +242,30 @@ const renderFirstProfile = () => {
     });
     document.querySelector('#logout').addEventListener('click', function(event) {
         database.logout();
+        root.classList.add("signUpAndIn");
+        renderSignIn();
+        
     });
     const showImg = document.querySelector('#showImg');
     let imgSrc;
     database.getProfilePic()
         .then(data=>{
-            console.log(data)
+            if (!data) return;
             imgSrc = data.url
             showImg.src = imgSrc
-        }); 
+        });
 };
 export const renderFeed = () => {
     root.classList.remove("signUpAndIn");
     const feed = `
-    <div class="column body-columns">
+
+       <div class="column body-columns">
         <div class="card">
             <div class="header">
                 <div class="media">
                     <div class="file is-centered">
                         <figure class="image is-96x96">
-                            <img id="profilePic" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+                            <img id="profilePic" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
                         </figure>
                     </div>
                     <div class="media-content">
@@ -240,9 +276,10 @@ export const renderFeed = () => {
                         <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
                     </div>
                 </div> 
+ 
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image"/>
+                        <img id="postI" src="https://source.unsplash.com/random/1280x960" alt="Placeholder image"/>
                     </figure>
                 </div>
                 <div class="card-content">
@@ -288,34 +325,20 @@ export const renderFeed = () => {
                     </div>
                 </div>
             </div>
-            <div class="has-navbar is-fixed-bottom">
-                <div class="navbar is-inline-flex is-transparent">
-                    <div class="navbar-item is-flex-touch">
-                        <a class="navbar-item">
-                            <img id="home" src="https://i.ibb.co/C0y75x1/home-rgb2.png" class="material-icons"/>
-                        </a>
-                        <a class="navbar-item">
-                            <img id="add" src="https://i.ibb.co/6DBT2jD/add-rgb2.png" class="material-icons"/>
-                        </a>
-                        <a class="navbar-item">
-                            <img id="myProfile" src="https://i.ibb.co/vkqHbpD/profile-rgb2.png" class="material-icons"/>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
         </div>
+    
     </div>
+ 
     ` ;
-    root.innerHTML = feed;
+    root.innerHTML = `${feed}${renderNavBar}`;
     document.querySelector('#myProfile').addEventListener('click', function(event) {
-        renderFirstProfile();
+        renderProfile();
     });
     const showImg = document.querySelector('#profilePic');
     let imgSrc;
     database.getProfilePic()
         .then(data=>{
-        console.log(data)
+        if (!data) return;
         imgSrc = data.url
         showImg.src = imgSrc
         });
@@ -325,10 +348,67 @@ export const renderFeed = () => {
     let userNameSrc;
     database.getProfileName()
        .then(data=>{
-        console.log(data)
-        nameSrc = data.profileName
-        userNameSrc = data.userName
-        showName.innerHTML = nameSrc;
-        showUserName.innerHTML = userNameSrc;
+            if (!data) return;
+            nameSrc = data.profileName
+            userNameSrc = data.userName
+            showName.innerHTML = nameSrc;
+            showUserName.innerHTML = userNameSrc;
+                    }
+            )
+        .catch(error => console.log('error', error));
+        document.querySelector('#add').addEventListener('click', function(event) {
+            renderNewPost();
         });
+       
+};
+
+
+const renderNewPost = () => {
+    root.classList.remove("signUpAndIn");
+    root.classList.remove("feed");
+    const post = `
+    <div class="logoMemingos"> 
+                        <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
+                    </div>
+    <div class="file is-centered">
+        <figure class="image is-128x128">
+                <img id="showNewImg" src=""/>
+        </figure>
+    </div>
+        <div class="field">
+            <div class="file is-info has-name is-small">
+                <label class="file-label">
+                    <input id="uploadImg" class="file-input" type="file" name="resume">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                            Sube un archivo
+                            </span>
+                        </span>
+                </label>
+            </div>
+      </div>
+        
+    `;
+    root.innerHTML = `${post}${renderNavBar}`;
+    document.querySelector('#home').addEventListener('click', function(event) {
+        renderFeed();
+    });
+    document.querySelector('#myProfile').addEventListener('click', function(event) {
+        renderProfile();
+    });
+    document.querySelector('#uploadImg').addEventListener('change',function(event) {
+    database.uploadPicturePost(event.target.files[0]);
+    let postImgSrc;
+    showNewImg.innerHTML = postImgSrc;
+    database.getPostPic()
+        .then(data=>{
+            if (!data) return;
+            postImgSrc = data.url
+            showNewImg.src = postImgSrc
+        }); 
+    window.setTimeout(renderFeed, 1500);
+    });
 };
