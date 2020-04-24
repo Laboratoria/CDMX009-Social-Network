@@ -1,5 +1,6 @@
 import  login  from './login.js';
 import {renderSignin} from './signin.js';
+import {renderContent} from './content.js';
 
 const appendStyleSheet = (nameSheet) => {
   let link = document.querySelector('[title="styleSheet"]');
@@ -9,8 +10,14 @@ const appendStyleSheet = (nameSheet) => {
 }
 
 export const router = (route) =>{
-    // console.log(route)
+  console.log(route)
     switch(route){
+      case 'content':
+        console.log('Entre a la vista de contenido');
+        // let nameSheet = 'signinStyle.css';
+        appendStyleSheet('contentUser.css');
+        renderContent();
+         break;
        case 'profil':
          login.profil();
          break;
@@ -19,6 +26,10 @@ export const router = (route) =>{
         // let nameSheet = 'signinStyle.css';
          appendStyleSheet('signinStyle.css');
          renderSignin();
+         break;
+        case 'login':
+          appendStyleSheet('loginStyle.css');
+         login.renderLogin();
          break;
        default:
          //let nameSheet = 'loginStyle.css';
@@ -33,7 +44,7 @@ const userStatus = () => {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("Activo");
-        router('profil');
+        router('content');
         // User is signed in.
         var displayName = user.displayName;
         console.log('displayName: ' + displayName);
@@ -52,7 +63,7 @@ const userStatus = () => {
         // ...
       } else {
         console.log("Inactivo");
-        router();
+        router('login');
         // User is signed out.
         // ...
       }
