@@ -73,3 +73,4 @@ export default () => {
     divElement.innerHTML = viewProfile;
     return divElement;
   }
+

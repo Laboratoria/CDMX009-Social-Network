@@ -20,10 +20,13 @@ export default () => {
 
     const divElement = document.createElement('div');
     divElement.innerHTML = viewSignUp;
+
     root.appendChild(divElement)
     const btnRegistro = document.querySelector('.sign-btn');
     btnRegistro.addEventListener('click', registerUser);
 
-
+  
     return divElement;
-}
+  }
+  
+

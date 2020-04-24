@@ -1,146 +1,122 @@
 body{
-    background-color: #A698FF;
-    font-family: Century Gothic;
-    margin: 0px;
-  }
+  background-color: #A698FF;
+  font-family:Century Gothic;
+  overflow-x: hidden;
+}
 
 /*VIEW SPLASH*/
 .splash{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 200;
-  text-align: center;
-  line-height: 90vh;
-  background-color:#A698FF;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+z-index: 200;
+text-align: center;
+line-height: 90vh;
+background-color:#A698FF;
 }
 
 .splash.display-none{
-  position: fixed;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -10;
-  text-align: center;
-  line-height: 90vh;
-  transition: all 0.5s;
+position: fixed;
+opacity: 0;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+z-index: -10;
+text-align: center;
+line-height: 90vh;
+transition: all 0.5s;
 }
 
 @keyframes fadeIn{
-  to{
-    opacity: 1;
-  }
+to{
+  opacity: 1;
+}
 }
 
 .fade-in{
-  animation: fadeIn 1s ease-in forwards;
-  height: auto;
-  width: 250px;
+opacity: 0;
+animation: fadeIn 1s ease-in forwards;
+height: auto;
+width: 250px;
+padding-top: 40%;
+}
+/*END SPLASH
+
+/*  View HOME
+    Nav*/
+header{
+  display: flex;
+  justify-content: space-between;
+}
+.home {
+  width: 35%;
+  padding-left: 5%;
+}
+.imagenUser {
+  width: 40px;
+  padding-right: 30px;
+}
+/* Cointeiner Menu*/
+.mainConteiner {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7%;
 }
 
-/*END SPLASH
+.mainConteiner div {
+  padding: 2%;
+  margin: 2%;
+  background-color: #FFE36B;
+  width: 40%;
+  border-radius: 35px;
+  max-width: 250px;
+}
+
+.mainConteiner img {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.mainConteiner p {
+  font-family: Century Gothic;
+  font-size: 1em;
+  text-align: center;
+}
+
+/*Cointeiner option*/
+.DegreeAndGroup{
+  margin-top: 5%;
+}
+
+.DegreeAndGroup select {
+    padding: 2%;
+    margin: 2%;
+    background-color: #FFFFFF;
+    width: 45%;
+    height: 50px;
+    border-radius: 100px;
+    display: inline-block;
+}
+/*
+    background-color: #A698FF;
+    font-family: Century Gothic;
+    margin: 0px;
+  }*/
 
 /* HEADER */
 header{
   margin-top: 15px;
 }
 /* end Header */
-
-  /*  View HOME
-      Nav */
-  header{
-    display: flex;
-    justify-content: space-between;
-  }
-  .home {
-    width: 35%;
-    padding-left: 5%;
-  }
-  .imageUser {
-    width: 40px;
-    padding-right: 30px;
-  }
-  /* Cointeiner Menu*/
-  .mainConteiner {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding-top: 7%;
-  }
-  
-  .mainConteiner div {
-    padding: 2%;
-    margin: 2%;
-    margin-bottom: 10%;
-    background-color: #FFE36B;
-    width: 40%;
-    border-radius: 35px;
-    max-width: 250px;
-  }
-  
-  .mainConteiner img {
-    display: block;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-  }
-  
-  .mainConteiner p {
-    font-family: Century Gothic;
-    font-size: 1em;
-    text-align: center;
-  }
-  
-  
-  /*Cointeiner option*/
-  .DegreeAndGroup{
-    margin-top: 8%;
-  }
-  
-  .DegreeAndGroup select {
-      padding: 2%;
-      margin: 2%;
-      background-color: #FFFFFF;
-      width: 45%;
-      height: 50px;
-      border-radius: 100px;
-      display: inline-block;
-  }
-  
-
-/*navigation bar*/
-footer{
-  background-color: #FFE36B;
-    padding: 10px 5px;
-    text-align: center;
-
-}
-
-#footer li{
-  display: inline;
-  padding-left: 10px;
-}
-
-#footer li:first-child{
-  padding-left: 0px;
-}
-
-footer li img {
-  width: 35px;
-  padding: 10px;
-}
-
-ul {
-  padding-left: 0px;
-}
-/*end navigation bar*/
 
 /*User photo*/
 .userNamePh {
@@ -212,7 +188,6 @@ padding-left: 0px;
 }
 /*end navigation bar*/
 
-
 /*PROFILE*/
  .userName{
   width: 100%;
@@ -280,7 +255,6 @@ padding-left: 0px;
   border-style: solid;
   border-color: #BEB4FF;
   }
-
 .commentBox .answer {
   background-color: #ffffff;
   width: 94%;
@@ -293,6 +267,13 @@ padding-left: 0px;
   padding: 3px;
   border-style: solid;
   border-color: #BEB4FF;
+}
+
+  .mainConteinerLogin a {
+    color: #FFE36B;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
   }
 
 .editIcon img {
@@ -323,7 +304,7 @@ padding-left: 0px;
 }
 
 .editIcon ul li:hover a{
-  color: #A698FF;
+  color: #675DA6;
   background: #FFE36B;
   width: 200px;
 }
@@ -596,6 +577,108 @@ text-align: center;
   margin: auto;
 }
 
+/*PARENT PANEL*/
+.parent-Panel{
+  padding-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
+.box-add-new-post{
+  padding: 15px;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  resize: none;
+  height: 100px;
+  width: 80%;
+  margin: auto;
+  font-weight: bold;
+  font-family: Century Gothic;
+}
+.button-add{
+  background-color: #FFE36B;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  font-weight: bold;
+  font-family: Century Gothic;
+  color: black;
+  margin-left: 50%;
+}
+
+.allNewPost{
+margin: auto;
+text-align: center;
+width: 93%;
+}
+
+.conteinerPostPrint{
+display: flex;
+flex-wrap: wrap;
+background-color: #FFFFFF;
+border-radius: 20px;
+margin: 10px;
+font-size: 15px;
+font-family: Century Gothic;
+font-weight: normal;
+padding: 10px;
+}
+.PostPrint{
+color: black;
+margin-top: 0px;
+margin: auto;
+text-align: left;
+margin-bottom: 15px;
+}
+
+.answer{
+background: #ffffff;
+width: 90%;
+border-radius: 50px;
+border-style: solid;
+border-color: #A698FF;
+font-family: Century Gothic;
+font-weight: normal;
+margin-top: 0px;
+margin: auto;
+}
+.btnAnswer{
+  background-color: #FFE36B;
+  border-radius: 10px;
+  border:none;
+  padding: 8px;
+  font-weight: bold;
+  font-family: Century Gothic;
+  color: black;
+  margin-left: 120px;
+  margin-bottom: auto;
+  margin-top: 15px;
+}
+
+.imgUser{
+width: 20px;
+margin-left: 20px;
+margin-bottom: 0px;
+}
+.nameUser{
+font-weight: bold;
+font-family: Century Gothic;
+color: black;
+margin-left: 10px;
+margin-bottom: 0px;
+}
+.nroLikes{
+color: #000000;
+margin-left: 20px;
+}
+.imgLikes{
+width: 20px;
+margin-left: 20px;
+margin-bottom: auto;
+}
+
 /*responsive design*/
 @media screen and (max-width:480px) {
 body{
@@ -758,8 +841,6 @@ footer {
   }
 
 /*  View CALENDAR  */
-
-  
   .titleCalendar{
   font-size: 30px;
   color: #FFFFFF;

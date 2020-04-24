@@ -15,7 +15,7 @@ export default () => {
     </div>
     <p class="txt">¿No tienes una cuenta?</p>
     <a href="#/SignUp" id="SignUp">Regístrate</a>
-    </div>
+ </div>
     `
     const divElement = document.createElement('div')
     divElement.innerHTML = viewLogin;

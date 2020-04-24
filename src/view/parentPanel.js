@@ -1,22 +1,23 @@
+import { addUserPost, showPostUser } from '../firebase.js';
+
 export default () => {
+  const root = document.getElementById('root')
   const viewParentPanel = `
-  <div class="post">
-  <h1>PANEL DE PADRES</1>
-  <textarea class="comment-box" placeholder="Escribe tu comentario"> </textarea>
-  <button class="button-add">Agregar</button>
-  </div>
-  <div class="container__box>
-    <div class="container__box--postTimeLine">
-      <div class="container__box--answer">
-        <div class="container__box--comment">
-        3<img class="logo-likes" src="img/like.svg">
-        <button class="comments>Comentarios</button>
-        </div
-      </div>
-    </div>
+  <h1 class="parent-Panel">PANEL DE PADRES</1>
+  <textarea class="box-add-new-post" placeholder="Escribe tu tema a tratar" id="addNewPost"></textarea>
+  <button class="button-add" id="btnAddPost">Agregar</button>
+  <div id="allNewPost" class="allNewPost">
   </div>
     `
   const divElement = document.createElement('div')
   divElement.innerHTML = viewParentPanel;
+  root.appendChild(divElement);
+
+  showPostUser();
+
+  const buttonAddPost = document.querySelector('#btnAddPost')
+  buttonAddPost.addEventListener('click', addUserPost)
+
+
   return divElement;
 }
