@@ -5,7 +5,6 @@ import Reviews from './reviews.js';
 import Saved from './saved.js';
 import Followers from './followers.js';
 import Follow from './follow.js';
-import Menu from './menu.js';
 import Different from './404.js';
 
 
@@ -17,7 +16,6 @@ const components = {
     saved: Saved,
     followers: Followers,
     follow: Follow,
-    menu: Menu,
     different: Different
 }
 

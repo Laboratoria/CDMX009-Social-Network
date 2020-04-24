@@ -12,15 +12,12 @@ export const changeTmp = (hash) => {
         case '#/login':
             { return sectionMain.appendChild(components.login()); }
         case '#/profile':
-        case '#/login':
+        case '#/home':
         case '#/reviews':
         case '#/saved':
-        case '#/conexions':
         case '#/followers':
         case '#/follow':
-        case '#/menu':
-        case '#/newPost':
-
+            
             { return sectionMain.appendChild(components[id]()); }
         default:
             return sectionMain.appendChild(components.different())

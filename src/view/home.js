@@ -1,5 +1,10 @@
+import { observatorFirebase } from '../firebase.js'
+
 export default () => {
-    const viewHome = `
+  
+  const viewHome = `
+  
+  <section id="dashboardHeader">
     <div class="container">
       <div class="categories-btn">
         <div>
@@ -8,7 +13,7 @@ export default () => {
               <img src="img/icons/food.svg">
             </a>
           </div>
-          <p>COMIDAASAADsaSDas</p>
+          <p>ComidaJS</p>
         </div>
         <div>
           <div class="categorie-btn">
@@ -45,11 +50,17 @@ export default () => {
         </div>
       </div>
     </div>
+  </section>  
 
-    `;
 
-    const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    divElemt.innerHTML = viewHome;
-    return divElemt;
+  `;
+
+  const divElemt = document.createElement('div');
+  divElemt.classList.add('position')
+  divElemt.innerHTML = viewHome;
+  return divElemt;
+
 }
+
+
+

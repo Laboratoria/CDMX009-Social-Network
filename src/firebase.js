@@ -1,4 +1,3 @@
-
 let googleP = new firebase.auth.GoogleAuthProvider();
 let facebookP = new firebase.auth.FacebookAuthProvider();
 let db = firebase.firestore();
@@ -23,48 +22,18 @@ $('#email-submit').click(function () {
     });
 });
 
-//Log in email
- $('#login-submit').click(function login() {
-  let emailLogin = document.querySelector('#email-login').value;
-  let passwordLogin = document.querySelector('#password-login').value;
-  let emailError = document.querySelector('#email-error');
-  console.log(emailLogin, passwordLogin);
-
-  firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
-    .catch(function (error) {
-      //Error
-      var errorMessage = error.message;
-      emailError.innerHTML = errorMessage,
-        console.log(errorMessage)
-    });
-}); 
-
-function emailLog(email, password) {
+function emailLogin() {
   let emailUser = document.querySelector('#email-login').value;
   let passwordUser = document.querySelector('#password-login').value;
-firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
-console.log(email, password)
-.catch(function(error) {
-  console.log
-  // Handle Errors here.
-  var errorCode = error.code;
+  let emailError = document.querySelector('#email-error');
+  console.log(emailUser, passwordUser)
+  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser).catch(function(error) {
+  //Error
   var errorMessage = error.message;
-  // ...
+  emailError.innerHTML = errorMessage,
+  console.log(errorMessage)
 });
 }
-/* function emailLogin (email, password) {
-  let email = document.querySelector('#email-login').value;
-  let password = document.querySelector('#password-login').value;
-  let emailError = document.querySelector('#email-error');
-  console.log(emailLogin, passwordLogin);
-  .catch(function(error){
-     //Error
-     var errorMessage = error.message;
-     emailError.innerHTML = errorMessage,
-       console.log(errorMessage)
-  });
-}
- */
 
 
 function loginFb () {
@@ -86,49 +55,34 @@ function loginGoogle(){
   });
 }
 
-export { loginGoogle, loginFb, emailLog };
+//Observator 
 
+function observatorFirebase () {
+  firebase.auth().onAuthStateChanged(function(user){
+    let menu = document.querySelector('.menu')
+    if (user) {
+        render();
+        displayName = user.displayName;
+        photoURL = user.photoURL;
+        localStorage.setItem('nameStorage', displayName);
+        localStorage.setItem('URLStorage', photoURL);
+        window.open('#/home', '_self');
+        menu.classList.remove('hide');
+        console.log('estas activo dude :)', user);
+    }
+     else {
+      console.log('no estas activo chavo :(')
+    }
+  })
+}
+observatorFirebase();
 
-
-
-//Login Facebook
-/* $('.facebook').click(function loginFb() {
-  let provider = new firebase.auth.FacebookAuthProvider()
-  return firebase.auth().signInWithRedirect(provider)
-    .then(function (result) {
-
-      console.log(result);
-    });
-});
- */
 //Nodes
 let photoURL
 let displayName
 
-//Observator 
-/* firebase.auth().onAuthStateChanged(function(user) {
 
-    if (user) { */
-/*       render();
- */        /* console.log('estas activo', user) */
-/*         let userName = document.querySelector('#user-displayName');
-        let userPic = document.querySelector('#user-photoURL');
-        displayName = user.displayName;
-        photoURL = user.photoURL;
-
-        localStorage.setItem('nameStorage', displayName);
-        localStorage.setItem('URLStorage', photoURL);
-        
-        userName.innerHTML = displayName;
-        userPic.innerHTML = `<img src="${photoURL}"/>`;
-    } else {
-        console.log('no activo'); */
-      // No user is signed in
-/*     };
-  }); */
-  
 //Initialize Cloud Firestore through Firebase
- /*  let db = firebase.firestore();
   let st = firebase.storage(); 
   
   //Nodes
@@ -245,5 +199,6 @@ let displayName
             deletebutton.forEach(btn=> btn.addEventListener('click', deletePost))
        });
      }) 
-    };
-    render(); */
+    }; 
+
+export { loginGoogle, loginFb, emailLogin, observatorFirebase };
