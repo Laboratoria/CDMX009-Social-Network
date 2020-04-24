@@ -34,11 +34,19 @@ document.addEventListener("DOMContentLoaded", event => {
         `
     
       
-        /*// BOTON LOGIN CON GOOGLE
+        //BOTON LOGIN CON GOOGLE
         document.getElementById("google-login").addEventListener("click", googleLogin)
+        function googleLogin() {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          firebase.auth().signInWithRedirect(provider);
+      }
       
         // BOTON LOGIN CON FACEBOOK
-        document.getElementById("facebook-login").addEventListener("click", facebookLogin)*/
+        document.getElementById("facebook-login").addEventListener("click", facebookLogin)
+        function facebookLogin() {
+          const provider = new firebase.auth.FacebookAuthProvider();
+          firebase.auth().signInWithRedirect(provider);
+      }
       
         // BOTON PARA LOGIN CON EMAIL Y PASSWORD
         document.getElementById("login-btn").addEventListener("click", ()=> {
