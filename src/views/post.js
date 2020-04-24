@@ -1,6 +1,7 @@
 import { root } from "../main.js";
 import { navBar } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
+
 let db = firebase.firestore()
 
 export function renderPostView() {
@@ -30,7 +31,6 @@ export function renderPostView() {
             </span>
           </label>
         </div>
-    
     <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
     <section id="putPosts"></section>
     </section>
@@ -205,24 +205,4 @@ function showPosts(sectionPosts) {
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
 function limpiar(sectionPosts) {
   sectionPosts.innerHTML = '';
-}
-
-export default () => {
-  const nav = `
-  <nav class="navbar is-fixed-bottom is-hoverable is-primary" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a href="#/Home" id="home" class="navbar-item is-expanded is-primary">Mi muro</a>
-      <a href="#/Login" id="login" class="navbar-item is-expanded is-primary">Sign in</a>
-      <a href="#/Post" id="post" class="navbar-item is-expanded is-primary">Publicar</a>
-      <a href="#/My_profile" id="profile" class="navbar-item is-expanded">Mi perfil</a>
-      <a href="#/Exit" id="exit" class="navbar-item is-expanded">Salir</a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="active" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  </nav>
-  
-  `
 }
