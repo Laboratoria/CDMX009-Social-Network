@@ -1,15 +1,14 @@
-
 function viewForum(user) {
 
     var EmailCortado = 'No hay email';
 
 
-    if(typeof user != 'undefined'){
+    if (typeof user != 'undefined') {
         var email = user.email;
         var divisiones = email.split("@");
         EmailCortado = divisiones[0];
     }
-    
+
     return new Promise(function(resolve, rejected) {
         let forumView = ` <!-- ***********PAGINA 3********* -->
     <div id="containerThree">
@@ -48,8 +47,8 @@ function viewForum(user) {
             </div>
 
             <div class="comentsAndLikes">
+            <p id="comentsForum"></p>
                 <div id="picturePerfect">
-                
                 </div>
             </div>
             <div class="punchButtons comentsAndLikes">
@@ -111,4 +110,4 @@ function viewForum(user) {
     });
 };
 
-export { viewForum}
+export { viewForum }
