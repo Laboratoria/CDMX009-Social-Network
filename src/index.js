@@ -250,8 +250,6 @@ function publicPost() {
 
     }
     let publicPost = document.getElementById('publish');
-    //let file = (e).target.file //lleva el indice cuando se quiere subir varios archivos, si no, se quita el indice y se coloca la llave file
-
     publicPost.onclick = function() {
         let text = document.getElementById('showComment'); //variable con id en donde se pintaran los post, textArea
         // traer el texto
@@ -261,11 +259,7 @@ function publicPost() {
             date: new Date(),
             img: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
         }
-
-        //P R O B A N D O        PERSISTENCIA DE DATOOOS
-        localStorage.setItem('post', JSON.stringify(post)); //aquí le digo que guarde como un json formateado mi objeto
-        var obtainingPersistenceData = localStorage.getItem('post'); //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
-        console.log(obtainingPersistenceData)
+        addNewPost(post)
             .then(function(post) { //esto es la promesa
                 alert('hello') //este es el resultado de la promesa
             })
@@ -280,6 +274,6 @@ function publicPost() {
 }
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) {
-    let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database 
+    let postsRef = db.collection('Subiendo Imagen a localstorage') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
     return postsRef.add(post);
 }

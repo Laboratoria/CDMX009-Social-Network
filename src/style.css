@@ -585,6 +585,7 @@ input.validatePassword.boxFields {
     line-height: 2.5em;
 }
 
+
 /* *********MediasQuerys*********** */
 
 @media (min-width: 1280px) {
@@ -622,6 +623,13 @@ input.validatePassword.boxFields {
     .sidenav-trigger {
         display: none;
     }
+    div#picturePerfect img {
+        max-width: 80%;
+        height: auto;
+        display: flex;
+        border-radius: 8PX;
+        margin: 13%;
+    }
 }
 
 @media only screen and (max-width: 640px) {
@@ -630,5 +638,16 @@ input.validatePassword.boxFields {
     }
     .sidenav-trigger.shown {
         display: block !important;
+    }
+    input#myNewFile {
+        max-width: 60%;
+    }
+    div#picturePerfect img {
+        justify-items: center;
+        max-width: 80%;
+        height: auto;
+        display: flex;
+        margin: 30px;
+        border-radius: 8px;
     }
 }

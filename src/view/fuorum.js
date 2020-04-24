@@ -48,8 +48,7 @@ function viewForum(user) {
 
             <div class="comentsAndLikes">
             <p id="comentsForum"></p>
-                <div id="picturePerfect">
-                </div>
+                <div id="picturePerfect" class="stylePicturePerfect"></div>
             </div>
             <div class="punchButtons comentsAndLikes">
                 <div class="likeButton">
