@@ -204,16 +204,6 @@ ul {
 }
 /*END REGISTER*/
 
-  /*  View LOGIN  */
-  .mainConteinerLogin{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
 /*navigation bar*/
 footer{
 background-color: #FFE36B;
@@ -696,36 +686,120 @@ body{
  
 
   /*PARENT PANEL*/
-  .post h1{
+  .parentPanel{
     padding-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
+    color: #FFFFFF;
   }
-
+  .box-add-new-post{
+    padding: 15px;
+    background: white;
+    border: none;
+    border-radius: 20px;
+    resize: none;
+    height: 100px;
+    width: 80%;
+    margin: auto;
+    font-weight: bold;
+    font-family: Century Gothic;
+  }
   .button-add{
-    margin-top: 10px;
     background-color: #FFE36B;
     border-radius: 10px;
-    border: #FFE36B;
+    border: none;
     padding: 8px;
     font-weight: bold;
+    font-family: Century Gothic;
     color: black;
+    margin-left: 50%;
   }
 
-  .container__box--answer {
-    background: white;
+.allNewPost{
+  margin: auto;
+  text-align: center;
+  width: 93%;
+}
+
+.conteinerPostPrint{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  margin: 10px;
+  font-size: 15px;
+  font-family: Century Gothic;
+  font-weight: normal;
+  padding: 10px;
+}
+.PostPrint{
+  color: black;
+  margin-top: 0px;
+  margin: auto;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.answer{
+  background: #ffffff;
+  width: 90%;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: #A698FF;
+  font-family: Century Gothic;
+  font-weight: normal;
+  margin-top: 0px;
+  margin: auto;
+}
+.btnAnswer{
+    background-color: #FFE36B;
+    border-radius: 10px;
+    border:none;
+    padding: 8px;
+    font-weight: bold;
+    font-family: Century Gothic;
+    color: black;
+    margin-left: 120px;
+    margin-bottom: auto;
+    margin-top: 15px;
+}
+
+.imgUser{
+  width: 20px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+.nameUser{
+  font-weight: bold;
+  font-family: Century Gothic;
+  color: black;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+.nroLikes{
+  color: #000000;
+  margin-left: 20px;
+}
+.imgLikes{
+  width: 20px;
+  margin-left: 20px;
+  margin-bottom: auto;
+}
+  /*.container__box--answer {
+  
   }
 
   .logo-likes{
     height: 20px;
   }
 
-  .comment-box{
-    display: block;
-    resize: none;
-    height: 100px;
-    width: 100%;
-    max-width: 250px;
-    margin: auto;
+
+  .postNew{
+    background-color: #FFFFFF;
+    width: 90%;
   }
 
-
+  .postPrint{
+    background-color: aqua;
+    margin: 10px;
+  }*/
