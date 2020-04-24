@@ -1,0 +1,104 @@
+*,body, html{
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.btn{
+  background-color:#fc8d97;
+  border: 0; 
+  border-radius: 20px;
+  height: 38px; 
+  width: 150px;
+  margin-top: 5px;
+  font-size: 18px; 
+  color: #fff; 
+  font-weight: bold;
+  margin-top: 10px; 
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.navigation{
+  list-style: none;
+}
+
+.container-link{
+  padding-right: 1rem;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: peru;
+}
+
+.input{
+  padding: 5px; 
+  width: 250px; 
+  height: 25px; 
+  margin-top: 10px; 
+  border-radius: 15px;
+  border:none;
+  background-color: #fff; 
+  font-size: 18px; 
+}
+
+.flex-column{
+flex-direction: column;
+}
+
+.bichi-img-container{
+height: 25vh;
+margin-bottom: 20px; 
+}
+
+.bichi-img{
+ height: 100%;
+}
+
+.login-container{
+  background-color: paleturquoise;
+  height: 100vh;
+}
+
+.bichigram-title{
+text-shadow: 2px 4px 3px #515457;
+letter-spacing: 2px;
+font-size: 45px; 
+color: #fff; 
+margin-bottom: 18px; 
+}
+
+.login-subtitle{
+  color: #fff; 
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-shadow: 2px 1px 2px #515457;
+}
+
+.no-footer{
+  visibility: hidden;
+}
+
+.newuser-text-container{
+height: 150px; 
+display: flex;
+justify-content: center;
+align-items: flex-end;
+font-size: 18px;
+}
+
+.newuser-text{
+  color: #fff; 
+  text-shadow: 2px 1px 2px #515457;
+}
