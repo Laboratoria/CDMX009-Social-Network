@@ -29,8 +29,7 @@ function loginFB(){
 }
 
 function createEmailPass(email, password, names) {
-  firebase
-    .auth()
+  firebase.auth()
     .createUserWithEmailAndPassword(email, password)
     .then((result) => {
       saveDataUser(result.user);
@@ -70,17 +69,17 @@ function saveDataUser(user){
 
 //add post user
 function addUserPost(){
-  let post = document.getElementById("post").value;
-  let postNewPrint = document.querySelector("#postNew");
-  console.log(postNewPrint.appendChild("<p>prueba</p>"));
+  let user = firebase.auth().currentUser;
+  let post = document.getElementById("addNewPost").value;
   db.collection("post").add({
     post: post,
+    user: user.uid
 })
 .then(function(docRef) {
   console.log("Document written with ID: ", docRef.id);
-    document.getElementById("post").value = '';
-    
+    document.getElementById("addNewPost").value = '';
     showPostUser();
+    
 })
 .catch(function(error) {
     console.error("Error adding document: ", error);
@@ -89,15 +88,27 @@ function addUserPost(){
 
 //Show post user
 function showPostUser(){
-  db.collection("post").onSnapshot((querySnapshot) => {
+  const postContainer = document.getElementById('allNewPost');
+        postContainer.innerHTML='';
+        db.collection("post").onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {;
         console.log(`${doc.id} => ${doc.data().post}`);
-        /*let postNew = `
-        <p>${doc.id}</p>
-        `
-        postNewPrint.appendChild(postNew)*/
+        let postElement = document.createElement('div');
+        let postNew = `
+        <div class="conteinerPostPrint">
+          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">Srta</p>
+          <p class="PostPrint">${doc.data().post}</p>
+          <textarea class="answer" id="answer"> </textarea>
+          <p class="nroLikes">0</p>
+          <img class="imgLikes" src="img/like.svg"></img>
+          <button class="btnAnswer">Responder</button>
+        </div>
+        `;
+        postElement.innerHTML = postNew;
+
+        postContainer.appendChild(postElement);
       });
 });
 }
 
-export  { loginGoogle, loginFB, registerUser, addUserPost };
+export  { loginGoogle, loginFB, registerUser, addUserPost, showPostUser };
