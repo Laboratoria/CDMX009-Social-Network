@@ -1,4 +1,5 @@
 import { root } from "../main.js";
+import { navBar } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
 let db = firebase.firestore()
 
@@ -32,8 +33,12 @@ export function renderPostView() {
     
     <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
     <section id="putPosts"></section>
-    </section>`
+    </section>
+    
+    `
   root.innerHTML = posts
+
+
   //Nodos Imagen
   const fileInput = document.querySelector("#file")
   const sectionPosts = document.querySelector("#putPosts")
@@ -50,6 +55,7 @@ export function renderPostView() {
 
 function readFile(fileInput, sectionPosts) {
   let url
+
   //const fileInput = document.querySelector("#file")
   fileInput.onchange = (e) => {
     console.log(e);
@@ -92,19 +98,22 @@ function readFile(fileInput, sectionPosts) {
       .catch(err => {
         console.log("No hay nuevo post", err)
       })
-    addPostBD(post)
 
+    addPostBD(post)
   }
+
 }
 
 function readText() {
   const text = document.querySelector('#body').value
   const title = document.querySelector("#title").value
   let user = firebase.auth().currentUser;
+  console.log(user);
+
   let post = {
     title: title,
     text: text,
-    user: user.displayName,
+    user: user.name,
     photo: user.photoURL,
     date: new Date(),
   }
@@ -125,15 +134,29 @@ function readText() {
 //Se agrega el post a la collección postsList en la BD 
 function addNewPost(post) {
   return firebase.firestore().collection("postsList").add(post)
+
+
 }
+function dataBD() {
+  firebase.firestore().collection("postsList").get().then(function (docs) {
+    docs.forEach(function (doc) {
+      console.log(doc.id);
+    });
+  });
+}
+dataBD()
+
 
 //Se agregan los post al perfil del usuario 
 function addPostBD(post) {
   let user = firebase.auth().currentUser;
-  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+  console.log(user);
+  const docRef = db.collection('datausers/').doc(user.uid);
   docRef.update({
     post: firebase.firestore.FieldValue.arrayUnion(post)
   })
+
+
 }
 
 //Muestra los posts en tiempo real
@@ -182,4 +205,24 @@ function showPosts(sectionPosts) {
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
 function limpiar(sectionPosts) {
   sectionPosts.innerHTML = '';
+}
+
+export default () => {
+  const nav = `
+  <nav class="navbar is-fixed-bottom is-hoverable is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="#/Home" id="home" class="navbar-item is-expanded is-primary">Mi muro</a>
+      <a href="#/Login" id="login" class="navbar-item is-expanded is-primary">Sign in</a>
+      <a href="#/Post" id="post" class="navbar-item is-expanded is-primary">Publicar</a>
+      <a href="#/My_profile" id="profile" class="navbar-item is-expanded">Mi perfil</a>
+      <a href="#/Exit" id="exit" class="navbar-item is-expanded">Salir</a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="active" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+  
+  `
 }

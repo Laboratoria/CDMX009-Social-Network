@@ -1,3 +1,4 @@
+import { navBar } from "../main.js";
 export default () => {
     const viewLogin = `
 <div class = "form-container ">
@@ -61,6 +62,8 @@ export default () => {
 </div>
 
     `
+
+
     return viewLogin
 }
 

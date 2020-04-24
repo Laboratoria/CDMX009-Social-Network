@@ -6,7 +6,6 @@ import { renderExitView } from "./views/exit.js"
 import login from "./views/login.js"
 import signIn from "./views/signIn.js"
 import principal from "./views/principal.js"
-
 import { loginGoogle } from '/index.js'//Se importa para usar addEventListener
 import { loginFacebook } from '/index.js'
 import { createUser } from '/index.js'
@@ -15,15 +14,15 @@ import { signoutUser } from '/index.js'
 
 // Nodos
 export const root = document.querySelector('#root');
+export const navBar = document.querySelector('#navBar');
 const homeButton = document.querySelector('#home');
 const postButton = document.querySelector('#post');
 const profileButton = document.querySelector('#profile');
-//const loginButton = document.querySelector('#login');
 const exitButton = document.querySelector('#exit');
 
 // listeners
 homeButton.onclick = renderHomeView;
-postButton.onclick = renderPostView;
+postButton.onclick = renderPostView();
 profileButton.onclick = renderProfileView();
 //loginButton.onclick = renderLoginView();
 exitButton.onclick = renderExitView();
@@ -71,6 +70,8 @@ export function viewLogin() {
         /* console.log(email);
         console.log(password); */
         loginUser(email, password, errorModal)
+
+
     })
     //Ocultar Modaless
     function closeError() {

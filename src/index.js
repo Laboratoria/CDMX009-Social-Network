@@ -12,7 +12,6 @@ export const components = {
     home: renderHomeView,
     post: renderPostView,
     profile: renderProfileView,
-    //login: renderLoginView,
     exit: renderExitView
 };
 
@@ -35,8 +34,10 @@ export function loginGoogle(errorGooFbkModal) {
             .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
-                //div.innerHTML = `<img src="${result.user.photoURL}"/>`
-                renderPostView()
+                renderPostView();
+                //userObserverProfile()
+
+
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -86,6 +87,7 @@ export function loginFacebook(errorGooFbkModal) {
                 console.log(result.credential);
                 saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
                 userObserverProfile()
+
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
 
             })
@@ -180,6 +182,7 @@ export function loginUser(email, password, errorModal) {
         .then(function (user) {
             console.log('Datos correctos, bienvenido!')
             //console.log(user);
+            renderPostView()
         })
         .catch(function (error) {
             errorModal.classList.add('is-active');
