@@ -47,7 +47,7 @@
     //Creando funcion para cargar imagenes a storage
     let fileInput = document.querySelector('#myfile');
     let addBtn = document.querySelector('#save')
-  
+
     let url
     //Listeners
     fileInput.onchange = e => {
@@ -56,13 +56,13 @@
       .then(snap => {
         console.log('Imagen cargada');
         return snap.ref.getDownloadURL()
-        
       })
       .then (link =>{
           url = link
           let img = document.createElement('img')
           img.src = link
-          document.body.appendChild(img)
+          //document.body.appendChild(img)
       })
     }
 }
+  

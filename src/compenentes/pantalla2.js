@@ -1,3 +1,4 @@
+
 let root = document.querySelector('#root');
 export const registros = () =>{
 let template = `
