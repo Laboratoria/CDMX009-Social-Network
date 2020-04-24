@@ -2,6 +2,8 @@
 function viewForum(user) {
 
     var EmailCortado = 'No hay email';
+
+
     if(typeof user != 'undefined'){
         var email = user.email;
         var divisiones = email.split("@");
@@ -30,7 +32,7 @@ function viewForum(user) {
                 <textarea id="showComment" class="comentUser"  name="description" placeholder="Escribe un commit..."></textarea>
             </p>
             <div class="right-align">
-                <button class="waves-effect waves-light btn-small publication"><i class="material-icons center" >image</i></button>
+                <input id="myNewFile" type="file" accept="image" class="waves-effect waves-light btn-small publication">
                 <button id="publish" class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2" ><i class="material-icons right">computer</i>Publicar</button>
             </div>
         </div>
@@ -46,7 +48,9 @@ function viewForum(user) {
             </div>
 
             <div class="comentsAndLikes">
-                <p class="coments">¿Cómo centrar texto en HTML?</p>
+                <div id="picturePerfect">
+                
+                </div>
             </div>
             <div class="punchButtons comentsAndLikes">
                 <div class="likeButton">

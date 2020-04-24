@@ -244,7 +244,7 @@ function register() {
 /*************** FUNCIONALIDAD DE POSTS***************/
 
  
-//let fileInput = document.getElementById('file') //variable para la prueba de subir imagen
+
 
 //global
 // variable para que reciba el link(token) de la foto que esta en storage
@@ -254,9 +254,14 @@ function register() {
 //listeners
 
 /*funcion para subir archivo o archivos en el post
+let fileInput = document.getElementById('myNewFile') //variable para la prueba de subir imagen
+let url = ''
+
 fileInput.onchange = e => {        
-    let file = e.target.files[0] //lleva el indice cuando se quiere subir varios archivo, si no, se quita el indice y se coloca la llave file
-    firebase.storage().ref("memes").child(file.name).put(file)
+    let file = e.target.files //lleva el indice cuando se quiere subir varios archivos, si no, se quita el indice y se coloca la llave file
+    let fileInput = document.getElementById('myNewFile') //variable para la prueba de subir imagen
+let url = ''
+    firebase.storage().ref("devpost").child(file.name).put(file)
         .then(snap => {   //¿Donde esta el archivo? En file.name
             return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
         })
@@ -267,14 +272,36 @@ fileInput.onchange = e => {
             document.body.appendChild(img)
         })
 }
+
 */
 
-
+//function fileInput(){}
 
 //traer la informacion del post cuando se le da clic en el boton
 function publicPost(){
-    let url = 'futura imagen'
+    let fileInput = document.getElementById('myNewFile') //variable para la prueba de subir imagen
+    let imageUrl = ''
+
+    fileInput.onchange = respuestaCambioImagen => {
+        let file = respuestaCambioImagen.target.files[0]       
+        firebase.storage().ref("devpost").child(file.name).put(file)
+            .then(snap => {   //¿Donde esta el archivo? En file.name
+                return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
+            })
+            .then(link => {
+                imageUrl = link
+                let img = document.createElement('img')
+                img.src = imageUrl
+                document.body.appendChild(img)
+            })
+    }
+
+
+    
     let publicPost = document.getElementById('publish')
+    //let file = (e).target.file //lleva el indice cuando se quiere subir varios archivos, si no, se quita el indice y se coloca la llave file
+    
+    
     publicPost.onclick = function(){
         let text = document.getElementById('showComment')//variable con id en donde se pintaran los post, textArea
     // traer el texto
@@ -282,17 +309,19 @@ function publicPost(){
         texto: text.value,
         user: "spiderman",
         date: new Date(),
-        img: url //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+        img: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
     }
+
+    
     //  [ASINCRONO] 
 
     addNewPost(post)
         // ESto es asíncrono
         .then(function(post) { //esto es la promesa
-            alert('hello') //este es el resultado de la promesa
+            alert('datos guardados') //este es el resultado de la promesa
         })
         .catch(err => {
-            console.log("todo valió baby: ", err) //esto es el error cuando la respuesta es negativa
+            console.log("Ocurrio un error, intenta mas tarde.", err) //esto es el error cuando la respuesta es negativa
         })
     }
     
@@ -300,16 +329,11 @@ function publicPost(){
 
 // firebase
 
-
-
-
-
-
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) { 
     let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database 
     return postsRef.add(post)
-    console.log('post')// <--- esto es una promesa
+    console.log('post')
 }
 
 /* leer la coleccion de post
