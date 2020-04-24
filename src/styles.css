@@ -1,14 +1,12 @@
 #root{
-    height: 2000px; 
+    height: auto; 
 }
-body{
-    /*background-color:#131515;*/
-
-     background-color:#232323; 
-     /* height: 600px; */
-     color: rgb(212, 144, 41);
-   
-}
+/* body{
+        background-color:#131515;
+        background-color:#232323;
+        background-repeat: repeat-x;
+        color: rgb(212, 144, 41)
+}*/
 .form-container{
     margin: 50px;
     padding: 80px,80px,50px,80px;

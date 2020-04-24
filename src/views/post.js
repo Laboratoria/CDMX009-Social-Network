@@ -25,7 +25,7 @@ export function renderPostView() {
                 <i class="fas fa-upload"></i>
               </span>
               <span class="file-label">
-                Agrega una ilustración...
+                Agrega una imagen...
               </span>
             </span>
           </label>
@@ -50,7 +50,6 @@ export function renderPostView() {
 
 function readFile(fileInput, sectionPosts) {
   let url
-  //const fileInput = document.querySelector("#file")
   fileInput.onchange = (e) => {
     console.log(e);
     let file = e.target.files[0]
@@ -59,7 +58,6 @@ function readFile(fileInput, sectionPosts) {
       .then(snap => {
         console.log(snap);
         return snap.ref.getDownloadURL()
-
       })
       .then(link => {
         url = link
@@ -93,7 +91,6 @@ function readFile(fileInput, sectionPosts) {
         console.log("No hay nuevo post", err)
       })
     addPostBD(post)
-
   }
 }
 
@@ -117,10 +114,6 @@ function readText() {
     })
   addPostBD(post)
 }
-//Esto agrega un post nuevo a la lista de posts
-
-
-//Funciones de Firebase
 
 //Se agrega el post a la collección postsList en la BD 
 function addNewPost(post) {
@@ -136,50 +129,119 @@ function addPostBD(post) {
   })
 }
 
-//Muestra los posts en tiempo real
+//Muestra TODOS los posts en tiempo real
 function showPosts(sectionPosts) {
-
-  firebase.firestore().collection("postsList").onSnapshot(snap => {
-    limpiar(sectionPosts)
+  firebase.firestore().collection("postsList").orderBy("date", "desc").onSnapshot(snap => {
+    clean(sectionPosts)
     snap.forEach(doc => {
       if (doc.data().img === undefined && doc.data().photo === undefined) {
-        let renderPosts = `<div>
-        <p>${doc.data().user}</p>
-      <p>${doc.data().title}</p>
-      <p>${doc.data().text}</p>
-    </div>`
+        let renderPosts = `<div id="PostContainer" dataId="${doc.data().id}">
+        <p>Autor:${doc.data().user}</p>
+        <h2 id="Title">Titulo:${doc.data().title}</h2>
+        <h1 id="Tale">${doc.data().text}</h1>
+        <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
+        <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
+        <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+        <span class="icon is-medium"><i class="far fa-heart"></i></span>
+        </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
       } if (doc.data().photo != undefined) {
         let renderPosts = `<div>
-        <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
-      <p>Titulo:${doc.data().title}</p>
-      <p>${doc.data().text}</p>
-      <img max- width="200" src="${doc.data().img}" />
-      
-    </div>`
+        <img max-width="30" src="${doc.data().photo}"><p>Autor: ${doc.data().user}</p>
+        <h2 id="Title">Titulo:${doc.data().title}</h2>
+        <h1 id="Tale">${doc.data().text}</h1>
+        <img max-width="300" src="${doc.data().img}">
+        <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
+        <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
+        <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+        <span class="icon is-medium"><i class="far fa-heart"></i></span>
+        </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
       } else {
         let renderPosts = `<div>
-        <p> Autor: ${doc.data().user}</p>
-      <p>Titulo:${doc.data().title}</p>
-      <p>${doc.data().text}</p>
-      <img max- width="200" src="${doc.data().img}" />
+      <p> Autor: ${doc.data().user}</p>
+      <h2 id="Title">Titulo:${doc.data().title}</h2>
+      <h1 id="Tale">${doc.data().text}</h1>
+      <img max-width="300" src="${doc.data().img}">
+      <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
+      <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
+      <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+      <span class="icon is-medium"><i class="far fa-heart"></i></span>
+      <div><section id="comments"><input id="commentBody" type="text"></input>    <p>Autor:${doc.data().user}</p>
+      <p> Autor: ${doc.data().user}</p>
+      </section></div>
       
-    </div>`
+      </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
       }
-
     })
   })
+  let btnEditPost = document.querySelector('#Edit')
+  btnEditPost.addEventListener('click', editPost)
+  let btnDeletePost = document.querySelector('#Delete')
+  btnDeletePost.addEventListener('click', deletePost)
 }
 
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
-function limpiar(sectionPosts) {
+function clean(sectionPosts) {
   sectionPosts.innerHTML = '';
 }
+//Funcion Editar post
+  
+  // function editPost(e) {
+  //   const id = event.target.dataset.id;
+  //   let postTitle = document.querySelector('#Title')
+  //   let postText = document.querySelector('#Tale')
+  //   postTitle.onclick = postTitle.setAttribute('contentEditable', 'true');
+  //   postText.onclick = postText.setAttribute('contentEditable', 'true');
+  //   let postTitle = document.querySelector('#Title').contentEditable = 'true'
+  //   let postText = document.querySelector('#Tale').contentEditable = 'true'
+
+  function editPost(event) {
+      const id = event.target.dataset.id;
+      const postText = document.querySelector(`#Tale[data-id='${id}']`);
+      const postTitle = document.querySelector(`#Title[data-id='${id}']`)
+      postText.setAttribute('contentEditable', 'true');
+      textPost.focus()
+      textPost.onblur = () => {textPost.setAttribute('contentEditable', 'false');
+      }
+      postTitle.setAttribute('contentEditable', 'true');
+      postTitle.focus()
+      postTitle.onblur = () => {textPost.setAttribute('contentEditable', 'false');
+      }
+    };
+
+
+function saveEditPost(e) {
+  const id = e.target.dataset.id;
+  const saveText = document.querySelector(`#text[data-id='${id}']`);
+  const newText = saveText.textContent;
+  firebase.firestore().collection('postsList').doc(id).update({
+    text: newText,
+  });
+  saveText.setAttribute('contentEditable', 'false');
+    
+    function deletePost(e) {
+      const id = e.target.dataset.id;
+//Esto sí lo borra-> firebase.firestore().collection('postsList').doc(id).delete();
+        postContainer = document.querySelector(`#PostContainer[data-id='${id}']`)
+        postContainer.style.display = "none";
+        //.remove();
+    };
+
+    
+    // function likePost (e) {
+    //   const id = e.target.dataset.id;
+    //   const like= document.querySelector(`#Love[data-id='${id}']`);
+    //   const likeCounter = parseInt(like.textContent) + 1;
+    //   like.textContent = likeCounter
+    //   firebase.firestore().collection('posts').doc(id).update({likes: likeCounter});
+    //   let post = firebase.firestore().collection('posts').doc();
+    // } 
+
