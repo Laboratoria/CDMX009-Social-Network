@@ -1,5 +1,5 @@
 import renderLogin from './screens/login.js';
-import addNewPost from './screens/profile.js';
+import renderPost from './screens/profile.js';
 import renderHome from './screens/posts.js';
 import logFb from './screens/logFacebook.js';
 
@@ -8,13 +8,12 @@ let currentRoute = "/"
 let root = document.querySelector('#root')
 let btns = document.querySelectorAll('.btn')
 
-
 // router
 function router(route) {
     console.log(route)
     switch (route) {
         case '/about':
-            addNewPost();
+            renderPost();
             break;
         case '/login':
             renderLogin();
