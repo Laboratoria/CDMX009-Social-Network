@@ -158,7 +158,7 @@ window.socialNetwork = {
    verification: ()=>{
         let user = firebase.auth().currentUser;
         user.sendEmailVerification().then(function() {
-            // Email sent.
+            // Email sent- email enviado
             console.log("Enviando correo..");
         }).catch(function(error) {
             // An error happened.

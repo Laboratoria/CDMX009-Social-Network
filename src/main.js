@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", event => {
       // LO QUE SE CREA CUANDO LOGEA EL USUARIO
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          // User is signed in.
+          // User is signed in-el usuario está registrado
             window.socialNetwork.createNewUserStorage();
             firebase.database().ref("users/"+firebase.auth().currentUser.uid).on("value", function(snapshot){
               // console.log(snapshot.val())
