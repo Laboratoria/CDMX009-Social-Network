@@ -72,12 +72,6 @@ $('.facebook').click(function loginFb() {
 
 
 
-let photoURL
-let displayName
-export let arr = [];
-let obj
-
-console.log(arr);
 
 //Observador 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -85,10 +79,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log('estas activo', user)
         displayName = user.displayName;
         photoURL = user.photoURL;
-          obj = {
+        localStorage.displayName = user.displayName
+        localStorage.photoURL = user.photoURL
+        /*   obj = {
             nombre: displayName,
             foto: photoURL
-          }
+          } */
           arr.push(obj)
           
         let userName = document.querySelector('#user-displayName');
@@ -143,7 +139,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         location: location,
         description: description,
         image: url,
-        date: day
+        date: day,
+        displayName,
+        photoURL
       })
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
@@ -199,11 +197,11 @@ firebase.auth().onAuthStateChanged(function(user) {
                 </div>
                 <div class="" id="infoUserContainer">
                   <div class="info-user">
-                    <img src="${photoURL}">
-                    <h4>${displayName}</h4>
+                    <img src="${doc.data().photoURL}">
+                    <h4>${doc.data().displayName}</h4>
                   </div>
                   <span class="edit-delete-icons">
-                  <i class="far fa-trash-alt js-delete"></i>
+                  <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
                   <i class="fas fa-pencil-alt" onclick="editPost('${doc.id}', '${doc.data().title}','${doc.data().activity}','${doc.data().location}','${doc.data().description}')"></i>
                 </span>
                     <p id="descriptionPost">${doc.data().description}</p> 
@@ -214,9 +212,9 @@ firebase.auth().onAuthStateChanged(function(user) {
           </div>     
             `
           let deletebutton = document.querySelectorAll('.js-delete');
-          let deletePost = () => {
-            console.log(doc);
-            db.collection('newPosts').doc(doc.id).delete()
+          let deletePost = (e) => {
+            console.log(e.target.id);
+            db.collection('newPosts').doc(e.target.id).delete()
               .then(function(){
                 console.log('Lo borraste, eres chido');
               })
@@ -224,7 +222,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 console.log('No pudiste, ponte chido', error);
               });
           }
-            deletebutton.forEach(btn => btn.addEventListener('click', deletePost))
+            deletebutton.forEach(btn=> btn.addEventListener('click', deletePost))
        });
      })
      

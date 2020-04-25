@@ -225,6 +225,10 @@ nav .bg-nav{
       border: none;
       color: #000!important;
   }
+
+  .menu-btn:active{
+    background-color: #385a64;
+  }
 .menu-btn:visited{
       border: none;
   }
