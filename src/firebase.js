@@ -1,16 +1,14 @@
+// Firebase init
 let googleP = new firebase.auth.GoogleAuthProvider();
 let facebookP = new firebase.auth.FacebookAuthProvider();
 let db = firebase.firestore();
-// Firebase init
-/* firebase.storage(); */
 
-//Log up email
-$('#email-submit').click(function () {
-  let emailUser = document.querySelector('#email-new').value;
-  let passwordUser = document.querySelector('#password-new').value;
-  console.log(emailUser, passwordUser);
-
-  firebase.auth().createUserWithEmailAndPassword(emailUser, passwordUser)
+//Log up with email
+function emailLogup () {
+  let emailLogup = document.querySelector('#email-new').value;
+  let passwordLogup = document.querySelector('#password-new').value;
+    console.log(emailLogup, passwordLogup);
+    firebase.auth().createUserWithEmailAndPassword(emailLogup, passwordLogup)
     .catch(function (error) {
       // Errors
       var errorMessage = error.message;
@@ -18,30 +16,31 @@ $('#email-submit').click(function () {
       if (errorMessage) {
         let invalidEmail = document.querySelector('#invalid-email')
         invalidEmail.innerHTML = errorMessage
-      }
+      };
     });
-});
+};
 
+//Login functions
 function emailLogin() {
   let emailUser = document.querySelector('#email-login').value;
   let passwordUser = document.querySelector('#password-login').value;
   let emailError = document.querySelector('#email-error');
   console.log(emailUser, passwordUser)
-  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+  .catch(function(error) {
   //Error
   var errorMessage = error.message;
   emailError.innerHTML = errorMessage,
   console.log(errorMessage)
 });
-}
-
+};
 
 function loginFb () {
   firebase.auth().signInWithRedirect(facebookP)
   .then(function(result){
     console.log(result);
-  })
-}
+  });
+};
 
 function loginGoogle(){
   firebase.auth().signInWithRedirect(googleP)
@@ -53,15 +52,17 @@ function loginGoogle(){
       window.open('#/','_self')
     } */
   });
-}
+};
 
 //Observator 
-
 function observatorFirebase () {
   firebase.auth().onAuthStateChanged(function(user){
     let menu = document.querySelector('.menu')
     if (user) {
-        render();
+        let menuPic = document.querySelector('#user-photoURL');
+        let menuName = document.querySelector('#user-displayName');
+        menuName.innerHTML = user.displayName;
+        menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
         displayName = user.displayName;
         photoURL = user.photoURL;
         localStorage.setItem('nameStorage', displayName);
@@ -72,15 +73,14 @@ function observatorFirebase () {
     }
      else {
       console.log('no estas activo chavo :(')
-    }
-  })
-}
+    };
+  });
+};
 observatorFirebase();
 
 //Nodes
 let photoURL
 let displayName
-
 
 //Initialize Cloud Firestore through Firebase
   let st = firebase.storage(); 
@@ -127,12 +127,10 @@ let displayName
         .catch(function(error) {
           console.error("Error adding document: ", error);
         });
-  }
+  };
 
 //Add image
-
   let fileInput = document.querySelector('#file');
-
   fileInput.onchange = e => {
       console.log(e.target.files);
       let file = e.target.files[0]
@@ -144,43 +142,49 @@ let displayName
                 url = link
                 let img = document.createElement('img')
                 img.src = link
-            })
-  }
+            });
+  };
   
 //Read documents
-
     let render = () => {
       let post = document.querySelector('#contentCreated');
       db.collection("newPosts").onSnapshot((querySnapshot) => {
         post.innerHTML = '';
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data().title}`);
-            post.innerHTML += `   
+            post.innerHTML += 
+            `   
             <div class="container">
             <div class="card-post-container">
-              <div class="card-title-post">
+              <div class="card-post">
                 <div id="postImg" class="img-post">
                   <img width="100%" src="${doc.data().image}">
                 </div>
-                <div class="info-over-image">
-                  <h4 id="titlePost">${doc.data().title}</h4>
-                  <div class="subtitle-post">
-                    <p id="activityPost">${doc.data().activity}</p>
-                    <p id="locationPost">${doc.data().location}</p>
-                  </div>
-                </div>
-                <div class="" id="infoUserContainer">
+                <div class="info-post" id="infoUserContainer">
                   <div class="info-user">
                     <img src="${doc.data().photoURL}">
                     <h4>${doc.data().displayName}</h4>
                   </div>
-                  <span class="edit-delete-icons">
-                  <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
-                  <i class="fas fa-pencil-alt js-edit" onclick="editPost('${doc.id}', '${doc.data().title}','${doc.data().activity}','${doc.data().location}','${doc.data().description}')"></i>
-                </span>
-                    <p id="descriptionPost">${doc.data().description}</p> 
-                    <p>${doc.data().date}</p>
+                <div class="header-post">
+                <h4 id="titlePost">${doc.data().title}</h4>
+                <span class="edit-delete-icons">
+                <i class="fas fa-pencil-alt js-edit" id="${doc.id}, ${doc.data().title}, ${doc.data().activity}, ${doc.data().location}, ${doc.data().description}"></i>
+                <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
+              </span>
                 </div>
+                <div class="subtitle-post">
+                  <p id="activityPost">${doc.data().activity} </p>
+                  <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
+                </div>
+                    <p id="descriptionPost">${doc.data().description}</p> 
+                  <div class="flex-row">
+                    <p><i class="far fa-clock"> </i> ${doc.data().date}</p>
+                    <span class="flex-row-likes">
+                      <i class="far fa-heart like-btn"></i>
+                      <p><strong><span id="clicks"> </span></strong></p>
+                    </span>
+                  </div>  
+                </div> 
               </div>
             </div>
           </div>     
@@ -196,9 +200,23 @@ let displayName
                 console.log('No pudiste, ponte chido', error);
               });
           }
-            deletebutton.forEach(btn=> btn.addEventListener('click', deletePost))
+            deletebutton.forEach(btn=> btn.addEventListener('click', deletePost));
+
+            let likeBtn = document.querySelectorAll('.like-btn'); 
+            let numClicks = document.querySelector('#clicks');
+            let i = 0;
+            let likeClick = () => {
+              i++;
+              if (i == 1) {
+                numClicks.innerHTML = i;
+              }else{
+                numClicks.innerHTML = i;
+              };
+             
+            }
+            likeBtn.forEach(btnLike => btnLike.addEventListener('click', likeClick));
        });
-     }) 
+     });
     }; 
 
-export { loginGoogle, loginFb, emailLogin, observatorFirebase };
+export { loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup };

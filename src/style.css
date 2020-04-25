@@ -149,7 +149,7 @@ h4{
   color: #3b5998;
 }
 
-/*Menu*/
+/* Menu */
 
 .user-img {
   display: flex;
@@ -210,9 +210,7 @@ nav .bg-nav{
   float: right;
 }
 
-
-
-/*header*/
+/* header */
 .header-container{
     padding-top: 20px;
     display: flex!important;
@@ -242,7 +240,7 @@ nav .bg-nav{
       font-size: 1.5em;
       color:dimgray;
   }
-  /*categories buttons*/
+ /*  categories buttons */
 .categories-btn{
       padding: 20px 0px!important;
       display: flex;
@@ -307,7 +305,7 @@ nav .bg-nav{
     color: #9e9e9e;
   }
 
-  /*Post*/
+ /*Post*/
  
 .test{
   color: black;
@@ -322,7 +320,7 @@ nav .bg-nav{
 }
 
 
-/*Modal posts*/
+/* Modal posts */
 .modal-img{
   display: flex;
   justify-content: center!important;
@@ -330,8 +328,8 @@ nav .bg-nav{
   height: 300px;
 }
 
-/*view-dashboard-posts*/
-.card-title-post{
+/* view-dashboard-posts */
+.card-post{
   position: relative;
   background-color: #fff;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
@@ -342,38 +340,51 @@ nav .bg-nav{
   width: 100%;
   border-radius: 10px 10px 0px 0px;
 }
-.edit-delete-icons{
+.info-post{
+  padding: 15px;
+}
+
+
+.header-post{
   display: flex;
-  justify-content: space-around;
-  /* position: absolute; */
+  justify-content: space-between;
 }
 .edit-delete-icons i{
   padding: 5px;
 }
 .subtitle-post{
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .info-user{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  padding-bottom:10px;
 }
 .info-user img{
   border-radius: 50%;
   width: 30px;
   margin-right: 10px;
 }
-
-/* .hiding{
-  display: none;
+.flex-row{
+  display: flex;
+  justify-content: space-between;
 }
- */
+.flex-row-likes{
+  display: flex;
+  flex-direction: row;
+}
+.fa-heart{
+  margin: 5px;
+}
+.fa-map-marker-alt{
+  margin-left: 20px;
+}
 
+/* Media querys*/
 
-
-
-/*Media querys*/
 @media screen and (min-width: 450px){
     .facebook {
       padding: 14px 24px;

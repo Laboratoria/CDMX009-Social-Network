@@ -1,4 +1,4 @@
-import { loginGoogle, loginFb, emailLogin, observatorFirebase } from '../firebase.js';
+import { loginGoogle, loginFb, emailLogin, } from '../firebase.js';
 
 export default () => {
   const root = document.querySelector('#roots');
@@ -6,28 +6,32 @@ export default () => {
   `
   <section class="bg-img card-align" id="login">
       <div class="container">
-      <div class="row justify-content-md-center">
-      <div class="col-sm-12 col-md-6">
-
-          <div class="form-container control has-icons-right">
-          <div class="logo-civitas">
-          <img src="img/icons/isologo.svg">
+        <div class="row justify-content-md-center">
+          <div class="col-sm-12 col-md-6">
+              <div class="form-container control has-icons-right">
+                <div class="logo-civitas">
+                  <img src="img/icons/isologo.svg">
                 </div>
-            <h3>Inicia sesión login js</h3>
-            <form class="login-form">
-              <input class="login-input" id="email-login" type="email" name="email" placeholder="Email" />
-              <div class="eye-icon">
-              <input
-              class="login-input"
-              id="password-login"
-              type="password"
-              name="email"
-              placeholder="Password"
-            />
-            <i class="fas fa-eye"></i>
-            </div>
-
-              <div id="email-error" class = 'errorMessage'></div>
+                <h3>Inicia sesión</h3>
+                <form class="login-form">
+                  <input
+                    class="login-input"
+                    id="email-login"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  <div class="eye-icon">
+                    <input
+                    class="login-input"
+                    id="password-login"
+                    type="password"
+                    name="email"
+                    placeholder="Password"
+                  />
+                  <i class="fas fa-eye"></i>
+                  </div>
+              <div id="email-error"></div>
               <a class="forgotten-password">¿Olvidaste tu contraseña?</a>
               <input id="login-submit" class="submit-button" type="button" name="submit" value="Ingresar" />
             </form>
@@ -42,17 +46,25 @@ export default () => {
             </div>
             <p class="scial-mdia-prgph">
               ¿No tienes una cuenta?
-              <a class="forgotten-password" id='logUp'>Regístrate ahora</a>
+              <a class="forgotten-password" href='#/logup' id ='logUp'>Regístrate ahora</a>
             </p>
-          </div>  
+          </div> 
+        </div>
+      </div> 
+</section>
          `
          
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewLogin;
   root.appendChild(divElemt);
   
+//Hide header elements
+  let dashHeader = document.querySelector('#dashboardHeader');
+  let menuH = document.querySelector('#menuH');
+  dashHeader.classList.add('hide');
+  menuH.classList.add('hide');
   
-  //LoginGoogle
+  //Login
   const googleBtns = document.querySelector('.google');
         googleBtns.addEventListener('click', loginGoogle);
 
@@ -63,4 +75,4 @@ export default () => {
         emailBtns.addEventListener('click', emailLogin);
 
       return divElemt;
-}
+};

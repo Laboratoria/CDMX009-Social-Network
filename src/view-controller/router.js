@@ -11,6 +11,7 @@ export const changeTmp = (hash) => {
         case '#/':
         case '#/login':
             { return sectionMain.appendChild(components.login()); }
+        case '#/logup':
         case '#/profile':
         case '#/home':
         case '#/reviews':
