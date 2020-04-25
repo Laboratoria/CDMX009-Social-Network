@@ -331,7 +331,7 @@ nav .bg-nav{
 }
 
 /*view-dashboard-posts*/
-.card-title-post{
+.card-post{
   position: relative;
   background-color: #fff;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
@@ -342,30 +342,48 @@ nav .bg-nav{
   width: 100%;
   border-radius: 10px 10px 0px 0px;
 }
-.edit-delete-icons{
+.info-post{
+  padding: 15px;
+}
+
+
+.header-post{
   display: flex;
-  justify-content: space-around;
-  /* position: absolute; */
+  justify-content: space-between;
 }
 .edit-delete-icons i{
   padding: 5px;
 }
 .subtitle-post{
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .info-user{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  padding-bottom:10px;
 }
 .info-user img{
   border-radius: 50%;
   width: 30px;
   margin-right: 10px;
 }
-
-
+.flex-row{
+  display: flex;
+  justify-content: space-between;
+}
+.flex-row-likes{
+  display: flex;
+  flex-direction: row;
+}
+.fa-heart{
+  margin: 5px;
+}
+.fa-map-marker-alt{
+  margin-left: 20px;
+}
 
 
 
