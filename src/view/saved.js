@@ -2,11 +2,11 @@ export default () => {
     const viewSaved = `
     <section>
     <div class="user-img">
-        <img src="img/xel.jpeg" alt="member">
+      <img src="${localStorage.getItem('URLStorage')}" alt = 'member'/>
     </div>
     <div>
         <div>
-            <h2 class="test" id="userName">Xel Jmz</h2>
+        <h2 class="test">${localStorage.getItem('nameStorage')}</h2>
             <img class="img-edit" src="./img/icons/pen.svg">
             <img class="img-add-friend" src="./img/icons/add-friend.svg">
         </div>
@@ -39,6 +39,10 @@ export default () => {
       </div>
     </section>
     `;
+
+  //Hide header
+    let dashHeader = document.querySelector('#dashboardHeader');
+    dashHeader.classList.add('hide');
 
     const divElemt = document.createElement('div');
     divElemt.classList.add('position')
