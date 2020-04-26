@@ -374,6 +374,7 @@ i.material-icons.left.like {
     color: #6a1b9a;
     padding-left: 10px;
     margin-left: 20px;
+    display: flex;
 }
 
 ul#mobile-demo {
@@ -420,6 +421,12 @@ p.chip.boxStyle2 {
 
 .secondCircle {
     margin-bottom: 80px;
+}
+
+.editNameProfile {
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
 }
 
 .publication {
@@ -583,6 +590,37 @@ input.validatePassword.boxFields {
     color: #fff;
     font-size: .8em;
     line-height: 2.5em;
+}
+
+#myNewFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#myNewFile+label {
+    color: white;
+    background-color: #662483;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+#myNewFile:focus+label,
+#myNewFile+label:hover {
+    background-color: #662483;
+}
+
+#myNewFile+label {
+    cursor: pointer;
+    /* "hand" cursor */
+}
+
+#myNewFile:focus+label {
+    outline: 1px dotted#662483;
+    outline: -webkit-focus-ring-color auto 5px;
 }
 
 

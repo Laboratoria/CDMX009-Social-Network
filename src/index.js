@@ -4,86 +4,64 @@ import { viewForum } from './view/fuorum.js';
 import { editionOfProfile } from './view/editprofile.js';
 import { viewProfile } from './view/profile.js';
 
-
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('hideAndShow').style.display = 'none';
-    document.getElementById('movilIcon').style.display = 'none';
-    viewLogin()
-        .then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
-            var buttonLogin = document.querySelector('#doLogin');
-            buttonLogin.addEventListener('click', function(e) {
-                e.preventDefault();
-                loginPageOne();
-                movilIcon.classList.add('shown');
-            });
-        }).then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
-            var buttonGoogle = document.querySelector('#loginGoogle');
-            buttonGoogle.addEventListener('click', function(e) {
-                e.preventDefault();
-                googleButton();
-            });
-        })
-        .then(function() {
-            // En esta parte creo una variable en donde voy a llamar a mi id al
-            // que quiero darle el click en este caso el ingreso con facebook
-            var buttonFacebook = document.querySelector('#loginFacebook');
-            buttonFacebook.addEventListener('click', function(e) {
-                e.preventDefault();
-                facebookButton();
-                document.getElementById('hideAndShow').style.display = 'block';
-                movilIcon.classList.add('shown');
-            });
-        })
-        .then(function() {
-            var ntAccount = document.querySelector('#reg');
-            ntAccount.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewRegister()
-                    .then(function() {
-                        var buttonReg = document.querySelector('#doRegister');
-                        buttonReg.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            register();
-                        });
-                    })
+    var obtainingPersistenceData = JSON.parse(localStorage.getItem('userdata')); //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
+    if (obtainingPersistenceData == null) { //no hay localStorage
+        console.log('Keep Calm', obtainingPersistenceData);
+        document.getElementById('hideAndShow').style.display = 'none';
+        document.getElementById('movilIcon').style.display = 'none';
+        viewLogin()
+            .then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
+                var buttonLogin = document.querySelector('#doLogin');
+                buttonLogin.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginPageOne();
 
-            });
-        })
-        .then(function() {
-            var viewRedirectionForum = document.querySelectorAll('.foro');
-            viewRedirectionForum.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewForum()
-                    .then(function() {
-                        publicPost();
-                    });
-                window.history.pushState('Foro', 'Foro', '/Foro')
-            }));
-        }).then(function() {
-            var viewRedirectionProfile = document.querySelectorAll('.perfil');
-            viewRedirectionProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                viewProfile();
-                window.history.pushState('perfil', 'Perfil', '/Perfil');
-            }));
-        })
-        .then(function() {
-            var viewRedirectionEditProfile = document.querySelectorAll('.editarPerfil');
-            viewRedirectionEditProfile.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                editionOfProfile();
-                window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
-            }));
-        })
-        .then(function() {
-            var viewRedirectionGetOut = document.querySelectorAll('.cerrarSesion');
-            viewRedirectionGetOut.forEach(nodo => nodo.addEventListener('click', function(e) {
-                e.preventDefault();
-                out();
-            }));
-        })
+                    movilIcon.classList.add('shown');
+                });
+            }).then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
+                var buttonGoogle = document.querySelector('#loginGoogle');
+                buttonGoogle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    googleButton();
+                });
+            })
+            .then(function() {
+                // En esta parte creo una variable en donde voy a llamar a mi id al
+                // que quiero darle el click en este caso el ingreso con facebook
+                var buttonFacebook = document.querySelector('#loginFacebook');
+                buttonFacebook.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    facebookButton();
+                    document.getElementById('hideAndShow').style.display = 'block';
+                    movilIcon.classList.add('shown');
+                });
+            })
+            .then(function() {
+                var ntAccount = document.querySelector('#reg');
+                ntAccount.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    viewRegister()
+                        .then(function() {
+                            var buttonReg = document.querySelector('#doRegister');
+                            buttonReg.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                register();
+                            });
+                        })
+                });
+            })
+    } else {
+        clickMenus(obtainingPersistenceData);
+        viewForum(obtainingPersistenceData)
+            .then(function() {
+                publicPost();
+            })
+        document.getElementById('hideAndShow').style.display = 'block';
+        movilIcon.classList.add('shown');
+    }
 })
 
 // Navegador en móvil
@@ -91,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 });
-
 
 //*********************BLOQUE      UNO ****************************/
 
@@ -103,10 +80,14 @@ function loginPageOne() {
     var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((data) => {
-            viewForum(data.user) //BLISS
+            clickMenus(data.user);
+            viewForum(data.user)
                 .then(function() {
                     publicPost();
-                });
+                })
+                .then(function() {
+                    localStorage.setItem('userdata', JSON.stringify(data.user)); //aquí le digo que guarde como un json formateado mi objeto. su parametro es su nombre el segundo lo que vale
+                })
             document.getElementById('hideAndShow').style.display = 'block';
             movilIcon.classList.add('shown');
         })
@@ -137,28 +118,32 @@ function googleButton() {
     var provider = new firebase.auth.GoogleAuthProvider();
     var movilIcon = document.getElementById('movilIcon');
 
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        viewForum(user)
-            .then(function() {
-                publicPost();
-            });
-        document.getElementById('hideAndShow').style.display = 'block';
-        movilIcon.classList.add('shown');
-        // ...
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
+    firebase.auth().signInWithPopup(provider)
+        .then(function(data) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = data.credential.accessToken;
+            // The signed-in user info.
+            var user = data.user;
+            clickMenus(user);
+            viewForum(user)
+                .then(function() {
+                    publicPost();
+                }).then(function() {
+                    localStorage.setItem('userdata', JSON.stringify(user)); //aquí le digo que guarde como un json formateado mi objeto, esa data.user la bautizo como user data que es lo que estoy colocando arriba
+                })
+            document.getElementById('hideAndShow').style.display = 'block';
+            movilIcon.classList.add('shown');
+            // ...
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
 }
 
 
@@ -172,18 +157,22 @@ function facebookButton() {
     var provider = new firebase.auth.FacebookAuthProvider();
     var movilIcon = document.getElementById('movilIcon');
     firebase.auth().signInWithPopup(provider)
-        .then(function(result) {
+        .then(function(data) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-            var token = result.credential.accessToken;
+            var token = data.credential.accessToken;
             // The signed-in user info.
-            var user = result.user;
+            var user = data.user;
+            clickMenus(user);
             viewForum(user)
                 .then(function() {
                     publicPost();
-                });
+                }).then(function() {
+                    localStorage.setItem('userdata', JSON.stringify(user)); //aquí le digo que guarde como un json formateado mi objeto
+                })
             movilIcon.classList.add('shown');
             document.getElementById('hideAndShow').style.display = 'block';
         }).catch(function(error) {
+            console.log(error);
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -197,6 +186,7 @@ function facebookButton() {
 //*********************BLOQUE      CUATRO ****************************/
 // ******** LOG OUT FUNCTION 
 function out() {
+    console.log('revisando out');
 
     firebase.auth().signOut()
         .then(function() {
@@ -204,7 +194,11 @@ function out() {
             document.getElementById('hideAndShow').style.display = 'none';
         })
         .then(function() {
-            viewLogin();
+            viewLogin()
+                .then(function() {
+                    localStorage.setItem('userdata', null); //aquí le digo que guarde como un json formateado mi objeto
+                })
+
             window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
         })
         .catch(function(error) {
@@ -227,6 +221,7 @@ function register() {
     } else {
         firebase.auth().createUserWithEmailAndPassword(registerEmailLogin2, registerPassLogin2)
             .then((data) => {
+                clickMenus(data.user);
                 viewForum(data.user);
                 document.getElementById('hideAndShow').style.display = 'block';
                 movilIcon.classList.add('shown');
@@ -307,6 +302,32 @@ function addNewPost(post) {
 
 
 
+
+function clickMenus(obtainingPersistenceData) {
+    var nameMenus = document.querySelectorAll('ul.clickMenu li a'); //Dentro de mi variable voy a meterme dentro del a que es donde tengo c.u de los nombres de mi navbar
+    nameMenus.forEach(function(viewMenus) { //en una nueva variable hago un forEach con un parámetro dentro de la función 
+        viewMenus.addEventListener('click', function(clickedMenu) { //llamo el parámetro en este caso es (viewMenus)en  el cual en el addEventListener le digo que escuche el click con una función a la que le pongo también un parámetro por nombre (clickedMenu)
+            clickedMenu.preventDefault();
+            var userClickMenu = clickedMenu.target.dataset.nav; //creo una nueva variable que va a ser igual al parámetro anterior (clickedMenu) en donde con target.dataset estaría llamando a data-nav que declaré en mi html
+            if (userClickMenu == "/Foro") { //aquí en mi if le coloco la condición en donde si le doy click a foro me lleve a ver el foro y así sucesivamente
+                viewForum(obtainingPersistenceData)
+                    .then(function() {
+                        publicPost();
+                    });
+                window.history.pushState('Foro', 'Foro', '/Foro')
+            } else if (userClickMenu == "/Perfil") {
+                viewProfile(obtainingPersistenceData);
+                window.history.pushState('perfil', 'Perfil', '/Perfil');
+            } else if (userClickMenu == "/editarPerfil") {
+                editionOfProfile(obtainingPersistenceData);
+                window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
+            } else if (userClickMenu == "/cerrarSesion") {
+                out();
+            }
+        })
+    });
+}
+
 //funciones de vero para practicar
 /* leer la coleccion de post
 postsRef.onSnapshot(snap => {
@@ -338,10 +359,10 @@ docRef.get().then(function(doc) {
     console.log("Error getting document:", error);
 });
 
-// Obtén todos los documentos de una colección
-// db.collection("post").get().then(function(querySnapshot) {
-//     querySnapshot.forEach(function(doc) {
-//         // doc.data() is never undefined for query doc snapshots
-//         console.log(doc.id, " => ", doc.data());
-//     });
-// });
+Obtén todos los documentos de una colección
+db.collection("post").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+});*/

@@ -1,4 +1,17 @@
-function viewProfile() {
+function viewProfile(user) {
+    console.log(user);
+    var EmailCortado = 'No hay email';
+
+    if (typeof user != 'undefined') {
+        var email = user.email;
+        var divisiones = email.split("@");
+        EmailCortado = divisiones[0];
+    }
+
+    var image = "images/profile-picture-green.jpg";
+    if (user.photoURL != null) {
+        image = user.photoURL;
+    }
     return new Promise(function(resolve, rejected) {
         let profileView = `
        <!-- ***********PAGINA profile********* -->
@@ -6,12 +19,12 @@ function viewProfile() {
       <section class="profileInformation">
         <div>
             <div class="littleCircle">
-                <img src="images/foto_perfil_circulo.png" alt="foto de perfil usuario" class="responsive-img photo">
+                <img src="${image}" alt="foto de perfil usuario" class="responsive-img photo">
             </div>
 
             <div class="personalInformationPerfilUser">
-                <div class="namePerfilUser"><strong class="black-text perfilName little">Taco López<i class="material-icons center editProfileIcon">edit</i></strong></div>
-                <div class="professionDescription">Developer Sr. en Accenture</div>
+                <div class="namePerfilUser"><strong class="black-text perfilName little">${EmailCortado}<i class="material-icons center editProfileIcon">edit</i></strong></div>
+                <div class="professionDescription">Profesión</div>
             </div>
         </div>
     </section>
@@ -20,7 +33,8 @@ function viewProfile() {
             <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
         </p>
         <div class="right-align">
-            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+                     <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
+                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
             <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
         </div>
     </form>
@@ -28,8 +42,8 @@ function viewProfile() {
         <div class="informationBox">
 
             <div class="chip boxStyle">
-                <img src="images/foto_perfil_circulo.png" alt="Contact Person">
-                <p>Taco Perez</p>
+                <img src="${image}" alt="Contact Person">
+                <p>${EmailCortado}</p>
             </div>
             <i class="fas fa-globe-americas world"></i>
             <i class="material-icons center points">more_vert</i>
@@ -54,7 +68,8 @@ function viewProfile() {
             <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
         </p>
         <div class="right-align">
-            <button class="waves-effect waves-light btn-small publication"><i class="material-icons center">image</i></button>
+                      <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
+                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
             <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
         </div>
     </form>
