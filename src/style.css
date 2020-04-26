@@ -14,12 +14,15 @@
     align-items: baseline;
       
 }
+
 .logoMemingos {
     text-align: right;
 }
+
 #mLogo {
     vertical-align: top;
 }
+
 figure{
     border-top-width: 10px;
     border-right-width: 1em;
@@ -32,6 +35,7 @@ figure{
     height:150px;
     border-radius:150px;
 }
+
 .imgProfile {
     width: 100%;
     height: 100%;
@@ -43,6 +47,7 @@ figure{
     justify-content:center;
     
 }
+
 .navbaritem{
     color: #4a4a4a;
     display: block;
@@ -50,4 +55,8 @@ figure{
     padding: .5rem 2.2rem;  
     display: flex;
     justify-content:space-between;
+}
+
+.userInfo {
+    align-items: center!important;
 }

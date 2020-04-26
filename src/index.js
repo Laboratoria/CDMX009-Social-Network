@@ -1,8 +1,9 @@
 import database from './database.js';
 
-const root = document.querySelector('#root');
+const root = document.querySelector('#root'); //section donde se reendearan las pantallas
 const logo = `<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
 
+//render de la pantalla para iniciar sesión
 const renderSignIn = () => {
     const signInForm = `
         <div class="has-text-centered has-text-white title is-4">
@@ -58,20 +59,21 @@ const renderSignIn = () => {
         <div class=" has-text-centered has-text-white is size-2">
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>`;
-    root.innerHTML = `${logo}${signInForm}`;
-    document.querySelector('#signUpLink').addEventListener('click', function(event) {
+    root.innerHTML = `${logo}${signInForm}`; //reendereamos el logo y la pantalla para inicio de sesión
+    document.querySelector('#signUpLink').addEventListener('click', function(event) { //botón para mandarte a la pantalla de registro
         renderSignUp();
     });
-    document.querySelector('#logIn').addEventListener('click', function(event) {
+    document.querySelector('#logIn').addEventListener('click', function(event) { //se obtienen los datos del usuario registrado
         database.signIn();
     });
-    document.querySelector('#facebookSignIn').addEventListener('click', function (event) {
+    document.querySelector('#facebookSignIn').addEventListener('click', function (event) { //se inicia sesión con Facebook
         database.signInFacebook();
     });
-    document.querySelector('#googleSignIn').addEventListener('click', function (event) {
+    document.querySelector('#googleSignIn').addEventListener('click', function (event) { //se inicia sesión con Google
         database.signInGoogle();
     });
 };
+//render de la pantalla de registro
 const renderSignUp = () => {
     const signUpForm = `
         <div class="has-text-centered has-text-white title is-4 ">
@@ -126,25 +128,26 @@ const renderSignUp = () => {
             <td> ¿Ya tienes cuenta? </td> <a id="signInLink"> Inicia sesión </a>
         </div>
         `;
-    root.innerHTML = `${logo}${signUpForm}`;
-    document.querySelector('#register').addEventListener('click', function (event) {
+    root.innerHTML = `${logo}${signUpForm}`; //se reenderea el logo y la pantalla de registro
+    document.querySelector('#register').addEventListener('click', function (event) { //se obtienen los datos del usuario para guardarse en Firebase
         database.signUp();
     });
-    document.querySelector('#facebookSignIn').addEventListener('click', function (event) {
+    document.querySelector('#facebookSignIn').addEventListener('click', function (event) { //se registra con Facebook
         database.signInFacebook();
     });
-    document.querySelector('#googleSignIn').addEventListener('click', function (event) {
+    document.querySelector('#googleSignIn').addEventListener('click', function (event) { //se registra con Google
         database.signInGoogle();
     });
-    document.querySelector('#signInLink').addEventListener('click', function (event) {
+    document.querySelector('#signInLink').addEventListener('click', function (event) { //botón para mandarte a la pantalla de inicio de sesión
         renderSignIn();
     });
 };
 renderSignUp();
 
+
 const renderNavBar = `
 <div class="">
-    <div class="navbar navBarCenter">
+    <div class="navbar is-fixed-bottom navBarCenter">
         <div class="navbar is-inline-flex is-transparent">
             <div class="navbar-item nav-center is-flex-touch">
                 <a class="navbaritem">
@@ -168,13 +171,14 @@ const renderProfile = () => {
     </div>
         <div class="file is-centered">
             <figure class="image is-96x96">
+          
                 <img id="showImg" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
             </figure>
         </div>
       
         <div class="file is-centered">
             <label class="file-label">
-                <input id="profilePicture" class="file-input" type="file" name="profile"/>
+                <input id="profilePicture" class="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" name="profile"/>
                 <span class="file-cta">
                     <span class="file-icon">
                         <i class=fas fa-upload"></i>
@@ -200,6 +204,7 @@ const renderProfile = () => {
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
                     <input id="profileName" class="input is-rounded" placeholder="Nombre" type=""/>
+                    
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
                     <input id="userName" class="input is-rounded" type="" placeholder="Usuario"/>     
@@ -222,7 +227,6 @@ const renderProfile = () => {
             </div>
             
         </div>
-       
         `;
     root.innerHTML = `${firstProfile}${renderNavBar}`;
     document.querySelector('#home').addEventListener('click', function(event) {
@@ -231,11 +235,7 @@ const renderProfile = () => {
     document.querySelector('#add').addEventListener('click', function(event) {
         renderNewPost();
     });
-    document.querySelector('#profilePicture').addEventListener('change',function(event) {
-        database.uploadPicture(event.target.files[0]);
-        showImg.src = imgSrc;
-        window.setTimeout(renderProfile, 1500);
-    });
+    
     document.querySelector('#confirm').addEventListener('click', function(event) {
         database.saveData();
         renderFeed();
@@ -247,87 +247,67 @@ const renderProfile = () => {
         
     });
     const showImg = document.querySelector('#showImg');
+    const showName = document.querySelector('#profileName');
+    let setInfo
     let imgSrc;
     database.getProfilePic()
         .then(data=>{
             if (!data) return;
             imgSrc = data.url
             showImg.src = imgSrc
-        });
+            });
+    document.querySelector('#profilePicture').addEventListener('change',function(event) {
+        database.uploadPicture(event.target.files[0]);
+        showImg.src = imgSrc;
+        window.setTimeout(renderProfile, 1500);
+    });
+    database.getProfileName()
+        .then (data =>{
+            if (!data) return;
+            setInfo = data;
+            showName.innerHTML = setInfo.userName;
+    });
+    const profileName = document.querySelector('#profileName');
+    const userName = document.querySelector('#userName');
+    const biography = document.querySelector('#biography');
+    const setAll = () => {
+        if (!setInfo) return;
+        profileName.value = setInfo.profileName;
+        userName.value = setInfo.userName;
+        biography.value = setInfo.biography;
+    }
+    window.setTimeout(setAll, 1000);
 };
 export const renderFeed = () => {
     root.classList.remove("signUpAndIn");
     const feed = `
 
-       <div class="column body-columns">
-        <div class="card">
+        <div class="column body-column">
             <div class="header">
-                <div class="media">
+                <div class="userInfo media">
                     <div class="file is-centered">
                         <figure class="image is-96x96">
                             <img id="profilePic" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
                         </figure>
                     </div>
                     <div class="media-content">
-                        <p id="profileNameSaved" class="title is-4" placeholder="Name"></p>
-                        <p id="profileUserNameSaved" class="subtitle is-6">  </p>
+                        <p id="profileUserNameSaved" class="title is-4" placeholder="Name"></p>
                     </div>
                     <div class="logoMemingos"> 
                         <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
                     </div>
-                </div> 
- 
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                        <img id="postI" src="https://source.unsplash.com/random/1280x960" alt="Placeholder image"/>
-                    </figure>
+                </div>  
+                <div id="postFeed" class="card">
                 </div>
-                <div class="card-content">
-                    <div class="level is-mobile">
-                        <div class="level-left">
-                            <div class="level-item has-text-centered">
-                                <a href="">
-                                    <i class="material-icons">favorite_border</i>
-                                </a>
-                            </div>
-                            <div class="level-item has-text-centered">
-                                <div>
-                                    <a href="">
-                                        <i class="material-icons">chat_bubble_outline</i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <p>
-                            <strong>32 Likes</strong>
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                        </p>
-                        <a>@bulmaio</a>.
-                        <a href="#">#css</a>
-                        <a href="#">#responsive</a>
-                        <br>
-                        <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="columns is-mobile">
-                        <div class="column is-11">
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-medium" type="text" placeholder="Add a comment . . ."/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                    <br>
+                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                 </div>
             </div>
         </div>
-    
-    </div>
  
     ` ;
     root.innerHTML = `${feed}${renderNavBar}`;
@@ -342,24 +322,32 @@ export const renderFeed = () => {
         imgSrc = data.url
         showImg.src = imgSrc
         });
-    const showName = document.querySelector('#profileNameSaved');
     const showUserName = document.querySelector('#profileUserNameSaved');
-    let nameSrc;
     let userNameSrc;
     database.getProfileName()
        .then(data=>{
             if (!data) return;
-            nameSrc = data.profileName
             userNameSrc = data.userName
-            showName.innerHTML = nameSrc;
-            showUserName.innerHTML = userNameSrc;
+            showUserName.innerHTML = `${'@'}${userNameSrc}`;
                     }
             )
         .catch(error => console.log('error', error));
         document.querySelector('#add').addEventListener('click', function(event) {
             renderNewPost();
         });
-       
+    document.querySelector('#home').addEventListener('click', function(event) { 
+        database.getPostFeed();
+        renderFeed();
+        });
+   /* const showFeedImg = document.querySelector('#postFeed');
+    let imgFeedSrc;
+    database.getPostFeed()
+        .then(data=>{
+        if (!data) return;
+        imgFeedSrc = data.url
+        showFeedImg.src = imgFeedSrc
+        });
+       */
 };
 
 
@@ -368,17 +356,16 @@ const renderNewPost = () => {
     root.classList.remove("feed");
     const post = `
     <div class="logoMemingos"> 
-                        <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
-                    </div>
-    <div class="file is-centered">
-        <figure class="image is-128x128">
-                <img id="showNewImg" src=""/>
-        </figure>
+        <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
+ 
+    </div>
+    <div id="showNewImg" class="file is-centered">
+        
     </div>
         <div class="field">
             <div class="file is-info has-name is-small">
                 <label class="file-label">
-                    <input id="uploadImg" class="file-input" type="file" name="resume">
+                    <input id="uploadImg" class="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" name="resume">
                         <span class="file-cta">
                             <span class="file-icon">
                                 <i class="fas fa-upload"></i>
@@ -390,25 +377,29 @@ const renderNewPost = () => {
                 </label>
             </div>
       </div>
+        <div class="field">
+                <input id="postMessage" class="textarea" placeholder="Agrega un pie de foto" rows="5"> </input>
+        </div>
+        <button id="update" class="button is-success">
+            <span class="icon is-small">
+                <i class="fas fa-check"></i>
+            </span>
+            <span> Compartir </span>
+      </button>
         
     `;
     root.innerHTML = `${post}${renderNavBar}`;
-    document.querySelector('#home').addEventListener('click', function(event) {
+    document.querySelector('#home').addEventListener('click', function(event) { 
         renderFeed();
     });
     document.querySelector('#myProfile').addEventListener('click', function(event) {
         renderProfile();
     });
     document.querySelector('#uploadImg').addEventListener('change',function(event) {
-    database.uploadPicturePost(event.target.files[0]);
-    let postImgSrc;
-    showNewImg.innerHTML = postImgSrc;
-    database.getPostPic()
-        .then(data=>{
-            if (!data) return;
-            postImgSrc = data.url
-            showNewImg.src = postImgSrc
-        }); 
-    window.setTimeout(renderFeed, 1500);
+        database.uploadPicturePost();
+    });  
+    document.querySelector('#update').addEventListener('click', function(event) {
+        database.savePostData();
     });
-};
+           
+}; 

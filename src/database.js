@@ -5,12 +5,17 @@ const provider1 = new firebase.auth.FacebookAuthProvider();
 const db = firebase.firestore();
 // const storage = firebase.storage().ref('profilePicture/');
 const storage = firebase.storage().ref();
-const imageRef = firebase.database().ref().child("image"); //Tiempo real
-const imageRefPost = firebase.database().ref().child("post-image");
+const usersRef = firebase.database().ref().child("users");  
+const imageRef = firebase.database().ref().child("image"); // referencia para subir imágenes de perfil / Tiempo real 
+const imageRefPost = firebase.database().ref().child("post-image");  //referencia para subir imágenes de post
+ const refPost = firebase.database().ref().child('user-posts');
 // const imageRef = firebase.storage().ref();
+let url;
 
 
 
+
+//iniciar sesión con correo y contraseña
 const database = {
   signUp: () => { 
     const regEmail = document.getElementById('regEmail').value;
@@ -27,6 +32,7 @@ const database = {
         console.log(error);
         });
   },
+  // iniciar sesión
   signIn: () => {
     let logEmail = document.getElementById('logEmail').value;
     let logPassword = document.getElementById('logPassword').value;
@@ -42,6 +48,7 @@ const database = {
         console.log(errorMessage);
       });
   },  
+  //observador para ver si hay un usuario logueado
   userObserver: () => {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -67,7 +74,7 @@ const database = {
       }
     });
   },
-  
+  // iniciar sesión con Google
   signInGoogle: () => {
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
@@ -87,6 +94,7 @@ const database = {
       // ...
     });
   },
+  // iniciar sesión con Facebook
   signInFacebook: () => {
     firebase.auth().signInWithPopup(provider1).then(function(result) {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -105,6 +113,7 @@ const database = {
       // ...
     });
   },
+  //función para obtener de FireBase la imagen de perfil
   getProfilePic:()=>{
     let uid = firebase.auth().currentUser.uid
     return firebase.firestore().collection('image').doc(uid).get()
@@ -112,6 +121,7 @@ const database = {
       return doc.data()
     })
   },
+  //función para obtener de Firebase el nombre del usuario
   getProfileName:()=>{
     let uid = firebase.auth().currentUser.uid
     return firebase.firestore().collection('users').doc(uid).get()
@@ -119,27 +129,39 @@ const database = {
       return doc.data()
     })
   },
-  getPostPic:()=>{
-    let uid = firebase.auth().currentUser.uid
-    return firebase.firestore().collection('post-image').doc(uid).get()
-    .then(doc=>{
-      return doc.data()
-    })
+  getPostPic: () => {
+    imageRefPost.on("value", function(snapshot){
+      let data = snapshot.val();
+      let result = "";
+      //console.log(data);
+      
+      for (var key in data){
+       result = '<img src="' + data[key].url + '"/>'; 
+      //  console.log(data[key].url);
+      }
+        document.getElementById("showNewImg").innerHTML = result;
+    });
   },
   
-  
-  // getPostPic:() =>{
-  //   imageRefPost.on("value", function(snapshot){
-  //     let data = snapshot.val();
-  //     let result = "";
-  //     // console.log(data);
-  //     for (var key in data){
-  
-  //       result += '<img src="' + data[key].url + '"/>'; 
-  //     }
-  //     document.getElementById("postI").innerHTML = result;
-  //   });
-  // },  
+  //función para obtener el pie de foto del usuario para el post
+ /* getPostMessage:()=>{
+
+  }, */
+  //función para publicar la imagen de un usuario en el feed
+  getPostFeed:() =>{
+     imageRefPost.on("value", function(snapshot){
+       let data = snapshot.val();
+       let result = "";
+       //console.log(data);
+       
+       for (var key in data){
+        result += '<img src="' + data[key].url + '"/>'; 
+       }
+        document.getElementById("postFeed").innerHTML = result;
+     });
+   },  
+   
+  //función para subir imagen de perfil
   uploadPicture: (file) => {
     let uploadTask = storage.child('profilePictures/' + file.name).put(file);
     uploadTask.on('state_changed', function(snapshot){
@@ -168,8 +190,10 @@ const database = {
     });
 
   },  
-  uploadPicturePost: (file) => {
-    let uploadTask = storage.child('postImage/' + file.name).put(file);
+  //función para subir imgángenes de post
+  uploadPicturePost: (file) => {  
+    let uploadImg = document.getElementById('uploadImg').files[0];
+    let uploadTask = storage.child('postImage/' + uploadImg.name).put(uploadImg);
     uploadTask.on('state_changed', function(snapshot){
       // Observe state change events such as progress, pause, and resume
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -189,50 +213,54 @@ const database = {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        url=downloadURL;
         console.log('File available at', downloadURL);
-        database.createNodeFirebaseForPost(file.name, downloadURL);
+        database.createNodeFirebaseForPost(uploadImg.name, downloadURL);
         database.getPostPic();
       });
     });
 
   }, 
+  //creando nodo en Firebase para subir informarción de la foto de usuario
   createNodeFirebase: (nameImage, url) => {
-    imageRef.push({name: nameImage, url: url }) //tiempo real
+    imageRef.push({name: nameImage, url: url, uid: firebase.auth().currentUser.uid}) //tiempo real
     db.collection("image").doc(firebase.auth().currentUser.uid).set({ 
       name: nameImage, 
       url: url,
       uid: firebase.auth().currentUser.uid
     });
   },
+  //creando nodo en Firebase para subir información de la foto de un usuario para usarla en el feed
   createNodeFirebaseForPost: (nameImage, url) => {
-    imageRefPost.push({name: nameImage, url: url }) //tiempo real
+    imageRefPost.push({name: nameImage, url: url, uid: firebase.auth().currentUser.uid }) //tiempo real
     db.collection("post-image").add({ 
       name: nameImage, 
       url: url,
       uid: firebase.auth().currentUser.uid
     });
   },
-  
-  
-    saveData: () => {
+  saveData: () => {
       const userName = document.getElementById('userName').value;
       const profileName = document.getElementById('profileName').value; 
       const biography = document.getElementById('biography').value;
-      db.collection("users").doc(firebase.auth().currentUser.uid).set({ 
+    usersRef.push({uid: firebase.auth().currentUser.uid, userName: userName, profileName: profileName, biography: biography }) //tiempo real
+    db.collection("users").doc(firebase.auth().currentUser.uid).set({ 
+      uid: firebase.auth().currentUser.uid,
+      userName: userName,
+      profileName: profileName,
+      biography: biography
+    });
+  },
+    //guardando información del post de un usuario en Firebase 
+    savePostData: () => {
+      const postMessage = document.getElementById('postMessage').value;
+      refPost.push({uid: firebase.auth().currentUser.uid, comment: postMessage}) //tiempo real
+      db.collection("user-posts").add({ 
         uid: firebase.auth().currentUser.uid,
-        userName: userName,
-        profileName: profileName,
-        biography: biography
-      });/*
-      .then(function(docRef){
-        document.getElementById('userName').value = '';
-        console.log("Document ID ", docRef.id);
-      })
-      .catch(function(error){
-        console.error("Error adding document: ", error);
-      })*/
-    },
-    
+        comment: postMessage,
+  });
+},
+    //cerrar sesión 
     logout: () => {
       firebase.auth().signOut().then(function() {
         // this.user = null;
