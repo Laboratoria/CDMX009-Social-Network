@@ -1,0 +1,511 @@
+#background2 {
+  background-image: url("/imgBichigram/fondo2.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+#gridLogin {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px;
+      grid-template-columns: 300px;
+  -ms-grid-rows: 280px 270px 110px;
+      grid-template-rows: 280px 270px 110px;
+  grid-gap: 2px;
+  margin: 0px 30px;
+}
+
+.l1 p {
+  margin: 20px 0px;
+  font-family: fresca;
+  font-size: 36pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.l1 img {
+  margin: 0px 20px;
+  width: auto;
+  height: 210px;
+}
+
+.l2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.l2 .form {
+  margin: 0px 70px;
+}
+
+.l2 .input {
+  margin: 10px 3px;
+  width: 170px;
+  padding: 6px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid grey;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.l2 p {
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+.l2 .btn {
+  margin: 5px 25px;
+  width: 125px;
+  height: 25px;
+  background: #0f9e84;
+  border-radius: 15px;
+  list-style-type: none;
+  text-align: center;
+  color: white;
+}
+
+.l2 .btn a {
+  position: relative;
+  color: white;
+}
+
+.l2 .icon {
+  margin: 5px 30px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 40px;
+  height: auto;
+}
+
+.l3 p {
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+#background3 {
+  background-image: url("/imgBichigram/fondo3.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+#gridNew {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px;
+      grid-template-columns: 300px;
+  -ms-grid-rows: 150px 350px 150px;
+      grid-template-rows: 150px 350px 150px;
+  grid-gap: 2px;
+  margin: 0px 30px;
+}
+
+.n1 p {
+  margin: 50px 0px 15px;
+  font-family: fresca;
+  font-size: 36pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.n1 h3 {
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+.n2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.n2 #imgContainer {
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  height: 150px;
+  background-color: hotpink;
+  border-radius: 15px;
+  color: white;
+}
+
+.n2 #imgContainer p {
+  margin: 50px 25px;
+  position: absolute;
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+.n2 #imgContainer #img {
+  position: absolute;
+  margin: 0;
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+}
+
+.n2 #imgContainer img {
+  position: absolute;
+  margin: 0px;
+  border-radius: 15px;
+}
+
+.n2 .input {
+  margin: 10px 3px;
+  width: 170px;
+  padding: 6px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid grey;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.n2 .btn {
+  margin: 0px 25px;
+  width: 125px;
+  height: 25px;
+  background: #0f9e84;
+  border-radius: 15px;
+  list-style-type: none;
+  text-align: center;
+  color: white;
+}
+
+.n2 .btn a {
+  position: relative;
+  color: white;
+}
+
+.n3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.n3 p {
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+.n3 .icon {
+  margin: 5px 30px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 40px;
+  height: auto;
+}
+
+#backgroundNewPost {
+  background-image: url("/imgBichigram/fondo2.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+#gridPost {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 50px 540px 50px;
+      grid-template-rows: 50px 540px 50px;
+  grid-gap: 2px;
+  margin: 0px;
+}
+
+.p1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.p1 p {
+  margin: 0px;
+  font-family: fresca;
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.p1 img {
+  width: 35px;
+  height: auto;
+}
+
+.p2 {
+  background-color: white;
+}
+
+.p2 p {
+  position: absolute;
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+.p2 #postPhoto {
+  position: relative;
+  border-radius: 15px;
+  background-color: palevioletred;
+  width: 300px;
+  height: 300px;
+}
+
+.p2 #postPhoto input {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+.p2 #postPhoto #here {
+  position: relative;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.p2 .btn {
+  width: 125px;
+  height: 25px;
+  background: #0f9e84;
+  border-radius: 15px;
+  list-style-type: none;
+  text-align: center;
+  color: white;
+}
+
+.p2 .btn a {
+  position: relative;
+  color: white;
+}
+
+.p3 {
+  margin: 0px;
+}
+
+.p3 a {
+  margin: 0px;
+}
+
+.p3 ul {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+}
+
+.p3 li {
+  margin: 0px 20px;
+}
+
+.p3 img {
+  margin: 0px;
+  width: 50px;
+  height: auto;
+}
+
+#backgroundHome {
+  background-image: url("/imgBichigram/fondo1.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+#gridHome {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 50px 540px 50px;
+      grid-template-rows: 50px 540px 50px;
+  grid-gap: 2px;
+  margin: 0px;
+}
+
+.h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.h1 p {
+  margin: 0px;
+  font-family: fresca;
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.h1 img {
+  width: 35px;
+  height: auto;
+}
+
+.h2 {
+  background-color: white;
+  overflow: scroll;
+}
+
+.h3 {
+  margin: 0px;
+}
+
+.h3 a {
+  margin: 0px;
+}
+
+.h3 ul {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+}
+
+.h3 li {
+  margin: 0px 20px;
+}
+
+.h3 img {
+  margin: 0px;
+  width: 50px;
+  height: auto;
+}
+
+body {
+  margin: 0;
+}
+
+#background1 {
+  background-image: url("/imgBichigram/fondoBichi.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+.gridWelcome {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px;
+      grid-template-columns: 200px;
+  -ms-grid-rows: 190px 200px 190px 25px;
+      grid-template-rows: 190px 200px 190px 25px;
+  grid-gap: 12px;
+  margin-left: 75px;
+}
+
+.w1 {
+  font-family: fresca;
+  font-size: 36pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.w1 p {
+  margin-bottom: 0px;
+  margin-top: 80px;
+}
+
+.w2 {
+  font-family: tajawal;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 1pt;
+  text-shadow: 1px 1px 2px black;
+}
+
+#newuser {
+  display: none;
+}
+
+#login {
+  width: 125px;
+  height: 25px;
+  background: #0f9e84;
+  border-radius: 15px;
+  list-style-type: none;
+  text-align: center;
+}
+
+#login a {
+  position: relative;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

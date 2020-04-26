@@ -1,0 +1,24 @@
+#backgroundHome{
+    background-image: url($background1);
+    background-size: cover;
+    font-family: Fresca;
+    margin: 0;
+}
+#gridHome{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 540px 50px;
+    grid-gap: 2px;
+    margin: 0px;
+}
+.h1{
+    @include top;
+}
+.h2{
+    background-color: white;
+    overflow: scroll;
+}
+.h3{
+    margin: 0px;
+    @include footer;
+}

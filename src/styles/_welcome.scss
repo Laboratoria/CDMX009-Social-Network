@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+}
+#background1 {
+    background-image: url($background);
+    background-size: cover;
+    font-family: Fresca;
+    margin: 0;
+}
+.gridWelcome{
+    display: grid;
+    grid-template-columns: 200px;
+    grid-template-rows: 190px 200px 190px 25px;
+    grid-gap: 12px;
+    margin-left: 75px;
+}
+.w1{
+    @include logoPrim;
+    p{
+        margin-bottom: 0px;
+        margin-top: 80px;
+    }
+}
+.w2{
+    @include text;
+}
+#newuser{
+    display: none;
+}
+#login{
+    @include btn;
+}
