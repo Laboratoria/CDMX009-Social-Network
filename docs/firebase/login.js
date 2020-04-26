@@ -6,59 +6,47 @@ export default {
   google: () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        database.collection('users').add({
-          id: user.uid,
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
-        })
-          .then((docRef) => {
-            console.log('Document written with ID: ', docRef.id);
-          })
-          .catch((error) => {
-            console.error('Error adding document: ', error);
-          });
+      .then(() => {
+        // const user = result.user;
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser);
+        database.collection('users').doc(currentUser.uid).set({
+          id: currentUser.uid,
+          name: currentUser.displayName,
+          email: currentUser.email,
+          photo: currentUser.photoURL,
+        });
         window.location.hash = '#/home';
       });
   },
   facebook: () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        database.collection('users').add({
-          id: user.uid,
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
-        })
-          .then((docRef) => {
-            console.log('Document written with ID: ', docRef.id);
-          })
-          .catch((error) => {
-            console.error('Error adding document: ', error);
-          });
+      .then(() => {
+      // const user = result.user;
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser);
+        database.collection('users').doc(currentUser.uid).set({
+          id: currentUser.uid,
+          name: currentUser.displayName,
+          email: currentUser.email,
+          photo: currentUser.photoURL,
+        });
         window.location.hash = '#/home';
       });
   },
   emailRegister: (mail, password) => {
     firebase.auth().createUserWithEmailAndPassword(mail, password)
-      .then((result) => {
-        const user = result.user;
-        database.collection('users').add({
-          id: user.uid,
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
-        })
-          .then((docRef) => {
-            console.log('Document written with ID: ', docRef.id);
-          })
-          .catch((error) => {
-            console.error('Error adding document: ', error);
-          });
+      .then(() => {
+      // const user = result.user;
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser);
+        database.collection('users').doc(currentUser.uid).set({
+          id: currentUser.uid,
+          name: currentUser.displayName,
+          email: currentUser.email,
+          photo: currentUser.photoURL,
+        });
         window.location.hash = '#/home';
       }).catch((error) => {
         const errorCode = error.code;

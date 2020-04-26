@@ -18,36 +18,25 @@ export default () => {
             </header>
             <section class="sesionPrincipal">
                 <form action="" class="newPost">
-                    <div>Bienvenida <span id="username">""</span></div>
+                    <div>Bienvenida <span id="username"></span></div>
                     <textarea name="newTextPost" id="newTextPost" class="postForm" rows="3" placeholder="¿Qué te gustaría compartir?"></textarea>
                     <button type="submit" id="submitNewPost">Compartir</button>
                 </form>
             </section>
-            <section class="sesionPrincipal">
-                <hr>
-                <div class="postContainer">
-                    <div class="post">
-                        <img src="images/profile.svg" alt="Profile" class="postAuthor">
-                        <div class="postContent"></div><br>
-                    </div>
-                    <div class="postOptions">
-                        <div class="likesCounter" class="likes">00</div>
-                        <img src="images/corazon (1).svg" class="likes" alt="like">
-                    </div>
-                </div>
+            <section class="sesionPrincipal1">
             </section>`;
   const logOutBtn = homeView.querySelector('#logOutBtn');
   logOutBtn.addEventListener('click', loginFunctions.sesionLogOut);
   const userPhoto = homeView.querySelector('#userPhoto');
   const userName = homeView.querySelector('#username');
-
+  const postContainer = homeView.querySelector('.sesionPrincipal1');
   const newPostContent = homeView.querySelector('#newTextPost');
   const submitNewPost = homeView.querySelector('#submitNewPost');
 
   userAccess(userName, userPhoto);
   submitNewPost.addEventListener('click', (e) => {
     e.preventDefault();
-    createNewPost(newPostContent.value);
+    createNewPost(newPostContent.value, postContainer);
   });
 
   return homeView;
