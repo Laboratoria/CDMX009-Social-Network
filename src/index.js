@@ -4,6 +4,11 @@ const body = document.querySelector('#body');
 const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
 
+const errorHandler = () => {
+    const errHand = database.errorInfo();
+    errMsg.innerHTML = errHand.message;
+};
+
 // render de la pantalla para iniciar sesión
 const renderSignIn = () => {
   root.classList.add('section');
@@ -36,6 +41,9 @@ const renderSignIn = () => {
                     </span>
                 </p>
             </div> 
+            <div class="field file is-small file is-centered">
+            <p class="has-text-danger is-centered" id="errMsg"></p>
+            </div>
         </div>
         <div class="field">
             <div class="file is-centered">
@@ -65,11 +73,13 @@ const renderSignIn = () => {
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>`;
   root.innerHTML = `${logo}${signInForm}`; // reendereamos el logo y la pantalla para inicio de sesión
+  const errMsg = document.querySelector('#errMsg');
   document.querySelector('#signUpLink').addEventListener('click', () => { // botón para mandarte a la pantalla de registro
     renderSignUp();
   });
   document.querySelector('#logIn').addEventListener('click', () => { // se obtienen los datos del usuario registrado
     database.signIn();
+    window.setTimeout(errorHandler, 400);
   });
   document.querySelector('#facebookSignIn').addEventListener('click', () => { // se inicia sesión con Facebook
     database.signInFacebook();
@@ -107,6 +117,9 @@ const renderSignUp = () => {
                     </span>
                 </p>
             </div>
+            <div class="field file is-small file is-centered">
+            <p class="has-text-danger is-centered" id="errMsg"></p>
+            </div>
         </div>
         <div class="field">
             <div class="file is-centered">
@@ -137,8 +150,10 @@ const renderSignUp = () => {
         </div>
         `;
   root.innerHTML = `${logo}${signUpForm}`; // se reenderea el logo y la pantalla de registro
+  const errMsg = document.querySelector('#errMsg');
   document.querySelector('#register').addEventListener('click', () => { // se obtienen los datos del usuario para guardarse en Firebase
     database.signUp();
+    window.setTimeout(errorHandler, 400);
   });
   document.querySelector('#facebookSignIn').addEventListener('click', () => { // se registra con Facebook
     database.signInFacebook();

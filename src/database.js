@@ -1,5 +1,6 @@
 import { renderFeed } from './index.js';
 
+let authError;
 const provider = new firebase.auth.GoogleAuthProvider();
 const provider1 = new firebase.auth.FacebookAuthProvider();
 const db = firebase.firestore();
@@ -7,7 +8,7 @@ const storage = firebase.storage().ref();
 const usersRef = firebase.database().ref().child('users');
 const imageRef = firebase.database().ref().child('image'); // referencia para subir imágenes de perfil / Tiempo real
 const imageRefPost = firebase.database().ref().child('post-image'); // referencia para subir imágenes de post
-const refPost = firebase.database().ref().child('user-posts'); //referencia para subir los comment del usuario en su post
+const refPost = firebase.database().ref().child('user-posts'); // referencia para subir los comment del usuario en su post
 
 // iniciar sesión con correo y contraseña
 const database = {
@@ -16,14 +17,8 @@ const database = {
     const regPassword = document.getElementById('regPassword').value;
     firebase.auth().createUserWithEmailAndPassword(regEmail, regPassword)
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === 'auth/weak-password') {
-          alert('The password is too weak.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
+        authError = error;
+        return authError;
       });
   },
   // iniciar sesión
@@ -35,11 +30,13 @@ const database = {
         if (!auth.user.uid) return;
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        authError = error;
+        return authError;
       });
+  },
+  errorInfo: () => {
+    const errorMsg = authError;
+    return errorMsg;
   },
   // función para publicar la imagen de un usuario en el feed
   getPostFeed: () => {
