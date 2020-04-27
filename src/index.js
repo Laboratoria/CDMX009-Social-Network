@@ -1,11 +1,16 @@
 import database from './database.js';
 
-const root = document.querySelector('#root'); //section donde se reendearan las pantallas
-const logo = `<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>`;
+const body = document.querySelector('#body');
+const root = document.querySelector('#root');
+const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
 
-//render de la pantalla para iniciar sesión
+// render de la pantalla para iniciar sesión
 const renderSignIn = () => {
-    const signInForm = `
+  root.classList.add('section');
+  root.classList.add('signUpAndIn');
+  body.classList.remove('has-navbar-fixed-top');
+  body.classList.remove('has-navbar-fixed-bottom');
+  const signInForm = `
         <div class="has-text-centered has-text-white title is-4">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -59,23 +64,26 @@ const renderSignIn = () => {
         <div class=" has-text-centered has-text-white is size-2">
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>`;
-    root.innerHTML = `${logo}${signInForm}`; //reendereamos el logo y la pantalla para inicio de sesión
-    document.querySelector('#signUpLink').addEventListener('click', function(event) { //botón para mandarte a la pantalla de registro
-        renderSignUp();
-    });
-    document.querySelector('#logIn').addEventListener('click', function(event) { //se obtienen los datos del usuario registrado
-        database.signIn();
-    });
-    document.querySelector('#facebookSignIn').addEventListener('click', function (event) { //se inicia sesión con Facebook
-        database.signInFacebook();
-    });
-    document.querySelector('#googleSignIn').addEventListener('click', function (event) { //se inicia sesión con Google
-        database.signInGoogle();
-    });
+  root.innerHTML = `${logo}${signInForm}`; // reendereamos el logo y la pantalla para inicio de sesión
+  document.querySelector('#signUpLink').addEventListener('click', () => { // botón para mandarte a la pantalla de registro
+    renderSignUp();
+  });
+  document.querySelector('#logIn').addEventListener('click', () => { // se obtienen los datos del usuario registrado
+    database.signIn();
+  });
+  document.querySelector('#facebookSignIn').addEventListener('click', () => { // se inicia sesión con Facebook
+    database.signInFacebook();
+  });
+  document.querySelector('#googleSignIn').addEventListener('click', () => { // se inicia sesión con Google
+    database.signInGoogle();
+  });
 };
-//render de la pantalla de registro
+// render de la pantalla de registro
 const renderSignUp = () => {
-    const signUpForm = `
+  root.classList.add('section');
+  body.classList.remove('has-navbar-fixed-top');
+  body.classList.remove('has-navbar-fixed-bottom');
+  const signUpForm = `
         <div class="has-text-centered has-text-white title is-4 ">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -128,19 +136,19 @@ const renderSignUp = () => {
             <td> ¿Ya tienes cuenta? </td> <a id="signInLink"> Inicia sesión </a>
         </div>
         `;
-    root.innerHTML = `${logo}${signUpForm}`; //se reenderea el logo y la pantalla de registro
-    document.querySelector('#register').addEventListener('click', function (event) { //se obtienen los datos del usuario para guardarse en Firebase
-        database.signUp();
-    });
-    document.querySelector('#facebookSignIn').addEventListener('click', function (event) { //se registra con Facebook
-        database.signInFacebook();
-    });
-    document.querySelector('#googleSignIn').addEventListener('click', function (event) { //se registra con Google
-        database.signInGoogle();
-    });
-    document.querySelector('#signInLink').addEventListener('click', function (event) { //botón para mandarte a la pantalla de inicio de sesión
-        renderSignIn();
-    });
+  root.innerHTML = `${logo}${signUpForm}`; // se reenderea el logo y la pantalla de registro
+  document.querySelector('#register').addEventListener('click', () => { // se obtienen los datos del usuario para guardarse en Firebase
+    database.signUp();
+  });
+  document.querySelector('#facebookSignIn').addEventListener('click', () => { // se registra con Facebook
+    database.signInFacebook();
+  });
+  document.querySelector('#googleSignIn').addEventListener('click', () => { // se registra con Google
+    database.signInGoogle();
+  });
+  document.querySelector('#signInLink').addEventListener('click', () => { // botón para mandarte a la pantalla de inicio de sesión
+    renderSignIn();
+  });
 };
 renderSignUp();
 
@@ -163,9 +171,13 @@ const renderNavBar = `
         </div>
     </div>
     <div>
-`
+`;
+
 const renderProfile = () => {
-    const firstProfile = `
+  root.classList.add('section');
+  body.classList.remove('has-navbar-fixed-top');
+  body.classList.add('has-navbar-fixed-bottom');
+  const profile = `
     <div class="logoMemingos"> 
     <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
     </div>
@@ -204,14 +216,17 @@ const renderProfile = () => {
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
                     <input id="profileName" class="input is-rounded" placeholder="Nombre" type=""/>
+                    <a>Nombre</a>
                     
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
-                    <input id="userName" class="input is-rounded" type="" placeholder="Usuario"/>     
+                    <input id="userName" class="input is-rounded" type="" placeholder="Usuario"/>
+                    <a>Usuario</a>     
                 </div>
                 <div class="field">
-                    <div class="control">
-                        <textarea id="biography" class="textarea is-small" placeholder="Acerca de mi..." style=""></textarea>
+                    <div class="control has-text-centered has-text-black title is-6">
+                        <input id="biography" class="input is-hovered" placeholder="Acerca de mi..." rows="7"/> 
+                        <a>Acerca de mi..</a>
                     </div>
                 </div>
             </div> 
@@ -228,66 +243,66 @@ const renderProfile = () => {
             
         </div>
         `;
-    root.innerHTML = `${firstProfile}${renderNavBar}`;
-    document.querySelector('#home').addEventListener('click', function(event) {
-        renderFeed();
+  root.innerHTML = `${profile}${renderNavBar}`;
+  document.querySelector('#home').addEventListener('click', () => {
+    renderFeed();
+  });
+  document.querySelector('#add').addEventListener('click', () => {
+    renderNewPost();
+  });
+
+  document.querySelector('#confirm').addEventListener('click', () => {
+    database.saveData();
+    renderFeed();
+  });
+  document.querySelector('#logout').addEventListener('click', () => {
+    database.logout();
+    renderSignIn();
+  });
+  const showImg = document.querySelector('#showImg');
+  const showName = document.querySelector('#profileName');
+  let setInfo;
+  let imgSrc;
+  database.getProfilePic()
+    .then((data) => {
+      if (!data) return;
+      imgSrc = data.url;
+      showImg.src = imgSrc;
     });
-    document.querySelector('#add').addEventListener('click', function(event) {
-        renderNewPost();
+  document.querySelector('#profilePicture').addEventListener('change', (event) => {
+    database.uploadPicture(event.target.files[0]);
+    showImg.src = imgSrc;
+    window.setTimeout(renderProfile, 1500);
+  });
+  database.getProfileName()
+    .then((data) => {
+      if (!data) return;
+      setInfo = data;
+      showName.innerHTML = setInfo.userName;
     });
-    
-    document.querySelector('#confirm').addEventListener('click', function(event) {
-        database.saveData();
-        renderFeed();
-    });
-    document.querySelector('#logout').addEventListener('click', function(event) {
-        database.logout();
-        root.classList.add("signUpAndIn");
-        renderSignIn();
-        
-    });
-    const showImg = document.querySelector('#showImg');
-    const showName = document.querySelector('#profileName');
-    let setInfo
-    let imgSrc;
-    database.getProfilePic()
-        .then(data=>{
-            if (!data) return;
-            imgSrc = data.url
-            showImg.src = imgSrc
-            });
-    document.querySelector('#profilePicture').addEventListener('change',function(event) {
-        database.uploadPicture(event.target.files[0]);
-        showImg.src = imgSrc;
-        window.setTimeout(renderProfile, 1500);
-    });
-    database.getProfileName()
-        .then (data =>{
-            if (!data) return;
-            setInfo = data;
-            showName.innerHTML = setInfo.userName;
-    });
-    const profileName = document.querySelector('#profileName');
-    const userName = document.querySelector('#userName');
-    const biography = document.querySelector('#biography');
-    const setAll = () => {
-        if (!setInfo) return;
-        profileName.value = setInfo.profileName;
-        userName.value = setInfo.userName;
-        biography.value = setInfo.biography;
-    }
-    window.setTimeout(setAll, 1000);
+  const profileName = document.querySelector('#profileName');
+  const userName = document.querySelector('#userName');
+  const biography = document.querySelector('#biography');
+  const setAll = () => {
+    if (!setInfo) return;
+    profileName.value = setInfo.profileName;
+    userName.value = setInfo.userName;
+    biography.value = setInfo.biography;
+  };
+  window.setTimeout(setAll, 1000);
 };
 export const renderFeed = () => {
-    root.classList.remove("signUpAndIn");
-    const feed = `
-
+  root.classList.remove('signUpAndIn');
+  root.classList.remove('section');
+  body.classList.add('has-navbar-fixed-top');
+  body.classList.add('has-navbar-fixed-bottom');
+  const feed = `
         <div class="column body-column">
             <div class="header">
-                <div class="userInfo media">
+                <div class="userInfo media navbar is-fixed-top">
                     <div class="file is-centered">
                         <figure class="image is-96x96">
-                            <img id="profilePic" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
+                            <img id="profilePic" clscrollbarass="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
                         </figure>
                     </div>
                     <div class="media-content">
@@ -297,64 +312,65 @@ export const renderFeed = () => {
                         <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
                     </div>
                 </div>  
-                <div id="postFeed" class="card">
+                <div class="file is-centered">
+                    <div id="postFeed" class="column1">
+                    </div>
+                  
                 </div>
                 <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a href="#">#css</a> <a href="#">#responsive</a>
+                    
                     <br>
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <time datetime="2016-1-1"> </time>
                 </div>
             </div>
         </div>
- 
-    ` ;
-    root.innerHTML = `${feed}${renderNavBar}`;
-    document.querySelector('#myProfile').addEventListener('click', function(event) {
-        renderProfile();
+    `;
+  root.innerHTML = `${feed}${renderNavBar}`;
+  console.log(database.getPostFeed);
+  database.getPostFeed();
+  document.querySelector('#myProfile').addEventListener('click', () => {
+    renderProfile();
+  });
+  const showImg = document.querySelector('#profilePic');
+  let imgSrc;
+  database.getProfilePic()
+    .then((data) => {
+      if (!data) return;
+      imgSrc = data.url;
+      showImg.src = imgSrc;
     });
-    const showImg = document.querySelector('#profilePic');
-    let imgSrc;
-    database.getProfilePic()
-        .then(data=>{
-        if (!data) return;
-        imgSrc = data.url
-        showImg.src = imgSrc
-        });
-    const showUserName = document.querySelector('#profileUserNameSaved');
-    let userNameSrc;
-    database.getProfileName()
-       .then(data=>{
-            if (!data) return;
-            userNameSrc = data.userName
-            showUserName.innerHTML = `${'@'}${userNameSrc}`;
-                    }
-            )
-        .catch(error => console.log('error', error));
-        document.querySelector('#add').addEventListener('click', function(event) {
-            renderNewPost();
-        });
-    document.querySelector('#home').addEventListener('click', function(event) { 
-        database.getPostFeed();
-        renderFeed();
-        });
-   /* const showFeedImg = document.querySelector('#postFeed');
-    let imgFeedSrc;
-    database.getPostFeed()
-        .then(data=>{
-        if (!data) return;
-        imgFeedSrc = data.url
-        showFeedImg.src = imgFeedSrc
-        });
-       */
+  const showUserName = document.querySelector('#profileUserNameSaved');
+  let userNameSrc;
+  database.getProfileName()
+    .then((data) => {
+      if (!data) return;
+      userNameSrc = data.userName;
+      showUserName.innerHTML = `${'@'}${userNameSrc}`;
+    })
+    .catch(error => console.log('error', error));
+  document.querySelector('#add').addEventListener('click', () => {
+    renderNewPost();
+  });
+  document.querySelector('#home').addEventListener('click', () => {
+    renderFeed();
+  });
+  /* const showFeedImg = document.querySelector('#postFeed');
+     let imgFeedSrc;
+     database.getPostFeed()
+         .then(data=>{
+         if (!data) return;
+         imgFeedSrc = data.url
+         showFeedImg.src = imgFeedSrc
+         });
+        */
 };
 
 
 const renderNewPost = () => {
-    root.classList.remove("signUpAndIn");
-    root.classList.remove("feed");
-    const post = `
+  root.classList.add('section');
+  root.classList.remove('signUpAndIn');
+  root.classList.remove('feed');
+  const post = `
     <div class="logoMemingos"> 
         <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
  
@@ -378,7 +394,7 @@ const renderNewPost = () => {
             </div>
       </div>
         <div class="field">
-                <input id="postMessage" class="textarea" placeholder="Agrega un pie de foto" rows="5"> </input>
+                <input id="postMessage" class="input is-hovered" placeholder="Agrega un pie de foto" rows="5"> </input>
         </div>
         <button id="update" class="button is-success">
             <span class="icon is-small">
@@ -388,18 +404,18 @@ const renderNewPost = () => {
       </button>
         
     `;
-    root.innerHTML = `${post}${renderNavBar}`;
-    document.querySelector('#home').addEventListener('click', function(event) { 
-        renderFeed();
-    });
-    document.querySelector('#myProfile').addEventListener('click', function(event) {
-        renderProfile();
-    });
-    document.querySelector('#uploadImg').addEventListener('change',function(event) {
-        database.uploadPicturePost();
-    });  
-    document.querySelector('#update').addEventListener('click', function(event) {
-        database.savePostData();
-    });
-           
-}; 
+  root.innerHTML = `${post}${renderNavBar}`;
+  document.querySelector('#home').addEventListener('click', () => {
+    renderFeed();
+  });
+  document.querySelector('#myProfile').addEventListener('click', () => {
+    renderProfile();
+  });
+  document.querySelector('#uploadImg').addEventListener('change', () => {
+    database.uploadPicturePost();
+  });
+  document.querySelector('#update').addEventListener('click', () => {
+    database.savePostData();
+    renderFeed();
+  });
+};
