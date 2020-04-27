@@ -46,13 +46,21 @@ function loginGoogle(){
   firebase.auth().signInWithRedirect(googleP)
   .then(function(result) {
     console.log(result)
-    //console.log(result.user);
-    /* saveDataUser(result.user);
-    if (result.user.emailVerified){
-      window.open('#/','_self')
-    } */
   });
 };
+
+//Log out
+$('#logout').click(function(){
+  firebase.auth().signOut().then(function() {
+    window.open('#/login', '_self');
+    // Sign-out successful.
+  }).catch(function(error) {
+    alert('Ha ocurrido un error', error);
+  })
+})
+
+
+
 
 //Observator 
 function observatorFirebase () {
@@ -142,14 +150,20 @@ let displayName
                 url = link
                 let img = document.createElement('img')
                 img.src = link
-            });
+            })
+            .catch(function(error) {
+              var errorMessage = error.message;
+              console.log(errorMessage)
+              alert('Necesitas iniciar sesión para poder publicar un post.')
+
+            })
   };
   
 //Read documents
     let render = () => {
       let post = document.querySelector('#contentCreated');
       db.collection("newPosts").onSnapshot((querySnapshot) => {
-        post.innerHTML = '';
+        post.innerHTML = ''
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data().title}`);
             post.innerHTML += 
@@ -173,22 +187,22 @@ let displayName
               </span>
                 </div>
                 <div class="subtitle-post">
-                  <p id="activityPost">${doc.data().activity} </p>
+                  <p id="activityPost">#${doc.data().activity} </p>
                   <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
                 </div>
                     <p id="descriptionPost">${doc.data().description}</p> 
                   <div class="flex-row">
                     <p><i class="far fa-clock"> </i> ${doc.data().date}</p>
                     <span class="flex-row-likes">
-                      <i class="far fa-heart like-btn"></i>
-                      <p><strong><span id="clicks"> </span></strong></p>
+                      <i class="far fa-heart like-btn" id="${doc.id}"></i>
+                      <p><strong><span class="clicks"> </span></strong></p>
                     </span>
                   </div>  
                 </div> 
               </div>
             </div>
           </div>     
-            `
+            `;
           let deletebutton = document.querySelectorAll('.js-delete');
           let deletePost = (e) => {
             console.log(e.target.id);
@@ -203,9 +217,10 @@ let displayName
             deletebutton.forEach(btn=> btn.addEventListener('click', deletePost));
 
             let likeBtn = document.querySelectorAll('.like-btn'); 
-            let numClicks = document.querySelector('#clicks');
+            let numClicks = document.querySelector('.clicks');
             let i = 0;
-            let likeClick = () => {
+            let likeClick = (e) => {
+              db.collection('newPosts').doc(e.target.id).
               i++;
               if (i == 1) {
                 numClicks.innerHTML = i;
@@ -215,8 +230,51 @@ let displayName
              
             }
             likeBtn.forEach(btnLike => btnLike.addEventListener('click', likeClick));
+
        });
-     });
-    }; 
+     })
+     
+    };
+
+
+    //editar documentos
+function editUser(idUser, name, lastName, date){
+  document.querySelector('#name').value = name;
+  document.querySelector('#lastName').value = lastName;
+  document.querySelector('#date').value = date;
+
+  let saveChangesUser = document.querySelector('#saveUser');
+  saveChangesUser.innerHTML = 'Editar';
+
+  saveChangesUser.onclick = () => {
+    var user = db.collection("users").doc(idUser);
+
+    let name = document.querySelector('#name').value;
+    let lastName = document.querySelector('#lastName').value;
+    let date = document.querySelector('#date').value;
+
+      return user.update({
+        first: name,
+        last: lastName,
+        born: date
+      })
+      .then(function() {
+        console.log("Document successfully updated!");
+        saveChangesUser.innerHTML = 'Guardar';
+        document.querySelector('#name').value = '';
+        document.querySelector('#lastName').value = '';
+        document.querySelector('#date').value = '';
+      })
+      .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+      });
+  }
+
+}
+    render();
+     
+   
+
 
 export { loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup };

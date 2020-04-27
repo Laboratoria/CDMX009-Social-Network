@@ -1,9 +1,10 @@
-import { loginGoogle, loginFb, emailLogin, observatorFirebase, emailLogup } from '../firebase.js';
+import {
+  loginGoogle, loginFb, emailLogin, observatorFirebase, emailLogup,
+} from '../firebase.js';
 
 export default () => {
   const root = document.querySelector('#roots');
-  const viewLogup = 
-  `
+  const viewLogup = `
   <section class="bg-img card-align">
   <div class="container">
         <div class="row justify-content-md-center">
@@ -42,26 +43,26 @@ export default () => {
           </div> 
           </div>
         </section>
-         `
-         
+         `;
+
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewLogup;
   root.appendChild(divElemt);
 
-//Hide headers
-  let dashHeader = document.querySelector('#dashboardHeader');
+  // Hide headers
+  const dashHeader = document.querySelector('#dashboardHeader');
   dashHeader.classList.add('hide');
-  
-  
-//Login
+
+
+  // Login
   const googleBtns = document.querySelector('.google');
-        googleBtns.addEventListener('click', loginGoogle);
+  googleBtns.addEventListener('click', loginGoogle);
 
   const fbBtns = document.querySelector('.facebook');
-        fbBtns.addEventListener('click', loginFb);
-    
-  const emailBtns = document.querySelector('#email-submit');
-        emailBtns.addEventListener('click', emailLogup);
+  fbBtns.addEventListener('click', loginFb);
 
-      return divElemt;
-}
+  const emailBtns = document.querySelector('#email-submit');
+  emailBtns.addEventListener('click', emailLogup);
+
+  return divElemt;
+};

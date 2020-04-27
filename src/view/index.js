@@ -10,15 +10,15 @@ import Different from './404.js';
 
 
 const components = {
-    home: Home,
-    profile: Profile,
-    login: Login,
-    logup : Logup,
-    reviews: Reviews,
-    saved: Saved,
-    followers: Followers,
-    follow: Follow,
-    different: Different
-}
+  home: Home,
+  profile: Profile,
+  login: Login,
+  logup: Logup,
+  reviews: Reviews,
+  saved: Saved,
+  followers: Followers,
+  follow: Follow,
+  different: Different,
+};
 
-export { components }
+export { components };
