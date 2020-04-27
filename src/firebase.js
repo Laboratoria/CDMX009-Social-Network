@@ -46,13 +46,21 @@ function loginGoogle(){
   firebase.auth().signInWithRedirect(googleP)
   .then(function(result) {
     console.log(result)
-    //console.log(result.user);
-    /* saveDataUser(result.user);
-    if (result.user.emailVerified){
-      window.open('#/','_self')
-    } */
   });
 };
+
+//Log out
+$('#logout').click(function(){
+  firebase.auth().signOut().then(function() {
+    window.open('#/login', '_self');
+    // Sign-out successful.
+  }).catch(function(error) {
+    alert('Ha ocurrido un error', error);
+  })
+})
+
+
+
 
 //Observator 
 function observatorFirebase () {
@@ -142,14 +150,20 @@ let displayName
                 url = link
                 let img = document.createElement('img')
                 img.src = link
-            });
+            })
+            .catch(function(error) {
+              var errorMessage = error.message;
+              console.log(errorMessage)
+              alert('Necesitas iniciar sesión para poder publicar un post.')
+
+            })
   };
   
 //Read documents
     let render = () => {
       let post = document.querySelector('#contentCreated');
       db.collection("newPosts").onSnapshot((querySnapshot) => {
-        post.innerHTML = '';
+        post.innerHTML = ''
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data().title}`);
             post.innerHTML += 
@@ -188,7 +202,7 @@ let displayName
               </div>
             </div>
           </div>     
-            `
+            `;
           let deletebutton = document.querySelectorAll('.js-delete');
           let deletePost = (e) => {
             console.log(e.target.id);

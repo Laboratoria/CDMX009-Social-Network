@@ -442,3 +442,39 @@ margin-top: 5px;
 .errorMessage {
   font-size: 2px;
 }
+
+/*Profile*/
+.flex-profile-name{
+  margin: 5px 0px;
+  display: flex;
+  justify-content: center;
+}
+.flex-connection{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.flex-connection a{
+  color: black;
+}
+.flex-connection a p{
+  padding: 0px 8px;
+  text-align: center;
+}
+
+.categories-btn-{
+  padding: 20px 40px!important;
+  display: flex;
+  justify-content: space-around;
+  font-size: .9em;
+  text-align: center;
+}
+.categories-btn- p{
+margin-top: 5px;
+}
+.categorie-btn-{
+  background-color: #fff;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 8px;
+}
