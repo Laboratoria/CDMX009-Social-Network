@@ -1,20 +1,12 @@
-// foto chiqui usuario
-// campo para postear campo de texto
-// botones para like
-// boton para comentar
-// campo de texto para comentar
-
-// crear una espacio para que aparezcan los posts de todos
-// display img / mensaje / reacciones / comentar campo de texto
-
-
 // main nodes
 let root = document.querySelector('#root')
 let btns = document.querySelectorAll('.btn')
     // first view
 function renderHome() {
     let homeView = `<div>
-  <h2>Bienvenidas! ヽ(^o^)ノ </h2>
+  <h1>Skill Matchers</h1>
+  <img src="https://cdn3.vectorstock.com/i/1000x1000/69/22/education-and-knowledge-icons-1-vector-8326922.jpg" widht="100px"/>
+
 </div>`
     root.innerHTML = homeView
 }

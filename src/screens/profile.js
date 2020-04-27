@@ -15,6 +15,8 @@ function renderPost() {
     let fileInput = document.querySelector("#file");
 
     let url
+
+    //
     fileInput.onchange = e => {
         let file = e.target.files[0]
         firebase.storage().ref("imagenes").child(file.name).put(file)
@@ -27,48 +29,88 @@ function renderPost() {
                 img.src = link
                 document.body.appendChild(img)
                 console.log(link)
-                addBtn.onclick = event => {
-                    //traer el texto 
-                    let postIt = {
-                        body: text.value,
-                        user: "Natalia Olmos",
-                        date: new Date(),
-                        img: url
-                    }
-                    addNewPost(postIt)
-                        .then(result => {
-                            console.log(result)
-                        })
-                        .catch(err => {
-                            console.log(err)
-                        })
-                }
-
-
-
-                let db = firebase.firestore()
-                let postsRef = db.collection("posts")
-
-
-                function addNewPost(post = { user: "Natalia Olmos", body: "probando firebase", date: Date.now() }) {
-                    return postsRef.add(post) //Esta es la promesa
-                }
-
-                postsRef.onSnapshot(snap => {
-                    let p = document.querySelector('#textPost')
-                    p.innerHTML = ''
-                    snap.forEach(doc => {
-                        let div = `<div>
-    <img src="${doc.data().img}"/>
-    <p>${doc.data().body}</p> 
-    </div>`
-                        let nodo = document.createElement("div")
-                        nodo.innerHTML = div
-                        document.body.appendChild(nodo)
-                    })
-                })
             })
     }
-}
 
-export default renderPost
+    addBtn.onclick = event => {
+        //traer el texto 
+        let post = {
+            body: text.value,
+            user: "Natalia Olmos",
+            date: Date.now(),
+            img: "url"
+        }
+
+        addNewPost(post)
+            .then(result => {
+                console.log(result)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        console.log(res)
+    }
+
+    let db = firebase.firestore()
+    let postsRef = db.collection("posts")
+
+    function addNewPost(post = { img: img, user: "Natalia Olmos", body: "hola k ase", date: Date.now() }) {
+        return postsRef.add(post) //Esta es la promesa
+    }
+
+    postsRef.onSnapshot(snap => {
+        snap.forEach(doc => {
+            let div = `<div><p>${doc.data().img}</p> 
+</div>`
+            let nodo = document = document.createElement("div")
+            nodo.innerHTML = div
+            document.body.appendChild(nodo)
+        })
+    })
+
+    db.collection("posts").onSnapshot((querySnapshot) => {
+                div.innerHTML = ""
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(`${doc.id} => , ${doc.data()}, ${doc.data().body}, ${doc.data().user},${doc.data().date}`);
+                    div.innerHTML += `<div id="managePost">
+<p>${doc.data().body}</p> 
+<p>${doc.data().user}</p>
+<p>${doc.data().date}</p> 
+<p>${doc.data().img}</p>
+<p><button id="eliminar('${doc.id}')">Borrar</button></p>
+<p><button onclick="update('${doc.data().body}')">Editar</button></p>
+<input type="button" id="like" value="Me gusta" onclick="javascript: contador()"/> 
+</div>`
+                });
+
+                //BORRAR DATOS
+                function eliminar(id) {
+                    db.collection("posts").doc(id).delete().then(function() {
+                        console.log("Document successfully deleted!");
+                    }).catch(function(error) {
+                        console.error("Error removing document: ", error);
+                    });
+                    document.getElementById('eliminar').addEventListener('click', eliminar);
+                }
+
+                function update() {
+                    db.collection("posts").doc().update().then(function() {
+                        console.log("Document successfully edited!")
+                    }).catch(function(error) {
+                        console.error("Error editing document: ", error)
+                    })
+                }
+
+                {
+                    var i = 0;
+                }
+
+                function contador() {
+                    i = i + 1;
+                    var btnLike = document.getElementById("like");
+                    btnLike.value = "Me gusta (" + i + ")";
+                }
+            }
+
+            export default renderPost
