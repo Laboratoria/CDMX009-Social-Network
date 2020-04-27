@@ -1,5 +1,5 @@
 import singIn from './login.js'
-import profile from './profile.js'
+// import profile from './profile.js'
 import welcomeView from './welcome.js'
 
 document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
@@ -8,12 +8,12 @@ let header= document.querySelector(".header");
 let staticMenu= document.querySelector("#staticMenu");
 
 
-export function showOupladWindow (){
+    function showOupladWindow (){
     let url;
-    let btnOut= document.createElement("buttom");
-    btnOut.id= "out";
-    btnOut.innerHTML= `<img src="images/logOut.png">`
-    header.appendChild(btnOut);
+    // let btnOut= document.createElement("button");
+    // btnOut.id= "out";
+    // btnOut.innerHTML= `<img src="images/logOut.png">`
+    // header.appendChild(btnOut);
     content.innerHTML= '';
     let oupladView= `
     <section>
@@ -51,12 +51,15 @@ export function showOupladWindow (){
             let img= document.createElement('img');
             img.src= link;
             preview.appendChild(img);
-            post.onclick= welcomeView;
+            // post.onclick= welcomeView;
         })
         let publishBtn= document.querySelector("#toPost");
         publishBtn.onclick= (e) => {
+            let user = firebase.auth().currentUser;
+            console.log(user);
             let post = {
-                user: "Edith",
+                user: user.displayName,
+                id: user.uid,
                 title: tittle.value,
                 description: description.value,
                 img: url,
@@ -75,13 +78,17 @@ export function showOupladWindow (){
 let postsNew= dataBase.collection('posts');
 function newPublication(post ={user:"Edith", title: "hola", description:"Cómo están??", date: Date.now()}) {
     return postsNew.add(post);
+    // .then
 }
 postsNew.onSnapshot(snap =>{
     let textarea= document.querySelector("#test");
     textarea.innerHTML= '';
     snap.forEach( doc =>{
         let div = `<div>
+            <p>${doc.data().user}</p>
+            <p>${doc.data().id}</p>
             <p>${doc.data().description}</p>
+            <img src= ${doc.data().img}>
         </div>`
         let nodo = document.createElement('div');
         nodo.innerHTML = div;

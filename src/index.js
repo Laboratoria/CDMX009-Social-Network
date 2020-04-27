@@ -3,9 +3,6 @@ import singIn from './login.js'
 function init (){
     singIn()
 }
-
-
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBuxP-xlUpYjWc5KNNt6q0hKbsxc8L4cE4",
