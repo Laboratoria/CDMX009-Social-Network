@@ -1,47 +1,78 @@
-export default () => {
-    const viewFavorites = `
-    <section>
-    <div class="user-img">
-        <img src="img/xel.jpeg" alt="member">
-    </div>
-    <div>
-        <div>
-            <h2 class="test" id="userName">Xel Jmz</h2>
-            <img class="img-edit" src="./img/icons/pen.svg">
-            <img class="img-add-friend" src="./img/icons/add-friend.svg">
-        </div>
-        <div>
-            <a href="#/followers"> 5 <br> Seguidores</a><br>
-            <a href="#/follow"> 3 <br> Seguidores</a>
-        </div>
-    </div>
-    <div>
-        <a class="nav-link" href="#/favorites"><span class="menu-icons"><i class="far fa-heart"></i></span></a>    
-        <a class="nav-link" href="#/reviews"><span class="menu-icons"><i class="far fa-sticky-note"></i></span> </a>
-        <a class="nav-link" href="#/saved"><span class="menu-icons"><i class="far fa-bookmark"></i></span></a>
-    </div>
-    </section>
-    <section>
-    <div class="container">
-    <div class="post">
-      <img src="img/pictures/helado1.jpg">
-      <div class="txt-post-container">
-        <p class="info-post"><span class="title-post">Karina Sr</span><br>
-          Los bowls
-        </p>
-        <p class="info-post justify-right">#comida<br>
-          Hace 2 hrs
-        </p>
-      </div>
-      <span class="stars-post">
-        <i class="fas fa-star">4.4</i>
-      </span>
-      </div>
-    </section>
-    `;
+import { loginGoogle, loginFb, emailLogin, } from '../firebase.js';
 
-    const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    divElemt.innerHTML = viewFavorites;
-    return divElemt;
-}
+export default () => {
+  const root = document.querySelector('#roots');
+  const viewLogin = 
+  `
+  <section class="bg-img card-align" id="login">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-sm-12 col-md-6">
+              <div class="form-container control has-icons-right">
+                <div class="logo-civitas">
+                  <img src="img/icons/isologo.svg">
+                </div>
+                <h3>Inicia sesión</h3>
+                <form class="login-form">
+                  <input
+                    class="login-input"
+                    id="email-login"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  <div class="eye-icon">
+                    <input
+                    class="login-input"
+                    id="password-login"
+                    type="password"
+                    name="email"
+                    placeholder="Password"
+                  />
+                  <i class="fas fa-eye"></i>
+                  </div>
+              <div id="email-error"></div>
+              <a class="forgotten-password">¿Olvidaste tu contraseña?</a>
+              <input id="login-submit" class="submit-button" type="button" name="submit" value="Ingresar" />
+            </form>
+            <p class="scial-mdia-prgph">Puedes ingresar con:</p>
+            <div class="scial-mdia-btn">
+              <button class="facebook">
+                <i class="fab fa-facebook-f"></i>Facebook
+              </button>
+              <button class="google">
+                <i class="fab fa-google"></i>Google
+              </button>
+            </div>
+            <p class="scial-mdia-prgph">
+              ¿No tienes una cuenta?
+              <a class="forgotten-password" href='#/logup' id ='logUp'>Regístrate ahora</a>
+            </p>
+          </div> 
+        </div>
+      </div> 
+</section>
+         `
+         
+  const divElemt = document.createElement('div');
+  divElemt.innerHTML = viewLogin;
+  root.appendChild(divElemt);
+  
+//Hide header elements
+  let dashHeader = document.querySelector('#dashboardHeader');
+  let menuH = document.querySelector('#menuH');
+  dashHeader.classList.add('hide');
+  menuH.classList.add('hide');
+  
+  //Login
+  const googleBtns = document.querySelector('.google');
+        googleBtns.addEventListener('click', loginGoogle);
+
+  const fbBtns = document.querySelector('.facebook');
+        fbBtns.addEventListener('click', loginFb);
+    
+  const emailBtns = document.querySelector('#login-submit')
+        emailBtns.addEventListener('click', emailLogin);
+
+      return divElemt;
+};

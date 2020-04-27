@@ -1,100 +1,96 @@
+// Firebase init
+let googleP = new firebase.auth.GoogleAuthProvider();
+let facebookP = new firebase.auth.FacebookAuthProvider();
+let db = firebase.firestore();
 
-firebase.storage();
-
-
-
-//Crear usuario con email
-$('#email-submit').click(function () {
-  let emailUser = document.querySelector('#email-new').value;
-  let passwordUser = document.querySelector('#password-new').value;
-  console.log(emailUser, passwordUser);
-
-  firebase.auth().createUserWithEmailAndPassword(emailUser, passwordUser)
+//Log up with email
+function emailLogup () {
+  let emailLogup = document.querySelector('#email-new').value;
+  let passwordLogup = document.querySelector('#password-new').value;
+    console.log(emailLogup, passwordLogup);
+    firebase.auth().createUserWithEmailAndPassword(emailLogup, passwordLogup)
     .catch(function (error) {
-      // Errores
+      // Errors
       var errorMessage = error.message;
       console.log(errorMessage)
       if (errorMessage) {
         let invalidEmail = document.querySelector('#invalid-email')
         invalidEmail.innerHTML = errorMessage
-      }
+      };
     });
-});
+};
 
-//Ingresar usuario existente
-$('#login-submit').click(function login() {
-  let emailLogin = document.querySelector('#email-login').value;
-  let passwordLogin = document.querySelector('#password-login').value;
+//Login functions
+function emailLogin() {
+  let emailUser = document.querySelector('#email-login').value;
+  let passwordUser = document.querySelector('#password-login').value;
   let emailError = document.querySelector('#email-error');
-  console.log(emailLogin, passwordLogin);
-
-  firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
-    .catch(function (error) {
-      //Error
-      var errorMessage = error.message;
-      emailError.innerHTML = errorMessage,
-        console.log(errorMessage)
-    });
+  console.log(emailUser, passwordUser)
+  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+  .catch(function(error) {
+  //Error
+  var errorMessage = error.message;
+  emailError.innerHTML = errorMessage,
+  console.log(errorMessage)
 });
+};
 
-//Login Google
-$('.google').click(function loginGoogle() {
-  let provider = new firebase.auth.GoogleAuthProvider();
-  return firebase.auth().signInWithRedirect(provider)
-    .then(function (result) {
+function loginFb () {
+  firebase.auth().signInWithRedirect(facebookP)
+  .then(function(result){
+    console.log(result);
+  });
+};
 
-      console.log(result);
-    });
-});
+function loginGoogle(){
+  firebase.auth().signInWithRedirect(googleP)
+  .then(function(result) {
+    console.log(result)
+    //console.log(result.user);
+    /* saveDataUser(result.user);
+    if (result.user.emailVerified){
+      window.open('#/','_self')
+    } */
+  });
+};
 
-//Login Facebook
-$('.facebook').click(function loginFb() {
-  let provider = new firebase.auth.FacebookAuthProvider()
-  return firebase.auth().signInWithRedirect(provider)
-    .then(function (result) {
+//Observator 
+function observatorFirebase () {
+  firebase.auth().onAuthStateChanged(function(user){
+    let menu = document.querySelector('.menu')
+    if (user) {
+        let menuPic = document.querySelector('#user-photoURL');
+        let menuName = document.querySelector('#user-displayName');
+        menuName.innerHTML = user.displayName;
+        menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+        displayName = user.displayName;
+        photoURL = user.photoURL;
+        localStorage.setItem('nameStorage', displayName);
+        localStorage.setItem('URLStorage', photoURL);
+        window.open('#/home', '_self');
+        menu.classList.remove('hide');
+        console.log('estas activo dude :)', user);
+    }
+     else {
+      console.log('no estas activo chavo :(')
+    };
+  });
+};
+observatorFirebase();
 
-      console.log(result);
-    });
-});
-
+//Nodes
 let photoURL
 let displayName
 
-//Observador 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        console.log('estas activo', user)
-        displayName = user.displayName;
-        photoURL = user.photoURL;
-        localStorage.displayName = user.displayName
-        localStorage.photoURL = user.photoURL
-
-        let userName = document.querySelector('#user-displayName');
-        let userPic = document.querySelector('#user-photoURL');
-        
-        userName.innerHTML = displayName;
-        userPic.innerHTML = `<img src="${photoURL}"/>`;
-
-
-    } else {
-        console.log('no activo');
-      // No user is signed in.
-    };
-    
-  });
-  
-
-
-
-  let db = firebase.firestore();
+//Initialize Cloud Firestore through Firebase
   let st = firebase.storage(); 
-
   
-  //nodos
+  //Nodes
   let savePost = document.querySelector('#savePost');
   let url
   let day
 
+  //Print time
   let timeSnap = () => {
     let now = new Date();
     let date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
@@ -110,10 +106,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     let location = document.querySelector('#recipientLocation').value;
     let description = document.querySelector('#recipientDescription').value;
 
-
       db.collection("newPosts").add({
-    /*     user: displayName,
-        photoUser: photoURL, */
+
         title: title,
         activity: activity,
         location: location,
@@ -133,12 +127,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         .catch(function(error) {
           console.error("Error adding document: ", error);
         });
-  }
+  };
 
-  //add image
-
+//Add image
   let fileInput = document.querySelector('#file');
-
   fileInput.onchange = e => {
       console.log(e.target.files);
       let file = e.target.files[0]
@@ -150,17 +142,18 @@ firebase.auth().onAuthStateChanged(function(user) {
                 url = link
                 let img = document.createElement('img')
                 img.src = link
-            })
-  }
+            });
+  };
   
-  //Read documents
-  let post = document.querySelector('#contentCreated');
+//Read documents
     let render = () => {
+      let post = document.querySelector('#contentCreated');
       db.collection("newPosts").onSnapshot((querySnapshot) => {
         post.innerHTML = '';
         querySnapshot.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data().title}`);
-            post.innerHTML += `   
+            post.innerHTML += 
+            `   
             <div class="container">
             <div class="card-post-container">
               <div class="card-post">
@@ -180,15 +173,15 @@ firebase.auth().onAuthStateChanged(function(user) {
               </span>
                 </div>
                 <div class="subtitle-post">
-                  <p id="activityPost">${doc.data().activity} </p>
+                  <p id="activityPost">#${doc.data().activity} </p>
                   <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
                 </div>
                     <p id="descriptionPost">${doc.data().description}</p> 
                   <div class="flex-row">
                     <p><i class="far fa-clock"> </i> ${doc.data().date}</p>
                     <span class="flex-row-likes">
-                      <i class="far fa-heart like-btn"></i>
-                      <p><strong><span id="clicks"> </span></strong></p>
+                      <i class="far fa-heart like-btn" id="${doc.id}"></i>
+                      <p><strong><span class="clicks"> </span></strong></p>
                     </span>
                   </div>  
                 </div> 
@@ -209,11 +202,11 @@ firebase.auth().onAuthStateChanged(function(user) {
           }
             deletebutton.forEach(btn=> btn.addEventListener('click', deletePost));
 
-            
             let likeBtn = document.querySelectorAll('.like-btn'); 
-            let numClicks = document.querySelector('#clicks');
+            let numClicks = document.querySelector('.clicks');
             let i = 0;
-            let likeClick = () => {
+            let likeClick = (e) => {
+              db.collection('newPosts').doc(e.target.id).
               i++;
               if (i == 1) {
                 numClicks.innerHTML = i;
@@ -266,3 +259,8 @@ function editUser(idUser, name, lastName, date){
 
 }
     render();
+     
+   
+
+
+export { loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup };

@@ -11,6 +11,10 @@ export default () => {
     </div>
     `;
 
+//Hide header
+    let dashHeader = document.querySelector('#dashboardHeader');
+    dashHeader.classList.add('hide');
+
     const divElemt = document.createElement('div');
     divElemt.classList.add('position')
     divElemt.innerHTML = viewConexions;
