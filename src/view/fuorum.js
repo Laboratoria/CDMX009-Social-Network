@@ -23,16 +23,17 @@ function viewForum(user) {
                 </div>
 
                 <div class="personalInformationPerfilUser">
-                    <div class="namePerfilUser"><strong class="black-text perfilName little">
+                    <div class="namePerfilUser" id="userproperty"><strong class="black-text perfilName little">
                     ${EmailCortado}
                     <i class="material-icons center editProfileIcon">edit</i></strong></div>
                     <div class="professionDescription">Profesión</div>
                 </div>
             </div>
         </section>
+        <div id="showComment"></div>
         <div>
             <p>
-                <textarea id="showComment" class="comentUser"  name="description" placeholder="Escribe un commit..."></textarea>
+                <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
             </p>
             
             <div class="right-align">

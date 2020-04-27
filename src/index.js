@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         viewForum(obtainingPersistenceData)
             .then(function() {
                 publicPost();
+                // readPosts();
             })
         document.getElementById('hideAndShow').style.display = 'block';
         movilIcon.classList.add('shown');
@@ -84,6 +85,7 @@ function loginPageOne() {
             viewForum(data.user)
                 .then(function() {
                     publicPost();
+                    readPosts();
                 })
                 .then(function() {
                     localStorage.setItem('userdata', JSON.stringify(data.user)); //aquí le digo que guarde como un json formateado mi objeto. su parametro es su nombre el segundo lo que vale
@@ -156,6 +158,7 @@ function googleButton() {
 function facebookButton() {
     var provider = new firebase.auth.FacebookAuthProvider();
     var movilIcon = document.getElementById('movilIcon');
+
     firebase.auth().signInWithPopup(provider)
         .then(function(data) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -259,9 +262,9 @@ function publicPost() {
             .then(link => {
                 imageUrl = link
                 console.log(imageUrl);
-                let img = document.createElement('img');
-                img.src = imageUrl;
-                document.getElementById("picturePerfect").appendChild(img);
+                // let img = document.createElement('img');
+                // img.src = imageUrl;
+                // document.getElementById("picturePerfect").appendChild(img);
             })
 
     }
@@ -289,18 +292,36 @@ function publicPost() {
     }
 
 }
+
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) {
-    let postsRef = db.collection('Subiendo Imagen a localstorage') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
+    let postsRef = db.collection('pruebaPractica') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
     return postsRef.add(post);
 }
 
-// // //P R O B A N D O        PERSISTENCIA DE DATOOOS
-// localStorage.setItem('post', JSON.stringify(post)); //aquí le digo que guarde como un json formateado mi objeto
-// var obtainingPersistenceData = localStorage.getItem('post') //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
-// console.log(obtainingPersistenceData)
 
+//esta como que si sirve
 
+// function readPosts() {
+//     let postsRef = db.collection('pruebaPractica') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
+//     postsRef.onSnapshot(snap => {
+//         console.log(snap);
+//         let p = document.querySelector('#showComment')
+//         p.innerHTML = ''
+//         snap.forEach(doc => {
+//             console.log(doc.data());
+//             let div = `<div>
+//         <img width="200" src="${doc.data().img}" />
+//         <p>${doc.data().body}</p>
+//     </div>`
+//             let nodo = document.createElement('div')
+//             nodo.innerHTML = div
+//             p.appendChild(nodo);
+
+//         })
+
+//     });
+// }
 
 
 function clickMenus(obtainingPersistenceData) {
