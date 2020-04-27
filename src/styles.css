@@ -93,3 +93,7 @@ a{
 .active{
     visibility: visible;
 }
+
+#SavePost{
+    display: none;
+}

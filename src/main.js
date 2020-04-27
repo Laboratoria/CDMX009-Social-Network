@@ -1,5 +1,5 @@
 import { changeView } from './views/viewcontroler.js'
-import { renderHomeView } from "./views/home.js"
+import { renderHomeView } from "./views/home.js";
 import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
 import { renderExitView } from "./views/exit.js"
@@ -18,20 +18,22 @@ export const root = document.querySelector('#root');
 const homeButton = document.querySelector('#home');
 const postButton = document.querySelector('#post');
 const profileButton = document.querySelector('#profile');
-//const loginButton = document.querySelector('#login');
 const exitButton = document.querySelector('#exit');
 
 // listeners
-homeButton.onclick = renderHomeView;
-postButton.onclick = renderPostView;
-profileButton.onclick = renderProfileView();
-//loginButton.onclick = renderLoginView();
-exitButton.onclick = renderExitView();
+homeButton.addEventListener("click", (e)=>{
+    e.preventDefault()
+    root.innerHTML = renderHomeView()
+    });
 
-// Función de inicio que cambia la URL
+postButton.onclick = renderPostView();
+profileButton.onclick = renderProfileView();
+exitButton.onclick = renderExitView();
+    
+    // Función de inicio que cambia la URL
 const init = () => {
     window.addEventListener('hashchange', () => changeView(window.location.hash))
-}
+    }
 window.addEventListener('load', init);
 
 //Boton para mostrar iniciar sesión

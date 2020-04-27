@@ -4,7 +4,6 @@ import { viewSign } from '/main.js'
 import { renderHomeView } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
-//import { renderLoginView } from "./views/login.js"
 import { renderExitView } from "./views/exit.js"
 import { userObserverProfile } from "./views/profile.js"
 
@@ -12,7 +11,6 @@ export const components = {
     home: renderHomeView,
     post: renderPostView,
     profile: renderProfileView,
-    //login: renderLoginView,
     exit: renderExitView
 };
 

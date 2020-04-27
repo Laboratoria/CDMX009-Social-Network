@@ -1,9 +1,11 @@
 import { root } from "../main.js";
+import {renderHomeView} from "./home.js"; 
+//import { showPosts } from "./home.js";
+
 //Esto dibuja la vista donde se puede agregar un post
 
-let db = firebase.firestore()
-
-export function renderPostView() {
+//let db = firebase.firestore();
+export const renderPostView = () => {
   const posts =
     `<section id="container">
     <div class="container has-text-white">
@@ -44,106 +46,108 @@ export function renderPostView() {
 
   readFile(fileInput, sectionPosts)
 
-  showPosts(sectionPosts)
-
+  //showPosts(sectionPosts)
+  renderHomeView(root)
 }
 
-function readFile(fileInput, sectionPosts) {
+ function readFile(fileInput, sectionPosts) {
   let url
   fileInput.onchange = (e) => {
-    console.log(e);
-    let file = e.target.files[0]
-    console.log(file);
-    firebase.storage().ref("postsList").child(file.name).put(file)
-      .then(snap => {
-        console.log(snap);
-        return snap.ref.getDownloadURL()
-      })
-      .then(link => {
-        url = link
-        console.log(url);
-        const img = document.createElement('img')
-        img.src = url
-        sectionPosts.appendChild(img)
-        textImage()
-      })
-      .catch(err => {
-        alert("Error:", err);
-      })
-  }
-  function textImage() {
-    const text = document.querySelector('#body').value
-    const title = document.querySelector("#title").value
-    let user = firebase.auth().currentUser;
-    let post = {
-      title: title,
-      text: text,
-      user: user.displayName,
-      photo: user.photoURL,
-      date: new Date(),
-      img: url
-    }
-    addNewPost(post)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log("No hay nuevo post", err)
-      })
-    addPostBD(post)
-  }
-}
+     console.log(e);
+     let file = e.target.files[0]
+     console.log(file);
+     firebase.storage().ref("postsList").child(file.name).put(file)
+       .then(snap => {
+         console.log(snap);
+         return snap.ref.getDownloadURL()
+       })
+       .then(link => {
+         url = link
+         console.log(url);
+         const img = document.createElement('img')
+         img.src = url
+         sectionPosts.appendChild(img)
+         textImage()
+       })
+       .catch(err => {
+         alert("Error:", err);
+       })
+   }
+   function textImage() {
+     const text = document.querySelector('#body').value
+     const title = document.querySelector("#title").value
+     let user = firebase.auth().currentUser;
+     let post = {
+       title: title,
+       text: text,
+       user: user.displayName,
+       photo: user.photoURL,
+       date: new Date(),
+       img: url
+     }
+     addNewPost(post)
+       .then(res => {
+         console.log(res)
+       })
+       .catch(err => {
+         console.log("No hay nuevo post", err)
+       })
+     addPostBD(post)
+   }
+ }
 
-function readText() {
-  const text = document.querySelector('#body').value
-  const title = document.querySelector("#title").value
-  let user = firebase.auth().currentUser;
-  let post = {
-    title: title,
-    text: text,
-    user: user.displayName,
-    photo: user.photoURL,
-    date: new Date(),
-  }
-  addNewPost(post)
-    .then(res => {
+ function readText() {
+   const text = document.querySelector('#body').value
+   const title = document.querySelector("#title").value
+   let user = firebase.auth().currentUser;
+   let post = {
+     title: title,
+     text: text,
+     user: user.displayName,
+     photo: user.photoURL,
+     date: new Date(),
+   }
+   addNewPost(post)
+     .then(res => {
       console.log(res)
-    })
-    .catch(err => {
+     })
+     .catch(err => {
       console.log("No hay nuevo post", err)
-    })
-  addPostBD(post)
-}
+     })
+   addPostBD(post)
+ }
 
-//Se agrega el post a la collección postsList en la BD 
-function addNewPost(post) {
-  return firebase.firestore().collection("postsList").add(post)
-}
+//  Se agrega el post a la collección postsList en la BD 
+ function addNewPost(post) {
+   return firebase.firestore().collection("postsList").add(post)
+ }
 
-//Se agregan los post al perfil del usuario 
-function addPostBD(post) {
-  let user = firebase.auth().currentUser;
-  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-  docRef.update({
-    post: firebase.firestore.FieldValue.arrayUnion(post)
-  })
-}
+//  Se agregan los post al perfil del usuario 
+ function addPostBD(post) {
+   let user = firebase.auth().currentUser;
+   const docRef = firebase.firestore().collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+   docRef.update({
+     post: firebase.firestore.FieldValue.arrayUnion(post)
+   })
+ }
 
 //Muestra TODOS los posts en tiempo real
 function showPosts(sectionPosts) {
-  firebase.firestore().collection("postsList").orderBy("date", "desc").onSnapshot(snap => {
+  firebase.firestore().collection("postsList").orderBy("date", "desc").limit(1).onSnapshot(snap => {
     clean(sectionPosts)
-    snap.forEach(doc => {
+      snap.forEach(doc => {
       if (doc.data().img === undefined && doc.data().photo === undefined) {
         let renderPosts = `<div id="PostContainer" dataId="${doc.data().id}">
         <p>Autor:${doc.data().user}</p>
         <h2 id="Title">Titulo:${doc.data().title}</h2>
         <h1 id="Tale">${doc.data().text}</h1>
-        <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
+        <buttton id="Edit" class="button is-text is-warning"> Editar</button>
         <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
         <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+        <button id="SavePost" class="button is-text is-warning" >Guardar</button>
         <span class="icon is-medium"><i class="far fa-heart"></i></span>
         </div>`
+        console.log(doc.data())
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
@@ -153,11 +157,14 @@ function showPosts(sectionPosts) {
         <h2 id="Title">Titulo:${doc.data().title}</h2>
         <h1 id="Tale">${doc.data().text}</h1>
         <img max-width="300" src="${doc.data().img}">
-        <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
+        <buttton id="Edit"> Editar</button>
         <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
         <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+        <button id="SavePost" class="button is-text is-warning">Guardar</button>
+
         <span class="icon is-medium"><i class="far fa-heart"></i></span>
         </div>`
+        console.log(doc.data())
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
@@ -167,75 +174,59 @@ function showPosts(sectionPosts) {
       <h2 id="Title">Titulo:${doc.data().title}</h2>
       <h1 id="Tale">${doc.data().text}</h1>
       <img max-width="300" src="${doc.data().img}">
-      <buttton id="Edit"  dataId="${doc.data().id}" class="button is-text is-primary"> Editar</button>
-      <buttton id="Delete" dataId="${doc.data().id}" class="button is-text is-primary"> Borrar</button>
-      <buttton id="Comment" dataId="${doc.data().id}" class="button is-text is-primary"> Comentar</button>
+      <buttton id="Edit"> Editar</button>
+      <buttton id="Delete ${doc.id}" class="button is-text is-primary"> Borrar</button>
+      <buttton id="Comment" class="button is-text is-primary"> Comentar</button>
+      <button id="SavePost" class="button is-text is-warning">Guardar</button>
       <span class="icon is-medium"><i class="far fa-heart"></i></span>
       <div><section id="comments"><input id="commentBody" type="text"></input>    <p>Autor:${doc.data().user}</p>
       <p> Autor: ${doc.data().user}</p>
       </section></div>
-      
       </div>`
+        console.log(doc.data())
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
+        //NODO y Listener de los botones
+        const btnEditPost = document.querySelector("#Edit")
+        btnEditPost.addEventListener("click", editPost())
       }
     })
   })
-  let btnEditPost = document.querySelector('#Edit')
-  btnEditPost.addEventListener('click', editPost)
-  let btnDeletePost = document.querySelector('#Delete')
-  btnDeletePost.addEventListener('click', deletePost)
 }
 
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
 function clean(sectionPosts) {
   sectionPosts.innerHTML = '';
 }
-//Funcion Editar post
-  
-  // function editPost(e) {
-  //   const id = event.target.dataset.id;
-  //   let postTitle = document.querySelector('#Title')
-  //   let postText = document.querySelector('#Tale')
-  //   postTitle.onclick = postTitle.setAttribute('contentEditable', 'true');
-  //   postText.onclick = postText.setAttribute('contentEditable', 'true');
-  //   let postTitle = document.querySelector('#Title').contentEditable = 'true'
-  //   let postText = document.querySelector('#Tale').contentEditable = 'true'
 
-  function editPost(event) {
-      const id = event.target.dataset.id;
-      const postText = document.querySelector(`#Tale[data-id='${id}']`);
-      const postTitle = document.querySelector(`#Title[data-id='${id}']`)
-      postText.setAttribute('contentEditable', 'true');
-      textPost.focus()
-      textPost.onblur = () => {textPost.setAttribute('contentEditable', 'false');
-      }
-      postTitle.setAttribute('contentEditable', 'true');
-      postTitle.focus()
-      postTitle.onblur = () => {textPost.setAttribute('contentEditable', 'false');
-      }
-    };
+function editPost(e) {
+  console.log(e.target.id)
+  console.log("saludos de prueba")
+  // const id= event.target.id;
+  // let Title = document.querySelector('#Title').contentEditable = "true";
+  // let Tale = document.querySelector('#Tale').contentEditable = "true";
+  let btnSave = document.querySelector('#SavePost');
+  btnSave.style = "display:block";
+  }
 
+//////////////////////////////////////////////////
+// function saveEditPost(e) {
+//   const id = e.target.dataset.id;
+//   const saveText = document.querySelector(`#text[data-id='${id}']`);
+//   const newText = saveText.textContent;
+//   firebase.firestore().collection('postsList').doc(id).update({
+//     text: newText,
+//   });
+//     saveText.setAttribute('contentEditable', 'false');
 
-function saveEditPost(e) {
-  const id = e.target.dataset.id;
-  const saveText = document.querySelector(`#text[data-id='${id}']`);
-  const newText = saveText.textContent;
-  firebase.firestore().collection('postsList').doc(id).update({
-    text: newText,
-  });
-  saveText.setAttribute('contentEditable', 'false');
-    
-    function deletePost(e) {
-      const id = e.target.dataset.id;
-//Esto sí lo borra-> firebase.firestore().collection('postsList').doc(id).delete();
-        postContainer = document.querySelector(`#PostContainer[data-id='${id}']`)
-        postContainer.style.display = "none";
-        //.remove();
-    };
-
-    
+//     function deletePost(e) {
+//       const id = e.target.dataset.id;
+// //Esto sí lo borra-> firebase.firestore().collection('postsList').doc(id).delete();
+//         postContainer = document.querySelector(`#PostContainer[data-id='${id}']`)
+//         postContainer.style.display = "none";
+//         //.remove();
+//     };   
     // function likePost (e) {
     //   const id = e.target.dataset.id;
     //   const like= document.querySelector(`#Love[data-id='${id}']`);
@@ -244,4 +235,36 @@ function saveEditPost(e) {
     //   firebase.firestore().collection('posts').doc(id).update({likes: likeCounter});
     //   let post = firebase.firestore().collection('posts').doc();
     // } 
+//  }
 
+
+
+// ////Prueba Edicion
+// let sectionPosts = document.querySelector("#PostContainer");
+// let render = document.querySelector("#renderPost")
+// render = addEventListener("click", renderPostView)
+
+// export function renderPostView(){
+// let postTemplate= `<button id="EditPost">Editar</button>
+// <p> Autor desconocido</p>
+// <p id= 'postTitle' > cualquier Título  </p>
+// <p id= 'postText'> un cuento chino </p>
+// <button id="SavePost">Guardar</button>`
+ 
+// const newNode = document.createElement("div")
+//  newNode.innerHTML = postTemplate
+//  root.appendChild(newNode)
+
+// const btnEditPost = document.querySelector("#EditPost")
+// btnEditPost.addEventListener("click", editPost) 
+// }
+
+// function editPost(e){
+//   console.log("saludos de prueba")
+//   const id= event.target.id;
+//   let Title = document.querySelector('#postTitle').contentEditable = "true";
+//   let Tale = document.querySelector('#postText').contentEditable = "true";
+//   let btnSave = document.querySelector('#SavePost');
+//   btnSave.style = "display:block";
+// }
+// //////////Fin de prueba
