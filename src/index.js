@@ -1,14 +1,14 @@
 import { root } from "../main.js";
 import { viewLogin } from '/main.js'
 import { viewSign } from '/main.js'
-import { renderHomeView } from "./views/home.js"
+import { showPosts } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
 import { renderExitView } from "./views/exit.js"
 import { userObserverProfile } from "./views/profile.js"
 
 export const components = {
-    home: renderHomeView,
+//  home: renderHomeView,
     post: renderPostView,
     profile: renderProfileView,
     exit: renderExitView
@@ -34,7 +34,7 @@ export function loginGoogle(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
-                renderPostView()
+                showPosts()
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
