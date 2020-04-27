@@ -28,20 +28,47 @@ export function renderProfileView(myData) {
   if (myData) {
     const profile =
       `
-      <button class = "button is-rounded btnIcon" id="editProfile" ><span class="icon is-small"><i class="fas fa-pencil-alt"></i></span></button>
-      <h1>Mi perfil</h1>
-      <img src="${myData.photo}" id="photoProfile">
-      <input class = "ocultEditProfile" type="file" accept="image/*" id="file">
-    <h1 id="nameProfile">${myData.name}</h1>
-    <h1 id="emailProfile">${myData.email}</h1>
-    <div id="interest"></div>
-    <textarea class = "ocultEditProfile" id="interestsProfile" maxlength="200">Intereses</textarea>
-    
-    
-    <button class = "button is-rounded btnIcon ocultEditProfile" id="saveProfile" >Guardar</button>
-    <button class = "button is-rounded btnIcon ocultEditProfile" id="cancelEdit">Cancelar</button>
+    <section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+           <div class="profile">
+                <div class= 'changeImage'>
+                    <figure class='image container is-128x128'>
+                         <img src="${myData.photo}"id="photoProfile" class="is-rounded">
+                         <input class = "ocultEditProfile" type="file" accept="image/*" id="file">
+                    </figure>
+                <div id='photoProfile'></div>
+                <input class = "ocultEditProfile" type="file" accept="image/*" id="file">
+               </div>
+               <div class="info-profile">
+                    <h1 class="title has-text-centered has-text-grey-lighter title is-5" id="nameProfile">
+                         ${myData.name}
+                    </h1>
+                    <h2 class="title has-text-centered has-text-grey-lighter title is-6" id="emailProfile">
+                         ${myData.email}
+                    </h2>
+                    <div id="interest"></div>
+                         
+                         <textarea class="textarea is-primary ocultEditProfile subtitle is-6" rows="1" placeholder="***Bio*** / ¿De qué forma participarás? ¿Eres escritor?, ¿Ilustrador? o Ambos"  id="interestsProfile" maxlength="200">*****Bio*****</textarea>
+                    </div>
+               </div>
+               
+               <div class="centerItem">
+                  <i onclick='editProfile()' class=" icons fas fa-edit icon is-medium has-text-light" id="editProfile"></i>
+                  <p class='subtitle is-6'>Editar perfil</p>
+                </div>
+                <div class="centerItem">
+                    <i class= "icons fas fa-camera-retro icon is-medium has-text-light ocultEditProfile id="saveProfile"></i>
+                    <i class="icons far fa-save icon is-medium has-text-light ocultEditProfile id="editPhoto"></i>
+               </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="modal" id="saveChange">
+<div class="modal" id="saveChange">
     <div class="modal-background"></div>
     <div class="modal-content">
         <div class = "containerPop">
@@ -51,6 +78,7 @@ export function renderProfileView(myData) {
         </div>
     </div>
 </div>
+
 `
     return profile
   }
@@ -74,25 +102,58 @@ function edit() {
   btnEditProfile.addEventListener('click', editProfile)
   btnSaveProfile.addEventListener('click', saveProfile)
   //console.log(userObserver)
+  
 
 
   function editProfile() {
+    let file = document.querySelector('#file')
     let nameProfile = document.querySelector('#nameProfile').contentEditable = 'true'
-    let emailProfile = document.querySelector('#emailProfile').contentEditable = 'true'
-    let photoProfile = document.querySelector('#photoProfile').contentEditable = 'true'
+    let emailProfile = document.querySelector('#emailProfile').contentEditable = 'false'
+    let prevImage = document.querySelector('#changeImage')
+    let photoProfile = document.querySelector('#photoProfile')
+    readFile(file, photoProfile, prevImage)
 
     //console.log(text.innerHTML)
     btnSaveProfile.classList.add('active');
     interestsProfile.classList.add('active');
+    file.classList.add('active')
+    btnEditProfile.classList.add('ocultEditProfile')
+  }
+
+  let url
+  function readFile(file, photoProfile, prevImage) {
 
 
+    //const fileInput = document.querySelector("#file")
+    file.onchange = (e) => {
+      console.log(e);
+      let file = e.target.files[0]
+      console.log(file);
+      firebase.storage().ref("photoUsers").child(file.name).put(file)
+        .then(snap => {
+          console.log(snap);
+          return snap.ref.getDownloadURL()
+
+        })
+        .then(link => {
+          prevImage.remove()
+          url = link
+          console.log(url);
+          const img = document.createElement('img')
+          img.src = url
+          photoProfile.appendChild(img)
+        })
+        .catch(err => {
+          alert("Error:", err);
+        })
+    }
   }
 
   function saveProfile() {
     let divInterest = document.querySelector('#interest')
     let nameProfile = document.querySelector('#nameProfile')
     let emailProfile = document.querySelector('#emailProfile')
-    let photoProfile = document.querySelector('#photoProfile')
+
     let textareaInterest = document.querySelector('#interestsProfile')
     let interestsProfile = textareaInterest.value
     divInterest.innerHTML = interestsProfile
@@ -104,52 +165,74 @@ function edit() {
 
     btnSaveProfile.classList.remove('active');
     textareaInterest.classList.remove('active');
+    file.classList.remove('active');
     if (btnSaveProfile.classList != 'active') {
       nameProfile.contentEditable = 'false'
       emailProfile.contentEditable = 'false'
     }
 
-    saveProfileBD(newNameProfile, newEmailProfile, interestsProfile)
+    profileUpdate(newNameProfile, newEmailProfile, url)
+    saveProfileBD(interestsProfile)
 
   }
-  /*  function profileUpdate(newNameProfile, newEmailProfile) {
-     
-     console.log(user);
- 
-     user.updateProfile({
-       displayName: newNameProfile,
-       //photoURL: photoProfile,
-       email: newEmailProfile
-       
-     }).then(function () {
-       console.log('los dtos se actualizaron');
-       saveProfileBD(user)
- 
-       // Update successful.
-     }).catch(function (error) {
-       // An error happened.
-       console.log(error);
- 
-     });
-   } */
-  function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile) {
-    let user = firebase.auth().currentUser;
-    const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docRef.set({
-      name: newNameProfile,
-      email: newEmailProfile,
-      interests: interestsProfile,
-      //password: newPassword,
-      uid: user.uid
-    })
-      .then(function () {
-        saveChange.classList.add('is-active');
-        console.log('Los datos se guardaron');
-      })
-      .catch(function (error) {
-        console.log('Hubo en error:', error);
-      })
-  }
-
-
 }
+function profileUpdate(newNameProfile, newEmailProfile, url) {
+  var user = firebase.auth().currentUser;
+  //console.log(user);
+
+  user.updateProfile({
+    email: newEmailProfile,
+    displayName: newNameProfile,
+    em: user.email,
+    photoURL: url,
+    uid: user.uid
+
+  }).then(function () {
+    console.log('los dtos se actualizaron');
+    //saveProfileBD(user)
+
+    // Update successful.
+  }).catch(function (error) {
+    // An error happened.
+    console.log(error);
+
+  });
+}
+
+function saveProfileBD(interestsProfile) {
+  let user = firebase.auth().currentUser;
+  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+  docRef.update({
+
+    interests: interestsProfile,
+
+  })
+    .then(function () {
+      saveChange.classList.add('is-active');
+      console.log('Los datos se guardaron');
+    })
+    .catch(function (error) {
+      console.log('Hubo en error:', error);
+    })
+}
+/* function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile, url) {
+  let user = firebase.auth().currentUser;
+  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+  docRef.set({
+    name: newNameProfile,
+    email: newEmailProfile,
+    em: user.email,
+    interests: interestsProfile,
+    photo: url,
+    //password: newPassword,
+    uid: user.uid
+  })
+    .then(function () {
+      saveChange.classList.add('is-active');
+      console.log('Los datos se guardaron');
+    })
+    .catch(function (error) {
+      console.log('Hubo en error:', error);
+    })
+}
+ */

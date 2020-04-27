@@ -5,6 +5,7 @@ export default () => {
         <div class="centerItem">
             <h1 class="titles">Iniciar Sesión</h1>
         </div>
+        
         <div class = "control has-icons-left container-separate">
             <input class ="input is-rounded" type="email" placeholder="Email" id="email">
                 <span class="icon is-small is-left">

@@ -1,12 +1,23 @@
+
+
 #root{
     height: 2000px; 
 }
+
+/* *{
+   margin:0;
+   padding:0;
+   box-sizing: border-box; 
+   font-family: 'Poppins', sans-serif;
+   font-size: medium;
+} */
+
 body{
     /*background-color:#131515;*/
 
-     background-color:#232323; 
+    background-color:#232323; 
      /* height: 600px; */
-     color: rgb(212, 144, 41);
+    color: rgb(212, 144, 41);
    
 }
 .form-container{
@@ -95,3 +106,21 @@ a{
 .active{
     visibility: visible;
 }
+
+.icons{
+    cursor: pointer;
+}
+
+.photo-profile{
+    margin-bottom: 5px;
+}
+ #nameProfile{
+     margin-bottom: 0px;
+ }
+
+ /* #editProfile{
+     position: absolute;
+ } */
+ .info-profile{
+     padding-bottom: 0px;
+ }
