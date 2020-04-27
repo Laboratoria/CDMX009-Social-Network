@@ -1,7 +1,12 @@
 // LOGIN CON EMAIL Y PWD
 
 export function emailLogin(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    if (!email || !password) return 'No existe email o password'
+    if (password.length < 6) return 'No cumple con 6 caracteres'
+
+    return firebase.auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -22,17 +27,21 @@ export function emailLogin(email, password) {
   export function logout() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
+        return true
       }).catch(function(error) {
         // An error happened.
+        return false
         console.log(error)
       });
   }
   
   // CREAR CUENTA MAIL Y PWD
   export function createAccount(mail, pwd) {
-    firebase.auth().createUserWithEmailAndPassword(mail, pwd).then(function(){
+    firebase.auth().createUserWithEmailAndPassword(mail, pwd)
+    .then(function(){
       window.socialNetwork.verification();
-    }).catch(function(error) {
+    })
+    .catch(function(error) {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
