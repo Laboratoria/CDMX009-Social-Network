@@ -31,8 +31,10 @@ const dateConverter = (timeStampFormat) => {
   return (`${day}-${month}-${year} / ${hour}:${minute}`);
 };
 
-const postTemplate = (templateContainer) => {
+export const postTemplate = (templateContainer) => {
   database.collection('posts').get().then((querySnapshot) => {
+    const docRef = database.collection('posts');
+    docRef.orderBy('date', 'desc');
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       // console.log(doc.id, ' => ', doc.data());
@@ -50,8 +52,10 @@ const postTemplate = (templateContainer) => {
               </div>
           </div>
           <div class="postOptions">
-              <div class="likesCounter" class="likes">00</div>
+              <div class="likes">00</div>
               <img src="images/corazon (1).svg" class="likes" alt="like">
+              <input type="button" class="delete" value="Modificar">
+              <input type="button" class="delete" value="Eliminar">
           </div>
         </div>`;
       templateContainer.innerHTML += userTemplate;
@@ -59,17 +63,29 @@ const postTemplate = (templateContainer) => {
   });
 };
 
-export const createNewPost = (content, container) => {
-  const currentUser = firebase.auth().currentUser;
+export const createNewPost = (content) => {
+  const currentUserData = firebase.auth().currentUser;
   database.collection('posts').add({
-    postOwner: currentUser.uid,
-    postNameOwner: currentUser.displayName,
-    postPhotoOwner: currentUser.photoURL,
+    postOwner: currentUserData.uid,
+    postNameOwner: currentUserData.displayName,
+    postPhotoOwner: currentUserData.photoURL,
     postContent: content,
     date: firebase.firestore.FieldValue.serverTimestamp(),
     likes: {},
   })
     .then(() => {
-      postTemplate(container);
+      alert('Tu post se ha guardado');
     });
 };
+
+// const deletePost = (deletebtn) => {
+//   database.collection('posts').where('postOwner', '==', currentUserData.uid).delete()
+//     .then(() => {
+//       const deletebtn = document.querySelector('.delete');
+//       deletebtn.appendChild
+//       console.log('Document successfully deleted!');
+//     })
+//     .catch((error) => {
+//       console.error('Error removing document: ', error);
+//     });
+// };

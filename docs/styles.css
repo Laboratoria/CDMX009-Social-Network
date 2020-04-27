@@ -97,9 +97,28 @@ button {
     flex-direction: column;
     align-items: center;
 }
-.newPost {width: 90%; align-content: center;}
-.postForm {width: 100%;}
-#submitNewPost {width: 25%; align-self: flex-start; height: 1.5rem;}
+.newPost {
+    width: 90%; 
+    align-content: center; 
+    display: flex;
+    flex-direction: column;
+}
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+.postForm {
+    width: 100%;
+    resize: none;
+}
+#submitNewPost {
+    width: 25%; 
+    align-self: center; 
+    height: 1.5rem; 
+    margin: 1rem;}
+
 hr {width: 90%; border-color: #EBE134;}
 .postContainer {
     width: 90%; 
@@ -120,12 +139,23 @@ hr {width: 90%; border-color: #EBE134;}
         }
         .postContent {
             width: 85%; 
-            height: 4rem; 
+            height: auto; 
             border: #ffffff 0.2rem ridge;
         }
+        #date {
+            font-size: small;
+            color: #424040;
+        }
+        #ownerName {color: darkviolet;}
     .postOptions {
         width: 100%;
         display: flex;
         justify-content: flex-end;
     }
         .likes {width: 1rem; height: 1rem;}
+        
+    .delete {
+        margin: 0 0.2rem;
+        width: 4rem;
+        height: 1.5rem;
+    }
