@@ -22,9 +22,7 @@ function loginFB(){
   .then(function(result) {
     console.log(result.user);
     saveDataUser(result.user);
-    if (result.user.emailVerified){
       window.open('#/','_self')
-    }
   });
 }
 
