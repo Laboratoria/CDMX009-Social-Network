@@ -5,16 +5,7 @@ let btns = document.querySelectorAll('.btn')
     // loginView
 function renderLogin() {
     let loginView =
-        `<div>
-        <div class="container">
-        <div class="row mt-5">
-        <div class="col">
-        <div id="alertInfo" class="alert alert-dismissible alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4 class="alert-heading">Gracias!</h4>
-        <p class="mb-0">Tu comentario se ha guardado. En breve te responderemos. 
-        </p>
-        </div>        
+        `<div>    
         <form id="formContacto">
         <fieldset>
         <legend>Formulario</legend>
@@ -26,37 +17,26 @@ function renderLogin() {
         <label for="txtPass">Password</label>
         <input type="text" class="form-control" name="txtPass" id="txtPass" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit"onclick="registrar()" class="btn btn-primary">Enviar</button>
         </fieldset>
         </form>
         </div>
         </div>
         </div>`
     root.innerHTML = loginView
-    let contactosRef = firebase.database().ref('contactosWeb');
-    document.getElementById('alertInfo').style.display = 'none';
-    document.getElementById('formContacto').addEventListener('submit', guardarFormulario);
 
-    function guardarFormulario(e) {
-        e.preventDefault();
-        let email = document.getElementById('txtEmail').value;
-        let password = document.getElementById('txtPass').value;
+    let email = document.getElementById("txtEmail").value;
+    let password = document.getElementById("txtPass").value;
 
-        let nuevoComentarioRef = contactosRef.push();
-        nuevoComentarioRef.set({
-            email: email,
-            password: password,
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.log(errorCode);
+            console.log(errorMessage);
         });
-
-        document.getElementById('alertInfo').style.display = 'block';
-        //Borrar la info
-        document.getElementById('formContacto').reset();
-        //Mensaje de confirmación
-        setTimeout(function() {
-            document.getElementById('alertInfo').style.display = 'none';
-        }, 2000);
-    }
 }
-
 
 export default renderLogin

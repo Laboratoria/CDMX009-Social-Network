@@ -6,7 +6,7 @@ function logFb() {
     let provider = new firebase.auth.FacebookAuthProvider()
     return firebase.auth().signInWithPopup(provider)
         .then(data => {
-
+            root.innerHTML = ""
             let img = document.createElement("img")
             img.src = data.user.photoURL
             let h2 = document.createElement("h2")

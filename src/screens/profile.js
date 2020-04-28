@@ -8,7 +8,7 @@ function renderPost() {
     <textarea id="textPost" id="" cols="30" rows="10"></textarea>
     <button id="botonPost" class="btn">Add Post</button>
     <div id="div"></div>
-</div>`
+ </div>`
     root.innerHTML = postView
     let addBtn = document.querySelector("#botonPost");
     let text = document.querySelector("#textPost");
@@ -61,56 +61,58 @@ function renderPost() {
     postsRef.onSnapshot(snap => {
         snap.forEach(doc => {
             let div = `<div><p>${doc.data().img}</p> 
-</div>`
-            let nodo = document = document.createElement("div")
+ </div>`
+            let nodo = document.createElement("div")
             nodo.innerHTML = div
             document.body.appendChild(nodo)
         })
     })
 
     db.collection("posts").onSnapshot((querySnapshot) => {
-                div.innerHTML = ""
-                querySnapshot.forEach((doc) => {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(`${doc.id} => , ${doc.data()}, ${doc.data().body}, ${doc.data().user},${doc.data().date}`);
-                    div.innerHTML += `<div id="managePost">
-<p>${doc.data().body}</p> 
-<p>${doc.data().user}</p>
-<p>${doc.data().date}</p> 
-<p>${doc.data().img}</p>
-<p><button id="eliminar('${doc.id}')">Borrar</button></p>
-<p><button onclick="update('${doc.data().body}')">Editar</button></p>
-<input type="button" id="like" value="Me gusta" onclick="javascript: contador()"/> 
-</div>`
-                });
+        div.innerHTML = ""
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(`${doc.id} => , ${doc.data()}, ${doc.data().body}, ${doc.data().user},${doc.data().date}`);
+            div.innerHTML += `<div>
+    <p>${doc.data().body}</p> 
+    <p>${doc.data().user}</p>
+    <p>${doc.data().date}</p> 
+    <p>${doc.data().img}</p>
+    <p><button id="eliminar('${doc.id}')">Borrar</button></p>
+    <p><button onclick="update('${doc.data().body}')">Editar</button></p>
+    <input type="button" id="like" value="Me gusta" onclick="javascript: contador()"/> 
+    </div>`
 
-                //BORRAR DATOS
-                function eliminar(id) {
-                    db.collection("posts").doc(id).delete().then(function() {
-                        console.log("Document successfully deleted!");
-                    }).catch(function(error) {
-                        console.error("Error removing document: ", error);
-                    });
-                    document.getElementById('eliminar').addEventListener('click', eliminar);
-                }
-
-                function update() {
-                    db.collection("posts").doc().update().then(function() {
-                        console.log("Document successfully edited!")
-                    }).catch(function(error) {
-                        console.error("Error editing document: ", error)
-                    })
-                }
-
-                {
-                    var i = 0;
-                }
-
-                function contador() {
-                    i = i + 1;
-                    var btnLike = document.getElementById("like");
-                    btnLike.value = "Me gusta (" + i + ")";
-                }
+            //BORRAR DATOS
+            function eliminar(id) {
+                db.collection("posts").doc(id).delete().then(function() {
+                    console.log("Document successfully deleted!");
+                }).catch(function(error) {
+                    console.error("Error removing document: ", error);
+                })
+                document.getElementById('eliminar').addEventListener('click', eliminar);
             }
 
-            export default renderPost
+            function update() {
+                db.collection("posts").doc().update().then(function() {
+                    console.log("Document successfully edited!")
+                }).catch(function(error) {
+                    console.error("Error editing document: ", error)
+                })
+            }
+
+            {
+                var i = 0;
+            }
+
+            function contador() {
+                i = i + 1;
+                var btnLike = document.getElementById("like");
+                btnLike.value = "Me gusta (" + i + ")";
+            }
+
+        })
+    })
+}
+
+export default renderPost

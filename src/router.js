@@ -10,6 +10,7 @@ let btns = document.querySelectorAll('.btn')
 
 // router
 function router(route) {
+    root.innerHTML = ""
     console.log(route)
     switch (route) {
         case '/about':
