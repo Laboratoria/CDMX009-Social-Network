@@ -1,8 +1,8 @@
 
-
+/* 
 #root{
     height: 2000px; 
-}
+} */
 
 /* *{
    margin:0;
@@ -14,7 +14,7 @@
 
 body{
     /*background-color:#131515;*/
-
+    background-size: cover;
     background-color:#232323; 
      /* height: 600px; */
     color: rgb(212, 144, 41);
@@ -118,9 +118,83 @@ a{
      margin-bottom: 0px;
  }
 
+ #welcome-title{
+     margin-bottom: 0px;
+     margin-top: 10px;
+ }
+ 
+ #instructions{
+     padding: 10px;
+ }
+
  /* #editProfile{
      position: absolute;
  } */
  .info-profile{
      padding-bottom: 0px;
+ }
+
+ .slider{
+     width: 100%;
+     overflow: hidden;
+     position: relative;
+     
+ }
+ 
+ .welcome-info{
+     width: 70%;
+    
+     background-color: rgba(255, 255, 255, 0.24);
+     position: absolute;
+     bottom: 80px;
+     left: 30px;
+ } 
+ 
+ .cover{
+     display: flex;
+     height: 600px;
+     background-image: url(/img/slider1.png);
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: 100%;
+ }
+
+ /* Para el slide */
+ .slider{
+     width: 100%;
+     margin: 0;
+     overflow: hidden;
+     background-size: cover;
+ }
+ 
+ .slider ul{
+     display: flex;
+     padding: 0;
+     width: 300%;
+     animation: cambio 20s infinite;
+     animation-timing-function: ease-in;
+ }
+
+ .slider li{
+     width: 100%;
+    list-style: none;
+ }
+
+ .slider img{
+     width: 100%;
+ }
+
+ @keyframes cambio {
+     0% { margin-left: 0; }
+     20% { margin-left: 0; }
+
+     25% { margin-left: -100%; }
+     45% { margin-left: -100%; }
+
+     50% { margin-left: -200%; }
+     70% { margin-left: -200%; }
+ }
+
+ .navbar{
+    visibility: hidden;
  }

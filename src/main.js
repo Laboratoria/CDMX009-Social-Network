@@ -42,6 +42,8 @@ btnshow.addEventListener('click', principalView)
 const btnExit = document.querySelector('#goOut')
 btnExit.addEventListener('click', signoutUser)
 
+
+window.onload = principalView() 
 //Mostrar vista (una antes de iniciar sesión)
 function principalView() {
     root.innerHTML = principal()

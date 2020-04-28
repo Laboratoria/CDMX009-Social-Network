@@ -54,9 +54,15 @@ export function renderProfileView(myData) {
                     </div>
                </div>
                
+               
                <div class="centerItem">
-                  <i onclick='editProfile()' class=" icons fas fa-edit icon is-medium has-text-light" id="editProfile"></i>
-                  <p class='subtitle is-6'>Editar perfil</p>
+                <div>
+                  <button class = "button is-rounded 
+                  btnIcon" id="editProfile" ><span class="icon is-small"><i class="fas fa-pencil-alt"></i></span></button>
+                </div>
+                <div>
+                  <p>Editar</p>
+                </div>
                 </div>
                 <div class="centerItem">
                     <i class= "icons fas fa-camera-retro icon is-medium has-text-light ocultEditProfile id="saveProfile"></i>
@@ -78,6 +84,7 @@ export function renderProfileView(myData) {
         </div>
     </div>
 </div>
+
 
 `
     return profile
@@ -153,7 +160,6 @@ function edit() {
     let divInterest = document.querySelector('#interest')
     let nameProfile = document.querySelector('#nameProfile')
     let emailProfile = document.querySelector('#emailProfile')
-
     let textareaInterest = document.querySelector('#interestsProfile')
     let interestsProfile = textareaInterest.value
     divInterest.innerHTML = interestsProfile
@@ -215,6 +221,8 @@ function saveProfileBD(interestsProfile) {
       console.log('Hubo en error:', error);
     })
 }
+
+
 /* function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile, url) {
   let user = firebase.auth().currentUser;
   const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
