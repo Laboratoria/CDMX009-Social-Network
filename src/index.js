@@ -257,14 +257,14 @@ function publicPost() {
         let file = respuestaCambioImagen.target.files[0]
         firebase.storage().ref("devpost").child(file.name).put(file)
             .then(snap => { //¿Donde esta el archivo? En file.name
-                return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
+                return snap.ref.L() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
             })
             .then(link => {
                 imageUrl = link
                 console.log(imageUrl);
-                // let img = document.createElement('img');
-                // img.src = imageUrl;
-                // document.getElementById("picturePerfect").appendChild(img);
+                 let img = document.createElement('img');
+                 img.src = imageUrl;
+                 document.getElementById("picturePerfect").appendChild(img);
             })
 
     }
@@ -300,30 +300,6 @@ function addNewPost(post) {
 }
 
 
-//esta como que si sirve
-
-// function readPosts() {
-//     let postsRef = db.collection('pruebaPractica') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
-//     postsRef.onSnapshot(snap => {
-//         console.log(snap);
-//         let p = document.querySelector('#showComment')
-//         p.innerHTML = ''
-//         snap.forEach(doc => {
-//             console.log(doc.data());
-//             let div = `<div>
-//         <img width="200" src="${doc.data().img}" />
-//         <p>${doc.data().body}</p>
-//     </div>`
-//             let nodo = document.createElement('div')
-//             nodo.innerHTML = div
-//             p.appendChild(nodo);
-
-//         })
-
-//     });
-// }
-
-
 function clickMenus(obtainingPersistenceData) {
     var nameMenus = document.querySelectorAll('ul.clickMenu li a'); //Dentro de mi variable voy a meterme dentro del a que es donde tengo c.u de los nombres de mi navbar
     nameMenus.forEach(function(viewMenus) { //en una nueva variable hago un forEach con un parámetro dentro de la función 
@@ -350,8 +326,8 @@ function clickMenus(obtainingPersistenceData) {
 }
 
 //funciones de vero para practicar
-/* leer la coleccion de post
-postsRef.onSnapshot(snap => {
+//leer la coleccion de post
+/*postsRef.onSnapshot(snap => {
     let p = document.querySelector('#posts')
     p.innerHTML = ''
     snap.forEach(doc => {
@@ -364,12 +340,38 @@ postsRef.onSnapshot(snap => {
         p.appendChild(nodo)
 
     })
-})
+}) */
+
+//esta como que si sirve
+ function readPosts() {     
+     let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos     
+     postsRef.onSnapshot(snap => {
+        let publishPust = document.querySelector('#showComment')
+        publishPust.innerHTML = ''
+         snap.forEach(doc => {
+             let div = `<div>
+             <img width="200" src="${doc.data().img}" />
+             <p>${doc.data().texto}</p>
+            </div>`
+             let nodo = document.createElement('div')
+             nodo.innerHTML = div
+             publishPust.appendChild(nodo);
+
+         })
+    });
+ }
+
+//Obtén todos los documentos de una colección
+     db.collection("post").get().then(function(querySnapshot) {
+     querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+  });
 
 //Obtén un documento
-var docRef = db.collection("cities").doc("SF");
-
-docRef.get().then(function(doc) {
+ let docRef = db.collection("post").doc("fna7W1xk1Xq2xT03FtRG");
+ docRef.get().then(function(doc) {
     if (doc.exists) {
         console.log("Document data:", doc.data());
     } else {
@@ -378,12 +380,4 @@ docRef.get().then(function(doc) {
     }
 }).catch(function(error) {
     console.log("Error getting document:", error);
-});
-
-Obtén todos los documentos de una colección
-db.collection("post").get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-    });
-});*/
+ });

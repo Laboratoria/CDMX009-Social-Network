@@ -623,6 +623,10 @@ input.validatePassword.boxFields {
     outline: -webkit-focus-ring-color auto 5px;
 }
 
+div#showComment {
+    text-align: center;
+}
+
 
 /* *********MediasQuerys*********** */
 
@@ -667,6 +671,10 @@ input.validatePassword.boxFields {
         display: flex;
         border-radius: 8PX;
         margin: 13%;
+    }
+
+    div#showComment {
+        text-align: center;
     }
 }
 
