@@ -8,7 +8,6 @@ const errorHandler = () => {
     const errHand = database.errorInfo();
     errMsg.innerHTML = errHand.message;
 };
-
 // render de la pantalla para iniciar sesión
 const renderSignIn = () => {
   root.classList.add('section');
@@ -330,7 +329,8 @@ export const renderFeed = () => {
                 <div class="file is-centered">
                     <div id="postFeed" class="column1">
                     </div>
-                  
+                    <div id="postComments" class="column1">
+                    </div>                  
                 </div>
                 <div class="content">
                     
@@ -343,6 +343,30 @@ export const renderFeed = () => {
   root.innerHTML = `${feed}${renderNavBar}`;
   console.log(database.getPostFeed);
   database.getPostFeed();
+  console.log(database.getPostMessage);
+
+  //const sortedPosts = [...postText].sort();
+  //console.log(sortedPosts);
+  //const sortByDate = () => {
+   //   const sortDate = postText.sort((a, b) => 
+   //   ((a.postTime > b.postTime) ? -1 : 1));
+      /*{
+          if (prev.postTime > next.postTime) {
+              return 1;
+          }  if (prev.postTime < next.postTime) {
+            return -1;
+          }
+          return 0;
+      }*/
+      
+      
+   //   console.log(sortDate);
+    //  return sortDate;
+//  };
+//  sortByDate(postText);
+//  sortByDate.forEach((key) => {
+
+  //})
   document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
