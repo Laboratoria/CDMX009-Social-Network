@@ -65,5 +65,12 @@ figure{
 flex-basis: 0;
 flex-grow: 1;
 flex-shrink: 1;
-padding: 0.75rem;
+padding: 0.97rem;
 justify-content: center;}
+
+.file1{align-items: stretch;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    padding: 0.97rem;
+}

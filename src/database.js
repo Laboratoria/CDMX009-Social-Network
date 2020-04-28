@@ -1,6 +1,7 @@
 import { renderFeed } from './index.js';
 
 let authError;
+let postInfo;
 const provider = new firebase.auth.GoogleAuthProvider();
 const provider1 = new firebase.auth.FacebookAuthProvider();
 const db = firebase.firestore();
@@ -9,6 +10,7 @@ const usersRef = firebase.database().ref().child('users');
 const imageRef = firebase.database().ref().child('image'); // referencia para subir imágenes de perfil / Tiempo real
 const imageRefPost = firebase.database().ref().child('post-image'); //  referencia para subir imágenes de post
 const refPost = firebase.database().ref().child('user-posts'); // referencia para subir los comment del usuario en su post
+//const refPost1 = firebase.database().ref('user-posts').orderByChild('comment');
 
 // iniciar sesión con correo y contraseña
 const database = {
@@ -57,16 +59,14 @@ const database = {
     refPost.on('value', (snapshot) => {
       const data = snapshot.val();
       console.log(data);
-      return data;
-      //let result = '';
-      // console.log(data);
-
-      //for (const key in data) {
-      //  result += `<div>${data[key].comment}</div>`;
-      //  console.log(data[key].url);
+      let result = '';
+      //console.log(data);
+      for (const key in data) {
+        result += `<div>${data[key].comment}</div>`;
+        // console.log(data[key].url);
       }
-     // document.getElementById('postComments').innerHTML = result;
-    );
+      document.getElementById('postComments').innerHTML = result;
+    });
   },
 
 /*  getPostTest: () => {
@@ -96,13 +96,16 @@ const database = {
         console.log('*****************');
         console.log(user.emailVerified);
         console.log('*****************');
-        const displayName = user.displayName;
-        const email = user.email;
-        const emailVerified = user.emailVerified;
-        const photoURL = user.photoURL;
-        const isAnonymous = user.isAnonymous;
-        const uid = user.uid;
-        const providerData = user.providerData;
+        // const displayName = user.displayName;
+        // const email = user.email;        
+        // const emailVerified = user.emailVerified;
+        // const photoURL = user.photoURL;
+        // const isAnonymous = user.isAnonymous;
+        // const uid = user.uid;
+        // const providerData = user.providerData;
+       
+        
+        // document.getElementById('email').innerHTML = email;
         // ...
       } else {
         console.log('no existe usuario activo');
@@ -245,7 +248,7 @@ const database = {
   // creando nodo en Firebase para subir información de la foto de un usuario para usarla en el feed
   createNodeFirebaseForPost: (nameImage, url) => {
     const postMessage = document.getElementById('postMessage').value;
-    imageRefPost.push({ name: nameImage, url, uid: firebase.auth().currentUser.uid, postTime:firebase.database.ServerValue.TIMESTAMP}); // tiempo real
+    imageRefPost.push({ name: nameImage, url, uid: firebase.auth().currentUser.uid, postTime: Date.now().toString()}); // tiempo real
     db.collection('post-image').add({
       name: nameImage,
       url,
@@ -274,10 +277,10 @@ const database = {
     const postMessage = document.getElementById('postMessage').value;
     refPost.push({ uid: firebase.auth().currentUser.uid, comment: postMessage, postTime: Date.now().toString()}); 
     console.log(firebase.firestore.FieldValue.serverTimestamp()) // tiempo real
-    db.collection('user-posts').orderBy('postTime').add({
+    db.collection('user-posts').add({
       uid: firebase.auth().currentUser.uid,
       comment: postMessage,
-      postTime: new Date(),
+      postTime: new Date(Date.now()),
     });
   },
 

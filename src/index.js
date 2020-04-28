@@ -3,6 +3,7 @@ import database from './database.js';
 const body = document.querySelector('#body');
 const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
+let errMsg;
 
 const errorHandler = () => {
     const errHand = database.errorInfo();
@@ -72,7 +73,7 @@ const renderSignIn = () => {
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>`;
   root.innerHTML = `${logo}${signInForm}`; // reendereamos el logo y la pantalla para inicio de sesión
-  const errMsg = document.querySelector('#errMsg');
+  errMsg = document.querySelector('#errMsg');
   document.querySelector('#signUpLink').addEventListener('click', () => { // botón para mandarte a la pantalla de registro
     renderSignUp();
   });
@@ -149,7 +150,7 @@ const renderSignUp = () => {
         </div>
         `;
   root.innerHTML = `${logo}${signUpForm}`; // se reenderea el logo y la pantalla de registro
-  const errMsg = document.querySelector('#errMsg');
+  errMsg = document.querySelector('#errMsg');
   document.querySelector('#register').addEventListener('click', () => { // se obtienen los datos del usuario para guardarse en Firebase
     database.signUp();
     window.setTimeout(errorHandler, 400);
@@ -223,8 +224,10 @@ const renderProfile = () => {
         <a id="logout" class="material-icons"> Cerrar Sesión </a>
         
         </div> 
+        
         <div class="file is-centered">
             <div class="control">
+            
                 <div class="has-text-centered has-text-black title is-9">
                     <h3> Información </h3>
                 </div>
@@ -273,6 +276,7 @@ const renderProfile = () => {
     database.logout();
     renderSignIn();
   });
+
   const showImg = document.querySelector('#showImg');
   const showName = document.querySelector('#profileName');
   let setInfo;
@@ -326,8 +330,8 @@ export const renderFeed = () => {
                         <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
                     </div>
                 </div>  
-                <div class="file is-centered">
-                    <div id="postFeed" class="column1">
+                <div class="file1 is-centered">
+                    <div id="postFeed"  class="column1">
                     </div>
                     <div id="postComments" class="column1">
                     </div>                  
@@ -341,9 +345,16 @@ export const renderFeed = () => {
         </div>
     `;
   root.innerHTML = `${feed}${renderNavBar}`;
-  console.log(database.getPostFeed);
   database.getPostFeed();
-  console.log(database.getPostMessage);
+
+  //let result = '';
+      // console.log(data);
+
+      //for (const key in data) {
+      //  result += `<div>${data[key].comment}</div>`;
+      //  console.log(data[key].url);
+    //}
+    // document.getElementById('postComments').innerHTML = result;
 
   //const sortedPosts = [...postText].sort();
   //console.log(sortedPosts);
