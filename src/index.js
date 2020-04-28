@@ -270,14 +270,15 @@ function publicPost() {
     }
     let publicPost = document.getElementById('publish');
     publicPost.onclick = function() {
-        let text = document.getElementById('showComment'); //variable con id en donde se pintaran los post, textArea
+        let text = document.getElementById('userCommit'); //variable con id en donde se pintaran los post, textArea
         // traer el texto
         let post = {
+            // ownerId:
             texto: text.value,
-            user: "spiderman",
+            user: "superman",
             date: new Date(),
-            img: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
-        }
+            image: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+        } 
         addNewPost(post)
             .then(function(post) { //esto es la promesa
                 alert('hello') //este es el resultado de la promesa
@@ -295,7 +296,7 @@ function publicPost() {
 
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) {
-    let postsRef = db.collection('pruebaPractica') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
+    let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
     return postsRef.add(post);
 }
 

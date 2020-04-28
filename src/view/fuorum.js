@@ -33,7 +33,7 @@ function viewForum(user) {
         <div id="showComment"></div>
         <div>
             <p>
-                <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
+                <textarea id="userCommit" class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
             </p>
             
             <div class="right-align">
