@@ -18,7 +18,7 @@ export default () => {
                     <i class="fas fa-lock"></i>
                 </span>
         </div>
-        <button class = "button is-rounded is-fullwidth container-separate is-primary" id="enter">Entrar</button>
+        <button class = "button is-rounded is-fullwidth container-separate is-primary "  id="enter">Entrar</button>
     
         <p class ="centerItem container-separate">O accede con:</p>
 
@@ -63,8 +63,9 @@ export default () => {
 
     `
 
-
+    navBar.style.display = 'none'
     return viewLogin
+
 }
 
 

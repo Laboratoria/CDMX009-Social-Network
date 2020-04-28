@@ -1,4 +1,4 @@
-import { components } from '../index.js'
+/* import { components } from '../index.js'
 import { root } from "../main.js";
 // Funcion que cambia la vista
 export const changeView = (route) => {
@@ -12,4 +12,4 @@ export const changeView = (route) => {
             break;
     }
     console.log(route);
-};
+}; */

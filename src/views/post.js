@@ -36,6 +36,7 @@ export function renderPostView() {
     </section>
     
     `
+  navBar.style.display = 'block'
   root.innerHTML = posts
 
 
@@ -155,8 +156,6 @@ function addPostBD(post) {
   docRef.update({
     post: firebase.firestore.FieldValue.arrayUnion(post)
   })
-
-
 }
 
 //Muestra los posts en tiempo real

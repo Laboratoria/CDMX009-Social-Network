@@ -1,7 +1,7 @@
-import { changeView } from './views/viewcontroler.js'
+//import { changeView } from './views/viewcontroler.js'
 import { renderHomeView } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
-import { renderProfileView } from "./views/profile.js"
+import { userObserverProfile } from "./views/profile.js"
 import { renderExitView } from "./views/exit.js"
 import login from "./views/login.js"
 import signIn from "./views/signIn.js"
@@ -12,6 +12,8 @@ import { createUser } from '/index.js'
 import { loginUser } from '/index.js'
 import { signoutUser } from '/index.js'
 
+
+
 // Nodos
 export const root = document.querySelector('#root');
 export const navBar = document.querySelector('#navBar');
@@ -20,29 +22,31 @@ const postButton = document.querySelector('#post');
 const profileButton = document.querySelector('#profile');
 const exitButton = document.querySelector('#exit');
 
+homeButton.addEventListener('click', renderHomeView)
+postButton.addEventListener('click', renderPostView)
+profileButton.addEventListener('click', userObserverProfile)
+exitButton.addEventListener('click', signoutUser)
 // listeners
-homeButton.onclick = renderHomeView;
-postButton.onclick = renderPostView();
-profileButton.onclick = renderProfileView();
+//homeButton.onclick = renderHomeView;
+//postButton.onclick = renderPostView();
+//profileButton.onclick = renderProfileView();
 //loginButton.onclick = renderLoginView();
-exitButton.onclick = renderExitView();
+//exitButton.onclick = renderExitView();
 
 // Función de inicio que cambia la URL
-const init = () => {
+/* const init = () => {
     window.addEventListener('hashchange', () => changeView(window.location.hash))
 }
 window.addEventListener('load', init);
-
-//Boton para mostrar iniciar sesión
-const btnshow = document.querySelector('#showLogin')
-btnshow.addEventListener('click', principalView)
-
+ */
 //Boton para cerrar sesión
-const btnExit = document.querySelector('#goOut')
+/* const btnExit = document.querySelector('#goOut')
 btnExit.addEventListener('click', signoutUser)
+ */
+//Al cargar la pag mostrar vista (una antes de iniciar sesión)
+window.onload = principalView()
 
-//Mostrar vista (una antes de iniciar sesión)
-function principalView() {
+export function principalView() {
     root.innerHTML = principal()
     let goLogin = document.querySelector('#goLogin')
     goLogin.addEventListener('click', viewLogin)
@@ -70,8 +74,6 @@ export function viewLogin() {
         /* console.log(email);
         console.log(password); */
         loginUser(email, password, errorModal)
-
-
     })
     //Ocultar Modaless
     function closeError() {

@@ -1,23 +1,24 @@
 import { root } from "../main.js";
+import { navBar } from "../main.js";
 //import { userObserver } from '/index.js'
 
 const db = firebase.firestore();
 
 export function userObserverProfile() {
   firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      const docRef = db.collection('datausers/').doc(user.uid);
-      docRef.get().then(function (snapshot) {
-        let myData = snapshot.data();
-        console.log(myData);
-        root.innerHTML = renderProfileView(myData)
-        edit()
+    // if (user) {
+    const docRef = db.collection('datausers/').doc(user.uid);
+    docRef.get().then(function (snapshot) {
+      let myData = snapshot.data();
+      console.log(myData);
+      root.innerHTML = renderProfileView(myData)
+      edit()
 
-      })
-    } else {
+    })
+    /* } else {
       // No user is signed in.
       console.log('No user');
-    }
+    } */
 
   });
 
@@ -30,13 +31,13 @@ export function renderProfileView(myData) {
       `
       <button class = "button is-rounded btnIcon" id="editProfile" ><span class="icon is-small"><i class="fas fa-pencil-alt"></i></span></button>
       <h1>Mi perfil</h1>
-      <div id="changeImage"><img src="${myData.photo}"></div>
+      <div id="changeImage"><img id="thisPhoto" src="${myData.photo}"></div>
       <div id="photoProfile"></div>
       <input class = "ocultEditProfile" type="file" accept="image/*" id="file">
     <h1 id="nameProfile">${myData.name}</h1>
     <h1 id="emailProfile">${myData.email}</h1>
-    <div id="interest"></div>
-    <textarea class = "ocultEditProfile" id="interestsProfile" maxlength="200">Intereses</textarea>
+    <div id="interest">${myData.interests}</div>
+    <textarea class = "ocultEditProfile" id="interestsProfile" maxlength="200">${myData.interests}</textarea>
     
     
     <button class = "button is-rounded btnIcon ocultEditProfile" id="saveProfile" >Guardar</button>
@@ -53,6 +54,7 @@ export function renderProfileView(myData) {
     </div>
 </div>
 `
+    navBar.style.display = 'block'
     return profile
   }
 
@@ -74,6 +76,7 @@ function edit() {
   let btnSaveProfile = document.querySelector('#saveProfile')
   btnEditProfile.addEventListener('click', editProfile)
   btnSaveProfile.addEventListener('click', saveProfile)
+  let textareaInterest = document.querySelector('#interestsProfile')
   //console.log(userObserver)
 
 
@@ -88,12 +91,10 @@ function edit() {
 
     //console.log(text.innerHTML)
     btnSaveProfile.classList.add('active');
-    interestsProfile.classList.add('active');
+    textareaInterest.classList.add('active');
     file.classList.add('active')
-
-
   }
-  let url
+
   function readFile(file, photoProfile, prevImage) {
 
 
@@ -110,29 +111,30 @@ function edit() {
         })
         .then(link => {
           prevImage.remove()
-          url = link
+          let url = link
           console.log(url);
           const img = document.createElement('img')
+          img.id = 'newImage'
           img.src = url
           photoProfile.appendChild(img)
-
-
         })
+
+
         .catch(err => {
           alert("Error:", err);
         })
+
     }
-
-
   }
 
 
   function saveProfile() {
+
     let divInterest = document.querySelector('#interest')
     let nameProfile = document.querySelector('#nameProfile')
     let emailProfile = document.querySelector('#emailProfile')
 
-    let textareaInterest = document.querySelector('#interestsProfile')
+    //let textareaInterest = document.querySelector('#interestsProfile')
     let interestsProfile = textareaInterest.value
     divInterest.innerHTML = interestsProfile
 
@@ -149,69 +151,78 @@ function edit() {
       emailProfile.contentEditable = 'false'
     }
 
-    profileUpdate(newNameProfile, newEmailProfile, url)
-    saveProfileBD(interestsProfile)
+    //profileUpdate(newNameProfile, newEmailProfile)
+    saveProfileBD(newNameProfile, newEmailProfile, interestsProfile)
 
   }
-}
-function profileUpdate(newNameProfile, newEmailProfile, url) {
-  var user = firebase.auth().currentUser;
-  //console.log(user);
 
-  user.updateProfile({
-    email: newEmailProfile,
-    displayName: newNameProfile,
-    em: user.email,
-    photoURL: url,
-    uid: user.uid
+  function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile) {
+    let user = firebase.auth().currentUser;
+    let imagProfile = document.querySelector('#newImage')
+    let urlImage
+    if (imagProfile) {
+      urlImage = imagProfile.getAttribute('src')
+      console.log(urlImage);
+      const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+      docRef.update({
+        name: newNameProfile,
+        email: newEmailProfile,
+        interests: interestsProfile,
+        photo: urlImage,
+        //password: newPassword,
+        uid: user.uid
+      })
+        .then(function () {
+          saveChange.classList.add('is-active');
+          console.log(saveChange);
+        })
+        .catch(function (error) {
+          console.log('Hubo en error:', error);
+        })
+    } else {
+      let thisPhoto = document.querySelector('#thisPhoto')
+      urlImage = thisPhoto.getAttribute('src')
+      console.log(urlImage);
+      const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+      docRef.update({
+        name: newNameProfile,
+        email: newEmailProfile,
+        interests: interestsProfile,
+        photo: urlImage,
+        //password: newPassword,
+        uid: user.uid
+      })
+        .then(function () {
+          saveChange.classList.add('is-active');
+          console.log('Se actualizaron datos de perfil');
+        })
+        .catch(function (error) {
+          console.log('Hubo en error:', error);
+        })
 
-  }).then(function () {
-    console.log('los dtos se actualizaron');
-    //saveProfileBD(user)
+    }
 
-    // Update successful.
-  }).catch(function (error) {
-    // An error happened.
-    console.log(error);
-
-  });
-}
-
-function saveProfileBD(interestsProfile) {
-  let user = firebase.auth().currentUser;
-  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-  docRef.update({
-
-    interests: interestsProfile,
-
-  })
-    .then(function () {
-      saveChange.classList.add('is-active');
-      console.log('Los datos se guardaron');
+    /* const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+    docRef.update({
+      name: newNameProfile,
+      email: newEmailProfile,
+      interests: interestsProfile,
+      photo: urlImage,
+      //password: newPassword,
+      uid: user.uid
     })
-    .catch(function (error) {
-      console.log('Hubo en error:', error);
-    })
-}
-/* function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile, url) {
-  let user = firebase.auth().currentUser;
-  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-  docRef.set({
-    name: newNameProfile,
-    email: newEmailProfile,
-    em: user.email,
-    interests: interestsProfile,
-    photo: url,
-    //password: newPassword,
-    uid: user.uid
-  })
-    .then(function () {
-      saveChange.classList.add('is-active');
-      console.log('Los datos se guardaron');
-    })
-    .catch(function (error) {
-      console.log('Hubo en error:', error);
-    })
+      .then(function () {
+        saveChange.classList.add('is-active');
+        console.log(saveChange);
+      })
+      .catch(function (error) {
+        console.log('Hubo en error:', error);
+      }) */
+  }
+
+
 }
 
- */
+
+
+
