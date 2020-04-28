@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
         viewForum(obtainingPersistenceData)
             .then(function() {
                 publicPost();
-                // readPosts();
+                readPosts();
+                
             })
         document.getElementById('hideAndShow').style.display = 'block';
         movilIcon.classList.add('shown');
@@ -250,35 +251,38 @@ function register() {
 
 //traer la informacion del post cuando se le da clic en el boton
 function publicPost() {
+    
     let fileInput = document.getElementById('myNewFile'); //variable para la prueba de subir imagen
     let imageUrl = '';
 
     fileInput.onchange = respuestaCambioImagen => {
-        let file = respuestaCambioImagen.target.files[0]
+        console.log(respuestaCambioImagen)
+       let file = respuestaCambioImagen.target.files[0]
         firebase.storage().ref("devpost").child(file.name).put(file)
             .then(snap => { //¿Donde esta el archivo? En file.name
-                return snap.ref.L() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
+                return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
             })
             .then(link => {
                 imageUrl = link
-                console.log(imageUrl);
                  let img = document.createElement('img');
                  img.src = imageUrl;
+                 document.body.appendChild(img)
                  document.getElementById("picturePerfect").appendChild(img);
             })
 
-    }
-    let publicPost = document.getElementById('publish');
-    publicPost.onclick = function() {
+    } 
+
+    
+     let publicPost = document.getElementById('publish');
+     publicPost.onclick = function() {
         let text = document.getElementById('userCommit'); //variable con id en donde se pintaran los post, textArea
         // traer el texto
         let post = {
-            // ownerId:
             texto: text.value,
-            user: "superman",
+            user: "spiderman",
             date: new Date(),
-            image: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
-        } 
+            img: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+        }
         addNewPost(post)
             .then(function(post) { //esto es la promesa
                 alert('hello') //este es el resultado de la promesa
@@ -290,7 +294,7 @@ function publicPost() {
                 console.log(err) //esto es el error cuando la respuesta es negativa
             })
 
-    }
+    } 
 
 }
 
@@ -343,7 +347,7 @@ function clickMenus(obtainingPersistenceData) {
     })
 }) */
 
-//esta como que si sirve
+//leer coleccion de post
  function readPosts() {     
      let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos     
      postsRef.onSnapshot(snap => {
@@ -361,6 +365,7 @@ function clickMenus(obtainingPersistenceData) {
          })
     });
  }
+
 
 //Obtén todos los documentos de una colección
      db.collection("post").get().then(function(querySnapshot) {
@@ -382,3 +387,16 @@ function clickMenus(obtainingPersistenceData) {
 }).catch(function(error) {
     console.log("Error getting document:", error);
  });
+
+
+ function editPost() {
+     // TODO: Get posts from collection to update on firebase
+
+     // TODO: Edit coment and save it on firebase
+
+     // TODO: render data on screen
+
+     /*necesitan el id
+que llegue como parametro a editPost
+con ese id hacen un doc(id).update({cosaQueCambio:true})*/
+ } 
