@@ -586,8 +586,8 @@ body {
   display: grid;
   -ms-grid-columns: 200px;
       grid-template-columns: 200px;
-  -ms-grid-rows: 190px 200px 190px 25px;
-      grid-template-rows: 190px 200px 190px 25px;
+  -ms-grid-rows: 210px 200px 210px;
+      grid-template-rows: 210px 200px 210px;
   grid-gap: 12px;
   margin-left: 75px;
 }
@@ -631,5 +631,83 @@ body {
 #login a {
   position: relative;
   color: white;
+}
+
+#backgroundProfile {
+  display: block;
+  background-image: url("/imgBichigram/fondo1.jpg");
+  background-size: cover;
+  font-family: Fresca;
+  margin: 0;
+}
+
+.prof1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.prof1 div {
+  margin: 5px 20px;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.prof1 div p {
+  margin: 0px;
+  font-family: fresca;
+  font-size: 24pt;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.prof1 img {
+  margin: 0px 20px;
+  width: 35px;
+  height: auto;
+}
+
+.prof2 {
+  background-color: white;
+}
+
+.prof2 img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.prof2 p {
+  font-family: tajawal;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.prof3 a {
+  margin: 0px;
+}
+
+.prof3 ul {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
+}
+
+.prof3 li {
+  margin: 0px 20px;
+}
+
+.prof3 img {
+  margin: 0px;
+  width: 50px;
+  height: auto;
 }
 /*# sourceMappingURL=style.css.map */

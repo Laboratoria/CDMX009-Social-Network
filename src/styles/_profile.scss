@@ -1,9 +1,26 @@
 #backgroundProfile{
+    display: block;
     background-image: url($background1);
     background-size: cover;
     font-family: Fresca;
     margin: 0;
 }
-nav{
+.prof1{
+    @include top;
+}
+.prof2{
+    background-color: white;
+    img{
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+    }
+    p{
+        font-family: tajawal;
+        font-weight: bold;
+        font-size: 26px;
+    }
+}
+.prof3{
     @include footer;
 }

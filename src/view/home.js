@@ -8,7 +8,7 @@ export default () => {
     <div id= 'gridHome'> 
       <div class = 'h1'>   
         <div><p>Bichigram</p></div>
-        <div><button class="btn" id="logoutBtn"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
+        <div><button class="btn" id="logoutBtn1"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
       </div>
       <div class= 'h2'>
         <div id="posts"> </div>
@@ -63,7 +63,7 @@ export default () => {
 
  
   // logout
-  const logout = divElement.querySelector('#logoutBtn');
+  const logout = divElement.querySelector('#logoutBtn1');
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {

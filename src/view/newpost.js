@@ -13,7 +13,7 @@ export default () => {
     <div id= 'gridPost'>
       <div class = 'p1'>   
         <div><p>Bichigram</p></div>
-        <div><button class="btn" id="logoutBtn"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
+        <div><button class="btn" id="logoutBtn2"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
       </div>
       <div class= 'p2'>
           <form class = "inputForm">
@@ -105,6 +105,16 @@ export default () => {
      counter: 0,
    }).then(console.log(docRef))
    .then(e => changeView('#/home'))
+ });
+
+ // logout
+ const logout = divElement.querySelector('#logoutBtn2');
+ logout.addEventListener('click', (e) => {
+   e.preventDefault();
+   auth.signOut().then(() => {
+     changeView('#/login');
+     alert('Come back soon!');
+   });
  });
 
  return divElement;
