@@ -15,7 +15,7 @@ export const router = (route) =>{
       case 'content':
         console.log('Entre a la vista de contenido');
         // let nameSheet = 'signinStyle.css';
-        appendStyleSheet('contentUser.css');
+        appendStyleSheet('contentStyle.css');
         renderContent();
          break;
        case 'profil':
