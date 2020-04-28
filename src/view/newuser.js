@@ -32,90 +32,85 @@ export default () => {
     </div>
   </div>`
     
-  //nodes Render
-  const divElement = document.createElement('div')
-  divElement.innerHTML = viewNewUser
-
-  //Nodes from DOM elements 
-  let div= divElement.querySelector('#imgContainer')
-  const image = divElement.querySelector('#img')
-  const username = divElement.querySelector("#signupUser")
-  const emailText = divElement.querySelector('#signupEmail')
-  const passwordText = divElement.querySelector('#signupPassword')
-  const signupBtn = divElement.querySelector('#signup')
-  const fbBtn = divElement.querySelector(".fb")
-  const gBtn = divElement.querySelector(".google")
-
-  //profile img
-  image.addEventListener('change', e => {
-   let file = e.target.files[0]
-      console.log(file)
-   
-   let x =firebase.storage().ref("profilePics").child(file.name).put(file)
-        .then(snap => {
-            return snap.ref.getDownloadURL()        
-        })
-        
-        .then(function(url){
-          let img = divElement.querySelector('#myimg')
-          //let img = document.getElementById('myimg');
-          img.src = url
-          //div.style.backgroundImage = url
-          console.log(url)
-        })
-       
-     
-    console.log(x)
-     
-  } )
-  
+   //  render nodes
+   const divElement = document.createElement('div')
+   divElement.innerHTML = viewNewUser
  
-  
-  //signup with Email
-  signupBtn.addEventListener('click', e =>{
-    e.preventDefault();
-    const email = emailText.value;
-    const pass = passwordText.value;
-    const auth = firebase.auth()
-  
-  const promise = auth.createUserWithEmailAndPassword(email, pass)
-  promise.then(data => {
-    let photo = url.value
-    let name = username.value;
-    data.user.updateProfile({
-      displayName : name,
-      photoURL : photo
-    })
-    console.log(promise)
-  })
-  promise.then (e=> changeView('#/login'))
-  })
-  
-  //facebook sign up
-  fbBtn.addEventListener('click', () =>{
-
-    const auth = firebase.auth()
-    const provider = new firebase.auth.FacebookAuthProvider();
-    const promise = auth.signInWithPopup(provider)
+   //  firebase 
+   const storage = firebase.storage();
+   const db = firebase.firestore();
+   const auth = firebase.auth(); 
+   let user = auth.currentUser; 
+ 
+   //Nodes from DOM elements 
+   let div= divElement.querySelector('#imgContainer');
+   const image = divElement.querySelector('#img');
+   const usernameText = divElement.querySelector("#signupUser");
+   const emailText = divElement.querySelector('#signupEmail');
+   const passwordText = divElement.querySelector('#signupPassword');
+   const signupBtn = divElement.querySelector('#signup');
+   const fbBtn = divElement.querySelector(".fb");
+   const gBtn = divElement.querySelector(".google");
+   let url; 
+ 
+   //profile img
+   image.addEventListener('change', e => {
+    let file = e.target.files[0]
+       console.log(file)
     
-    promise.then(e => changeView('#/home'))
-    promise.catch(error =>{
-      alert("no salió :(");
-      console.log(error)
-    })
+    let x =firebase.storage().ref("profilePics").child(file.name).put(file)
+         .then(snap => {
+             return snap.ref.getDownloadURL()        
+         })
+         
+         .then(function(link){
+           url = link;
+           let img = divElement.querySelector('#myimg');
+           img.src = link;
+           console.log(url)
+         })
+     console.log(x)  
+   })
+   
+   //signup with Email
+   signupBtn.addEventListener('click', e =>{
+     e.preventDefault();
+     const email = emailText.value;
+     const pass = passwordText.value;
+     const username = usernameText.value; 
+ 
+     auth.createUserWithEmailAndPassword(email, pass).then(snap =>{
+       snap.user.updateProfile({
+         displayName: username,
+         photoURL: url
+       })
+     }).then( () => changeView('#/home'))
+   })
+   
+   //facebook sign up
+   fbBtn.addEventListener('click', () =>{
+     const auth = firebase.auth()
+     const provider = new firebase.auth.FacebookAuthProvider();
+     const promise = auth.signInWithPopup(provider)
+     
+     promise.then(e => changeView('#/home'))
+     promise.catch(error =>{
+       alert("no salió :(");
+       console.log(error)
+     })
+   })
+ 
+   //google sign up
+  gBtn.addEventListener('click', () =>{
+     const auth = firebase.auth()
+     const provider = new firebase.auth.GoogleAuthProvider();
+     const promise = auth.signInWithPopup(provider)
+     
+     promise.then(e => changeView('#/home'))
+     promise.catch(error =>{
+       alert("no salió :(");
+       console.log(error)
+     })
   })
-
-  //google sign up
- gBtn.addEventListener('click', () =>{
-    const auth = firebase.auth()
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const promise = auth.signInWithPopup(provider)
-
-    promise.then(e => changeView('#/home'))
-    promise.catch(error =>{
-      alert("no salió :(");
-      console.log(error)
-    })
- })
-  return divElement
-}
+   return divElement
+ }

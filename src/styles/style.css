@@ -278,7 +278,13 @@
   display: flex;
 }
 
-.p1 p {
+.p1 div {
+  margin: 5px 20px;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.p1 div p {
   margin: 0px;
   font-family: fresca;
   font-size: 24pt;
@@ -289,12 +295,28 @@
 }
 
 .p1 img {
+  margin: 0px 20px;
   width: 35px;
   height: auto;
 }
 
 .p2 {
   background-color: white;
+}
+
+.p2 form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .p2 p {
@@ -311,13 +333,13 @@
   position: relative;
   border-radius: 15px;
   background-color: palevioletred;
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
 }
 
 .p2 #postPhoto input {
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
   opacity: 0;
 }
 
@@ -325,6 +347,13 @@
   position: relative;
   border-radius: 15px;
   z-index: 1;
+}
+
+.p2 #postPhoto img {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 15px;
 }
 
 .p2 .btn {
@@ -340,6 +369,16 @@
 .p2 .btn a {
   position: relative;
   color: white;
+}
+
+.p2 #registerDescription {
+  width: 350px;
+  height: auto;
+}
+
+.p2 #registerLocation {
+  width: 350px;
+  height: auto;
 }
 
 .p3 {
@@ -396,7 +435,13 @@
   display: flex;
 }
 
-.h1 p {
+.h1 div {
+  margin: 5px 20px;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.h1 div p {
   margin: 0px;
   font-family: fresca;
   font-size: 24pt;
@@ -407,6 +452,7 @@
 }
 
 .h1 img {
+  margin: 0px 20px;
   width: 35px;
   height: auto;
 }
@@ -414,6 +460,84 @@
 .h2 {
   background-color: white;
   overflow: scroll;
+}
+
+.h2 .lilGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px 1fr 1fr;
+      grid-template-columns: 50px 1fr 1fr;
+  -ms-grid-rows: 25px 25px;
+      grid-template-rows: 25px 25px;
+}
+
+.h2 .g1 {
+  margin: 5px;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.h2 .g1 img {
+  border-radius: 50%;
+}
+
+.h2 .g2 {
+  margin: 0;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.h2 .g2 p {
+  font-family: tajawal;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-margin-before: 10px;
+          margin-block-start: 10px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+
+.h2 .g3 {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.h2 .g3 p {
+  font-family: tajawal;
+  font-size: 11px;
+  -webkit-margin-before: 5px;
+          margin-block-start: 5px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+
+.h2 .description {
+  margin-left: 5px;
+}
+
+.h2 .description p {
+  font-family: tajawal;
+  font-size: 12pt;
+  -webkit-margin-before: 3px;
+          margin-block-start: 3px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+
+.h2 .location {
+  margin-left: 5px;
+}
+
+.h2 .location p {
+  font-family: tajawal;
+  font-size: 10pt;
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
 }
 
 .h3 {

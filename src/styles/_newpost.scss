@@ -16,6 +16,12 @@
 }
 .p2{
     background-color: white;
+    form{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+    }
     p{  position: absolute;
         @include text;
     }
@@ -23,11 +29,11 @@
         position: relative;
         border-radius: 15px;
         background-color: palevioletred;
-        width: 300px;
-        height: 300px;
+        width: 360px;
+        height: 360px;
         input{
-            width: 300px;
-            height: 300px;
+            width: 360px;
+            height: 360px;
             opacity: 0;
         }
         #here{
@@ -37,10 +43,24 @@
             border-radius: 15px;
             z-index: 1;
         }
+        img{
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 15px;
+        }
     }
     .btn{
         @include btn;
         color: white;
+    }
+    #registerDescription{
+        width: 350px;
+        height: auto;
+    }
+    #registerLocation{
+        width: 350px;
+        height: auto;
     }
 }
 .p3{

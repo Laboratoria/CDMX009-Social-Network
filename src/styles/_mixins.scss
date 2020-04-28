@@ -51,13 +51,22 @@
 }
 @mixin top {
     display: flex;
-    p{
-        @include logobaby;
+    div{
+        margin: 5px 20px;
+        align-content: space-between;
+        p{
+            
+            @include logobaby;
+        }
+    
     }
-    img{
-        width: 35px;
-        height: auto;
-    }
+    img{    
+            margin: 0px 20px;
+            width: 35px;
+            height: auto;
+        }
+    
+    
     
 }
 @mixin footer{ 

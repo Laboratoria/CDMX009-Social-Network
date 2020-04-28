@@ -1,0 +1,9 @@
+#backgroundProfile{
+    background-image: url($background1);
+    background-size: cover;
+    font-family: Fresca;
+    margin: 0;
+}
+nav{
+    @include footer;
+}

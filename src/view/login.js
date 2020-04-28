@@ -37,11 +37,8 @@ export default () => {
   const emailText = divElement.querySelector('#emailText');
   const passwordText = divElement.querySelector('#passwordText');
   const loginBtn = divElement.querySelector('#loginBtn');
-
-  // function removeFooter() {
-  //   footer.classList.toggle('no-footer');
-  // }
-  // window.addEventListener('load', removeFooter());
+  const fbBtn = divElement.querySelector(".fb");
+  const gBtn = divElement.querySelector(".google");
 
   //  login event
   loginBtn.addEventListener('click', () => {
@@ -63,6 +60,32 @@ export default () => {
     promise.then(() => changeView('#/home'));
     promise.catch(err => (err));
   });
+  
+  //facebook sign up
+  fbBtn.addEventListener('click', () =>{
+    const auth = firebase.auth()
+    const provider = new firebase.auth.FacebookAuthProvider();
+    const promise = auth.signInWithPopup(provider)
+    
+    promise.then(e => changeView('#/home'))
+    promise.catch(error =>{
+      alert("no salió :(");
+      console.log(error)
+    })
+  })
+
+  //google sign up
+ gBtn.addEventListener('click', () =>{
+    const auth = firebase.auth()
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const promise = auth.signInWithPopup(provider)
+    
+    promise.then(e => changeView('#/home'))
+    promise.catch(error =>{
+      alert("no salió :(");
+      console.log(error)
+    })
+ })
 
   return divElement;
 }

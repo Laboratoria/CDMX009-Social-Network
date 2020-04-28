@@ -2,13 +2,13 @@
 import { changeView } from '../view-controler/router.js';
 let welcomeview= document.querySelector('#background1')
 export default () => {
-  welcomeview.innerHTML= " ";
+  welcomeview.innerHTML= '';
   const viewHome = `
   <div id=backgroundHome>
     <div id= 'gridHome'> 
       <div class = 'h1'>   
-        <p>Bichigram</p>
-        <button class="btn" id="logoutBtn"> <img class="icon" src='/imgBichigram/logout.png'> </button>
+        <div><p>Bichigram</p></div>
+        <div><button class="btn" id="logoutBtn"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
       </div>
       <div class= 'h2'>
         <div id="posts"> </div>
@@ -17,13 +17,13 @@ export default () => {
         <nav>
           <ul>
               <li class="home">
-                  <a  href="#/home"><img src='/imgBichigram/btnHome.png'></a>
+                  <a  href="#/home"><img src='./imgBichigram/btnHome.png'></a>
               </li>
               <li class ="newpost">
-                  <a  href="#/newpost"> <img src='/imgBichigram/btnShare.png'> </a>
+                  <a  href="#/newpost"> <img src='./imgBichigram/btnShare.png'> </a>
               </li>
               <li class='profile' >
-                  <a href="#/profile"> <img src='/imgBichigram/btnProf.png'> </a>
+                  <a href="#/profile"> <img src='./imgBichigram/btnProf.png'> </a>
               </li>
         </ul>
         </nav>
@@ -39,21 +39,21 @@ export default () => {
   const postsRef = db.collection('posts');
   const auth = firebase.auth();
 
-  //  checking user status
-  // auth.onAuthStateChanged(user => {
-  //   console.log(user)
-  // })
-
   // calling the docs and adding to the html
   postsRef.onSnapshot((snap) => {
     const p = document.querySelector('#posts');
     p.innerHTML = '';
     snap.forEach((doc) => {
       const div = `<div>
-            <p>${doc.data().date}</p>
-            <img width="200" src="${doc.data().postimg}" />
-            <p>${doc.data().description}</p>
-            <p>${doc.data().location}</p>
+            <div class='lilGrid'>
+              <div class= 'g1'><img width="40px" src="${doc.data().userphoto}" /></div>
+              <div class= 'g2'><p>${doc.data().user}</p> </div>
+              <div class= 'g3'><p>${doc.data().date.toDate()}</p> </div>
+            </div>
+            <div class='description'><p>${doc.data().description}</p></div>
+            <div class='location'><p>${doc.data().location}</p></div>
+            <div class='imagePost'><img width="360px" src="${doc.data().postimg}" /></div>
+            <button id='likes'>${doc.data().counter}</button>
         </div>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
@@ -61,6 +61,7 @@ export default () => {
     });
   });
 
+ 
   // logout
   const logout = divElement.querySelector('#logoutBtn');
   logout.addEventListener('click', (e) => {
