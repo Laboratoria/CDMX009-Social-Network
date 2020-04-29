@@ -11,7 +11,9 @@ function send() {
   let saveEmail= document.querySelector('#email').value;
   let savePassword= document.querySelector('#password').value;
   let savePassword2= document.querySelector('#password2').value;
-
+  let saveDescription= document.querySelector('#description').value;
+  let savePhoto= document.querySelector('#photo').value;
+  let saveDate = new Date; 
   // Validar datos
   if(saveName == null || saveName == '' || saveName == undefined ){
     msgError ="Completa el campo name";
@@ -31,8 +33,7 @@ function send() {
   }
 
   if(msgError == null) {
-    let usuario = new User(saveName,saveLastName,saveEmail,savePassword);
-    //(name,lastName,email,photo,description,date,password,uid)
+    let usuario = new User(saveName,saveLastName,saveEmail,savePassword,saveDescription,saveDate,savePhoto);
 
     registerAuthentication(usuario);
     // Enviar correo de confirmacion
@@ -52,6 +53,8 @@ export const renderSignin = () => {
       <input type="email" id="email" class="input" placeholder="Email">
       <input type="password" id="password" class="input" placeholder="Password">
       <input type="password" id="password2" class="input" placeholder="Confirm password">
+      <input type="hidden" id="description" value="">
+      <input type="hidden" id="photo" value="">
       <span id="errorMsg"> Hay un error, verifica tus datos.</span>
       <input type="button" id="send" class="button" value="Sign in">
       <p>¿Ya tienes una cuenta? <u id="loginLink">Inicia sesión</u></p>
@@ -70,7 +73,6 @@ export const renderSignin = () => {
 } 
 
 function registerAuthentication(usuario) {
-  console.log(usuario.password);
   firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
   .then(function(data){
     registerUser(usuario, data);
@@ -95,7 +97,11 @@ function registerUser (usuario, data) {
     "name": usuario.name,
     "lastName": usuario.lastName,
     "email": usuario.email,
-    "uid":data.user.uid,
+    "password": usuario.password,
+    "description": usuario.description,
+    "date": usuario.date,  
+    "photo": usuario.photo,
+    "uid":data.user.uid
   })
   /*
   dataBase.collection("users").add({
@@ -124,7 +130,6 @@ function sentEmailConfirmation() {
 }
 
 /*
-
 function outlogin() {
   firebase.auth().signOut().then(function(){
       console.log("Deslogiado");
@@ -132,7 +137,6 @@ function outlogin() {
       console.log("Error"+error);
   })
 }
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // var displayName = user.displayName;
@@ -146,9 +150,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if(!user.emailVerified){
       // outlogin();
     }
-
   } else {
-
   }
 });
 */

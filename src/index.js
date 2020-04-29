@@ -1,6 +1,6 @@
 import  login  from './login.js';
 import {renderSignin} from './signin.js';
-import {profil} from './createPost.js';
+import {profile} from './createPost.js';
 
 const appendStyleSheet = (nameSheet) => {
   let link = document.querySelector('[title="styleSheet"]');
@@ -12,9 +12,9 @@ const appendStyleSheet = (nameSheet) => {
 export const router = (route) =>{
     // console.log(route)
     switch(route){
-       case 'profil':
+       case 'profile':
          appendStyleSheet('profileStyle.css');
-         profil();
+         profile();
          break;
        case 'signin':
          console.log('Entre a la vista de registro');
@@ -30,29 +30,12 @@ export const router = (route) =>{
     }
 }
 
-const userStatus = () => {
+export const userStatus = () => {
   
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("Activo");
-        router('profil');
-        // User is signed in.
-        /*
-        var displayName = user.displayName;
-        console.log('displayName: ' + displayName);
-        var email = user.email;
-        console.log('email: ' + email);
-        var emailVerified = user.emailVerified;
-        console.log('emailVerified: ' + emailVerified);
-        var photoURL = user.photoURL;
-        console.log('photoURL: ' + photoURL);
-        var isAnonymous = user.isAnonymous;
-        console.log('isAnonymous: ' + isAnonymous);
-        var uid = user.uid;
-        console.log('uid: ' + uid);
-        var providerData = user.providerData;
-        console.log('providerData: ' + providerData);
-        */
+        router('profile');
       } else {
         console.log("Inactivo");
         router();

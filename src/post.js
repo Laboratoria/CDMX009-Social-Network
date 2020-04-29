@@ -2,19 +2,19 @@ export default class Post {
     
     text
     imageLink
+    imageId
     privacy
     //location
-    likes
-    uid
     date
-    
-    constructor(text,imageLink,privacy,likes,uid,date){
+    uid
+
+    constructor(text,imageLink,imageId,privacy,date,uid){
         this.text = text;
         this.imageLink = imageLink;
+        this.imageId = imageId;
         this.privacy = privacy;
         //this.location = location;
-        this.likes = likes;
-        this.uid = uid;
         this.date = date;
+        this.uid = uid;
     }
 }

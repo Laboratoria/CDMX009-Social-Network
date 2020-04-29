@@ -137,11 +137,35 @@ input[type=button]:hover{
   #imagesContainer{
     padding: 0;
     margin: 0em 1em;
+    margin:auto;
     text-align: center;
+    position: relative;
+    width:200px;
+    
   }
   
   .imgPost{
     width:200px;
+    
+  }
+
+  .remove-img {
+    width: 28px;
+    color: #01587A;
+    position: absolute;
+    top: -0.3em;
+    right: -0.3em;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgba(252, 250, 244, 0.5);
+  }
+  
+  .remove-img:hover,
+  .remove-img:focus {
+    color: #FAF7EE;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   
