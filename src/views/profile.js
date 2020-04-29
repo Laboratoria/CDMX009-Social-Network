@@ -28,21 +28,23 @@ export function renderProfileView(myData) {
   //console.log(myData);
   if (myData) {
     const profile =
-      `
+       `
       <button class = "button is-rounded btnIcon" id="editProfile" ><span class="icon is-small"><i class="fas fa-pencil-alt"></i></span></button>
-      <h1>Mi perfil</h1>
+      <h1 class="title has-text-centered has-text-grey-lighter title is-5">Mi perfil</h1>
       <figure class='image container is-128x128'>
       <div id="changeImage"><img id="thisPhoto" src="${myData.photo}" class="is-rounded"></div>
       </figure>
       <div id="photoProfile"></div>
       <input class = "ocultEditProfile" type="file" accept="image/*" id="file">
-      <h1 class="title has-text-centered has-text-grey-lighter title is-5" id="nameProfile">
+      <h1 class="title has-text-centered has-text-grey-lighter title is-7" id="nameProfile">
       ${myData.name}
  </h1>
- <h2 class="title has-text-centered has-text-grey-lighter title is-6" id="emailProfile">
+ <h2 class="title has-text-centered has-text-grey-lighter title is-4" id="emailProfile">
       ${myData.email}
  </h2>
     <div id="interest">${myData.interests}</div>
+    <textarea  class = "ocultEditProfile" id="interestsProfile" maxlength="200">${myData.interests}</textarea>
+    
     <textarea class = "ocultEditProfile" id="interestsProfile" maxlength="200">${myData.interests}</textarea>
     
     
