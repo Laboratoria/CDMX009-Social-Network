@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
         clickMenus(obtainingPersistenceData);
         viewForum(obtainingPersistenceData)
             .then(function() {
-                publicPost();
+                publicPost(obtainingPersistenceData);
                 readPosts();
-                
+
             })
         document.getElementById('hideAndShow').style.display = 'block';
         movilIcon.classList.add('shown');
@@ -85,7 +85,7 @@ function loginPageOne() {
             clickMenus(data.user);
             viewForum(data.user)
                 .then(function() {
-                    publicPost();
+                    publicPost(data.user);
                     readPosts();
                 })
                 .then(function() {
@@ -250,38 +250,38 @@ function register() {
 /*************** FUNCIONALIDAD DE POSTS***************/
 
 //traer la informacion del post cuando se le da clic en el boton
-function publicPost() {
-    
+function publicPost(user) {
+    console.log(user)
     let fileInput = document.getElementById('myNewFile'); //variable para la prueba de subir imagen
     let imageUrl = '';
-
     fileInput.onchange = respuestaCambioImagen => {
+        console.log(respuestaCambioImagen);
         console.log(respuestaCambioImagen)
-       let file = respuestaCambioImagen.target.files[0]
+        let file = respuestaCambioImagen.target.files[0]
         firebase.storage().ref("devpost").child(file.name).put(file)
             .then(snap => { //¿Donde esta el archivo? En file.name
                 return snap.ref.getDownloadURL() //conseguir el link de la imagen. Retornas la promesa y concatenas el otro then
             })
             .then(link => {
                 imageUrl = link
-                 let img = document.createElement('img');
-                 img.src = imageUrl;
-                 document.body.appendChild(img)
-                 document.getElementById("picturePerfect").appendChild(img);
+                let img = document.createElement('img');
+                img.src = imageUrl;
+                document.body.appendChild(img)
+                document.getElementById("showComment").appendChild(img); //aquí va  el preview de mi imagen antes de dar click en publicar
             })
+    }
 
-    } 
-
-    
-     let publicPost = document.getElementById('publish');
-     publicPost.onclick = function() {
+    let publicPost = document.getElementById('publish');
+    publicPost.onclick = function() {
         let text = document.getElementById('userCommit'); //variable con id en donde se pintaran los post, textArea
         // traer el texto
         let post = {
             texto: text.value,
-            user: "spiderman",
+            user: user.displayName,
             date: new Date(),
-            img: imageUrl //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+            img: imageUrl, //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
+            mail: user.email,
+            photo: user.photoURL
         }
         addNewPost(post)
             .then(function(post) { //esto es la promesa
@@ -294,16 +294,74 @@ function publicPost() {
                 console.log(err) //esto es el error cuando la respuesta es negativa
             })
 
-    } 
+    }
 
 }
 
 //pasar a la funcion el objeto que se encuentra en la base de datos de firebase
 function addNewPost(post) {
-    let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
+    console.log(post)
+    let postsRef = db.collection('probando render 2') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos
     return postsRef.add(post);
 }
 
+//leer coleccion de post
+function readPosts() {
+    var EmailCortado = 'No hay email';
+    let postsRef = db.collection('probando render 2') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos     
+    postsRef.orderBy('date', 'desc').onSnapshot(snap => {
+        let publishPust = document.querySelector('#showComment')
+        publishPust.innerHTML = ''
+        snap.forEach(doc => {
+
+            if (typeof doc.data().mail != 'undefined') {
+                var email = doc.data().mail;
+                var divisiones = email.split("@");
+                EmailCortado = divisiones[0];
+            }
+            var nombre = doc.data().user ? doc.data().user : EmailCortado;
+            var image = doc.data().photo ? doc.data().photo : "images/profile-picture-green.jpg";
+
+            let div = `<div>
+                            <div class="informationBox">
+
+                                <div class="chip boxStyle">
+                                    <img src="${image}" alt="Contact Person">
+                                    <p>${nombre}</p>
+                                </div>
+                                <i class="fas fa-globe-americas world"></i>
+                                <i class="material-icons center points">more_vert</i>
+                            </div>
+
+                            <div class="comentsAndLikes">
+                            <img width="200" src="${doc.data().img}"/>
+                                 <p class="coments">${doc.data().texto}</p>
+                            </div>
+
+                            <div class="punchButtons comentsAndLikes">
+                                 <div class="likeButton"> <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
+                                <span class="likeCounter">5</span>
+                            </div>
+                            <div class="commentButton"><a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
+                                <span class="commentCounter">2</span>
+                            </div>
+                             </div>
+                        </div>`
+            let nodo = document.createElement('div')
+            nodo.innerHTML = div
+            publishPust.appendChild(nodo);
+
+        })
+    });
+}
+
+
+{
+    /* <div>
+        <img width="200" src="${doc.data().img}"/>
+        <p>${doc.data().texto}</p>
+    </div> */
+}
 
 function clickMenus(obtainingPersistenceData) {
     var nameMenus = document.querySelectorAll('ul.clickMenu li a'); //Dentro de mi variable voy a meterme dentro del a que es donde tengo c.u de los nombres de mi navbar
@@ -330,73 +388,42 @@ function clickMenus(obtainingPersistenceData) {
     });
 }
 
-//funciones de vero para practicar
-//leer la coleccion de post
-/*postsRef.onSnapshot(snap => {
-    let p = document.querySelector('#posts')
-    p.innerHTML = ''
-    snap.forEach(doc => {
-        let div = `<div>
-            <img src="${doc.data().foto}" /> // doc.data xq ahi esta la data
-            <p>${doc.data().texto}</p>
-        </div>`
-        let nodo = document.createElement('div')
-        nodo.innerHTML = div
-        p.appendChild(nodo)
-
-    })
-}) */
-
-//leer coleccion de post
- function readPosts() {     
-     let postsRef = db.collection('post') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos     
-     postsRef.onSnapshot(snap => {
-        let publishPust = document.querySelector('#showComment')
-        publishPust.innerHTML = ''
-         snap.forEach(doc => {
-             let div = `<div>
-             <img width="200" src="${doc.data().img}" />
-             <p>${doc.data().texto}</p>
-            </div>`
-             let nodo = document.createElement('div')
-             nodo.innerHTML = div
-             publishPust.appendChild(nodo);
-
-         })
-    });
- }
 
 
-//Obtén todos los documentos de una colección
-     db.collection("post").get().then(function(querySnapshot) {
-     querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-    });
-  });
-
-//Obtén un documento
- let docRef = db.collection("post").doc("fna7W1xk1Xq2xT03FtRG");
- docRef.get().then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
- });
 
 
- function editPost() {
-     // TODO: Get posts from collection to update on firebase
 
-     // TODO: Edit coment and save it on firebase
 
-     // TODO: render data on screen
 
-     /*necesitan el id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function editPost() {
+// TODO: Get posts from collection to update on firebase
+
+// TODO: Edit coment and save it on firebase
+
+// TODO: render data on screen
+
+/*necesitan el id
 que llegue como parametro a editPost
 con ese id hacen un doc(id).update({cosaQueCambio:true})*/
- } 
+//}

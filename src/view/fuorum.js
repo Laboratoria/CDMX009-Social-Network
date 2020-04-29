@@ -30,7 +30,7 @@ function viewForum(user) {
                 </div>
             </div>
         </section>
-        <div id="showComment"></div>
+       
         <div>
             <p>
                 <textarea id="userCommit" class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
@@ -42,76 +42,8 @@ function viewForum(user) {
                 <button id="publish" class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2" ><i class="material-icons right">computer</i>Publicar</button>
             </div>
         </div>
-        <div>
-            <div class="informationBox">
 
-                <div class="chip boxStyle">
-                    <img src="${image}" alt="Contact Person">
-                    <p>usuario 1</p>
-                </div>
-                <i class="fas fa-globe-americas world"></i>
-                <i class="material-icons center points">more_vert</i>
-            </div>
-
-            <div class="comentsAndLikes">
-            <p id="comentsForum"></p>
-                <div id="picturePerfect" class="stylePicturePerfect"></div>
-            </div>
-            <div class="punchButtons comentsAndLikes">
-                <div class="likeButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                    <span class="likeCounter">5</span>
-                </div>
-                <div class="commentButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                    <span class="commentCounter">2</span>
-                </div>
-            </div>
-        </div>
-        <form>
-            <p>
-                <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
-            </p>
-            <div class="right-align">
-                         <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
-                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
-            </div>
-        </form>
-         <div class="informationBox">
-
-                <div class="chip boxStyle">
-                    <img src="${image}" alt="Contact Person">
-                    <p>usuario 2</p>
-                </div>
-                <i class="fas fa-globe-americas world"></i>
-                <i class="material-icons center points">more_vert</i>
-            </div>
-
-            <div class="comentsAndLikes">
-                <p class="coments">¿Comunidad, cómo le hago para enrutar con Javascript?</p>
-            </div>
-            <div class="punchButtons comentsAndLikes">
-                <div class="likeButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                    <span class="likeCounter">5</span>
-                </div>
-                <div class="commentButton">
-                    <a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                    <span class="commentCounter">2</span>
-                </div>
-            </div>
-        </div>
-        <form>
-            <p>
-                <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
-            </p>
-            <div class="right-align">
-                          <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
-                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
-                <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
-            </div>
-        </form>
+         <div id="showComment"></div>   
     </div>`
         root.innerHTML = forumView;
         resolve();
