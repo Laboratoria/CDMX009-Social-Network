@@ -248,22 +248,19 @@ function userObserver() {
     });
 
 }
-userObserver()
 
+userObserver()
 //Actualización de perfil
 /* function profileUpdate(user) {
     //var user = firebase.auth().currentUser;
-
     user.updateProfile({
         displayName: "Lizeth",
         photoURL: ""
     }).then(function () {
         console.log('los dtos se actualizaron');
-
         // Update successful.
     }).catch(function (error) {
         // An error happened.
         console.log(error);
-
     });
 } */
