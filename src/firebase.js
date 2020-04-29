@@ -56,13 +56,13 @@ function loginGoogle() {
 // Log out
 const logoutBtn = document.querySelector('#logout');
 logoutBtn.onclick = function logOut() {
-firebase.auth().signOut().then(() => {
-window.open('#/login', '_self');
-// Sign-out successful.
-}).catch((error) => {
-alert('Ha ocurrido un error', error);
-});
-}; 
+  firebase.auth().signOut().then(() => {
+    window.open('#/login', '_self');
+    // Sign-out successful.
+  }).catch((error) => {
+    alert('Ha ocurrido un error', error);
+  });
+};
 
 // Observator
 function observatorFirebase() {
@@ -93,7 +93,7 @@ const st = firebase.storage();
 let collectionPost = db.collection('newPosts');
 
 // Nodes
-const savePost = document.querySelector('#savePost');
+let savePost = document.querySelector('#savePost');
 let url;
 let day;
 let post;
@@ -108,6 +108,7 @@ const timeSnap = () => {
 
 // Add users
 savePost.onclick = () => {
+
   timeSnap();
   const title = document.querySelector('#recipientTitle').value;
   const activity = document.querySelector('#recipientActivity').value;
@@ -164,7 +165,6 @@ const render = () => {
       console.log(`${doc.id} => ${doc.data().title}`);
       post.innerHTML
         += `   
-            <div class="container">
               <div class="card-post-container">
                 <div class="card-post">
                   <div id="postImg" class="img-post">
@@ -178,7 +178,7 @@ const render = () => {
                     <div class="header-post">
                       <h4 id="titlePost">${doc.data().title}</h4>
                       <span class="edit-delete-icons">
-                        <i class="fas fa-pencil-alt js-edit" id="${doc.id}, ${doc.data().title}, ${doc.data().activity}, ${doc.data().location}, ${doc.data().description}"></i>
+                        <i class="fas fa-pencil-alt js-edit" id="${doc.id}" data-title="${doc.data().title}" data-activity="${doc.data().activity}" data-location="${doc.data().location}" data-description="${doc.data().description}"></i>
                         <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
                       </span>
                     </div>
@@ -199,7 +199,7 @@ const render = () => {
                   </div> 
                 </div>
               </div>
-            </div>     
+               
             `;
       const deletebutton = document.querySelectorAll('.js-delete');
       const deletePost = (e) => {
@@ -218,20 +218,63 @@ const render = () => {
 
       const btnEdit = document.querySelectorAll('.js-edit');
 
-      const actionEdit = (e, title, activity, location, description) => db.collection('newPosts')
-        .doc(e.target.id)
-        .update({
-          title,
-          activity,
-          location,
-          description,
-        })
-        .then(() => {
-          console.log('Document successfully written!');
-        })
-        .catch((error) => {
-          console.error('Error writing document: ', error);
-        });
+      const actionEdit = (e) => {
+        let modal = document.querySelector('#exampleModal')
+        modal.classList.toggle("show") // deberiamos rellenarlo con la data actual del doc
+        modal.style = "display:inherit;"
+        // 1.- tomamos los input, los rellenamos (TENEMOS QUE CONSUMIR FIREBASE PARA TRAER LA DATA) (SI EL LAPICITO TUVIERA EL TITLE Y LA D. PODRIAMOS USARLOS)
+        let titleInput = document.querySelector('#recipientTitle');
+        titleInput.value = e.target.getAttribute('data-title');
+        let activityInput = document.querySelector('#recipientActivity');
+        activityInput.value = e.target.getAttribute('data-activity');
+        let locationInput = document.querySelector('#recipientLocation');
+        locationInput.value = e.target.getAttribute('data-location');
+        let descriptionInput = document.querySelector('#recipientDescription');
+        descriptionInput.value = e.target.getAttribute('data-description');
+        // como es mismo modal, y queremos diferente accion, necesitamos 2 botones y ocultar el primero
+
+        let id = e.target.id
+        let btnSaveEdit = document.querySelector('#savePost')
+        //btn1.removeEventListener('click') // mejor que quitarlo // cuando terminemos lo recolocamos
+        btnSaveEdit.onclick = e => {
+          let title = document.querySelector('#recipientTitle').value
+          let activity = document.querySelector('#recipientActivity').value
+          let location = document.querySelector('#recipientLocation').value
+          let description = document.querySelector('#recipientDescription').value
+
+          console.log(title)
+          console.log(id)
+          // return
+          db.collection('newPosts')
+            .doc(id)
+            .update({
+              title,
+              activity,
+              location,
+              description
+            })
+            .then(() => {
+              console.log('Document successfully written!');
+              modal.style = "display: none"; // esto no debemos solo quitar show y poner style none
+              // REcolocar el listener del boton (click) con el callback original (publicar)
+              btnEdit.innerHTML = 'Guardar';
+              titleInput.value = '';
+              activityInput.value = '';
+              locationInput.value = '';
+              descriptionInput.value = '';
+            })
+            .catch((error) => {
+              console.error('Error writing document: ', error);
+            });
+        }
+
+        let closeModal = document.querySelector('#modalClose');
+        const actionClose = () => {
+          let modal = document.querySelector('#exampleModal')
+          modal.style = 'display:none'
+        }
+        closeModal.addEventListener('click', actionClose);
+      }
       btnEdit.forEach(actionUpdate => actionUpdate.addEventListener('click', actionEdit));
     });
   });
