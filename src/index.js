@@ -3,6 +3,7 @@ import { viewRegister } from './view/register.js';
 import { viewForum } from './view/fuorum.js';
 import { editionOfProfile } from './view/editprofile.js';
 import { viewProfile } from './view/profile.js';
+import { buildComent } from './view/coment.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     var obtainingPersistenceData = JSON.parse(localStorage.getItem('userdata')); //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
@@ -202,6 +203,48 @@ function out() {
                 .then(function() {
                     localStorage.setItem('userdata', null); //aquí le digo que guarde como un json formateado mi objeto
                 })
+                .then(function() {
+                    // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
+                    var buttonLogin = document.querySelector('#doLogin');
+                    buttonLogin.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        loginPageOne();
+    
+                        movilIcon.classList.add('shown');
+                    });
+                }).then(function() {
+                    // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
+                    var buttonGoogle = document.querySelector('#loginGoogle');
+                    buttonGoogle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        googleButton();
+                    });
+                })
+                .then(function() {
+                    // En esta parte creo una variable en donde voy a llamar a mi id al
+                    // que quiero darle el click en este caso el ingreso con facebook
+                    var buttonFacebook = document.querySelector('#loginFacebook');
+                    buttonFacebook.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        facebookButton();
+                        document.getElementById('hideAndShow').style.display = 'block';
+                        movilIcon.classList.add('shown');
+                    });
+                })
+                .then(function() {
+                    var ntAccount = document.querySelector('#reg');
+                    ntAccount.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        viewRegister()
+                            .then(function() {
+                                var buttonReg = document.querySelector('#doRegister');
+                                buttonReg.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    register();
+                                });
+                            })
+                    });
+                })
 
             window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
         })
@@ -251,7 +294,7 @@ function register() {
 
 //traer la informacion del post cuando se le da clic en el boton
 function publicPost(user) {
-    console.log(user)
+    //console.log(user)
     let fileInput = document.getElementById('myNewFile'); //variable para la prueba de subir imagen
     let imageUrl = '';
     fileInput.onchange = respuestaCambioImagen => {
@@ -275,13 +318,15 @@ function publicPost(user) {
     publicPost.onclick = function() {
         let text = document.getElementById('userCommit'); //variable con id en donde se pintaran los post, textArea
         // traer el texto
+        console.log(user);
         let post = {
             texto: text.value,
             user: user.displayName,
             date: new Date(),
             img: imageUrl, //variable global, aqui se almacena la imagen cuando ya se tiene el link que envio la funcion onchange
             mail: user.email,
-            photo: user.photoURL
+            photo: user.photoURL,
+            uid: user.uid,
         }
         addNewPost(post)
             .then(function(post) { //esto es la promesa
@@ -312,8 +357,7 @@ function readPosts() {
     postsRef.orderBy('date', 'desc').onSnapshot(snap => {
         let publishPust = document.querySelector('#showComment')
         publishPust.innerHTML = ''
-        snap.forEach(doc => {
-
+        snap.forEach(doc => { 
             if (typeof doc.data().mail != 'undefined') {
                 var email = doc.data().mail;
                 var divisiones = email.split("@");
@@ -321,32 +365,7 @@ function readPosts() {
             } //mi condicion    si, si está ponlo  si no está pon el mail
             var nombre = doc.data().user ? doc.data().user : EmailCortado;
             var image = doc.data().photo ? doc.data().photo : "images/profile-picture-green.jpg";
-
-            let div = `<div>
-                            <div class="informationBox">
-
-                                <div class="chip boxStyle">
-                                    <img src="${image}" alt="Contact Person">
-                                    <p>${nombre}</p>
-                                </div>
-                                <i class="fas fa-globe-americas world"></i>
-                                <i class="material-icons center points">more_vert</i>
-                            </div>
-
-                            <div class="comentsAndLikes">
-                            <img width="200" src="${doc.data().img}"/>
-                                 <p class="coments">${doc.data().texto}</p>
-                            </div>
-
-                            <div class="punchButtons comentsAndLikes">
-                                 <div class="likeButton"> <a class="waves-effect waves-light btn-small"><i class="material-icons left like">thumb_up</i></a>
-                                <span class="likeCounter">5</span>
-                            </div>
-                            <div class="commentButton"><a class="waves-effect waves-light btn-small"><i class="material-icons left like">mode_comment</i></a>
-                                <span class="commentCounter">2</span>
-                            </div>
-                             </div>
-                        </div>`
+            let div = buildComent(image, nombre, doc.data().img, doc.data().texto, doc.id);
             let nodo = document.createElement('div')
             nodo.innerHTML = div
             publishPust.appendChild(nodo);
@@ -356,12 +375,7 @@ function readPosts() {
 }
 
 
-{
-    /* <div>
-        <img width="200" src="${doc.data().img}"/>
-        <p>${doc.data().texto}</p>
-    </div> */
-}
+
 
 function clickMenus(obtainingPersistenceData) {
     var nameMenus = document.querySelectorAll('ul.clickMenu li a'); //Dentro de mi variable voy a meterme dentro del a que es donde tengo c.u de los nombres de mi navbar
@@ -373,6 +387,7 @@ function clickMenus(obtainingPersistenceData) {
                 viewForum(obtainingPersistenceData)
                     .then(function() {
                         publicPost();
+                        readPosts();
                     });
                 window.history.pushState('Foro', 'Foro', '/Foro')
             } else if (userClickMenu == "/Perfil") {
