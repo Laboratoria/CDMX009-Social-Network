@@ -17,8 +17,6 @@ function profile () {
         .get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
                 let div= document.createElement("div");
                 div.id= "contentImgPosts"
                 let link= doc.data().img;

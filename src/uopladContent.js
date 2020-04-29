@@ -10,10 +10,6 @@ let staticMenu= document.querySelector("#staticMenu");
 
     function showOupladWindow (){
     let url;
-    // let btnOut= document.createElement("button");
-    // btnOut.id= "out";
-    // btnOut.innerHTML= `<img src="images/logOut.png">`
-    // header.appendChild(btnOut);
     content.innerHTML= '';
     let oupladView= `
     <section>
