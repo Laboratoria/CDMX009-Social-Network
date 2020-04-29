@@ -1,10 +1,9 @@
-import { loginGoogle, loginFb, emailLogin, } from '../firebase.js';
+import { loginGoogle, loginFb, emailLogin } from '../firebase.js';
 
 export default () => {
   const root = document.querySelector('#roots');
-  const viewLogin = 
-  `
-  <section class="bg-img card-align" id="login">
+  const viewLogin = `
+   <section class="bg-img card-align" id="login">
       <div class="container">
         <div class="row justify-content-md-center">
           <div class="col-sm-12 col-md-6">
@@ -52,27 +51,26 @@ export default () => {
         </div>
       </div> 
 </section>
-         `
-         
+         `;
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewLogin;
   root.appendChild(divElemt);
-  
-//Hide header elements
-  let dashHeader = document.querySelector('#dashboardHeader');
-  let menuH = document.querySelector('#menuH');
+
+  // Hide header elements
+  const dashHeader = document.querySelector('#dashboardHeader');
+  const menuH = document.querySelector('#menuH');
   dashHeader.classList.add('hide');
   menuH.classList.add('hide');
-  
-  //Login
+
+  // Login
   const googleBtns = document.querySelector('.google');
-        googleBtns.addEventListener('click', loginGoogle);
+  googleBtns.addEventListener('click', loginGoogle);
 
   const fbBtns = document.querySelector('.facebook');
-        fbBtns.addEventListener('click', loginFb);
-    
-  const emailBtns = document.querySelector('#login-submit')
-        emailBtns.addEventListener('click', emailLogin);
+  fbBtns.addEventListener('click', loginFb);
 
-      return divElemt;
+  const emailBtns = document.querySelector('#login-submit');
+  emailBtns.addEventListener('click', emailLogin);
+
+  return divElemt;
 };

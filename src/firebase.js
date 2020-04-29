@@ -1,280 +1,244 @@
 // Firebase init
-let googleP = new firebase.auth.GoogleAuthProvider();
-let facebookP = new firebase.auth.FacebookAuthProvider();
-let db = firebase.firestore();
+const googleP = new firebase.auth.GoogleAuthProvider();
+const facebookP = new firebase.auth.FacebookAuthProvider();
+const db = firebase.firestore();
 
-//Log up with email
-function emailLogup () {
-  let emailLogup = document.querySelector('#email-new').value;
-  let passwordLogup = document.querySelector('#password-new').value;
-    console.log(emailLogup, passwordLogup);
-    firebase.auth().createUserWithEmailAndPassword(emailLogup, passwordLogup)
-    .catch(function (error) {
+// Nodes
+let photoURL;
+let displayName;
+
+// Log up with email
+function emailLogup() {
+  const emaiLogup = document.querySelector('#email-new').value;
+  const passwordLogup = document.querySelector('#password-new').value;
+  console.log(emaiLogup, passwordLogup);
+  firebase.auth().createUserWithEmailAndPassword(emaiLogup, passwordLogup)
+    .catch((error) => {
       // Errors
-      var errorMessage = error.message;
-      console.log(errorMessage)
+      const errorMessage = error.message;
+      console.log(errorMessage);
       if (errorMessage) {
-        let invalidEmail = document.querySelector('#invalid-email')
-        invalidEmail.innerHTML = errorMessage
-      };
+        const invalidEmail = document.querySelector('#invalid-email');
+        invalidEmail.innerHTML = errorMessage;
+      }
+    });
+}
+
+// Login functions
+function emailLogin() {
+  const emailUser = document.querySelector('#email-login').value;
+  const passwordUser = document.querySelector('#password-login').value;
+  const emailError = document.querySelector('#email-error');
+  console.log(emailUser, passwordUser);
+  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+    .catch((error) => {
+      // Error
+      const errorMessage = error.message;
+      emailError.innerHTML = errorMessage;
+      console.log(errorMessage);
+    });
+}
+
+function loginFb() {
+  firebase.auth().signInWithRedirect(facebookP)
+    .then((result) => {
+      console.log(result);
+    });
+}
+
+function loginGoogle() {
+  firebase.auth().signInWithRedirect(googleP)
+    .then((result) => {
+      console.log(result);
+    });
+}
+
+// Log out
+const logoutBtn = document.querySelector('#logout');
+logoutBtn.onclick = function logOut() {
+firebase.auth().signOut().then(() => {
+window.open('#/login', '_self');
+// Sign-out successful.
+}).catch((error) => {
+alert('Ha ocurrido un error', error);
+});
+}; 
+
+// Observator
+function observatorFirebase() {
+  firebase.auth().onAuthStateChanged((user) => {
+    const menu = document.querySelector('.menu');
+    if (user) {
+      const menuPic = document.querySelector('#user-photoURL');
+      const menuName = document.querySelector('#user-displayName');
+      menuName.innerHTML = user.displayName;
+      menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+      displayName = user.displayName;
+      photoURL = user.photoURL;
+      localStorage.setItem('nameStorage', displayName);
+      localStorage.setItem('URLStorage', photoURL);
+      window.open('#/home', '_self');
+      menu.classList.remove('hide');
+      console.log('estas activo dude :)', user);
+    } else {
+      console.log('no estas activo chavo :(');
+    }
+  });
+}
+observatorFirebase();
+
+
+// Initialize Cloud Firestore through Firebase
+const st = firebase.storage();
+let collectionPost = db.collection('newPosts');
+
+// Nodes
+const savePost = document.querySelector('#savePost');
+let url;
+let day;
+let post;
+
+// Print time
+const timeSnap = () => {
+  const now = new Date();
+  const date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
+  const time = [now.getHours(), now.getMinutes(), now.getSeconds()];
+  day = `${date.join('/')} ${time.join(':')}`;
+};
+
+// Add users
+savePost.onclick = () => {
+  timeSnap();
+  const title = document.querySelector('#recipientTitle').value;
+  const activity = document.querySelector('#recipientActivity').value;
+  const location = document.querySelector('#recipientLocation').value;
+  const description = document.querySelector('#recipientDescription').value;
+
+  collectionPost.add({
+    title,
+    activity,
+    location,
+    description,
+    image: url,
+    date: day,
+    displayName,
+    photoURL,
+  })
+    .then((docRef) => {
+      console.log('Document written with ID: ', docRef.id);
+      document.querySelector('#recipientTitle').value = '';
+      document.querySelector('#recipientActivity').value = '';
+      document.querySelector('#recipientLocation').value = '';
+      document.querySelector('#recipientDescription').value = '';
+    })
+    .catch((error) => {
+      console.error('Error adding document: ', error);
     });
 };
 
-//Login functions
-function emailLogin() {
-  let emailUser = document.querySelector('#email-login').value;
-  let passwordUser = document.querySelector('#password-login').value;
-  let emailError = document.querySelector('#email-error');
-  console.log(emailUser, passwordUser)
-  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
-  .catch(function(error) {
-  //Error
-  var errorMessage = error.message;
-  emailError.innerHTML = errorMessage,
-  console.log(errorMessage)
-});
+// Add image
+const fileInput = document.querySelector('#file');
+fileInput.onchange = (e) => {
+  console.log(e.target.files);
+  const file = e.target.files[0];
+  st.ref('img').child(file.name).put(file)
+    .then(snap => snap.ref.getDownloadURL())
+    .then((link) => {
+      url = link;
+      const img = document.createElement('img');
+      img.src = link;
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      alert('Necesitas iniciar sesión para poder publicar un post.');
+    });
 };
 
-function loginFb () {
-  firebase.auth().signInWithRedirect(facebookP)
-  .then(function(result){
-    console.log(result);
-  });
-};
-
-function loginGoogle(){
-  firebase.auth().signInWithRedirect(googleP)
-  .then(function(result) {
-    console.log(result)
-  });
-};
-
-//Log out
-$('#logout').click(function(){
-  firebase.auth().signOut().then(function() {
-    window.open('#/login', '_self');
-    // Sign-out successful.
-  }).catch(function(error) {
-    alert('Ha ocurrido un error', error);
-  })
-})
-
-
-
-
-//Observator 
-function observatorFirebase () {
-  firebase.auth().onAuthStateChanged(function(user){
-    let menu = document.querySelector('.menu')
-    if (user) {
-        let menuPic = document.querySelector('#user-photoURL');
-        let menuName = document.querySelector('#user-displayName');
-        menuName.innerHTML = user.displayName;
-        menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
-        displayName = user.displayName;
-        photoURL = user.photoURL;
-        localStorage.setItem('nameStorage', displayName);
-        localStorage.setItem('URLStorage', photoURL);
-        window.open('#/home', '_self');
-        menu.classList.remove('hide');
-        console.log('estas activo dude :)', user);
-    }
-     else {
-      console.log('no estas activo chavo :(')
-    };
-  });
-};
-observatorFirebase();
-
-//Nodes
-let photoURL
-let displayName
-
-//Initialize Cloud Firestore through Firebase
-  let st = firebase.storage(); 
-  
-  //Nodes
-  let savePost = document.querySelector('#savePost');
-  let url
-  let day
-
-  //Print time
-  let timeSnap = () => {
-    let now = new Date();
-    let date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
-    let time = [now.getHours(), now.getMinutes(), now.getSeconds()];
-    day = date.join('/') + ' ' + time.join(':');
-  }
-
-  //Add users
-  savePost.onclick = () => {
-    timeSnap();
-    let title = document.querySelector('#recipientTitle').value;
-    let activity = document.querySelector('#recipientActivity').value;
-    let location = document.querySelector('#recipientLocation').value;
-    let description = document.querySelector('#recipientDescription').value;
-
-      db.collection("newPosts").add({
-
-        title: title,
-        activity: activity,
-        location: location,
-        description: description,
-        image: url,
-        date: day,
-        displayName,
-        photoURL
-      })
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-          document.querySelector('#recipientTitle').value = '';
-          document.querySelector('#recipientActivity').value = '';
-          document.querySelector('#recipientLocation').value = '';
-          document.querySelector('#recipientDescription').value = '';
-          })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
-  };
-
-//Add image
-  let fileInput = document.querySelector('#file');
-  fileInput.onchange = e => {
-      console.log(e.target.files);
-      let file = e.target.files[0]
-        st.ref('img').child(file.name).put(file)
-            .then(snap => {
-                return snap.ref.getDownloadURL()
-            })
-            .then(link => {
-                url = link
-                let img = document.createElement('img')
-                img.src = link
-            })
-            .catch(function(error) {
-              var errorMessage = error.message;
-              console.log(errorMessage)
-              alert('Necesitas iniciar sesión para poder publicar un post.')
-
-            })
-  };
-  
-//Read documents
-    let render = () => {
-      let post = document.querySelector('#contentCreated');
-      db.collection("newPosts").onSnapshot((querySnapshot) => {
-        post.innerHTML = ''
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data().title}`);
-            post.innerHTML += 
-            `   
+// Read documents
+const render = () => {
+  post = document.querySelector('#contentCreated');
+  db.collection('newPosts').onSnapshot((querySnapshot) => {
+    post.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data().title}`);
+      post.innerHTML
+        += `   
             <div class="container">
-            <div class="card-post-container">
-              <div class="card-post">
-                <div id="postImg" class="img-post">
-                  <img width="100%" src="${doc.data().image}">
-                </div>
-                <div class="info-post" id="infoUserContainer">
-                  <div class="info-user">
-                    <img src="${doc.data().photoURL}">
-                    <h4>${doc.data().displayName}</h4>
+              <div class="card-post-container">
+                <div class="card-post">
+                  <div id="postImg" class="img-post">
+                    <img width="100%" src="${doc.data().image}">
                   </div>
-                <div class="header-post">
-                <h4 id="titlePost">${doc.data().title}</h4>
-                <span class="edit-delete-icons">
-                <i class="fas fa-pencil-alt js-edit" id="${doc.id}, ${doc.data().title}, ${doc.data().activity}, ${doc.data().location}, ${doc.data().description}"></i>
-                <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
-              </span>
+                  <div class="info-post" id="infoUserContainer">
+                    <div class="info-user">
+                      <img src="${doc.data().photoURL}">
+                      <h4>${doc.data().displayName}</h4>
+                    </div>
+                    <div class="header-post">
+                      <h4 id="titlePost">${doc.data().title}</h4>
+                      <span class="edit-delete-icons">
+                        <i class="fas fa-pencil-alt js-edit" id="${doc.id}, ${doc.data().title}, ${doc.data().activity}, ${doc.data().location}, ${doc.data().description}"></i>
+                        <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
+                      </span>
+                    </div>
+                    <div class="subtitle-post">
+                      <p id="activityPost">#${doc.data().activity} </p>
+                      <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
+                    </div>
+                      <p id="descriptionPost">${doc.data().description}</p> 
+                    <div class="flex-row">
+                      <p>
+                        <i class="far fa-clock"> </i> ${doc.data().date}
+                      </p>
+                      <span class="flex-row-likes">
+                        <i class="far fa-heart like-btn" id="${doc.id}"></i>
+                        <p><strong><span class="clicks"> </span></strong></p>
+                      </span>
+                    </div>  
+                  </div> 
                 </div>
-                <div class="subtitle-post">
-                  <p id="activityPost">#${doc.data().activity} </p>
-                  <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
-                </div>
-                    <p id="descriptionPost">${doc.data().description}</p> 
-                  <div class="flex-row">
-                    <p><i class="far fa-clock"> </i> ${doc.data().date}</p>
-                    <span class="flex-row-likes">
-                      <i class="far fa-heart like-btn" id="${doc.id}"></i>
-                      <p><strong><span class="clicks"> </span></strong></p>
-                    </span>
-                  </div>  
-                </div> 
               </div>
-            </div>
-          </div>     
+            </div>     
             `;
-          let deletebutton = document.querySelectorAll('.js-delete');
-          let deletePost = (e) => {
-            console.log(e.target.id);
-            db.collection('newPosts').doc(e.target.id).delete()
-              .then(function(){
-                console.log('Lo borraste, eres chido');
-              })
-              .catch(function(error){
-                console.log('No pudiste, ponte chido', error);
-              });
-          }
-            deletebutton.forEach(btn=> btn.addEventListener('click', deletePost));
+      const deletebutton = document.querySelectorAll('.js-delete');
+      const deletePost = (e) => {
+        console.log(e.target.id);
+        db.collection('newPosts').doc(e.target.id).delete()
+          .then(() => {
+            console.log('Lo borraste, eres chido');
+          })
+          .catch((error) => {
+            console.log('No pudiste, ponte chido', error);
+          });
+      };
+      deletebutton.forEach(btn => btn.addEventListener('click', deletePost));
 
-            let likeBtn = document.querySelectorAll('.like-btn'); 
-            let numClicks = document.querySelector('.clicks');
-            let i = 0;
-            let likeClick = (e) => {
-              db.collection('newPosts').doc(e.target.id).
-              i++;
-              if (i == 1) {
-                numClicks.innerHTML = i;
-              }else{
-                numClicks.innerHTML = i;
-              };
-             
-            }
-            likeBtn.forEach(btnLike => btnLike.addEventListener('click', likeClick));
+      // edit post
 
-       });
-     })
-     
-    };
+      const btnEdit = document.querySelectorAll('.js-edit');
 
+      const actionEdit = (e, title, activity, location, description) => db.collection('newPosts')
+        .doc(e.target.id)
+        .update({
+          title,
+          activity,
+          location,
+          description,
+        })
+        .then(() => {
+          console.log('Document successfully written!');
+        })
+        .catch((error) => {
+          console.error('Error writing document: ', error);
+        });
+      btnEdit.forEach(actionUpdate => actionUpdate.addEventListener('click', actionEdit));
+    });
+  });
+};
 
-    //editar documentos
-function editUser(idUser, name, lastName, date){
-  document.querySelector('#name').value = name;
-  document.querySelector('#lastName').value = lastName;
-  document.querySelector('#date').value = date;
+render();
 
-  let saveChangesUser = document.querySelector('#saveUser');
-  saveChangesUser.innerHTML = 'Editar';
-
-  saveChangesUser.onclick = () => {
-    var user = db.collection("users").doc(idUser);
-
-    let name = document.querySelector('#name').value;
-    let lastName = document.querySelector('#lastName').value;
-    let date = document.querySelector('#date').value;
-
-      return user.update({
-        first: name,
-        last: lastName,
-        born: date
-      })
-      .then(function() {
-        console.log("Document successfully updated!");
-        saveChangesUser.innerHTML = 'Guardar';
-        document.querySelector('#name').value = '';
-        document.querySelector('#lastName').value = '';
-        document.querySelector('#date').value = '';
-      })
-      .catch(function(error) {
-        // The document probably doesn't exist.
-        console.error("Error updating document: ", error);
-      });
-  }
-
-}
-    render();
-     
-   
-
-
-export { loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup };
+export {
+  loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup,
+};
