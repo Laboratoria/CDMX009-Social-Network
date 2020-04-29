@@ -118,6 +118,8 @@ a{
 .photo-profile{
     margin-bottom: 5px;
 }
+
+
  #nameProfile{
      margin-bottom: 0px;
  }
@@ -162,6 +164,10 @@ a{
      bottom: 45px;
      right: 75px;
  } 
+
+ #thisPhoto{
+    border-radius: 50%;
+ }
  
  /* .cover{
      display: flex;
