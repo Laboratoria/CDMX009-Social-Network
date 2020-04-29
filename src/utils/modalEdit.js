@@ -1,10 +1,10 @@
 let divFormUpdate;
 const actionEdit = (e) => {
   console.log(e.target.value);
-  const comments = document.getElementById('newComment').value;
-  console.log(comments);
+  const comment = document.getElementById('newComment').value;
+  console.log(comment);
   return firebase.firestore().collection('publications').doc(e.target.value).update({
-    Comments: comments,
+    comments: comment,
   })
     .then(() => {
       console.log('Document successfully written!');
@@ -27,7 +27,7 @@ export function openModalEdit(e) {
   firebase.firestore().collection('publications').doc(id).get()
     .then((consultDb) => {
       const doc = consultDb.data();
-      const divUpdate = `<textarea id= "newComment" cols="30" rows="5" placeholder="Editar Comentario">${doc.Comments}</textarea>
+      const divUpdate = `<textarea id= "newComment" cols="30" rows="5" placeholder="Editar Comentario">${doc.comments}</textarea>
     <p><button id="${consultDb.id}" value="${consultDb.id}" class="btnSty">Editar</button>
     <button id="closeModal" class="btnStylesC">Cerrar</button></p>`;
       divFormUpdate.innerHTML = divUpdate;

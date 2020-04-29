@@ -116,7 +116,7 @@ const addLikes = (e) => {
   db.collection('publications')
     .doc(e.target.name)
     .update({
-      Likes: firebase.firestore.FieldValue.increment(+1),
+      likes: firebase.firestore.FieldValue.increment(+1),
     });
 };
 //* ***********************Print cards posts********************************
@@ -124,12 +124,12 @@ function addNewCard(printing1, doc) {
   const posting = document.createElement('div');
   const createTarget = `<div id="card2" class='allComents'>
   <header class="styleNamePost">
-  <img src="${doc.data().Photo}" class="imgProfilePost">
- <div class="nameDate"><strong>${doc.data().Name}</strong>
- <p> ${doc.data().Date}</p></div></header>
-<p> ${doc.data().Comments}</p>
-<p><img width="200" src="${doc.data().Image}"/></p>
-<p> likes ${doc.data().Likes} </p> 
+  <img src="${doc.data().photo}" class="imgProfilePost">
+ <div class="nameDate"><strong>${doc.data().name}</strong>
+ <p> ${doc.data().date}</p></div></header>
+<p> ${doc.data().comments}</p>
+<p><img width="200" src="${doc.data().image}"/></p>
+<p> likes ${doc.data().likes} </p> 
 <p><img src="img/like.svg" name="${doc.id}" class="btnLike"> 
 <button id="btnEdit" data-doc="${
   doc.id
@@ -148,12 +148,12 @@ function addNewCardNoComents(printing2, doc) {
   const posting = document.createElement('div');
   const createTarget = `<div id="card2" class='allComents'>
 <header class="styleNamePost">
- <img src="${doc.data().Photo}" class="imgProfilePost">
- <div class="nameDate"><strong>${doc.data().Name}</strong>
- <p> ${doc.data().Date}</p></div></header>
- <p> ${doc.data().Comments}</p>
-<p><img width="200" src="${doc.data().Image}"/></p>
-<p> likes ${doc.data().Likes} </p> 
+ <img src="${doc.data().photo}" class="imgProfilePost">
+ <div class="nameDate"><strong>${doc.data().name}</strong>
+ <p> ${doc.data().date}</p></div></header>
+ <p> ${doc.data().comments}</p>
+<p><img width="200" src="${doc.data().image}"/></p>
+<p> likes ${doc.data().likes} </p> 
 <div class="like"><img src="img/like.svg" name="${
   doc.id
 }" class="btnLike"></div>`;
@@ -164,7 +164,7 @@ function addNewCardNoComents(printing2, doc) {
 }
 //* ***********************Print coments in real time***********************
 db.collection('publications')
-  .orderBy('Date', 'desc')
+  .orderBy('date', 'desc')
   .onSnapshot((querySnapshot) => {
     printing.innerHTML = '';
     querySnapshot.forEach((doc) => {
@@ -188,7 +188,7 @@ btnMySite.addEventListener('click', () => {
   printing.style.display = 'none';
   filterComents.style.display = 'none';
   db.collection('publications')
-    .where('Name', '==', getName || getEmail)
+    .where('name', '==', getName || getEmail)
     .onSnapshot((filters) => {
       (filterMyComents.innerHTML = '');
       filters.forEach((doc) => {
@@ -204,7 +204,7 @@ btnFilter.addEventListener('click', () => {
   printing.style.display = 'none';
   filterComents.style.display = 'block';
   db.collection('publications')
-    .where('Name', '==', filterName.value)
+    .where('name', '==', filterName.value)
     .onSnapshot((filters) => {
       (filterComents.innerHTML = '');
       filters.forEach((doc) => {
@@ -212,5 +212,5 @@ btnFilter.addEventListener('click', () => {
       });
     });
 });
-// le podemos poner estos para ordenar .orderBy("Date", "desc")
-// pero el timepo real ya no agarra porque necesita un index
+// if we also use ".orderBy("Date", "desc")" the real time doesn't work anymore, 
+//because it needs an index, we did it but it doesn't detect it

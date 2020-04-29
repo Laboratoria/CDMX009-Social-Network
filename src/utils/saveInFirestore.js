@@ -6,12 +6,12 @@ export function saveFirestore(name, img, data, link) {
   console.log(`post  ${coment.value}`);
   //* ******************add comments in firestore*********************************
   data.collection('publications').add({
-    Name: name,
-    Photo: img,
-    Date: date1,
-    Comments: coment.value,
-    Likes: '',
-    Image: link || '',
+    name: name,
+    photo: img,
+    date: date1,
+    comments: coment.value,
+    likes: '',
+    image: link || '',
   })
     .then((docRef) => {
       console.log('Document written with ID: ', docRef.id);
