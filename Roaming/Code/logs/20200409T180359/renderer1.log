@@ -1,0 +1,1 @@
+[2020-04-13 17:25:20.037] [renderer1] [warning] UNRESPONSIVE extension host, 'vscode.typescript-language-features' took 97% of 2020ms, saved PROFILE here: 'C:\Users\hp\AppData\Local\Temp\exthost-f31023.cpuprofile' [{"id":"self","total":69000,"percentage":3},{"id":"vscode.typescript-language-features","total":1951000,"percentage":97}]

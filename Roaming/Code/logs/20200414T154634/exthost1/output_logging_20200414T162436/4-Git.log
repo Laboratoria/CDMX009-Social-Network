@@ -1,0 +1,30 @@
+Looking for git in: C:\Program Files\Git\cmd\git.exe
+Using git 2.26.0.windows.1 from C:\Program Files\Git\cmd\git.exe
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git check-ignore -v -z --stdin
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template

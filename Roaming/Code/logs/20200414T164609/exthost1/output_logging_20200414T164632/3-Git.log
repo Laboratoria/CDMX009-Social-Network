@@ -1,0 +1,1569 @@
+Looking for git in: C:\Program Files\Git\cmd\git.exe
+Using git 2.26.0.windows.1 from C:\Program Files\Git\cmd\git.exe
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+> git check-ignore -v -z --stdin
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :src/example.js
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\example.js
+> git cat-file -s 52d2c7ea9531b33fccbd6e86e5fa4be9fd2a12cd
+> git show :src/index.js
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.js
+> git cat-file -s 3fa6ff63da8d154c1465ba6b5097057e30e2b3a0
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git status -z -u
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git config --get commit.template
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git config --get commit.template
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git config --get commit.template
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git rev-parse shari
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 4d52190da7e9a2e4ead6e66d59af6d25e91296c7
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s c4f2b50ef69233923d8672cabf20bd4a89001aec
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template

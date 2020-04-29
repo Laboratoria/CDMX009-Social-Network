@@ -1,0 +1,162 @@
+[2020-04-14 16:46:16.067] [exthost] [info] extension host started
+[2020-04-14 16:46:16.147] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2020-04-14 16:46:16.148] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/debug-auto-launch/dist/extension
+[2020-04-14 16:46:16.169] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"*"}
+[2020-04-14 16:46:16.169] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/emmet/dist/extension
+[2020-04-14 16:46:16.204] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.git","_lower":"vscode.git"},"activationEvent":"*"}
+[2020-04-14 16:46:16.205] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/git/dist/main
+[2020-04-14 16:46:16.375] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":true,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"*"}
+[2020-04-14 16:46:16.376] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/github-authentication/dist/extension.js
+[2020-04-14 16:46:16.414] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2020-04-14 16:46:16.415] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/merge-conflict/dist/extension
+[2020-04-14 16:46:16.449] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2020-04-14 16:46:16.449] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/search-result/dist/extension.js
+[2020-04-14 16:46:16.458] [exthost] [info] ExtensionService#_doActivateExtension vscode.vscode-account {"startup":true,"extensionId":{"value":"vscode.vscode-account","_lower":"vscode.vscode-account"},"activationEvent":"*"}
+[2020-04-14 16:46:16.458] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/vscode-account/dist/extension.js
+[2020-04-14 16:46:16.486] [exthost] [info] eager extensions activated
+[2020-04-14 16:46:29.106] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"extensionId":{"value":"vscode.configuration-editing","_lower":"vscode.configuration-editing"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:29.106] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/configuration-editing/dist/extension
+[2020-04-14 16:46:29.121] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:29.121] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/extension-editing/dist/extension
+[2020-04-14 16:46:29.177] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"extensionId":{"value":"vscode.json-language-features","_lower":"vscode.json-language-features"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:29.178] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2020-04-14 16:46:29.336] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"extensionId":{"value":"vscode.npm","_lower":"vscode.npm"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:29.336] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/npm/dist/main
+[2020-04-14 16:46:31.496] [exthost] [info] extension host started
+[2020-04-14 16:46:31.572] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"extensionId":{"value":"vscode.configuration-editing","_lower":"vscode.configuration-editing"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:31.574] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/configuration-editing/dist/extension
+[2020-04-14 16:46:31.596] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:31.597] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/extension-editing/dist/extension
+[2020-04-14 16:46:31.643] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"extensionId":{"value":"vscode.json-language-features","_lower":"vscode.json-language-features"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:31.643] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2020-04-14 16:46:31.764] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"extensionId":{"value":"vscode.npm","_lower":"vscode.npm"},"activationEvent":"onLanguage:json"}
+[2020-04-14 16:46:31.765] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/npm/dist/main
+[2020-04-14 16:46:31.801] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2020-04-14 16:46:31.801] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/debug-auto-launch/dist/extension
+[2020-04-14 16:46:31.812] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"*"}
+[2020-04-14 16:46:31.812] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/emmet/dist/extension
+[2020-04-14 16:46:31.842] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.git","_lower":"vscode.git"},"activationEvent":"*"}
+[2020-04-14 16:46:31.843] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/git/dist/main
+[2020-04-14 16:46:31.993] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":true,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"*"}
+[2020-04-14 16:46:31.993] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/github-authentication/dist/extension.js
+[2020-04-14 16:46:32.017] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2020-04-14 16:46:32.017] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/merge-conflict/dist/extension
+[2020-04-14 16:46:32.031] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2020-04-14 16:46:32.031] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/search-result/dist/extension.js
+[2020-04-14 16:46:32.037] [exthost] [info] ExtensionService#_doActivateExtension vscode.vscode-account {"startup":true,"extensionId":{"value":"vscode.vscode-account","_lower":"vscode.vscode-account"},"activationEvent":"*"}
+[2020-04-14 16:46:32.037] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/vscode-account/dist/extension.js
+[2020-04-14 16:46:32.274] [exthost] [info] eager extensions activated
+[2020-04-14 16:46:41.660] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"extensionId":{"value":"vscode.typescript-language-features","_lower":"vscode.typescript-language-features"},"activationEvent":"onLanguage:javascript"}
+[2020-04-14 16:46:41.660] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/typescript-language-features/dist/extension
+[2020-04-14 16:46:44.857] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"extensionId":{"value":"vscode.html-language-features","_lower":"vscode.html-language-features"},"activationEvent":"onLanguage:html"}
+[2020-04-14 16:46:44.859] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2020-04-14 17:10:41.045] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:10:41.048] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:10:45.179] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:10:45.180] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:10:48.927] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:10:48.927] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:10:52.202] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:10:52.202] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:16.739] [exthost] [info] [vscode.typescript-language-features] UNSAVE result from 'resolveCompletionItem', extension SHOULD NOT change any of: additionalTextEdits, or command
+[2020-04-14 17:11:19.620] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:19.620] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:22.854] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:22.854] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:25.591] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:25.591] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:27.584] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:27.584] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:36.903] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:36.903] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:52.854] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:52.854] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:56.657] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:56.657] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:11:57.532] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:11:57.532] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:00.068] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:00.069] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:01.848] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:01.848] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:04.067] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:04.067] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:13.040] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:13.040] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:20.915] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:20.916] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:25.720] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:25.720] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:12:26.523] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:12:26.523] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:13:33.463] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:13:33.463] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:13:34.559] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:13:34.559] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:14:34.431] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:14:34.431] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:15:20.454] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:15:20.454] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:16:37.768] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:16:37.769] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:16:55.291] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:16:55.291] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:17:50.030] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:17:50.030] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:18:02.582] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:18:02.583] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:21:40.943] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:21:40.943] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:21:46.522] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 17:21:46.522] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 17:23:17.360] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"extensionId":{"value":"vscode.css-language-features","_lower":"vscode.css-language-features"},"activationEvent":"onLanguage:css"}
+[2020-04-14 17:23:17.361] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/css-language-features/client/dist/cssMain
+[2020-04-14 18:36:48.721] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:36:48.721] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 18:37:00.679] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:37:00.679] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 18:37:01.545] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:37:01.545] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 18:37:02.340] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:37:02.340] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 18:37:23.835] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:37:23.835] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 18:37:33.478] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-04-14 18:37:33.478] [exthost] [error] Error: busy
+	at a._provideSemanticTokens (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\typescript-language-features\dist\extension.js:1:183890)
+[2020-04-14 20:17:02.782] [exthost] [info] ExtensionService#_doActivateExtension vscode.image-preview {"startup":false,"extensionId":{"value":"vscode.image-preview","_lower":"vscode.image-preview"},"activationEvent":"onCustomEditor:imagePreview.previewEditor"}
+[2020-04-14 20:17:02.786] [exthost] [info] ExtensionService#loadCommonJSModule file:///c:/Users/hp/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/image-preview/dist/extension

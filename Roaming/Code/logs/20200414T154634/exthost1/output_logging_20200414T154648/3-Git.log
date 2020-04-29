@@ -1,0 +1,89 @@
+Looking for git in: C:\Program Files\Git\cmd\git.exe
+Using git 2.26.0.windows.1 from C:\Program Files\Git\cmd\git.exe
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git check-ignore -v -z --stdin
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: c:\Users\hp\Documents\laboratoria\red social
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+Failed to watch ref 'c:\Users\hp\Documents\laboratoria\red social\.git\refs\remotes\origin\master', is most likely packed.
+Error: ENOENT: no such file or directory, watch 'c:\Users\hp\Documents\laboratoria\red social\.git\refs\remotes\origin\master'
+	at FSWatcher.start (internal/fs/watchers.js:165:26)
+	at Object.watch (fs.js:1270:11)
+	at Object.t.watch (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\main.js:1:598241)
+	at T.updateTransientWatchers (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\main.js:1:83843)
+	at e.fire (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\services\extensions\node\extensionHostProcess.js:48:517)
+	at e.updateModelState (c:\Users\hp\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\main.js:1:102713)
+> git config --get commit.template
+> git show :src/index.html
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.html
+> git cat-file -s 5454b45e48959d0669f3fb619e7536e2961dd57c
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s 395d3780a65acff3ed7fa9eef75182ca343ffea1
+> git show :src/index.js
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.js
+> git cat-file -s 64bbbca6a06dcfda4318531b89a3def79c6ddc3d
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :src/style.css
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css
+> git cat-file -s 395d3780a65acff3ed7fa9eef75182ca343ffea1
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show :package.json
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\package.json
+> git cat-file -s 1d3f6a74be0b16969d6ae57a40081e4897f4fd2e
+> git show :src/index.js
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.js
+> git cat-file -s 64bbbca6a06dcfda4318531b89a3def79c6ddc3d
+> git status -z -u
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\index.js
+> git show :src/index.js
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse shari
+> git rev-parse --symbolic-full-name shari@{u}
+fatal: no upstream configured for branch 'shari'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show :src/example.js
+> git ls-files --stage -- C:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\example.js
+> git cat-file -s 52d2c7ea9531b33fccbd6e86e5fa4be9fd2a12cd

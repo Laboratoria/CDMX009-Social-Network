@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
-  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
-  <title>Document</title>
-
- 
+  <link rel="icon" href="img/estudia.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Montserrat|Roboto|Quicksand:wght@700&display=swap"
+    rel="stylesheet">
+  <title>estuDÍA</title>
 </head>
-<body>
-  <div id="firstPage">
-
-    <div id= "firstElement">
-  <p><img class="imgIPN" src="img/logo-ipn-blanco.png" style="width:200px; height:auto;"></p>
-  <h1>e s t u D Í A</h1><br>
-  <p>¡Bienvenido/a!</p><br>
-  <div id="createUser"> 
-    <p><input class="boxInput" id="namelNw" type="text" placeholder="Ingrese nombre de usuario"> </p> <br>
-    <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> <br>
-    <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p><br>
-    <p><button class="logIn" id="createUserNw"> Registrar </button></p></div>
-<div id='logingUsers'>
-  <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> <br>
-  <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p> <br>
-  <p><button class="logIn" id="logInUser"> Ingresar </button></p> <br>
-  <p>Ingresa con </p> <br>
-  <p><img id="loginFacebook" class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img id="loginGoogle"class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p><br>
-  <p id="newUser">¿Ya tienes cuenta? <strong>Regístrate</strong></p>
-</div>
-  
+<div id="firstPage">
+  <div id="firstElement">
+    <p><img class="imgIPN" src="img/logo-ipn-blanco.png" style="width:200px; height:auto;"></p>
+    <h1>e s t u D Í A</h1><br>
+    <p>¡Bienvenido/a!</p><br>
+    <div id="createUser">
+      <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> <br>
+      <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p><br>
+      <p><button class="logIn" id="createUserNw"> Registrar </button></p>
+    </div>
+    <div id='logingUsers'>
+      <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> <br>
+      <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p> <br>
+      <p><button class="logIn" id="logInUser"> Ingresar </button></p> <br>
+      <p>Ingresa con </p> <br>
+      <p><img id="loginFacebook" class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img
+          id="loginGoogle" class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p><br>
+      <p id="newUser">¿Ya tienes cuenta? <strong>Regístrate</strong></p>
+    </div>
   </div>
 </div>
-
 <div id="allTheSite">
-
-
   <div id='header' class="my-header">
     <div class="container flex-box-horizontal">
       <div class="logo">
@@ -46,8 +41,8 @@
         </a>
       </div>
       <div class="user">
-        <img src="img/info.png">
-        <button id="logOut" class= "logingOut">Cerrar sesión</button>
+        <img src="img/info.svg" id="info" class="btnStyles" style="width:40px; height:auto;"> <br>
+        <img src="img/Group.svg" id="logOut" class="btnStyles" style="width:40px; height:auto;">
       </div>
     </div>
   </div>
@@ -58,16 +53,17 @@
         <div class="margin-top">
           <div class="col-4">
             <div class="subtitle">
-              <div id="sayHi"></div>
-              
+              <div id="sayHi" class="divName"></div>
             </div>
             <div class="text-box">
-              <div class="width-data">
-                <form>
-                  <input type="text" id="text-box">
-                  <input type="submit" id="botonCompartir" value="Compartir">
-                </form>
+              <div id="imgProfile" class="photoProfile">
               </div>
+              <textarea id="text-box" cols="40" rows="5" placeholder="Comparte tus tips"></textarea>
+            </div>
+            <div id="btnsPost" class="divBtnsPost">
+              <input class="btnShare" id="file" type="file" accept="image/*" multiple></input>
+              <!-- <img src="img/img.svg" id="btnImage" class="btnStyles" type="file" accept="jpg/png"> -->
+              <button id="btnShare" class="btnStyles">Compartir</button>
             </div>
             <!-- News desktop view -->
             <div class="desktop-view">
@@ -108,11 +104,14 @@
             </div>
             <div class="desktop-view">
               <div class="margin-top">
-            <div class="subtitle">
-              <h3>Oficinas Centrales</h3>
-            </div>
-          </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8945.062786404349!2d-99.13704216401462!3d19.501405643204773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9b5d8c54c1b%3A0x954022f561b19ac8!2sInstituto%20Polit%C3%A9cnico%20Nacional!5e0!3m2!1ses-419!2smx!4v1586332955235!5m2!1ses-419!2smx" width="450" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <div class="subtitle">
+                  <h3>Oficinas Centrales</h3>
+                </div>
+              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8945.062786404349!2d-99.13704216401462!3d19.501405643204773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9b5d8c54c1b%3A0x954022f561b19ac8!2sInstituto%20Polit%C3%A9cnico%20Nacional!5e0!3m2!1ses-419!2smx!4v1586332955235!5m2!1ses-419!2smx"
+                width="450" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
             </div>
           </div>
         </div>
@@ -126,10 +125,6 @@
               <label for="tab1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0"> Noticias </label>
               <div id="tab-content-charts" class="tab-content" role="tabpanel" aria-labelledby="description"
                 aria-hidden="false">
-                <div class="search">
-                  <input type="text" class="search-Box" id="searchT" placeholder="Buscar...">
-                  <input type="button" class="search-Btn" id="search1" value="Buscar">
-                </div>
                 <div class="subtitle">
                   <h3>Test Vocacional</h3>
                   <a title="test" href="http://www.decidetusestudios.sep.gob.mx/vista/test-vocacional/"
@@ -152,18 +147,27 @@
                 </div>
                 <div class="subtitle">
                   <h3>Oficinas Centrales</h3>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8945.062786404349!2d-99.13704216401462!3d19.501405643204773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9b5d8c54c1b%3A0x954022f561b19ac8!2sInstituto%20Polit%C3%A9cnico%20Nacional!5e0!3m2!1ses-419!2smx!4v1586332955235!5m2!1ses-419!2smx" width="400" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                  <iframe class="card-img-bottom"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8945.062786404349!2d-99.13704216401462!3d19.501405643204773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9b5d8c54c1b%3A0x954022f561b19ac8!2sInstituto%20Polit%C3%A9cnico%20Nacional!5e0!3m2!1ses-419!2smx!4v1586332955235!5m2!1ses-419!2smx"
+                    width="300" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
                 </div>
             </li>
             <li>
               <input type="radio" name="tabs" id="tab2" />
               <label for="tab2" role="tab" aria-selected="false" aria-controls="panel2"
                 tabindex="0">Publicaciones</label>
-              <div id="tab-content-table" class="tab-content cardPatient" role="tabpanel"
+              <div id="tab-content-table1" class="tab-content cardPatient" role="tabpanel"
                 aria-labelledby="specification" aria-hidden="true">
+                <textarea class="search-Box" id="searchName" cols="10" rows="1"
+                  placeholder="Nombre de usuario"></textarea>
                 <div class="search">
-                  <input type="text" class="search-Box" id="search" placeholder="Buscar...">
-                  <input type="button" class="search-Btn" id="search" value="Buscar">
+                  <button class="btnStyles" id="searchButtom1">Buscar</button>
+                  <button class="btnStyles" id="allComents">Ver todos</button>
+                  <button id="myWall" class="btnStyles">Mi Muro</button>
+                  <div id="addComents"></div>
+                  <div id="addMyComents"></div>
+                  <div id="addFilters"></div>
                 </div>
               </div>
             </li>
@@ -172,49 +176,27 @@
       </div>
     </section>
   </main>
-  `
-
-
-
-
-
-
 </div>
-
-
-
-
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
- <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
-
- <!-- TODO: Add SDKs for Firebase products that you want to use
-      https://firebase.google.com/docs/web/setup#available-libraries -->
- <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
- 
- <script>
-   // Your web app's Firebase configuration
-   var firebaseConfig = {
-     apiKey: "AIzaSyB-S-fofVCcshafWHzbUi6pnfeAdPPjYfo",
-     authDomain: "social-nerwork.firebaseapp.com",
-     databaseURL: "https://social-nerwork.firebaseio.com",
-     projectId: "social-nerwork",
-     storageBucket: "social-nerwork.appspot.com",
-     messagingSenderId: "574784343818",
-     appId: "1:574784343818:web:43ad089e0324bbf79774f3",
-     measurementId: "G-QC2RFEXKFR"
-   };
-   // Initialize Firebase
-   firebase.initializeApp(firebaseConfig);
-   firebase.analytics();
- </script>
-
-
-
-
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB-S-fofVCcshafWHzbUi6pnfeAdPPjYfo",
+    authDomain: "social-nerwork.firebaseapp.com",
+    databaseURL: "https://social-nerwork.firebaseio.com",
+    projectId: "social-nerwork",
+    storageBucket: "social-nerwork.appspot.com",
+    messagingSenderId: "574784343818",
+    appId: "1:574784343818:web:43ad089e0324bbf79774f3",
+    measurementId: "G-QC2RFEXKFR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  firebase.storage();
+</script>
 <script type="module" src="index.js"></script>
 </body>
+
 </html>
-
-

@@ -1,0 +1,24 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g'
+1 verbose cli ]
+2 info using npm@6.13.4
+3 info using node@v12.14.1
+4 verbose npm-session 5694fcb14c9f7d32
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData error for file: Could not install from "" as it does not contain a package.json file.
+8 timing stage:rollbackFailedOptional Completed in 2ms
+9 timing stage:runTopLevelLifecycles Completed in 101ms
+10 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\hp\documents\laboratoria\package.json'
+11 verbose cwd C:\Users\hp\documents\laboratoria
+12 verbose Windows_NT 10.0.18362
+13 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g"
+14 verbose node v12.14.1
+15 verbose npm  v6.13.4
+16 error code ENOLOCAL
+17 error Could not install from "" as it does not contain a package.json file.
+18 verbose exit [ 1, true ]

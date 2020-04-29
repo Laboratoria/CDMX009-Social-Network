@@ -1,0 +1,409 @@
+[1092:580 ] [  INFO ] [20:44:45.257] .\Installer.cpp(32)::[Main] start, current time: [2020/3/26-20:44:257]
+[1092:580 ] [  INFO ] [20:44:45.257] .\Installer.cpp(49)::[Main] Command line parameter:
+[1092:580 ] [  INFO ] [20:44:45.295] .\SaaSbeeInstaller.cpp(219)::[CSaaSbeeInstaller::Init] Created window:005F043A
+[1092:580 ] [  INFO ] [20:44:47.63] .\ZoomInstaller.cpp(439)::[CInstallerManager::PrepareInstallResources] Install src dir:C:\Users\hp\AppData\Roaming\Zoom\
+[1092:580 ] [  INFO ] [20:44:47.63] .\ZoomInstaller.cpp(455)::[CInstallerManager::PrepareInstallResources] Dest bin dir:C:\Users\hp\AppData\Roaming\Zoom\bin
+[1092:580 ] [  INFO ] [20:44:47.63] .\ZoomInstaller.cpp(501)::[Installer::PrepareInstallResources] start, current time: [2020/3/26-20:44:63]
+[1092:580 ] [  INFO ] [20:44:50.75] .\ZoomInstaller.cpp(531)::[Installer::PrepareInstallResources] End, current time: [2020/3/26-20:44:75] caberr:0
+[9436:5992 ] [  INFO ] [20:44:58.235] .\Installer.cpp(32)::[Main] start, current time: [2020/3/26-20:44:235]
+[9436:5992 ] [  INFO ] [20:44:58.235] .\Installer.cpp(49)::[Main] Command line parameter:/addfwexception --bin_home="C:\Users\hp\AppData\Roaming\Zoom\bin"
+[9436:5992 ] [  INFO ] [20:44:58.251] .\SaaSbeeInstaller.cpp(211)::[CSaaSbeeInstaller::Init] No UI for special command:16
+[9436:5992 ] [  INFO ] [20:44:58.351] .\InstallerManager.cpp(427)::[CInstallerManager::ProcessAddFirewallException] Src path:0093F388
+[9436:5992 ] [  INFO ] [20:44:58.351] .\InstallerManager.cpp(428)::[CInstallerManager::ProcessAddFirewallException] cpt service install ret:0 Error:2
+[9436:5992 ] [  INFO ] [20:44:58.382] .\WinFWUtil_Win7.cpp(169)::[AddFirewallRule] Successfully added firewall rule !0
+[9436:5992 ] [  INFO ] [20:44:58.414] .\WinFWUtil_Win7.cpp(169)::[AddFirewallRule] Successfully added firewall rule !0
+[1092:580 ] [  INFO ] [20:44:58.414] .\InstallerManager.cpp(138)::[CInstallerManager::NotifyDataHandler] MSG: WM_ADD_FW_COMPLETE, success=1
+[9436:5992 ] [  INFO ] [20:44:58.414] .\Installer.cpp(188)::[Main] stop, current time: [2020/3/26-20:44:414]
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:airhost.exe
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avcodec-55.dll
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avformat-55.dll
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avutil-52.dll
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:swscale-2.dll
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.345] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.345] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mdnsclient.dll
+[1092:5124 ] [WARNING] [20:45:23.360] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.360] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:23.360] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mDNSResponder.dll
+[1092:5124 ] [WARNING] [20:45:23.360] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:23.360] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.93] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipCallApp.dll
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.93] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSIPSDK.dll
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.93] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zAssistant.dll
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.93] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:libmpg123.dll
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.93] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallUI.dll
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.93] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.125] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallRes.dll
+[1092:5124 ] [WARNING] [20:45:24.125] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.125] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.341] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zDocConvert.exe
+[1092:5124 ] [WARNING] [20:45:24.341] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.341] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:5124 ] [ ERROR ] [20:45:24.341] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:root_cert_zpbxcacert.pem
+[1092:5124 ] [WARNING] [20:45:24.348] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[1092:5124 ] [WARNING] [20:45:24.348] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[1092:580 ] [  INFO ] [20:45:28.363] .\InstallerManager.cpp(125)::[CInstallerManager::NotifyDataHandler] MSG: WM_INSTALLER_INSTALL_COMPLETE, ret = 0 m_enCommand=1 success=1
+[1092:580 ] [  INFO ] [20:45:28.466] ..\Include\ZoomRegUtil.cpp(505)::[RegMIMEZoommtg] Start, error code:6
+[1092:580 ] [  INFO ] [20:45:28.784] .\InstallerManager.cpp(497)::[CInstallerManager::CheckCptService] bin path:006FF508,check state ret:0,can install:0
+[1092:580 ] [  INFO ] [20:45:29.893] .\Installer.cpp(188)::[Main] stop, current time: [2020/3/26-20:45:893]
+[9692:6020 ] [  INFO ] [20:47:15.821] .\Installer.cpp(32)::[Main] start, current time: [2020/3/26-20:47:821]
+[9692:6020 ] [  INFO ] [20:47:15.823] .\Installer.cpp(49)::[Main] Command line parameter:/regim
+[9692:6020 ] [  INFO ] [20:47:15.841] .\SaaSbeeInstaller.cpp(211)::[CSaaSbeeInstaller::Init] No UI for special command:53
+[9692:6020 ] [  INFO ] [20:47:15.940] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:IM progid:ZoomPbx.im client key name:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l"
+[9692:6020 ] [  INFO ] [20:47:15.941] ..\Include\PBXProtocolInstaller.cpp(55)::Start Install Protocol... defIcon:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe",1 app desc:Zoom IM Protocol app name:Zoom wake cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" user sid: for_all_user:0
+[9692:6020 ] [  INFO ] [20:47:15.942] ..\Include\PBXProtocolInstaller.cpp(128)::Start InstallProtocolImpl:protocol:IM progid:ZoomPbx.im client key:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: install_for_all_user0
+[9692:6020 ] [  INFO ] [20:47:15.944] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:IM protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[9692:6020 ] [  INFO ] [20:47:15.945] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM\shell\open\command
+[9692:6020 ] [  INFO ] [20:47:15.946] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM
+[9692:6020 ] [  INFO ] [20:47:15.948] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:ZoomPbx.im protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[9692:6020 ] [  INFO ] [20:47:15.949] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im\shell\open\command
+[9692:6020 ] [  INFO ] [20:47:15.950] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im
+[9692:6020 ] [  INFO ] [20:47:15.977] ..\Include\PBXProtocolInstaller.cpp(334)::Start SetInternetCallInfo
+[9692:6020 ] [  INFO ] [20:47:15.978] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX\ZoomIM
+[9692:6020 ] [  INFO ] [20:47:15.981] ..\Include\PBXProtocolInstaller.cpp(436)::Start SetRegApp...
+[9692:6020 ] [  INFO ] [20:47:15.981] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\RegisteredApplications
+[9692:6020 ] [  INFO ] [20:47:15.983] ..\Include\PBXProtocolInstaller.cpp(534)::Start ResetDefaultProtocolHandler...
+[9692:6020 ] [  INFO ] [20:47:15.984] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\IM\UserChoice
+[9692:6020 ] [  INFO ] [20:47:15.987] ..\Include\PBXProtocolInstaller.cpp(66)::Finish Install Protocol
+[9692:6020 ] [  INFO ] [20:47:15.990] .\Installer.cpp(188)::[Main] stop, current time: [2020/3/26-20:47:990]
+[8784:2584 ] [  INFO ] [12:03:03.647] .\Installer.cpp(32)::[Main] start, current time: [2020/4/6-12:3:647]
+[8784:2584 ] [  INFO ] [12:03:03.647] .\Installer.cpp(49)::[Main] Command line parameter:/upgrade --prevParam="C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe"
+[8784:2584 ] [  INFO ] [12:03:03.691] .\SaaSbeeInstaller.cpp(219)::[CSaaSbeeInstaller::Init] Created window:00080480
+[8784:2584 ] [  INFO ] [12:03:03.803] .\InstallerManager.cpp(1089):: Found product 0 state:1 at: C:\Users\hp\AppData\Roaming\Zoom\bin
+[8784:2584 ] [  INFO ] [12:03:03.807] .\InstallerManager.cpp(1089):: Found product 0 state:1 at: C:\Users\hp\AppData\Roaming\Zoom\bin
+[8784:2584 ] [  INFO ] [12:03:05.267] .\ZoomInstaller.cpp(439)::[CInstallerManager::PrepareInstallResources] Install src dir:C:\Users\hp\AppData\Roaming\Zoom\
+[8784:2584 ] [  INFO ] [12:03:05.267] .\ZoomInstaller.cpp(455)::[CInstallerManager::PrepareInstallResources] Dest bin dir:C:\Users\hp\AppData\Roaming\Zoom\bin
+[8784:2584 ] [  INFO ] [12:03:05.267] .\ZoomInstaller.cpp(501)::[Installer::PrepareInstallResources] start, current time: [2020/4/6-12:3:267]
+[8784:2584 ] [  INFO ] [12:03:08.473] .\ZoomInstaller.cpp(531)::[Installer::PrepareInstallResources] End, current time: [2020/4/6-12:3:473] caberr:0
+[8784:2584 ] [  INFO ] [12:03:08.505] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\ZoomUMX, Ret:0, Error:0
+[8784:2584 ] [  INFO ] [12:03:08.505] ..\Include\ZoomRegUtil.cpp(875)::[UnregProductConfig] Uninstall return: 0 ForAll:0 User SID: error code:0
+[8784:2584 ] [  INFO ] [12:03:09.234] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Microsoft\Windows\CurrentVersion\Uninstall, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.278] ..\Include\ZoomRegUtil.cpp(268)::[UnRegZoomInstaller] Uninstall return: 0 User SID: error code:6
+[8784:2584 ] [  INFO ] [12:03:09.278] ..\..\..\framework\common\BrowserEmbedding\Common\PrsBrowserEmulation.cpp(260)::[UnregBrowserEmulation] forAllUsers:0 Path:\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION Success:0 Error:6
+[8784:2584 ] [  INFO ] [12:03:09.282] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\MozillaPlugins, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.282] ..\Include\ZoomRegUtil.cpp(156)::[UnRegNPPlugin] Remove mozilla plugin ret:0
+[8784:2584 ] [  INFO ] [12:03:09.286] ..\Include\ZoomRegUtil.cpp(615)::[UnregMIMEZoommtg] Start, forAllUser:0 UserSID:error code:6
+[8784:2584 ] [  INFO ] [12:03:09.286] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.290] ..\Include\ZoomRegUtil.cpp(623)::[UnregMIMEZoommtg] Remove mtg root ret: 0 error code:6
+[8784:2584 ] [  INFO ] [12:03:09.290] ..\Include\ZoomRegUtil.cpp(628)::[UnregMIMEZoommtg] Remove mtg postfix ret: 0 error code:6
+[8784:2584 ] [  INFO ] [12:03:09.290] ..\Include\ZoomRegUtil.cpp(636)::[UnregMIMEZoommtg] Remove launcher ret: 0 error code:6
+[8784:2584 ] [  INFO ] [12:03:09.294] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\User Agent\Post Platform, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.294] ..\Include\ZoomRegUtil.cpp(649)::[UnregMIMEZoommtg] Remove user-agent postfix ret: 0 error code:6
+[8784:2584 ] [  INFO ] [12:03:09.294] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.306] ..\Include\ZoomRegUtil.cpp(393)::[UnRegZoomAppProtocol] Uninstall return: 0 ForAll:0 User SID: error code:6
+[8784:2584 ] [  INFO ] [12:03:09.325] ..\Include\ZoomRegUtil.cpp(97)::[__RecurseDeleteKey] forAllUser:0, user_sid: Ret:0 Error:6
+[8784:2584 ] [  INFO ] [12:03:09.325] ..\Include\ZoomRegUtil.cpp(97)::[__RecurseDeleteKey] forAllUser:0, user_sid: Ret:0 Error:6
+[8784:2584 ] [  INFO ] [12:03:09.325] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[8784:2584 ] [  INFO ] [12:03:09.328] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:tel progid:ZoomPbx.tel client key name:ZoomPBX cmd:
+[8784:2584 ] [  INFO ] [12:03:09.328] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:callto progid:ZoomPbx.callto client key name:ZoomPBX cmd:
+[8784:2584 ] [  INFO ] [12:03:09.328] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:ZoomPhoneCall progid:ZoomPbx.zoomphonecall client key name:ZoomPBX cmd:
+[8784:2584 ] [  INFO ] [12:03:09.332] ..\Include\PBXProtocolInstaller.cpp(72)::Start Uninstall Protocol... user sid: for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.332] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:ZoomPhoneCall progid:ZoomPbx.zoomphonecall client key:ZoomPBX sid: install_for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.332] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[8784:2584 ] [  INFO ] [12:03:09.332] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[8784:2584 ] [  INFO ] [12:03:09.332] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[8784:2584 ] [  INFO ] [12:03:09.336] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.zoomphonecall
+[8784:2584 ] [  INFO ] [12:03:09.336] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.zoomphonecall
+[8784:2584 ] [  INFO ] [12:03:09.336] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[8784:2584 ] [  INFO ] [12:03:09.336] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[8784:2584 ] [  INFO ] [12:03:09.340] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[8784:2584 ] [  INFO ] [12:03:09.340] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPhoneCall
+[8784:2584 ] [  INFO ] [12:03:09.340] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[8784:2584 ] [  INFO ] [12:03:09.344] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\ZoomPhoneCall\UserChoice
+[8784:2584 ] [ ERROR ] [12:03:09.344] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[8784:2584 ] [  INFO ] [12:03:09.344] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:callto progid:ZoomPbx.callto client key:ZoomPBX sid: install_for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.344] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[8784:2584 ] [  INFO ] [12:03:09.348] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[8784:2584 ] [  INFO ] [12:03:09.348] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[8784:2584 ] [  INFO ] [12:03:09.348] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.callto
+[8784:2584 ] [  INFO ] [12:03:09.348] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.callto
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\callto
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[8784:2584 ] [  INFO ] [12:03:09.352] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\callto\UserChoice
+[8784:2584 ] [ ERROR ] [12:03:09.356] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[8784:2584 ] [  INFO ] [12:03:09.356] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:tel progid:ZoomPbx.tel client key:ZoomPBX sid: install_for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.356] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[8784:2584 ] [  INFO ] [12:03:09.356] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[8784:2584 ] [  INFO ] [12:03:09.360] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[8784:2584 ] [  INFO ] [12:03:09.360] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.tel
+[8784:2584 ] [  INFO ] [12:03:09.360] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.tel
+[8784:2584 ] [  INFO ] [12:03:09.360] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[8784:2584 ] [  INFO ] [12:03:09.364] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[8784:2584 ] [  INFO ] [12:03:09.364] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[8784:2584 ] [  INFO ] [12:03:09.364] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\tel
+[8784:2584 ] [  INFO ] [12:03:09.364] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[8784:2584 ] [  INFO ] [12:03:09.364] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\tel\UserChoice
+[8784:2584 ] [ ERROR ] [12:03:09.368] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[8784:2584 ] [  INFO ] [12:03:09.368] ..\Include\PBXProtocolInstaller.cpp(80)::Finish Uninstall Protocol
+[8784:2584 ] [  INFO ] [12:03:09.368] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:IM progid:ZoomPbx.im client key name:ZoomIM cmd:
+[8784:2584 ] [  INFO ] [12:03:09.368] ..\Include\PBXProtocolInstaller.cpp(72)::Start Uninstall Protocol... user sid: for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.368] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:IM progid:ZoomPbx.im client key:ZoomIM sid: install_for_all_user:0
+[8784:2584 ] [  INFO ] [12:03:09.372] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[8784:2584 ] [  INFO ] [12:03:09.372] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[8784:2584 ] [  INFO ] [12:03:09.372] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[8784:2584 ] [  INFO ] [12:03:09.372] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.im
+[8784:2584 ] [  INFO ] [12:03:09.372] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.im
+[8784:2584 ] [  INFO ] [12:03:09.376] ..\Include\PBXProtocolInstaller.cpp(746)::DelProgId DefaultIcon:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe",1
+[8784:2584 ] [  INFO ] [12:03:09.376] ..\Include\PBXProtocolInstaller.cpp(760)::DelProgId cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l"
+[8784:2584 ] [  INFO ] [12:03:09.376] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[8784:2584 ] [  INFO ] [12:03:09.376] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[8784:2584 ] [  INFO ] [12:03:09.380] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[8784:2584 ] [  INFO ] [12:03:09.380] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\IM
+[8784:2584 ] [  INFO ] [12:03:09.380] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[8784:2584 ] [  INFO ] [12:03:09.380] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\IM\UserChoice
+[8784:2584 ] [  INFO ] [12:03:09.384] ..\Include\PBXProtocolInstaller.cpp(80)::Finish Uninstall Protocol
+[8784:2584 ] [  INFO ] [12:03:09.480] .\ZoomInstaller.cpp(345)::[CInstallerManager::UninstallProduct] Success to remove dir:001CB7FC
+[8784:2584 ] [  INFO ] [12:03:09.484] .\ZoomInstaller.cpp(345)::[CInstallerManager::UninstallProduct] Success to remove dir:001CB7FC
+[8784:2584 ] [  INFO ] [12:03:09.484] .\InstallerManager.cpp(94)::[CInstallerManager::NotifyDataHandler] MSG: WM_INSTALLER_UNINSTALL_COMPLETE, ret=0 m_enCommand=8 success=1
+[8784:9660 ] [ ERROR ] [12:03:25.763] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:airhost.exe
+[8784:9660 ] [WARNING] [12:03:25.763] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.763] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.767] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avcodec-55.dll
+[8784:9660 ] [WARNING] [12:03:25.767] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.767] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.767] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avformat-55.dll
+[8784:9660 ] [WARNING] [12:03:25.771] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.771] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.771] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avutil-52.dll
+[8784:9660 ] [WARNING] [12:03:25.771] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.771] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.775] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:swscale-2.dll
+[8784:9660 ] [WARNING] [12:03:25.775] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.775] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.775] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mdnsclient.dll
+[8784:9660 ] [WARNING] [12:03:25.779] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.779] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:25.779] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mDNSResponder.dll
+[8784:9660 ] [WARNING] [12:03:25.779] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:25.779] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.964] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipCallApp.dll
+[8784:9660 ] [WARNING] [12:03:26.964] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.964] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.964] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSIPSDK.dll
+[8784:9660 ] [WARNING] [12:03:26.968] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.968] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.968] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zAssistant.dll
+[8784:9660 ] [WARNING] [12:03:26.972] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.972] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.972] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:libmpg123.dll
+[8784:9660 ] [WARNING] [12:03:26.972] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.972] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.976] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallUI.dll
+[8784:9660 ] [WARNING] [12:03:26.976] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.976] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:26.996] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallRes.dll
+[8784:9660 ] [WARNING] [12:03:26.996] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:26.996] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:27.168] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zDocConvert.exe
+[8784:9660 ] [WARNING] [12:03:27.168] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:27.168] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:9660 ] [ ERROR ] [12:03:27.172] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:root_cert_zpbxcacert.pem
+[8784:9660 ] [WARNING] [12:03:27.172] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[8784:9660 ] [WARNING] [12:03:27.172] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[8784:2584 ] [  INFO ] [12:03:36.408] .\InstallerManager.cpp(125)::[CInstallerManager::NotifyDataHandler] MSG: WM_INSTALLER_INSTALL_COMPLETE, ret = 0 m_enCommand=8 success=1
+[8784:2584 ] [  INFO ] [12:03:36.500] ..\Include\ZoomRegUtil.cpp(505)::[RegMIMEZoommtg] Start, error code:6
+[8784:2584 ] [  INFO ] [12:03:36.764] .\InstallerManager.cpp(497)::[CInstallerManager::CheckCptService] bin path:001CF480,check state ret:0,can install:0
+[8784:2584 ] [  INFO ] [12:03:37.120] .\Installer.cpp(188)::[Main] stop, current time: [2020/4/6-12:3:120]
+[9696:752 ] [  INFO ] [12:03:55.820] .\Installer.cpp(32)::[Main] start, current time: [2020/4/6-12:3:820]
+[9696:752 ] [  INFO ] [12:03:55.822] .\Installer.cpp(49)::[Main] Command line parameter:/regim
+[9696:752 ] [  INFO ] [12:03:55.837] .\SaaSbeeInstaller.cpp(211)::[CSaaSbeeInstaller::Init] No UI for special command:53
+[9696:752 ] [  INFO ] [12:03:55.937] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:IM progid:ZoomPbx.im client key name:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l"
+[9696:752 ] [  INFO ] [12:03:55.938] ..\Include\PBXProtocolInstaller.cpp(55)::Start Install Protocol... defIcon:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe",1 app desc:Zoom IM Protocol app name:Zoom wake cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" user sid: for_all_user:0
+[9696:752 ] [  INFO ] [12:03:55.939] ..\Include\PBXProtocolInstaller.cpp(128)::Start InstallProtocolImpl:protocol:IM progid:ZoomPbx.im client key:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: install_for_all_user0
+[9696:752 ] [  INFO ] [12:03:55.941] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:IM protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[9696:752 ] [  INFO ] [12:03:55.942] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM\shell\open\command
+[9696:752 ] [  INFO ] [12:03:55.942] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM
+[9696:752 ] [  INFO ] [12:03:55.944] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:ZoomPbx.im protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[9696:752 ] [  INFO ] [12:03:55.945] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im\shell\open\command
+[9696:752 ] [  INFO ] [12:03:55.946] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im
+[9696:752 ] [  INFO ] [12:03:55.948] ..\Include\PBXProtocolInstaller.cpp(334)::Start SetInternetCallInfo
+[9696:752 ] [  INFO ] [12:03:55.949] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX\ZoomIM
+[9696:752 ] [  INFO ] [12:03:55.952] ..\Include\PBXProtocolInstaller.cpp(436)::Start SetRegApp...
+[9696:752 ] [  INFO ] [12:03:55.952] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\RegisteredApplications
+[9696:752 ] [  INFO ] [12:03:55.954] ..\Include\PBXProtocolInstaller.cpp(534)::Start ResetDefaultProtocolHandler...
+[9696:752 ] [  INFO ] [12:03:55.955] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\IM\UserChoice
+[9696:752 ] [  INFO ] [12:03:55.970] ..\Include\PBXProtocolInstaller.cpp(66)::Finish Install Protocol
+[9696:752 ] [  INFO ] [12:03:55.973] .\Installer.cpp(188)::[Main] stop, current time: [2020/4/6-12:3:973]
+[6696:1288 ] [  INFO ] [13:59:26.926] .\Installer.cpp(32)::[Main] start, current time: [2020/4/9-13:59:926]
+[6696:1288 ] [  INFO ] [13:59:26.927] .\Installer.cpp(49)::[Main] Command line parameter:/upgrade --prevParam="C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe"
+[6696:1288 ] [  INFO ] [13:59:26.987] .\SaaSbeeInstaller.cpp(219)::[CSaaSbeeInstaller::Init] Created window:000505B8
+[6696:1288 ] [  INFO ] [13:59:27.104] .\InstallerManager.cpp(1089):: Found product 0 state:1 at: C:\Users\hp\AppData\Roaming\Zoom\bin
+[6696:1288 ] [  INFO ] [13:59:27.105] .\InstallerManager.cpp(1089):: Found product 0 state:1 at: C:\Users\hp\AppData\Roaming\Zoom\bin
+[6696:1288 ] [  INFO ] [13:59:28.117] .\ZoomInstaller.cpp(439)::[CInstallerManager::PrepareInstallResources] Install src dir:C:\Users\hp\AppData\Roaming\Zoom\
+[6696:1288 ] [  INFO ] [13:59:28.118] .\ZoomInstaller.cpp(455)::[CInstallerManager::PrepareInstallResources] Dest bin dir:C:\Users\hp\AppData\Roaming\Zoom\bin
+[6696:1288 ] [  INFO ] [13:59:28.119] .\ZoomInstaller.cpp(501)::[Installer::PrepareInstallResources] start, current time: [2020/4/9-13:59:119]
+[6696:1288 ] [  INFO ] [13:59:30.909] .\ZoomInstaller.cpp(531)::[Installer::PrepareInstallResources] End, current time: [2020/4/9-13:59:909] caberr:0
+[6696:1288 ] [  INFO ] [13:59:30.938] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\ZoomUMX, Ret:0, Error:0
+[6696:1288 ] [  INFO ] [13:59:30.940] ..\Include\ZoomRegUtil.cpp(878)::[UnregProductConfig] Uninstall return: 0 ForAll:0 User SID: error code:0
+[6696:1288 ] [  INFO ] [13:59:31.550] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Microsoft\Windows\CurrentVersion\Uninstall, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.552] ..\Include\ZoomRegUtil.cpp(268)::[UnRegZoomInstaller] Uninstall return: 0 User SID: error code:6
+[6696:1288 ] [  INFO ] [13:59:31.553] ..\..\..\framework\common\BrowserEmbedding\Common\PrsBrowserEmulation.cpp(260)::[UnregBrowserEmulation] forAllUsers:0 Path:\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION Success:0 Error:6
+[6696:1288 ] [  INFO ] [13:59:31.555] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\MozillaPlugins, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.556] ..\Include\ZoomRegUtil.cpp(156)::[UnRegNPPlugin] Remove mozilla plugin ret:0
+[6696:1288 ] [  INFO ] [13:59:31.558] ..\Include\ZoomRegUtil.cpp(617)::[UnregMIMEZoommtg] Start, forAllUser:0 UserSID:error code:6
+[6696:1288 ] [  INFO ] [13:59:31.559] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.563] ..\Include\ZoomRegUtil.cpp(625)::[UnregMIMEZoommtg] Remove mtg root ret: 0 error code:6
+[6696:1288 ] [  INFO ] [13:59:31.564] ..\Include\ZoomRegUtil.cpp(630)::[UnregMIMEZoommtg] Remove mtg postfix ret: 0 error code:6
+[6696:1288 ] [  INFO ] [13:59:31.566] ..\Include\ZoomRegUtil.cpp(638)::[UnregMIMEZoommtg] Remove launcher ret: 0 error code:6
+[6696:1288 ] [  INFO ] [13:59:31.566] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\User Agent\Post Platform, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.568] ..\Include\ZoomRegUtil.cpp(651)::[UnregMIMEZoommtg] Remove user-agent postfix ret: 0 error code:6
+[6696:1288 ] [  INFO ] [13:59:31.569] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.571] ..\Include\ZoomRegUtil.cpp(393)::[UnRegZoomAppProtocol] Uninstall return: 0 ForAll:0 User SID: error code:6
+[6696:1288 ] [  INFO ] [13:59:31.573] ..\Include\ZoomRegUtil.cpp(97)::[__RecurseDeleteKey] forAllUser:0, user_sid: Ret:0 Error:6
+[6696:1288 ] [  INFO ] [13:59:31.574] ..\Include\ZoomRegUtil.cpp(97)::[__RecurseDeleteKey] forAllUser:0, user_sid: Ret:0 Error:6
+[6696:1288 ] [  INFO ] [13:59:31.576] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[6696:1288 ] [  INFO ] [13:59:31.579] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:tel progid:ZoomPbx.tel client key name:ZoomPBX cmd:
+[6696:1288 ] [  INFO ] [13:59:31.580] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:callto progid:ZoomPbx.callto client key name:ZoomPBX cmd:
+[6696:1288 ] [  INFO ] [13:59:31.582] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:ZoomPhoneCall progid:ZoomPbx.zoomphonecall client key name:ZoomPBX cmd:
+[6696:1288 ] [  INFO ] [13:59:31.583] ..\Include\PBXProtocolInstaller.cpp(72)::Start Uninstall Protocol... user sid: for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.584] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:ZoomPhoneCall progid:ZoomPbx.zoomphonecall client key:ZoomPBX sid: install_for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.586] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[6696:1288 ] [  INFO ] [13:59:31.586] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[6696:1288 ] [  INFO ] [13:59:31.588] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[6696:1288 ] [  INFO ] [13:59:31.588] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.zoomphonecall
+[6696:1288 ] [  INFO ] [13:59:31.590] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.zoomphonecall
+[6696:1288 ] [  INFO ] [13:59:31.591] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[6696:1288 ] [  INFO ] [13:59:31.592] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[6696:1288 ] [  INFO ] [13:59:31.597] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[6696:1288 ] [  INFO ] [13:59:31.598] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPhoneCall
+[6696:1288 ] [  INFO ] [13:59:31.599] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[6696:1288 ] [  INFO ] [13:59:31.600] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\ZoomPhoneCall\UserChoice
+[6696:1288 ] [ ERROR ] [13:59:31.601] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[6696:1288 ] [  INFO ] [13:59:31.601] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:callto progid:ZoomPbx.callto client key:ZoomPBX sid: install_for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.602] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[6696:1288 ] [  INFO ] [13:59:31.603] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[6696:1288 ] [  INFO ] [13:59:31.604] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[6696:1288 ] [  INFO ] [13:59:31.605] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.callto
+[6696:1288 ] [  INFO ] [13:59:31.605] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.callto
+[6696:1288 ] [  INFO ] [13:59:31.607] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[6696:1288 ] [  INFO ] [13:59:31.608] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[6696:1288 ] [  INFO ] [13:59:31.609] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[6696:1288 ] [  INFO ] [13:59:31.609] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\callto
+[6696:1288 ] [  INFO ] [13:59:31.610] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[6696:1288 ] [  INFO ] [13:59:31.611] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\callto\UserChoice
+[6696:1288 ] [ ERROR ] [13:59:31.612] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[6696:1288 ] [  INFO ] [13:59:31.612] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:tel progid:ZoomPbx.tel client key:ZoomPBX sid: install_for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.614] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[6696:1288 ] [  INFO ] [13:59:31.614] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[6696:1288 ] [  INFO ] [13:59:31.615] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[6696:1288 ] [  INFO ] [13:59:31.616] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.tel
+[6696:1288 ] [  INFO ] [13:59:31.617] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.tel
+[6696:1288 ] [  INFO ] [13:59:31.618] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[6696:1288 ] [  INFO ] [13:59:31.618] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[6696:1288 ] [  INFO ] [13:59:31.619] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[6696:1288 ] [  INFO ] [13:59:31.620] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\tel
+[6696:1288 ] [  INFO ] [13:59:31.621] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[6696:1288 ] [  INFO ] [13:59:31.622] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\tel\UserChoice
+[6696:1288 ] [ ERROR ] [13:59:31.623] ..\Include\PBXProtocolInstaller.cpp(509)::RegQueryValueEx fail,error code:2
+[6696:1288 ] [  INFO ] [13:59:31.623] ..\Include\PBXProtocolInstaller.cpp(80)::Finish Uninstall Protocol
+[6696:1288 ] [  INFO ] [13:59:31.624] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:IM progid:ZoomPbx.im client key name:ZoomIM cmd:
+[6696:1288 ] [  INFO ] [13:59:31.625] ..\Include\PBXProtocolInstaller.cpp(72)::Start Uninstall Protocol... user sid: for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.626] ..\Include\PBXProtocolInstaller.cpp(197)::Start UninstallProtocolImpl:protocol:IM progid:ZoomPbx.im client key:ZoomIM sid: install_for_all_user:0
+[6696:1288 ] [  INFO ] [13:59:31.627] ..\Include\PBXProtocolInstaller.cpp(772)::Start DelRegApp...
+[6696:1288 ] [  INFO ] [13:59:31.627] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\RegisteredApplications
+[6696:1288 ] [  INFO ] [13:59:31.628] ..\Include\PBXProtocolInstaller.cpp(729)::Start DelProgId...
+[6696:1288 ] [  INFO ] [13:59:31.629] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.im
+[6696:1288 ] [  INFO ] [13:59:31.629] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\ZoomPbx.im
+[6696:1288 ] [  INFO ] [13:59:31.630] ..\Include\PBXProtocolInstaller.cpp(746)::DelProgId DefaultIcon:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe",1
+[6696:1288 ] [  INFO ] [13:59:31.631] ..\Include\PBXProtocolInstaller.cpp(760)::DelProgId cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l"
+[6696:1288 ] [  INFO ] [13:59:31.633] ..\Include\PBXProtocolInstaller.cpp(718)::Start DelInternetCall...
+[6696:1288 ] [  INFO ] [13:59:31.634] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX
+[6696:1288 ] [  INFO ] [13:59:31.635] ..\Include\PBXProtocolInstaller.cpp(679)::Start ResetProtoShellOpenCmd...
+[6696:1288 ] [  INFO ] [13:59:31.635] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Classes\IM
+[6696:1288 ] [  INFO ] [13:59:31.637] ..\Include\PBXProtocolInstaller.cpp(492)::Start ClearDefaultProtocolHandler...
+[6696:1288 ] [  INFO ] [13:59:31.637] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\IM\UserChoice
+[6696:1288 ] [  INFO ] [13:59:31.638] ..\Include\PBXProtocolInstaller.cpp(80)::Finish Uninstall Protocol
+[6696:1288 ] [  INFO ] [13:59:31.772] .\ZoomInstaller.cpp(345)::[CInstallerManager::UninstallProduct] Success to remove dir:004AB8EC
+[6696:1288 ] [  INFO ] [13:59:31.777] .\ZoomInstaller.cpp(345)::[CInstallerManager::UninstallProduct] Success to remove dir:004AB8EC
+[6696:1288 ] [  INFO ] [13:59:31.777] .\InstallerManager.cpp(94)::[CInstallerManager::NotifyDataHandler] MSG: WM_INSTALLER_UNINSTALL_COMPLETE, ret=0 m_enCommand=8 success=1
+[6696:4584 ] [ ERROR ] [13:59:46.144] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:airhost.exe
+[6696:4584 ] [WARNING] [13:59:46.145] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.146] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.147] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avcodec-55.dll
+[6696:4584 ] [WARNING] [13:59:46.148] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.148] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.149] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avformat-55.dll
+[6696:4584 ] [WARNING] [13:59:46.150] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.151] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.151] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:avutil-52.dll
+[6696:4584 ] [WARNING] [13:59:46.152] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.153] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.154] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:swscale-2.dll
+[6696:4584 ] [WARNING] [13:59:46.154] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.155] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.156] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mdnsclient.dll
+[6696:4584 ] [WARNING] [13:59:46.157] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.157] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.158] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:mDNSResponder.dll
+[6696:4584 ] [WARNING] [13:59:46.159] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.160] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.852] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipCallApp.dll
+[6696:4584 ] [WARNING] [13:59:46.854] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.854] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.855] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSIPSDK.dll
+[6696:4584 ] [WARNING] [13:59:46.856] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.857] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.858] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zAssistant.dll
+[6696:4584 ] [WARNING] [13:59:46.859] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.859] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.860] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:libmpg123.dll
+[6696:4584 ] [WARNING] [13:59:46.862] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.862] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.863] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallUI.dll
+[6696:4584 ] [WARNING] [13:59:46.864] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.865] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:46.882] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zSipcallRes.dll
+[6696:4584 ] [WARNING] [13:59:46.884] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:46.884] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:47.5] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:zDocConvert.exe
+[6696:4584 ] [WARNING] [13:59:47.6] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:47.6] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:4584 ] [ ERROR ] [13:59:47.7] .\ZoomInstallError.cpp(48)::[ErrorOccur] Code:10003 ctx:6 MSG:Failed to pass security check System Error Code:2 Ref str:root_cert_zpbxcacert.pem
+[6696:4584 ] [WARNING] [13:59:47.8] .\ZoomActionLogger.cpp(80)::[__HandleEvent] Failed to check event safety
+[6696:4584 ] [WARNING] [13:59:47.8] .\ZoomActionLogger.cpp(85)::[__HandleEvent] Failed to execute event after tried:3 times
+[6696:1288 ] [  INFO ] [13:59:56.140] .\InstallerManager.cpp(125)::[CInstallerManager::NotifyDataHandler] MSG: WM_INSTALLER_INSTALL_COMPLETE, ret = 0 m_enCommand=8 success=1
+[6696:1288 ] [  INFO ] [13:59:56.191] ..\Include\ZoomRegUtil.cpp(507)::[RegMIMEZoommtg] Start, error code:6
+[6696:1288 ] [  INFO ] [13:59:56.197] ..\Include\ZoomRegUtil.cpp(47)::[__OpenRegKey] For all user:0, User SID:, Path:Software\Classes, Ret:0, Error:6
+[6696:1288 ] [ ERROR ] [13:59:56.198] ..\Include\ZoomRegUtil.cpp(498)::[UnbindZoomTranscoderFile] Failed to open class key, ret:2 Error:6
+[6696:1288 ] [  INFO ] [13:59:56.416] .\InstallerManager.cpp(497)::[CInstallerManager::CheckCptService] bin path:004AF570,check state ret:0,can install:0
+[6696:1288 ] [  INFO ] [13:59:56.838] .\Installer.cpp(188)::[Main] stop, current time: [2020/4/9-13:59:838]
+[10568:9884 ] [  INFO ] [14:00:14.949] .\Installer.cpp(32)::[Main] start, current time: [2020/4/9-14:0:949]
+[10568:9884 ] [  INFO ] [14:00:14.951] .\Installer.cpp(49)::[Main] Command line parameter:/regim
+[10568:9884 ] [  INFO ] [14:00:14.966] .\SaaSbeeInstaller.cpp(211)::[CSaaSbeeInstaller::Init] No UI for special command:53
+[10568:9884 ] [  INFO ] [14:00:15.76] ..\Include\PBXProtocolInstaller.cpp(40)::AddProtocol:protocol:IM progid:ZoomPbx.im client key name:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l"
+[10568:9884 ] [  INFO ] [14:00:15.77] ..\Include\PBXProtocolInstaller.cpp(55)::Start Install Protocol... defIcon:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe",1 app desc:Zoom IM Protocol app name:Zoom wake cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" user sid: for_all_user:0
+[10568:9884 ] [  INFO ] [14:00:15.79] ..\Include\PBXProtocolInstaller.cpp(128)::Start InstallProtocolImpl:protocol:IM progid:ZoomPbx.im client key:ZoomIM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: install_for_all_user0
+[10568:9884 ] [  INFO ] [14:00:15.81] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:IM protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[10568:9884 ] [  INFO ] [14:00:15.82] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM\shell\open\command
+[10568:9884 ] [  INFO ] [14:00:15.83] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\IM
+[10568:9884 ] [  INFO ] [14:00:15.85] ..\Include\PBXProtocolInstaller.cpp(282)::Start SetProtoOpenInfoImpl:key:ZoomPbx.im protocol:IM cmd:"C:\Users\hp\AppData\Roaming\Zoom\bin\Zoom.exe" --url="%l" sid: for_all_user:0
+[10568:9884 ] [  INFO ] [14:00:15.86] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im\shell\open\command
+[10568:9884 ] [  INFO ] [14:00:15.87] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\Classes\ZoomPbx.im
+[10568:9884 ] [  INFO ] [14:00:15.90] ..\Include\PBXProtocolInstaller.cpp(334)::Start SetInternetCallInfo
+[10568:9884 ] [  INFO ] [14:00:15.90] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Clients\ZoomPBX\ZoomIM
+[10568:9884 ] [  INFO ] [14:00:15.94] ..\Include\PBXProtocolInstaller.cpp(436)::Start SetRegApp...
+[10568:9884 ] [  INFO ] [14:00:15.95] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:SOFTWARE\RegisteredApplications
+[10568:9884 ] [  INFO ] [14:00:15.96] ..\Include\PBXProtocolInstaller.cpp(534)::Start ResetDefaultProtocolHandler...
+[10568:9884 ] [  INFO ] [14:00:15.97] ..\Include\PBXProtocolInstaller.cpp(795)::GetRootKeyAndSubKey:root key:80000001 sub key:Software\Microsoft\Windows\Shell\Associations\UrlAssociations\IM\UserChoice
+[10568:9884 ] [  INFO ] [14:00:15.98] ..\Include\PBXProtocolInstaller.cpp(66)::Finish Install Protocol
+[10568:9884 ] [  INFO ] [14:00:15.101] .\Installer.cpp(188)::[Main] stop, current time: [2020/4/9-14:0:101]

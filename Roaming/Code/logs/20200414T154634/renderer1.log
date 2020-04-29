@@ -1,0 +1,2 @@
+[2020-04-14 16:24:36.666] [renderer1] [error] Error: [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat 'c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css'
+[2020-04-14 16:24:36.666] [renderer1] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat 'c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network\src\style.css'

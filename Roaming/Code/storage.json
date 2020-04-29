@@ -1,0 +1,31 @@
+{
+    "telemetry.machineId": "97d78c014f37d261c734d806c1a4fc17082fb561f8adac185f6b69e4db7fffd1",
+    "openedPathsList": {
+        "workspaces3": [
+            "file:///c%3A/Users/hp/Documents/laboratoria/CDMX009-Social-Network",
+            "file:///c%3A/Users/hp/Documents/laboratoria/red%20social",
+            "file:///c%3A/Users/hp/Documents/laboratoria/autenticacion"
+        ],
+        "files2": []
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "workspaceIdentifier": {
+                "id": "d2243910185d09885e12f510864995f8",
+                "configURIPath": "file:///c%3A/Users/hp/AppData/Roaming/Code/Workspaces/1586400448165/workspace.json"
+            },
+            "backupPath": "c:\\Users\\hp\\AppData\\Roaming\\Code\\Backups\\d2243910185d09885e12f510864995f8",
+            "uiState": {
+                "mode": 0,
+                "x": 198,
+                "y": 303,
+                "width": 1024,
+                "height": 728
+            }
+        },
+        "openedWindows": []
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "pickerWorkingDir": "C:\\Users\\hp\\Documents\\laboratoria"
+}
