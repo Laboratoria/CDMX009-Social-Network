@@ -5,6 +5,13 @@
     font-family: Fresca;
     margin: 0;
 }
+#gridProfile{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 540px 50px;
+    grid-gap: 2px;
+    margin: 0px;
+}
 .prof1{
     @include top;
 }

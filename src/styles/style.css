@@ -641,6 +641,17 @@ body {
   margin: 0;
 }
 
+#gridProfile {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 50px 540px 50px;
+      grid-template-rows: 50px 540px 50px;
+  grid-gap: 2px;
+  margin: 0px;
+}
+
 .prof1 {
   display: -webkit-box;
   display: -ms-flexbox;

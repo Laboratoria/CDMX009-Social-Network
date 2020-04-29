@@ -1,39 +1,27 @@
-import { components } from '../view/index.js'
+import { components } from '../view/index.js';
 
-const changeView = (route) =>{
-  const container = document.querySelector("#container")
-  container.innerHTML = ''
+const changeView = (route) => {
+  const container = document.querySelector('#container');
+  container.innerHTML = '';
   switch (route) {
     case '#/home':
-      { return container.appendChild(components.home()) }
+      container.appendChild(components.home());
+      break;
     case '#/newpost':
-      { return container.appendChild(components.newpost()) }
+      container.appendChild(components.newpost());
+      break;
     case '#/profile':
-      { return container.appendChild(components.profile()) }
+      container.appendChild(components.profile());
+      break;
     case '#/login':
-      { return container.appendChild(components.login()) }
+      container.appendChild(components.login());
+      break;
     case '#/newuser':
-      { return container.appendChild(components.newuser())}
+      container.appendChild(components.newuser());
+      break;
     default:
-      break
-  }//fin de switch
+      break;
+  }
+};
 
-}
-
-export { changeView }
-
-
-
-//class upLoader{
-  //   constructor(id){
-  //     this.id = id || 'signupForm'
-  //     this.getElements()
-  //   }
-   
-  //   getElements(){
-  //     this.formSu =document.getElementById(this.id)
-  
-  //     console.log(this.formSu)
-  //   }
-  // }
-  // let uploader1 = new upLoader()
+export { changeView };

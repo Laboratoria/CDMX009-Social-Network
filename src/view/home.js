@@ -1,8 +1,9 @@
-// eslint-disable-next-line import/no-cycle
 import { changeView } from '../view-controler/router.js';
-let welcomeview= document.querySelector('#background1')
+
+const welcomeview = document.querySelector('#background1');
+
 export default () => {
-  welcomeview.innerHTML= '';
+  welcomeview.innerHTML = '';
   const viewHome = `
   <div id=backgroundHome>
     <div id= 'gridHome'> 
@@ -54,14 +55,13 @@ export default () => {
             <div class='location'><p>${doc.data().location}</p></div>
             <div class='imagePost'><img width="360px" src="${doc.data().postimg}" /></div>
             <button id='likes'>${doc.data().counter}</button>
+            <button class='comments'></button>
         </div>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
       p.appendChild(nodo);
     });
   });
-
- 
   // logout
   const logout = divElement.querySelector('#logoutBtn1');
   logout.addEventListener('click', (e) => {
@@ -71,7 +71,5 @@ export default () => {
       alert('Come back soon!');
     });
   });
-
-
   return divElement;
 };

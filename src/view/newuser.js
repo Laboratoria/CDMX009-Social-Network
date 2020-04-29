@@ -1,7 +1,8 @@
-import { changeView } from '../view-controler/router.js'
-let welcomeview= document.querySelector('#background1')
+import { changeView } from '../view-controler/router.js';
+
+const welcomeview = document.querySelector('#background1');
 export default () => {
-  welcomeview.innerHTML= " ";
+  welcomeview.innerHTML = ' ';
   const viewNewUser = `
   <div id='background3'> 
     <div id = "gridNew">   
@@ -30,87 +31,76 @@ export default () => {
           </div>
         </div>
     </div>
-  </div>`
-    
-   //  render nodes
-   const divElement = document.createElement('div')
-   divElement.innerHTML = viewNewUser
- 
-   //  firebase 
-   const storage = firebase.storage();
-   const db = firebase.firestore();
-   const auth = firebase.auth(); 
-   let user = auth.currentUser; 
- 
-   //Nodes from DOM elements 
-   let div= divElement.querySelector('#imgContainer');
-   const image = divElement.querySelector('#img');
-   const usernameText = divElement.querySelector("#signupUser");
-   const emailText = divElement.querySelector('#signupEmail');
-   const passwordText = divElement.querySelector('#signupPassword');
-   const signupBtn = divElement.querySelector('#signup');
-   const fbBtn = divElement.querySelector(".fb");
-   const gBtn = divElement.querySelector(".google");
-   let url; 
- 
-   //profile img
-   image.addEventListener('change', e => {
-    let file = e.target.files[0]
-       console.log(file)
-    
-    let x =firebase.storage().ref("profilePics").child(file.name).put(file)
-         .then(snap => {
-             return snap.ref.getDownloadURL()        
-         })
-         
-         .then(function(link){
-           url = link;
-           let img = divElement.querySelector('#myimg');
-           img.src = link;
-           console.log(url)
-         })
-     console.log(x)  
-   })
-   
-   //signup with Email
-   signupBtn.addEventListener('click', e =>{
-     e.preventDefault();
-     const email = emailText.value;
-     const pass = passwordText.value;
-     const username = usernameText.value; 
- 
-     auth.createUserWithEmailAndPassword(email, pass).then(snap =>{
-       snap.user.updateProfile({
-         displayName: username,
-         photoURL: url
-       })
-     }).then( () => changeView('#/home'))
-   })
-   
-   //facebook sign up
-   fbBtn.addEventListener('click', () =>{
-     const auth = firebase.auth()
-     const provider = new firebase.auth.FacebookAuthProvider();
-     const promise = auth.signInWithPopup(provider)
-     
-     promise.then(e => changeView('#/home'))
-     promise.catch(error =>{
-       alert("no salió :(");
-       console.log(error)
-     })
-   })
- 
-   //google sign up
-  gBtn.addEventListener('click', () =>{
-     const auth = firebase.auth()
-     const provider = new firebase.auth.GoogleAuthProvider();
-     const promise = auth.signInWithPopup(provider)
-     
-     promise.then(e => changeView('#/home'))
-     promise.catch(error =>{
-       alert("no salió :(");
-       console.log(error)
-     })
-  })
-   return divElement
- }
+  </div>`;
+
+  //  render nodes
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewNewUser;
+
+  //  firebase 
+  const auth = firebase.auth(); 
+
+  //  Nodes from DOM elements 
+  const image = divElement.querySelector('#img');
+  const usernameText = divElement.querySelector('#signupUser');
+  const emailText = divElement.querySelector('#signupEmail');
+  const passwordText = divElement.querySelector('#signupPassword');
+  const signupBtn = divElement.querySelector('#signup');
+  const fbBtn = divElement.querySelector('.fb');
+  const gBtn = divElement.querySelector('.google');
+  let url;
+
+  //  profile img
+  image.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    const x = firebase.storage().ref('profilePics').child(file.name).put(file)
+      .then((snap) => {
+      return snap.ref.getDownloadURL();       
+      })
+      .then(function (link) {
+        url = link;
+        const img = divElement.querySelector('#myimg');
+        img.src = link;
+        console.log(url);
+      });
+    console.log(x);
+  });
+
+  //  signup with Email
+  signupBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = emailText.value;
+    const pass = passwordText.value;
+    const username = usernameText.value; 
+    auth.createUserWithEmailAndPassword(email, pass).then((snap) => {
+      snap.user.updateProfile({
+        displayName: username,
+        photoURL: url,
+      });
+    }).then(() => changeView('#/home'));
+  });
+
+  //  facebook sign up
+  fbBtn.addEventListener('click', () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    const promise = auth.signInWithPopup(provider);
+    promise.then(() => changeView('#/home'));
+    promise.catch((error) => {
+      alert('no salió :(');
+      console.log(error);
+    });
+  });
+
+  //  google sign up
+  gBtn.addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const promise = auth.signInWithPopup(provider);
+    promise.then(() => changeView('#/home'));
+    promise.catch((error) => {
+      alert('no salió :(');
+      console.log(error);
+    });
+  });
+  return divElement;
+};

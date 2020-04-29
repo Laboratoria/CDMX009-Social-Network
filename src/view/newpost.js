@@ -1,10 +1,14 @@
-let welcomeview= document.querySelector('#background1')
+import { changeView } from '../view-controler/router.js';
+
+const welcomeview = document.querySelector('#background1');
+
 export default () => {
-  welcomeview.innerHTML= " ";
+  welcomeview.innerHTML = ' ';
   // firebase
   const db = firebase.firestore();
   const storage = firebase.storage();
   const docRef = db.collection('posts');
+  const auth = firebase.auth();
 
   // var globales
   let url;
@@ -45,77 +49,78 @@ export default () => {
   </div>
 </div>`;
 
- // nodos
- const divElement = document.createElement('div');
- divElement.innerHTML = viewNewPost;
+  // nodos
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewNewPost;
 
- // get the div elements
- const imgUpload = divElement.querySelector('#imgUpload');
- const shareImg = divElement.querySelector('#btnShare');
- const registerDescription = divElement.querySelector('#registerDescription');
- const registerLocation = divElement.querySelector('#registerLocation');
+  // get the div elements
+  const imgUpload = divElement.querySelector('#imgUpload');
+  const shareImg = divElement.querySelector('#btnShare');
+  const registerDescription = divElement.querySelector('#registerDescription');
+  const registerLocation = divElement.querySelector('#registerLocation');
 
- // Display the image
- imgUpload.onchange = function (e) {
-   // FileReader permite leer files o blob del lado cliente de manera asíncrona
-   const reader = new FileReader();
-   // Lee el archivo y lo manda a FileReader
-   reader.readAsDataURL(e.target.files[0]);
-   // Cuando esté listo, ejecuta el código
-   reader.onload = function () {
-     const preview = divElement.querySelector('#here');
-     const image = document.createElement('img');
+  // Display the image
+  imgUpload.onchange = function (e) {
+    // FileReader permite leer files o blob del lado cliente de manera asíncrona
+    const reader = new FileReader();
+    // Lee el archivo y lo manda a FileReader
+    reader.readAsDataURL(e.target.files[0]);
+    // Cuando esté listo, ejecuta el código
+    reader.onload = function () {
+      const preview = divElement.querySelector('#here');
+      const image = document.createElement('img');
 
-     image.src = reader.result;
-     preview.innerHTML = '';
-     preview.append(image);
-   };
- };
+      image.src = reader.result;
+      preview.innerHTML = '';
+      preview.append(image);
+    };
+  };
 
- // func + listener for uploading the image to storage
- imgUpload.addEventListener('change', (e) => {
- // get file
-   const image = divElement.querySelector('#imgUpload').files[0];
-   const imageName = image.name;
+  // func + listener for uploading the image to storage
+  imgUpload.addEventListener('change', () => {
+    // get file
+    const image = divElement.querySelector('#imgUpload').files[0];
+    const imageName = image.name;
 
-   // create storage reference --where the images will be uploaded and saved--
-   const storageRef = storage.ref(`images/${imageName}`);
+    // create storage reference --where the images will be uploaded and saved--
+    const storageRef = storage.ref(`images/${imageName}`);
 
-   // upload the image to storage
-   storageRef.put(image)
-     .then(snap => snap.ref.getDownloadURL())
-     .then((link) => {
-       url = link;
-       console.log(url);
-     });
- });
+    // upload the image to storage
+    storageRef.put(image)
+      .then(snap => snap.ref.getDownloadURL())
+      .then((link) => {
+        url = link;
+        console.log(url);
+      });
+  });
 
- // sending the info to firestore
- shareImg.addEventListener('click', (e) => {
-   const descr = registerDescription.value;
-   const loc = registerLocation.value;
-   const user = firebase.auth().currentUser;
-   docRef.add({
-     user: user.displayName,
-     userphoto: user.photoURL,
-     postimg: url,
-     description: descr,
-     location: loc,
-     date: firebase.firestore.Timestamp.fromDate(new Date()),
-     counter: 0,
-   }).then(console.log(docRef))
-   .then(e => changeView('#/home'))
- });
+  // sending the info to firestore ojo quite la e
+  shareImg.addEventListener('click', () => {
+    const descr = registerDescription.value;
+    const loc = registerLocation.value;
+    const user = firebase.auth().currentUser;
+    docRef.add({
+      id: user.uid,
+      user: user.displayName,
+      userphoto: user.photoURL,
+      postimg: url,
+      description: descr,
+      location: loc,
+      date: firebase.firestore.Timestamp.fromDate(new Date()),
+      counter: 0,
+    }).then(console.log(docRef))
+      .then(() => changeView('#/home'));
+  });
 
- // logout
- const logout = divElement.querySelector('#logoutBtn2');
- logout.addEventListener('click', (e) => {
-   e.preventDefault();
-   auth.signOut().then(() => {
-     changeView('#/login');
-     alert('Come back soon!');
-   });
- });
+  // logout
+  const logout = divElement.querySelector('#logoutBtn2');
+  logout.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+      changeView('#/login');
+      alert('Come back soon!');
+    });
+  });
 
- return divElement;
+  return divElement;
 };
