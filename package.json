@@ -29,11 +29,7 @@
     "eslint-plugin-jest": "^22.1.2",
     "htmlhint": "^0.11.0",
     "jest": "^24.9.0",
-<<<<<<< HEAD
     "regenerator-runtime": "^0.13.5",
-=======
-    "regenerator-runtime": "^0.13.1",
->>>>>>> 271437528778e610a05488387f91a7f74e905fa1
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"

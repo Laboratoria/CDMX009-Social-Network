@@ -1,5 +1,5 @@
 export default () => {
-    const viewPost = `
+  const viewPost = `
       <div class="photo-post">
         <img src="img/pictures/dog_shower.jpg" />
         <span class="back-icon">
@@ -18,8 +18,8 @@ export default () => {
       <div class="container"></div>
       `;
 
-      const divElemt = document.createElement('div');
-      divElemt.classList.add('position')
-      divElemt.innerHTML = viewPost;
-      return divElemt;
-  }
+  const divElemt = document.createElement('div');
+  divElemt.classList.add('position');
+  divElemt.innerHTML = viewPost;
+  return divElemt;
+};

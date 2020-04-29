@@ -1,5 +1,5 @@
 export default () => {
-    const viewConexions =`     
+  const viewConexions = `     
     <div>
         <a href="#/followers"> 5 Seguidores</a>
         <a href="#/follow"> 3 Seguidores</a>
@@ -10,13 +10,11 @@ export default () => {
         <p><img src="./img/pictures/bren.jpeg"> Bren Carranco</p>
     </div>
     `;
-    
-//Hide header
-    let dashHeader = document.querySelector('#dashboardHeader');
-    dashHeader.classList.add('hide');
-
-    const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    divElemt.innerHTML = viewConexions;
-    return divElemt;
-}
+  //  Hide header
+  const dashHeader = document.querySelector('#dashboardHeader');
+  dashHeader.classList.add('hide');
+  const divElemt = document.createElement('div');
+  divElemt.classList.add('position');
+  divElemt.innerHTML = viewConexions;
+  return divElemt;
+};
