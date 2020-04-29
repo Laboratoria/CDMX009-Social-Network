@@ -1,4 +1,5 @@
 import { root } from "../main.js";
+import { navBar } from "../main.js";
 //Esto dibuja la vista donde se puede agregar un post
 
 let db = firebase.firestore()
@@ -32,8 +33,13 @@ export function renderPostView() {
         </div>
     <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
     <section id="putPosts"></section>
-    </section>`
+    </section>
+    
+    `
+  navBar.style.display = 'block'
   root.innerHTML = posts
+
+
   //Nodos Imagen
   const fileInput = document.querySelector("#file")
   const sectionPosts = document.querySelector("#putPosts")
@@ -50,6 +56,7 @@ export function renderPostView() {
 
 function readFile(fileInput, sectionPosts) {
   let url
+
   //const fileInput = document.querySelector("#file")
   fileInput.onchange = (e) => {
     console.log(e);
@@ -92,19 +99,22 @@ function readFile(fileInput, sectionPosts) {
       .catch(err => {
         console.log("No hay nuevo post", err)
       })
-    addPostBD(post)
 
+    addPostBD(post)
   }
+
 }
 
 function readText() {
   const text = document.querySelector('#body').value
   const title = document.querySelector("#title").value
   let user = firebase.auth().currentUser;
+  console.log(user);
+
   let post = {
     title: title,
     text: text,
-    user: user.displayName,
+    user: user.name,
     photo: user.photoURL,
     date: new Date(),
   }
@@ -125,12 +135,24 @@ function readText() {
 //Se agrega el post a la collección postsList en la BD 
 function addNewPost(post) {
   return firebase.firestore().collection("postsList").add(post)
+
+
 }
+function dataBD() {
+  firebase.firestore().collection("postsList").get().then(function (docs) {
+    docs.forEach(function (doc) {
+      console.log(doc.id);
+    });
+  });
+}
+dataBD()
+
 
 //Se agregan los post al perfil del usuario 
 function addPostBD(post) {
   let user = firebase.auth().currentUser;
-  const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
+  console.log(user);
+  const docRef = db.collection('datausers/').doc(user.uid);
   docRef.update({
     post: firebase.firestore.FieldValue.arrayUnion(post)
   })

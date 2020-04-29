@@ -15,16 +15,16 @@
 
 <body>
   <button id="goOut">Cerrar Sesión</button>
-  <button id="showLogin">Vista Login</button>
   <div id="root"></div>
-  <div id="showP"></div>
-  <nav class="navbar is-fixed-bottom is-hoverable is-primary" role="navigation" aria-label="main navigation">
+
+  <nav class="navbar is-fixed-bottom is-hoverable is-primary" id="navBar" role="navigation"
+    aria-label="main navigation">
     <div class="navbar-brand">
-      <a href="#/Home" id="home" class="navbar-item is-expanded is-primary">Mi muro</a>
-      <a href="#/Login" id="login" class="navbar-item is-expanded is-primary">Sign in</a>
-      <a href="#/Post" id="post" class="navbar-item is-expanded is-primary">Publicar</a>
-      <a href="#/My_profile" id="profile" class="navbar-item is-expanded">Mi perfil</a>
-      <a href="#/Exit" id="exit" class="navbar-item is-expanded">Salir</a>
+      <a href="#/Home" id="home" class="navbar-item is-expanded is-primary centerItem"><i class="fas fa-home"></i></a>
+      <a href="#/Post" id="post" class="navbar-item is-expanded is-primary centerItem"><i
+          class="fas fa-plus-circle"></i></a>
+      <a href="#/My_profile" id="profile" class="navbar-item is-expanded centerItem"><i class="fas fa-user"></i></a>
+      <a href="#/Exit" id="exit" class="navbar-item is-expanded centerItem"><i class="fas fa-power-off"></i></a>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="active" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -33,6 +33,18 @@
     </div>
   </nav>
 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script> -->
+  <!-- include only the Firebase features as you need -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script> -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/firebase/7.14.0/firebase-messaging.js"></script> -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script> -->
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries
+   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>  -->
   <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
 
 
