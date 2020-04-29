@@ -32,7 +32,7 @@ export function renderPostView() {
           </label>
         </div>
     <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
-    <section id="putPosts"></section>
+    <section id="putPosts" class="sectionPosts"></section>
     </section>
     
     `
@@ -117,6 +117,7 @@ function readText() {
     user: user.name,
     photo: user.photoURL,
     date: new Date(),
+
   }
   addNewPost(post)
     .then(res => {
@@ -164,32 +165,47 @@ function showPosts(sectionPosts) {
   firebase.firestore().collection("postsList").onSnapshot(snap => {
     limpiar(sectionPosts)
     snap.forEach(doc => {
+      console.log(doc.data());
+
       if (doc.data().img === undefined && doc.data().photo === undefined) {
         let renderPosts = `<div>
         <p>${doc.data().user}</p>
       <p>${doc.data().title}</p>
       <p>${doc.data().text}</p>
+      <div class="contentLikes">
+      <a href="#" dataid="${doc.id}" class="likes btnLike"><i class="fas fa-heart"></i></a>
+      <div class="resultCounter counter">${doc.data().likes}</div>
+      </div>
     </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
+
       } if (doc.data().photo != undefined) {
         let renderPosts = `<div>
         <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
       <p>Titulo:${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <img max- width="200" src="${doc.data().img}" />
-      
+      <div class="contentLikes">
+      <a href="#" dataid="${doc.id}" class="likes btnLike "><i class="fas fa-heart"></i></a>
+      <div class="resultCounter counter">${doc.data().likes}</div>
+      </div>
     </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
+
       } else {
         let renderPosts = `<div>
         <p> Autor: ${doc.data().user}</p>
       <p>Titulo:${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <img max- width="200" src="${doc.data().img}" />
+      <div class="contentLikes">
+      <a href="#" dataid="${doc.id}" class="likes btnLike "><i class="fas fa-heart"></i></a>
+      <div class="resultCounter counter">${doc.data().likes}</div>
+      </div>
       
     </div>`
         const newNode = document.createElement("div")
@@ -197,11 +213,65 @@ function showPosts(sectionPosts) {
         sectionPosts.appendChild(newNode)
       }
 
+      //LIKES
+      let btnLike = document.querySelectorAll('.btnLike')
+      //console.log(btnLike);
+      let btnClick = btnLike[btnLike.length - 1]
+      //console.log(btnClick);
+
+      btnClick.addEventListener('click', counter)
+      //let resultLikes = document.querySelectorAll('.resultCounter')
+      //let listResultLikes = resultLikes[resultLikes.length - 1]
+      let countLikes = 0
+      function counter() {
+        let user = firebase.auth().currentUser;
+
+        console.log(user.displayName);
+        let whoLike = user.displayName
+
+        let idPost = btnClick.getAttribute('dataid')
+        console.log(idPost);
+        countLikes = countLikes + 1
+        console.log(countLikes);
+
+        const docPost = firebase.firestore().collection("postsList").doc(idPost)
+        docPost.get().then(docPost => {
+          let whosLikePost = docPost.data().whoLike
+          console.log(whosLikePost);
+          /* console.log(whosLikePost.includes(whoLike));
+          let checkUser = whosLikePost.includes(whoLike) */
+          if (whosLikePost === undefined) {
+            saveLikes(countLikes, idPost, whoLike)
+            btnClick.classList.add('colorLike')
+
+          } if (whosLikePost != undefined) {
+            console.log(whosLikePost.includes(whoLike));
+            let checkUser = whosLikePost.includes(whoLike)
+            if (checkUser === false) {
+              saveLikes(countLikes, idPost, whoLike)
+              btnClick.classList.add('colorLike')
+            }
+
+          }
+        });
+      }
     })
   })
+
+
 }
 
+function saveLikes(countLikes, idPost, whoLike) {
+  const docPost = firebase.firestore().collection("postsList").doc(idPost)
+  docPost.update({
+    likes: firebase.firestore.FieldValue.increment(countLikes),
+    whoLike: [whoLike]
+  })
+
+
+}
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
 function limpiar(sectionPosts) {
   sectionPosts.innerHTML = '';
 }
+

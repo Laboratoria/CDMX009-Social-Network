@@ -1,3 +1,4 @@
+import { navBar } from "../main.js";
 export default () => {
     const viewSignIn = `
 <div class = "form-container ">
