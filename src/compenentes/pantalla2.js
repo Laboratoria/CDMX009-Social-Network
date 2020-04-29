@@ -1,9 +1,11 @@
+import { pantalla1 } from './pantalla1.js'
 
 let root = document.querySelector('#root');
 export const registros = () =>{
 let template = `
- <p class='head'></p>
- <h2>Code Woman</h2>
+ <div class='head'>
+ <h2>&lt;Code Woman&gt;</h2>
+ </div>
  <p class='p1'>¡Hola! para  formar parte de la comunidad de programadoras de América Latina, llena el formulario que se encuentra en la parte de abajo y da click en crear cuenta. </p>
  <input type="text" id="name" class="name" placeholder="Nombre completo" required>
  <input type="email" id="email" class="mail" placeholder="Correo electronico" required>
@@ -13,9 +15,14 @@ let template = `
  política de privacidad de Code Woman.'</p>
  <input type="button" id="createAccount" value='Crear' class="creat">
  <p class='ctn'>¿Ya tiene cuenta?</p>
- <p class='iniciar'>Iniciar sesión</p>
+ <p id='iniciar' class='iniciar'>Iniciar sesión</p>
  `;
 root.innerHTML = template;
+
+//Boton para iniciar sesion que manda a la primera pantalla
+let bttnInit = document.querySelector('#iniciar');
+bttnInit.addEventListener('click', pantalla1);
+
 //Creando una cuenta de usuario con correo electrónico
 let newUser= document.querySelector('#createAccount');
 newUser.addEventListener('click', createUser)
@@ -50,7 +57,7 @@ function verifyAccount(){
     
     user.sendEmailVerification().then(function() {
       console.log("enviando correo...");
-      // Email sent.
+      alert('Te enviamos un correo verificalo por favor y puedes continuar !');
     }).catch(function(error) {
       console.log(error);
       // An error happened.

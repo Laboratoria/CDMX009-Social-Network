@@ -162,19 +162,11 @@ body{
     width: 360px;
     height: 78px;
     background: rgba(250, 208, 208, 0.7);
+    margin-bottom: 5px;
     }
     h2{
-        position: absolute;
-        width: 190px;
-        height: 29px;
-        left: 85px;
-        top: 24px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 200;
-        font-size: 24px;
-        line-height: 28px;
-         color: #000000;
+        text-align: center;
+        margin-top: 10px;
     }
     .p1{
     position: absolute;
@@ -189,6 +181,12 @@ body{
     line-height: 14px;
     color: #000000;
     }
+     .welcomeName{
+       margin-left: 90px;
+     }
+     p.welcomeB{
+       text-align: center;
+     }
     .name{
     position: absolute;
     width: 225px;
@@ -256,21 +254,6 @@ body{
     background: rgba(147, 72, 232, 0.18);
     border-radius: 15px;
     }
-    .ctn{
-        position: absolute;
-    width: 128px;
-    height: 28px;
-    left: 112px;
-    top: 544px;
-    
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    
-    color: #000000;
-    }
     .iniciar{
         position: absolute;
     width: 77px;
@@ -290,23 +273,20 @@ body{
         height:640px;
     }
       /* Estilos pantalla3 */
-    .encabezado {
-        background-color: #EACDCF;
-        font-size: 25px; 
-        height: 40px;
-
-    }
      .inicio, .perfil, .salir{
-           background-color: #EACDCF;
-           border-radius: 10px;
-           margin-top: 10px;
+           background-color: #FFEEEE;
+           border-radius: 15px;
+           width: 60px;
+           height: 19px;
      }
+      .inicio{
+          margin-left: 85px;
+      }
       .photo{
         width: 20%;
         height: 10%;
         border-radius: 50%;
         display: inline-block;
-        margin-top: -10px;
       }
        .bienUser{
            font-size: 18px;
@@ -314,25 +294,40 @@ body{
            
        }
         .containerPost{
-            height: 150px;
+            height: 200px;
             border-style: solid;
         }
+         .conteintpost{
+             margin-left: 21px;
+             margin-top:5px;
+             width: 308px;
+             height: 90px;
+             border-style: solid;
+             display: none;
+
+         }
+         img{
+             width: 308px;
+             height: 90px;
+         }
           .comp{
-              margin-top: 10px;
-              margin-left: 10px;
-              width: 320px;
-              height: 80px;
-              border: solid;
+            margin-top:5px;
+            margin-bottom:2px;
+              margin-left: 20px;
+              width: 308px;
+              height: 40px;
               font-family: 'Raleway', sans-serif;
               text-align: center;
               font-size: 15px;
           } 
-           /*Boton compartir*/
+            
+            /*Boton compartir*/
            .share{
               margin-left: 200px;
               margin-bottom: 50px;
               width: 20%;
               border-radius: 10px;
+              margin-top:5px;
               
            }
             .upPhoto{
@@ -381,3 +376,64 @@ body{
         text-decoration: none;
         cursor: pointer;
     }
+
+    /*Estilos pantalla posts*/
+    .containtPub{
+        margin-top: 25px;
+        display: grid;
+        border-style: solid;
+
+    }
+    .txt{
+        width: 270px;
+        height: auto;
+        top: 140px;
+        left: 40px;
+        background: rgb(249, 249, 249);
+        border: 1px solid rgba(0, 0, 0, 0.35);
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    .crearP,p{
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    .inputImg{
+        width:30px;
+        height: 30px;
+        display: inline-block;
+        margin-top: 1px;
+    }
+     .compartir{
+         margin-left: 200px;
+     }
+     .root2{
+        top: 200px;
+     }
+     .card{
+        margin:10px;
+        box-shadow:0px 2px 10px grey;
+        text-align:center;
+        border-radius:10px;
+        padding:15px;
+        transition:all .3s;
+        height: auto;
+    }
+     .counter{
+     top: 160px;
+     left: 165px;
+     border : 1px #000000;
+     }
+     .cont{
+        top: 0.5px;
+        left: 25px;
+        font-size: 20px;
+     }
+     p.like{
+         font-size: 15px;
+         width: 10px;
+         height: 10px;
+     }
+     .guardar{
+        display: none;
+     }

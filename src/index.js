@@ -1,3 +1,3 @@
-import { login } from './compenentes/pantalla1.js';
+import { pantalla1 } from './compenentes/pantalla1.js';
 import { registrar } from './compenentes/registro.js';
-login();
+pantalla1();

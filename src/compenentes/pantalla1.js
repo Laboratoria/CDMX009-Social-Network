@@ -2,7 +2,7 @@ import { registros } from './pantalla2.js'
 import { welcome } from './pantalla3.js'
 
 let root = document.querySelector('#root');
- export const login = () => {
+ export const pantalla1 = () => {
 let p = `
 
      <img class='image' src="/img/portada.jpg">
@@ -27,8 +27,8 @@ let p = `
 root.innerHTML = p;
 
 let bttn = document.querySelector('.logoG');
-bttn.addEventListener('click', login);
-function login (){
+bttn.addEventListener('click', loginGmail);
+function loginGmail (){
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,14 +54,15 @@ function login (){
 
 
 let bttn1 = document.querySelector('.logoF');
-bttn1.addEventListener('click', loginF);
-function loginF(){
+bttn1.addEventListener('click', loginFb);
+function loginFb(){
     var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
+        console.log(user);
         // ...
       }).catch(function(error) {
         // Handle Errors here.
@@ -80,13 +81,22 @@ function loginF(){
       function signIn(){
        let email= document.querySelector('#email').value;
        let password= document.querySelector('#password').value;
-       firebase.auth().signInWithEmailAndPassword(email, password)
+       firebase.auth().signInWithEmailAndPassword(email, password).then(function(result){
+         console.log(result);
+         let user = result.user;
+         let userInfo = {}
+         userInfo.displayName = result.user.displayName
+         userInfo.email = result.user.email
+         userInfo.photoURL = result.user.photoURL
+         console.log(userInfo);
+         welcome(user)
+         saveUser(userInfo)
+       })
        .catch(function(error) {
        // Handle Errors here.
        var errorCode = error.code;
        var errorMessage = error.message;
        console.log(errorCode);
-       console.log(errorMessage);
        // ...
      });
    } 
@@ -94,8 +104,8 @@ function loginF(){
      firebase.auth().onAuthStateChanged(function(user) {
          if (user) {
            // User is signed in.
-             console.log("existe usuraio activo")
-             let displayName= user.displayName;
+             console.log("existe usuario activo")
+             let displayName = user.displayName;
              let email= user.email;
              console.log(user);
              let emailVerified = user.emailVerified; 
@@ -120,6 +130,14 @@ function loginF(){
    }
 
    //Guarda en B.D cloud firestore usuarios registrados en la colleccion usersRef
-   
+   function saveUser (user){
+    let usuario = {
+      uid: user.uid,
+      nombre: user.displayName,
+      email: user.email,
+      foto: user.photoURL
+     }
+     usersRef.doc(user.uid).set(usuario)
+   }
   
    
