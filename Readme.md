@@ -1,6 +1,6 @@
 # SOCIAL NETWORK
 
-# PROYECTO:  EDU-LINE
+## PROYECTO:  EDU-LINE
  
 ## RESUMEN: 
 
@@ -10,7 +10,7 @@ Red Social sobre temas de educación
 
 Aplicación dirigida a usuarios especialistas en el tema y padres de familia que se podrán comunicar a través de esta red social; compartir tips, técnicas y demás información que ayude mejorar la educación de sus hijos o dar pautas para que los profesionales mejoren su forma de enseñar.
 
-# Historias de Usuario:
+## Historias de Usuario:
 
 * Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
 
