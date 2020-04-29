@@ -7,7 +7,7 @@ import { viewProfile } from './view/profile.js';
 document.addEventListener("DOMContentLoaded", function() {
     var obtainingPersistenceData = JSON.parse(localStorage.getItem('userdata')); //aquí lo obtengo.GET ITEM es para que local me muestre la data si existe dentro de ella
     if (obtainingPersistenceData == null) { //no hay localStorage
-        console.log('Keep Calm', obtainingPersistenceData);
+        // console.log('Keep Calm', obtainingPersistenceData);
         document.getElementById('hideAndShow').style.display = 'none';
         document.getElementById('movilIcon').style.display = 'none';
         viewLogin()
@@ -318,7 +318,7 @@ function readPosts() {
                 var email = doc.data().mail;
                 var divisiones = email.split("@");
                 EmailCortado = divisiones[0];
-            }
+            } //mi condicion    si, si está ponlo  si no está pon el mail
             var nombre = doc.data().user ? doc.data().user : EmailCortado;
             var image = doc.data().photo ? doc.data().photo : "images/profile-picture-green.jpg";
 
