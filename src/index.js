@@ -9,6 +9,41 @@ const errorHandler = () => {
     const errHand = database.errorInfo();
     errMsg.innerHTML = errHand.message;
 };
+const topBarForm = `
+    <div class="userInfo media navbar is-fixed-top">
+        <div class="file is-centered">
+            <figure class="image is-96x96">
+                <img id="profilePic" clscrollbarass="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
+            </figure>
+        </div>
+        <div class="media-content">
+            <p id="profileUserNameSaved" class="title is-4" placeholder="Name"></p>
+        </div>
+        <div class="navbar-end"> 
+            <figure class="image is-64x64">
+                <img id="mLogo" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
+            </figure>
+        </div>
+    </div>`;
+const topNavBar = () => {
+    const showImg = document.querySelector('#profilePic');
+    const showUserName = document.querySelector('#profileUserNameSaved');
+    let imgSrc;
+    let userNameSrc;
+    database.getProfilePic()
+        .then((data) => {
+        if (!data) return;
+        imgSrc = data.url;
+        showImg.src = imgSrc;
+    });
+    database.getProfileName()
+        .then((data) => {
+        if (!data) return;
+        userNameSrc = data.userName;
+        showUserName.innerHTML = `${'@'}${userNameSrc}`;
+    })
+        .catch(error => console.log('error', error));
+};
 // render de la pantalla para iniciar sesión
 const renderSignIn = () => {
   root.classList.add('section');
@@ -198,11 +233,9 @@ const renderProfile = () => {
     </div>
         <div class="file is-centered">
             <figure class="image is-96x96">
-          
                 <img id="showImg" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
             </figure>
         </div>
-      
         <div class="file is-centered">
             <label class="file-label">
                 <input id="profilePicture" class="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" name="profile"/>
@@ -317,24 +350,11 @@ export const renderFeed = () => {
   const feed = `
         <div class="column body-column">
             <div class="header">
-                <div class="userInfo media navbar is-fixed-top">
-                    <div class="file is-centered">
-                        <figure class="image is-96x96">
-                            <img id="profilePic" clscrollbarass="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p id="profileUserNameSaved" class="title is-4" placeholder="Name"></p>
-                    </div>
-                    <div class="logoMemingos"> 
-                        <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
-                    </div>
-                </div>  
+                <div id="topBar"></div>
                 <div class="file1 is-centered">
                     <div id="postFeed"  class="column1">
                     </div>
-                    <div id="postComments" class="column1">
-                    </div>                  
+                                  
                 </div>
                 <div class="content">
                     
@@ -345,6 +365,8 @@ export const renderFeed = () => {
         </div>
     `;
   root.innerHTML = `${feed}${renderNavBar}`;
+  document.querySelector('#topBar').innerHTML = topBarForm;
+  topNavBar();
   database.getPostFeed();
 
   //let result = '';
@@ -381,23 +403,6 @@ export const renderFeed = () => {
   document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
-  const showImg = document.querySelector('#profilePic');
-  let imgSrc;
-  database.getProfilePic()
-    .then((data) => {
-      if (!data) return;
-      imgSrc = data.url;
-      showImg.src = imgSrc;
-    });
-  const showUserName = document.querySelector('#profileUserNameSaved');
-  let userNameSrc;
-  database.getProfileName()
-    .then((data) => {
-      if (!data) return;
-      userNameSrc = data.userName;
-      showUserName.innerHTML = `${'@'}${userNameSrc}`;
-    })
-    .catch(error => console.log('error', error));
   document.querySelector('#add').addEventListener('click', () => {
     renderNewPost();
   });
@@ -421,13 +426,11 @@ const renderNewPost = () => {
   root.classList.remove('signUpAndIn');
   root.classList.remove('feed');
   const post = `
-    <div class="logoMemingos"> 
-        <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
- 
-    </div>
-    <div id="showNewImg" class="file is-centered">
-        
-    </div>
+  <div id="topBar">
+  </div>
+                <div id="showNewImg" class="file is-centered">
+                    <img id="showImgPreview" class="is-rounded" src=""/>
+                </div>
         <div class="field">
             <div class="file is-info has-name is-small">
                 <label class="file-label">
@@ -454,18 +457,41 @@ const renderNewPost = () => {
       </button>
         
     `;
+    
   root.innerHTML = `${post}${renderNavBar}`;
+  document.querySelector('#topBar').innerHTML = topBarForm;
+  topNavBar();
   document.querySelector('#home').addEventListener('click', () => {
     renderFeed();
   });
   document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
-  document.querySelector('#uploadImg').addEventListener('change', () => {
-    database.uploadPicturePost();
-  });
+    const inputFile = document.querySelector('#uploadImg')
+    const previewContainer = document.querySelector('#showNewImg')
+    const previewImg = previewContainer.querySelector('#showImgPreview')
+
+     inputFile.addEventListener("change", function () { 
+            const file = this.files[0]
+            if (file) {
+                const reader = new FileReader();
+
+                previewImg.style.display = "block";
+
+                reader.addEventListener("load", function () { 
+                    console.log(this);
+                    previewImg.setAttribute("src", this.result);
+                });
+                reader.readAsDataURL(file);
+            }
+    }); 
+    //     database.uploadPicturePost();
+    // });
   document.querySelector('#update').addEventListener('click', () => {
-    database.savePostData();
-    renderFeed();
-  });
+    // database.savePostData();
+    database.uploadPicturePost();
+    window.setTimeout(renderFeed, 1500);
+   
+});
+
 };

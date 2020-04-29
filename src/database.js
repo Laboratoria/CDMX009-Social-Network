@@ -41,21 +41,29 @@ const database = {
   getPostFeed: () => {
     imageRefPost.on('value', (snapshot) => {
       const data = snapshot.val();
-      let result = '';
+      let result = '';         
       for (const key in data) {
-        result += `<div>
-                      <img width='500px' src='${data[key].url}'/>
-                    </div>
-                    <div id='postComment'>
-                     <p></p>
-                      </div>`;
-       // console.log(data[key].url);
-      }
+        let date = data[key].postTime;     
+        let date2 = new Date(date);       
+        let date3 = date2.toLocaleString();
+        result += `
+        <div class="file is-centered image is-square">
+            <img src='${data[key].url}'/>
+        </div>
+        <div>
+          <p>${date3}</p>
+          <p>${data[key].comment}</p>
+        </div>
+        `;                
+             }
       document.getElementById('postFeed').innerHTML = result;
     });
   },
+ 
+  
+
   // función para obtener el pie de foto del usuario para el post
-  getPostMessage:()=>{
+ /* getPostMessage:()=>{
     refPost.on('value', (snapshot) => {
       const data = snapshot.val();
       console.log(data);
@@ -67,7 +75,7 @@ const database = {
       }
       document.getElementById('postComments').innerHTML = result;
     });
-  },
+  },*/
 
 /*  getPostTest: () => {
     imageRefPost.on('value'),(snapshot) => {
@@ -91,7 +99,7 @@ const database = {
       if (user) {
         console.log('existe usuario activo');
         database.getPostFeed();
-        database.getPostMessage();
+        // database.getPostMessage();
         renderFeed();
         console.log('*****************');
         console.log(user.emailVerified);
@@ -172,7 +180,7 @@ const database = {
       // console.log(data);
 
       for (const key in data) {
-        result = `<img src= ${data[key].url}/>`;
+        result = `<img width='500px' src= ${data[key].url}/>`;
       //  console.log(data[key].url);
       }
       document.getElementById('showNewImg').innerHTML = result;
@@ -247,8 +255,9 @@ const database = {
   },
   // creando nodo en Firebase para subir información de la foto de un usuario para usarla en el feed
   createNodeFirebaseForPost: (nameImage, url) => {
+    
     const postMessage = document.getElementById('postMessage').value;
-    imageRefPost.push({ name: nameImage, url, uid: firebase.auth().currentUser.uid, postTime: Date.now().toString()}); // tiempo real
+    imageRefPost.push({ name: nameImage, url, uid: firebase.auth().currentUser.uid, postTime: firebase.database.ServerValue.TIMESTAMP, comment: postMessage}); // tiempo real
     db.collection('post-image').add({
       name: nameImage,
       url,
@@ -273,7 +282,7 @@ const database = {
     });
   },
   // guardando información del post de un usuario en Firebase
-  savePostData: () => {
+  /*savePostData: () => {
     const postMessage = document.getElementById('postMessage').value;
     refPost.push({ uid: firebase.auth().currentUser.uid, comment: postMessage, postTime: Date.now().toString()}); 
     console.log(firebase.firestore.FieldValue.serverTimestamp()) // tiempo real
@@ -282,7 +291,7 @@ const database = {
       comment: postMessage,
       postTime: new Date(Date.now()),
     });
-  },
+  },*/
 
 
   // cerrar sesión

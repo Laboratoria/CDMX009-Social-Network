@@ -74,3 +74,19 @@ justify-content: center;}
     position: relative;
     padding: 0.97rem;
 }
+#textId {
+    width: 25%;
+    margin-top: 10px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+  }
+  #showNewImg {
+      width: 300px;
+      min-height: 100px;
+      border: 2px solid #dddddd;
+      margin-top: 15px;
+  }
