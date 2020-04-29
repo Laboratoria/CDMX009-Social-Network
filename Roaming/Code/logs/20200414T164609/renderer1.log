@@ -1,5 +1,0 @@
-[2020-04-14 20:17:02.398] [renderer1] [warning] {"name":"Canceled"}
-[2020-04-14 20:21:17.265] [renderer1] [warning] {"name":"Canceled"}
-[2020-04-14 20:21:26.943] [renderer1] [warning] {"name":"Canceled"}
-[2020-04-14 20:22:18.705] [renderer1] [warning] {"name":"Canceled"}
-[2020-04-14 21:03:56.684] [renderer1] [warning] UNRESPONSIVE extension host, 'vscode.emmet' took 80% of 666ms, saved PROFILE here: 'C:\Users\hp\AppData\Local\Temp\exthost-561740.cpuprofile' [{"id":"gc","total":9000,"percentage":1},{"id":"program","total":39000,"percentage":6},{"id":"self","total":43000,"percentage":6},{"id":"vscode.css-language-features","total":1000,"percentage":0},{"id":"vscode.emmet","total":533000,"percentage":80}]

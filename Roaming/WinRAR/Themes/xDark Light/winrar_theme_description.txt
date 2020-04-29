@@ -1,2 +1,0 @@
-title= xDark Light 
-about= GeodaSoft 2018

@@ -97,7 +97,7 @@ We sought feedback five times from our bootcamp partners.
 
 To develop this part we apply the feedback that our coach and our colleagues gave us, we also take into account the official colors of the National Polytechnic Institute: cherry and white. The hi-fi prototype was developed in Figma.
 
-<img src="src/img/inicioSesión.png"> 
+<img src="src/img/inicioSesion.png"> 
 <img src="src/img/noticias.png"> 
 <img src="src/img/publicaciones.png"> 
 <img src="src/img/modal.png"> 

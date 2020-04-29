@@ -1,5 +1,0 @@
-Looking for git in: C:\Program Files\Git\cmd\git.exe
-Using git 2.26.0.windows.1 from C:\Program Files\Git\cmd\git.exe
-> git rev-parse --show-toplevel
-> git rev-parse --git-dir
-Open repository: c:\Users\hp\Documents\laboratoria\CDMX009-Social-Network
