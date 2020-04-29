@@ -21,6 +21,7 @@ body{
     background-color:#232323; 
      /* height: 600px; */
     color: rgb(212, 144, 41);
+    height: 100vh; 
    
 }
 .form-container{
@@ -143,6 +144,7 @@ a{
  } */
  .info-profile{
      padding-bottom: 0px;
+     margin-bottom: -60px;
  }
 
  .slider{
@@ -210,9 +212,7 @@ a{
      70% { margin-left: -200%; }
  }
 
- .navbar{
-    visibility: hidden;
- }
+ 
 
  #goLogin{
      margin-bottom: 20px;

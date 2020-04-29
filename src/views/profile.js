@@ -61,9 +61,6 @@ export function renderProfileView(myData) {
                   <button class = "button is-rounded 
                   btnIcon" id="editProfile" ><span class="icon is-small"><i class="fas fa-pencil-alt"></i></span></button>
                 </div>
-                <div>
-                  <p>Editar</p>
-                </div>
                 </div>
                 <div class="centerItem">
                     <i class= "icons fas fa-camera-retro icon is-medium has-text-light ocultEditProfile id="saveProfile"></i>
@@ -254,6 +251,8 @@ function edit() {
         console.log('Hubo en error:', error);
       }) */
   }
+
+}
 
 
 /* function saveProfileBD(newNameProfile, newEmailProfile, interestsProfile, url) {
