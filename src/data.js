@@ -135,7 +135,7 @@ window.socialNetwork = {
         })
             
     },
-    //tag es un array
+    //TAG ARRAY
     searchTag: (tag)=> {
         let filteredPosts = {};
         firebase.database().ref("posts/").on("value", function(snapshot){

@@ -1,6 +1,6 @@
-export function emailLogin(email, password) {
-  if (!email || !password) return 'No existe email o password'
-  if (password.length < 6) return 'No cumple con 6 caracteres'
+function emailLogin(email, password) {
+  /*if (!email || !password) return 'No existe email o password'
+  if (password.length < 6) return 'No cumple con 6 caracteres'*/
 
   return firebase.auth()
     .signInWithEmailAndPassword(email, password)
@@ -10,23 +10,27 @@ export function emailLogin(email, password) {
       const errorMessage = error.message;
       if (errorCode === "auth/invalid-email"){
         alert("Email inválido")
+        return "email inválido"
       } if (errorCode === "auth/user-disabled"){
         alert("Usuario deshabilitado")
+        return "usuario deshabilitado"
       } if (errorCode === "auth/user-not-found"){
         alert("Usuario no encontrado")
+        return "usuario no encontrado"
       } if (errorCode === "auth/wrong-password"){
         alert("Contraseña incorrecta")
+        return "contraseña incorrecta"
       }
       console.log(`${errorCode} ${errorMessage}`)
       // ...
     });
-}
+  }
 
 
 
 
 
-export function logout() {
+ function logout() {
   firebase.auth().signOut().then(function() {
       // Sign-out successful.
       return true
@@ -38,7 +42,7 @@ export function logout() {
 }
 
 // CREAR CUENTA MAIL Y PWD
-export function createAccount(mail, pwd) {
+function createAccount(mail, pwd) {
   firebase.auth().createUserWithEmailAndPassword(mail, pwd)
   .then(function(){
     window.socialNetwork.verification();
@@ -48,11 +52,13 @@ export function createAccount(mail, pwd) {
       const errorCode = error.code;
       const errorMessage = error.message;
       if (errorCode === "auth/email-already-in-use"){
-        alert("Correo en uso")
+        //alert("Correo en uso")
+        return "Correo en uso"
       } if (errorCode === "auth/invalid-email"){
-        alert("Email inválido")
+       // alert("Email inválido")
+        return "Email inválido"
       } if (errorCode === "auth/weak-password"){
-        alert("Contraseña tiene que tener más de 6 caracteres")
+        //alert("Contraseña tiene que tener más de 6 caracteres")
       }
       console.log(`${errorCode} ${errorMessage}`)
     });
