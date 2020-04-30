@@ -414,7 +414,6 @@
 #backgroundHome {
   background-image: url("/imgBichigram/fondo1.jpg");
   background-size: cover;
-  font-family: Fresca;
   margin: 0;
 }
 
@@ -460,6 +459,30 @@
 .h2 {
   background-color: white;
   overflow: scroll;
+}
+
+.h2 #arthropods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-margin-before: 10px;
+          margin-block-start: 10px;
+  -webkit-margin-after: 15px;
+          margin-block-end: 15px;
+}
+
+.h2 #arthropods .arts {
+  width: 80px;
+  height: auto;
+  -webkit-filter: drop-shadow(3px 3px 3px #222);
+  filter: drop-shadow(3px 3px 3px #222);
 }
 
 .h2 .lilGrid {
@@ -540,6 +563,11 @@
           margin-block-end: 0px;
 }
 
+.h2 .membicha {
+  width: 50%;
+  height: auto;
+}
+
 .h3 {
   margin: 0px;
 }
@@ -584,29 +612,52 @@ body {
 .gridWelcome {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px;
-      grid-template-columns: 200px;
+  -ms-grid-columns: 360px;
+      grid-template-columns: 360px;
   -ms-grid-rows: 210px 200px 210px;
       grid-template-rows: 210px 200px 210px;
   grid-gap: 12px;
-  margin-left: 75px;
+  margin: 0px;
 }
 
 .w1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.w1 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.w1 div p {
   font-family: fresca;
   font-size: 36pt;
   color: white;
   text-align: center;
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px black;
-}
-
-.w1 p {
   margin-bottom: 0px;
   margin-top: 80px;
+  margin-left: 80px;
 }
 
 .w2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: tajawal;
   font-size: 12pt;
   color: white;
@@ -619,7 +670,19 @@ body {
   display: none;
 }
 
-#login {
+.w3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.w3 nav {
+  margin-left: 80px;
+}
+
+.w3 nav #login {
   width: 125px;
   height: 25px;
   background: #0f9e84;
@@ -628,20 +691,18 @@ body {
   text-align: center;
 }
 
-#login a {
+.w3 nav #login a {
   position: relative;
   color: white;
 }
 
 #backgroundProfile {
-  display: block;
-  background-image: url("/imgBichigram/fondo1.jpg");
+  background-image: url("/imgBichigram/fondo3.jpg");
   background-size: cover;
-  font-family: Fresca;
   margin: 0;
 }
 
-#gridProfile {
+#grdProfile {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -652,19 +713,19 @@ body {
   margin: 0px;
 }
 
-.prof1 {
+#prof1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.prof1 div {
+#prof1 div {
   margin: 5px 20px;
   -ms-flex-line-pack: justify;
       align-content: space-between;
 }
 
-.prof1 div p {
+#prof1 div p {
   margin: 0px;
   font-family: fresca;
   font-size: 24pt;
@@ -674,26 +735,70 @@ body {
   text-shadow: 2px 2px 2px black;
 }
 
-.prof1 img {
+#prof1 img {
   margin: 0px 20px;
   width: 35px;
   height: auto;
 }
 
 .prof2 {
-  background-color: white;
+  overflow: scroll;
 }
 
-.prof2 img {
+.prof2 .profilePost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.prof2 .profilePost img {
   width: 150px;
   height: auto;
   border-radius: 50%;
 }
 
-.prof2 p {
+.prof2 .profilePost p {
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+  -webkit-margin-after: 10px;
+          margin-block-end: 10px;
   font-family: tajawal;
   font-weight: bold;
   font-size: 26px;
+}
+
+.prof2 .userPosts .name {
+  font-family: tajawal;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+
+.prof2 .userPosts .date {
+  font-family: tajawal;
+  font-size: 9px;
+  -webkit-margin-after: 5px;
+          margin-block-end: 5px;
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
+}
+
+.prof2 .userPosts img {
+  width: 100%;
+  height: auto;
+}
+
+.prof2 .userPosts .descriptionProf {
+  font-family: tajawal;
+  font-size: 11px;
+  -webkit-margin-after: 3px;
+          margin-block-end: 3px;
+  -webkit-margin-before: 0px;
+          margin-block-start: 0px;
 }
 
 .prof3 a {

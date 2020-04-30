@@ -1,10 +1,10 @@
-import { changeView } from '../view-controler/router.js';
-
+const welcomeview = document.querySelector('#background1');
 export default () => {
+  welcomeview.innerHTML = ' ';
   const viewProfile = `
       <div id='backgroundProfile'>
-      <div id= 'gridProfile>
-        <div class = 'prof1'>   
+      <div id= 'grdProfile'>
+        <div id='prof1'>   
           <div><p>Bichigram</p></div>
           <div><button class="btn" id="logoutBtn3"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
         </div>
@@ -45,9 +45,9 @@ export default () => {
   const user = firebase.auth().currentUser;
   if (user != null) {
     const profileInfo = `
-   <div> 
-   <img src="${user.photoURL}"> 
+   <div>
    <p> ${user.displayName} </p>
+   <img src="${user.photoURL}"> 
    </div>
    `;
     showInfo.innerHTML = profileInfo;
@@ -58,8 +58,7 @@ export default () => {
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
-      changeView('#/login');
-      alert('Come back soon!');
+      window.location.hash = '#/login';
     });
   });
 
@@ -67,13 +66,12 @@ export default () => {
   postsRef.where('id', '==', user.uid).onSnapshot((snap) => {
     userPosts.innerHTML = '';
     snap.forEach((doc) => {
-      const div = `<div>
-              <p>${doc.data().user}</p>
-              <p>${doc.data().date.toDate()}</p>
+      const div = `
+              <p class='name'>${doc.data().user}</p>
+              <p class='date'>${doc.data().date.toDate()}</p>
               <img width="200" src="${doc.data().postimg}" />
-              <p>${doc.data().description}</p>
-              <p>${doc.data().location}</p>
-          </div>`;
+              <p class='descriptionProf'>${doc.data().description}</p>
+              <p class='descriptionProf'>${doc.data().location}</p>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
       userPosts.appendChild(nodo);

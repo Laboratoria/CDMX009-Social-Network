@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-cycle
-import { changeView } from '../view-controler/router.js';
-
 const welcomeview = document.querySelector('#background1');
 export default () => {
   welcomeview.innerHTML = ' ';
@@ -49,7 +46,7 @@ export default () => {
 
     //  sign in with firebase functions
     const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.then(() => changeView('#/home'));
+    promise.then(() => { window.location.hash = '#/home'; });
     promise.catch(err => (err));
   });
 
@@ -60,11 +57,8 @@ export default () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     const promise = auth.signInWithPopup(provider);
 
-    promise.then(() => changeView('#/home'));
-    promise.catch((error) => {
-      alert('no salió :(');
-      console.log(error);
-    });
+    promise.then(() => { window.location.hash = '#/home'; });
+    promise.catch(err => (err));
   });
 
   //  google sign up
@@ -72,12 +66,8 @@ export default () => {
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
     const promise = auth.signInWithPopup(provider);
-    promise.then(() => changeView('#/home'));
-    promise.catch((error) => {
-      alert('no salió :(');
-      console.log(error);
-    });
+    promise.then(() => { window.location.hash = '#/home' });
+    promise.catch(err => (err));
   });
-
-  return divElement;
+  return divElement; 
 };

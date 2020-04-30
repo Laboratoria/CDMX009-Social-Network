@@ -1,4 +1,3 @@
-import { changeView } from '../view-controler/router.js';
 
 const welcomeview = document.querySelector('#background1');
 
@@ -90,11 +89,9 @@ export default () => {
       .then(snap => snap.ref.getDownloadURL())
       .then((link) => {
         url = link;
-        console.log(url);
       });
   });
-
-  // sending the info to firestore ojo quite la e
+  //  sending the info to firestore 
   shareImg.addEventListener('click', () => {
     const descr = registerDescription.value;
     const loc = registerLocation.value;
@@ -108,8 +105,8 @@ export default () => {
       location: loc,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
       counter: 0,
-    }).then(console.log(docRef))
-      .then(() => changeView('#/home'));
+      comments: null,
+    }).then(() => { window.location.hash = '#/home'; });
   });
 
   // logout
@@ -117,8 +114,7 @@ export default () => {
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
-      changeView('#/login');
-      alert('Come back soon!');
+      window.location.hash = '#/login';
     });
   });
 

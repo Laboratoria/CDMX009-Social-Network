@@ -1,4 +1,3 @@
-import { changeView } from '../view-controler/router.js';
 
 const welcomeview = document.querySelector('#background1');
 export default () => {
@@ -37,10 +36,10 @@ export default () => {
   const divElement = document.createElement('div');
   divElement.innerHTML = viewNewUser;
 
-  //  firebase 
-  const auth = firebase.auth(); 
+  //  firebase
+  const auth = firebase.auth();
 
-  //  Nodes from DOM elements 
+  //  Nodes from DOM elements
   const image = divElement.querySelector('#img');
   const usernameText = divElement.querySelector('#signupUser');
   const emailText = divElement.querySelector('#signupEmail');
@@ -53,16 +52,12 @@ export default () => {
   //  profile img
   image.addEventListener('change', (e) => {
     const file = e.target.files[0];
-    console.log(file);
     const x = firebase.storage().ref('profilePics').child(file.name).put(file)
-      .then((snap) => {
-      return snap.ref.getDownloadURL();       
-      })
+      .then((snap) => { return snap.ref.getDownloadURL(); })
       .then(function (link) {
         url = link;
         const img = divElement.querySelector('#myimg');
         img.src = link;
-        console.log(url);
       });
     console.log(x);
   });
@@ -74,21 +69,20 @@ export default () => {
     const pass = passwordText.value;
     const username = usernameText.value; 
     auth.createUserWithEmailAndPassword(email, pass).then((snap) => {
-      snap.user.updateProfile({
+     snap.user.updateProfile({
         displayName: username,
         photoURL: url,
       });
-    }).then(() => changeView('#/home'));
+    }).then(() => window.location.hash = '#/home');
   });
 
   //  facebook sign up
   fbBtn.addEventListener('click', () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     const promise = auth.signInWithPopup(provider);
-    promise.then(() => changeView('#/home'));
-    promise.catch((error) => {
-      alert('no salió :(');
-      console.log(error);
+    promise.then(() => window.location.hash = '#/home');
+    promise.catch(err => {
+      return (err);
     });
   });
 
@@ -96,11 +90,11 @@ export default () => {
   gBtn.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const promise = auth.signInWithPopup(provider);
-    promise.then(() => changeView('#/home'));
-    promise.catch((error) => {
-      alert('no salió :(');
-      console.log(error);
+    promise.then(() => {window.location.hash = '#/home'} );
+    promise.catch(err => {
+      return (err);
     });
   });
+  
   return divElement;
-};
+}

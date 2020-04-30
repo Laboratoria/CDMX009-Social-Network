@@ -1,17 +1,20 @@
-import { changeView } from '../view-controler/router.js';
-
-const welcomeview = document.querySelector('#background1');
-
+const welcomeview= document.querySelector('#background1')
 export default () => {
-  welcomeview.innerHTML = '';
+  welcomeview.innerHTML= '';
   const viewHome = `
   <div id=backgroundHome>
     <div id= 'gridHome'> 
       <div class = 'h1'>   
         <div><p>Bichigram</p></div>
-        <div><button class="btn" id="logoutBtn1"> <img class="icon" src='/imgBichigram/logout.png'> </button></div>
+        <div><button class="btn" id="logoutBtn1"> <img class="icon" src='./imgBichigram/logout.png'> </button></div>
       </div>
       <div class= 'h2'>
+        <div id='arthropods'>
+          <img class="arts" src='./imgBichigram/art1.png'>
+          <img class="arts" src='./imgBichigram/art2.png'>
+          <img class="arts" src='./imgBichigram/art3.png'>
+          <img class="arts" src='./imgBichigram/art4.png'>
+        </div>
         <div id="posts"> </div>
       </div>
       <div class= 'h3'> 
@@ -37,8 +40,10 @@ export default () => {
 
   // initializing firestore
   const db = firebase.firestore();
-  const postsRef = db.collection('posts');
+  const postsRef = db.collection('posts').orderBy("date", "desc");
   const auth = firebase.auth();
+  
+  // const userId = user.doc.data().id;
 
   // calling the docs and adding to the html
   postsRef.onSnapshot((snap) => {
@@ -53,23 +58,38 @@ export default () => {
             </div>
             <div class='description'><p>${doc.data().description}</p></div>
             <div class='location'><p>${doc.data().location}</p></div>
-            <div class='imagePost'><img width="360px" src="${doc.data().postimg}" /></div>
-            <button id='likes'>${doc.data().counter}</button>
-            <button class='comments'></button>
+            <div class='imagePost'><img width="100%" src="${doc.data().postimg}" /></div>
+            <button class='likes'><img class='membicha' id='${doc.id}' src='./imgBichigram/membicha.png'>${doc.data().counter}</button> 
+            <button class='delete-post' id='${doc.id}'>borrar</button> <button class='edit-post' id='${doc.id}'> editar</button>
+            <textarea class= 'comments'> </textarea>
+            <button id='btnComm'> comentar</button>
         </div>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
       p.appendChild(nodo);
     });
+
+    //  Getting all the 'like' buttons to be manipulated in a node list
+    const likes = document.querySelectorAll('.likes');
+    //  Increments the counter (likes) to the target 'me embicha' button
+    likes.forEach(node=> node.addEventListener('click', e =>{
+      const id = e.target.id;
+      const likesRef = db.collection('posts').doc(id);
+      const increment = firebase.firestore.FieldValue.increment(1);
+        likesRef.update({
+        counter: increment,
+        });
+    }));
   });
-  // logout
+ 
+  //  logout
   const logout = divElement.querySelector('#logoutBtn1');
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     auth.signOut().then(() => {
-      changeView('#/login');
-      alert('Come back soon!');
+      window.location.hash = '#/login';
     });
   });
+
   return divElement;
 };

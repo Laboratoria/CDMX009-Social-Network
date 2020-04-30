@@ -1,7 +1,6 @@
 #backgroundHome{
     background-image: url($background1);
     background-size: cover;
-    font-family: Fresca;
     margin: 0;
 }
 #gridHome{
@@ -17,6 +16,20 @@
 .h2{
     background-color: white;
     overflow: scroll;
+    #arthropods{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-block-start: 10px;
+        margin-block-end: 15px;
+        .arts{
+            width: 80px;
+            height: auto;
+            -webkit-filter: drop-shadow(3px 3px 3px #222);
+            filter:         drop-shadow(3px 3px 3px #222); 
+        }
+       
+    }
     .lilGrid{
         display: grid;
         grid-template-columns: 50px 1fr 1fr;
@@ -33,6 +46,7 @@
         
     }
     .g2{
+        
         p{  
             font-family: tajawal;
             font-weight: bold;
@@ -71,6 +85,10 @@
             margin-block-start: 0px;
             margin-block-end: 0px;
         }
+    }
+    .membicha{
+        width: 50%;
+        height: auto;
     }
 }
 .h3{

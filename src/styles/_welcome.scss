@@ -9,24 +9,44 @@ body{
 }
 .gridWelcome{
     display: grid;
-    grid-template-columns: 200px;
+    grid-template-columns: 360px;
     grid-template-rows: 210px 200px 210px ;
     grid-gap: 12px;
-    margin-left: 75px;
+    margin: 0px;
 }
 .w1{
-    @include logoPrim;
-    p{
-        margin-bottom: 0px;
-        margin-top: 80px;
+    display: flex;
+    align-content: center;
+    div{
+        display: flex;
+        align-content: center;
+        p{
+            @include logoPrim;
+            margin-bottom: 0px;
+            margin-top: 80px;
+            margin-left: 80px;
+        }
     }
+    
 }
 .w2{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
     @include text;
 }
 #newuser{
     display: none;
 }
-#login{
-    @include btn;
+.w3{
+    display: flex;
+    align-content: center;
+    nav{
+        margin-left: 80px;
+        #login{
+        
+            @include btn;
+        }
+    }
+    
 }
