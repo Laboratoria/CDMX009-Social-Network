@@ -1,45 +1,39 @@
-SOCIAL NETWORK
-PROYECTO: EDU-LINE
-RESUMEN:
+# SOCIAL NETWORK
+## PROYECTO: EDU-LINE
+## RESUMEN:
 Red Social sobre temas de educación
 
-INVESTIGACIÓN UX:
+## INVESTIGACIÓN UX:
 Aplicación dirigida a usuarios especialistas en el tema y padres de familia que se podrán comunicar a través de esta red social; compartir tips, técnicas y demás información que ayude mejorar la educación de sus hijos o dar pautas para que los profesionales mejoren su forma de enseñar.
 
-Historias de Usuario:
-Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
+## Historias de Usuario:
 
-Como usuario nuevo debo poder tener la opción de iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
+* Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
 
-Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
+* Como usuario nuevo debo poder tener la opción de iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
 
-Como usuario loggeado debo poder ver todos los posts públicos y privados que he creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de mis post.
+* Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
 
-Yo como usuario loggeado, puedo dar like y llevar un conteo de likes en mi publicación así como poder escribir, guardar, editar o eliminar un comentario en mi publicación.
+* Como usuario loggeado debo poder ver todos los posts públicos y privados que he creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de mis post.
 
-Al final debo poder ingresar a la red social y poder visualizar los datos de mi perfil creado o editarlos.
+* Yo como usuario loggeado, puedo dar like y llevar un conteo de likes en mi publicación así como poder escribir, guardar, editar o eliminar un comentario en mi publicación.
 
-PROTOTIPO BAJA FIDELIDAD:
+* Al final debo poder ingresar a la red social y poder visualizar los datos de mi perfil creado o editarlos.
 
+## FEEDBACK:  SI
 
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNet1.jpg)
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNet2.jpg)
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNet3.jpg)
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNet4.jpg)
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNet5.jpg)
+## PROTOTIPO ALTA FIDELIDAD (FIGMA):
 
-
-FEEDBACK:
-
-PROTOTIPO ALTA FIDELIDAD (FIGMA):
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/images/SocialNetFigma.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet1.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet2.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet3.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet4.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet5.jpg)
 
 
+## PROTOTIPO FINAL:
 
-PROTOTIPO FINAL:
-
-
-
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNetFigma.jpg)
 
 # Creando una Red Social
 
