@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", event => {
+document.addEventListener("DOMContentLoaded", event => {' '
     // Initialize Firebase
        var firebaseConfig = {
         apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
@@ -10,10 +10,23 @@ document.addEventListener("DOMContentLoaded", event => {
         appId: "1:243851799693:web:1d67b4f9ccaf7e21c506c4",
         measurementId: "G-D5ZWECPYD2"
       };
+
+     
+
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       loginPage(); 
-      
+      startApp();
+
+     // Intro to the App
+     function startApp() {
+
+     document.getElementById("root").innerHTML = `
+     <div id="beginning"><img src="./images/logoAppBco.png">
+     </div>
+     `
+     }
+
       // FUNCION QUE CREA PAGINA INICIAL
       function loginPage() {
       
@@ -248,10 +261,7 @@ document.addEventListener("DOMContentLoaded", event => {
         var credential = error.credential;
         // ...
       });
-    
-     
-    
-    
+
     
     })
     
