@@ -1,9 +1,24 @@
-function suma(a, b) {
-  return a + b;
-}
+import { emailLoginFb } from '../src/firebase-auth';
 
-describe('suma', () => {
-  it('sumar 1 + 2 es igual a 3', () => {
-    expect(suma(3, 4)).toBe(7);
+const { MockFirebase } = require('firestore-jest-mock');
+
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
+mockauth.autoFlush();
+
+global.firebase = firebasemock.MockFirebaseSdk(
+  () => null,
+  () => mockauth,
+  () => mockfirestore,
+);
+
+describe('ingresarConCorreoYContrasena', () => {
+  it('debería ser una función', () => {
+    expect(typeof emailData).toBe('function');
   });
+  it('Debería poder iniciar sesion', () => emailLoginFb('grojasm@gmail.com', 'grojasm')
+    .then((user) => {
+      expect(user.email).toBe('grojasm@gmail.com');
+    }));
 });
