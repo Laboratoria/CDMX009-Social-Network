@@ -4,7 +4,7 @@ function init (){
     singIn()
 }
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  let firebaseConfig = {
     apiKey: "AIzaSyBuxP-xlUpYjWc5KNNt6q0hKbsxc8L4cE4",
     authDomain: "cdmx009-f4cac.firebaseapp.com",
     databaseURL: "https://cdmx009-f4cac.firebaseio.com",
@@ -16,7 +16,5 @@ function init (){
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
   firebase.firestore();
-  window.addEventListener('load', firebaseConfig);
   window.addEventListener('load', init);

@@ -1,5 +1,5 @@
 import singIn from './login.js'
-// import profile from './profile.js'
+import profile from './profile.js'
 import welcomeView from './welcome.js'
 
 document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
@@ -10,10 +10,6 @@ let staticMenu= document.querySelector("#staticMenu");
 
     function showOupladWindow (){
     let url;
-    // let btnOut= document.createElement("button");
-    // btnOut.id= "out";
-    // btnOut.innerHTML= `<img src="images/logOut.png">`
-    // header.appendChild(btnOut);
     content.innerHTML= '';
     let oupladView= `
     <section>
@@ -34,8 +30,6 @@ let staticMenu= document.querySelector("#staticMenu");
     <div id="test"></div>
     </section>`
     content.innerHTML= oupladView;
-    let post= document.querySelector('#toPost');
-    // post.onclick= profile;
     let out= document.querySelector('#out');
     out.onclick= singIn;
     let preview= document.querySelector("#previewImage");
@@ -68,6 +62,8 @@ let staticMenu= document.querySelector("#staticMenu");
             newPublication(post)
                 .then(accept =>{
                 console.log(accept);
+                //write window
+                profile();
                 })
                 .catch(error => {
                 console.log(error)
@@ -80,21 +76,21 @@ function newPublication(post ={user:"Edith", title: "hola", description:"Cómo e
     return postsNew.add(post);
     // .then
 }
-postsNew.onSnapshot(snap =>{
-    let textarea= document.querySelector("#test");
-    textarea.innerHTML= '';
-    snap.forEach( doc =>{
-        let div = `<div>
-            <p>${doc.data().user}</p>
-            <p>${doc.data().id}</p>
-            <p>${doc.data().description}</p>
-            <img src= ${doc.data().img}>
-        </div>`
-        let nodo = document.createElement('div');
-        nodo.innerHTML = div;
-        textarea.appendChild(nodo); 
-    })   
-})
+// postsNew.onSnapshot(snap =>{
+//     let textarea= document.querySelector("#test");
+//     textarea.innerHTML= '';
+//     snap.forEach( doc =>{
+//         let div = `<div>
+//             <p>${doc.data().user}</p>
+//             <p>${doc.data().id}</p>
+//             <p>${doc.data().description}</p>
+//             <img src= ${doc.data().img}>
+//         </div>`
+//         let nodo = document.createElement('div');
+//         nodo.innerHTML = div;
+//         textarea.appendChild(nodo); 
+//     })   
+// })
 };
 
 export default showOupladWindow; 
