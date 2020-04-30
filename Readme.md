@@ -21,17 +21,18 @@ Al final debo poder ingresar a la red social y poder visualizar los datos de mi 
 
 PROTOTIPO BAJA FIDELIDAD:
 
-![alt text](https://raw.github.com.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet1.jpg)
+
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet1.jpg)
 ![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet2.jpg)
-![alt text](https://raw.github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet3.jpg)
-![alt text](https://raw.github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet4.jpg)
-![alt text](https://raw.github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet5.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet3.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet4.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNet5.jpg)
 
 
 FEEDBACK:
 
 PROTOTIPO ALTA FIDELIDAD (FIGMA):
-![alt text](https://raw.github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNetFigma.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/blob/master/images/SocialNetFigma.jpg)
 
 
 
