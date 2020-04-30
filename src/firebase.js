@@ -168,13 +168,12 @@ function showPostUser(){
       });
   }
 
-
-  
-
 // Editar posts
 /*function editPost (id, post) {
   document.getElementById("post").value = post;
   db.collection("post")
  */
+
+
 
 export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost};
