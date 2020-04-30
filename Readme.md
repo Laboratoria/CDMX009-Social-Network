@@ -22,7 +22,7 @@ Aplicación dirigida a usuarios especialistas en el tema y padres de familia que
 
 ## FEEDBACK:  SI
 
-## PROTOTIPO ALTA FIDELIDAD (FIGMA):
+## PROTOTIPO BAJA FIDELIDAD:
 
 ![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet1.jpg)
 ![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet2.jpg)
@@ -30,10 +30,13 @@ Aplicación dirigida a usuarios especialistas en el tema y padres de familia que
 ![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet4.jpg)
 ![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet5.jpg)
 
+## PROTOTIPO ALTA FIDELIDAD (FIGMA):
+
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNetFigma.jpg)
 
 ## PROTOTIPO FINAL:
 
-![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNetFigma.jpg)
+
 
 # Creando una Red Social
 
