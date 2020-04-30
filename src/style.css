@@ -113,6 +113,15 @@ header{
     padding: 10px;
 }
 
+.containerProfile{
+    display: flex;
+}
+
+.containerProfile button{
+    /* flex-grow: 2; */
+    padding: 10px;
+}
+
 .btnsPosts {
     width: 129px;
     height: 129px;

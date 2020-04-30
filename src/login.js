@@ -19,9 +19,9 @@ function singIn (){
         </section>`
         content.innerHTML= profileView;
         // staticMenu.remove();
-        document.querySelector("#oupladContent").onclick= showOupladWindow;
-        document.querySelector("#profile").onclick= welcomeView;
-        document.querySelector("#provisional").onclick= profile;
+        document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
+        document.querySelector("#profile").addEventListener('click', welcomeView);
+        document.querySelector("#provisional").addEventListener('click', profile) ;
         let btnFacebook= document.querySelector("#loginFacebook");
         btnFacebook.onclick= authFacebook;
         function authFacebook () {
