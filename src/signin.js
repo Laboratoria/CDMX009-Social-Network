@@ -3,7 +3,7 @@ import {router} from './index.js';
 
 let dataBase= firebase.firestore();
 
-function send() {
+ export function send() {
   let msgError = null;
 
   let saveName= document.querySelector('#name').value;
@@ -72,7 +72,7 @@ export const renderSignin = () => {
 
 } 
 
-function registerAuthentication(usuario) {
+export function registerAuthentication(usuario) {
   firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.password)
   .then(function(data){
     registerUser(usuario, data);
@@ -103,14 +103,8 @@ function registerUser (usuario, data) {
     "photo": usuario.photo,
     "uid":data.user.uid
   })
-  /*
-  dataBase.collection("users").add({
-    "name": usuario.name,
-    "lastName": usuario.lastName,
-    "email": usuario.email,
-    "password": usuario.password
-  })*/
   .then((data) => {
+    console.log(data);
     sentEmailConfirmation(usuario.email);
     console.log("Usuario registrado confirme su cuenta");
   }).catch((error)=> {
@@ -128,33 +122,3 @@ function sentEmailConfirmation() {
     console.log("Usuario NO  registrado correctamente: " + error);
   });
 }
-
-/*
-
-function outlogin() {
-  firebase.auth().signOut().then(function(){
-      console.log("Deslogiado");
-  }).catch(function(error){
-      console.log("Error"+error);
-  })
-}
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // var displayName = user.displayName;
-    // var email = user.email;
-    // var emailVerified = user.emailVerified;
-    // var photoURL = user.photoURL;
-    // var isAnonymous = user.isAnonymous;
-    // var uid = user.uid;
-    // var providerData = user.providerData;
-    console.log(user);
-    if(!user.emailVerified){
-      // outlogin();
-    }
-
-  } else {
-
-  }
-});
-*/
