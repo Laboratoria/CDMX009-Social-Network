@@ -65,16 +65,45 @@ function saveDataUser(user){
   })
   };
 
+  //User login
+
+  function loginUser(email, password){
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+      window.open('#/', '_self');
+    }).catch(function(error) {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+    });
+  }
+
+  function loginUserEmail(){
+    const email = document.getElementById("e-mail").value;
+    const password = document.getElementById("password").value;
+  
+    loginUser(email, password);
+  }
+
+  function signOff(){
+    firebase.auth().signOut().then(function() {
+      window.open('#/login', '_self');
+    }).catch(function(error) {
+    });
+    
+  } 
+
 //add post user
 function addUserPost(){
   let user = firebase.auth().currentUser;
   let post = document.getElementById("addNewPost").value;
   db.collection("post").add({
     post: post,
-    user: user.uid
+    uid: user.uid,
+    user: user.displayName,
+    imagen: user.photoURL
 })
 .then(function(docRef) {
-  console.log("Document written with ID: ", docRef.id);  document.getElementById("addNewPost").value = '';
+  console.log("Document written with ID: ", docRef.id);  
+  document.getElementById("addNewPost").value = '';
     showPostUser();
     
 })
@@ -89,23 +118,53 @@ function showPostUser(){
         postContainer.innerHTML='';
         db.collection("post").onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {;
-        console.log(`${doc.id} => ${doc.data().post}`);
+        //console.log(`${doc.id} => ${doc.data().post}`);
         let postElement = document.createElement('div');
         let postNew = `
-        <div class="conteinerPostPrint">
-          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">Srta</p>
+        <div class="containerPostPrint">
+        <div class="containerUser">
+          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">${doc.data().user}</p>
+          </div>
+          <div class="btnIcon">
+          <button type="submit" class="editBtn" ${doc.id}, ${doc.data().post} ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="deleteBtn" data-id="${doc.id}"><img data-id="${doc.id}" src="img/delete.svg" /></button> 
+          </div>
           <p class="PostPrint">${doc.data().post}</p>
           <textarea class="answer" id="answer"> </textarea>
-          <p class="nroLikes">0</p>
-          <img class="imgLikes" src="img/like.svg"></img>
+          <br>
+          <div class="sectionLikes">
+          <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
+          </div>
           <button class="btnAnswer">Responder</button>
         </div>
-        `;
+        `
         postElement.innerHTML = postNew;
+        postContainer.appendChild(postElement);    
 
-        postContainer.appendChild(postElement);
+  const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
+        buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
       });
 });
 }
 
-export  { loginGoogle, loginFB, registerUser, addUserPost, showPostUser };
+// Borrar posts
+function deletePost (e) {
+  let id = e.target.getAttribute('data-id')
+  console.log(e.target)
+  console.log(id)
+ if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
+
+ db.collection("post")
+     .doc(id)
+     .delete()
+     .then(function() 
+      {
+       console.error("Document successfully deleted!");
+       showPostUser()
+     })
+     .catch(function(error) {
+       console.error("Error removing document: ", error);
+     });
+ }
+
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser };

@@ -60,7 +60,7 @@ header{
     width: 35%;
     padding-left: 5%;
   }
-  .imageUser {
+  .imagenUser {
     width: 40px;
     padding-right: 30px;
   }
@@ -101,7 +101,7 @@ header{
   
   /*Cointeiner option*/
   .DegreeAndGroup{
-    margin-top: 8%;
+    margin-top: 5%;
   }
   
   .DegreeAndGroup select {
@@ -113,122 +113,32 @@ header{
       border-radius: 100px;
       display: inline-block;
   }
-  
 
 /*navigation bar*/
-footer{
+footer {
   background-color: #FFE36B;
-    padding: 10px 5px;
-    text-align: center;
-
-}
-
-#footer li{
+  padding: 10px 5px;
+  text-align: center;
+  }
+  
+  #footer li{
   display: inline;
   padding-left: 10px;
-}
-
-#footer li:first-child{
+  }
+  
+  #footer li:first-child{
   padding-left: 0px;
-}
-
-footer li img {
+  }
+  
+  footer li img {
   width: 35px;
   padding: 10px;
-}
-
-ul {
-  padding-left: 0px;
-}
-/*end navigation bar*/
-
-
-/*PROFILE*/
-/*.userNamePhoto{
-
-}*/
-
-.userNamePhoto img {
-  height: 100px;
-  width: auto;
-  margin-top: 100px;
-  margin-left: 10px;
-  background-color: white;
-  padding: 8px;
-  border-radius: 30px;
-
-}
-
-.engine {
-  height: auto;
-  width: 20px;
-}
-
-.likes img {
-  height: auto;
-  width: 20px;
-}
-/*END PROFILE*/
-
-/*REGISTER*/
-.header img{
-  margin-left: 25%;
-  margin-top: 10px;
-  height: 85px;
-  display: block;
+  }
   
-}
-
-.header h4{
-  color: white;
-  margin-top: 15px;
-  text-align: center;
-}
-
-.form input{
-  margin: 5%;
-  width: 85%;
-  height: 30px;
-  border-radius: 30px;
-}
-
-.buttonRegister{
-  border-radius: 20px;
-  display: flex;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.buttonRegister p{
-  background: yellow;
-}
-/*END REGISTER*/
-
-/*navigation bar*/
-footer{
-background-color: #FFE36B;
-padding: 10px 5px;
-text-align: center;
-}
-
-#footer li{
-display: inline;
-padding-left: 10px;
-}
-
-#footer li:first-child{
-padding-left: 0px;
-}
-
-footer li img {
-width: 35px;
-}
-
-ul {
-padding-left: 0px;
-}
-/*end navigation bar*/
-
+  ul {
+  padding-left: 0px;
+  }
+  /*end navigation bar*/
 
 /*PROFILE*/
  .userName{
@@ -450,7 +360,7 @@ justify-content: center;
 }
 
 .titleCalendar{
-font-size: 50px;
+font-size: 30px;
 color: #FFFFFF;
 text-align: center;
 }
@@ -535,271 +445,304 @@ text-align: center;
 }
 /*releases container*/
 
-/*responsive design*/
-@media screen and (max-width:480px) {
-body{
-  overflow-x: hidden;
-}
-/*homework table cell*/
-.table {
-  display: inline-table;
-  align-content: space-around;
-  overflow: auto;
-  padding: 5px;
-  margin: 5px;
-}
-
-.release-1, .release-2, .release-3{
-  padding: 10px;
-  margin: 10px;
-  width: auto;
-}
-
-/*  View LOGIN  */
-.imageLogin{
-  width: 100%;
-  height: 100%;
-}
-
-.mainConteinerLogin{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.mainConteinerLogin input{
-  width: 50%;
-  height: 30px;
-  border-radius:35px;
-  margin: 10px;
-  padding-left: 10px;
-  border: none;
-  font-family:Century Gothic;
-  font-size: 15px;
-}
-
-.btnLogin{
-  margin:10px 0;
-  width: 25%;
-  height: 30px;
-  border-radius: 20px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/*REGISTER*/
- .form {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  }
-
-.form input{
-  width: 50%;
-  height: 30px;
-  border-radius:35px;
-  margin: 10px;
-  padding-left: 10px;
-  border: none;
-  font-family:Century Gothic;
-  font-size: 15px;
-  }
-
-  .sign-btn{
-    margin:10px 0;
-    width: 30%;
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-align: center;
-  }
-
- /*PROFILE*/
-  .userNamePhoto{
-    padding-left: 7%;
-  }
-  
-  .userNamePhoto img {
-    padding: 5px; 
-    width: 50px;
-    height: 50px;
-  }
-
-  .userName {
-    font-size: 16px;
-    padding-left: 25%;
-  }
-  
-  .user-data {
-    font-size: 15px;
-    padding-left: 7%;
-  }
-  
-  .user-data .engine {
-    width: 18px;
-    padding-left: 75%;
-  }
-  
-  .commentBox{
-    font-size: 15px;
-    padding-left: 5%;
-    border-radius: 15px;
-  }
-
-  .commentBox .containerbx {
-    width: 90%;
-  }
-
-  .commentBox .comment {
-    width: 85%;
-    height: 75px;
-    font-size: 13px;
-    text-align: center;
-    padding: 3px;
-    }
-  
-  .commentBox .answer {
-    width: 85%;
-    height: 75px;
-    font-size: 13px;
-    text-align: center;
-    padding: 3px;
-    }
-  
-  .editIcon img {
-    width: 17px;
-    padding-left: 85%;
-    margin-bottom: 0;
-    }
-  
-  .likes img {
-   width: 17px;
-   align-items: center;
-   padding-left: 10%;
-   margin-top: 0;
-  }
-    
-  }
- 
-
   /*PARENT PANEL*/
-  .parentPanel{
-    padding-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #FFFFFF;
-  }
-  .box-add-new-post{
-    padding: 15px;
-    background: white;
-    border: none;
-    border-radius: 20px;
-    resize: none;
-    height: 100px;
-    width: 80%;
-    margin: auto;
-    font-weight: bold;
-    font-family: Century Gothic;
-  }
-  .button-add{
-    background-color: #FFE36B;
-    border-radius: 10px;
-    border: none;
-    padding: 8px;
-    font-weight: bold;
-    font-family: Century Gothic;
-    color: black;
-    margin-left: 50%;
-  }
-
-.allNewPost{
-  margin: auto;
+.parent-Panel{
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
-  width: 93%;
+  color: #ffffff;
+  font-size: 30px;
 }
-
-.conteinerPostPrint{
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #FFFFFF;
+.box-add-new-post{
+  padding: 15px;
+  font-size: 18px;
+  background: white;
+  border: none;
   border-radius: 20px;
-  margin: 10px;
-  font-size: 15px;
+  resize: none;
+  height: 100px;
+  width: 80%;
+  margin: auto;
+  font-weight: bold;
   font-family: Century Gothic;
-  font-weight: normal;
-  padding: 10px;
+}
+.button-add{
+  background-color: #FFE36B;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  font-weight: bold;
+  font-family: Century Gothic;
+  color: black;
+  margin-left: 50%;
+}
+.allNewPost{
+margin: auto;
+text-align: center;
+width: 93%;
+}
+.containerPostPrint{
+display: flex;
+flex-wrap: wrap;
+background-color: #FFFFFF;
+border-radius: 20px;
+margin: 10px;
+font-size: 15px;
+font-family: Century Gothic;
+font-weight: normal;
+padding: 10px;
 }
 .PostPrint{
-  color: black;
-  margin-top: 0px;
-  margin: auto;
-  text-align: left;
-  margin-bottom: 15px;
+color: black;
+margin-top: 0px;
+margin: auto;
+text-align: center;
+align-content: center;
+margin-bottom: 5px;
 }
-
 .answer{
-  background: #ffffff;
-  width: 90%;
-  border-radius: 50px;
-  border-style: solid;
-  border-color: #A698FF;
-  font-family: Century Gothic;
-  font-weight: normal;
-  margin-top: 0px;
-  margin: auto;
+background: #ffffff;
+width: 90%;
+border-radius: 50px;
+border-style: solid;
+border-color: #A698FF;
+font-family: Century Gothic;
+font-weight: normal;
+margin-top: 0px;
+margin: auto;
 }
 .btnAnswer{
-    background-color: #FFE36B;
-    border-radius: 10px;
-    border:none;
-    padding: 8px;
-    font-weight: bold;
-    font-family: Century Gothic;
-    color: black;
-    margin-left: 120px;
-    margin-bottom: auto;
-    margin-top: 15px;
-}
-
-.imgUser{
-  width: 20px;
-  margin-left: 20px;
-  margin-bottom: 0px;
-}
-.nameUser{
+  background-color: #FFE36B;
+  border-radius: 10px;
+  border:none;
+  padding: 8px;
   font-weight: bold;
   font-family: Century Gothic;
   color: black;
-  margin-left: 10px;
-  margin-bottom: 0px;
+  margin-left: 70%;
+  margin-bottom: auto;
+  margin-top: 5px;
+}
+.containerUser{
+  display: flex;
+  align-items: baseline;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.imgUser{
+width: 18px;
+margin-left: 5px;
+}
+.nameUser{
+font-weight: bold;
+font-family: Century Gothic;
+color: black;
+margin-left: 5px;
+}
+.btnIcon img {
+  height: auto;
+  width: 16px;
+  display: flex;
+  align-content: flex-end;
+}
+.sectionLikes{
+  display: flex;
+  align-content: flex-end;
+  margin: 5px 0px;
 }
 .nroLikes{
-  color: #000000;
-  margin-left: 20px;
+color: #000000;
 }
 .imgLikes{
-  width: 20px;
-  margin-left: 20px;
-  margin-bottom: auto;
+width: 20px;
+margin-bottom: auto;
+margin-left: 3px;
 }
-  /*.container__box--answer {
+
+/*responsive design*/
+@media screen and (max-width:480px) {
+  body{
+    overflow-x: hidden;
+  }
+  /*homework table cell*/
+  .table {
+    display: inline-table;
+    align-content: space-around;
+    overflow: auto;
+    padding: 5px;
+    margin: 5px;
+  }
   
-  }
-
-  .logo-likes{
-    height: 20px;
-  }
-
-
-  .postNew{
-    background-color: #FFFFFF;
-    width: 90%;
-  }
-
-  .postPrint{
-    background-color: aqua;
+  .release-1, .release-2, .release-3{
+    padding: 10px;
     margin: 10px;
-  }*/
+    width: auto;
+  }
+  
+  /*  View LOGIN  */
+  .imageLogin{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mainConteinerLogin{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .mainConteinerLogin input{
+    width: 50%;
+    height: 30px;
+    border-radius:35px;
+    margin: 10px;
+    padding-left: 10px;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+  }
+  
+  .btnLogin{
+    margin:10px 0;
+    width: 25%;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /*REGISTER*/
+   .form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+  
+  .form input{
+    width: 50%;
+    height: 30px;
+    border-radius:35px;
+    margin: 10px;
+    padding-left: 10px;
+    border: none;
+    font-family:Century Gothic;
+    font-size: 15px;
+    }
+  
+    .sign-btn{
+      margin:10px 0;
+      width: 30%;
+      height: 30px;
+      border-radius: 20px;
+      cursor: pointer;
+      text-align: center;
+    }
+  
+   /*PROFILE*/
+    .userNamePhoto{
+      padding-left: 7%;
+    }
+    
+    .userNamePhoto img {
+      padding: 5px; 
+      width: 50px;
+      height: 50px;
+    }
+  
+    .userName {
+      font-size: 16px;
+      padding-left: 25%;
+    }
+    
+    .user-data {
+      font-size: 15px;
+      padding-left: 7%;
+    }
+    
+    .user-data .engine {
+      width: 18px;
+      padding-left: 75%;
+    }
+    
+    .commentBox{
+      font-size: 15px;
+      padding-left: 5%;
+      border-radius: 15px;
+    }
+  
+    .commentBox .containerbx {
+      width: 90%;
+      padding: 3px;
+    }
+  
+    .commentBox .comment {
+      width: 85%;
+      height: 75px;
+      font-size: 13px;
+      text-align: center;
+      padding: 3px;
+      }
+    
+    .commentBox .answer {
+      width: 85%;
+      height: 75px;
+      font-size: 13px;
+      text-align: center;
+      padding: 3px;
+      }
+    
+    .editIcon img {
+      width: 17px;
+      padding-left: 150%;
+      }
+    
+    .editImg {
+        margin-right: 8px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    
+    .likes img {
+     width: 17px;
+     align-items: center;
+     padding-left: 10%;
+     margin-top: 0;
+    }
+  
+  /*navigation bar*/
+  footer {
+    background-color: #FFE36B;
+    height: 30px;
+    width: 98%;
+    text-align: center;
+    margin-top: 15px;
+    }
+  
+    footer li img {
+    margin-top: -28px;
+    width: 35px;
+    }
+  
+  /*  View CALENDAR  */
+    .titleCalendar{
+    font-size: 30px;
+    color: #FFFFFF;
+    text-align: center;
+    }
+    
+    .calendar{
+    width: 330px;  
+    }
+  
+    .infoConteinerCalendar img{
+    padding-left: 5px;
+    width: 25px;
+    }
+    
+  }
+  
