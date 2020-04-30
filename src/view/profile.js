@@ -33,13 +33,8 @@ export default () => {
        <div>
           <div class="comment">
           <div class="editIcon">
-          <div class="editImg">
-                <img src="img/edit.svg">
-          </div>
-                <ul>
-                <li><a href="/" id="edit">Editar publicación</a></li>
-                <li><a href="/" id="eliminate">Eliminar publicación</a></li>
-              </ul>
+          <div class="editImg"><img src="img/edit.svg"> </div>
+          <div class="deleteImg"><img src="img/delete.svg"> </div>       
          </div>
               <p>${comment}</p>
           </div>
@@ -49,13 +44,8 @@ export default () => {
           </div>
            <div class="answer"> 
            <div class="editIcon">
-           <div class="editImg">
-                 <img src="img/edit.svg">
-           </div>
-                 <ul>
-                 <li><a href="/" id="edit">Editar publicación</a></li>
-                 <li><a href="/" id="eliminate">Eliminar publicación</a></li>
-               </ul>
+           <div class="editImg"><img src="img/edit.svg"> </div>
+           <div class="deleteImg"><img src="img/delete.svg"> </div>       
           </div>
                <p>Comentarios${answers}</p>
           </div>

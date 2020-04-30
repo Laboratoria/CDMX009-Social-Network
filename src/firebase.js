@@ -22,15 +22,12 @@ function loginFB(){
   .then(function(result) {
     console.log(result.user);
     saveDataUser(result.user);
-    if (result.user.emailVerified){
       window.open('#/','_self')
-    }
   });
 }
 
 function createEmailPass(email, password, names) {
-  firebase
-    .auth()
+  firebase.auth()
     .createUserWithEmailAndPassword(email, password)
     .then((result) => {
       saveDataUser(result.user);
@@ -70,13 +67,16 @@ function saveDataUser(user){
 
 //add post user
 function addUserPost(){
+  let user = firebase.auth().currentUser;
   let post = document.getElementById("addNewPost").value;
   db.collection("post").add({
     post: post,
+    uid: user.uid,
+    user: user.displayName
 })
 .then(function(docRef) {
-  console.log("Document written with ID: ", docRef.id);
-    document.getElementById("addNewPost").value = '';
+  console.log("Document written with ID: ", docRef.id);  document.getElementById("addNewPost").value = '';
+    showPostUser();
     
 })
 .catch(function(error) {
@@ -87,30 +87,68 @@ function addUserPost(){
 //Show post user
 function showPostUser(){
   const postContainer = document.getElementById('allNewPost');
-  db.collection("post").onSnapshot((querySnapshot) => {
+        postContainer.innerHTML='';
+        db.collection("post").onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {;
         console.log(`${doc.id} => ${doc.data().post}`);
         let postElement = document.createElement('div');
         let postNew = `
-        <div class="conteinerPostPrint">
-         <div class="editIcon">
-         <div class="editImg"><img src="img/edit.svg"> </div>
-         <ul><li><a href="/" id="edit">Editar publicación</a></li>
-         <li><a href="/" id="eliminate">Eliminar publicación</a></li></ul>
-        </div>
-          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">Srta</p>
+        <div class="containerPostPrint">
+        <div class="containerUser">
+          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">${doc.data().user}</p>
+          </div>
           <p class="PostPrint">${doc.data().post}</p>
+          <div class="btnIcon">
+          <button type="submit" class="editBtn" id="btnEditPost" ${doc.id}, ${doc.data().post} ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="deleteBtn" id="btnDeletePost" ${doc.id}><img src="img/delete.svg" /></button> 
+          </div>
           <textarea class="answer" id="answer"> </textarea>
-          <p class="nroLikes">0</p>
-          <img class="imgLikes" src="img/like.svg"></img>
+          <br>
+          <div class="sectionLikes">
+          <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
+          </div>
           <button class="btnAnswer">Responder</button>
         </div>
         `;
         postElement.innerHTML = postNew;
 
         postContainer.appendChild(postElement);
+
+        const buttonDeletePost = document.querySelector('#btnDeletePost')
+        buttonDeletePost.addEventListener('click', deletePost)
+
+        /*const buttonEditPost = document.querySelector('#btnEditPost')
+        buttonEditPost.addEventListener('click', editPost)*/
       });
 });
 }
 
-export  { loginGoogle, loginFB, registerUser, addUserPost, showPostUser };
+// Borrar posts
+ function deletePost (id) {
+  if (confirm("¿Seguro que quieres eliminar esta publicación?") == false) {
+    event.preventDefault();
+    return false;
+  }
+    db.collection("post")
+      .doc("${doc.id}")
+      .delete()
+      .then(function() 
+       {
+        console.error("Document successfully deleted!");
+        
+      })
+      .catch(function(error) {
+        console.error("Error removing document: ", error);
+      });
+  }
+
+
+  
+
+// Editar posts
+/*function editPost (id, post) {
+  document.getElementById("post").value = post;
+  db.collection("post")
+ */
+
+export  { loginGoogle, loginFB, registerUser, addUserPost, showPostUser, deletePost};

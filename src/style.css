@@ -1,7 +1,7 @@
 body{
   background-color: #A698FF;
   font-family:Century Gothic;
-  overflow-x: hidden;
+  margin: 0px;
 }
 
 /*VIEW SPLASH*/
@@ -33,17 +33,22 @@ transition: all 0.5s;
 @keyframes fadeIn{
 to{
   opacity: 1;
-}
+ }
 }
 
 .fade-in{
-opacity: 0;
 animation: fadeIn 1s ease-in forwards;
 height: auto;
 width: 250px;
-padding-top: 40%;
 }
+
 /*END SPLASH
+
+/* HEADER */
+header{
+  margin-top: 15px;
+}
+/* end Header */
 
 /*  View HOME
     Nav*/
@@ -72,6 +77,7 @@ header{
 .mainConteiner div {
   padding: 2%;
   margin: 2%;
+ 
   background-color: #FFE36B;
   width: 40%;
   border-radius: 35px;
@@ -106,19 +112,8 @@ header{
     border-radius: 100px;
     display: inline-block;
 }
-/*
-    background-color: #A698FF;
-    font-family: Century Gothic;
-    margin: 0px;
-  }*/
 
-/* HEADER */
-header{
-  margin-top: 15px;
-}
-/* end Header */
-
-/*User photo*/
+/*User photo
 .userNamePh {
   display: flex;
   flex-direction: row;
@@ -144,9 +139,9 @@ height: 100px;
 width: 160px;
 display: flex;
 flex-direction: column;
-}
-  /*  View LOGIN  */
+}*/
 
+  /*  View LOGIN  */
   .mainConteinerLogin {
     width: 100%;
     display: flex;
@@ -269,71 +264,18 @@ padding-left: 0px;
   border-color: #BEB4FF;
 }
 
-  .mainConteinerLogin a {
-    color: #FFE36B;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
+.mainConteinerLogin a {
+  color: #FFE36B;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
   }
 
-.editIcon img {
+.btnIcon img {
   height: auto;
   width: 16px;
-  padding-left:320%;
   display: flex;
-  justify-content: right;
-}
-
-.editIcon {
-  display: flex;
-  justify-content: right;
-  margin-right: 30px;
-}
-
-.editIcon ul{
-  display: none;
-  list-style: none;
-  padding: 3px;
-  position: absolute;
-  width: 490px;
-  text-align: right;
-}
-
-.editIcon:hover ul, li:hover {
-  display: block;
-}
-
-.editIcon ul li:hover a{
-  color: #675DA6;
-  background: #FFE36B;
-  width: 200px;
-}
-
-.editIcon li{
-  margin: 15px, 0px;
-}
-
-.editIcon li a{
-  color: #000000;
-  text-decoration: none;
-  font-size: 17px;
-  transition: all 0.3s;
-}
-
-.editImg {
-  margin-right: 8px;
-  width: 150px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.likes img {
-height: auto;
-width: 20px;
-align-items: center;
-padding-left: 5%;
-margin-top: 0;
+  align-content: flex-end;
 }
 /*END PROFILE*/
 
@@ -545,41 +487,8 @@ text-align: center;
 /*releases container*/
 
 /*PARENT PANEL*/
-.post h1{
-  padding-top: 10px;
-  text-align: center;
-}
-
-.button-add{
-  margin-top: 10px;
-  background-color: #FFE36B;
-  border-radius: 10px;
-  border: #FFE36B;
-  padding: 8px;
-  font-weight: bold;
-  color: black;
-}
-
-.container__box--answer {
-  background: white;
-}
-
-.logo-likes{
-  height: 20px;
-}
-
-.comment-box{
-  display: block;
-  resize: none;
-  height: 100px;
-  width: 100%;
-  max-width: 250px;
-  margin: auto;
-}
-
-/*PARENT PANEL*/
 .parent-Panel{
-  padding-top: 10px;
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
   color: #ffffff;
@@ -587,6 +496,7 @@ text-align: center;
 }
 .box-add-new-post{
   padding: 15px;
+  font-size: 18px;
   background: white;
   border: none;
   border-radius: 20px;
@@ -607,14 +517,12 @@ text-align: center;
   color: black;
   margin-left: 50%;
 }
-
 .allNewPost{
 margin: auto;
 text-align: center;
 width: 93%;
 }
-
-.conteinerPostPrint{
+.containerPostPrint{
 display: flex;
 flex-wrap: wrap;
 background-color: #FFFFFF;
@@ -629,10 +537,10 @@ padding: 10px;
 color: black;
 margin-top: 0px;
 margin: auto;
-text-align: left;
-margin-bottom: 15px;
+text-align: center;
+align-content: center;
+margin-bottom: 5px;
 }
-
 .answer{
 background: #ffffff;
 width: 90%;
@@ -652,31 +560,38 @@ margin: auto;
   font-weight: bold;
   font-family: Century Gothic;
   color: black;
-  margin-left: 120px;
+  margin-left: 70%;
   margin-bottom: auto;
-  margin-top: 15px;
+  margin-top: 5px;
 }
-
+.containerUser{
+  display: flex;
+  align-items: baseline;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
 .imgUser{
-width: 20px;
-margin-left: 20px;
-margin-bottom: 0px;
+width: 18px;
+margin-left: 5px;
 }
 .nameUser{
 font-weight: bold;
 font-family: Century Gothic;
 color: black;
-margin-left: 10px;
-margin-bottom: 0px;
+margin-left: 5px;
+}
+.sectionLikes{
+  display: flex;
+  align-content: flex-end;
+  margin: 5px 0px;
 }
 .nroLikes{
 color: #000000;
-margin-left: 20px;
 }
 .imgLikes{
 width: 20px;
-margin-left: 20px;
 margin-bottom: auto;
+margin-left: 3px;
 }
 
 /*responsive design*/
@@ -816,7 +731,15 @@ body{
   
   .editIcon img {
     width: 17px;
-    padding-left: 155%;
+    padding-left: 150%;
+    }
+  
+  .editImg {
+      margin-right: 8px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
     }
   
   .likes img {
