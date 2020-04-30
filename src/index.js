@@ -45,7 +45,6 @@ const topNavBar = () => {
     })
         .catch(error => console.log('error', error));
 };
-// render de la pantalla para iniciar sesión
 const renderSignIn = () => {
   root.classList.add('section');
   root.classList.add('signUpAndIn');
@@ -108,23 +107,21 @@ const renderSignIn = () => {
         <div class=" has-text-centered has-text-white is size-2">
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>`;
-  root.innerHTML = `${logo}${signInForm}`; // reendereamos el logo y la pantalla para inicio de sesión
+  root.innerHTML = `${logo}${signInForm}`; 
   errMsg = document.querySelector('#errMsg');
-  document.querySelector('#signUpLink').addEventListener('click', () => { // botón para mandarte a la pantalla de registro
+  document.querySelector('#signUpLink').addEventListener('click', () => { 
     renderSignUp();
   });
-  document.querySelector('#logIn').addEventListener('click', () => { // se obtienen los datos del usuario registrado
-    database.signIn();
+  document.querySelector('#logIn').addEventListener('click', () => {
     window.setTimeout(errorHandler, 400);
   });
-  document.querySelector('#facebookSignIn').addEventListener('click', () => { // se inicia sesión con Facebook
+  document.querySelector('#facebookSignIn').addEventListener('click', () => { 
     database.signInFacebook();
   });
-  document.querySelector('#googleSignIn').addEventListener('click', () => { // se inicia sesión con Google
+  document.querySelector('#googleSignIn').addEventListener('click', () => {
     database.signInGoogle();
   });
 };
-// render de la pantalla de registro
 const renderSignUp = () => {
   root.classList.add('section');
   body.classList.remove('has-navbar-fixed-top');
@@ -185,24 +182,23 @@ const renderSignUp = () => {
             <td> ¿Ya tienes cuenta? </td> <a id="signInLink"> Inicia sesión </a>
         </div>
         `;
-  root.innerHTML = `${logo}${signUpForm}`; // se reenderea el logo y la pantalla de registro
+  root.innerHTML = `${logo}${signUpForm}`;
   errMsg = document.querySelector('#errMsg');
-  document.querySelector('#register').addEventListener('click', () => { // se obtienen los datos del usuario para guardarse en Firebase
+  document.querySelector('#register').addEventListener('click', () => {
     database.signUp();
     window.setTimeout(errorHandler, 400);
   });
-  document.querySelector('#facebookSignIn').addEventListener('click', () => { // se registra con Facebook
+  document.querySelector('#facebookSignIn').addEventListener('click', () => {
     database.signInFacebook();
   });
-  document.querySelector('#googleSignIn').addEventListener('click', () => { // se registra con Google
+  document.querySelector('#googleSignIn').addEventListener('click', () => {
     database.signInGoogle();
   });
-  document.querySelector('#signInLink').addEventListener('click', () => { // botón para mandarte a la pantalla de inicio de sesión
+  document.querySelector('#signInLink').addEventListener('click', () => {
     renderSignIn();
   });
 };
 renderSignUp();
-
 
 const BottomBarForm = `
 <div class="">
@@ -249,26 +245,18 @@ const renderProfile = () => {
                     </span>         
                 </span>
             </label>
-           
         </div>   
-   
- 
         <div class="file is-centered">
-        
         <a id="logout" class="material-icons"> Cerrar Sesión </a>
-        
         </div> 
-        
         <div class="file is-centered">
             <div class="control">
-            
                 <div class="has-text-centered has-text-black title is-9">
                     <h3> Información </h3>
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
                     <input id="profileName" class="input is-rounded" placeholder="Nombre" type=""/>
                     <a>Nombre</a>
-                    
                 </div>
                 <div class="has-text-centered has-text-black title is-6">
                     <input id="userName" class="input is-rounded" type="" placeholder="Usuario"/>
@@ -282,7 +270,6 @@ const renderProfile = () => {
                 </div>
             </div> 
         </div>
-   
         <div class="field">
             <div class="file is-centered">
                 <p class="control">
@@ -344,64 +331,27 @@ const renderProfile = () => {
   window.setTimeout(setAll, 1000);
 };
 export const renderFeed = () => {
-  root.classList.remove('signUpAndIn');
-  root.classList.remove('section');
-  body.classList.add('has-navbar-fixed-top');
-  body.classList.add('has-navbar-fixed-bottom');
-  const feed = `
+    root.classList.remove('signUpAndIn');
+    root.classList.remove('section');
+    body.classList.add('has-navbar-fixed-top');
+    body.classList.add('has-navbar-fixed-bottom');
+    const feed = `
         <div class="column body-column">
             <div class="header">
-                <div id="topBar"></div>
-                <div class="file1 is-centered">
-                    <div id="postFeed"  class="column1">
+                <div id="topBar"> </div>
+                    <div class="file1 is-centered">
+                        <div id="postFeed"  class="column1">
+                        </div>     
                     </div>
-                                  
-                </div>
-                <div class="content">
-                    
-                    <br>
-                    <time datetime="2016-1-1"> </time>
                 </div>
             </div>
         </div>
     `;
-  root.innerHTML = `${feed}${BottomBarForm}`;
-  document.querySelector('#topBar').innerHTML = topBarForm;
-  topNavBar();
-  database.getPostFeed();
-
-  //let result = '';
-      // console.log(data);
-
-      //for (const key in data) {
-      //  result += `<div>${data[key].comment}</div>`;
-      //  console.log(data[key].url);
-    //}
-    // document.getElementById('postComments').innerHTML = result;
-
-  //const sortedPosts = [...postText].sort();
-  //console.log(sortedPosts);
-  //const sortByDate = () => {
-   //   const sortDate = postText.sort((a, b) => 
-   //   ((a.postTime > b.postTime) ? -1 : 1));
-      /*{
-          if (prev.postTime > next.postTime) {
-              return 1;
-          }  if (prev.postTime < next.postTime) {
-            return -1;
-          }
-          return 0;
-      }*/
-      
-      
-   //   console.log(sortDate);
-    //  return sortDate;
-//  };
-//  sortByDate(postText);
-//  sortByDate.forEach((key) => {
-
-  //})
-  document.querySelector('#myProfile').addEventListener('click', () => {
+    root.innerHTML = `${feed}${BottomBarForm}`;
+    document.querySelector('#topBar').innerHTML = topBarForm;
+    topNavBar();
+    database.getPostFeed();
+    document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
   document.querySelector('#add').addEventListener('click', () => {
@@ -410,15 +360,6 @@ export const renderFeed = () => {
   document.querySelector('#home').addEventListener('click', () => {
     renderFeed();
   });
-  /* const showFeedImg = document.querySelector('#postFeed');
-     let imgFeedSrc;
-     database.getPostFeed()
-         .then(data=>{
-         if (!data) return;
-         imgFeedSrc = data.url
-         showFeedImg.src = imgFeedSrc
-         });
-        */
 };
 
 
@@ -486,13 +427,8 @@ const renderNewPost = () => {
                 reader.readAsDataURL(file);
             }
     }); 
-    //     database.uploadPicturePost();
-    // });
   document.querySelector('#update').addEventListener('click', () => {
-    // database.savePostData();
     database.uploadPicturePost();
-    window.setTimeout(renderFeed, 1500);
-   
+    window.setTimeout(renderFeed, 3000);
 });
-
 };

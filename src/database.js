@@ -1,16 +1,12 @@
 import { renderFeed } from './index.js';
 
 let authError;
-
-
 const provider = new firebase.auth.GoogleAuthProvider();
 const provider1 = new firebase.auth.FacebookAuthProvider();
 const db = firebase.firestore();
 const storage = firebase.storage().ref();
 const usersRef = firebase.database().ref('users');
-const imageRef = firebase.database().ref().child('image'); 
-const imageRefPost = firebase.database().ref().child('post-image'); 
-const refPost = firebase.database().ref().child('user-posts'); 
+const imageRefPost = firebase.database().ref().child('post-image');  
 
 const database = {
   signUp: () => {
@@ -58,25 +54,33 @@ const database = {
       const credential = error.credential;
     });
   },
-  getPostFeed: () => {     
-     imageRefPost.on('value', (snapshot) => {
+  getPostFeed: async() => { 
+     imageRefPost.on('value', async (snapshot) => {
       const data = snapshot.val();
       let result = '';         
       for (const key in data) {
-        let date = data[key].postTime;     
-        let date2 = new Date(date);       
-        let date3 = date2.toLocaleString();
+        let timeStamp = data[key].postTime;     
+        let normalDate = new Date(timeStamp);       
+        let dateFormat = normalDate.toLocaleString();
+        let userId = data[key].uid;
+        let userName = 'default';
+        await usersRef.child(userId).once('value',(snapshot) => { 
+            userName = snapshot.val();
+            console.log(userId);
         result += `
         <div class="file is-centered image is-square">
             <img src='${data[key].url}'/>
         </div>
+          <p>${userName.userName}</p>
+          <img> </img>
         <div>
-          <p>${date3}</p>
           <p>${data[key].comment}</p>
+          <p>${dateFormat}</p>
         </div>
-        `;                
+        `;  
+        document.getElementById('postFeed').innerHTML = result;             
+        })
              }
-      document.getElementById('postFeed').innerHTML = result;
     });
   },
   userObserver: () => {
@@ -136,9 +140,6 @@ const database = {
   },
   uploadPicturePost: (file) => {
     const uploadImg = document.getElementById('uploadImg').files[0];
-    // const postMessage = document.getElementById('postMessage').value;
-    // const userName = document.getElementById('profileUserNameSaved').value;
-    // const userPhoto = document.getElementById('profilePic').value;
     const uploadTask = storage.child(`postImage/${uploadImg.name}`).put(uploadImg);
     uploadTask.on('state_changed', (snapshot) => {
       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -173,7 +174,7 @@ const database = {
   createNodeFirebaseForPost: (nameImage, url) => {  
     const postMessage = document.getElementById('postMessage').value;
     let userImgePost={name: nameImage, url: url, uid: firebase.auth().currentUser.uid, postTime: firebase.database.ServerValue.TIMESTAMP, comment: postMessage}
-     firebase.database().ref("post-image")//("post-image/"+ userImgePost.uid)
+     firebase.database().ref("post-image")
      .push(userImgePost)
 
       db.collection('post-image').add({
@@ -182,7 +183,6 @@ const database = {
       uid: firebase.auth().currentUser.uid,
       postTime: new Date(),
       comment: postMessage
-
     });
   },
   saveData: (user) =>{
@@ -191,7 +191,6 @@ const database = {
     const biography = document.getElementById('biography').value;
     let userInfo={userName: userName, profileName: profileName, biography: biography, uid: firebase.auth().currentUser.uid}
     firebase.database().ref("users/"+ userInfo.uid).set(userInfo)
-
      db.collection('users').doc(firebase.auth().currentUser.uid).set({
       uid: firebase.auth().currentUser.uid,
       userName,
@@ -199,16 +198,11 @@ const database = {
       biography,
     });
   },
-
-  // cerrar sesión
   logout: () => {
     firebase.auth().signOut().then(() => {
-      // this.user = null;
       console.log('Saliendo...');
-      // Sign-out successful.
     }).catch((error) => {
       console.log(error);
-      // An error happened.
     });
   },
   
