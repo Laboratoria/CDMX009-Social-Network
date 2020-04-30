@@ -25,23 +25,6 @@ test('emailLogin se ejecuta correctamente', () => {
   });
 });
 
-<<<<<<< HEAD
-// esperamos que si escribe un correo inválido, le devuelva un error
-
-test('emailLogin', () => {
-    let email = "antropologia@gmail"
-    let password = "123DZM"
-    expect(auth.emailLogin(email, password)).toThrowError('Email inválido');
-});
-
-/* esperamos que si su contraseña no coincide con la guardada en db, le devuelva un error
-
-test('emailLogin', () => {
-    let email = ""
-    let password = "123D"
-    expect(auth.logout(email, password))..toThrowError('Contraseña incorrecta');
-});
-=======
 
 
 global.firebase = {
@@ -68,5 +51,4 @@ test('Validacion correcta', () => {
     expect(valor).toBe(true)
   });
 });
-
->>>>>>> 0de4c4d96e0a3c808ca8d6c3545e6e9aa45c5b61
+*/
