@@ -1,43 +1,24 @@
-import * as auth from '../src/firebase.js';
+import { emailLoginFb } from '../src/firebase-auth';
 
-global.firebase = {
-  auth: jest.fn(() => ({
-    signInWithEmailAndPassword: jest.fn(() => new Promise((resolve, reject) => {
-      resolve(true);
-    })),
-  })),
-};
+const { MockFirebase } = require('firestore-jest-mock');
 
-test('Validaciones de emailLogin', () => {
-  const email = 'antropologia@gmail.com';
-  const password = '123D';
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
+mockauth.autoFlush();
 
-  expect(auth.emailLogin(email, password)).toBe('No cumple con 6 caracteres');
-  expect(auth.emailLogin('', password)).toBe('No existe email o password');
-});
+global.firebase = firebasemock.MockFirebaseSdk(
+  () => null,
+  () => mockauth,
+  () => mockfirestore,
+);
 
-test('emailLogin se ejecuta correctamente', () => {
-  const email = 'antropologia@gmail.com';
-  const password = '123DKL';
-
-  auth.emailLogin(email, password).then((valor) => {
-    expect(valor).toBe(true);
+describe('ingresarConCorreoYContrasena', () => {
+  it('debería ser una función', () => {
+    expect(typeof emailData).toBe('function');
   });
-});
-
-test('Validaciones de emailLogin', () => {
-  const emailUser = 'antropologia@gmail.com';
-  const passwordUser = '123D';
-
-  expect(auth.emailLogin(emailUser, passwordUser)).toBe('No cumple con 6 caracteres');
-  expect(auth.emailLogin('', passwordUser)).toBe('No existe email o password');
-});
-
-test('emailLogin se ejecuta correctamente', () => {
-  const emailUser = 'antropologia@gmail.com';
-  const passwordUser = '123DKL';
-
-  auth.emailLogin(emailUser, passwordUser).then((valor) => {
-    expect(valor).toBe(true);
-  });
+  it('Debería poder iniciar sesion', () => emailLoginFb('grojasm@gmail.com', 'grojasm')
+    .then((user) => {
+      expect(user.email).toBe('grojasm@gmail.com');
+    }));
 });

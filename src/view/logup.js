@@ -1,5 +1,5 @@
 import {
-  loginGoogle, loginFb, emailLogup,
+  facebookLogin, googleLogin, emailLogup,
 } from '../firebase-auth.js';
 
 export default () => {
@@ -79,10 +79,10 @@ export default () => {
 
   // Login
   const googleBtns = document.querySelector('.google');
-  googleBtns.addEventListener('click', loginGoogle);
+  googleBtns.addEventListener('click', googleLogin);
 
   const fbBtns = document.querySelector('.facebook');
-  fbBtns.addEventListener('click', loginFb);
+  fbBtns.addEventListener('click', facebookLogin);
 
   const emailBtns = document.querySelector('#email-submit');
   emailBtns.addEventListener('click', emailLogup);

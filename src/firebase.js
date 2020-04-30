@@ -1,19 +1,17 @@
 // Firebase init
 const db = firebase.firestore();
 
-// Nodes
+const savePost = document.querySelector('#savePost');
+const displayName = localStorage.getItem('nameStorage');
+const photoURL = localStorage.getItem('URLStorage');
+let url;
+let day;
+let post;
 
 // Initialize Cloud Firestore through Firebase
 const st = firebase.storage();
 const collectionPost = db.collection('newPosts');
 
-// Nodes
-const savePost = document.querySelector('#savePost');
-let url;
-let day;
-let post;
-
-// Print time
 const timeSnap = () => {
   const now = new Date();
   const date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
@@ -192,4 +190,3 @@ export const render = () => {
 };
 
 render();
-
