@@ -123,11 +123,11 @@ function showPostUser(){
         <div class="containerUser">
           <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">${doc.data().user}</p>
           </div>
-          <p class="PostPrint">${doc.data().post}</p>
           <div class="btnIcon">
-          <button type="submit" class="editBtn" id="btnEditPost" ${doc.id}, ${doc.data().post} ><img src="img/edit.svg" /></button> 
-          <button type="submit" class="deleteBtn" id="btnDeletePost" ${doc.id}><img src="img/delete.svg" /></button> 
+          <button type="submit" class="editBtn" ${doc.id}, ${doc.data().post} ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="deleteBtn" data-id="${doc.id}"><img data-id="${doc.id}" src="img/delete.svg" /></button> 
           </div>
+          <p class="PostPrint">${doc.data().post}</p>
           <textarea class="answer" id="answer"> </textarea>
           <br>
           <div class="sectionLikes">
@@ -140,28 +140,29 @@ function showPostUser(){
 
         postContainer.appendChild(postElement);
 
-        const buttonDeletePost = document.querySelector('#btnDeletePost')
-        buttonDeletePost.addEventListener('click', deletePost)
-
-        /*const buttonEditPost = document.querySelector('#btnEditPost')
+        const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
+        buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
+/*
+        const buttonEditPost = document.querySelector('#btnEditPost')
         buttonEditPost.addEventListener('click', editPost)*/
       });
 });
 }
 
 // Borrar posts
- function deletePost (id) {
-  if (confirm("¿Seguro que quieres eliminar esta publicación?") == false) {
-    event.preventDefault();
-    return false;
-  }
-    db.collection("post")
-      .doc("${doc.id}")
+ function deletePost (e) {
+   let id = e.target.getAttribute('data-id')
+   console.log(e.target)
+   console.log(id)
+  if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
+
+  db.collection("post")
+      .doc(id)
       .delete()
       .then(function() 
        {
         console.error("Document successfully deleted!");
-        
+        showPostUser()
       })
       .catch(function(error) {
         console.error("Error removing document: ", error);
@@ -169,11 +170,18 @@ function showPostUser(){
   }
 
 // Editar posts
-/*function editPost (id, post) {
+/*
+function editPost(id, post) {
   document.getElementById("post").value = post;
-  db.collection("post")
- */
+
+  let editButton = document.getElementById("btnAnswer");
+  editButton.innerHTML = 'Guardar';
 
 
+  editButton.onclick = function() {
+    let washingtonRef = db.collection('Post').doc(id);
+
+    var newPost = document.getElementById('post').value;
+    newPost.innerHTML = '';*/
 
 export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost};
