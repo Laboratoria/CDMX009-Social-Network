@@ -1,3 +1,55 @@
+# SOCIAL NETWORK
+
+## PROYECTO:  EDU-LINE
+ 
+## RESUMEN: 
+
+Red Social sobre temas de educación
+
+## INVESTIGACIÓN UX:
+
+Aplicación dirigida a usuarios especialistas en el tema y padres de familia que se podrán comunicar a través de esta red social; compartir tips, técnicas y demás información que ayude mejorar la educación de sus hijos o dar pautas para que los profesionales mejoren su forma de enseñar.
+
+## Historias de Usuario:
+
+* Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
+
+* Como usuario nuevo debo poder tener la opción de iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
+
+* Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
+
+* Como usuario loggeado debo poder ver todos los posts públicos y privados que he creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de mis post.
+
+* Yo como usuario loggeado, puedo dar like y llevar un conteo de likes en mi publicación así como poder escribir, guardar, editar o eliminar un comentario en mi publicación.
+
+* Al final debo poder ingresar a la red social y poder visualizar los datos de mi perfil creado o editarlos.
+
+    > 
+
+## PROTOTIPO BAJA FIDELIDAD:
+
+## FEEDBACK:
+
+## PROTOTIPO ALTA FIDELIDAD (FIGMA):
+
+
+
+## PROTOTIPO BAJA FINAL:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
