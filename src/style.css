@@ -85,8 +85,8 @@ justify-content: center;}
     color: #cccccc;
   }
   #showNewImg {
-      width: 300px;
-      min-height: 100px;
+      width: 325px;
+      min-height: 250px;
       border: 2px solid #dddddd;
       margin-top: 15px;
   }

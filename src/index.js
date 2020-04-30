@@ -7,6 +7,7 @@ let errMsg;
 
 const errorHandler = () => {
     const errHand = database.errorInfo();
+    if (!errHand) return;
     errMsg.innerHTML = errHand.message;
 };
 const topBarForm = `
@@ -76,7 +77,7 @@ const renderSignIn = () => {
                     </span>
                 </p>
             </div> 
-            <div class="field file is-small file is-centered">
+            <div class="field file is-centered">
             <p class="has-text-danger is-centered" id="errMsg"></p>
             </div>
         </div>
@@ -152,7 +153,7 @@ const renderSignUp = () => {
                     </span>
                 </p>
             </div>
-            <div class="field file is-small file is-centered">
+            <div class="field file is-centered">
             <p class="has-text-danger is-centered" id="errMsg"></p>
             </div>
         </div>
@@ -203,7 +204,7 @@ const renderSignUp = () => {
 renderSignUp();
 
 
-const renderNavBar = `
+const BottomBarForm = `
 <div class="">
     <div class="navbar is-fixed-bottom navBarCenter">
         <div class="navbar is-inline-flex is-transparent">
@@ -293,7 +294,7 @@ const renderProfile = () => {
             
         </div>
         `;
-  root.innerHTML = `${profile}${renderNavBar}`;
+  root.innerHTML = `${profile}${BottomBarForm}`;
   document.querySelector('#home').addEventListener('click', () => {
     renderFeed();
   });
@@ -303,7 +304,7 @@ const renderProfile = () => {
 
   document.querySelector('#confirm').addEventListener('click', () => {
     database.saveData();
-    renderFeed();
+    window.setTimeout(renderFeed, 400);
   });
   document.querySelector('#logout').addEventListener('click', () => {
     database.logout();
@@ -324,7 +325,7 @@ const renderProfile = () => {
     database.uploadPicture(event.target.files[0]);
     showImg.src = imgSrc;
     window.setTimeout(renderProfile, 1500);
-  });
+  });   
   database.getProfileName()
     .then((data) => {
       if (!data) return;
@@ -364,7 +365,7 @@ export const renderFeed = () => {
             </div>
         </div>
     `;
-  root.innerHTML = `${feed}${renderNavBar}`;
+  root.innerHTML = `${feed}${BottomBarForm}`;
   document.querySelector('#topBar').innerHTML = topBarForm;
   topNavBar();
   database.getPostFeed();
@@ -458,7 +459,7 @@ const renderNewPost = () => {
         
     `;
     
-  root.innerHTML = `${post}${renderNavBar}`;
+  root.innerHTML = `${post}${BottomBarForm}`;
   document.querySelector('#topBar').innerHTML = topBarForm;
   topNavBar();
   document.querySelector('#home').addEventListener('click', () => {
