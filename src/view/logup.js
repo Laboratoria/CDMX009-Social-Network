@@ -1,6 +1,6 @@
 import {
   loginGoogle, loginFb, emailLogup,
-} from '../firebase.js';
+} from '../firebase-auth.js';
 
 export default () => {
   const root = document.querySelector('#roots');
