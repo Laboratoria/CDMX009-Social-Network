@@ -1,4 +1,3 @@
-
 import User from "./user.js";
 import {router} from './index.js';  
 import {userStatus} from './index.js';  
@@ -125,13 +124,27 @@ export const authGoogle = () => {
   firebase.auth().signInWithPopup(provider)
   .then(function(result) {
     const usuario = {   
-            uid:result.user.uid,
-            nombre:result.user.displayName, 
-            email:result.user.email, 
-            foto:result.user.photoURL
-     }
-     usersRef.doc(result.user.uid)
-       .set(usuario);  
+      name:result.user.displayName, 
+      lastName:'', 
+      email:result.user.email, 
+      password:'',
+      description:'',
+      date: new Date(),
+      photo:result.user.photoURL,
+      uid:result.user.uid
+      }
+      let uid2 = result.user.uid; 
+      usersRef.doc(uid2).set({
+        "name": usuario.name,
+        "lastName": usuario.lastName,
+        "email": usuario.email,
+        "password": usuario.password,
+        "description": usuario.description, 
+        "date":usuario.date,
+        "photo": usuario.photo, 
+        "uid":usuario.uid
+      })
+      router('content');
  })
  .catch(function(error) {
   console.log('Hay un error en Google');
@@ -154,8 +167,8 @@ export const authFacebook = () => {
   firebase.auth().signInWithPopup(providerFace)
   .then(function(result) {
     const usuario = {   
-      uid:result.user.uid,
-      nombre:result.user.displayName, 
+      name:result.user.displayName, 
+      lastName:'', 
       email:result.user.email, 
       foto:result.user.photoURL
      }

@@ -39,6 +39,7 @@ body, section, div{
 }
 .logo{
     width: 250px;
+
     padding-left: 20px;
 }
 
@@ -46,6 +47,7 @@ body, section, div{
     display: flex;
     justify-content: space-between; 
 }
+
 .positiononeheader{
     width: 75%;
 }
@@ -563,4 +565,3 @@ input[type=button]:hover{
         margin-left: 100px;
     }
 }
-
