@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 //import * as session from "./auth.js"
+=======
+<<<<<<< HEAD
+document.addEventListener("DOMContentLoaded", event => {' '
+=======
+import * as session from "./auth.js"
+>>>>>>> 353ae0604934a049a604bd307a81dbccd7d22f3f
 
 document.addEventListener("DOMContentLoaded", event => {
+>>>>>>> 0de4c4d96e0a3c808ca8d6c3545e6e9aa45c5b61
     // Initialize Firebase
+<<<<<<< HEAD
     var firebaseConfig = {
       apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
       authDomain: "edu-line-ffdbc.firebaseapp.com",
@@ -15,8 +24,35 @@ document.addEventListener("DOMContentLoaded", event => {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   
+=======
+       var firebaseConfig = {
+        apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
+        authDomain: "edu-line-ffdbc.firebaseapp.com",
+        databaseURL: "https://edu-line-ffdbc.firebaseio.com",
+        projectId: "edu-line-ffdbc",
+        storageBucket: "edu-line-ffdbc.appspot.com",
+        messagingSenderId: "243851799693",
+        appId: "1:243851799693:web:1d67b4f9ccaf7e21c506c4",
+        measurementId: "G-D5ZWECPYD2"
+      };
+
+     
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+>>>>>>> 353ae0604934a049a604bd307a81dbccd7d22f3f
       loginPage(); 
-      
+      startApp();
+
+     // Intro to the App
+     function startApp() {
+
+     document.getElementById("root").innerHTML = `
+     <div id="beginning"><img src="./images/logoAppBco.png">
+     </div>
+     `
+     }
+
       // FUNCION QUE CREA PAGINA INICIAL
       function loginPage() {
       
@@ -251,10 +287,7 @@ document.addEventListener("DOMContentLoaded", event => {
         var credential = error.credential;
         // ...
       });
-    
-     
-    
-    
+
     
     })
     

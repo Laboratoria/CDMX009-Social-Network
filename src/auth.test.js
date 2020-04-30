@@ -72,6 +72,7 @@ test('Validacion incorrecta', () => {
   expect(falsesignInWithEmailAndPassword(email, password)).toBe('Email inválido');
   expect(auth.emailLogin(password)).toBe('No cumple con los 6 caracteres');
 });
+<<<<<<< HEAD
 
 test('Validacion correcta', () => {
   let email = "sure@gmail.com"
@@ -81,3 +82,6 @@ test('Validacion correcta', () => {
     expect(valor).toBe(true)
   });
 });*/
+=======
+*/
+>>>>>>> 353ae0604934a049a604bd307a81dbccd7d22f3f
