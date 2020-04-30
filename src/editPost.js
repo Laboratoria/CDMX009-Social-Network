@@ -1,5 +1,6 @@
 import Post from "./post.js";
-import {renderProfile} from "./createPost.js";
+//import {renderProfile} from "./createPost.js";
+import {renderContent} from "./content.js";
 
 let db = firebase.firestore();
 let usersRef = db.collection('users');
@@ -8,7 +9,7 @@ let storage = firebase.storage();
 let imgRef = storage.ref('images');
 let main = document.querySelector('#main');
 
-let originalPost = 'n60Red5WLbXexfrHBymd';
+//let originalPost = 'n60Red5WLbXexfrHBymd';
 /*let originalPost =  
 gpFlL9t0x8A3CdsW6gGL
 n60Red5WLbXexfrHBymd
@@ -16,8 +17,10 @@ nQG7x0vBh1fcwzsjyu6E
 pgltFxUCv1UTSoltAOmZ;*/ 
 
 
-export const editPost = (userName) =>{  
-        
+export const editPost = (postId) =>{  
+    
+    let originalPost = postId;
+  
     let modal = document.getElementById("myModal");
     let span = document.getElementsByClassName("close")[0];
     let textareaPost = document.querySelector("#postText");
@@ -88,14 +91,14 @@ export const editPost = (userName) =>{
     span.onclick = function() {
       modal.style.display = "none";
       //clean();
-      renderProfile();
+      renderContent();
     }
   
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
         //clean();
-        renderProfile();
+        renderContent();
       }
     }
   
@@ -184,7 +187,8 @@ export const editPost = (userName) =>{
       validate();
     });
 
-    const removeFromStorage = () => {
+    /*
+    const removeFromStorage = (originalPost) => {
       postsRef.doc(originalPost).get()
       .then(info => {
         let postInfo = info.data();
@@ -200,7 +204,7 @@ export const editPost = (userName) =>{
       }).catch((error)=> {
         console.log("Error al traer postInfo: " + error);
       });
-    }
+    }*/
   
     sendPostBtn.addEventListener("click", e => {
       
@@ -221,7 +225,7 @@ export const editPost = (userName) =>{
       
       if(img){
         //removeFromStorage();
-
+        console.log(originalPost);
         postsRef.doc(originalPost).get()
         .then(info => {
           let postInfo = info.data();
@@ -246,7 +250,7 @@ export const editPost = (userName) =>{
               imageUrl = link;
               console.log(imageUrl);
               let post = new Post(text, imageUrl, token, status, date);
-              updatePost(post);
+              updatePost(post, originalPost);
           })
           .catch((error)=> {
             console.log("Error al guardar imagen: " + error);
@@ -259,7 +263,7 @@ export const editPost = (userName) =>{
           let token = document.getElementsByClassName("imgPost")[0].alt;
           let post = new Post(text, imageUrl, token, status, date);
           console.log(imageUrl);
-          updatePost(post);
+          updatePost(post,originalPost);
         }else{
           //removeFromStorage();
 
@@ -279,7 +283,7 @@ export const editPost = (userName) =>{
             let token = "";
             let post = new Post(text, imageUrl, token, status, date);
             console.log(imageUrl);
-            updatePost(post);
+            updatePost(post,originalPost);
           }).catch((error)=> {
             console.log("Error al traer postInfo: " + error);
           });
@@ -290,7 +294,7 @@ export const editPost = (userName) =>{
 //}
 
 
-const updatePost = (post) => {
+const updatePost = (post,originalPost) => {
 
   let modal = document.getElementById("myModal");
   console.log(post);
@@ -305,7 +309,7 @@ const updatePost = (post) => {
   .then((data) => {
     console.log("Post actualizado: " + data);
     modal.style.display = "none";
-    renderProfile();
+    renderContent();
     //clean();
   })
   .catch((error)=> {

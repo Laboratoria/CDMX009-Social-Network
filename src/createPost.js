@@ -1,6 +1,7 @@
 import Post from "./post.js";
 import {editPost} from "./editPost.js";
 import {deletePost} from "./deletePost.js";
+import {renderContent} from "./content.js";
 
 let db = firebase.firestore();
 let usersRef = db.collection('users');
@@ -9,6 +10,7 @@ let storage = firebase.storage();
 let imgRef = storage.ref('images');
 let main = document.querySelector('#main');
 
+/*
 const closeSession = () =>{
   firebase.auth().signOut().then(function(){
     console.log('Cerrando sesión');
@@ -16,7 +18,7 @@ const closeSession = () =>{
   .catch(function(error){
     console.log(error);
   })
-}
+}*/
 
 /*
 const clean = () =>{
@@ -59,7 +61,7 @@ const sendPost = (post) => {
   .then((data) => {
     console.log("Post guardado: " + data);
     modal.style.display = "none";
-    profile();
+    renderContent();
     //clean();
   })
   .catch((error)=> {
@@ -81,14 +83,14 @@ export const newPost = (userName, uid) =>{
   span.onclick = function() {
     modal.style.display = "none";
     //clean();
-    profile();
+    renderContent();
   }
 
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
       //clean();
-      profile();
+      renderContent();
     }
   }
 
@@ -218,7 +220,7 @@ export const newPost = (userName, uid) =>{
   });
 }
 
-const renderPost = (userName, uid) =>{
+export const renderPost = (userName, uid) =>{
   let modalBox = document.createElement('div'); 
   let postModal = `
    <!-- The Modal -->
@@ -254,6 +256,8 @@ const renderPost = (userName, uid) =>{
   modal.style.display = "block"; 
 }
 
+
+/*
 export const renderProfile = (userName, uid) =>{
    
   let profileView = `
@@ -302,5 +306,5 @@ export const profile = () =>{
       });
   }, 500);
 }
-
+*/
 

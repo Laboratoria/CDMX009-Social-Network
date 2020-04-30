@@ -5,7 +5,7 @@ let storage = firebase.storage();
 let imgRef = storage.ref('images');
 let main = document.querySelector('#main');
 
-let originalPost = 'n60Red5WLbXexfrHBymd';
+//let originalPost = 'n60Red5WLbXexfrHBymd';
 /*let originalPost =  
 
 n60Red5WLbXexfrHBymd
@@ -14,7 +14,7 @@ pgltFxUCv1UTSoltAOmZ
 
 ;*/ 
 
-export const deletePost = () => {
+export const deletePost = (originalPost) => {
   postsRef.doc(originalPost).get()
   .then(info => {
     let postInfo = info.data();
