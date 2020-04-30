@@ -1,9 +1,6 @@
 //* **************login register users********************************
-export function login() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  firebase.auth().signInWithEmailAndPassword(email, password)
+export function login(email, passLogin) {
+  firebase.auth().signInWithEmailAndPassword(email, passLogin)
     .then(() => {
 
     }).catch((error) => {

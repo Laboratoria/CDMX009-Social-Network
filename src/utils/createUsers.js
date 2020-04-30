@@ -1,9 +1,10 @@
 //* ***************create new user start*************************
-export function newUser() {
-  const emailNew = document.getElementById('emailNw').value;
-  const password = document.getElementById('passwordNw').value;
-  document.getElementById('createUser').style.display = 'none';
-  document.getElementById('logingUsers').style.display = 'block';
+export function goToCreate() {
+  document.getElementById('createUser').style.display = 'block';
+  document.getElementById('logingUsers').style.display = 'none';
+}
+
+export function createUser(emailNew, password) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(emailNew, password)
@@ -13,9 +14,4 @@ export function newUser() {
       console.log(errorCode);
       console.log(errorMessage);
     });
-}
-
-export function goToCreate() {
-  document.getElementById('createUser').style.display = 'block';
-  document.getElementById('logingUsers').style.display = 'none';
 }

@@ -1,16 +1,17 @@
 import { actionGoogle, actionFacebook } from './utils/providers.js';
-import { newUser, goToCreate } from './utils/createUsers.js';
+import { createUser, goToCreate } from './utils/createUsers.js';
 import { login } from './utils/loginEmail.js';
 import { actionDelete } from './utils/deletePost.js';
 import { saveFirestore } from './utils/saveInFirestore.js';
 import { openModalEdit } from './utils/modalEdit.js';
 import { signOut } from './utils/exit.js';
+import { addLikes } from './utils/countLikes.js';
 
-export const db = firebase.firestore();
 let getEmail;
 let getName;
 let getImg;
 let url;
+const db = firebase.firestore();
 const firstPa = document.getElementById('firstPage');
 const allSite = document.getElementById('allTheSite');
 const filterComents = document.querySelector('#addFilters');
@@ -20,16 +21,34 @@ const btnFilter = document.querySelector('#searchButtom1');
 const btnMySite = document.querySelector('#myWall');
 const goToPrincipal = document.querySelector('#allComents');
 const printing = document.querySelector('#addComents');
-actionGoogle();
-actionFacebook();
+
 //* ****************************register users */
-export const createNewUser = document.getElementById('createUserNw');
-createNewUser.addEventListener('click', newUser);
 export const userNew = document.getElementById('newUser');
 userNew.addEventListener('click', goToCreate);
+
+const emailNew = document.getElementById('emailNw');
+const password = document.getElementById('passwordNw');
+const createNewUser = document.getElementById('createUserNw');
+createNewUser.addEventListener('click', () => {
+  createUser(emailNew.value, password.value);
+});
+
+//* *****************Login with providers ****************************
+const btnGoogle = document.getElementById('loginGoogle');
+btnGoogle.addEventListener('click', actionGoogle);
+
+const btnFacebook = document.getElementById('loginFacebook');
+btnFacebook.addEventListener('click', actionFacebook);
+
 //* **************************Login*************************************
+const email = document.getElementById('email');
+const passLogin = document.getElementById('password');
+
 const registeredUser = document.getElementById('logInUser');
-registeredUser.addEventListener('click', login);
+registeredUser.addEventListener('click', () => {
+  login(email.value, passLogin.value);
+});
+
 function printSite() {
   firstPa.style.display = 'none';
   allSite.style.display = 'block';
@@ -71,9 +90,13 @@ export function theWatcher() {
 theWatcher();
 //* ***********************Button for actionSingout************************
 const buttonClose = document.getElementById('logOut');
-buttonClose.addEventListener('click', signOut);
+buttonClose.addEventListener('click', () => {
+  document.getElementById('firstPage').style.display = 'block';
+  document.getElementById('allTheSite').style.display = 'none';
+  signOut();
+});
 //* ***********************Get info profile********************************
-function getNameProfile() {
+export function getNameProfile() {
   const userSigned = firebase.auth().currentUser;
   if (userSigned != null) {
     userSigned.providerData.forEach((profile) => {
@@ -87,7 +110,7 @@ function getNameProfile() {
     });
   }
 }
-//* ***********************Add image in Firestorage*************************
+//* ***********************Add image in Firestorage********************************
 const fileInput = document.querySelector('#file');
 fileInput.onchange = (e) => {
   console.log(e.target.files);
@@ -105,20 +128,13 @@ fileInput.onchange = (e) => {
       document.body.appendChild(img);
     });
 };
-//* ***********************Save data firestore for create post**************
+//* ***********************Save data firestore for create post*********************
 const shareBtn = document.getElementById('btnShare');
 shareBtn.addEventListener('click', () => {
   getNameProfile();
   saveFirestore(getName, getImg, db, url);
 });
-//* ***********************LIKES**************************************************
-const addLikes = (e) => {
-  db.collection('publications')
-    .doc(e.target.name)
-    .update({
-      likes: firebase.firestore.FieldValue.increment(+1),
-    });
-};
+
 //* ***********************Print cards posts********************************
 function addNewCard(printing1, doc) {
   const posting = document.createElement('div');
@@ -162,7 +178,7 @@ function addNewCardNoComents(printing2, doc) {
   const btnlike = document.querySelectorAll('.btnLike');
   btnlike.forEach(actionBtnLikes => actionBtnLikes.addEventListener('click', addLikes));
 }
-//* ***********************Print coments in real time***********************
+//* ***********************Print coments in real time***************************
 db.collection('publications')
   .orderBy('date', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -172,7 +188,6 @@ db.collection('publications')
       addNewCardNoComents(printing, doc);
     });
   });
-
 
 //* ***********************Filter wall all users********************************
 goToPrincipal.addEventListener('click', () => {
@@ -190,7 +205,7 @@ btnMySite.addEventListener('click', () => {
   db.collection('publications')
     .where('name', '==', getName || getEmail)
     .onSnapshot((filters) => {
-      (filterMyComents.innerHTML = '');
+      filterMyComents.innerHTML = '';
       filters.forEach((doc) => {
         addNewCard(filterMyComents, doc);
       });
@@ -206,11 +221,11 @@ btnFilter.addEventListener('click', () => {
   db.collection('publications')
     .where('name', '==', filterName.value)
     .onSnapshot((filters) => {
-      (filterComents.innerHTML = '');
+      filterComents.innerHTML = '';
       filters.forEach((doc) => {
         addNewCardNoComents(filterComents, doc);
       });
     });
 });
-// if we also use ".orderBy("Date", "desc")" the real time doesn't work anymore, 
-//because it needs an index, we did it but it doesn't detect it
+// if we also use ".orderBy("Date", "desc")" the real time doesn't work anymore,
+// because it needs an index, we did it but it doesn't detect it
