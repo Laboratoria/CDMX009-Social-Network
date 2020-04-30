@@ -26,7 +26,7 @@ export function postPage() {
       <nav class="level">
       <div class="level-left">
       <div class="level-item">
-      <a class="button is-info" id ='submit post'>Submit</a>
+      <a class="button is-info" id ='submitPost'>Submit</a>
       </div>
       </div>
       <div class="level-right">
@@ -34,7 +34,7 @@ export function postPage() {
       <div class="field">
       <div class="file is-small">
       <label class="file-label">
-      <input class="file-input" type="file" name="resume">
+      <input class="file-input" type="file" name="resume" id="filePost'>
       <span class="file-cta">
       <span class="file-icon">
       <i class="fas fa-upload"></i>
@@ -94,4 +94,5 @@ export function postPage() {
       </div>
       `;
   root.appendChild(box);
+  const submitPost = document.querySelector('#submitPost');
 }

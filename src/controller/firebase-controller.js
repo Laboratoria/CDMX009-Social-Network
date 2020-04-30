@@ -1,6 +1,7 @@
 import { postPage } from '../views/postpage.js';
 
 const db = firebase.firestore();
+// Authentication
 const usersRef = db.collection('users');
 const auth = firebase.auth();
 
@@ -45,3 +46,26 @@ export const signup = (email, password) => {
       return error
     });
 };
+// Login with google
+export function loginGoogle() {
+  let provider = new firebase.auth.GoogleAuthProvider();
+    return firebase.auth().signInWithPopup(provider)
+        .then(snap => {
+            saveUser(snap.user)
+            postPage();
+            return snap.user
+        })
+}
+// Login with Facebook
+export function loginFace() {
+  var provider = new firebase.auth.FacebookAuthProvider();
+  return firebase.auth().signInWithPopup(provider)
+    .then(result=>{
+      saveUser(result.user);
+      postPage();
+  console.log(result.user)
+  return result.user
+})
+}
+// Add Post
+// const postsRef = db.collection('posts');

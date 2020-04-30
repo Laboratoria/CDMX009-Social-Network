@@ -64,8 +64,15 @@ body{
   display: flex;
   align-content: flex-end;
 }
+#btngoogle{
+  background-image: url(images/gmailImage.png);
+  background-position: center;
+  background-size: 43px;
+  height: 43px;
+  width: 43px;
+}
 
-#btn{
+#btnface{
   background-image: url(images/faceImage.png);
   background-position: center;
   background-size: 43px;
