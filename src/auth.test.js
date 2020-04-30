@@ -25,3 +25,30 @@ test('emailLogin se ejecuta correctamente', () => {
   });
 });
 
+
+
+global.firebase = {
+  auth: jest.fn(() => ({
+    createUserWithEmailAndPassword: jest.fn(() => new Promise((resolve, reject) => {
+      resolve(true)
+    }))
+  }))
+}
+test('Validacion incorrecta', () => {
+  let email = "suregmail.com"
+  let password = "123D"
+
+  expect(auth.createAccount(email, password)).toBe('Email inválido');
+  expect(auth.createAccount(password)).toBe('No cumple con los 6 caracteres');
+});
+
+
+test('Validacion correcta', () => {
+  let email = "sure@gmail.com"
+  let password = "123DOP"
+
+  auth.createAccount(email, password).then(valor => {
+    expect(valor).toBe(true)
+  });
+});
+

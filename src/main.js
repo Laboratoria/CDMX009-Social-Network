@@ -1,3 +1,5 @@
+import * as session from "./auth.js"
+
 document.addEventListener("DOMContentLoaded", event => {
     // Initialize Firebase
        var firebaseConfig = {
@@ -220,7 +222,7 @@ document.addEventListener("DOMContentLoaded", event => {
         })
       
         document.getElementById("logout").addEventListener("click", logout)
-    
+       
             })
         } else {
           // No user is signed in.
