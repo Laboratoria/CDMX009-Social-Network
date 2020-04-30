@@ -11,7 +11,15 @@ export function createUser(emailNew, password) {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+      switch (errorCode) {
+        case 'auth/invalid-email':
+          alert(`Correo lisiado ${errorMessage}`);
+          break;
+        case 'auth/weak-password':
+          alert(`por tu seguridad usa una contraseña más larga ${errorMessage}`);
+          break;
+        default:
+          alert('ingreso lisiado');
+      }
     });
 }
