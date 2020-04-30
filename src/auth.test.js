@@ -25,6 +25,7 @@ test('emailLogin se ejecuta correctamente', () => {
   });
 });
 
+<<<<<<< HEAD
 // esperamos que si escribe un correo inválido, le devuelva un error
 
 test('emailLogin', () => {
@@ -40,3 +41,32 @@ test('emailLogin', () => {
     let password = "123D"
     expect(auth.logout(email, password))..toThrowError('Contraseña incorrecta');
 });
+=======
+
+
+global.firebase = {
+  auth: jest.fn(() => ({
+    createUserWithEmailAndPassword: jest.fn(() => new Promise((resolve, reject) => {
+      resolve(true)
+    }))
+  }))
+}
+test('Validacion incorrecta', () => {
+  let email = "suregmail.com"
+  let password = "123D"
+
+  expect(auth.createAccount(email, password)).toBe('Email inválido');
+  expect(auth.createAccount(password)).toBe('No cumple con los 6 caracteres');
+});
+
+
+test('Validacion correcta', () => {
+  let email = "sure@gmail.com"
+  let password = "123DOP"
+
+  auth.createAccount(email, password).then(valor => {
+    expect(valor).toBe(true)
+  });
+});
+
+>>>>>>> 0de4c4d96e0a3c808ca8d6c3545e6e9aa45c5b61

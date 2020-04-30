@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", event => {' '
+=======
+import * as session from "./auth.js"
+
+document.addEventListener("DOMContentLoaded", event => {
+>>>>>>> 0de4c4d96e0a3c808ca8d6c3545e6e9aa45c5b61
     // Initialize Firebase
        var firebaseConfig = {
         apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
@@ -233,7 +239,7 @@ document.addEventListener("DOMContentLoaded", event => {' '
         })
       
         document.getElementById("logout").addEventListener("click", logout)
-    
+       
             })
         } else {
           // No user is signed in.

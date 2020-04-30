@@ -20,7 +20,10 @@ background: -webkit-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,
 background: -o-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
 background: -ms-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
 background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0de4c4d96e0a3c808ca8d6c3545e6e9aa45c5b61
     margin: 0;
     height: 100%;
   }
