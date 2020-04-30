@@ -4,17 +4,16 @@ const body = document.querySelector('#body');
 const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
 let errMsg;
-
 const errorHandler = () => {
-    const errHand = database.errorInfo();
-    if (!errHand) return;
-    errMsg.innerHTML = errHand.message;
+  const errHand = database.errorInfo();
+  if (!errHand) return;
+  errMsg.innerHTML = errHand.message;
 };
 const topBarForm = `
     <div class="userInfo media navbar is-fixed-top">
         <div class="file is-centered">
             <figure class="image is-96x96">
-                <img id="profilePic" clscrollbarass="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
+                <img id="profilePic" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
             </figure>
         </div>
         <div class="media-content">
@@ -27,23 +26,23 @@ const topBarForm = `
         </div>
     </div>`;
 const topNavBar = () => {
-    const showImg = document.querySelector('#profilePic');
-    const showUserName = document.querySelector('#profileUserNameSaved');
-    let imgSrc;
-    let userNameSrc;
-    database.getProfilePic()
-        .then((data) => {
-        if (!data) return;
-        imgSrc = data.url;
-        showImg.src = imgSrc;
+  const showImg = document.querySelector('#profilePic');
+  const showUserName = document.querySelector('#profileUserNameSaved');
+  let imgSrc;
+  let userNameSrc;
+  database.getProfilePic()
+    .then((data) => {
+      if (!data) return;
+      imgSrc = data.url;
+      showImg.src = imgSrc;
     });
-    database.getProfileName()
-        .then((data) => {
-        if (!data) return;
-        userNameSrc = data.userName;
-        showUserName.innerHTML = `${'@'}${userNameSrc}`;
+  database.getProfileName()
+    .then((data) => {
+      if (!data) return;
+      userNameSrc = data.userName;
+      showUserName.innerHTML = `${'@'}${userNameSrc}`;
     })
-        .catch(error => console.log('error', error));
+    .catch(error => console.log('error', error));
 };
 const renderSignIn = () => {
   root.classList.add('section');
@@ -70,14 +69,14 @@ const renderSignIn = () => {
             </div>
             <div class="field file is-small file is-centered">
                 <p class="control has-icons-left has-icons-right">
-                    <input id="logPassword" class="input is-rounded " type="password" placeholder="Password">
+                    <input id="logPassword" class="input is-rounded " type="password" placeholder="Password"/>
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
                 </p>
             </div> 
             <div class="field file is-centered">
-            <p class="has-text-danger is-centered" id="errMsg"></p>
+                <p class="has-text-danger is-centered" id="errMsg"></p>
             </div>
         </div>
         <div class="field">
@@ -104,18 +103,19 @@ const renderSignIn = () => {
                 </span>
             </a>
         </div>    
-        <div class=" has-text-centered has-text-white is size-2">
+        <div class="has-text-centered has-text-white is size-2">
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
-        </div>`;
-  root.innerHTML = `${logo}${signInForm}`; 
+        </div>
+    `;
+  root.innerHTML = `${logo}${signInForm}`;
   errMsg = document.querySelector('#errMsg');
-  document.querySelector('#signUpLink').addEventListener('click', () => { 
+  document.querySelector('#signUpLink').addEventListener('click', () => {
     renderSignUp();
   });
   document.querySelector('#logIn').addEventListener('click', () => {
     window.setTimeout(errorHandler, 400);
   });
-  document.querySelector('#facebookSignIn').addEventListener('click', () => { 
+  document.querySelector('#facebookSignIn').addEventListener('click', () => {
     database.signInFacebook();
   });
   document.querySelector('#googleSignIn').addEventListener('click', () => {
@@ -151,7 +151,7 @@ const renderSignUp = () => {
                 </p>
             </div>
             <div class="field file is-centered">
-            <p class="has-text-danger is-centered" id="errMsg"></p>
+                <p class="has-text-danger is-centered" id="errMsg"></p>
             </div>
         </div>
         <div class="field">
@@ -169,7 +169,7 @@ const renderSignUp = () => {
         <div class="buttons file is-centered ">
             <a id="facebookSignIn" class="button is-medium is-facebook">
                <span class="icon">
-                 <i class="fab fa-facebook"> </i>
+                    <i class="fab fa-facebook"></i>
                 </span>
             </a>
             <a id="googleSignIn" class="button is-medium is-google">
@@ -179,7 +179,12 @@ const renderSignUp = () => {
             </a>
         </div>
         <div class=" has-text-centered has-text-white">
-            <td> ¿Ya tienes cuenta? </td> <a id="signInLink"> Inicia sesión </a>
+            <td>
+                ¿Ya tienes cuenta?
+            </td>
+            <a id="signInLink">
+                Inicia sesión
+            </a>
         </div>
         `;
   root.innerHTML = `${logo}${signUpForm}`;
@@ -199,7 +204,6 @@ const renderSignUp = () => {
   });
 };
 renderSignUp();
-
 const BottomBarForm = `
 <div class="">
     <div class="navbar is-fixed-bottom navBarCenter">
@@ -217,9 +221,8 @@ const BottomBarForm = `
             </div>
         </div>
     </div>
-    <div>
+<div>
 `;
-
 const renderProfile = () => {
   root.classList.add('section');
   body.classList.remove('has-navbar-fixed-top');
@@ -278,7 +281,6 @@ const renderProfile = () => {
                     </button>   
                 </p>
             </div>
-            
         </div>
         `;
   root.innerHTML = `${profile}${BottomBarForm}`;
@@ -288,7 +290,6 @@ const renderProfile = () => {
   document.querySelector('#add').addEventListener('click', () => {
     renderNewPost();
   });
-
   document.querySelector('#confirm').addEventListener('click', () => {
     database.saveData();
     window.setTimeout(renderFeed, 400);
@@ -297,7 +298,6 @@ const renderProfile = () => {
     database.logout();
     renderSignIn();
   });
-
   const showImg = document.querySelector('#showImg');
   const showName = document.querySelector('#profileName');
   let setInfo;
@@ -312,7 +312,7 @@ const renderProfile = () => {
     database.uploadPicture(event.target.files[0]);
     showImg.src = imgSrc;
     window.setTimeout(renderProfile, 1500);
-  });   
+  });
   database.getProfileName()
     .then((data) => {
       if (!data) return;
@@ -331,11 +331,11 @@ const renderProfile = () => {
   window.setTimeout(setAll, 1000);
 };
 export const renderFeed = () => {
-    root.classList.remove('signUpAndIn');
-    root.classList.remove('section');
-    body.classList.add('has-navbar-fixed-top');
-    body.classList.add('has-navbar-fixed-bottom');
-    const feed = `
+  root.classList.remove('signUpAndIn');
+  root.classList.remove('section');
+  body.classList.add('has-navbar-fixed-top');
+  body.classList.add('has-navbar-fixed-bottom');
+  const feed = `
         <div class="column body-column">
             <div class="header">
                 <div id="topBar"> </div>
@@ -347,11 +347,11 @@ export const renderFeed = () => {
             </div>
         </div>
     `;
-    root.innerHTML = `${feed}${BottomBarForm}`;
-    document.querySelector('#topBar').innerHTML = topBarForm;
-    topNavBar();
-    database.getPostFeed();
-    document.querySelector('#myProfile').addEventListener('click', () => {
+  root.innerHTML = `${feed}${BottomBarForm}`;
+  document.querySelector('#topBar').innerHTML = topBarForm;
+  topNavBar();
+  database.getPostFeed();
+  document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
   document.querySelector('#add').addEventListener('click', () => {
@@ -361,45 +361,42 @@ export const renderFeed = () => {
     renderFeed();
   });
 };
-
-
 const renderNewPost = () => {
   root.classList.add('section');
   root.classList.remove('signUpAndIn');
   root.classList.remove('feed');
   const post = `
-  <div id="topBar">
-  </div>
-                <div id="showNewImg" class="file is-centered">
-                    <img id="showImgPreview" class="is-rounded" src=""/>
-                </div>
+        <div id="topBar"></div>
+        <div id="showNewImg" class="file is-centered">
+            <img id="showImgPreview" class="is-rounded" src=""/>
+        </div>
         <div class="field">
             <div class="file is-info has-name is-small">
                 <label class="file-label">
                     <input id="uploadImg" class="file-input" type="file" accept="image/x-png,image/gif,image/jpeg" name="resume">
-                        <span class="file-cta">
-                            <span class="file-icon">
-                                <i class="fas fa-upload"></i>
-                            </span>
-                            <span class="file-label">
-                            Sube un archivo
-                            </span>
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
                         </span>
+                        <span class="file-label">
+                            Sube un archivo
+                        </span>
+                    </span>
                 </label>
-            </div>
-      </div>
+            </div>  
+        </div>
         <div class="field">
-                <input id="postMessage" class="input is-hovered" placeholder="Agrega un pie de foto" rows="5"> </input>
+            <input id="postMessage" class="input is-hovered" placeholder="Agrega un pie de foto" rows="5"> </input>
         </div>
         <button id="update" class="button is-success">
             <span class="icon is-small">
                 <i class="fas fa-check"></i>
             </span>
-            <span> Compartir </span>
-      </button>
-        
+            <span>
+                Compartir
+            </span>
+        </button>
     `;
-    
   root.innerHTML = `${post}${BottomBarForm}`;
   document.querySelector('#topBar').innerHTML = topBarForm;
   topNavBar();
@@ -409,26 +406,23 @@ const renderNewPost = () => {
   document.querySelector('#myProfile').addEventListener('click', () => {
     renderProfile();
   });
-    const inputFile = document.querySelector('#uploadImg')
-    const previewContainer = document.querySelector('#showNewImg')
-    const previewImg = previewContainer.querySelector('#showImgPreview')
-
-     inputFile.addEventListener("change", function () { 
-            const file = this.files[0]
-            if (file) {
-                const reader = new FileReader();
-
-                previewImg.style.display = "block";
-
-                reader.addEventListener("load", function () { 
-                    console.log(this);
-                    previewImg.setAttribute("src", this.result);
-                });
-                reader.readAsDataURL(file);
-            }
-    }); 
+  const inputFile = document.querySelector('#uploadImg');
+  const previewContainer = document.querySelector('#showNewImg');
+  const previewImg = previewContainer.querySelector('#showImgPreview');
+  inputFile.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      previewImg.style.display = 'block';
+      reader.addEventListener('load', function () {
+        console.log(this);
+        previewImg.setAttribute('src', this.result);
+      });
+      reader.readAsDataURL(file);
+    }
+  });
   document.querySelector('#update').addEventListener('click', () => {
     database.uploadPicturePost();
     window.setTimeout(renderFeed, 3000);
-});
+  });
 };
