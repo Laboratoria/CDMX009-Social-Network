@@ -1,24 +1,24 @@
-import { emailLogin } from '../src/firebase.js';
+import { emailLoginFb } from '../src/firebase-auth';
 
-const { mockFirebase } = require('firestore-jest-mock');
+const { MockFirebase } = require('firestore-jest-mock');
 
-const mockauth = new mockFirebase.MockFirebase();
-const mockfirestore = new mockFirebase.MockFirestore();
-mockFirebase.autoFlush();
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
 mockauth.autoFlush();
 
-global.firebase = mockFirebase.MockFirebaseSdk(
-  // use null if your code does not use RTDB
-  () => null,
-  () => mockauth,
-  () => mockfirestore,
+global.firebase = firebasemock.MockFirebaseSdk(
+    () => null,
+    () => mockauth,
+    () => mockfirestore,
 );
 
-// iniciando tests
-
-describe('firebase', () => {
-  it('Debería poder iniciar sesion', () => emailLogin('correo@correo.com', '123456')
-    .then((user) => {
-      expect(user.email).toBe('correo@correo.com');
-    }));
+describe('ingresarConCorreoYContrasena', () => {
+    it('debería ser una función', () => {
+        expect(typeof emailData).toBe('function');
+    });
+    it('Debería poder iniciar sesion', () => emailLoginFb('grojasm@gmail.com', 'grojasm')
+        .then((user) => {
+            expect(user.email).toBe('grojasm@gmail.com');
+        }));
 });

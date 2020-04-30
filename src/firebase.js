@@ -1,103 +1,18 @@
 // Firebase init
-const googleP = new firebase.auth.GoogleAuthProvider();
-const facebookP = new firebase.auth.FacebookAuthProvider();
 const db = firebase.firestore();
 
-// Nodes
-let photoURL;
-let displayName;
-
-// Log up with email
-function emailLogup() {
-  const emaiLogup = document.querySelector('#email-new').value;
-  const passwordLogup = document.querySelector('#password-new').value;
-  console.log(emaiLogup, passwordLogup);
-  firebase.auth().createUserWithEmailAndPassword(emaiLogup, passwordLogup)
-    .catch((error) => {
-      // Errors
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      if (errorMessage) {
-        const invalidEmail = document.querySelector('#invalid-email');
-        invalidEmail.innerHTML = errorMessage;
-      }
-    });
-}
-
-// Login functions
-function emailLogin() {
-  const emailUser = document.querySelector('#email-login').value;
-  const passwordUser = document.querySelector('#password-login').value;
-  const emailError = document.querySelector('#email-error');
-  console.log(emailUser, passwordUser);
-  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
-    .catch((error) => {
-      // Error
-      const errorMessage = error.message;
-      emailError.innerHTML = errorMessage;
-      console.log(errorMessage);
-    });
-}
-function loginFb() {
-  firebase.auth().signInWithRedirect(facebookP)
-    .then((result) => {
-      console.log(result);
-    });
-}
-function loginGoogle() {
-  firebase.auth().signInWithRedirect(googleP)
-    .then((result) => {
-      console.log(result);
-    });
-}
-
-// Log out
-const logoutBtn = document.querySelector('#logout');
-logoutBtn.onclick = function logOut() {
-  firebase.auth().signOut().then(() => {
-    window.open('#/login', '_self');
-    // Sign-out successful.
-  }).catch((error) => {
-    alert('Ha ocurrido un error', error);
-  });
-};
-
-// Observator
-function observatorFirebase() {
-  firebase.auth().onAuthStateChanged((user) => {
-    const menu = document.querySelector('.menu');
-    if (user) {
-      const menuPic = document.querySelector('#user-photoURL');
-      const menuName = document.querySelector('#user-displayName');
-      menuName.innerHTML = user.displayName;
-      menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
-      displayName = user.displayName;
-      photoURL = user.photoURL;
-      localStorage.setItem('nameStorage', displayName);
-      localStorage.setItem('URLStorage', photoURL);
-      window.open('#/home', '_self');
-      menu.classList.remove('hide');
-      console.log('estas activo dude :)', user);
-    } else {
-      console.log('no estas activo chavo :(');
-    }
-  });
-}
-observatorFirebase();
-
-
-// Initialize Cloud Firestore through Firebase
-const st = firebase.storage();
-const collectionPost = db.collection('newPosts');
-
-// Nodes
 const savePost = document.querySelector('#savePost');
+const displayName = localStorage.getItem('nameStorage');
+const photoURL = localStorage.getItem('URLStorage');
 let url;
 let day;
 let post;
 let comment;
 
-// Print time
+// Initialize Cloud Firestore through Firebase
+const st = firebase.storage();
+const collectionPost = db.collection('newPosts');
+
 const timeSnap = () => {
   const now = new Date();
   const date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
@@ -113,7 +28,7 @@ savePost.onclick = () => {
   const location = document.querySelector('#recipientLocation').value;
   const description = document.querySelector('#recipientDescription').value;
 
-  collectionPost.add({
+  return collectionPost.add({
     title,
     activity,
     location,
@@ -154,7 +69,7 @@ fileInput.onchange = (e) => {
 };
 
 // Read documents
-const render = () => {
+export const render = () => {
   post = document.querySelector('#contentCreated');
   db.collection('newPosts').onSnapshot((querySnapshot) => {
     post.innerHTML = '';
@@ -223,7 +138,6 @@ const render = () => {
         const modal = document.querySelector('#exampleModal');
         modal.classList.toggle('show'); // deberiamos rellenarlo con la data actual del doc
         modal.style = 'display:inherit;';
-        // 1.- get inputs and set data
         const titleInput = document.querySelector('#recipientTitle');
         titleInput.value = e.target.getAttribute('data-title');
         const activityInput = document.querySelector('#recipientActivity');
@@ -232,10 +146,9 @@ const render = () => {
         locationInput.value = e.target.getAttribute('data-location');
         const descriptionInput = document.querySelector('#recipientDescription');
         descriptionInput.value = e.target.getAttribute('data-description');
-        // same modal, differnt action
         const id = e.target.id;
+
         const btnSaveEdit = document.querySelector('#savePost');
-        // btn1.removeEventListener('click')
         btnSaveEdit.onclick = () => {
           const title = document.querySelector('#recipientTitle').value;
           const activity = document.querySelector('#recipientActivity').value;
@@ -245,7 +158,7 @@ const render = () => {
           console.log(title);
           console.log(id);
           // return
-          db.collection('newPosts')
+          return db.collection('newPosts')
             .doc(id)
             .update({
               title,
@@ -262,6 +175,7 @@ const render = () => {
               activityInput.value = '';
               locationInput.value = '';
               descriptionInput.value = '';
+              btnSaveEdit.addEventListener('click', savePost);
             })
             .catch((error) => {
               console.error('Error writing document: ', error);
@@ -294,8 +208,5 @@ const render = () => {
     });
   });
 };
-render();
 
-export {
-  loginGoogle, loginFb, emailLogin, observatorFirebase, render, emailLogup,
-};
+render();
