@@ -129,7 +129,6 @@ function showPostUser(){
           </div>
           <p class="PostPrint">${doc.data().post}</p>
           <textarea class="answer" id="answer"> </textarea>
-          <br>
           <div class="sectionLikes">
           <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
           </div>
@@ -142,9 +141,9 @@ function showPostUser(){
 
         const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
         buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
-/*
-        const buttonEditPost = document.querySelector('#btnEditPost')
-        buttonEditPost.addEventListener('click', editPost)*/
+
+        /*const buttonsEditPost = document.querySelectorAll('.editBtn')
+        buttonEditPost.forEach(btn=>btn.addEventListener('click', editPost))*/
       });
 });
 }
@@ -171,7 +170,9 @@ function showPostUser(){
 
 // Editar posts
 /*
-function editPost(id, post) {
+function editPost(e, post) {
+  let id = e.target.getAttribute('data-id')
+  
   document.getElementById("post").value = post;
 
   let editButton = document.getElementById("btnAnswer");
@@ -182,6 +183,7 @@ function editPost(id, post) {
     let washingtonRef = db.collection('Post').doc(id);
 
     var newPost = document.getElementById('post').value;
-    newPost.innerHTML = '';*/
-
-export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost};
+    newPost.innerHTML = '';
+  };
+}*/
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost, /*updatePost*/};
