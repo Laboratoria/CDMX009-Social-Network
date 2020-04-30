@@ -77,7 +77,7 @@ header{
 .mainConteiner div {
   padding: 2%;
   margin: 2%;
- 
+  margin-bottom: 10%;
   background-color: #FFE36B;
   width: 40%;
   border-radius: 35px;
@@ -112,51 +112,6 @@ header{
     border-radius: 100px;
     display: inline-block;
 }
-
-/*User photo
-.userNamePh {
-  display: flex;
-  flex-direction: row;
-}
-
-.userNamePh img {
-  margin-top: 40px;
-  background-color:#ffffff;
-  padding: 5px;
-  border-radius: 60px;
-  margin: 10px 20px;
-  width: 55px;
-  height: 55px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-around;
-}
-
-.img-Logo img{
-margin-left: 5%;
-margin-top: 40px;
-height: 100px;
-width: 160px;
-display: flex;
-flex-direction: column;
-}*/
-
-  /*  View LOGIN  */
-  .mainConteinerLogin {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .mainConteinerLogin a {
-    color: #FFE36B;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-  }
 
 /*navigation bar*/
 footer {

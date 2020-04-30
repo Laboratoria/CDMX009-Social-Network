@@ -65,6 +65,32 @@ function saveDataUser(user){
   })
   };
 
+  //User login
+
+  function loginUser(email, password){
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+      window.open('#/', '_self');
+    }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+  }
+
+  function loginUserEmail(){
+    const email = document.getElementById("e-mail").value;
+    const password = document.getElementById("password").value;
+  
+    loginUser(email, password);
+  }
+
+  function signOff(){
+    firebase.auth().signOut().then(function() {
+      window.open('#/login', '_self');
+    }).catch(function(error) {
+    });
+    
+  } 
+
 //add post user
 function addUserPost(){
   let user = firebase.auth().currentUser;
@@ -151,4 +177,4 @@ function showPostUser(){
   db.collection("post")
  */
 
-export  { loginGoogle, loginFB, registerUser, addUserPost, showPostUser, deletePost};
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost};
