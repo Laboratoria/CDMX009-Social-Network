@@ -19,7 +19,7 @@ export const renderEditProfeli = () => {
             userBD = doc.data()
             let div = `
            <section class="edit-profeli">
-                  <figure id="list">
+                  <figure id="list" class="imgProfile>
                     <img id="photoUser" class="img-edit" src="${doc.data().photo}" alt="">
                   </figure></br>
                   <div class="aling-input">
@@ -30,9 +30,9 @@ export const renderEditProfeli = () => {
                   <input type="text" id="description" disabled class="descriptionUser" placeholder="Add description" value="${doc.data().description}">
                   </br></br>
                   <div class="buttoneditar">
-                  <input type="button" id="btnEditar" class="btnUser" value="Editar">
+                  <input type="button" id="btnEditar" class="btnProfile" value="Editar">
                   <br/>
-                  <input type="button" id="toReturn" class="btnUser" value="Regresar">
+                  <input type="button" id="toReturn" class="btnProfile" value="Regresar">
                   </div>
                   </div>
                   </section></br></br>`

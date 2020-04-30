@@ -1,3 +1,4 @@
+import { readerMyTrips } from './myTrips.js';
 import Post from "./post.js";
 //import {renderProfile} from "./createPost.js";
 import {renderContent} from "./content.js";
@@ -91,14 +92,14 @@ export const editPost = (postId) =>{
     span.onclick = function() {
       modal.style.display = "none";
       //clean();
-      renderContent();
+      readerMyTrips();
     }
   
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
         //clean();
-        renderContent();
+        readerMyTrips();
       }
     }
   
@@ -309,7 +310,7 @@ const updatePost = (post,originalPost) => {
   .then((data) => {
     console.log("Post actualizado: " + data);
     modal.style.display = "none";
-    renderContent();
+    readerMyTrips();
     //clean();
   })
   .catch((error)=> {

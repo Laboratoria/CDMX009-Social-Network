@@ -1,3 +1,4 @@
+import { readerMyTrips } from './myTrips.js';
 let db = firebase.firestore();
 let usersRef = db.collection('users');
 let postsRef = db.collection('posts');
@@ -31,6 +32,7 @@ export const deletePost = (originalPost) => {
     postsRef.doc(originalPost).delete()
     .then(function() {
         console.log("Post borrado");
+        readerMyTrips();
     }).catch(function(error) {
         console.error("Error al borrar post: ", error);
     });

@@ -18,6 +18,8 @@ body, section, div{
 }
 
 #main{
+    width: 100%;
+    height: 100%;
    box-sizing: border-box;
    margin: 0;
    height: auto;
@@ -39,6 +41,7 @@ body, section, div{
 }
 .logo{
     width: 250px;
+
     padding-left: 20px;
 }
 
@@ -46,6 +49,7 @@ body, section, div{
     display: flex;
     justify-content: space-between; 
 }
+
 .positiononeheader{
     width: 75%;
 }
@@ -130,7 +134,9 @@ body, section, div{
     background-color: #ffffff;
     box-shadow: 3px 3px 7px 1px #333;
 }
-.edit-profeli {
+
+/*Modificaciones para la ventana de editar perfil*/
+.editProfile { /*changeGaby*/
     width: 50%;
     border-radius: 10px;
     padding: 20px;
@@ -142,15 +148,28 @@ body, section, div{
     box-shadow: 3px 3px 7px 1px #333;
 }
 .aling-input{
-    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
+.imgProfile{
+    margin: auto;
+    margin-top: 30px;
+    max-width: 187px;
+}
+
+.img-edit{
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 150px
+}
+
 .nameUser {
     padding-left: 15px;
     border-radius: 30px;
-    width: 359px;
+    width: 250px;
     height: 54px;
     margin: auto;
-    margin-bottom: 15px;
     font-family: font-text;
     font-size: 18px;
     background-color: #E1E8EC;
@@ -159,18 +178,28 @@ body, section, div{
 .descriptionUser {
     padding-left: 15px;
     border-radius: 30px;
-    width: 359px;
+    width: 250px;
     height: 100px;
     margin: auto;
-    margin-bottom: 15px;
     font-family: font-text;
     font-size: 18px;
     background-color: #E1E8EC;
     border: #E1E8EC;
 }
-.buttoneditar{
-    margin-left: 200px;
+.btnProfile{
+    width: 150px;
+    height: 54px;
+    background-color: #F3BA00;
+    opacity: 0.8;
+    border-radius: 30px;
+    border: #F3BA00;
+    font-family: font-text;
+    font-size: 18px;
+    margin:auto; 
+    cursor: pointer;
 }
+
+/*Aqui finaliza File*/
 .imgListPost{
     width:300px;
     padding-left: 100px;
@@ -246,53 +275,8 @@ body, section, div{
 .display_none{
     display: none;
 }
-.img-edit{
-    margin-top: 0px;
-    width: 100%;
-}
 
 /******Post style*******/
-
-figure{
-    max-width: 187px;
-    margin:auto;
-    margin-top: 57px;
-    margin-bottom: 31px;
-}
-
-img{
-    width: 100%;
-    height: auto;
-}
-
-#errorMsg{
-    font-family: font-text;
-    font-size: 16px;
-    text-align: center;
-    margin: auto;
-    padding-bottom: 10px;
-    color: red;
-    display: none;
-}
-
-input[type=button]{
-  
-  height: 54px;
-  background-color: #F3BA00;
-  opacity: 0.8;
-  border-radius: 30px;
-  border: #F3BA00;
-  font-family: font-text;
-  font-size: 18px;
-  margin:auto; 
-  margin-top: 2px;
-  margin-bottom:9px;
-  cursor: pointer;
-}
-
-input[type=button]:hover{
-  opacity: 0.7;
-}
 
 /****************/
 /* The Modal (background) */
@@ -309,7 +293,6 @@ input[type=button]:hover{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-
  
   /* Modal Content */
   .modal-content {
@@ -376,7 +359,6 @@ input[type=button]:hover{
   
   .imgPost{
     width:200px;
-    
   }
 
   .remove-img {
@@ -410,10 +392,10 @@ input[type=button]:hover{
     background-color: #FAF7EE;
   }
 
+  
   .icons{
     margin: 0.5em 1em;
     display:flex;
-    /*justify-content: space-around;*/
   }
 
   label{
@@ -422,17 +404,17 @@ input[type=button]:hover{
     margin-right: 0.8em;
   }
 
-  i{
+  label i{
     font-size: 30px;
     cursor: pointer;
     color:#01587A;
   }
 
-  i:hover{
+  label i:hover{
     color: #FAF7EE;
   }
 
-  input[type=file], input[type=checkbox]{
+  .load-img, input[type=checkbox]{
     display: none;
   }
 
@@ -446,15 +428,14 @@ input[type=button]:hover{
     border: #F3BA00;
     font-family: font-text;
     font-size: 18px;
+    margin:auto;
     margin-right: 0;
     margin-top: 2px;
     margin-bottom:9px;
+    cursor: pointer;
   }
 
-
-
-
-/*------------------*/
+  /*------------------*/
 
 @media (max-width: 414px) {
     input[type=text], input[type=password] {
@@ -546,7 +527,7 @@ input[type=button]:hover{
         margin-top: -30px;
         width: 100%;
     }
-    .edit-profeli {
+    .editProfile {
         width: 80%;
     }
     .aling-input{
@@ -563,4 +544,3 @@ input[type=button]:hover{
         margin-left: 100px;
     }
 }
-

@@ -13,9 +13,19 @@ export const readerMyTrips = () => {
         postRef.where('uid', '==', uid).orderBy('date', 'desc').get()
         .then(snapshot => {
         if (snapshot.empty) {
-         console.log('No matching documents.');
-         return; 
-        } 
+          let mypost = document.querySelector('#list-post')
+          mypost.innerHTML = '';
+          let div = `<div class="list-content">  
+          <br/><br/><br/>
+           <br/><br/><br/>
+          </div>`
+          let nodo = document.createElement('div')
+            nodo.innerHTML = div
+            mypost.appendChild(nodo);
+             
+          console.log('No matching documents.');
+          //return; 
+        }
        let mypost = document.querySelector('#list-post')
            mypost.innerHTML = ''
            snapshot.forEach(doc => {
