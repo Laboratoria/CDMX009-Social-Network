@@ -27,14 +27,23 @@ Aplicación dirigida a usuarios especialistas en el tema y padres de familia que
     > 
 
 ## PROTOTIPO BAJA FIDELIDAD:
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNet1.jpg
+
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNet2.jpg
+
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNet3.jpg
+
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNet4.jpg
+
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNet5.jpg
 
 ## FEEDBACK:
 
 ## PROTOTIPO ALTA FIDELIDAD (FIGMA):
+https://github.com/Zeltzin1996/CDMX009-Social-Network/blob/master/SocialNetFigma.jpg
 
 
-
-## PROTOTIPO BAJA FINAL:
+## PROTOTIPO FINAL:
 
 
 
