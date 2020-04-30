@@ -10,7 +10,7 @@ const appendStyleSheet = (nameSheet) => {
 }
 
 export const router = (route) =>{
-    // console.log(route)
+  console.log(route)
     switch(route){
       case 'content':
         //console.log('Entre a la vista de contenido');
@@ -75,6 +75,10 @@ export const router = (route) =>{
          appendStyleSheet('signinStyle.css');
          renderSignin();
          break;
+        case 'login':
+          appendStyleSheet('loginStyle.css');
+         login.renderLogin();
+         break;
        default:
          //let nameSheet = 'loginStyle.css';
          appendStyleSheet('loginStyle.css');
@@ -89,9 +93,10 @@ export const userStatus = () => {
       if (user) {
         console.log("Activo");
         router('profile');
+
       } else {
         console.log("Inactivo");
-        router();
+        router('login');
         // User is signed out.
         // ...
       }
