@@ -36,7 +36,7 @@ export default () => {
        <div class="containerbx">
        <div>
           <div class="comment">
-          <div class="btnIcon">
+            <div class="btnIcon">
           <button type="submit" class="editBtn" id="btnEditPost" ><img src="img/edit.svg" /></button> 
           <button type="submit" class="deleteBtn" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
           </div>
