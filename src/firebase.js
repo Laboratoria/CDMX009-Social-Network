@@ -38,14 +38,12 @@ function emailLogin() {
       console.log(errorMessage);
     });
 }
-
 function loginFb() {
   firebase.auth().signInWithRedirect(facebookP)
     .then((result) => {
       console.log(result);
     });
 }
-
 function loginGoogle() {
   firebase.auth().signInWithRedirect(googleP)
     .then((result) => {
@@ -90,13 +88,14 @@ observatorFirebase();
 
 // Initialize Cloud Firestore through Firebase
 const st = firebase.storage();
-let collectionPost = db.collection('newPosts');
+const collectionPost = db.collection('newPosts');
 
 // Nodes
-let savePost = document.querySelector('#savePost');
+const savePost = document.querySelector('#savePost');
 let url;
 let day;
 let post;
+let comment;
 
 // Print time
 const timeSnap = () => {
@@ -108,7 +107,6 @@ const timeSnap = () => {
 
 // Add users
 savePost.onclick = () => {
-
   timeSnap();
   const title = document.querySelector('#recipientTitle').value;
   const activity = document.querySelector('#recipientActivity').value;
@@ -125,8 +123,7 @@ savePost.onclick = () => {
     displayName,
     photoURL,
   })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
+    .then(() => {
       document.querySelector('#recipientTitle').value = '';
       document.querySelector('#recipientActivity').value = '';
       document.querySelector('#recipientLocation').value = '';
@@ -164,43 +161,49 @@ const render = () => {
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().title}`);
       post.innerHTML
-        += `   
-              <div class="card-post-container">
-                <div class="card-post">
-                  <div id="postImg" class="img-post">
-                    <img width="100%" src="${doc.data().image}">
-                  </div>
-                  <div class="info-post" id="infoUserContainer">
-                    <div class="info-user">
-                      <img src="${doc.data().photoURL}">
-                      <h4>${doc.data().displayName}</h4>
-                    </div>
-                    <div class="header-post">
-                      <h4 id="titlePost">${doc.data().title}</h4>
-                      <span class="edit-delete-icons">
-                        <i class="fas fa-pencil-alt js-edit" id="${doc.id}" data-title="${doc.data().title}" data-activity="${doc.data().activity}" data-location="${doc.data().location}" data-description="${doc.data().description}"></i>
-                        <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
-                      </span>
-                    </div>
-                    <div class="subtitle-post">
-                      <p id="activityPost">#${doc.data().activity} </p>
-                      <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
-                    </div>
-                      <p id="descriptionPost">${doc.data().description}</p> 
-                    <div class="flex-row">
-                      <p>
-                        <i class="far fa-clock"> </i> ${doc.data().date}
-                      </p>
-                      <span class="flex-row-likes">
-                        <i class="far fa-heart like-btn" id="${doc.id}"></i>
-                        <p><strong><span class="clicks"> </span></strong></p>
-                      </span>
-                    </div>  
-                  </div> 
-                </div>
-              </div>
-               
+        += `     <div class="card-post-container">
+        <div class="card-post">
+          <div id="postImg" class="img-post">
+            <img width="100%" src="${doc.data().image}">
+          </div>
+          <div class="info-post" id="infoUserContainer">
+            <div class="info-user">
+              <img src="${doc.data().photoURL}">
+              <h4>${doc.data().displayName}</h4>
+            </div>
+            <div class="header-post">
+              <h4 id="titlePost">${doc.data().title}</h4>
+              <span class="edit-delete-icons">
+                <i class="fas fa-pencil-alt js-edit" id="${doc.id}" data-title="${doc.data().title}"
+                  data-activity="${doc.data().activity}" data-location="${doc.data().location}"
+                  data-description="${doc.data().description}"></i>
+                <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
+              </span>
+            </div>
+            <div class="subtitle-post">
+              <p id="activityPost">#${doc.data().activity} </p>
+              <p id="locationPost"> <i class="fas fa-map-marker-alt"></i> ${doc.data().location}</p>
+            </div>
+            <p id="descriptionPost">${doc.data().description}</p>
+            <div class="flex-row">
+              <p>
+                <i class="far fa-clock"> </i> ${doc.data().date}
+              </p>
+              <span class="flex-row-likes">
+                <i class="far fa-heart like-btn" id="${doc.id}"></i>
+                <p><strong><span class="clicks"> </span></strong></p>
+              </span>
+            </div>
+            <div class="">
+              <input type="text" class="form-control newPostComment"  placeholder="Escribe un comentario">
+              <button class="addComment">Comentar</button>
+            </div>
+          </div>
+        </div>
+      </div>
             `;
+
+      // delete post
       const deletebutton = document.querySelectorAll('.js-delete');
       const deletePost = (e) => {
         console.log(e.target.id);
@@ -215,35 +218,32 @@ const render = () => {
       deletebutton.forEach(btn => btn.addEventListener('click', deletePost));
 
       // edit post
-
       const btnEdit = document.querySelectorAll('.js-edit');
-
       const actionEdit = (e) => {
-        let modal = document.querySelector('#exampleModal')
-        modal.classList.toggle("show") // deberiamos rellenarlo con la data actual del doc
-        modal.style = "display:inherit;"
-        // 1.- tomamos los input, los rellenamos (TENEMOS QUE CONSUMIR FIREBASE PARA TRAER LA DATA) (SI EL LAPICITO TUVIERA EL TITLE Y LA D. PODRIAMOS USARLOS)
-        let titleInput = document.querySelector('#recipientTitle');
+        const modal = document.querySelector('#exampleModal');
+        modal.classList.toggle('show'); // deberiamos rellenarlo con la data actual del doc
+        modal.style = 'display:inherit;';
+        // 1.- get inputs and set data
+        const titleInput = document.querySelector('#recipientTitle');
         titleInput.value = e.target.getAttribute('data-title');
-        let activityInput = document.querySelector('#recipientActivity');
+        const activityInput = document.querySelector('#recipientActivity');
         activityInput.value = e.target.getAttribute('data-activity');
-        let locationInput = document.querySelector('#recipientLocation');
+        const locationInput = document.querySelector('#recipientLocation');
         locationInput.value = e.target.getAttribute('data-location');
-        let descriptionInput = document.querySelector('#recipientDescription');
+        const descriptionInput = document.querySelector('#recipientDescription');
         descriptionInput.value = e.target.getAttribute('data-description');
-        // como es mismo modal, y queremos diferente accion, necesitamos 2 botones y ocultar el primero
+        // same modal, differnt action
+        const id = e.target.id;
+        const btnSaveEdit = document.querySelector('#savePost');
+        // btn1.removeEventListener('click')
+        btnSaveEdit.onclick = () => {
+          const title = document.querySelector('#recipientTitle').value;
+          const activity = document.querySelector('#recipientActivity').value;
+          const location = document.querySelector('#recipientLocation').value;
+          const description = document.querySelector('#recipientDescription').value;
 
-        let id = e.target.id
-        let btnSaveEdit = document.querySelector('#savePost')
-        //btn1.removeEventListener('click') // mejor que quitarlo // cuando terminemos lo recolocamos
-        btnSaveEdit.onclick = e => {
-          let title = document.querySelector('#recipientTitle').value
-          let activity = document.querySelector('#recipientActivity').value
-          let location = document.querySelector('#recipientLocation').value
-          let description = document.querySelector('#recipientDescription').value
-
-          console.log(title)
-          console.log(id)
+          console.log(title);
+          console.log(id);
           // return
           db.collection('newPosts')
             .doc(id)
@@ -251,11 +251,11 @@ const render = () => {
               title,
               activity,
               location,
-              description
+              description,
             })
             .then(() => {
               console.log('Document successfully written!');
-              modal.style = "display: none"; // esto no debemos solo quitar show y poner style none
+              modal.style = 'display: none'; // esto no debemos solo quitar show y poner style none
               // REcolocar el listener del boton (click) con el callback original (publicar)
               btnEdit.innerHTML = 'Guardar';
               titleInput.value = '';
@@ -266,20 +266,34 @@ const render = () => {
             .catch((error) => {
               console.error('Error writing document: ', error);
             });
-        }
-
-        let closeModal = document.querySelector('#modalClose');
+        };
+        const closeModal = document.querySelector('#modalClose');
         const actionClose = () => {
-          let modal = document.querySelector('#exampleModal')
-          modal.style = 'display:none'
-        }
+          modal.style = 'display:none';
+        };
         closeModal.addEventListener('click', actionClose);
-      }
+      };
       btnEdit.forEach(actionUpdate => actionUpdate.addEventListener('click', actionEdit));
+
+      // add comment
+
+      const addComment = document.querySelectorAll('.addComment');
+      const writeComment = (e) => {
+        comment = document.querySelectorAll('.newPostComment').value;
+        db.collection('newPosts').doc(e.target.id).collection('comments').add({
+          comment,
+        })
+          .then(() => {
+            console.log('Document successfully written!');
+          })
+          .catch((error) => {
+            console.error('Error writing document: ', error);
+          });
+      };
+      addComment.forEach(write => write.addEventListener('click', writeComment));
     });
   });
 };
-
 render();
 
 export {

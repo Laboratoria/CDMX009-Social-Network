@@ -1,9 +1,24 @@
-function suma(a, b) {
-  return a + b;
-}
+import { emailLogin } from '../src/firebase.js';
 
-describe('suma', () => {
-  it('sumar 1 + 2 es igual a 3', () => {
-    expect(suma(3, 4)).toBe(7);
-  });
+const { mockFirebase } = require('firestore-jest-mock');
+
+const mockauth = new mockFirebase.MockFirebase();
+const mockfirestore = new mockFirebase.MockFirestore();
+mockFirebase.autoFlush();
+mockauth.autoFlush();
+
+global.firebase = mockFirebase.MockFirebaseSdk(
+  // use null if your code does not use RTDB
+  () => null,
+  () => mockauth,
+  () => mockfirestore,
+);
+
+// iniciando tests
+
+describe('firebase', () => {
+  it('Debería poder iniciar sesion', () => emailLogin('correo@correo.com', '123456')
+    .then((user) => {
+      expect(user.email).toBe('correo@correo.com');
+    }));
 });
