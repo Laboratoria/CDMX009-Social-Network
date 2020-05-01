@@ -23,7 +23,7 @@ export const renderEditProfeli = () => {
                     <img id="photoUser" class="img-edit" src="${doc.data().photo}" alt="">
                   </figure></br>
                   <div class="aling-input">
-                  <input id="profileImage" type="file" disabled name="avatar" accept="image/png, image/jpeg">
+                  <input id="profileImage" class="selectImg" type="file" disabled accept="image/png, image/jpeg">
                   </br>
                   </br>
                   <input type="text" id="nameUser" disabled  class="nameUser" placeholder="" value="${doc.data().name}">
@@ -55,7 +55,7 @@ export const renderEditProfeli = () => {
         
                    reader.onload = (function(theFile) {
                        return function(e) {
-                         document.getElementById("list").innerHTML = ['<img class="positionone" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                         document.getElementById("list").innerHTML = ['<img class="img-edit" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
                        };
                    })(profileImage.files[0]);
                    reader.readAsDataURL(profileImage.files[0]);

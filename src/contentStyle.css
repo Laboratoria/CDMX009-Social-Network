@@ -39,7 +39,6 @@ body, section, div{
 }
 .logo{
     width: 250px;
-
     padding-left: 20px;
 }
 
@@ -58,11 +57,11 @@ body, section, div{
     width: 30%;
 }
 .position-profile{
-    width: 70%;
-    
+    width: 70%;   
 }
 .mitad{
-    width: 50%;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 .photo{
     padding: 20px;
@@ -154,12 +153,23 @@ body, section, div{
     margin: auto;
     margin-top: 30px;
     max-width: 187px;
+    padding: 0;
+    width: 200px;
 }
 
 .img-edit{
     margin-top: 0px;
     width: 100%;
     border-radius: 150px
+}
+.selectImg{/*nuevo cambio*/
+    padding-left: 15px;
+    border-radius: 30px;
+    width: 250px;
+    height: 30px;
+    margin: auto;
+    font-family: font-text;
+    font-size: 16px;
 }
 
 .nameUser {
@@ -276,47 +286,6 @@ body, section, div{
 
 /******Post style*******/
 
-/*figure{
-    max-width: 187px;
-    margin:auto;
-    margin-top: 57px;
-    margin-bottom: 31px;
-}*/
-
-img{
-    width: 100%;
-    height: auto;
-}
-
-#errorMsg{
-    font-family: font-text;
-    font-size: 16px;
-    text-align: center;
-    margin: auto;
-    padding-bottom: 10px;
-    color: red;
-    display: none;
-}
-
-/*input[type=button]{
-  
-  height: 54px;
-  background-color: #F3BA00;
-  opacity: 0.8;
-  border-radius: 30px;
-  border: #F3BA00;
-  font-family: font-text;
-  font-size: 18px;
-  margin:auto; 
-  margin-top: 2px;
-  margin-bottom:9px;
-  cursor: pointer;
-}
-
-input[type=button]:hover{
-  opacity: 0.7;
-}*/
-
 /****************/
 /* The Modal (background) */
 .modal {
@@ -332,7 +301,6 @@ input[type=button]:hover{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-
  
   /* Modal Content */
   .modal-content {
@@ -445,17 +413,17 @@ input[type=button]:hover{
     margin-right: 0.8em;
   }
 
-  i{
+  label i{
     font-size: 30px;
     cursor: pointer;
     color:#01587A;
   }
 
-  i:hover{
+  label i:hover{
     color: #FAF7EE;
   }
 
-  input[type=file], input[type=checkbox]{
+  .load-img, input[type=checkbox]{
     display: none;
   }
 
@@ -469,15 +437,14 @@ input[type=button]:hover{
     border: #F3BA00;
     font-family: font-text;
     font-size: 18px;
+    margin:auto;
     margin-right: 0;
     margin-top: 2px;
     margin-bottom:9px;
+    cursor: pointer;
   }
 
-
-
-
-/*------------------*/
+  /*------------------*/
 
 @media (max-width: 414px) {
     input[type=text], input[type=password] {
@@ -497,7 +464,10 @@ input[type=button]:hover{
     .position-profile{
         font-size: 5ppx; 
     }
-
+    .mitad{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .name{
         margin-top:-20px;
         font-size: 13px;
