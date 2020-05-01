@@ -17,12 +17,10 @@ function welcomeView (){
     dataBase.collection("posts").orderBy("date","desc").onSnapshot(function(snapshot){
         let changes= snapshot.docChanges();
         changes.forEach(change=>{
-            console.log(change.doc.data());
             let section= document.createElement("section");
             section.classList.add("containerPosts");
             let button= document.createElement("button");
-            button.classList.add("btnsPosts")
-            console.log(button);
+            button.classList.add("btnsPosts");
             let img= document.createElement("img");
             img.src= change.doc.data().img;
             img.id = change.doc.id;
@@ -48,6 +46,7 @@ function welcomeView (){
 }
 
 export function modal(id, link, title, description, user){
+  console.log("si me esá detectando el click");
   id;
   modalRoot.innerHTML='';
   let contentModal= `
