@@ -1,7 +1,11 @@
-import { example } from '../src/example.js';
+import { loginGoogle, loginFB, registerUser, addUserPost, showPostUser,sum } from '../src/firebase.js';
 
-describe('example', () => {
+describe('login'),() =>{
+  
+}
+
+/*describe('Tiene que sumar', () => {
   it('debería ser una función', () => {
-    expect(typeof example).toBe('function');
+    expect(sum ()).toBe('function');
   });
-});
+}); */
