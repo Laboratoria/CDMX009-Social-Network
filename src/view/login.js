@@ -1,6 +1,4 @@
-import {
-  loginGoogle, loginFb, emailLogin,
-} from '../firebase.js';
+import { emailLoginFb, facebookLogin, googleLogin } from '../firebase-auth.js';
 
 export default () => {
   const root = document.querySelector('#roots');
@@ -58,6 +56,21 @@ export default () => {
   divElemt.innerHTML = viewLogin;
   root.appendChild(divElemt);
 
+  const loginBtn = document.querySelector('#login-submit');
+  loginBtn.onclick = () => {
+    const emailLogin = document.querySelector('#email-login').value;
+    const passwordLogin = document.querySelector('#password-login').value;
+    console.log(emailLogin, passwordLogin);
+    emailLoginFb(emailLogin, passwordLogin)
+      .catch((error) => {
+        // Errores
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
+  };
+
   // Hide header elements
   const dashHeader = document.querySelector('#dashboardHeader');
   const menuH = document.querySelector('#menuH');
@@ -66,13 +79,10 @@ export default () => {
 
   // Login
   const googleBtns = document.querySelector('.google');
-  googleBtns.addEventListener('click', loginGoogle);
+  googleBtns.addEventListener('click', googleLogin);
 
   const fbBtns = document.querySelector('.facebook');
-  fbBtns.addEventListener('click', loginFb);
-
-  const emailBtns = document.querySelector('#login-submit');
-  emailBtns.addEventListener('click', emailLogin);
+  fbBtns.addEventListener('click', facebookLogin);
 
   return divElemt;
 };
