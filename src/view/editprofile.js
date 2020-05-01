@@ -1,4 +1,6 @@
 function editionOfProfile(user) {
+    console.log(user);
+    
     var EmailCortado = 'No hay email';
 
     if (typeof user != 'undefined') {
@@ -21,10 +23,12 @@ function editionOfProfile(user) {
         </div>
 
         <div class="littleCircle secondCircle">
-            <img src="${image}" alt="foto de perfil usuario" class="responsive-img photo">
+            <img src="${image}" id="fotoPerfil" alt="foto de perfil usuario" class="responsive-img photo">
             <p class="changePhoto">Cambiar foto</p>
         </div>
-        <div class="namePerfilUser editNameProfile"><strong class="black-text perfilName little">${EmailCortado}</div> 
+        <div class="namePerfilUser editNameProfile"><strong class="black-text perfilName little">
+        ${EmailCortado}
+        </div> 
 
         <form action="" class="formPerfil">
             <label for="" class="perfilChanges">
@@ -39,7 +43,7 @@ function editionOfProfile(user) {
             <label for="" class="changePassword">
         <input type="password" placeholder="Confirma tu contraseña" class="validatePassword  boxFields" required="" aria-required="true">
       </label>
-            <button type="submit" class="waves-effect waves-light btn-small btn-login">Guardar cambios</button>
+            <button type="submit" class="waves-effect waves-light btn-small btn-login" id="saveChanges">Guardar cambios</button>
         </form>
     </div>
         `

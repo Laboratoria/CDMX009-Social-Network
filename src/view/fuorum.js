@@ -1,5 +1,5 @@
 function viewForum(user) {
-    console.log(user);
+    console.log(user);    
 
     var EmailCortado = 'No hay email';
 
