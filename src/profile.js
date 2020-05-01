@@ -1,4 +1,4 @@
-import modal from './welcome.js'
+import {modal} from './welcome.js'
 let content= document.querySelector(".root");
 
 
@@ -28,7 +28,6 @@ function profile () {
                 img.setAttribute('data-title',change.doc.data().title);
                 img.setAttribute('data-description', change.doc.data().description);
                 img.setAttribute('data-user', change.doc.data().user);
-                console.log(img);
                 button.appendChild(img);
                 section.appendChild(button);
                 content.appendChild(section);
@@ -38,7 +37,7 @@ function profile () {
             btnsPosts.forEach(btn=> btn.onclick = e => {
                 modalRoot.style.display= "block";
                 let value= e.target.id;
-                console.log(value);
+                // console.log(value);
                 let link = e.target.getAttribute('src');
                 let title= e.target.getAttribute('data-title');
                 let description= e.target.getAttribute('data-description');
