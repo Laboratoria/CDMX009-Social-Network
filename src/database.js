@@ -1,19 +1,9 @@
-import { renderFeed } from './index.js';
-
+/* eslint-disable */
 let authError;
-const providerGoogle = new firebase.auth.GoogleAuthProvider();
-const providerFb = new firebase.auth.FacebookAuthProvider();
-const db = firebase.firestore();
-const storage = firebase.storage().ref();
-const usersRef = firebase.database().ref('users');
-const imageRefPost = firebase.database().ref().child('post-image');
-const imageUser = firebase.database().ref('image');
 
 const database = {
-  signUp: () => {
-    const regEmail = document.getElementById('regEmail').value;
-    const regPassword = document.getElementById('regPassword').value;
-    firebase.auth().createUserWithEmailAndPassword(regEmail, regPassword)
+  signUp: (regEmail, regPassword, firebasePipo=null) => {
+    (firebasePipo? firebasePipo: firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
       .catch((error) => {
         authError = error;
         return authError;
@@ -44,53 +34,61 @@ const database = {
   signInFacebook: () => {
     firebase.auth().signInWithPopup(providerFb).then((result) => {
       const token = result.credential.accessToken;
+      console.log(token);
       const user = result.user;
       console.log(user);
     }).catch((error) => {
       throw error('¡Error!');
     });
   },
-  getPostFeed: async () => {
+  getPostFeed: async () => { 
     imageRefPost.on('value', async (snapshot) => {
       const data = snapshot.val();
       let result = '';
       for (const key in data) {
-        const timeStamp = data[key].postTime;
-        const normalDate = new Date(timeStamp);
-        const dateFormat = normalDate.toLocaleString();
-        const userId = data[key].uid;
-        let userName = 'default';
-        let photoUser = '';
-        await usersRef.child(userId).once('value', async (snapshot) => {
-          userName = snapshot.val();
-          await imageUser.child(userId).once('value', (snapshot) => {
-            photoUser = snapshot.val();
+        if (Object.prototype.hasOwnProperty.call(data, key)) {
+          const timeStamp = data[key].postTime;
+          const normalDate = new Date(timeStamp);
+          const dateFormat = normalDate.toLocaleString();
+          const userId = data[key].uid;
+          let userName = 'default';
+          let photoUser = '';
+          const usersRef = firebase.database().ref('users');
+          await usersRef.child(userId).once('value', async (snapshots) => {
+            userName = snapshots.val();
+            const imageUser = firebase.database().ref('image');
+            await imageUser.child(userId).once('value', (snap) => {
+              photoUser = snap.val();
+            });
+            result += `
+              <div class="userInfo media">
+                <div class="image is-48x48">
+                  <img src=${photoUser.url} class="is-rounded"/>
+                </div>
+                <div class="media-content">
+                  <p>${'@'}${userName.userName}</p>
+                </div>
+              </div>
+              <div class="file is-centered">
+                <img src='${data[key].url}'/>
+              </div>
+              <div>
+                <img id="like" width="5%" height="5%" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
+                <img id="dislike" width="5%" height="5%" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
+                <img id="commentPost" width="5%" height="5%" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
+                <p>${data[key].comment}</p>
+                <p>${dateFormat}</p>
+              </div>
+              </br>
+            `;
+            document.getElementById('postFeed').innerHTML = result;
           });
-          result += `
-        <div class="userInfo media">
-          <div class="image is-48x48">
-            <img src=${photoUser.url} class="is-rounded"/>
-          </div>
-          <div class="media-content">
-            <p>${'@'}${userName.userName}</p>
-          </div>
-        </div>
-        <div class="file is-centered">
-          <img src='${data[key].url}'/>
-        </div>
-        <div>
-          <p>${data[key].comment}</p>
-          <p>${dateFormat}</p>
-        </div>
-        </br>
-        `;
-        document.getElementById('postFeed').innerHTML = result;
-        });
+        }
       }
-    });
-  },
-  userObserver: () => {
-    firebase.auth().onAuthStateChanged((user) => {
+    })
+  }, 
+  userObserver: (renderFeed) => { 
+    firebase.auth().onAuthStateChanged((user) => { 
       if (user) {
         console.log('existe usuario activo');
         renderFeed();
@@ -134,9 +132,13 @@ const database = {
         case firebase.storage.TaskState.RUNNING:
           console.log('Upload is running');
           break;
+        default:
       }
+    
     }, (error) => {
-    }, () => {
+      console.error(error);
+    },
+    () => {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
         console.log('File available at', downloadURL);
         database.createNodeFirebase(file.name, downloadURL);
@@ -157,6 +159,7 @@ const database = {
         case firebase.storage.TaskState.RUNNING:
           console.log('Upload is running');
           break;
+        default:
       }
     }, (error) => {
     }, () => {
@@ -169,6 +172,7 @@ const database = {
   },
   createNodeFirebase: (nameImage, url) => {
     const userPhotoProf = { name: nameImage, url, uid: firebase.auth().currentUser.uid };
+    console.log(userPhotoProf);
     firebase.database().ref(`image/${userPhotoProf.uid}`).set(userPhotoProf);
     db.collection('image').doc(firebase.auth().currentUser.uid).set({
       name: nameImage,
@@ -214,5 +218,4 @@ const database = {
     });
   },
 };
-database.userObserver();
 export default database;

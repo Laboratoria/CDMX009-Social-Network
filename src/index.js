@@ -1,5 +1,5 @@
+/* eslint-disable */
 import database from './database.js';
-
 const body = document.querySelector('#body');
 const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
@@ -42,7 +42,9 @@ const topNavBar = () => {
       userNameSrc = data.userName;
       showUserName.innerHTML = `${'@'}${userNameSrc}`;
     })
-    .catch(error => console.log('error', error));
+    .catch((error) => {
+        throw error('¡Error!');
+    });
 };
 const renderSignIn = () => {
   root.classList.add('section');
@@ -113,6 +115,7 @@ const renderSignIn = () => {
     renderSignUp();
   });
   document.querySelector('#logIn').addEventListener('click', () => {
+    database.signIn();
     window.setTimeout(errorHandler, 400);
   });
   document.querySelector('#facebookSignIn').addEventListener('click', () => {
@@ -122,7 +125,8 @@ const renderSignIn = () => {
     database.signInGoogle();
   });
 };
-const renderSignUp = () => {
+function renderSignUp () {
+    //const root = document.querySelector('#root');
   root.classList.add('section');
   body.classList.remove('has-navbar-fixed-top');
   body.classList.remove('has-navbar-fixed-bottom');
@@ -189,8 +193,10 @@ const renderSignUp = () => {
         `;
   root.innerHTML = `${logo}${signUpForm}`;
   errMsg = document.querySelector('#errMsg');
+  const regEmail = document.getElementById('regEmail').value;
+  const regPassword = document.getElementById('regPassword').value;
   document.querySelector('#register').addEventListener('click', () => {
-    database.signUp();
+    database.signUp(regEmail, regPassword);
     window.setTimeout(errorHandler, 400);
   });
   document.querySelector('#facebookSignIn').addEventListener('click', () => {
@@ -330,7 +336,7 @@ const renderProfile = () => {
   };
   window.setTimeout(setAll, 1000);
 };
-export const renderFeed = () => {
+ const renderFeed = () => {
   root.classList.remove('signUpAndIn');
   root.classList.remove('section');
   body.classList.add('has-navbar-fixed-top');
@@ -426,3 +432,4 @@ const renderNewPost = () => {
     window.setTimeout(renderFeed, 3000);
   });
 };
+database.userObserver(renderFeed);

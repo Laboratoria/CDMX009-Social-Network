@@ -33,6 +33,13 @@
     };
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+    const providerGoogle = new firebase.auth.GoogleAuthProvider();
+    const providerFb = new firebase.auth.FacebookAuthProvider();
+    const db = firebase.firestore();
+    const storage = firebase.storage().ref();
+    const usersRef = firebase.database().ref('users');
+    const imageRefPost = firebase.database().ref().child('post-image');
+    const imageUser = firebase.database().ref('image');
   </script>
 </head>
 <body id="body">
@@ -57,5 +64,6 @@
    }(document, 'script', 'facebook-jssdk'));
   </script> 
   <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script type="module" src="index.js"></script> 
 </body>
 </html>
