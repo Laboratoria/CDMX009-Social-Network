@@ -9,9 +9,11 @@ export function logIn() {
 
 // Sign up with email and password
 export function signUp() {
-  const userName = document.querySelector('#userNameSignUp').value;
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
-  const confirmpassword = document.querySelector('confirmPasswordSignUp').value;
   signup(email, password);
+}
+export function newPost () {
+  const postTxt = document.querySelector('#postTxt').value;
+  const postImg = document.querySelector('#filePost').value;
 }

@@ -1,3 +1,4 @@
+import { loginGoogle, loginFace } from '../controller/firebase-controller.js';
 import { signUp } from '../view-controller.js';
 import { renderLogin } from './login.js';
 
@@ -65,9 +66,9 @@ export function renderRegister() {
 
     <p class="subtitle2 has-text-centered">Ingresa con</p>
     <a class="level-item">
-    <img src="images/faceImage.png" class="face2" style="width: 43px; height: 39px">
+    <button class="button" id="btnface"  class="face"></button>
     <div style="width: 100px; height: 39px" ></div>
-    <img src="images/gmailImage.png" class="gmail" id="gmail2">
+    <button class="button" id="btngoogle"  class="face"></button>
     </a>
     <div id="fin">
     <p class="subtitle2 has-text-centered">Ya tienes cuenta? <button id="liga2" class="subtitle2">Inicia sesion </button></p>
@@ -81,5 +82,9 @@ export function renderRegister() {
   singUpButton.onclick = renderLogin;
   const signUpBtn = document.querySelector('#signUp');
   signUpBtn.addEventListener('click', signUp);
+  const btnGgle = document.querySelector('#btngoogle');
+  btnGgle.addEventListener('click', loginGoogle);
+  const btnFace = document.querySelector('#btnface');
+  btnFace.addEventListener('click', loginFace);
   return renderRegister;
 }
