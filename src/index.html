@@ -9,55 +9,23 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAPfCLxiFA43Ovy7_4rSk-4lw5p0x3oaCc",
-    authDomain: "intentologinface.firebaseapp.com",
-    databaseURL: "https://intentologinface.firebaseio.com",
-    projectId: "intentologinface",
-    storageBucket: "intentologinface.appspot.com",
-    messagingSenderId: "456284442373",
-    appId: "1:456284442373:web:a2269dfc53fafa12e1316c",
-    measurementId: "G-2ST3KTJE1G"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics();
-  //var database = firebase.database();
-
-  //var storage = firebase.storage();
- /* var storageRef = storage.ref();
-/*
-  const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
-  // Points to 'images'
-var imagesRef = storageRef.child('images');
-
-// Points to 'images/space.jpg'
-// Note that you can use variables to create child values
-var fileName = 'space.jpg';
-var spaceRef = imagesRef.child(fileName);
-
-// File path is 'images/space.jpg'
-var path = spaceRef.fullPath
-
-// File name is 'space.jpg'
-var name = spaceRef.name
-
-// Points to 'images'
-var imagesRef = spaceRef.parent;*/
-
-</script>
-
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
-
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+     <script>
+       var firebaseConfig = {
+         apiKey: "AIzaSyBucI_PfC9w2g4RpcojM47YE9aEcJrdUrA",
+         authDomain: "social-network-recipes.firebaseapp.com",
+         databaseURL: "https://social-network-recipes.firebaseio.com",
+         projectId: "social-network-recipes",
+         storageBucket: "social-network-recipes.appspot.com",
+         messagingSenderId: "265483566973",
+         appId: "1:265483566973:web:4eacc08547367e47ed1614",
+         measurementId: "G-XTZT14HD22"
+       };
+       firebase.initializeApp(firebaseConfig);
+       firebase.analytics();
+     </script>
   <script type="module" src="index.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <div id="root" class="root"></div>

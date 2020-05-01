@@ -1,9 +1,9 @@
-import { example } from './example.js';
+import { renderLogin } from './views/login.js';
 
-example();
+renderLogin();
 
 
-const db = firebase.firestore();
+/*const db = firebase.firestore();
 const usersRef = db.collection('users'); 
 
 db.collection("cities").doc("new-city-id").set(data);
@@ -304,3 +304,6 @@ function login(){
 
 //firebase.firestore()
 
+=======
+renderLogin();*/
+//>>>>>>> 12e91bdaae0847bce0b43127028b23948bdd522c

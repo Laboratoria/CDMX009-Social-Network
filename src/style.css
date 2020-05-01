@@ -69,8 +69,8 @@ body{
   align-content: flex-end;
 }
 
-#btnface{
-  background-image: url(faceImage.png);
+#btn{
+  background-image: url(images/faceImage.png);
   background-position: center;
   background-size: 43px;
   height: 40px;
