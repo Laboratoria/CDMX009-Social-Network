@@ -63,12 +63,16 @@ function saveDataUser(user){
   .then(function() {
     console.log("Document successfully written!");
   })
-  };
+  .catch(function(error) {
+    console.error("error save user", error);
+     });
+  }
 
-  //User login
+  //User login e-mail
 
   function loginUser(email, password){
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function(user){
       window.open('#/', '_self');
     }).catch(function(error) {
       let errorCode = error.code;
@@ -135,7 +139,7 @@ function showPostUser(){
           <div class="sectionLikes">
           <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
           </div>
-          <button class="btnAnswer">Responder</button>
+          <button class="btnAnswer" data-id="${doc.id}">Responder</button>
         </div>
         `
         postElement.innerHTML = postNew;
@@ -143,9 +147,14 @@ function showPostUser(){
 
   const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
         buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
-      });
-});
-}
+
+  const buttonAnswer = document.querySelectorAll('.btnAnswer')
+        buttonAnswer.forEach(btnA=>btnA.addEventListener('click', answer))
+
+      })
+  })
+ }
+
 
 // Borrar posts
 function deletePost (e) {
@@ -165,6 +174,26 @@ function deletePost (e) {
      .catch(function(error) {
        console.error("Error removing document: ", error);
      });
+ }
+
+ // reply post
+
+ function answer(e){
+   let user = firebase.auth().currentUser;
+   let id = e.target.getAttribute('data-id');
+   let postRef = db.collection('post').doc(id);
+   let anwerUser = document.getElementById("answer").value;
+   postRef.add({
+     answerUser: anwerUser,
+     uid:user.uid,
+     user: user.displayName
+   })
+  .then (function(){
+    console.log("reply post");
+  })
+  .catch(function(error){
+    console.log("error reply post", error);
+  })
  }
 
 export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser };
