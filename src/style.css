@@ -307,9 +307,10 @@ i.fas.fa-globe-americas {
 }
 
 .points {
-    color: #6a1b9a;
-    padding-left: 10px;
+    color: red;
+    padding-left: 30px;
     text-align: right;
+    cursor: pointer;
 }
 
 button.waves-effect.waves-light.btn-small.btn-enter {
@@ -592,7 +593,12 @@ input.validatePassword.boxFields {
     line-height: 2.5em;
 }
 
-#myNewFile {
+
+/* revisar y comparar cambios AGREGUE NUEVOS */
+
+#myNewFile,
+#newEditPost,
+.hideFile {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -601,7 +607,9 @@ input.validatePassword.boxFields {
     z-index: -1;
 }
 
-#myNewFile+label {
+#myNewFile+label,
+#newEditPost+label,
+.hideFile+label {
     color: white;
     background-color: #662483;
     display: inline-block;
@@ -613,18 +621,52 @@ input.validatePassword.boxFields {
     background-color: #662483;
 }
 
-#myNewFile+label {
+.hideFile :focus+label,
+.hideFile+label:hover {
+    background-color: #662483;
+}
+
+.hideFile+label,
+.hideFile {
     cursor: pointer;
     /* "hand" cursor */
 }
 
-#myNewFile:focus+label {
+#myNewFile:focus+label,
+.hideFile {
     outline: 1px dotted#662483;
     outline: -webkit-focus-ring-color auto 5px;
 }
 
 div#showComment {
     text-align: center;
+}
+
+.fixed-action-btn {
+    position: relative;
+    padding-top: 0;
+    /* display: contents; */
+}
+
+
+/* .fixed-action-btn.direction-right ul,
+.publicationedit {
+    display: inline-grid;
+} */
+
+.onBox {
+    display: none;
+}
+
+label.waves-effect.waves-light.btn-small {
+    max-width: 50px;
+}
+
+.fixed-action-btn.direction-right ul,
+.publicationedit,
+.fixed-action-btn.direction-right ul,
+.publicationedit {
+    text-align: left;
 }
 
 

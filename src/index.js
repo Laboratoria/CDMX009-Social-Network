@@ -15,7 +15,8 @@ import { register } from './functions/register.js'
 import { readPosts } from './functions/readposts.js'
 import { clickMenus } from './functions/clickmenus.js'
 import { publicPost, addNewPost } from './functions/publicpoust.js'
-//import { init } from './functions/init.js'
+import { deleteComments } from './functions/deletepost.js'
+import { editComments } from './functions/editpost.js'
 
 
 // *************** CODIGO DE ARRANQUE O INICIO  **************
@@ -113,6 +114,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // ******** READ POSTS ************
 
 // ******** CLICK MENUS ***********
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
