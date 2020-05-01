@@ -1,4 +1,6 @@
-import { loginGoogle, loginFb, emailLogin } from '../firebase.js';
+import {
+  loginGoogle, loginFb, emailLogin,
+} from '../firebase.js';
 
 export default () => {
   const root = document.querySelector('#roots');

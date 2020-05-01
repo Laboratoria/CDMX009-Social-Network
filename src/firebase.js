@@ -1,3 +1,14 @@
+const firebaseConfig = {
+  apiKey: 'AIzaSyBqImEvm_hfsvsj2vN8KWBn6Ewr2zFb9CQ',
+  authDomain: 'social-network-d33e4.firebaseapp.com',
+  databaseURL: 'https://social-network-d33e4.firebaseio.com',
+  projectId: 'social-network-d33e4',
+  storageBucket: 'social-network-d33e4.appspot.com',
+  messagingSenderId: '957477248623',
+  appId: '1:957477248623:web:77fed7501ea9a56198b79a',
+  measurementId: 'G-M3SME61YJ3',
+};
+firebase.initializeApp(firebaseConfig);
 // Firebase init
 const googleP = new firebase.auth.GoogleAuthProvider();
 const facebookP = new firebase.auth.FacebookAuthProvider();
@@ -90,10 +101,10 @@ observatorFirebase();
 
 // Initialize Cloud Firestore through Firebase
 const st = firebase.storage();
-let collectionPost = db.collection('newPosts');
+const collectionPost = db.collection('newPosts');
 
 // Nodes
-let savePost = document.querySelector('#savePost');
+const savePost = document.querySelector('#savePost');
 let url;
 let day;
 let post;
@@ -108,7 +119,6 @@ const timeSnap = () => {
 
 // Add users
 savePost.onclick = () => {
-
   timeSnap();
   const title = document.querySelector('#recipientTitle').value;
   const activity = document.querySelector('#recipientActivity').value;
@@ -215,14 +225,13 @@ const render = () => {
       deletebutton.forEach(btn => btn.addEventListener('click', deletePost));
 
       // edit post
-
-      const btnEdit = document.querySelectorAll('.js-edit');
-
+      /*  const btnEdit = document.querySelectorAll('.js-edit');
       const actionEdit = (e) => {
         let modal = document.querySelector('#exampleModal')
         modal.classList.toggle("show") // deberiamos rellenarlo con la data actual del doc
         modal.style = "display:inherit;"
-        // 1.- tomamos los input, los rellenamos (TENEMOS QUE CONSUMIR FIREBASE PARA TRAER LA DATA) (SI EL LAPICITO TUVIERA EL TITLE Y LA D. PODRIAMOS USARLOS)
+        // 1.- tomamos los input, los rellenamos (TENEMOS QUE CONSUMIR
+        FIREBASE PARA TRAER LA DATA) (SI EL LAPICITO TUVIERA EL TITLE Y LA D. PODRIAMOS USARLOS)
         let titleInput = document.querySelector('#recipientTitle');
         titleInput.value = e.target.getAttribute('data-title');
         let activityInput = document.querySelector('#recipientActivity');
@@ -231,11 +240,12 @@ const render = () => {
         locationInput.value = e.target.getAttribute('data-location');
         let descriptionInput = document.querySelector('#recipientDescription');
         descriptionInput.value = e.target.getAttribute('data-description');
-        // como es mismo modal, y queremos diferente accion, necesitamos 2 botones y ocultar el primero
-
+        // como es mismo modal, y queremos diferente accion, necesitamos 2
+         botones y ocultar el primero
         let id = e.target.id
         let btnSaveEdit = document.querySelector('#savePost')
-        //btn1.removeEventListener('click') // mejor que quitarlo // cuando terminemos lo recolocamos
+        //btn1.removeEventListener('click') // mejor que quitarlo
+        //cuando terminemos lo recolocamos
         btnSaveEdit.onclick = e => {
           let title = document.querySelector('#recipientTitle').value
           let activity = document.querySelector('#recipientActivity').value
@@ -275,7 +285,7 @@ const render = () => {
         }
         closeModal.addEventListener('click', actionClose);
       }
-      btnEdit.forEach(actionUpdate => actionUpdate.addEventListener('click', actionEdit));
+      btnEdit.forEach(actionUpdate => actionUpdate.addEventListener('click', actionEdit)); */
     });
   });
 };
