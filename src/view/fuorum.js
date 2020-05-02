@@ -1,15 +1,15 @@
 function viewForum(user) {
     console.log(user);    
 
-    var EmailCortado = 'No hay email';
+    let EmailCortado = 'No hay email';
 
     if (typeof user != 'undefined') {
-        var email = user.email;
-        var divisiones = email.split("@");
+        let email = user.email;
+        let divisiones = email.split("@");
         EmailCortado = divisiones[0];
     }
 
-    var image = "images/profile-picture-green.jpg";
+    let image = "images/profile-picture-green.jpg";
     if (user.photoURL != null) {
         image = user.photoURL;
     }

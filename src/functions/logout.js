@@ -19,7 +19,7 @@ function out() {
                 })
                 .then(function() {
                     // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
-                    var buttonLogin = document.querySelector('#doLogin');
+                    let buttonLogin = document.querySelector('#doLogin');
                     buttonLogin.addEventListener('click', function(e) {
                         e.preventDefault();
                         loginPageOne();
@@ -28,7 +28,7 @@ function out() {
                     });
                 }).then(function() {
                     // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
-                    var buttonGoogle = document.querySelector('#loginGoogle');
+                    let buttonGoogle = document.querySelector('#loginGoogle');
                     buttonGoogle.addEventListener('click', function(e) {
                         e.preventDefault();
                         googleButton();
@@ -37,7 +37,7 @@ function out() {
                 .then(function() {
                     // En esta parte creo una variable en donde voy a llamar a mi id al
                     // que quiero darle el click en este caso el ingreso con facebook
-                    var buttonFacebook = document.querySelector('#loginFacebook');
+                    let buttonFacebook = document.querySelector('#loginFacebook');
                     buttonFacebook.addEventListener('click', function(e) {
                         e.preventDefault();
                         facebookButton();
@@ -46,17 +46,17 @@ function out() {
                     });
                 })
                 .then(function() {
-                    var ntAccount = document.querySelector('#reg');
+                    let ntAccount = document.querySelector('#reg');
                     ntAccount.addEventListener('click', function(e) {
                         e.preventDefault();
                         viewRegister()
                             .then(function() {
-                                var buttonReg = document.querySelector('#doRegister');
+                                let buttonReg = document.querySelector('#doRegister');
                                 buttonReg.addEventListener('click', function(e) {
                                     e.preventDefault();
                                     register();
                                 });
-                            })
+                            });
                     });
                 })
 
@@ -66,6 +66,6 @@ function out() {
             console.log(error);
 
         });
-}
+};
 
 export { out }

@@ -43,6 +43,6 @@ function buildComent(imageUser, nameUser, img, text, id) {
     </div>
     </div>
 </div>`
-}
+};
 
 export { buildComent }

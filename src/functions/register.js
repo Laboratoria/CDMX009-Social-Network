@@ -4,11 +4,11 @@ import { publicPost } from './publicpoust.js';
 import { readPosts } from './readposts.js';
 
 function register() {
-    var registerNameLogin2 = document.getElementById('registerLoginName2').value;
-    var registerEmailLogin2 = document.getElementById('registerLoginEmail2').value;
-    var registerPassLogin2 = document.getElementById('registerLoginPass2').value;
-    var registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
-    var movilIcon = document.getElementById('movilIcon');  
+    let registerNameLogin2 = document.getElementById('registerLoginName2').value;
+    let registerEmailLogin2 = document.getElementById('registerLoginEmail2').value;
+    let registerPassLogin2 = document.getElementById('registerLoginPass2').value;
+    let registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
+    let movilIcon = document.getElementById('movilIcon');  
 
     console.log(registerNameLogin2);
     
@@ -24,18 +24,17 @@ function register() {
                 document.getElementById('hideAndShow').style.display = 'block';
                 movilIcon.classList.add('shown');
             })
-
             .catch(function(error) {
                 // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                let errorCode = error.code;
+                let errorMessage = error.message;
                 if (errorCode == 'auth/weak-password') {
                     alert('The password is too weak.');
                 } else {
                     alert(errorMessage);
-                }
+                };
             });
-    }
-}
+    };
+};
 
 export { register }

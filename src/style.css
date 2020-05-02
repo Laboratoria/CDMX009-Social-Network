@@ -75,7 +75,7 @@ video {
     outline: 0;
     font-weight: inherit;
     font-style: inherit;
-    font-size: 100%
+    font-size: 100%;
 }
 
 article,
@@ -87,36 +87,36 @@ header,
 hgroup,
 nav,
 section {
-    display: block
+    display: block;
 }
 
 legend {
-    display: none
+    display: none;
 }
 
  :focus {
-    outline: 0
+    outline: 0;
 }
 
 table {
     border-collapse: collapse;
-    border-spacing: 0
+    border-spacing: 0;
 }
 
 caption,
 td,
 th {
     text-align: left;
-    font-weight: 400
+    font-weight: 400;
 }
 
 a img,
 iframe {
-    border: none
+    border: none;
 }
 
 ul {
-    list-style: none
+    list-style: none;
 }
 
 button,
@@ -124,27 +124,27 @@ input,
 select,
 textarea {
     font-size: 100%;
-    font-family: inherit
+    font-family: inherit;
 }
 
 input,
 select {
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 select {
-    margin: inherit
+    margin: inherit;
 }
 
 button {
     border: 0;
     padding: 0;
     background: 0 0;
-    cursor: pointer
+    cursor: pointer;
 }
 
 ol {
-    margin-left: 2em
+    margin-left: 2em;
 }
 
 .clearfix:after {
@@ -152,15 +152,15 @@ ol {
     display: block;
     height: 0;
     clear: both;
-    visibility: hidden
+    visibility: hidden;
 }
 
 * html .clearfix {
-    height: 1%
+    height: 1%;
 }
 
 .clearfix {
-    display: block
+    display: block;
 }
 
 
@@ -303,7 +303,7 @@ img.responsive-img.mySecondImage {
 i.fas.fa-globe-americas {
     text-align: right;
     padding-left: 40px;
-    color: #6a1b9a
+    color: #6a1b9a;
 }
 
 .points {
@@ -393,7 +393,7 @@ ul#mobile-demo {
 
 .editProfileIcon {
     max-width: 10%;
-    height: a;
+    height: auto;
     color: #6a1b9a;
     background-color: #26a69a;
     border: 1px solid #26a69a;
@@ -531,7 +531,8 @@ button.waves-effect.waves-light.btn-small.btn-login {
     font-weight: bold;
 }
 
-.waves-effect.waves-light.btn.center.iconWeb1 {
+.waves-effect.waves-light.btn.center.iconWeb1, 
+.waves-effect.waves-light.btn.center.iconWeb2 {
     margin: 0 auto;
     display: block;
     max-width: 42%;
@@ -544,16 +545,6 @@ button.waves-effect.waves-light.btn-small.btn-login {
 .fab.fa-facebook,
 .fab.fa-google {
     margin-right: 10px;
-}
-
-.waves-effect.waves-light.btn.center.iconWeb2 {
-    margin: 0 auto;
-    display: block;
-    max-width: 42%;
-    margin-bottom: 22px;
-    border-radius: 10px;
-    background-color: #662483;
-    opacity: 0.9;
 }
 
 .pag2Header {
@@ -593,9 +584,6 @@ input.validatePassword.boxFields {
     line-height: 2.5em;
 }
 
-
-/* revisar y comparar cambios AGREGUE NUEVOS */
-
 #myNewFile,
 #newEditPost,
 .hideFile {
@@ -621,7 +609,7 @@ input.validatePassword.boxFields {
     background-color: #662483;
 }
 
-.hideFile :focus+label,
+.hideFile:focus+label,
 .hideFile+label:hover {
     background-color: #662483;
 }
@@ -629,7 +617,6 @@ input.validatePassword.boxFields {
 .hideFile+label,
 .hideFile {
     cursor: pointer;
-    /* "hand" cursor */
 }
 
 #myNewFile:focus+label,
@@ -647,7 +634,6 @@ div#showComment {
     padding-top: 0;
     /* display: contents; */
 }
-
 
 /* .fixed-action-btn.direction-right ul,
 .publicationedit {

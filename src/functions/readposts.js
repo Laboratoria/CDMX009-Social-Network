@@ -5,19 +5,19 @@ import { buildComent } from '../view/coment.js';
 //leer coleccion de post
 //AQUIII ESTAN LAS FUNCIONES DE EDITAR Y BORRAR POST EN COMENT.JS HICIMOS LOS CAMBIOS QUE TIENEN QUE VER CON ESTO
 function readPosts() {
-    var EmailCortado = 'No hay email';
+    let EmailCortado = 'No hay email';
     let postsRef = db.collection('pruebas_300420_Esther') //se llama post porque asi se llama nuestra coleccion en Database , le podemos llamar como queramos     
     postsRef.orderBy('date', 'desc').onSnapshot(snap => {
         let publishPust = document.querySelector('#showComment')
         publishPust.innerHTML = ''
         snap.forEach(doc => {
             if (typeof doc.data().mail != 'undefined') {
-                var email = doc.data().mail;
-                var divisiones = email.split("@");
+                let email = doc.data().mail;
+                let divisiones = email.split("@");
                 EmailCortado = divisiones[0];
             } //mi condicion    si, si está ponlo  si no está pon el mail
-            var nombre = doc.data().user ? doc.data().user : EmailCortado;
-            var image = doc.data().photo ? doc.data().photo : "images/profile-picture-green.jpg";
+            let nombre = doc.data().user ? doc.data().user : EmailCortado;
+            let image = doc.data().photo ? doc.data().photo : "images/profile-picture-green.jpg";
             let div = buildComent(image, nombre, doc.data().img, doc.data().texto, doc.id);
             let nodo = document.createElement('div')
             nodo.innerHTML = div;
@@ -30,8 +30,8 @@ function readPosts() {
 
 /******  MODULO DE EDITAR Y BORRAR COMENTARIOS *********/
         
-        var elems = document.querySelectorAll('.fixed-action-btn');
-        var instances = M.FloatingActionButton.init(elems, {
+        let elems = document.querySelectorAll('.fixed-action-btn');
+        let instances = M.FloatingActionButton.init(elems, {
             direction: 'right',
             hoverEnabled: false
         });
@@ -50,17 +50,17 @@ function readPosts() {
             });
         });
 
-        var editComments = document.querySelectorAll('.editPostUser'); //vendría siendo editPostUser= a la clase del boton del icono editar
+        let editComments = document.querySelectorAll('.editPostUser'); //vendría siendo editPostUser= a la clase del boton del icono editar
         editComments.forEach(function(editComment) {
             editComment.addEventListener('click', function(clickedPencil) {
                 // console.log(clickedPoints.target.dataset.id);
-                var postForEdition = db.collection("pruebas_300420_Esther").doc(clickedPencil.target.dataset.id); //AQUI VA LA COLECCION QUE TENGAS TU
+                let postForEdition = db.collection("pruebas_300420_Esther").doc(clickedPencil.target.dataset.id); //AQUI VA LA COLECCION QUE TENGAS TU
                 // console.log(clickedPoints.target.dataset.id)
 
                 let publicEditPost = document.querySelector('#newPostPublish-' + clickedPencil.target.dataset.id); //este es el id del boton de checkado 
-                var box = document.querySelector('.editTextPostUser-' + clickedPencil.target.dataset.id); //mi textarea
+                let box = document.querySelector('.editTextPostUser-' + clickedPencil.target.dataset.id); //mi textarea
                 box.style.display = 'block'; //estoy incando que cuando el usuario le de click al boton de editar se muestre la texarea
-                var buttonCheck = document.querySelector('.publicationedit-' + clickedPencil.target.dataset.id); //es donde tengo los botones de la nueva foto y del check
+                let buttonCheck = document.querySelector('.publicationedit-' + clickedPencil.target.dataset.id); //es donde tengo los botones de la nueva foto y del check
                 buttonCheck.style.display = 'block';
 
                 let fileEdit = document.querySelector('#newEditPost-' + clickedPencil.target.dataset.id); //variable para la prueba de subir imagen
@@ -77,7 +77,7 @@ function readPosts() {
                             imageUrl = link
                             let img = document.createElement('img');
                             img.src = imageUrl;
-                            document.body.appendChild(img)
+                            document.body.appendChild(img);
                             document.getElementById("showComment").appendChild(img); //aquí va  el preview de mi imagen antes de dar click en publicar
                         })
                 }
@@ -90,19 +90,18 @@ function readPosts() {
 
                         })
                         .then(function() {
-                            console.log("Document successfully updated!");
+                            alert("Post editado exitosamente!!");
                         })
                         .catch(function(error) {
                             // The document probably doesn't exist.
                             console.error("Error updating document: ", error);
                         });
-                }
+                };
             });
         });
         
     }); //POSTREF
 
-}//READPOST
-
+}; //READPOST
 
 export { readPosts }

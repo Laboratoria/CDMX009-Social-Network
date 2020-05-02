@@ -16,18 +16,16 @@ function viewRegister() {
 
             <form action="" class="form">
                 <label for="" class="fieldUser">
-                <input id="registerLoginName2" type="text" class="validate user boxFields" required="" aria-required="true" placeholder="Nombre Completo">
+                    <input id="registerLoginName2" type="text" class="validate user boxFields" required="" aria-required="true" placeholder="Nombre Completo">
                 </label>
                 <label for="">
                     <input id="registerLoginEmail2" type="email" class="validate user boxFields" required="" aria-required="true" placeholder="Email">
                 </label>
                 <label for="" class="fieldPassword">
-                    <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password boxFields" required=""
-                        aria-required="true">
+                    <input id="registerLoginPass2" type="password" placeholder="Contraseña" class="validate user password boxFields" required="" aria-required="true">
                 </label>
                 <label for="" class="fieldPassword ">
-                    <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields"
-                        required="" aria-required="true">
+                    <input id="registerLoginConfirmPass2" type="password" placeholder="Confirma Contraseña" class="validate user password confP2 boxFields" required="" aria-required="true">
                 </label>
                 <button type="submit" class="waves-effect waves-light btn-small btn-enter" id="doRegister">Registrar</button>
             </form>

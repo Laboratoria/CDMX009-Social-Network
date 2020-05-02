@@ -1,14 +1,14 @@
 function viewProfile(user) {
     console.log(user);
-    var EmailCortado = 'No hay email';
+    let EmailCortado = 'No hay email';
 
     if (typeof user != 'undefined') {
-        var email = user.email;
-        var divisiones = email.split("@");
+        let email = user.email;
+        let divisiones = email.split("@");
         EmailCortado = divisiones[0];
     }
 
-    var image = "images/profile-picture-green.jpg";
+    let image = "images/profile-picture-green.jpg";
     if (user.photoURL != null) {
         image = user.photoURL;
     }
@@ -33,14 +33,13 @@ function viewProfile(user) {
             <textarea class="comentUser" name="description" placeholder="Escribe un commit..."></textarea>
         </p>
         <div class="right-align">
-                     <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
-                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
+            <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
+            <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
             <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Publicar</button>
         </div>
     </form>
     <div>
         <div class="informationBox">
-
             <div class="chip boxStyle">
                 <img src="${image}" alt="Contact Person">
                 <p>${EmailCortado}</p>
@@ -68,7 +67,7 @@ function viewProfile(user) {
             <textarea class="comentUser" name="description" rows="5" cols="10" placeholder="Comentar..."></textarea>
         </p>
         <div class="right-align">
-                      <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
+                <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
                 <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
             <button class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2"><i class="material-icons right">computer</i>Comentar</button>
         </div>

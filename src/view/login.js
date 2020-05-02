@@ -24,11 +24,10 @@ function viewLogin() {
                         aria-required="true" id="pass">
                 </label>
                     <button id="doLogin" type="submit" class="waves-effect waves-light btn-small btn-login">Login</button>
-                    <!-- <button id="doLogin">Enviar</button> -->
                 </form>
 
                 <div class="register">
-                    <p class="account">No tienes cuenta? <a href="#register2" class="register2" id="reg">Registrate</a> </p>
+                    <p class="account">No tienes cuenta? <a href="#register2" class="register2" id="reg">Registrate</a></p>
                 </div>
 
                 <div>
@@ -38,9 +37,7 @@ function viewLogin() {
                 <div class="loginSocialNetwork">
                     <p class="choose">¿Si no tienes una cuenta? <br>Ingresa con:</p>
                     <a class="waves-effect waves-light btn center iconWeb1" id="loginFacebook"><i class="fab fa-facebook"></i>Facebook</a>
-                    <!-- <button id="LoginFacebook">Ingresa con Facebook</button> -->
                     <a class="waves-effect waves-light btn center iconWeb2" id="loginGoogle"><i class="fab fa-google"></i>Google</a>
-                    <!-- <button id="LoginGoogle">Ingresa con Google</button> -->
                 </div>
             </main>
         </section>
