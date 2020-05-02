@@ -13,6 +13,7 @@ function logFb() {
             h2.innerText = data.user.displayName
             document.body.appendChild(img)
             document.body.appendChild(h2)
+            logInFb.remove()
 
         })
 }

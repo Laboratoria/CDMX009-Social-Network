@@ -1,7 +1,8 @@
 import renderLogin from './screens/login.js';
-import renderPost from './screens/profile.js';
-import renderHome from './screens/posts.js';
+import renderPost from './screens/posts.js';
+import renderHome from './screens/home.js';
 import logFb from './screens/logFacebook.js';
+import logGoogle from './screens/google.js';
 
 let currentRoute = "/"
     // main nodes
@@ -18,6 +19,9 @@ function router(route) {
             break;
         case '/login':
             renderLogin();
+            break;
+        case '/goo':
+            logGoogle();
             break;
         case '/logInFb':
             logFb();
