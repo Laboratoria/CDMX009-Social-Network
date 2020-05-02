@@ -16,20 +16,19 @@
     <p><img class="imgIPN" src="img/logo-ipn-blanco.png" style="width:200px; height:auto;"></p>
     <h1>e s t u D Í A</h1><br>
     <p>¡Bienvenido/a!</p><br>
-    <div id="createUser">
-      <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> <br>
-      <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p><br>
-      <p><button class="logIn" id="createUserNw"> Registrar </button></p>
+    <div id="actionUser">
+      <div id='logingUsers'>
+        <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> <br>
+        <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p> <br>
+        <p><button class="logIn" id="logInUser"> Ingresar </button></p> <br>
+        <p>Ingresa con </p> <br>
+        <p><img id="loginFacebook" class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img
+            id="loginGoogle" class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p><br>
+        <p id="newUser">¿Ya tienes cuenta? <strong>Regístrate</strong></p>
+      </div>
+
     </div>
-    <div id='logingUsers'>
-      <p><input class="boxInput" id="email" type="email" placeholder="Correo electrónico"> </p> <br>
-      <p><input class="boxInput" id="password" type="password" placeholder="Contraseña"></p> <br>
-      <p><button class="logIn" id="logInUser"> Ingresar </button></p> <br>
-      <p>Ingresa con </p> <br>
-      <p><img id="loginFacebook" class="imgFace" src="img/facebook.svg" style="width:40px; height:auto;"> <img
-          id="loginGoogle" class="imgGmail" src="img/gmail.svg" style="width:40px; height:auto;"></p><br>
-      <p id="newUser">¿Ya tienes cuenta? <strong>Regístrate</strong></p>
-    </div>
+   
   </div>
 </div>
 <div id="allTheSite">
@@ -41,11 +40,12 @@
         </a>
       </div>
       <div class="user">
-        <img src="img/info.svg" id="info" style="width:40px; height:auto;"> <br>
-        <img src="img/Group.svg" id="logOut" style="width:40px; height:auto;">
+        <img  src="img/info.svg" id="btnInfo" style="width:40px; height:auto;"> <br>
+        <img src="img/Group.svg" id="logOut"  style="width:40px; height:auto;">
       </div>
     </div>
   </div>
+  
   <main>
     <!-- Text Box-->
     <section>
@@ -58,7 +58,7 @@
             <div class="text-box">
               <div id="imgProfile" class="photoProfile">
               </div>
-              <textarea id="text-box" cols="40" rows="5" placeholder="Comparte tus tips"></textarea>
+              <textarea id="text-box" cols="40" rows="5" placeholder="Comparte tus tips" class="textPost"></textarea>
             </div>
             <div id="btnsPost" class="divBtnsPost">
               <input class="btnShare" id="file" type="file" accept="image/*" multiple></input>

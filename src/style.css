@@ -51,9 +51,9 @@ body {
   width: 100%;
 }
 
-#createUser {
+/*#createUser {
   display: none;
-}
+}*/
 
 #logingUsers {
   display: block;
@@ -82,6 +82,7 @@ body {
   justify-content: space-around;
   color: #5e6973;
   letter-spacing: 0.2rem;
+  
 }
 
 
@@ -91,6 +92,9 @@ body {
   letter-spacing: 2px;
   font-weight: 300;
   margin: 10px 0px 10px 5px;
+}
+.subtitle{
+  width: 100%;
 }
 
 .hide {
@@ -144,6 +148,16 @@ body {
 #sayHi {
   flex-direction: row;
 }
+.textPost{
+  display: flex;
+  justify-content: flex-start;
+border-radius: 0px 35px 0px 35px;
+border: 1px solid #5e6973;
+width: 200%;
+height: auto;
+resize: none;
+
+}
 
 /* Buttons */
 .btnLike {
@@ -191,11 +205,17 @@ body {
 }
 
 /* Publications */
+figure{
+  display: flex;
+  justify-content: space-around;
+  
+}
 .imageBox {
   height: auto;
   border-radius: 100px;
   width: 90px;
 }
+
 
 .imgProfilePost {
   width: 50px;
@@ -326,12 +346,12 @@ body {
   display: block;
 }
 
-#text-box {
+/*#text-box {
   border-radius: 8px 8px 8px 8px;
   width: 100%;
   height: 95%;
   resize: none;
-}
+}*/
 
 /*Card modal*/
 .card-modal {
@@ -347,17 +367,23 @@ body {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.modal {
+.modal{
   font-family: "Roboto",sans-serif;
-  color: #5e6973;
-  letter-spacing: 1px;
+  color: #040404;
+  font-size: 18px;
+  text-align: center;
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  padding: 35px;
-  width: 90%; /* Could be more or less, depending on screen size */
-  margin: 50% auto; /* 15% from the top and centered */
+  padding: 30px;
+  position: fixed;
+  z-index: 3000;
+  overflow: auto;
+  min-height: 250px;
+  border-radius: 0px 35px 0px 35px;
+  border: 2px solid #8a0829;
+
 }
+
 
 /*Media querys*/
 @media screen and (min-width: 450px) {

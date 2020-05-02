@@ -1,10 +1,5 @@
-//* ***************create new user start*************************
-export function goToCreate() {
-  document.getElementById('createUser').style.display = 'block';
-  document.getElementById('logingUsers').style.display = 'none';
-}
-
-export function createUser(emailNew, password) {
+import {printCreateUser, userAction} from '../index.js';
+ function createUser(emailNew, password) {
   firebase
     .auth()
     .createUserWithEmailAndPassword(emailNew, password)
@@ -23,3 +18,18 @@ export function createUser(emailNew, password) {
       }
     });
 }
+export function printCreate(){
+  printCreateUser.style.display = 'none';
+   let register = `<div id="createUser">
+       <p><input class="boxInput" id="emailNw" type="email" placeholder="Ingrese correo electrónico"> </p> <br>
+       <p><input class="boxInput" id="passwordNw" type="password" placeholder="Nueva contraseña"></p><br>
+       <p><button class="logIn" id="createUserNw"> Registrar </button></p>
+     </div>`;
+          userAction.innerHTML = register;
+ const emailNew = document.getElementById('emailNw');
+ const password = document.getElementById('passwordNw');
+ const createNewUser = document.getElementById('createUserNw');
+ createNewUser.addEventListener('click', () => {
+   createUser(emailNew.value, password.value);
+ });
+ }

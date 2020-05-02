@@ -1,11 +1,12 @@
 import { actionGoogle, actionFacebook } from './utils/providers.js';
-import { createUser, goToCreate } from './utils/createUsers.js';
+import { printCreate } from './utils/createUsers.js';
 import { login } from './utils/loginEmail.js';
 import { actionDelete } from './utils/deletePost.js';
 import { saveFirestore } from './utils/saveInFirestore.js';
 import { openModalEdit } from './utils/modalEdit.js';
 import { signOut } from './utils/exit.js';
 import { addLikes } from './utils/countLikes.js';
+import { openModal } from './utils/info.js';
 
 let getEmail;
 let getName;
@@ -21,17 +22,17 @@ const btnFilter = document.querySelector('#searchButtom1');
 const btnMySite = document.querySelector('#myWall');
 const goToPrincipal = document.querySelector('#allComents');
 const printing = document.querySelector('#addComents');
+const btnMod = document.getElementById('btnInfo');
+export const printCreateUser = document.getElementById('logingUsers');
+export const userAction = document.getElementById('actionUser')
+btnMod.addEventListener('click', () => {
+  openModal();
+});
 
 //* ****************************register users */
-export const userNew = document.getElementById('newUser');
-userNew.addEventListener('click', goToCreate);
 
-const emailNew = document.getElementById('emailNw');
-const password = document.getElementById('passwordNw');
-const createNewUser = document.getElementById('createUserNw');
-createNewUser.addEventListener('click', () => {
-  createUser(emailNew.value, password.value);
-});
+export const userNew = document.getElementById('newUser');
+userNew.addEventListener('click', printCreate);
 
 //* *****************Login with providers ****************************
 const btnGoogle = document.getElementById('loginGoogle');
@@ -91,8 +92,8 @@ theWatcher();
 //* ***********************Button for actionSingout************************
 const buttonClose = document.getElementById('logOut');
 buttonClose.addEventListener('click', () => {
-  document.getElementById('firstPage').style.display = 'block';
-  document.getElementById('allTheSite').style.display = 'none';
+  document.querySelector('#firstPage').style.display = 'block';
+  document.querySelector('#allTheSite').style.display = 'none';
   signOut();
 });
 //* ***********************Get info profile********************************
@@ -178,7 +179,8 @@ function addNewCardNoComents(printing2, doc) {
   const btnlike = document.querySelectorAll('.btnLike');
   btnlike.forEach(actionBtnLikes => actionBtnLikes.addEventListener('click', addLikes));
 }
-//* ***********************Print coments in real time***************************
+
+////* **Print coments in real time**
 db.collection('publications')
   .orderBy('date', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -189,43 +191,44 @@ db.collection('publications')
     });
   });
 
-//* ***********************Filter wall all users********************************
-goToPrincipal.addEventListener('click', () => {
-  printing.style.display = 'block';
-  filterMyComents.style.display = 'none';
-  filterComents.style.display = 'none';
-});
+//* **Filter wall all users**
+goToPrincipal.addEventListener('click', backToPrincipal)
+function backToPrincipal(){
+  db.collection('publications')
+  .orderBy('date', 'desc')
+  .onSnapshot((querySnapshot) => {
+    printing.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      addNewCardNoComents(printing, doc);
+    });
+  });
+};
 
-//* ***********************Filter post of me************************************
-btnMySite.addEventListener('click', () => {
+// ***Filter post of me**
+btnMySite.addEventListener('click', filterMyComments)
+ function filterMyComments (){
   console.log(filterName.value);
-  filterMyComents.style.display = 'block';
-  printing.style.display = 'none';
-  filterComents.style.display = 'none';
   db.collection('publications')
     .where('name', '==', getName || getEmail)
     .onSnapshot((filters) => {
-      filterMyComents.innerHTML = '';
+      printing.innerHTML = '';
       filters.forEach((doc) => {
-        addNewCard(filterMyComents, doc);
-      });
-    });
-});
+        addNewCard(printing, doc);
+      });  });
+};
 
-//* ***********************Search user by name ***********************************
-btnFilter.addEventListener('click', () => {
-  console.log(filterName.value);
-  filterMyComents.style.display = 'none';
-  printing.style.display = 'none';
-  filterComents.style.display = 'block';
+//******************Search By Name **********/
+btnFilter.addEventListener('click', filterBySearch)
+function filterBySearch() {
   db.collection('publications')
     .where('name', '==', filterName.value)
     .onSnapshot((filters) => {
-      filterComents.innerHTML = '';
+      printing.innerHTML = '';
       filters.forEach((doc) => {
-        addNewCardNoComents(filterComents, doc);
+        addNewCardNoComents(printing, doc);
       });
     });
-});
+};
+
 // if we also use ".orderBy("Date", "desc")" the real time doesn't work anymore,
 // because it needs an index, we did it but it doesn't detect it
