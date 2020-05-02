@@ -238,7 +238,7 @@ export const renderPost = (userName, uid) =>{
           <div id="imagesContainer"></div>
           <div class="icons">
             <label for="imagePost"><i class="far fa-image" title="Subir una imagen"></i></label>
-            <input type="file" id="imagePost" name="img" accept="image/*" >
+            <input type="file" class="load-img" id="imagePost" name="img" accept="image/*" >
             <label for="statusPost"><i class="fas fa-unlock" title="Público"></i></label>
             <input type="checkbox" id="statusPost" value="public">
             <label for=""><i class="fas fa-map-marked-alt" title="Comparte tu ubicación"></i></label>

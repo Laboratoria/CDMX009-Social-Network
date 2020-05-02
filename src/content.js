@@ -23,61 +23,54 @@ export const renderContent = () => {
       }
       snapshot.forEach(doc => {
         let imguser = doc.data().photo;
-        /*if(imguser == ''){
-          let photouser = '<img src="iconos/corazon.png"/>'; 
+        let photouser;
+        if(imguser == ''){
+          photouser = 'images/defaultUser.png'; 
         }else{
-          let photouser = imguser; 
-        }*/
+          photouser = imguser; 
+        }
         let profilView = `
         
         <header>
-            <div class="divisor">  
-              <div class="positiononeheader">
+            <div class="positiononeheader">
                 <img class="logo" src="images/logo.png" alt="TripLife">
-              </div>
-              <div class="positiontwoheader">
+            </div>
+            <div class="positiontwoheader">
                 <div class="menu-togle" id="menu">  
-                <div class="hamburger"></div>
+                    <div class="hamburger"></div>
                 </div>
+                
                 <nav class="site-nav" id="site-nav">
-                  <ul>
+                <ul>
                     <li> <a href="#" id="index"> Inicio </a></li>
                     <li> <a href="#" id="editProfile"> Perfil </a></li>
                     <li> <a href="#" id="logout"> Cerrar Sesión </a></li>
-                  </ul>
+                </ul>
                 </nav>
-              </div>
             </div>
-          </header>
-          <div id="editP">
-          <div class="divisor">
-            <div class="position-photo">
-              
-              <img class="photo" src="${doc.data().photo}" /> 
+        </header>
+        <section class="content-section">
+            <div id="editP" class="info-user">
+                <div class="position-photo">
+                    <img class="photo" src="${photouser}" /> 
+                </div>
+                <div class="position-profeli">
+                    <p class="name">${doc.data().name}  ${doc.data().lastName}</p>
+                    <p class="description">${doc.data().description}</p>
+                </div>
             </div>
-            <div class="position-profeli">
-              <p class="name">${doc.data().name}  ${doc.data().lastName} </p>
-              <p class="description">${doc.data().description}</p>
+            <div class="board-btns">
+                <input type="button" id="MyTrips" class="buttonL" value="My Trips">
+                <input type="button" id="TripBoad" class="buttonR" value="Trip Board"> 
             </div>
-          </div>
-          <div class="divisor">
-            <div class="mitad">
-              <input type="button" id="MyTrips" class="button" value="My Trips">
-            </div>
-            <div  class="mitad">
-              <input type="button" id="TripBoad" class="button" value="Trip Board">
-            </div>
-          </div>
-          <div class="divisor">
-            <div class="position-one-thought">
-              <img class="thought-photo" src="${doc.data().photo}" />
-            </div class="">
-            <div class="position-two-thought">
-              <input type="button" id="thought" class='thought-input' value="¿Dónde te encuentras hoy?"/>
-            </div>
-          </div>
-          <div id="list-post"></div>
-          </div>`;
+            <div class="board-container">  
+                <div class="post-generator">
+                    <img class="thought-photo" src="${photouser}" />
+                    <input type="button" id="thought" class='thought-input' value="¿Dónde te encuentras hoy?"/>
+                </div>
+                <div id="list-post"></div>
+            </div>        
+        </section>`;
           main.innerHTML = profilView;
           postGeneral();
           let logout = document.querySelector("#logout");

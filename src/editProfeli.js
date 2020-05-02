@@ -28,7 +28,7 @@ export const renderEditProfeli = () => {
                   </br>
                   <input type="text" id="nameUser" disabled  class="nameUser" placeholder="" value="${doc.data().name}">
                   </br>
-                  <input type="text" id="description" disabled class="descriptionUser" placeholder="Add description" value="${doc.data().description}">
+                  <textarea id="description" disabled class="descriptionUser" placeholder="Add description">${doc.data().description}</textarea>
                   </br></br>
                   <input type="button" id="btnEditar" class="btnProfile" value="Editar">
                   <br/>
@@ -36,7 +36,7 @@ export const renderEditProfeli = () => {
                   </div>
             </section></br></br>`
            let nodo = document.createElement('div')
-           nodo.setAttribute("clas", "nodo");
+           nodo.setAttribute("class", "nodo");
                nodo.innerHTML = div
                mypost.appendChild(nodo)
                let btnEdit = document.querySelector("#btnEditar");
