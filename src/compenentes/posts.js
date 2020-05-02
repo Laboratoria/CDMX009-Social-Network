@@ -47,31 +47,38 @@ function enviar(){
     db.collection("posts").add({
         name : user.displayName,
         texto : text.value,
-        likes: []
+        likes: [],
+        image: url
     })
-    .then(function(docRef) {
+    .then(url => function(docRef) {
         console.log(docRef.id)
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
+        
     });
     document.querySelector('#txt').value = '';
+    document.querySelector('#conteintpost').style.display = 'none';
 }
 
 
 db.collection("posts").onSnapshot((querySnapshot)=> {
     root2.innerHTML ='';
     querySnapshot.forEach((doc) => {
+       let imgurl = doc.data().image;
+       let imageTemplete = `<img src=${doc.data().image}>`;
+       let div = `<div></div>`;
         let post = `
         <p>${doc.data().name}</p>
         <p>${doc.data().texto}</p>
+        ${imgurl ? imageTemplete : div}
         <button id="delete" value="${doc.id}" class="delete">Eliminar</button>
         <button  id="edit" name="${doc.data().texto}" data-id="${doc.id}" class="edit">Editar</button>
-        <button class="like" name="${doc.data().likes}" data-id="${doc.id}"> Me gusta </button> <p class="like" >${doc.data().likes}</p>
+        <button class="like" name="${doc.data().likes}" data-id="${doc.id}"> <p class="like" >${doc.data().likes}</p> Me gusta</button> 
         `
     let nodo = document.createElement('div');
     nodo.classList.add('card')
-    nodo.innerHTML = post;
+    nodo.innerHTML = post
     root2.appendChild(nodo);
 });
 //Boton para Eliminar
@@ -152,6 +159,9 @@ function pos(){
 
 //Carga de Fotos
      //Creando modal para cargar fotos
+     let url
+
+     //function upLoadPhoto(){
      let modal = document.querySelector('#myModal');
      let btn = document.querySelector('.inputImg');
      let span = document.querySelector('.close');
@@ -172,8 +182,11 @@ function pos(){
         //Creando funcion para cargar imagenes a storage
         let fileInput = document.querySelector('#myfile');
         let insertimg = document.querySelector('#conteintpost')
-        let url
+        
         //Listeners
+        if(!file){
+
+        }else{
         fileInput.onchange = e => {
           let file = e.target.files[0]
           firebase.storage().ref("images").child(file.name).put(file)
@@ -189,9 +202,12 @@ function pos(){
               insertimg.appendChild(img)
               document.querySelector('#conteintpost').style.display = 'block';
           })
+          
+         }
         }
-      
-      
+
+     //}
+     //upLoadPhoto();
 }
 
 

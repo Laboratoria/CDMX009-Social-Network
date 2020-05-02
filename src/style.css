@@ -430,9 +430,11 @@ body{
         font-size: 20px;
      }
      p.like{
-         font-size: 15px;
+         font-size: 10px;
+         font-weight: bold;
          width: 10px;
          height: 10px;
+         display: inline-block
      }
      .guardar{
         display: none;
