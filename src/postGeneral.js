@@ -27,9 +27,14 @@ export const postGeneral = () => {
         let actionLike = (e) => {
         let  likeRef = db.collection("posts").doc(e.target.id);
               likeRef.update({
-                    likes: firebase.firestore.FieldValue.increment(1)
+                  likes: firebase.firestore.FieldValue.increment(1)
+              })
+              .then(() => {
+                postGeneral();
+              })
+              .catch((error)=> {
+                console.log('No se genero el like');
               });
-              postGeneral(); 
         };
         like.forEach((actionBtnLike) =>
           actionBtnLike.addEventListener("click", actionLike)

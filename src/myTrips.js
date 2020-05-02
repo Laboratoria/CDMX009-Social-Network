@@ -47,8 +47,13 @@ export const readerMyTrips = () => {
               let  likeRef = db.collection("posts").doc(e.target.id);
                     likeRef.update({
                           likes: firebase.firestore.FieldValue.increment(1)
+                    })
+                    .then(() => {
+                      readerMyTrips();
+                    })
+                    .catch((error)=> {
+                      console.log('No se genero el like');
                     });
-                    readerMyTrips(); 
               };
               like.forEach((actionBtnLike) =>
                 actionBtnLike.addEventListener("click", actionLike)

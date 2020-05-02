@@ -30,12 +30,12 @@ let dataBase= firebase.firestore();
   }else if(savePassword2 == null || savePassword2 == '' || savePassword2 == undefined ||savePassword != savePassword2 ){
     msgError ="Password no coicide";
     showError(document.querySelector('#password2'));
-  }else if(savePhoto == null || savePhoto == '' || savePhoto == undefined){
+  }/*else if(savePhoto == null || savePhoto == '' || savePhoto == undefined){
     let myImage = new Image(200, 200);
     myImage.src = 'https://firebasestorage.googleapis.com/v0/b/triplife-c3b62.appspot.com/o/images%2FprofileUser.svg?alt=media&token=2c3ab67d-1403-45e3-bb11-381c2b248e69';
     console.log(myImage);
     savePhoto = myImage.src;
-  }
+  }*/
 
 
   if(msgError == null) {
