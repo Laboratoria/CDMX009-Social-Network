@@ -1,3 +1,4 @@
+import loginFunctions from '../firebase/login.js';
 import { userAccess, createNewPost } from '../firebase/showData.js';
 
 export default () => {
@@ -23,6 +24,7 @@ export default () => {
         <button type="submit" id="submitNewPost">Compartir</button>
     </form>
     </section>`;
+  const logOutBtn = createPostView.querySelector('#logOutBtn');
   const newPostContent = createPostView.querySelector('#newTextPost');
   const userPhoto = createPostView.querySelector('#userPhoto');
   const userName = createPostView.querySelector('#username');
@@ -32,5 +34,6 @@ export default () => {
     e.preventDefault();
     createNewPost(newPostContent.value);
   });
+  logOutBtn.addEventListener('click', loginFunctions.sesionLogOut);
   return createPostView;
 };

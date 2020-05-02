@@ -87,6 +87,7 @@ export default {
     firebase.auth().signOut()
       .then(() => {
         alert('Sesión cerrada');
+        document.querySelector('header').style.display = '';
         window.location.hash = '#/login';
       }).catch(() => {
         alert('Algo salió mal. Intente de nuevo');

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-param-reassign */
 import { database } from './login.js';
 
@@ -11,10 +12,8 @@ export const userAccess = (username, photo) => {
           querySnapshot.forEach((doc) => {
             username.textContent = doc.data().name;
             photo.src = doc.data().photo;
-            // console.log(`${doc.id} => ${doc.data().email}`);
           });
         });
-      // console.log(user);
     } else {
       console.log('No user is signed in');
     }
@@ -31,17 +30,65 @@ const dateConverter = (timeStampFormat) => {
   return (`${day}-${month}-${year} / ${hour}:${minute}`);
 };
 
+const deleteOption = (event) => {
+  database.collection('posts').doc(event.target.id).delete()
+    .then(() => {
+      alert('Document successfully deleted!');
+    })
+    .catch((error) => {
+      alert('Error removing document: ', error);
+    });
+};
+
+export const createNewPost = (content) => {
+  const currentUserData = firebase.auth().currentUser;
+  database.collection('posts').add({
+    postOwner: currentUserData.uid,
+    postNameOwner: currentUserData.displayName,
+    postPhotoOwner: currentUserData.photoURL,
+    postContent: content,
+    date: new Date(),
+    likes: {},
+  })
+    .then(() => {
+      alert('Tu post se ha guardado');
+    });
+};
+
+// const modifyOption = (content) => {
+//   const container = document.querySelector('.modify');
+//   const newTextarea = document.createElement('textarea');
+//   container.appendChild(newTextarea);
+//   newTextarea.innerHTML = content;
+//   const btn = document.querySelector('.btnsM');
+//   btn.innerHTML = 'Editar';
+//   btn.onclick = (event) => {
+//     const postsRef = database.collection('posts').doc(event.target.id);
+//     const newContent = document.querySelector('#newTextPost').value;
+//     return postsRef.update({
+//       postContent: newContent,
+//     })
+//       .then(() => {
+//         console.log('Document successfully updated!');
+//         btn.innerHTML = 'Guardar';
+//         document.querySelector('#newTextPost').value = '';
+//       })
+//       .catch((error) => {
+//         // The document probably doesn't exist.
+//         console.error('Error updating document: ', error);
+//       });
+//   };
+// };
+
 export const postTemplate = (templateContainer) => {
-  database.collection('posts').get().then((querySnapshot) => {
+  database.collection('posts').onSnapshot((querySnapshot) => {
+    templateContainer.innerHTML = '';
     const docRef = database.collection('posts');
     docRef.orderBy('date', 'desc');
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, ' => ', doc.data());
       const timestampFormat = doc.data().date.seconds;
       const newDateFormat = dateConverter(timestampFormat);
       const userTemplate = `
-        <hr>
         <div class="postContainer">
           <div class="post">
               <img src="${doc.data().postPhotoOwner}" alt="Profile" class="postAuthor">
@@ -54,38 +101,19 @@ export const postTemplate = (templateContainer) => {
           <div class="postOptions">
               <div class="likes">00</div>
               <img src="images/corazon (1).svg" class="likes" alt="like">
-              <input type="button" class="delete" value="Modificar">
-              <input type="button" class="delete" value="Eliminar">
+              <img src="images/rectification.svg" class="modify likes" id="" alt="Editar">
+              <img src="images/borrar.svg" class="delete likes" id="${doc.id}" alt="Eliminar">
           </div>
         </div>`;
       templateContainer.innerHTML += userTemplate;
+      const DeleteBtns = templateContainer.querySelectorAll('.delete');
+      DeleteBtns.forEach(btn => btn.addEventListener('click', deleteOption));
+
+      // const modifyBtns = templateContainer.querySelectorAll('.btnsM');
+      // modifyBtns.forEach(btn => btn.addEventListener('click', (e) => {
+      //   e.preventDefault();
+      //   modifyOption(doc.data().postContent);
+      // }));
     });
   });
 };
-
-export const createNewPost = (content) => {
-  const currentUserData = firebase.auth().currentUser;
-  database.collection('posts').add({
-    postOwner: currentUserData.uid,
-    postNameOwner: currentUserData.displayName,
-    postPhotoOwner: currentUserData.photoURL,
-    postContent: content,
-    date: firebase.firestore.FieldValue.serverTimestamp(),
-    likes: {},
-  })
-    .then(() => {
-      alert('Tu post se ha guardado');
-    });
-};
-
-// const deletePost = (deletebtn) => {
-//   database.collection('posts').where('postOwner', '==', currentUserData.uid).delete()
-//     .then(() => {
-//       const deletebtn = document.querySelector('.delete');
-//       deletebtn.appendChild
-//       console.log('Document successfully deleted!');
-//     })
-//     .catch((error) => {
-//       console.error('Error removing document: ', error);
-//     });
-// };
