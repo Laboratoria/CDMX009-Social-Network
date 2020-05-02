@@ -14,7 +14,7 @@ export default () => {
         </div>
         <div class= 'prof3'> 
           <nav>
-            <ul>
+            <ul>   
                 <li class="home">
                     <a  href="#/home"><img src='/imgBichigram/btnHome.png'></a>
                 </li>
@@ -35,46 +35,64 @@ export default () => {
   divElement.innerHTML = viewProfile;
   const db = firebase.firestore();
   const postsRef = db.collection('posts');
-  const auth = firebase.auth();
 
   // elementos del DOM
   const showInfo = divElement.querySelector('.profilePost');
   const userPosts = divElement.querySelector('.userPosts');
 
-  // get the info
+  // get the Profile info
   const user = firebase.auth().currentUser;
   if (user != null) {
     const profileInfo = `
-   <div>
-   <p> ${user.displayName} </p>
+   <div> 
    <img src="${user.photoURL}"> 
+   <p> ${user.displayName} </p>
    </div>
    `;
     showInfo.innerHTML = profileInfo;
   }
 
-  // logout
-  const logout = divElement.querySelector('#logoutBtn3');
-  logout.addEventListener('click', (e) => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-      window.location.hash = '#/login';
-    });
-  });
+  // setting posts info
+  function renderPost(doc) {
+    const div = document.createElement('div');
+    const image = document.createElement('img');
+    image.width = '200';
+    const description = document.createElement('p');
+    description.className = 'descriptionProf';
+    const location = document.createElement('p');
+    location.className = 'descriptionProf';
+    const cross = document.createElement('button');
 
-  // calling the docs and adding to the html
+    div.setAttribute('data-id', doc.id);
+    image.src = doc.data().postimg;
+    description.textContent = doc.data().description;
+    location.textContent = doc.data().location;
+    cross.innerHTML = 'DELETE';
+
+    div.appendChild(image);
+    div.appendChild(description);
+    div.appendChild(location);
+    div.appendChild(cross);
+
+    userPosts.appendChild(div);
+
+    console.log(div);
+    // delete the data
+    cross.addEventListener('click', (e) => {
+      const id = e.target.parentElement.getAttribute('data-id');
+      postsRef.doc(id).delete();
+    });
+  }
+  // get the data
   postsRef.where('id', '==', user.uid).onSnapshot((snap) => {
-    userPosts.innerHTML = '';
-    snap.forEach((doc) => {
-      const div = `
-              <p class='name'>${doc.data().user}</p>
-              <p class='date'>${doc.data().date.toDate()}</p>
-              <img width="200" src="${doc.data().postimg}" />
-              <p class='descriptionProf'>${doc.data().description}</p>
-              <p class='descriptionProf'>${doc.data().location}</p>`;
-      const nodo = document.createElement('div');
-      nodo.innerHTML = div;
-      userPosts.appendChild(nodo);
+    const changes = snap.docChanges();
+    changes.forEach((change) => {
+      if (change.type === 'added') {
+        renderPost(change.doc);
+      } else if (change.type === 'removed') {
+        const div = userPosts.querySelector('[data-id=' + change.doc.id + ']');
+        renderPost.removeChild(div);
+      }
     });
   });
 

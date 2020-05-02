@@ -17,14 +17,56 @@ body{
 .w1{
     display: flex;
     align-content: center;
-    div{
-        display: flex;
-        align-content: center;
-        p{
-            @include logoPrim;
-            margin-bottom: 0px;
-            margin-top: 80px;
-            margin-left: 80px;
+    #logo{
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        transform: translate(-50%);
+        animation: fill 0.5s ease forwards 2s;
+        path:nth-child(1){
+            stroke-dasharray: 240;
+            stroke-dashoffset: 240;
+            animation: lineAnimation 1.5s ease forwards;
+        }
+        path:nth-child(2){
+            stroke-dasharray: 117;
+            stroke-dashoffset: 117;
+            animation: lineAnimation 1.5s ease forwards 0.2s;
+        }
+        path:nth-child(3){
+            stroke-dasharray: 143;
+            stroke-dashoffset: 143;
+            animation: lineAnimation 1.5s ease forwards 0.4s;
+        }
+        path:nth-child(4){
+            stroke-dasharray: 231;
+            stroke-dashoffset: 231;
+            animation: lineAnimation 1.5s ease forwards 0.6s; 
+        }
+        path:nth-child(5){
+            stroke-dasharray: 117;
+            stroke-dashoffset: 117;
+            animation: lineAnimation 1.5s ease forwards 0.8s;
+        }
+        path:nth-child(6){
+            stroke-dasharray: 258;
+            stroke-dashoffset: 258;
+            animation: lineAnimation 1.5s ease forwards 1s;
+        }
+        path:nth-child(7){
+            stroke-dasharray: 116;
+            stroke-dashoffset: 116;
+            animation: lineAnimation 1.5s ease forwards 1.2s;
+        }
+        path:nth-child(8){
+            stroke-dasharray: 187;
+            stroke-dashoffset: 187;
+            animation: lineAnimation 1.5s ease forwards 1.4s;
+        }
+        path:nth-child(9){
+            stroke-dasharray: 279;
+            stroke-dashoffset: 279;
+            animation: lineAnimation 2s ease forwards 2s;
         }
     }
     
@@ -41,6 +83,7 @@ body{
 .w3{
     display: flex;
     align-content: center;
+    animation: fadeIn 5s;
     nav{
         margin-left: 80px;
         #login{
@@ -49,4 +92,26 @@ body{
         }
     }
     
+}
+
+@keyframes lineAnimation{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fill{
+    from{
+        fill: transparent;
+    }
+    to{
+        fill: white;
+    }
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

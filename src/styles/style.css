@@ -1,7 +1,6 @@
 #background2 {
   background-image: url("/imgBichigram/fondo2.jpg");
   background-size: cover;
-  font-family: Fresca;
   margin: 0;
 }
 
@@ -628,24 +627,77 @@ body {
       align-content: center;
 }
 
-.w1 div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
+.w1 #logo {
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-animation: fill 0.5s ease forwards 2s;
+          animation: fill 0.5s ease forwards 2s;
 }
 
-.w1 div p {
-  font-family: fresca;
-  font-size: 36pt;
-  color: white;
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 2px black;
-  margin-bottom: 0px;
-  margin-top: 80px;
-  margin-left: 80px;
+.w1 #logo path:nth-child(1) {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  -webkit-animation: lineAnimation 1.5s ease forwards;
+          animation: lineAnimation 1.5s ease forwards;
+}
+
+.w1 #logo path:nth-child(2) {
+  stroke-dasharray: 117;
+  stroke-dashoffset: 117;
+  -webkit-animation: lineAnimation 1.5s ease forwards 0.2s;
+          animation: lineAnimation 1.5s ease forwards 0.2s;
+}
+
+.w1 #logo path:nth-child(3) {
+  stroke-dasharray: 143;
+  stroke-dashoffset: 143;
+  -webkit-animation: lineAnimation 1.5s ease forwards 0.4s;
+          animation: lineAnimation 1.5s ease forwards 0.4s;
+}
+
+.w1 #logo path:nth-child(4) {
+  stroke-dasharray: 231;
+  stroke-dashoffset: 231;
+  -webkit-animation: lineAnimation 1.5s ease forwards 0.6s;
+          animation: lineAnimation 1.5s ease forwards 0.6s;
+}
+
+.w1 #logo path:nth-child(5) {
+  stroke-dasharray: 117;
+  stroke-dashoffset: 117;
+  -webkit-animation: lineAnimation 1.5s ease forwards 0.8s;
+          animation: lineAnimation 1.5s ease forwards 0.8s;
+}
+
+.w1 #logo path:nth-child(6) {
+  stroke-dasharray: 258;
+  stroke-dashoffset: 258;
+  -webkit-animation: lineAnimation 1.5s ease forwards 1s;
+          animation: lineAnimation 1.5s ease forwards 1s;
+}
+
+.w1 #logo path:nth-child(7) {
+  stroke-dasharray: 116;
+  stroke-dashoffset: 116;
+  -webkit-animation: lineAnimation 1.5s ease forwards 1.2s;
+          animation: lineAnimation 1.5s ease forwards 1.2s;
+}
+
+.w1 #logo path:nth-child(8) {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 187;
+  -webkit-animation: lineAnimation 1.5s ease forwards 1.4s;
+          animation: lineAnimation 1.5s ease forwards 1.4s;
+}
+
+.w1 #logo path:nth-child(9) {
+  stroke-dasharray: 279;
+  stroke-dashoffset: 279;
+  -webkit-animation: lineAnimation 2s ease forwards 2s;
+          animation: lineAnimation 2s ease forwards 2s;
 }
 
 .w2 {
@@ -676,6 +728,8 @@ body {
   display: flex;
   -ms-flex-line-pack: center;
       align-content: center;
+  -webkit-animation: fadeIn 5s;
+          animation: fadeIn 5s;
 }
 
 .w3 nav {
@@ -694,6 +748,54 @@ body {
 .w3 nav #login a {
   position: relative;
   color: white;
+}
+
+@-webkit-keyframes lineAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes lineAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: white;
+  }
+}
+
+@keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: white;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #backgroundProfile {
@@ -825,5 +927,148 @@ body {
   margin: 0px;
   width: 50px;
   height: auto;
+}
+
+@media screen and (min-width: 400px) {
+  #background1 {
+    background-image: url("/imgBichigram/resp1.jpg");
+    background-size: 100% 100%;
+  }
+  .gridWelcome {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1.7fr 1fr 1.4fr;
+        grid-template-rows: 1.7fr 1fr 1.4fr;
+    grid-gap: 12px;
+    margin: 0px;
+  }
+  .w1 #logo {
+    top: 35%;
+  }
+  .w3 nav #login {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+  #background2 {
+    background-image: url("/imgBichigram/resp3.jpg");
+    background-size: 100% 100%;
+  }
+  #gridLogin {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 15px;
+  }
+  .l1 img {
+    position: absolute;
+    top: -5%;
+    left: 48%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+  .l1 p {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+  button.fb {
+    background: none;
+    border: none;
+  }
+  button.google {
+    background: none;
+    border: none;
+  }
+  #background3 {
+    background-image: url("/imgBichigram/resp2.jpg");
+    background-size: 100% 100%;
+  }
+  #gridNew {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 3.5fr 1fr;
+        grid-template-rows: 1fr 3.5fr 1fr;
+    gap: 15px;
+  }
+  .n1 h3 {
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
+  }
+  #backgroundHome {
+    background-image: url("/imgBichigram/resp4.jpg");
+    background-size: 100% 100%;
+  }
+  #gridHome {
+    -ms-grid-columns: 1fr 600px 1fr;
+        grid-template-columns: 1fr 600px 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .h1 {
+    margin: 150px 0px;
+  }
+  .h1 button {
+    background: none;
+    border: none;
+  }
+  .h2 #posts {
+    display: block;
+    overflow: scroll;
+  }
+  .h2 #posts button {
+    background: none;
+    border: none;
+  }
+  .h3 {
+    margin: 150px 0px;
+  }
+  #backgroundNewPost {
+    background-image: url("/imgBichigram/resp2.jpg");
+    background-size: 100% 200%;
+  }
+  #gridPost {
+    -ms-grid-columns: 1fr 600px 1fr;
+        grid-template-columns: 1fr 600px 1fr;
+    -ms-grid-rows: 800px;
+        grid-template-rows: 800px;
+  }
+  .p1 {
+    margin: 150px 0px;
+  }
+  .p1 button {
+    background: none;
+    border: none;
+  }
+  .p2 form {
+    margin-top: 30px;
+  }
+  .p3 {
+    margin: 150px 0px;
+  }
+  #backgroundProfile {
+    background-image: url("/imgBichigram/resp3.jpg");
+    background-size: 100% 200%;
+  }
+  #grdProfile {
+    -ms-grid-columns: 1fr 600px 1fr;
+        grid-template-columns: 1fr 600px 1fr;
+    -ms-grid-rows: 800px;
+        grid-template-rows: 800px;
+  }
+  #prof1 {
+    margin-top: 150px;
+  }
+  #prof1 button {
+    background: none;
+    border: none;
+  }
+  .prof3 {
+    margin-top: 150px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

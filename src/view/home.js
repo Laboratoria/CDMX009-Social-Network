@@ -59,29 +59,45 @@ export default () => {
             <div class='description'><p>${doc.data().description}</p></div>
             <div class='location'><p>${doc.data().location}</p></div>
             <div class='imagePost'><img width="100%" src="${doc.data().postimg}" /></div>
-            <button class='likes'><img class='membicha' id='${doc.id}' src='./imgBichigram/membicha.png'>${doc.data().counter}</button> 
+            <button id='${doc.id}' class='likes'><img class='membicha' src='./imgBichigram/membicha.png'>${doc.data().counter}</button> 
+            <br>
+            <br>
             <button class='delete-post' id='${doc.id}'>borrar</button> <button class='edit-post' id='${doc.id}'> editar</button>
-            <textarea class= 'comments'> </textarea>
-            <button id='btnComm'> comentar</button>
+            <form class='formComment' id='${doc.id}'>
+            <input type='text' name='comment' class='comments'> </input>
+            <button> comentar</button>
+            </form>
         </div>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
       p.appendChild(nodo);
     });
 
-    //  Getting all the 'like' buttons to be manipulated in a node list
-    const likes = document.querySelectorAll('.likes');
-    //  Increments the counter (likes) to the target 'me embicha' button
-    likes.forEach(node=> node.addEventListener('click', e =>{
-      const id = e.target.id;
-      const likesRef = db.collection('posts').doc(id);
-      const increment = firebase.firestore.FieldValue.increment(1);
-        likesRef.update({
-        counter: increment,
-        });
-    }));
+     //  Getting all the 'like' buttons to be manipulated in a node list
+     const likes = document.querySelectorAll('.likes');
+     //  Increments the counter (likes) to the target 'me embicha' button
+     likes.forEach(node => node.addEventListener('click', e => {
+       const id = e.target.id; 
+       const likesRef = db.collection('posts').doc(id); 
+       const increment = firebase.firestore.FieldValue.increment(1);
+       likesRef.update({
+         counter: increment, 
+       })
+     })); 
+
+//  comments
+const forms = document.querySelectorAll('.formComment');
+forms.forEach(node=> node.addEventListener ('submit', e => {
+  e.preventDefault();
+  const id = e.target.id; 
+  const text = e.target.children[0].value
+  db.collection('posts').doc(id).update({
+    comments: text, 
+  }).then(() => console.log('nice'))
+}))
+
   });
- 
+      
   //  logout
   const logout = divElement.querySelector('#logoutBtn1');
   logout.addEventListener('click', (e) => {

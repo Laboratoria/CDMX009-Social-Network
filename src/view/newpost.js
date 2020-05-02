@@ -105,7 +105,6 @@ export default () => {
       location: loc,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
       counter: 0,
-      comments: null,
     }).then(() => { window.location.hash = '#/home'; });
   });
 
