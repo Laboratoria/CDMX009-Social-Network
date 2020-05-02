@@ -46,6 +46,7 @@ addBtn.addEventListener('click', enviar);
 function enviar(){
     db.collection("posts").add({
         name : user.displayName,
+        date: new Date(),
         texto : text.value,
         likes: [],
         image: url
