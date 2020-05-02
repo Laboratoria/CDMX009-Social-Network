@@ -22,7 +22,7 @@ export const router = (route) =>{
          login.profil();
          break;
        case 'signin':
-         //console.log('Entre a la vista de registro');
+        //console.log('Entre a la vista de registro');
         // let nameSheet = 'signinStyle.css';
          appendStyleSheet('signinStyle.css');
          renderSignin();

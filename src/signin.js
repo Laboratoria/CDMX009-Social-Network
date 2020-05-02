@@ -30,7 +30,13 @@ let dataBase= firebase.firestore();
   }else if(savePassword2 == null || savePassword2 == '' || savePassword2 == undefined ||savePassword != savePassword2 ){
     msgError ="Password no coicide";
     showError(document.querySelector('#password2'));
+  }else if(savePhoto == null || savePhoto == '' || savePhoto == undefined){
+    let myImage = new Image(200, 200);
+    myImage.src = 'https://firebasestorage.googleapis.com/v0/b/triplife-c3b62.appspot.com/o/images%2FprofileUser.svg?alt=media&token=2c3ab67d-1403-45e3-bb11-381c2b248e69';
+    console.log(myImage);
+    savePhoto = myImage.src;
   }
+
 
   if(msgError == null) {
     let usuario = new User(saveName,saveLastName,saveEmail,savePassword,saveDescription,saveDate,savePhoto);
@@ -53,7 +59,7 @@ export const renderSignin = () => {
       <input type="email" id="email" class="input" placeholder="Email">
       <input type="password" id="password" class="input" placeholder="Password">
       <input type="password" id="password2" class="input" placeholder="Confirm password">
-      <input type="hidden" id="description" value="">
+      <input type="hidden" id="description" value="Cuentanos un poco de ti!!">
       <input type="hidden" id="photo" value="">
       <span id="errorMsg"> Hay un error, verifica tus datos.</span>
       <input type="button" id="send" class="button" value="Sign in">
