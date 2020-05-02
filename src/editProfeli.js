@@ -18,25 +18,25 @@ export const renderEditProfeli = () => {
            snapshot.forEach(doc => {
             userBD = doc.data()
             let div = `
-           <section class="edit-profeli">
-                  <figure id="list" class="imgProfile>
+            <section class="editProfile">
+                  <figure id="list" class="imgProfile">
                     <img id="photoUser" class="img-edit" src="${doc.data().photo}" alt="">
                   </figure></br>
                   <div class="aling-input">
-                  <input id="profileImage" type="file" disabled name="avatar" accept="image/png, image/jpeg">
+                  <input id="profileImage" class="selectImg" type="file" disabled accept="image/png, image/jpeg">
+                  </br>
                   </br>
                   <input type="text" id="nameUser" disabled  class="nameUser" placeholder="" value="${doc.data().name}">
                   </br>
-                  <input type="text" id="description" disabled class="descriptionUser" placeholder="Add description" value="${doc.data().description}">
+                  <textarea id="description" disabled class="descriptionUser" placeholder="Add description">${doc.data().description}</textarea>
                   </br></br>
-                  <div class="buttoneditar">
                   <input type="button" id="btnEditar" class="btnProfile" value="Editar">
                   <br/>
                   <input type="button" id="toReturn" class="btnProfile" value="Regresar">
                   </div>
-                  </div>
-                  </section></br></br>`
+            </section></br></br>`
            let nodo = document.createElement('div')
+           nodo.setAttribute("class", "nodo");
                nodo.innerHTML = div
                mypost.appendChild(nodo)
                let btnEdit = document.querySelector("#btnEditar");
@@ -55,7 +55,7 @@ export const renderEditProfeli = () => {
         
                    reader.onload = (function(theFile) {
                        return function(e) {
-                         document.getElementById("list").innerHTML = ['<img class="positionone" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                         document.getElementById("list").innerHTML = ['<img class="img-edit" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
                        };
                    })(profileImage.files[0]);
                    reader.readAsDataURL(profileImage.files[0]);

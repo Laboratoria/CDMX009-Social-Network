@@ -13,9 +13,18 @@ export const postGeneral = () => {
   let mypost = document.querySelector('#list-post')
       mypost.innerHTML = ''; 
       snapshot.forEach(doc => {  
-      let div = `<div class="list-content">  
+      let div = `<div class="list-content">
+        <div class="infoUser-post">
+          <div>  
+           <img class='user-photo' src='images/defaultUser.png'>
+           <p>Name LastName</p>
+          </div>
+          <p>Fecha</p>
+        </div>  
         <p>${doc.data().text}</p>
-        <img class='imgListPost' src='${doc.data().imageUrl}' />
+        <div class="imgListPost-container">
+          <img class='imgListPost' src='${doc.data().imageUrl}'">
+        </div>
         <br/>
         <img  id="${doc.id}" src='iconos/corazon.png' class='iconolike' /> ${doc.data().likes}
         </div>`;
