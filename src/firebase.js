@@ -95,8 +95,13 @@ function home (){
   document.getElementById('LogInNewUser').style.display="none";
 
   let loginView = `
-
-    <p> Aqui se debe publicar</p>
+    <section>
+      <p id="post" > Aqui se debe publicar</p>
+      <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
+      <input type="submit" class="btnPost" id="" value="Publicar">
+      <button id="like"><i class="fab fa-gratipay"></i></button>
+    </section>
      `
   root.innerHTML = loginView
 }
+
