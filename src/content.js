@@ -1,149 +1,114 @@
-const closeSesion = () =>{
-  firebase.auth().signOut().then(function(){
-    console.log('Cerrando sesión');
+import { router } from './index.js'; 
+import { closeSesion } from './cerrarSesion.js'; 
+import { readerMyTrips } from './myTrips.js';
+import { postGeneral } from './postGeneral.js';
+import { renderEditProfeli } from './editProfeli.js'; 
+import {renderPost} from "./createPost.js";
+import {newPost} from "./createPost.js";
 
-  }).catch(function(error){
-    console.log(error);
-  })
-}
 
+//import { profil} from './createPost.js'; 
 let db= firebase.firestore();
-let userBD;
-
+let userRef = db.collection('users');
+let main = document.querySelector('#main');
+        
 export const renderContent = () => {
-  let currentUser = firebase.auth().currentUser;
-  if (currentUser != null) {
-      let uid = currentUser.uid;  
-      let userRef = db.collection('users');
-      userRef.where('uid', '==', uid).get()
+  let uiduser = firebase.auth().currentUser.uid;
+    if (uiduser != null) {
+    userRef.where('uid', '==', uiduser).get()
       .then(snapshot => {
-          if (snapshot.empty) {
+      if (snapshot.empty) {
           console.log('No matching documents.');
           return;
-          }
-
-          snapshot.forEach(doc => {
-            userBD = doc.data()
-                let main = document.querySelector('#main');
-                let profilView = `
-                <header>
-                  <div class="divisor">
-                    <div class="positionone">
-                      <img class="logo" src="images/logo.png" alt="TripLife">
-                    </div>
-                    <div class="positiontwo">
-                      Menu
-                    </div>
-                    </div>
-                </header>
-                <section class="">
-                  <figure id="list">
-                    <img id="photoUser" class="positionone" src="${doc.data().photo}" alt="">
-                  </figure></br>
-                  <input id="profileImage" type="file" disabled name="avatar" accept="image/png, image/jpeg">
-                  <input type="text" id="nameUser" disabled  class="nameUser" placeholder="" value="${doc.data().name}">
-                  <input type="text" id="description" disabled class="description" placeholder="Add description" value="${doc.data().description}">
-                  <input type="button" id="btnEditar" class="btn" value="Editar">
-                  <input type="button" id="logout" class="btn" value="Log out">
-                </section>
-                </div>`
-                main.innerHTML = profilView;
-
-                let btnEdit = document.querySelector("#btnEditar");
-                let logout = document.querySelector("#logout");
-                let profileImage = document.querySelector("#profileImage");
-                let imageUrl='';
-
-                btnEdit.addEventListener("click",edit,false);
-                logout.addEventListener("click", closeSesion);
+      }
+      snapshot.forEach(doc => {
+        let imguser = doc.data().photo;
+        let photouser;
+        if(imguser == ''){
+          photouser = 'images/defaultUser.png'; 
+        }else{
+          photouser = imguser; 
+        }
+        let profilView = `
+        
+        <header>
+            <div class="positiononeheader">
+                <img class="logo" src="images/logo.png" alt="TripLife">
+            </div>
+            <div class="positiontwoheader">
+                <div class="menu-togle" id="menu">  
+                    <div class="hamburger"></div>
+                </div>
                 
-                profileImage.addEventListener("change", e => {
-                  if (profileImage.files.length != 0) {
-                    var reader = new FileReader();
-          
-                    reader.onload = (function(theFile) {
-                        return function(e) {
-                          document.getElementById("list").innerHTML = ['<img class="positionone" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                        };
-                    })(profileImage.files[0]);
-                    reader.readAsDataURL(profileImage.files[0]);
-                    }
-                });
-            });
+                <nav class="site-nav" id="site-nav">
+                <ul>
+                    <li> <a href="#" id="index"> Inicio </a></li>
+                    <li> <a href="#" id="editProfile"> Perfil </a></li>
+                    <li> <a href="#" id="logout"> Cerrar Sesión </a></li>
+                </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="content-section">
+            <div id="editP" class="info-user">
+                <div class="position-photo">
+                    <img class="photo" src="${photouser}" /> 
+                </div>
+                <div class="position-profeli">
+                    <p class="name">${doc.data().name}  ${doc.data().lastName}</p>
+                    <p class="description">${doc.data().description}</p>
+                </div>
+            </div>
+            <div class="board-btns">
+                <input type="button" id="MyTrips" class="buttonL" value="My Trips">
+                <input type="button" id="TripBoad" class="buttonR" value="Trip Board"> 
+            </div>
+            <div class="board-container">  
+                <div class="post-generator">
+                    <img class="thought-photo" src="${photouser}" />
+                    <input type="button" id="thought" class='thought-input' value="¿Dónde te encuentras hoy?"/>
+                </div>
+                <div id="list-post"></div>
+            </div>        
+        </section>`;
+          main.innerHTML = profilView;
+          postGeneral();
+          let logout = document.querySelector("#logout");
+              logout.addEventListener("click", closeSesion);
+          let pindex = document.querySelector("#index");
+              pindex.addEventListener("click", ()=>{
+                  router('content'); 
+              });
+          let editProfile = document.querySelector("#editProfile");
+              editProfile.addEventListener("click", () =>{ 
+                renderEditProfeli(); 
+              });
+          let MyTrips = document.querySelector("#MyTrips");
+              MyTrips.addEventListener("click", () =>{ 
+                readerMyTrips();
+              });
+          let tripBoard = document.querySelector("#TripBoad");
+              tripBoard.addEventListener("click", () =>{ 
+                postGeneral();
+              });
+          let thought = document.querySelector("#thought");
+              thought.addEventListener("click", () =>{ 
+                //profil();
+                console.log("Create post"); 
+                let userName = `${doc.data().name}`;
+                renderPost(userName, uiduser);
+                newPost(userName, uiduser); 
+                
+              });
+         let menu = document.querySelector("#menu");
+             menu.addEventListener("click", () =>{
+             let siteNav = document.querySelector("#site-nav");
+                 siteNav.classList.toggle("site-nav-open");
+               });
+            }); 
         })
         .catch(err => {
-            console.log('Error getting documents', err);
+          console.log('Error getting documents', err);
         });
-    }   
+      }
 }
-
-function edit(){
-  document.getElementById('description').disabled = false;
-  document.getElementById('nameUser').disabled = false;
-  document.getElementById('profileImage').disabled = false;
-   
-  let btnSave = document.getElementById("btnEditar");
-  btnSave.value = 'Guardar';
-
-  btnSave.addEventListener("click",updateChange,false);
-}
-
-function storageChange(nameUser, description, image){
-
-  let userCurrent = firebase.auth().currentUser;  
-  let userRef = db.collection("users").doc(userCurrent.uid);
-
-  userRef.update({
-    "photo": image,
-    "name": nameUser,
-    "description": description  
-  }).then(function() {
-      alert("Registro actualizado exitosamente");
-
-      document.getElementById('description').disabled = true;
-      document.getElementById('nameUser').disabled = true;
-      document.getElementById('profileImage').disabled = true;
-
-      let btnEditar = document.getElementById("btnEditar");
-      btnEditar.value = 'Editar';
-   
-      btnEditar.addEventListener("click",edit,false);
-  }).catch(function(error) {
-      console.error("Error updating document: ", error);
-  });
-
-}
-
-function updateChange() {
-  let name = document.getElementById('nameUser').value;
-  let description = document.getElementById('description').value;
-  let profileImage = document.querySelector("#profileImage");
-  
-  let img = profileImage.files[0];
-  let date = new Date();
-  let idImg = date.getTime();
-  let imageUrl = null;
-  
-  if(img) {
-    let token = idImg+'_'+img.name; 
-    console.log("Subiendo img");  
-    firebase.storage().ref("images").child(token).put(img)
-      .then(snap => {
-        return snap.ref.getDownloadURL();
-      })
-      .then(link => {
-        imageUrl = link;
-        storageChange(name, description, imageUrl);
-    })
-    .catch((error)=> {
-      console.log("Error al guardar imagen: " + error);
-    });
-  } else{
-    storageChange(name, description, userBD.photo);
-  }
-} 
-
-
-
-
-

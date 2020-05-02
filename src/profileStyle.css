@@ -1,0 +1,225 @@
+@font-face {
+    font-family: font-text;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+  }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: font-text, sans-serif;
+}
+
+html{
+    background-color: #FAF7EE;
+}
+
+figure{
+    max-width: 187px;
+    margin:auto;
+    margin-top: 57px;
+    margin-bottom: 31px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+#errorMsg{
+    font-family: font-text;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+    color: red;
+    display: none;
+}
+
+input[type=button]{
+  
+  height: 54px;
+  background-color: #F3BA00;
+  opacity: 0.8;
+  border-radius: 30px;
+  border: #F3BA00;
+  font-family: font-text;
+  font-size: 18px;
+  margin:auto; 
+  margin-top: 2px;
+  margin-bottom:9px;
+  cursor: pointer;
+}
+
+input[type=button]:hover{
+  opacity: 0.7;
+}
+
+/****************/
+/* The Modal (background) */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+ 
+  /* Modal Content */
+  .modal-content {
+    background-color: #99D8DD;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 10px ;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+  /*
+  .modal-header{
+    border: 1px solid blue;
+    position: relative;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+  }*/
+  
+  .modal-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3em 1em;
+    background-color: #99D8DD;
+   /* color: white;*/
+    border-radius: 10px;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #01587A;
+    position: absolute;
+    top: 0.2em;
+    right: 0.5em;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #FAF7EE;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #imagesContainer{
+    padding: 0;
+    margin: 0em 1em;
+    margin:auto;
+    text-align: center;
+    position: relative;
+    width:200px;
+    
+  }
+  
+  .imgPost{
+    width:200px;
+    
+  }
+
+  .remove-img {
+    width: 28px;
+    color: #01587A;
+    position: absolute;
+    top: -0.3em;
+    right: -0.3em;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgba(252, 250, 244, 0.5);
+  }
+  
+  .remove-img:hover,
+  .remove-img:focus {
+    color: #FAF7EE;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  
+  #postText{
+    /*width: 80%;*/
+    height: 8em;
+    padding: 1em;
+    border-radius:10px;
+    margin: 0.5em 1em;
+    resize: none;
+    font-family: font-text;
+    background-color: #FAF7EE;
+  }
+
+  .icons{
+    margin: 0.5em 1em;
+    display:flex;
+    /*justify-content: space-around;*/
+  }
+
+  label{
+    margin:0;
+    padding: 0;
+    margin-right: 0.8em;
+  }
+
+  i{
+    font-size: 30px;
+    cursor: pointer;
+    color:#01587A;
+  }
+
+  i:hover{
+    color: #FAF7EE;
+  }
+
+  input[type=file], input[type=checkbox]{
+    display: none;
+  }
+
+ 
+  #sendPostBtn{
+    width: 6em;
+    height: 2em;
+    background-color: #F3BA00;
+    opacity: 0.8;
+    border-radius: 30px;
+    border: #F3BA00;
+    font-family: font-text;
+    font-size: 18px;
+    margin-right: 0;
+    margin-top: 2px;
+    margin-bottom:9px;
+  }
+
+
+  
