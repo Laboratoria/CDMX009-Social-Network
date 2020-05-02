@@ -5,17 +5,18 @@ export default () => {
   regView.setAttribute('class', 'viewsStyle');
   regView.innerHTML = '';
   regView.innerHTML = `
-        <h1>ABRE UNA CUENTA</h1>
-        <div class="conectWithSocialMedia">
-            <input type="image" src="images/facebook.PNG" id="facebookLogin" class="buttons"></button>
-            <input type="image" src="images/Google.PNG" id="googleLogin" class="buttons"></button>
-        </div>
+        <h1>Abre una cuenta:</h1>
         <form action="" class="registerForm">
             <input type="email" required id="registerEmail" placeholder="Correo Electronico"><br>
             <input type="password" id="registerPassword" minlength="6" required placeholder="Contraseña(mínimo 6 caracteres)"><br>
             <input type="submit" id="registerButton1" class="registerButton" value="REGISTRAR">
             <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
-        </form>  `;
+        </form>
+        <div class="conectWithSocialMedia">
+          <h4>O ingresa con tu cuenta de:</h4>
+          <img src="images/facebook.png" id="facebookLogin" class="buttons">
+          <img src="images/Google.png" id="googleLogin" class="buttons">
+        </div>  `;
   // Nodos
   const registerEmail = regView.querySelector('#registerEmail');
   const registerPassword = regView.querySelector('#registerPassword');

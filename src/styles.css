@@ -16,6 +16,7 @@ html, body {
 }
 /* header */
 header {
+    padding: 0.2rem;
     background: #EBE134;
     width: 100%;
     display: flex;
@@ -24,6 +25,9 @@ header {
     justify-content: center;
 }
 .codeMakers {width: 12rem; height: 4rem;}
+.viewsStyle {
+    width: 90%;
+}
 .views {
     width: 90%;
     height: 100%;
@@ -35,12 +39,13 @@ header {
 .conectWithSocialMedia {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .buttons{
     border: 0;
     height: 4rem;
-    width: 100%;
+    margin: 0;
   }
 /* formulario */
 .registerForm {
@@ -53,11 +58,12 @@ header {
 }
 .recoveryForm {
     width: 100%;;
-    height: 20%;
+    height: 30%;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 input {
     border: 0;
@@ -73,6 +79,8 @@ button {
 .registerButton {
     border: 0;
     background: #EBE134;
+    border-radius: 18px 18px 18px 18px;
+    border: 6px outset #ebe234;
     font-weight: bold;
 }
 
@@ -89,7 +97,7 @@ button {
     align-items: center;
 }
     .btnHeader {width: 2rem; height: 2rem;}
-.sesionPrincipal {
+.sesionPrincipal, .sesionPrincipal1 {
     padding: 0;
     margin: 1rem 0;
     width: 100%;
@@ -121,17 +129,20 @@ button {
 
 hr {width: 90%; border-color: #EBE134;}
 .postContainer {
+    margin: 0.5rem 0.3rem;
     width: 90%; 
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    border: #ffffff 0.2rem ridge;
+    justify-content: center;
+    border-radius: 26px 26px 26px 26px;
+    border: 0.25rem dashed #bdb5bd;
+    background: rgb(243, 243, 243);
 }
     .post {
         display: flex;
         width: 100%;
         justify-content: space-around;
-
     }
         .postAuthor {
             width: 4rem; 
@@ -139,8 +150,8 @@ hr {width: 90%; border-color: #EBE134;}
         }
         .postContent {
             width: 85%; 
-            height: auto; 
-            border: #ffffff 0.2rem ridge;
+            height: auto;
+            padding: 0.3rem; 
         }
         #date {
             font-size: small;
@@ -152,10 +163,12 @@ hr {width: 90%; border-color: #EBE134;}
         display: flex;
         justify-content: flex-end;
     }
-        .likes {width: 1rem; height: 1rem;}
-        
-    .delete {
-        margin: 0 0.2rem;
-        width: 4rem;
-        height: 1.5rem;
+    .likes {
+        width: 1rem; 
+        height: 1rem; 
+        margin: 0.3rem 0.5rem;
     }
+textarea {
+    border-radius: 16px 16px 16px 16px;
+    border: 3px solid #EBE134;
+}

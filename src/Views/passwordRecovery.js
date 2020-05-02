@@ -11,13 +11,12 @@ export default () => {
                   <input type="email" required id="loginMail" placeholder= "Correo electrónico">
                   <button type="submit" class="registerButton" id="loginButton">ENVIAR</button>
               </form> 
-              <div class="or"><h3>o</h3></div>
               <div class="conectWithSocialMedia">
-                  <input type="image" src="images/facebook.PNG" id="facebookLogin" class="buttons"></button>
-                  <input type="image" src="images/Google.PNG" id="googleLogin" class="buttons"></button>
-                  <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
-                  <p>¿No tienes cuenta?<a href="#/register">Registrate</a></p>
-              </div>  `;
+                <h4>o ingresa con tu cuenta de:</h4>
+                <img src="images/facebook.png" id="facebookLogin" class="buttons">
+                <img src="images/Google.png" id="googleLogin" class="buttons">
+                <p>¿No tienes cuenta? <a href="#/register">Registrate</a></p>
+            </div>  `;
 
   // Nodos
   const googleLogin = recView.querySelector('#googleLogin');

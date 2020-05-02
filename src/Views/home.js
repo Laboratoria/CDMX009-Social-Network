@@ -1,5 +1,5 @@
 import loginFunctions from '../firebase/login.js';
-import { userAccess, postTemplate } from '../firebase/showData.js';
+import { userAccess, createNewPost, postTemplate } from '../firebase/showData.js';
 
 export default () => {
   const homeView = document.createElement('div');
@@ -18,9 +18,11 @@ export default () => {
                 </div>
             </header>
             <section class="sesionPrincipal">
-                <form action="" class="newPost">
-                    <div>Bienvenida <span id="username"></span></div>
-                </form>
+            <form action="" class="newPost">
+            <div>Bienvenida <span id="username"></span></div>
+            <textarea name="newTextPost" id="newTextPost" class="postForm" rows="3" placeholder="¿Qué te gustaría compartir?"></textarea>
+            <button type="submit" id="submitNewPost">Compartir</button>
+        </form>
             </section>
             <section class="sesionPrincipal1">
             </section>`;
@@ -30,7 +32,15 @@ export default () => {
   const userName = homeView.querySelector('#username');
   const postContainer = homeView.querySelector('.sesionPrincipal1');
 
+  const newPostContent = homeView.querySelector('#newTextPost');
+  const submitNewPost = homeView.querySelector('#submitNewPost');
+
   userAccess(userName, userPhoto);
+  submitNewPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    createNewPost(newPostContent.value);
+    newPostContent.value = '';
+  });
 
   postTemplate(postContainer);
   return homeView;
