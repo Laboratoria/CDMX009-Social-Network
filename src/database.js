@@ -2,24 +2,24 @@
 let authError;
 
 const database = {
-  signUp: (regEmail, regPassword, firebasePipo=null) => {
+  signUp:  (regEmail, regPassword, firebasePipo=null) => {
+    console.log(regEmail);
+    console.log(regPassword);
     (firebasePipo? firebasePipo: firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
       .catch((error) => {
         authError = error;
         return authError;
       });
   },
-  signIn: () => {
-    const logEmail = document.getElementById('logEmail').value;
-    const logPassword = document.getElementById('logPassword').value;
-    firebase.auth().signInWithEmailAndPassword(logEmail, logPassword)
+  signIn:  (logEmail, logPassword, firebasePipo=null) => {
+    (firebasePipo? firebasePipo: firebase).auth().signInWithEmailAndPassword(logEmail, logPassword)
       .catch((error) => {
         authError = error;
         return authError;
       });
   },
   errorInfo: () => {
-    const errorMsg = authError;
+    const errorMsg =  authError;
     return errorMsg;
   },
   signInGoogle: () => {
@@ -41,10 +41,10 @@ const database = {
       throw error('¡Error!');
     });
   },
-  getPostFeed: async () => { 
+  getPostFeed: () => { 
     imageRefPost.on('value', async (snapshot) => {
-      const data = snapshot.val();
-      let result = '';
+       const data = await snapshot.val();
+       let result = '';
       for (const key in data) {
         if (Object.prototype.hasOwnProperty.call(data, key)) {
           const timeStamp = data[key].postTime;
@@ -61,6 +61,7 @@ const database = {
               photoUser = snap.val();
             });
             result += `
+            <div class="card">
               <div class="userInfo media">
                 <div class="image is-48x48">
                   <img src=${photoUser.url} class="is-rounded"/>
@@ -68,30 +69,37 @@ const database = {
                 <div class="media-content">
                   <p>${'@'}${userName.userName}</p>
                 </div>
+                <div>
+                <img id="delet" title="Borrar" class="icon" width="10%" height="10%" src="https://i.ibb.co/xqywsQ6/goma-rgb.png" >
+                <img id="edit" title="Editar" class="icon" width="10%" height="10%" src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" >
+                </div>
               </div>
               <div class="file is-centered">
                 <img src='${data[key].url}'/>
               </div>
               <div>
-                <img id="like" width="5%" height="5%" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
-                <img id="dislike" width="5%" height="5%" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
-                <img id="commentPost" width="5%" height="5%" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
+                <img id="like" width="9%" height="9%" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
+                <img id="dislike" width="9%" height="9%" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
+                <img id="commentPost" width="9%" height="9%" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
                 <p>${data[key].comment}</p>
                 <p>${dateFormat}</p>
               </div>
+            </div>
               </br>
             `;
-            document.getElementById('postFeed').innerHTML = result;
-          });
+            document.getElementById('postFeed').innerHTML = result; 
+            
+            }); 
         }
       }
     })
+    
   }, 
-  userObserver: (renderFeed) => { 
-    firebase.auth().onAuthStateChanged((user) => { 
-      if (user) {
+  userObserver: (home) => { 
+    firebase.auth().onAuthStateChanged(async (user) => { 
+      if  (user) {
         console.log('existe usuario activo');
-        renderFeed();
+        await home();
         console.log('*****************');
         console.log(user.emailVerified);
         console.log('*****************');
@@ -187,6 +195,7 @@ const database = {
     };
     firebase.database().ref('post-image')
       .push(userImgePost);
+      // console.log(userImgePost.key)
     db.collection('post-image').add({
       name: nameImage,
       url,
@@ -210,6 +219,13 @@ const database = {
       biography,
     });
   },
+  deletePost: (user) => {
+  db.collection("post-image").doc(id).delete().then(function() {
+    console.log("Post borrado");
+}).catch(function(error) {
+    console.error("Error removing document: ", error);
+});
+},
   logout: () => {
     firebase.auth().signOut().then(() => {
       console.log('Saliendo...');

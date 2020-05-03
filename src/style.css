@@ -20,6 +20,9 @@
     text-align: right;
 }
 
+.navItems {
+    padding: 10px;
+}
 #mLogo {
     vertical-align: top;
 }
@@ -60,6 +63,8 @@ figure{
 
 .userInfo {
     align-items: center!important;
+    padding-bottom: 15px;
+ 
 }
 
 .column1{display: grid;

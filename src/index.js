@@ -1,5 +1,6 @@
 /* eslint-disable */
 import database from './database.js';
+
 const body = document.querySelector('#body');
 const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
@@ -12,7 +13,7 @@ const errorHandler = () => {
 const topBarForm = `
     <div class="userInfo media navbar is-fixed-top">
         <div class="file is-centered">
-            <figure class="image is-96x96">
+            <figure class="navItems image is-96x96">
                 <img id="profilePic" class="is-rounded" src="https://i.ibb.co/F77rJHx/hombre2.jpg"/>
             </figure>
         </div>
@@ -21,7 +22,7 @@ const topBarForm = `
         </div>
         <div class="navbar-end"> 
             <figure class="image is-64x64">
-                <img id="mLogo" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
+                <img class="navItems" id="mLogo" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
             </figure>
         </div>
     </div>`;
@@ -69,7 +70,7 @@ const renderSignIn = () => {
                     </p>
                 </div>
             </div>
-            <div class="field file is-small file is-centered">
+            <div class="file is-small file is-centered">
                 <p class="control has-icons-left has-icons-right">
                     <input id="logPassword" class="input is-rounded " type="password" placeholder="Password"/>
                     <span class="icon is-small is-left">
@@ -115,7 +116,9 @@ const renderSignIn = () => {
     renderSignUp();
   });
   document.querySelector('#logIn').addEventListener('click', () => {
-    database.signIn();
+    const logEmail = document.getElementById('logEmail').value;
+    const logPassword = document.getElementById('logPassword').value;
+    database.signIn(logEmail, logPassword);
     window.setTimeout(errorHandler, 400);
   });
   document.querySelector('#facebookSignIn').addEventListener('click', () => {
@@ -125,8 +128,7 @@ const renderSignIn = () => {
     database.signInGoogle();
   });
 };
-function renderSignUp () {
-    //const root = document.querySelector('#root');
+const renderSignUp = () => {
   root.classList.add('section');
   body.classList.remove('has-navbar-fixed-top');
   body.classList.remove('has-navbar-fixed-bottom');
@@ -193,9 +195,11 @@ function renderSignUp () {
         `;
   root.innerHTML = `${logo}${signUpForm}`;
   errMsg = document.querySelector('#errMsg');
-  const regEmail = document.getElementById('regEmail').value;
-  const regPassword = document.getElementById('regPassword').value;
   document.querySelector('#register').addEventListener('click', () => {
+    const regEmail = document.getElementById('regEmail').value;
+    const regPassword = document.getElementById('regPassword').value;
+    console.log(regEmail);
+    console.log(regPassword);
     database.signUp(regEmail, regPassword);
     window.setTimeout(errorHandler, 400);
   });

@@ -6,7 +6,16 @@ import 'firebase/storage';
 import 'firebase/firestore';
 import database from '../src/database.js';
 
-//config
+const firebaseConfig = {
+  apiKey: 'AIzaSyD6boxRV32Ld50HrVuWx2Fkl5ZlYQyAabk',
+  authDomain: 'memingos-abeea.firebaseapp.com',
+  databaseURL: 'https://memingos-abeea.firebaseio.com',
+  projectId: 'memingos-abeea',
+  storageBucket: 'memingos-abeea.appspot.com',
+  messagingSenderId: '299345545979',
+  appId: '1:299345545979:web:a1d0095b63dc2c48e5be5e',
+  measurementId: 'G-7SHPQ7YX96',
+};
 
 firebase.initializeApp(firebaseConfig);
 const providerGoogle = new firebase.auth.GoogleAuthProvider();
