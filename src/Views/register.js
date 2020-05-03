@@ -10,12 +10,12 @@ export default () => {
             <input type="email" required id="registerEmail" placeholder="Correo Electronico"><br>
             <input type="password" id="registerPassword" minlength="6" required placeholder="Contraseña(mínimo 6 caracteres)"><br>
             <input type="submit" id="registerButton1" class="registerButton" value="REGISTRAR">
-            <p>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></p>
+            <h5>¿Ya tienes una cuenta? <a href="#/login">Inicia Sesión</a></h5>
         </form>
         <div class="conectWithSocialMedia">
-          <h4>O ingresa con tu cuenta de:</h4>
-          <img src="images/facebook.png" id="facebookLogin" class="buttons">
-          <img src="images/Google.png" id="googleLogin" class="buttons">
+          <h4> O </h4>
+          <img src="images/facebook4.png" id="facebookLogin" class="buttons">
+          <img src="images/google4.png" id="googleLogin" class="buttons">
         </div>  `;
   // Nodos
   const registerEmail = regView.querySelector('#registerEmail');

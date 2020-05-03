@@ -22,10 +22,6 @@ const router = (route) => {
       container.appendChild(components.home());
       break;
     }
-    case '#/createPost': {
-      container.appendChild(components.createPost());
-      break;
-    }
     default: {
       break;
     }

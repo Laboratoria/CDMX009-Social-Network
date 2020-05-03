@@ -43,26 +43,30 @@ const deleteOption = (event) => {
 };
 
 const editPost = (event) => {
-  // const postContent = event.target
+  const modalEdit = document.querySelector('#modalEdit');
   document.querySelector('#modalEdit').style.display = 'block';
+  const closeBtn = document.querySelector('#closeBtn');
+  closeBtn.addEventListener('click', () => {
+    modalEdit.style.display = 'none';
+  });
   document.querySelector('#editPostText').value = event.target.getAttribute('data-content');
   const btnEdit = document.querySelector('#submitEditPost');
-  btnEdit.onclick = () => {
+  btnEdit.addEventListener('click', () => {
     const postsRef = database.collection('posts').doc(event.target.id);
+    console.log(event.target.id);
     const newContent = document.querySelector('#newTextPost').value;
     return postsRef.update({
       postContent: newContent,
     })
       .then(() => {
-        console.log('Document successfully updated!');
-        document.querySelector('#newTextPost').value = '';
+        alert('Document successfully updated!');
         document.querySelector('#modalEdit').style.display = 'none';
       })
       .catch((error) => {
         // The document probably doesn't exist.
         console.error('Error updating document: ', error);
       });
-  };
+  });
 };
 
 export const createNewPost = (content) => {
@@ -115,32 +119,7 @@ export const postTemplate = (templateContainer) => {
 
       const btn = templateContainer.querySelectorAll('.edit');
       btn.forEach(bt => bt.addEventListener('click', editPost));
-
-      // const modifyBtns = templateContainer.querySelectorAll('.btnsM');
-      // modifyBtns.forEach(btn => btn.addEventListener('click', (e) => {
-      //   e.preventDefault();
-      //   modifyOption(doc.data().postContent);
-      // }));
     });
   });
 };
 
-
-// const modifyOption = (e) => {
-//   btn.onclick = (event) => {
-//     const postsRef = database.collection('posts').doc(event.target.id);
-//     const newContent = document.querySelector('#newTextPost').value;
-//     return postsRef.update({
-//       postContent: newContent,
-//     })
-//       .then(() => {
-//         console.log('Document successfully updated!');
-//         btn.innerHTML = 'Guardar';
-//         document.querySelector('#newTextPost').value = '';
-//       })
-//       .catch((error) => {
-//         // The document probably doesn't exist.
-//         console.error('Error updating document: ', error);
-//       });
-//   };
-// };
