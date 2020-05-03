@@ -1,4 +1,5 @@
 import showOupladWindow from './uopladContent.js'
+import profile from './profile.js'
 
 document.querySelector("#profile").addEventListener('click', welcomeView);
 let content= document.querySelector(".root");
@@ -46,6 +47,7 @@ function welcomeView (){
 }
 
 export function modal(id, link, title, description, user){
+  let dataBase= firebase.firestore();
   console.log("si me esá detectando el click");
   id;
   modalRoot.innerHTML='';
@@ -92,16 +94,23 @@ export function modal(id, link, title, description, user){
     btnDelete.onclick= deletePosts;
     function deletePosts(e){
         let id= e.target.getAttribute("data-id");
-        dataBase.collection("posts").doc(id).delete();
-        let storage = firebase.storage();
-        let storageRef = storage.ref();
-        let desertRef = storageRef.child('publications');
-        desertRef.delete().then(function() {
-          console.log("listo!")
-          modalRoot.style.display="none";
-        }).catch(function(error) {
-          console.log(error);
-        });
+        let file= e.target.link;
+        console.log(file);
+        dataBase.collection("posts").doc(id).delete().then(function() {
+          console.log("Document successfully deleted!");
+          let storage = firebase.storage();
+          let storageRef = storage.ref();
+          let desertRef = storageRef.child('publications/' + file.name);
+          desertRef.delete().then(function() {
+            console.log("listo!")
+            modalRoot.style.display="none";
+          }).catch(function(error) {
+            console.log(error);
+          });
+      }).catch(function(error) {
+          console.error("Error removing document: ", error);
+      });
+        
     }
     let contentTitle= document.querySelector("#contentTitle");
     let contentDescription= document.querySelector("#contentDescription");
@@ -124,11 +133,27 @@ export function modal(id, link, title, description, user){
         let nodeTitle= document.querySelector("#title");
         let nodeDescription= document.querySelector("#description");
         saveBtn.onclick= saveChangesInPost;
+        
         function saveChangesInPost(){
           dataBase.collection("posts").doc(id).update({
               title: nodeTitle.value,
               description: nodeDescription.value
           })
+          .then(function() {
+            console.log("Document successfully updated!");
+            nodeTitle.style.display="none";
+            nodeDescription.style.display="none";
+            let resultTitle= `
+            <p>${title}</p>`
+            let resultDescrip= `
+            <p>${description}</p>`
+            contentTitle.innerHTML= resultTitle;
+            contentDescription.innerHTML= resultDescrip;
+        })
+        .catch(function(error) {
+            // The document probably doesn't exist.
+            console.error("Error updating document: ", error);
+        });
         }
     }
 }

@@ -1,9 +1,9 @@
-import singIn from './login.js'
-import profile from './profile.js'
-import welcomeView from './welcome.js'
+import profile from './profile.js';
+
+import welcomeView from './welcome.js';
 
 document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
-let content= document.querySelector(".root");
+const content = document.querySelector(".root");
 let header= document.querySelector(".header");
 let staticMenu= document.querySelector("#staticMenu");
 
