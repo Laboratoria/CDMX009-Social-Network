@@ -75,7 +75,7 @@ video {
     outline: 0;
     font-weight: inherit;
     font-style: inherit;
-    font-size: 100%
+    font-size: 100%;
 }
 
 article,
@@ -87,36 +87,36 @@ header,
 hgroup,
 nav,
 section {
-    display: block
+    display: block;
 }
 
 legend {
-    display: none
+    display: none;
 }
 
  :focus {
-    outline: 0
+    outline: 0;
 }
 
 table {
     border-collapse: collapse;
-    border-spacing: 0
+    border-spacing: 0;
 }
 
 caption,
 td,
 th {
     text-align: left;
-    font-weight: 400
+    font-weight: 400;
 }
 
 a img,
 iframe {
-    border: none
+    border: none;
 }
 
 ul {
-    list-style: none
+    list-style: none;
 }
 
 button,
@@ -124,27 +124,27 @@ input,
 select,
 textarea {
     font-size: 100%;
-    font-family: inherit
+    font-family: inherit;
 }
 
 input,
 select {
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 select {
-    margin: inherit
+    margin: inherit;
 }
 
 button {
     border: 0;
     padding: 0;
     background: 0 0;
-    cursor: pointer
+    cursor: pointer;
 }
 
 ol {
-    margin-left: 2em
+    margin-left: 2em;
 }
 
 .clearfix:after {
@@ -152,16 +152,17 @@ ol {
     display: block;
     height: 0;
     clear: both;
-    visibility: hidden
+    visibility: hidden;
 }
 
 * html .clearfix {
-    height: 1%
+    height: 1%;
 }
 
 .clearfix {
-    display: block
+    display: block;
 }
+
 
 /*empezamos con los estilos generales*/
 
@@ -213,6 +214,7 @@ input.validate.user.boxEmail {
     margin-bottom: 15px;
     text-align: center;
 }
+
 input.validate.user.boxPassword {
     border: 1px solid #662483;
     border-radius: 10px;
@@ -301,13 +303,14 @@ img.responsive-img.mySecondImage {
 i.fas.fa-globe-americas {
     text-align: right;
     padding-left: 40px;
-    color: #6a1b9a
+    color: #6a1b9a;
 }
 
 .points {
-    color: #6a1b9a;
-    padding-left: 10px;
+    color: red;
+    padding-left: 30px;
     text-align: right;
+    cursor: pointer;
 }
 
 button.waves-effect.waves-light.btn-small.btn-enter {
@@ -372,6 +375,7 @@ i.material-icons.left.like {
     color: #6a1b9a;
     padding-left: 10px;
     margin-left: 20px;
+    display: flex;
 }
 
 ul#mobile-demo {
@@ -383,9 +387,13 @@ ul#mobile-demo {
     font-weight: bold;
 }
 
+.sidenav-trigger {
+    display: none;
+}
+
 .editProfileIcon {
     max-width: 10%;
-    height: a;
+    height: auto;
     color: #6a1b9a;
     background-color: #26a69a;
     border: 1px solid #26a69a;
@@ -394,6 +402,7 @@ ul#mobile-demo {
     text-align: right;
     margin-left: 15px;
 }
+
 
 /******** Página 2 editar perfil **********/
 
@@ -413,6 +422,12 @@ p.chip.boxStyle2 {
 
 .secondCircle {
     margin-bottom: 80px;
+}
+
+.editNameProfile {
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
 }
 
 .publication {
@@ -516,7 +531,8 @@ button.waves-effect.waves-light.btn-small.btn-login {
     font-weight: bold;
 }
 
-.waves-effect.waves-light.btn.center.iconWeb1 {
+.waves-effect.waves-light.btn.center.iconWeb1, 
+.waves-effect.waves-light.btn.center.iconWeb2 {
     margin: 0 auto;
     display: block;
     max-width: 42%;
@@ -531,21 +547,13 @@ button.waves-effect.waves-light.btn-small.btn-login {
     margin-right: 10px;
 }
 
-.waves-effect.waves-light.btn.center.iconWeb2 {
-    margin: 0 auto;
-    display: block;
-    max-width: 42%;
-    margin-bottom: 22px;
-    border-radius: 10px;
-    background-color: #662483;
-    opacity: 0.9;    
-}
-
 .pag2Header {
     margin-bottom: 20px;
 }
 
-input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields{
+input.chageName.boxFields,
+input.chageProfession.boxFields,
+input.validatePassword.boxFields {
     border: 1px solid #662483;
     border-radius: 10px;
     box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
@@ -569,56 +577,150 @@ input.chageName.boxFields, input.chageProfession.boxFields, input.validatePasswo
     margin-bottom: 50px;
 }
 
+.footer {
+    text-align: center;
+    color: #fff;
+    font-size: .8em;
+    line-height: 2.5em;
+}
+
+#myNewFile,
+#newEditPost,
+.hideFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#myNewFile+label,
+#newEditPost+label,
+.hideFile+label {
+    color: white;
+    background-color: #662483;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+#myNewFile:focus+label,
+#myNewFile+label:hover {
+    background-color: #662483;
+}
+
+.hideFile:focus+label,
+.hideFile+label:hover {
+    background-color: #662483;
+}
+
+.hideFile+label,
+.hideFile {
+    cursor: pointer;
+}
+
+#myNewFile:focus+label,
+.hideFile {
+    outline: 1px dotted#662483;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+div#showComment {
+    text-align: center;
+}
+
+.fixed-action-btn {
+    position: relative;
+    padding-top: 0;
+    /* display: contents; */
+}
+
+/* .fixed-action-btn.direction-right ul,
+.publicationedit {
+    display: inline-grid;
+} */
+
+.onBox {
+    display: none;
+}
+
+label.waves-effect.waves-light.btn-small {
+    max-width: 50px;
+}
+
+.fixed-action-btn.direction-right ul,
+.publicationedit,
+.fixed-action-btn.direction-right ul,
+.publicationedit {
+    text-align: left;
+}
+
+
 /* *********MediasQuerys*********** */
 
 @media (min-width: 1280px) {
-    input.validate.user.boxEmail, input.validate.user.password.boxPassword, input.validate.user.boxFields, input.chageName.boxFields, input.chageProfession.boxFields, input.validatePassword.boxFields, input.validatePassword.boxFields {
+    input.validate.user.boxEmail,
+    input.validate.user.password.boxPassword,
+    input.validate.user.boxFields,
+    input.chageName.boxFields,
+    input.chageProfession.boxFields,
+    input.validatePassword.boxFields,
+    input.validatePassword.boxFields {
         max-width: 50%;
-    } 
-    
-    a.waves-effect.waves-light.btn.center.iconWeb1, a.waves-effect.waves-light.btn.center.iconWeb2 {
+    }
+    a.waves-effect.waves-light.btn.center.iconWeb1,
+    a.waves-effect.waves-light.btn.center.iconWeb2 {
         max-width: 20%;
-    } 
-
+    }
     textarea.comentUser {
         max-width: 40%;
-    } 
-
+    }
     p.chip.boxStyle2 {
         margin-left: 40px;
     }
-
     .informationBox {
         display: flex;
-        justify-content: center;  
-        align-items: center;  
+        justify-content: center;
+        align-items: center;
     }
-    
     .comentsAndLikes {
         display: flex;
-        justify-content: center;    
+        justify-content: center;
     }
-
     .chip.boxStyle {
         width: 30%;
-    } 
-  }
+    }
+    .sidenav-trigger {
+        display: none;
+    }
+    div#picturePerfect img {
+        max-width: 80%;
+        height: auto;
+        display: flex;
+        border-radius: 8PX;
+        margin: 13%;
+    }
+    div#showComment {
+        text-align: center;
+    }
+}
 
-  @media (max-width: 640px) {
-      body {
+@media only screen and (max-width: 640px) {
+    body {
         width: 100%;
-      }
-  }
-
-  
-
-   
-        
-
-
-
-
-
-
-
-
+    }
+    .sidenav-trigger.shown {
+        display: block !important;
+    }
+    input#myNewFile {
+        max-width: 60%;
+    }
+    div#picturePerfect img {
+        justify-items: center;
+        max-width: 80%;
+        height: auto;
+        display: flex;
+        margin: 30px;
+        border-radius: 8px;
+    }
+}
