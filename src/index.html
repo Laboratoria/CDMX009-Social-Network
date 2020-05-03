@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>CodeDev</title>
 </head>
+
 <body>
-  <script type="module" src="index.js"></script>
+    <nav id="menu">
+        <div class="nav-wrapper colorHeader">
+            <a href="#!" class="brand-logo center"><img class="log" src="images/logo_ok2.png" alt=""> </a>
+            <a id="movilIcon" href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="hideAndShow" class="right hide-on-med-and-down clickMenu">
+                <li><a data-nav="/Foro" class="navletters foro" href="#" id="/Foro">Foro</a></li>
+                <li><a data-nav="/Perfil" class="navletters perfil" href="#" id="/Perfil">Perfil</a></li>
+                <li><a data-nav="/editarPerfil" class="navletters editarPerfil" href="#" id="/editarPerfil">Editar perfil</a></li>
+                <li><a data-nav="/cerrarSesion" id="codeDev" class="navletters cerrarSesion" href="#">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav clickMenu" id="mobile-demo">
+        <li><a data-nav="/Foro" class="colorMenu foro" href="#" id="/Foro">Foro</a></li>
+        <li><a data-nav="/Perfil" data-nav class="colorMenu perfil" href="#" id="/Perfil">Perfil</a></li>
+        <li><a data-nav="/editarPerfil" class="colorMenu editarPerfil" href="#" id="/editProfileNavM">Editar perfil</a></li>
+        <li><a data-nav="/cerrarSesion" id="codeDev" class="colorMenu cerrarSesion" href="#">Cerrar sesión</a></li>
+    </ul>
+
+    <div id="root"></div>
+
+    <footer class="footer">
+        <div class="nav-wrapper colorHeader">
+            <p class="made">Code DEV @ 2020</p>
+        </div>
+    </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>  -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>  -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="digitalplatform/firebase.js"></script>
+    <script type="module" src="index.js"></script>
+
 </body>
 </html>
