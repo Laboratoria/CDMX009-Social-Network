@@ -1,11 +1,11 @@
 function viewProfile(user) {
     console.log(user);
-    let EmailCortado = 'No hay email';
+    let emailCortado = 'No email';
 
     if (typeof user != 'undefined') {
         let email = user.email;
         let divisiones = email.split("@");
-        EmailCortado = divisiones[0];
+        emailCortado = divisiones[0];
     }
 
     let image = "images/profile-picture-green.jpg";
@@ -14,7 +14,6 @@ function viewProfile(user) {
     }
     return new Promise(function(resolve, rejected) {
         let profileView = `
-       <!-- ***********PAGINA profile********* -->
 <div id="profilepage"> 
       <section class="profileInformation">
         <div>
@@ -42,7 +41,7 @@ function viewProfile(user) {
         <div class="informationBox">
             <div class="chip boxStyle">
                 <img src="${image}" alt="Contact Person">
-                <p>${EmailCortado}</p>
+                <p>${emailCortado}</p>
             </div>
             <i class="fas fa-globe-americas world"></i>
             <i class="material-icons center points">more_vert</i>

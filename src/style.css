@@ -164,7 +164,7 @@ ol {
 }
 
 
-/*empezamos con los estilos generales*/
+/*Gneral Styles*/
 
 @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
 body {
@@ -175,11 +175,8 @@ body {
 
 * {
     margin: 0px;
-    /*quitamos todos los margenes*/
     padding: 0px;
-    /*quitamos los rellemos*/
     box-sizing: border-box;
-    /*nos permite incluir el relleno y el borde en el ancho y alto total de un elemento.*/
 }
 
 .nav-wrapper {
@@ -404,7 +401,7 @@ ul#mobile-demo {
 }
 
 
-/******** Página 2 editar perfil **********/
+/* Page 2 edit profil */
 
 p.chip.boxStyle2 {
     background: #b87df75c;
@@ -457,7 +454,6 @@ button.waves-effect.waves-light.btn-small.btn-login {
 
 .intro {
     text-align: center;
-    /* padding-top: 20px; */
     font-size: 1.2em;
     line-height: 25px;
 }
@@ -521,7 +517,6 @@ button.waves-effect.waves-light.btn-small.btn-login {
     font-size: 1.1em;
     text-align: center;
     line-height: 20px;
-    /* margin-bottom: 25px; */
     margin: 25px auto;
 }
 
@@ -632,13 +627,7 @@ div#showComment {
 .fixed-action-btn {
     position: relative;
     padding-top: 0;
-    /* display: contents; */
 }
-
-/* .fixed-action-btn.direction-right ul,
-.publicationedit {
-    display: inline-grid;
-} */
 
 .onBox {
     display: none;
@@ -656,7 +645,7 @@ label.waves-effect.waves-light.btn-small {
 }
 
 
-/* *********MediasQuerys*********** */
+/* ********* Medias Querys *********** */
 
 @media (min-width: 1280px) {
     input.validate.user.boxEmail,
@@ -668,31 +657,39 @@ label.waves-effect.waves-light.btn-small {
     input.validatePassword.boxFields {
         max-width: 50%;
     }
+
     a.waves-effect.waves-light.btn.center.iconWeb1,
     a.waves-effect.waves-light.btn.center.iconWeb2 {
         max-width: 20%;
     }
+
     textarea.comentUser {
         max-width: 40%;
     }
+
     p.chip.boxStyle2 {
         margin-left: 40px;
     }
+
     .informationBox {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .comentsAndLikes {
         display: flex;
         justify-content: center;
     }
+
     .chip.boxStyle {
         width: 30%;
     }
+
     .sidenav-trigger {
         display: none;
     }
+
     div#picturePerfect img {
         max-width: 80%;
         height: auto;
@@ -700,6 +697,7 @@ label.waves-effect.waves-light.btn-small {
         border-radius: 8PX;
         margin: 13%;
     }
+    
     div#showComment {
         text-align: center;
     }
