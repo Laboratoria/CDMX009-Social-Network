@@ -1,12 +1,12 @@
 function editionOfProfile(user) {
-    console.log(user);
+    //console.log(user);
     
-    let EmailCortado = 'No hay email';
+    let emailCortado = 'No email';
 
     if (typeof user != 'undefined') {
         let email = user.email;
         let divisiones = email.split("@");
-        EmailCortado = divisiones[0];
+        emailCortado = divisiones[0];
     };
 
     let image = "images/profile-picture-green.jpg";
@@ -16,7 +16,6 @@ function editionOfProfile(user) {
 
     return new Promise(function(resolve, rejected) {
         let editProfileVieView = ` 
-    <!-- *********** PAGINA 4 EDITAR PERFIL   *********** -->
     <div id="containerFour">
         <div>
             <p class="chip boxStyle2">Editar Perfil</p>
@@ -27,7 +26,7 @@ function editionOfProfile(user) {
             <p class="changePhoto">Cambiar foto</p>
         </div>
         <div class="namePerfilUser editNameProfile"><strong class="black-text perfilName little">
-        ${EmailCortado}
+        ${emailCortado}
         </div> 
 
         <form action="" class="formPerfil">

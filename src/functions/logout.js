@@ -1,9 +1,9 @@
+//Log out
 import { viewLogin } from '../view/login.js';
 import { loginPageOne } from './loginpageone.js';
 import { viewRegister } from '../view/register.js';
 import { register } from './register.js';
 
-// ******** LOG OUT FUNCTION 
 function out() {
     console.log('revisando out');
 
@@ -15,19 +15,17 @@ function out() {
         .then(function() {
             viewLogin()
                 .then(function() {
-                    localStorage.setItem('userdata', null); //aquí le digo que guarde como un json formateado mi objeto
+                    localStorage.setItem('userdata', null); 
                 })
                 .then(function() {
-                    // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el login
                     let buttonLogin = document.querySelector('#doLogin');
                     buttonLogin.addEventListener('click', function(e) {
                         e.preventDefault();
-                        loginPageOne();
-    
+                        loginPageOne();    
                         movilIcon.classList.add('shown');
                     });
-                }).then(function() {
-                    // En esta parte creo una variable en donde voy a llamar a mi id al que quiero darle el click en este caso el ingreso con google
+                })
+                .then(function() {
                     let buttonGoogle = document.querySelector('#loginGoogle');
                     buttonGoogle.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -35,8 +33,6 @@ function out() {
                     });
                 })
                 .then(function() {
-                    // En esta parte creo una variable en donde voy a llamar a mi id al
-                    // que quiero darle el click en este caso el ingreso con facebook
                     let buttonFacebook = document.querySelector('#loginFacebook');
                     buttonFacebook.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -64,7 +60,6 @@ function out() {
         })
         .catch(function(error) {
             console.log(error);
-
         });
 };
 

@@ -1,7 +1,6 @@
 function viewRegister() {
     return new Promise(function(resolve, rejected) {
         let registerView = `
-        <!-- ************ PAGINA 2 REGISTRO ********** -->
     <div id="containerTwo">
         <main>
             <div class="loginRequired">

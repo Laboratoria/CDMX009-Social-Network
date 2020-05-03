@@ -1,3 +1,4 @@
+//Registry
 import { clickMenus } from './clickmenus.js';
 import { viewForum } from '../view/fuorum.js';
 import { publicPost } from './publicpoust.js';
@@ -9,8 +10,6 @@ function register() {
     let registerPassLogin2 = document.getElementById('registerLoginPass2').value;
     let registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
     let movilIcon = document.getElementById('movilIcon');  
-
-    console.log(registerNameLogin2);
     
     if (registerPassLogin2 != registerConfirmPassLogin2) {
         alert('Las contraseñas deben coincidir');
@@ -25,7 +24,6 @@ function register() {
                 movilIcon.classList.add('shown');
             })
             .catch(function(error) {
-                // Handle Errors here.
                 let errorCode = error.code;
                 let errorMessage = error.message;
                 if (errorCode == 'auth/weak-password') {

@@ -1,12 +1,12 @@
 function viewForum(user) {
-    console.log(user);    
+    //console.log(user);    
 
-    let EmailCortado = 'No hay email';
+    let emailCortado = 'No email';
 
     if (typeof user != 'undefined') {
         let email = user.email;
         let divisiones = email.split("@");
-        EmailCortado = divisiones[0];
+        emailCortado = divisiones[0];
     }
 
     let image = "images/profile-picture-green.jpg";
@@ -14,7 +14,7 @@ function viewForum(user) {
         image = user.photoURL;
     }
     return new Promise(function(resolve, rejected) {
-        let forumView = ` <!-- ***********PAGINA 3********* -->
+        let forumView = `
     <div id="containerThree">
         <section class="profileInformation">
             <div>
@@ -24,7 +24,7 @@ function viewForum(user) {
 
                 <div class="personalInformationPerfilUser">
                     <div class="namePerfilUser" id="userproperty"><strong class="black-text perfilName little">
-                    ${EmailCortado}
+                    ${emailCortado}
                     <i class="material-icons center editProfileIcon">edit</i></strong></div>
                     <div class="professionDescription">Profesión</div>
                 </div>
