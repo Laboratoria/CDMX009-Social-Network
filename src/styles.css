@@ -172,3 +172,49 @@ textarea {
     border-radius: 16px 16px 16px 16px;
     border: 3px solid #EBE134;
 }
+.modifyForm {
+    display: none;
+}
+
+.flex{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal{
+    display: none;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.452);
+}
+
+.contenido-modal{
+    position: relative;
+    background-color: #ffffff;
+    margin: auto;
+    width: 90%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+@keyframes modal{
+    from{top:-330px; opacity:0;}
+    to{top:0; opacity:1;}
+}
+.close{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.modal-header {
+    width: 95%;
+    height: 2rem;
+    padding: 0.5rem;
+    background: #EBE134;
+}
+.modal-body{
+    padding: 20px 16px;
+}

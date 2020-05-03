@@ -1,5 +1,5 @@
 import loginFunctions from '../firebase/login.js';
-import { userAccess, createNewPost } from '../firebase/showData.js';
+import { userAccess } from '../firebase/showData.js';
 
 export default () => {
   const createPostView = document.createElement('div');
@@ -25,15 +25,11 @@ export default () => {
     </form>
     </section>`;
   const logOutBtn = createPostView.querySelector('#logOutBtn');
-  const newPostContent = createPostView.querySelector('#newTextPost');
+  // const newPostContent = createPostView.querySelector('#newTextPost');
   const userPhoto = createPostView.querySelector('#userPhoto');
   const userName = createPostView.querySelector('#username');
   userAccess(userName, userPhoto);
-  const submitNewPost = createPostView.querySelector('#submitNewPost');
-  submitNewPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    createNewPost(newPostContent.value);
-  });
+
   logOutBtn.addEventListener('click', loginFunctions.sesionLogOut);
   return createPostView;
 };
