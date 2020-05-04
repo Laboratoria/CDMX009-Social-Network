@@ -1,13 +1,20 @@
-html{
-    height: 100vh;
-    background-color:#232323;
+
+
+#root{
+    height: 100vh; 
 }
 
-/* #root{
-    height: 100vh;
-    background-color:#232323;
-    
-}   */
+/* *{
+   margin:0;
+   padding:0;
+   box-sizing: border-box; 
+   font-family: 'Poppins', sans-serif;
+   font-size: medium;
+} */
+
+
+
+
 body{
     /*background-color:#131515;*/
     background-size: cover;
@@ -17,12 +24,7 @@ body{
     height: 100vh; 
    
 }
-
 .form-container{
-    /* margin: 50px;
-    padding: 80px,80px,50px,80px;
-    justify-content: center;
-    color:#FAFAFA;  */
     background-color:#232323;
     margin-top: 0px;
     padding-top: 80px;
@@ -69,7 +71,7 @@ a{
     padding: 20px;
     justify-content:left;
     margin-left: 30px;
-    margin-top: 0px;
+    margin-top: 30px;
 }
 .rudyIcon{
     justify-content: center;
@@ -190,24 +192,35 @@ margin: 20px;
         margin-top: 0px;
     }
     
- }
- @media (min-width:1025px) {
-    .form-container{
-        background-color:#232323;
+
+ #welcome-title{
+    margin-bottom: 0px;
     margin-top: 0px;
-    padding-top: 250px;
-    padding-left: 550px;
-    padding-right: 550px;
-    padding-bottom: 100px;
-    justify-content: center;
-    color:#FAFAFA; 
-    }   
-    .back{
-        padding: 20px;
-        margin-left: 550px; 
-        margin-top: 0px;
-    }
-    
+    color: darkviolet;
+}
+ 
+ #instructions{
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+
+ /* #editProfile{
+     position: absolute;
+ } */
+ .info-profile{
+     padding-bottom: 0px;
+     margin-bottom: -60px;
+ }
+
+ .slider{
+     width: 100%;
+     overflow: hidden;
+     position: relative;
+     
+ }
+ 
+ .welcome-info{
+     width: 80%;
  }
 
  .icons{
@@ -257,25 +270,17 @@ margin: 20px;
  
  .welcome-info{
      width: 80%;
-    
      background-color: rgba(255, 255, 255, 0.24);
      position: absolute;
      bottom: 45px;
      right: 75px;
  } 
 
-/*  #thisPhoto{
+
+ #thisPhoto{
     border-radius: 50%;
- } */
- 
- /* .cover{
-     display: flex;
-     height: 800px;
-     background-image: url(/img/slider1.png);
-     background-repeat: no-repeat;
-     background-position: center;
-     background-size: 100%;
- }  */
+ }
+
 
  /* Para el slide */
  .slider{
@@ -318,7 +323,6 @@ margin: 20px;
  }
 
  
-
  #goLogin{
      margin-bottom: 20px;
  }

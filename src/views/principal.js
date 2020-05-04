@@ -1,10 +1,7 @@
 import { navBar } from "../main.js";
+
 export default () => {
-    /* const principal = `
-        <button class = "button is-rounded container-separate is-primary" id="goLogin">Iniciar</button>
-    `
-    navBar.style.display = 'block'
-    return principal */
+
     const principal = `
     
     <div class="slider">
@@ -13,6 +10,7 @@ export default () => {
          <li><img src="/img/slider2.png" alt=""></li>
          <li><img src="/img/slider3.png" alt=""></li>
     </ul>
+
     </div>
         <div class="welcome cover">
             <div class="welcome-info">
@@ -28,6 +26,8 @@ export default () => {
         </div>
     `
 
-    navBar.style.display = 'block'
+
+     navBar.style.display = 'none'
+
     return principal
 }
