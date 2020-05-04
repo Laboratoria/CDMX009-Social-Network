@@ -124,10 +124,13 @@ function showPostUser(){
           <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">${doc.data().user}</p>
           </div>
           <div class="btnIcon">
-          <button type="submit" class="editBtn" ${doc.id}, ${doc.data().post} ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="editBtn" data-doc="${doc.id}" ><img data-doc="${doc.id}" src="img/edit.svg" /></button> 
           <button type="submit" class="deleteBtn" data-id="${doc.id}"><img data-id="${doc.id}" src="img/delete.svg" /></button> 
           </div>
-          <p class="PostPrint">${doc.data().post}</p>
+          <div class="sectionPost">
+          <p contenteditable=true class="PostPrint">${doc.data().post}</p>
+          </div>
+          <textarea id = "editTextPost${doc.id}" style="display:none"></textarea>
           <textarea class="answer" id="answer"> </textarea>
           <div class="sectionLikes">
           <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
@@ -142,18 +145,19 @@ function showPostUser(){
         const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
         buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
 
-        /*const buttonsEditPost = document.querySelectorAll('.editBtn')
-        buttonEditPost.forEach(btn=>btn.addEventListener('click', editPost))*/
+        const buttonsEditPost = document.querySelectorAll('.editBtn')
+        buttonsEditPost.forEach(btnEdit=>btnEdit.addEventListener('click', editPost))
+
       });
 });
 }
 
-// Borrar posts
- function deletePost (e) {
+// Delete posts
+  function deletePost (e) {
    let id = e.target.getAttribute('data-id')
    console.log(e.target)
    console.log(id)
-  if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
+   if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
 
   db.collection("post")
       .doc(id)
@@ -168,22 +172,28 @@ function showPostUser(){
       });
   }
 
-// Editar posts
-/*
-function editPost(e, post) {
-  let id = e.target.getAttribute('data-id')
+// Edit posts
+ function editPost (e, post) {
+  console.log(e, post)
+  let newPost = e.target.getAttribute("data-doc")
+  console.log(newPost)
   
-  document.getElementById("post").value = post;
+   return db.collection("newPost")
+    .doc("data-doc")
+    .update("data-id")
+    .then(function()
+     {
+      console.log("Document successfully updated!");
+      editBtn.innerHTML = 'Guardar';
+      editBtn.addEventListener('click', savePost);
+      showPostUser()
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
+};
 
-  let editButton = document.getElementById("btnAnswer");
-  editButton.innerHTML = 'Guardar';
 
 
-  editButton.onclick = function() {
-    let washingtonRef = db.collection('Post').doc(id);
 
-    var newPost = document.getElementById('post').value;
-    newPost.innerHTML = '';
-  };
-}*/
-export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost, /*updatePost*/};
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost, editPost};
