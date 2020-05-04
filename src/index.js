@@ -1,5 +1,5 @@
 import { checkIn, logInFacebook, logInGoogle, home } from './firebase.js';
-
+export{ init }
 const logInButton = document.querySelector('#logIn');
 
 const creatAccountButton = document.querySelector('#creatAccount');

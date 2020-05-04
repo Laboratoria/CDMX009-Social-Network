@@ -1,5 +1,5 @@
 export { checkIn, logInFacebook, logInGoogle, home };
-
+import{ init } from './index.js';
 const provider = new firebase.auth.GoogleAuthProvider();//proveedor del servicio
 
 const logInGoogleButton = document.querySelector('#logInGoogle');
@@ -99,17 +99,26 @@ function home (){
     <section>
       <p id="post" > Aqui se debe publicar</p>
       <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
-      <input type="submit" class="btnPost" id="" value="Publicar">
+      <input type="submit" class="btnPost shadow btn btn-warning btn-default pl-5 pr-5 id="" value="Publicar">
       <button id="like"><i class="fab fa-gratipay"></i></button>
     </section>
+
+    <button id="close">Cerrar sesión</button>
+
+  
      `
      
   root.innerHTML = loginView
+
+let closeButton = document.querySelector('#close');
+
+  
+  closeButton.onclick = e=> close()
 }
 
   
 
-  //Verificando usuarios logeados
+  /*Verificando usuarios logeados
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -120,25 +129,28 @@ function home (){
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      document.getElementById('logIn').innerHTML=
-      `<p>Bienvenido `+user.email+`</p>
-      <button onclick="close()">Cerrar sesión</button>
-      `;
+      //document.getElementById('home').innerHTML=
+      //`<p>Bienvenido `+user.email+`</p>
+      //<button onclick="close()">Cerrar sesión</button>
+     // `;
     } else {
       // User is signed out.
-      document.getElementById('logIn').innerHTML="Signed out";
+      document.getElementById('home').innerHTML="Signed out";
     }
-  });
+  });*/
 
   //Cerrando sesión
   function close(){
     firebase.auth().signOut()
-    .then(() => {
+    /*.then(() => {
       console.log('Out');
     })
     .catch((error) => {
       console.log(error);
-    })
+    })*/
+    console.log("cerrado");
+    init()
+    
   };
  
   
