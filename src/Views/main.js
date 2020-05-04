@@ -13,7 +13,7 @@ export default () => {
             </form> 
             <div class="conectWithSocialMedia">
                 <h4> O </h4>
-                <img src="images/facebook4.png" id="facebookLogin" class="buttons">
+                <img src="images/facebook4.png" id="facebookLogin" class="buttons"> </br>
                 <img src="images/google4.png" id="googleLogin" class="buttons">
                 <p>¿No tienes cuenta? <a href="#/register">Registrate</a></p>
             </div>  `;
