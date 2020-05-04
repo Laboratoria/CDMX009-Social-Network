@@ -1,6 +1,6 @@
-const welcomeview= document.querySelector('#background1')
+const welcomeview = document.querySelector('#background1');
 export default () => {
-  welcomeview.innerHTML= '';
+  welcomeview.innerHTML = '';
   const viewHome = `
   <div id=backgroundHome>
     <div id= 'gridHome'> 
@@ -40,11 +40,9 @@ export default () => {
 
   // initializing firestore
   const db = firebase.firestore();
-  const postsRef = db.collection('posts').orderBy("date", "desc");
+  const postsRef = db.collection('posts').orderBy('date', 'desc');
   const auth = firebase.auth();
   
-  // const userId = user.doc.data().id;
-
   // calling the docs and adding to the html
   postsRef.onSnapshot((snap) => {
     const p = document.querySelector('#posts');
@@ -82,22 +80,23 @@ export default () => {
        const increment = firebase.firestore.FieldValue.increment(1);
        likesRef.update({
          counter: increment, 
-       })
+       });
      })); 
 
 //  comments
 const forms = document.querySelectorAll('.formComment');
-forms.forEach(node=> node.addEventListener ('submit', e => {
+forms.forEach(node => node.addEventListener ('submit', e => {
   e.preventDefault();
   const id = e.target.id; 
-  const text = e.target.children[0].value
+  const text = e.target.children[0].value;
   db.collection('posts').doc(id).update({
     comments: text, 
-  }).then(() => console.log('nice'))
-}))
+  })
+  .then(() => console.log('nice'));
+} ));
 
-  });
-      
+});
+   
   //  logout
   const logout = divElement.querySelector('#logoutBtn1');
   logout.addEventListener('click', (e) => {

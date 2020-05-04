@@ -66,7 +66,7 @@ export default () => {
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
     const promise = auth.signInWithPopup(provider);
-    promise.then(() => { window.location.hash = '#/home' });
+    promise.then(() => { window.location.hash = '#/home'; });
     promise.catch(err => (err));
   });
   return divElement; 

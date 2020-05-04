@@ -91,7 +91,7 @@ export default () => {
         url = link;
       });
   });
-  //  sending the info to firestore 
+  //  sending the info to firestore
   shareImg.addEventListener('click', () => {
     const descr = registerDescription.value;
     const loc = registerLocation.value;

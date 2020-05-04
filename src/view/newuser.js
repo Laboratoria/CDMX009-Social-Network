@@ -67,9 +67,9 @@ export default () => {
     e.preventDefault();
     const email = emailText.value;
     const pass = passwordText.value;
-    const username = usernameText.value; 
+    const username = usernameText.value;
     auth.createUserWithEmailAndPassword(email, pass).then((snap) => {
-     snap.user.updateProfile({
+        snap.user.updateProfile({
         displayName: username,
         photoURL: url,
       });
@@ -81,20 +81,17 @@ export default () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     const promise = auth.signInWithPopup(provider);
     promise.then(() => window.location.hash = '#/home');
-    promise.catch(err => {
-      return (err);
-    });
+    promise.catch((err) => { return (err); });
   });
 
   //  google sign up
   gBtn.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const promise = auth.signInWithPopup(provider);
-    promise.then(() => {window.location.hash = '#/home'} );
-    promise.catch(err => {
-      return (err);
-    });
+    promise.then(() => { window.location.hash = '#/home' } );
+    promise.catch((err) => { return (err); } );
   });
-  
+
   return divElement;
-}
+
+};

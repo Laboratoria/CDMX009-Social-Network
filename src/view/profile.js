@@ -76,7 +76,6 @@ export default () => {
 
     userPosts.appendChild(div);
 
-    console.log(div);
     // delete the data
     cross.addEventListener('click', (e) => {
       const id = e.target.parentElement.getAttribute('data-id');
