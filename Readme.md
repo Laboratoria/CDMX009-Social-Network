@@ -8,9 +8,9 @@ A través de ella se puede crear y compartir reseñas de actividades, lugares y 
 
 Se aterrizó indivualmente la idea de las pantallas para identificar elementos esenciales para reunir en el prototipo de alta fidelidad.
 
-![Propuesta 1](img_readme/sketch_Kari.jpg:width:300)
-![Propuesta 2](img_readme/sketch_Xel.jpg:width:300)
-![Propuesta 3](img_readme/sketch_Bren.jpg:width:300)
+<img src="img_readme/sketch_Kari.jpg" width="400"/> 
+<img src="img_readme/sketch_Xel.jpg" width="400"/>
+<img src="img_readme/sketch_Bren.jpg" width="400"/> 
 
 ## Prototipo de alta fidelidad
 
