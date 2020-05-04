@@ -109,30 +109,6 @@ const renderSignIn = () => {
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>
     `;
-<<<<<<< HEAD
-  root.innerHTML = `${logo}${signInForm}`;
-  errMsg = document.querySelector('#errMsg');
-  document.querySelector('#signUpLink').addEventListener('click', () => {
-    renderSignUp();
-  });
-  document.querySelector('#logIn').addEventListener('click', () => {
-    database.signIn();
-    window.setTimeout(errorHandler, 400);
-  });
-  document.querySelector('#facebookSignIn').addEventListener('click', () => {
-    database.signInFacebook();
-  });
-  document.querySelector('#googleSignIn').addEventListener('click', () => {
-    database.signInGoogle();
-  });
-};
-function renderSignUp () {
-    //const root = document.querySelector('#root');
-  root.classList.add('section');
-  body.classList.remove('has-navbar-fixed-top');
-  body.classList.remove('has-navbar-fixed-bottom');
-  const signUpForm = `
-=======
     root.innerHTML = `${logo}${signInForm}`;
     errMsg = document.querySelector('#errMsg');
     document.querySelector('#signUpLink').addEventListener('click', () => {
@@ -156,7 +132,6 @@ const renderSignUp = () => {
     body.classList.remove('has-navbar-fixed-top');
     body.classList.remove('has-navbar-fixed-bottom');
     const signUpForm = `
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
         <div class="has-text-centered has-text-white title is-4 ">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -217,25 +192,6 @@ const renderSignUp = () => {
             </a>
         </div>
         `;
-<<<<<<< HEAD
-  root.innerHTML = `${logo}${signUpForm}`;
-  errMsg = document.querySelector('#errMsg');
-  const regEmail = document.getElementById('regEmail').value;
-  const regPassword = document.getElementById('regPassword').value;
-  document.querySelector('#register').addEventListener('click', () => {
-    database.signUp(regEmail, regPassword);
-    window.setTimeout(errorHandler, 400);
-  });
-  document.querySelector('#facebookSignIn').addEventListener('click', () => {
-    database.signInFacebook();
-  });
-  document.querySelector('#googleSignIn').addEventListener('click', () => {
-    database.signInGoogle();
-  });
-  document.querySelector('#signInLink').addEventListener('click', () => {
-    renderSignIn();
-  });
-=======
     root.innerHTML = `${logo}${signUpForm}`;
     errMsg = document.querySelector('#errMsg');
     document.querySelector('#register').addEventListener('click', () => {
@@ -255,7 +211,6 @@ const renderSignUp = () => {
     document.querySelector('#signInLink').addEventListener('click', () => {
         renderSignIn();
     });
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
 };
 renderSignUp();
 const BottomBarForm = `

@@ -3,29 +3,17 @@ let authError;
 let feedData;
 
 const database = {
-<<<<<<< HEAD
-  signUp: (regEmail, regPassword, firebasePipo=null) => {
-    (firebasePipo? firebasePipo: firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
-=======
   signUp: (regEmail, regPassword, firebasePipo = null) => {
     console.log(regEmail);
     console.log(regPassword);
     (firebasePipo ? firebasePipo : firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
       .catch((error) => {
         authError = error;
         return authError;
       });
   },
-<<<<<<< HEAD
-  signIn: () => {
-    const logEmail = document.getElementById('logEmail').value;
-    const logPassword = document.getElementById('logPassword').value;
-    firebase.auth().signInWithEmailAndPassword(logEmail, logPassword)
-=======
   signIn: (logEmail, logPassword, firebasePipo = null) => {
     (firebasePipo ? firebasePipo : firebase).auth().signInWithEmailAndPassword(logEmail, logPassword)
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
       .catch((error) => {
         authError = error;
         return authError;
@@ -56,56 +44,6 @@ const database = {
       throw error('¡Error!');
     });
   },
-<<<<<<< HEAD
-  getPostFeed: async () => { 
-    imageRefPost.on('value', async (snapshot) => {
-      const data = snapshot.val();
-      let result = '';
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          const timeStamp = data[key].postTime;
-          const normalDate = new Date(timeStamp);
-          const dateFormat = normalDate.toLocaleString();
-          const userId = data[key].uid;
-          let userName = 'default';
-          let photoUser = '';
-          const usersRef = firebase.database().ref('users');
-          await usersRef.child(userId).once('value', async (snapshots) => {
-            userName = snapshots.val();
-            const imageUser = firebase.database().ref('image');
-            await imageUser.child(userId).once('value', (snap) => {
-              photoUser = snap.val();
-            });
-            result += `
-              <div class="userInfo media">
-                <div class="image is-48x48">
-                  <img src=${photoUser.url} class="is-rounded"/>
-                </div>
-                <div class="media-content">
-                  <p>${'@'}${userName.userName}</p>
-                </div>
-              </div>
-              <div class="file is-centered">
-                <img src='${data[key].url}'/>
-              </div>
-              <div>
-                <img id="like" width="5%" height="5%" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
-                <img id="dislike" width="5%" height="5%" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
-                <img id="commentPost" width="5%" height="5%" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
-                <p>${data[key].comment}</p>
-                <p>${dateFormat}</p>
-              </div>
-              </br>
-            `;
-            document.getElementById('postFeed').innerHTML = result;
-          });
-        }
-      }
-    })
-  }, 
-  userObserver: (renderFeed) => { 
-    firebase.auth().onAuthStateChanged((user) => { 
-=======
   getFeedData: async (renderFunction) => {
     const imageRefPost = firebase.database().ref().child('post-image');
     imageRefPost.on('value', async (snapshot) => {
@@ -133,7 +71,6 @@ const database = {
   },
   userObserver: (home) => {
     firebase.auth().onAuthStateChanged(async (user) => {
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
       if (user) {
         console.log('existe usuario activo');
         renderFeed();
@@ -236,10 +173,7 @@ const database = {
     };
     firebase.database().ref('post-image')
       .push(userImgePost);
-<<<<<<< HEAD
-=======
     // console.log(userImgePost.key)
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
     db.collection('post-image').add({
       name: nameImage,
       url,
@@ -264,8 +198,6 @@ const database = {
       biography,
     });
   },
-<<<<<<< HEAD
-=======
   deletePost: (key) => {
     let postDelet = firebase.database().ref('post-image/'+ key)
     postDelet.remove();
@@ -277,7 +209,6 @@ const database = {
     //   console.error("Error removing document: ", error);
     // });
   },
->>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
   logout: () => {
     firebase.auth().signOut().then(() => {
       console.log('Saliendo...');
