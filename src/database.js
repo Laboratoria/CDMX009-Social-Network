@@ -20,7 +20,7 @@ const database = {
       });
   },
   errorInfo: () => {
-    const errorMsg = authError;
+    const errorMsg =  authError;
     return errorMsg;
   },
   signInGoogle: () => {    

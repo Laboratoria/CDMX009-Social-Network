@@ -20,6 +20,9 @@
     text-align: right;
 }
 
+.navItems {
+    padding: 10px;
+}
 #mLogo {
     vertical-align: top;
 }
