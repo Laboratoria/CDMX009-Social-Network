@@ -4,7 +4,7 @@ export default () => {
   const loginView = document.createElement('div');
   loginView.setAttribute('class', 'viewsStyle');
   loginView.innerHTML = `
-            <h3>Inicia Sesión con tu email</h3>
+            <center><h3>Inicia Sesión con tu email</h3></center>
             <form class="registerForm">
                 <input type="email" required id="loginEmail" placeholder= "Correo electrónico">
                 <input type="password" required id="loginPassword" minlength="6" placeholder="Contraseña">
@@ -13,8 +13,8 @@ export default () => {
             </form> 
             <div class="conectWithSocialMedia">
                 <h4>o ingresa con tu cuenta de:</h4>
-                <img src="images/facebook.png" id="facebookLogin" class="buttons">
-                <img src="images/Google.png" id="googleLogin" class="buttons">
+                <img src="images/facebook4.png" id="facebookLogin" class="buttons"></br>
+                <img src="images/Google4.png" id="googleLogin" class="buttons">
                 <p>¿No tienes cuenta? <a href="#/register">Registrate</a></p>
             </div>  `;
 
