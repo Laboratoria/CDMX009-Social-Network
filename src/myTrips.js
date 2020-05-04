@@ -29,14 +29,20 @@ export const readerMyTrips = () => {
        let mypost = document.querySelector('#list-post')
            mypost.innerHTML = ''
            snapshot.forEach(doc => {
-           let div = `
+            let dateuser = doc.data().date; 
+            let date = new Date(dateuser*1000);
+            let mes = date.getMonth()+1; //getMonth devuelve el mes empezando por 0
+            let dia = date.getDate(); //getDate devuelve el dia del mes
+            let anyo = date.getYear() - 69;
+            let datefinal = dia + '-' + mes + '-' + anyo; 
+            let div = `
            <div class="list-content">
            <div class="infoUser-post">
            <div> 
-              <img class='user-photo' src='images/defaultUser.png'> 
-              <p>Name LastName</p>
+              <img class='user-photo' src='${doc.data().photoUser}'>
+              <p>${doc.data().userName}</p>
             </div>
-              <p>Fecha</p>
+              <p>${datefinal}</p>
             
             </div>
            <p>${doc.data().text}</p>

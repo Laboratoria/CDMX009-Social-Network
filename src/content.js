@@ -97,7 +97,7 @@ export const renderContent = () => {
                 console.log("Create post"); 
                 let userName = `${doc.data().name}`;
                 renderPost(userName, uiduser);
-                newPost(userName, uiduser); 
+                newPost(userName, uiduser, doc.data().photo); 
                 
               });
          let menu = document.querySelector("#menu");

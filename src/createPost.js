@@ -56,7 +56,9 @@ const sendPost = (post) => {
     "privacy": post.privacy,
     "likes": likes,
     "date" : post.date,
-    "uid": post.uid
+    "uid": post.uid, 
+    "userName": post.userName,
+    "photoUser": post.photoUser
   })
   .then((data) => {
     console.log("Post guardado: " + data);
@@ -69,7 +71,7 @@ const sendPost = (post) => {
   });
 }
 
-export const newPost = (userName, uid) =>{  
+export const newPost = (userName, uid, photoUser) =>{  
   
   let modal = document.getElementById("myModal");
   let span = document.getElementsByClassName("close")[0];
@@ -204,7 +206,7 @@ export const newPost = (userName, uid) =>{
       .then(link => {
           imageUrl = link;
           console.log(imageUrl);
-          let post = new Post(text, imageUrl, token, status, date, uid);
+          let post = new Post(text, imageUrl, token, status, date, uid, userName, photoUser);
           sendPost(post);
       })
       .catch((error)=> {
@@ -213,7 +215,7 @@ export const newPost = (userName, uid) =>{
     }else{
       let token = "";
       console.log("No hay img");
-      let post = new Post(text, imageUrl, token, status, date, uid);
+      let post = new Post(text, imageUrl, token, status, date, uid, userName, photoUser);
       console.log(imageUrl);
       sendPost(post);
     }
