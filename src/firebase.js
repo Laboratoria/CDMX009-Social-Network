@@ -87,12 +87,12 @@ export const render = () => {
               <h4>${doc.data().displayName}</h4>
             </div>
             <div class="header-post">
-              <h4 id="titlePost">${doc.data().title}</h4>
+              <h5 id="titlePost">${doc.data().title}</h5>
               <span class="edit-delete-icons">
-                <i class="fas fa-pencil-alt js-edit" id="${doc.id}" data-title="${doc.data().title}"
+                <i class="fas fa-pencil-alt js-edit hover-yellow" id="${doc.id}" data-title="${doc.data().title}"
                   data-activity="${doc.data().activity}" data-location="${doc.data().location}"
                   data-description="${doc.data().description}"></i>
-                <i class="far fa-trash-alt js-delete" id="${doc.id}"></i>
+                <i class="far fa-trash-alt js-delete hover-yellow" id="${doc.id}"></i>
               </span>
             </div>
             <div class="subtitle-post">
@@ -111,7 +111,7 @@ export const render = () => {
             </div>
             <div class="">
               <input type="text" class="form-control newPostComment"  placeholder="Escribe un comentario">
-              <button class="addComment">Comentar</button>
+              <button class="addComment submit-button-comments hover-yellow-bg">Comentar</button>
             </div>
           </div>
         </div>

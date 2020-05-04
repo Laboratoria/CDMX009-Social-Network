@@ -1,7 +1,7 @@
 export default () => {
   const viewProfile = `
     <section>
-    <div class="user-img">
+    <div class="user-img" style="margin-top:80px">
       <img src="${localStorage.getItem('URLStorage')}" alt = 'member'/>  
     </div>
     <div>
@@ -22,7 +22,7 @@ export default () => {
       <div>
         <div class="categorie-btn-">
           <a class="nav-link" href="#/favorites">
-            <span class="menu-icons">
+            <span class="profile-icons">
               <i class="far fa-heart"></i>
             </span>
           </a>  
@@ -31,7 +31,7 @@ export default () => {
       <div>
         <div class="categorie-btn-">
           <a class="nav-link" href="#/reviews">
-            <span class="menu-icons">
+            <span class="profile-icons">
               <i class="far fa-sticky-note"></i>
             </span>
           </a>
@@ -40,7 +40,7 @@ export default () => {
       <div>
         <div class="categorie-btn-">
           <a class="nav-link" href="#/saved">
-            <span class="menu-icons">
+            <span class="profile-icons">
               <i class="far fa-bookmark"></i>
             </span>
           </a>
@@ -50,9 +50,12 @@ export default () => {
   </section>
   `;
 
-  // Hide header
+  // Hide header elements
   const dashHeader = document.querySelector('#dashboardHeader');
   dashHeader.classList.add('hide');
+  const cardUser = document.querySelector('.card-user-desk');
+  cardUser.classList.add('hide');
+
 
   const divElemt = document.createElement('div');
   divElemt.classList.add('position');

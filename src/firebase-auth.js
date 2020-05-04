@@ -34,8 +34,12 @@ function observatorFirebase() {
     if (user) {
       const menuPic = document.querySelector('#user-photoURL');
       const menuName = document.querySelector('#user-displayName');
+      const deskPic = document.querySelector('#userdesk-photoURL');
+      const deskName = document.querySelector('#userdesk-displayName');
       menuName.innerHTML = user.displayName;
       menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+      deskName.innerHTML = user.displayName;
+      deskPic.innerHTML = `<img src="${user.photoURL}"/>`;
       displayName = user.displayName;
       photoURL = user.photoURL;
       localStorage.setItem('nameStorage', displayName);
@@ -44,6 +48,7 @@ function observatorFirebase() {
       menu.classList.remove('hide');
       console.log('estas activo dude :)', user);
     } else {
+      window.open('#/login', '_self')
       console.log('no estas activo chavo :(');
     }
   });

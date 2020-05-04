@@ -74,6 +74,8 @@ export default () => {
   // Hide header elements
   const dashHeader = document.querySelector('#dashboardHeader');
   const menuH = document.querySelector('#menuH');
+  const postHide = document.querySelector('#contentCreated');
+  postHide.classList.add('hide');
   dashHeader.classList.add('hide');
   menuH.classList.add('hide');
 
