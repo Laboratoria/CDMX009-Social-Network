@@ -75,8 +75,6 @@ function readFile(fileInput, sectionPosts) {
   function textImage() {
     const text = document.querySelector('#body').value
     const title = document.querySelector("#title").value
-    const text = document.querySelector('#body').value
-    const title = document.querySelector("#title").value
     firebase.auth().onAuthStateChanged(function (user) {
       //console.log(user);
       const docRef = db.collection('datausers/').doc(user.uid);

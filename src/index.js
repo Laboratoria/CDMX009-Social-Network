@@ -6,13 +6,6 @@ import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
 import { userObserverProfile } from "./views/profile.js"
 
-// export const components = {
-//     home: showPosts,
-//     post: renderPostView,
-//     profile: renderProfileView,
-// };
-
-
 //Instanciar Firestore
 const db = firebase.firestore();
 
@@ -31,8 +24,10 @@ export function loginGoogle(errorGooFbkModal) {
             .then(function (result) {//lo que se hace cuando el usuario ya inicio sension y ya dio permisos, nos dio su info
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 saveDataG(result.user)//Se le manda a la func guardDatos para hacer uns BD
-                //div.innerHTML = `<img src="${result.user.photoURL}"/>`
-                showPosts()
+                renderPostView();
+                //userObserverProfile()
+
+
             })
             .catch(function (error) {
                 errorGooFbkModal.classList.add('is-active');
@@ -44,19 +39,33 @@ export function loginGoogle(errorGooFbkModal) {
 //Guardar datos gmail en BD
 function saveDataG(user) {
     //console.log(user);
-    const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docRef.set({
-        uid: user.uid,//Servirá para eliminar
-        name: user.displayName,//Se obtiene el nom
-        email: user.email,
-        photo: user.photoURL
+    const docRef = db.collection('datausers/').doc(user.uid)
+    docRef.get().then(userBD => {
+        if (userBD.exists === true) {
+            console.log(userBD);
+            console.log('ya existe');
+
+        } else {
+            console.log('no existe');
+            console.log(userBD);
+            docRef.set({
+                uid: user.uid,//Servirá para eliminar
+                name: user.displayName,//Se obtiene el nom
+                email: user.email,
+                photo: user.photoURL,
+                //interests: 'uhuggy'
+            })
+                .then(function () {
+                    console.log('Los datos se guardaron');
+                })
+                .catch(function (error) {
+                    console.log('Hubo en error:', error);
+                })
+
+        }
     })
-        .then(function () {
-            console.log('Los datos se guardaron');
-        })
-        .catch(function (error) {
-            console.log('Hubo en error:', error);
-        })
+    /*     const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario */
+
     updateData(docRef)
 }
 
@@ -81,7 +90,9 @@ export function loginFacebook(errorGooFbkModal) {
                 console.log(result.user);//trae info de usuario(correo, nombre, foto, etc)
                 console.log(result.credential);
                 saveDataF(result.user)//Se le manda a la func guardDatos para hacer una BD
-                userObserverProfile()
+                //userObserverProfile()
+                renderPostView();
+
                 //div.innerHTML = `<img src="${result.user.photoURL}"/>`
 
             })
@@ -95,19 +106,31 @@ export function loginFacebook(errorGooFbkModal) {
 //Guardar datos Fb en BD
 function saveDataF(user) {
     //console.log(user);
-    const docRef = db.collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docRef.set({
-        uid: user.uid,
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL
+    const docRef = db.collection('datausers/').doc(user.uid)
+    docRef.get().then(userBD => {
+        if (userBD.exists === true) {
+            console.log(userBD);
+            console.log('ya existe');
+
+        } else {
+            console.log('no existe');
+            console.log(userBD);
+            docRef.set({
+                uid: user.uid,//Servirá para eliminar
+                name: user.displayName,//Se obtiene el nom
+                email: user.email,
+                photo: user.photoURL,
+                interests: 'Interes'
+            })
+                .then(function () {
+                    console.log('Los datos se guardaron');
+                })
+                .catch(function (error) {
+                    console.log('Hubo en error:', error);
+                })
+
+        }
     })
-        .then(function () {
-            console.log('Los datos se guardaron');
-        })
-        .catch(function (error) {
-            console.log('Hubo en error:', error);
-        })
     updateDataFb(docRef)
 }
 
@@ -136,8 +159,7 @@ export function createUser(newName, newEmail, newPassword, registryModal, alread
                 console.log('Se ha creado la cuenta!');
                 console.log(user.user);
                 saveEmailBD(newName, newEmail, newPassword, user)
-
-
+                renderPostView();
             })
             .catch(function (error) {//Si la cuenta se ha creado se muestra el error
                 alreadyExistModal.classList.add('is-active');
@@ -156,6 +178,8 @@ function saveEmailBD(newName, newEmail, newPassword, user) {
         name: newName,
         email: newEmail,
         password: newPassword,
+        interests: 'Interés',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_nu03Fphc39lFDYvqsGjluX8keorjzG79akJclhK2fS2SwLKo&usqp=CAU',
         uid: user.user.uid
 
     })
@@ -176,6 +200,7 @@ export function loginUser(email, password, errorModal) {
         .then(function (user) {
             console.log('Datos correctos, bienvenido!')
             //console.log(user);
+            renderPostView()
         })
         .catch(function (error) {
             errorModal.classList.add('is-active');
@@ -190,44 +215,26 @@ export function signoutUser() {
     //e.preventDefault()
     firebase.auth().signOut();
     console.log('Adiós Bye');
-    const divRoot = document.querySelector('#root')
-    divRoot.innerHTML = ""
+    /* const divRoot = document.querySelector('#root')
+    divRoot.innerHTML = principal() */
+    principalView()
+
 }
 
 //Nos dice que usuario tiene sesión abierta y nos trae sus datos de la BD
 function userObserver() {
     firebase.auth().onAuthStateChanged(function (user) {
+        //console.log(user);
         if (user) {
             const docRef = db.collection('datausers/').doc(user.uid);
             docRef.get().then(function (snapshot) {
                 let myData = snapshot.data();
-                console.log(myData);
-
+                console.log(myData)
             })
         } else {
             // No user is signed in.
             console.log('No user');
         }
-
     });
-
 }
 userObserver()
-
-//Actualización de perfil
-/* function profileUpdate(user) {
-    //var user = firebase.auth().currentUser;
-
-    user.updateProfile({
-        displayName: "Lizeth",
-        photoURL: ""
-    }).then(function () {
-        console.log('los dtos se actualizaron');
-
-        // Update successful.
-    }).catch(function (error) {
-        // An error happened.
-        console.log(error);
-
-    });
-} */
