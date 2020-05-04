@@ -94,7 +94,8 @@ function home (){
   document.getElementById('logInNetwoork').style.display="none";
   document.getElementById('LogInNewUser').style.display="none";
 
-  let loginView = `
+
+    let loginView = `
     <section>
       <p id="post" > Aqui se debe publicar</p>
       <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
@@ -102,6 +103,42 @@ function home (){
       <button id="like"><i class="fab fa-gratipay"></i></button>
     </section>
      `
+     
   root.innerHTML = loginView
 }
 
+  
+
+  //Verificando usuarios logeados
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      document.getElementById('logIn').innerHTML=
+      `<p>Bienvenido `+user.email+`</p>
+      <button onclick="close()">Cerrar sesión</button>
+      `;
+    } else {
+      // User is signed out.
+      document.getElementById('logIn').innerHTML="Signed out";
+    }
+  });
+
+  //Cerrando sesión
+  function close(){
+    firebase.auth().signOut()
+    .then(() => {
+      console.log('Out');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  };
+ 
+  
