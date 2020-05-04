@@ -1,12 +1,12 @@
-import { root } from "../main.js";
+/* import { root } from "/main.js";
 import { viewLogin } from '/main.js'
 import { viewSign } from '/main.js'
-import { renderHomeView } from "./views/home.js"
+import { renderHomeView } from "./views/home.js" */
 import { renderPostView } from "./views/post.js"
 //import { renderProfileView } from "./views/profile.js"
 //import { renderLoginView } from "./views/login.js"
-import { renderExitView } from "./views/exit.js"
-import { userObserverProfile } from "./views/profile.js"
+/* import { renderExitView } from "./views/exit.js"
+import { userObserverProfile } from "./views/profile.js" */
 import { principalView } from "../main.js";
 
 /* export const components = {
@@ -240,15 +240,13 @@ function userObserver() {
             const docRef = db.collection('datausers/').doc(user.uid);
             docRef.get().then(function (snapshot) {
                 let myData = snapshot.data();
-                console.log(myData);
-
+                console.log(myData)
             })
         } else {
             // No user is signed in.
             console.log('No user');
         }
     });
-
 }
 userObserver()
 

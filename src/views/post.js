@@ -95,7 +95,8 @@ function readFile(fileInput, sectionPosts) {
           user: userData.name,
           photo: userData.photo,//photoURL
           date: new Date(),
-          img: url
+          img: url,
+          uid: userData.uid
         }
         addNewPost(post)
           .then(res => {
@@ -132,6 +133,7 @@ function readText() {
         user: userData.name,
         photo: userData.photo,//photoURL
         date: new Date(),
+        uid: userData.uid
       }
       addNewPost(post)
         .then(res => {
@@ -184,8 +186,9 @@ function showPosts(sectionPosts) {
       console.log(doc.data());
 
       if (doc.data().img === undefined && doc.data().photo != undefined) {
-        let renderPosts = `<div>
-        <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
+        let renderPosts = `<div class="postContent" dataid="${doc.id}">
+        <a href="#" class="editPost"> <i class="fas fa-pencil-alt"></i></a>
+        <img max- width="70" class="imgUserPost" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
       <p>${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <div class="contentLikes">
@@ -199,8 +202,9 @@ function showPosts(sectionPosts) {
         sectionPosts.appendChild(newNode)
 
       } if (doc.data().img != undefined && doc.data().photo != undefined) {
-        let renderPosts = `<div>
-        <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
+        let renderPosts = `<div class="postContent" dataid="${doc.id}">
+        <a href="#" class="editPost"> <i class="fas fa-pencil-alt"></i></a>
+        <img max- width="70" class="imgUserPost" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
       <p>Titulo:${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <img max- width="200" src="${doc.data().img}" />
@@ -237,7 +241,7 @@ function showPosts(sectionPosts) {
       let btnLike = document.querySelectorAll('.btnLike')
       //console.log(btnLike);
       let btnClick = btnLike[btnLike.length - 1]
-      //console.log(btnClick);
+      console.log(btnClick);
 
       btnClick.addEventListener('click', counter)
       //let resultLikes = document.querySelectorAll('.resultCounter')
@@ -275,6 +279,16 @@ function showPosts(sectionPosts) {
           }
         });
       }
+
+      //COMENTS
+      /* let btnComentPost = document.querySelectorAll('.comentPost')
+      let btnComent = btnComentPost[btnComentPost.length - 1]
+      console.log(btnComent); */
+      //EDITAR
+      /* let btnComentPost = document.querySelectorAll('.comentPost')
+      let btnComent = btnComentPost[btnComentPost.length - 1]
+      console.log(btnComent);
+ */
     })
   })
 
@@ -294,4 +308,5 @@ function saveLikes(countLikes, idPost, whoLike) {
 function clean(sectionPosts) {
   sectionPosts.innerHTML = '';
 }
+
 

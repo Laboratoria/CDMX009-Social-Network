@@ -10,14 +10,19 @@ html{
 }   */
 body{
     /*background-color:#131515;*/
-    height: 100vh;
-     background-color:#232323; 
+    background-size: cover;
+    background-color:#232323; 
      /* height: 600px; */
-     color:#FAFAFA; 
+    color: rgb(212, 144, 41);
+    height: 100vh; 
    
 }
 
 .form-container{
+    /* margin: 50px;
+    padding: 80px,80px,50px,80px;
+    justify-content: center;
+    color:#FAFAFA;  */
     background-color:#232323;
     margin-top: 0px;
     padding-top: 80px;
@@ -25,7 +30,7 @@ body{
     padding-right: 50px;
     padding-bottom: 50px;
     justify-content: center;
-    color:#FAFAFA; 
+    color:#FAFAFA;  
 }
 .titles{
     font-size: large;
@@ -34,6 +39,11 @@ body{
 .centerItem{
     margin: 10px, 50px,10px,50px;
     display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.centerIndepent{
+    margin: 10px, 50px,10px,50px;
     justify-content: center;
     text-align: center;
 }
@@ -107,10 +117,31 @@ a{
 .active{
     visibility: visible;
 }
+
+.fileInput{
+    border-radius: 20px;
+    background-color:#FAFAFA;
+    margin-top: 10px;
+    margin-left: 25px;
+
+}
+#interest{
+margin: 20px;
+    color: #FAFAFA;
+} 
+.textareaInterest{
+    border-style: solid;
+    border-color: aqua;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    text-align: center;
+   
+}
  .counter{
     margin: 5px;
     /* background-color: cadetblue; */
-    color:#A5DED3;
+    color:#232323;
 } 
 .contentLikes{
     display: flex;
@@ -119,7 +150,7 @@ a{
 .likes{
     margin: 5px;
     font-size: 18px;
-    color:#A5DED3; 
+    color:#232323; 
 }
 
 .colorLike{
@@ -129,6 +160,18 @@ a{
 .sectionPosts{
     height: 100%;
     background-color:#232323;
+}
+.postContent{
+    background-color: #FAFAFA;
+    border-radius: 20px;
+    color: #232323;
+    margin: 15px;
+}
+.imgUserPost{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    margin: 10px 5px 10px 10px;
 }
  @media (min-width:700px) and (max-width:1024px){
     .form-container{
@@ -165,4 +208,117 @@ a{
         margin-top: 0px;
     }
     
+ }
+
+ .icons{
+    cursor: pointer;
+}
+
+.photo-profile{
+    margin-bottom: 5px;
+}
+
+
+ #nameProfile{
+     margin-bottom: 0px;
+ }
+
+ #welcome-title{
+     margin-bottom: 0px;
+     margin-top: 10px;
+     color: darkviolet;
+ }
+
+ #welcome-title{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: darkviolet;
+}
+ 
+ #instructions{
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+
+ /* #editProfile{
+     position: absolute;
+ } */
+ .info-profile{
+     padding-bottom: 0px;
+     margin-bottom: -60px;
+ }
+
+ .slider{
+     width: 100%;
+     overflow: hidden;
+     position: relative;
+     
+ }
+ 
+ .welcome-info{
+     width: 80%;
+    
+     background-color: rgba(255, 255, 255, 0.24);
+     position: absolute;
+     bottom: 45px;
+     right: 75px;
+ } 
+
+/*  #thisPhoto{
+    border-radius: 50%;
+ } */
+ 
+ /* .cover{
+     display: flex;
+     height: 800px;
+     background-image: url(/img/slider1.png);
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: 100%;
+ }  */
+
+ /* Para el slide */
+ .slider{
+     width: 100%;
+     height: 100% ;
+     
+     margin: 0;
+     overflow: hidden;
+     background-size: cover;
+ }
+ 
+ .slider ul{
+     display: flex;
+     padding: 0;
+     
+     width: 300%;
+     animation: cambio 20s infinite;
+     animation-timing-function: ease-in;
+ }
+
+ .slider li{
+     width: 100%;
+    list-style: none;
+ }
+
+ .slider img{
+     width: 100%;
+     height: 100%;
+ }
+
+ @keyframes cambio {
+     0% { margin-left: 0; }
+     20% { margin-left: 0; }
+
+     25% { margin-left: -100%; }
+     45% { margin-left: -100%; }
+
+     50% { margin-left: -200%; }
+     70% { margin-left: -200%; }
+ }
+
+ 
+
+ #goLogin{
+     margin-bottom: 20px;
  }
