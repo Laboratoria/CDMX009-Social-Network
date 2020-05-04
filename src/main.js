@@ -1,37 +1,34 @@
-//import { changeView } from './views/viewcontroler.js'
+// import { changeView } from './views/viewcontroler.js'
 import { renderHomeView } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
+import { showPosts } from "./views/home.js"
 import { userObserverProfile } from "./views/profile.js"
 import { renderExitView } from "./views/exit.js"
 import login from "./views/login.js"
 import signIn from "./views/signIn.js"
 import principal from "./views/principal.js"
-import { loginGoogle } from '/index.js'//Se importa para usar addEventListener
+import { loginGoogle } from '/index.js'// Se importa para usar addEventListener
 import { loginFacebook } from '/index.js'
 import { createUser } from '/index.js'
 import { loginUser } from '/index.js'
 import { signoutUser } from '/index.js'
 
 
-
 // Nodos
 export const root = document.querySelector('#root');
+export const showP = document.querySelector('#showP')
 export const navBar = document.querySelector('#navBar');
 const homeButton = document.querySelector('#home');
 const postButton = document.querySelector('#post');
 const profileButton = document.querySelector('#profile');
 const exitButton = document.querySelector('#exit');
 
-homeButton.addEventListener('click', renderHomeView)
-postButton.addEventListener('click', renderPostView)
-profileButton.addEventListener('click', userObserverProfile)
-exitButton.addEventListener('click', signoutUser)
-// listeners
-//homeButton.onclick = renderHomeView;
-//postButton.onclick = renderPostView();
-//profileButton.onclick = renderProfileView();
-//loginButton.onclick = renderLoginView();
-//exitButton.onclick = renderExitView();
+//homeButton.addEventListener('click', renderHomeView);
+homeButton.addEventListener('click', showPosts);
+postButton.addEventListener('click', renderPostView);
+profileButton.addEventListener('click', userObserverProfile);
+exitButton.addEventListener('click', signoutUser);
+
 
 // Función de inicio que cambia la URL
 /* const init = () => {
@@ -39,43 +36,43 @@ exitButton.addEventListener('click', signoutUser)
 }
 window.addEventListener('load', init);
  */
-//Boton para cerrar sesión
+// Boton para cerrar sesión
 /* const btnExit = document.querySelector('#goOut')
 btnExit.addEventListener('click', signoutUser)
  */
-//Al cargar la pag mostrar vista (una antes de iniciar sesión)
-window.onload = principalView()
+// Al cargar la pag mostrar vista (una antes de iniciar sesión)
+window.onload = principalView();
 
 export function principalView() {
-    root.innerHTML = principal()
+    root.innerHTML = principal();
     let goLogin = document.querySelector('#goLogin')
     goLogin.addEventListener('click', viewLogin)
 }
 
-//Mostrar vista iniciar sesión
+// Mostrar vista iniciar sesión
 export function viewLogin() {
     root.innerHTML = login()
-    let goSignIn = document.querySelector('#goSignIn')
+    let goSignIn = document.querySelector('#goSignIn');
 
-    //Listeners modales
+    // Listeners modales
     const btnCloseError = document.querySelector('#btnCloseError');
     btnCloseError.addEventListener('click', closeError);
     const errorGooFbkModal = document.querySelector('#noAccountGooFbk');
     const btnCloseGoogleError = document.querySelector('#btnCloseNoGooFbk');
     btnCloseGoogleError.addEventListener('click', closeGooFbkError)
 
-    //Ingresar
-    let btnEnter = document.querySelector('#enter')
+    // Ingresar
+    let btnEnter = document.querySelector('#enter');
     btnEnter.addEventListener('click', function (e) {
-        e.preventDefault()
-        let email = document.querySelector('#email').value
-        let password = document.querySelector('#password').value
+        e.preventDefault();
+        let email = document.querySelector('#email').value;
+        let password = document.querySelector('#password').value;
         const errorModal = document.querySelector('#errorModal');
         /* console.log(email);
         console.log(password); */
-        loginUser(email, password, errorModal)
+        loginUser(email, password, errorModal);
     })
-    //Ocultar Modaless
+    // Ocultar Modaless
     function closeError() {
         errorModal.classList.remove('is-active');
     }

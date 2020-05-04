@@ -1,6 +1,7 @@
 import { navBar } from "../main.js";
 
 export default () => {
+
     const principal = `
     
     <div class="slider">
@@ -25,6 +26,8 @@ export default () => {
         </div>
     `
 
+
      navBar.style.display = 'none'
+
     return principal
 }

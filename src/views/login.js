@@ -62,7 +62,7 @@ export default () => {
     </div>
 </div>
 
-    `
+    `;
     navBar.style.display = 'none'
     return viewLogin
 

@@ -1,12 +1,12 @@
-import { root } from "../main.js";
+/* import { root } from "/main.js";
 import { viewLogin } from '/main.js'
 import { viewSign } from '/main.js'
-import { renderHomeView } from "./views/home.js"
+import { renderHomeView } from "./views/home.js" */
 import { renderPostView } from "./views/post.js"
 //import { renderProfileView } from "./views/profile.js"
 //import { renderLoginView } from "./views/login.js"
-import { renderExitView } from "./views/exit.js"
-import { userObserverProfile } from "./views/profile.js"
+/* import { renderExitView } from "./views/exit.js"
+import { userObserverProfile } from "./views/profile.js" */
 import { principalView } from "../main.js";
 
 /* export const components = {
@@ -190,6 +190,7 @@ function saveEmailBD(newName, newEmail, newPassword, user) {
         email: newEmail,
         password: newPassword,
         interests: 'Interés',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_nu03Fphc39lFDYvqsGjluX8keorjzG79akJclhK2fS2SwLKo&usqp=CAU',
         uid: user.user.uid
 
     })
@@ -234,33 +235,20 @@ export function signoutUser() {
 //Nos dice que usuario tiene sesión abierta y nos trae sus datos de la BD
 function userObserver() {
     firebase.auth().onAuthStateChanged(function (user) {
+        //console.log(user);
         if (user) {
             const docRef = db.collection('datausers/').doc(user.uid);
             docRef.get().then(function (snapshot) {
                 let myData = snapshot.data();
-                console.log(myData);
-
+                console.log(myData)
             })
         } else {
             // No user is signed in.
             console.log('No user');
         }
     });
-
 }
 
+
 userObserver()
-//Actualización de perfil
-/* function profileUpdate(user) {
-    //var user = firebase.auth().currentUser;
-    user.updateProfile({
-        displayName: "Lizeth",
-        photoURL: ""
-    }).then(function () {
-        console.log('los dtos se actualizaron');
-        // Update successful.
-    }).catch(function (error) {
-        // An error happened.
-        console.log(error);
-    });
-} */
+

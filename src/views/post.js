@@ -66,7 +66,6 @@ function readFile(fileInput, sectionPosts) {
       .then(snap => {
         console.log(snap);
         return snap.ref.getDownloadURL()
-
       })
       .then(link => {
         url = link
@@ -83,24 +82,35 @@ function readFile(fileInput, sectionPosts) {
   function textImage() {
     const text = document.querySelector('#body').value
     const title = document.querySelector("#title").value
-    let user = firebase.auth().currentUser;
-    let post = {
-      title: title,
-      text: text,
-      user: user.displayName,
-      photo: user.photoURL,
-      date: new Date(),
-      img: url
-    }
-    addNewPost(post)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log("No hay nuevo post", err)
+
+    firebase.auth().onAuthStateChanged(function (user) {
+      //console.log(user);
+      const docRef = db.collection('datausers/').doc(user.uid);
+      docRef.get().then(function (snapshot) {
+        let userData = snapshot.data();
+        console.log(userData);
+        let post = {
+          title: title,
+          text: text,
+          user: userData.name,
+          photo: userData.photo,//photoURL
+          date: new Date(),
+          img: url,
+          uid: userData.uid
+        }
+        addNewPost(post)
+          .then(res => {
+            console.log(res)
+          })
+          .catch(err => {
+            console.log("No hay nuevo post", err)
+          })
+        addPostBD(post)
+
       })
 
-    addPostBD(post)
+    });
+
   }
 
 }
@@ -108,38 +118,46 @@ function readFile(fileInput, sectionPosts) {
 function readText() {
   const text = document.querySelector('#body').value
   const title = document.querySelector("#title").value
-  let user = firebase.auth().currentUser;
+  /* let user = firebase.auth().currentUser;
   console.log(user);
+ */
+  firebase.auth().onAuthStateChanged(function (user) {
+    //console.log(user);
+    const docRef = db.collection('datausers/').doc(user.uid);
+    docRef.get().then(function (snapshot) {
+      let userData = snapshot.data();
+      console.log(userData);
+      let post = {
+        title: title,
+        text: text,
+        user: userData.name,
+        photo: userData.photo,//photoURL
+        date: new Date(),
+        uid: userData.uid
+      }
+      addNewPost(post)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log("No hay nuevo post", err)
+        })
+      addPostBD(post)
 
-  let post = {
-    title: title,
-    text: text,
-    user: user.name,
-    photo: user.photoURL,
-    date: new Date(),
+    })
 
-  }
-  addNewPost(post)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log("No hay nuevo post", err)
-    })
-  addPostBD(post)
+  });
+
 }
-//Esto agrega un post nuevo a la lista de posts
 
-
-//Funciones de Firebase
 
 //Se agrega el post a la collección postsList en la BD 
 function addNewPost(post) {
   return firebase.firestore().collection("postsList").add(post)
-
-
 }
-function dataBD() {
+
+
+/* function dataBD() {
   firebase.firestore().collection("postsList").get().then(function (docs) {
     docs.forEach(function (doc) {
       console.log(doc.id);
@@ -147,7 +165,7 @@ function dataBD() {
   });
 }
 dataBD()
-
+ */
 
 //Se agregan los post al perfil del usuario 
 function addPostBD(post) {
@@ -163,40 +181,45 @@ function addPostBD(post) {
 function showPosts(sectionPosts) {
 
   firebase.firestore().collection("postsList").onSnapshot(snap => {
-    limpiar(sectionPosts)
+    clean(sectionPosts)
     snap.forEach(doc => {
       console.log(doc.data());
 
-      if (doc.data().img === undefined && doc.data().photo === undefined) {
-        let renderPosts = `<div>
-        <p>${doc.data().user}</p>
+      if (doc.data().img === undefined && doc.data().photo != undefined) {
+        let renderPosts = `<div class="postContent" dataid="${doc.id}">
+        <a href="#" class="editPost"> <i class="fas fa-pencil-alt"></i></a>
+        <img max- width="70" class="imgUserPost" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
       <p>${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <div class="contentLikes">
       <a href="#" dataid="${doc.id}" class="likes btnLike"><i class="fas fa-heart"></i></a>
       <div class="resultCounter counter">${doc.data().likes}</div>
+      <a href="#" dataid="${doc.id}" class="comentPost counter"><i class="far fa-comment-alt"></i></a>
       </div>
     </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
 
-      } if (doc.data().photo != undefined) {
-        let renderPosts = `<div>
-        <img max- width="70" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
+      } if (doc.data().img != undefined && doc.data().photo != undefined) {
+        let renderPosts = `<div class="postContent" dataid="${doc.id}">
+        <a href="#" class="editPost"> <i class="fas fa-pencil-alt"></i></a>
+        <img max- width="70" class="imgUserPost" src="${doc.data().photo}"/><p> ${doc.data().user}</p>
       <p>Titulo:${doc.data().title}</p>
       <p>${doc.data().text}</p>
       <img max- width="200" src="${doc.data().img}" />
       <div class="contentLikes">
       <a href="#" dataid="${doc.id}" class="likes btnLike "><i class="fas fa-heart"></i></a>
       <div class="resultCounter counter">${doc.data().likes}</div>
+      <a href="#" dataid="${doc.id}" class="comentPost counter"><i class="far fa-comment-alt"></i></a>
+      
       </div>
     </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
 
-      } else {
+      } /* else {
         let renderPosts = `<div>
         <p> Autor: ${doc.data().user}</p>
       <p>Titulo:${doc.data().title}</p>
@@ -205,19 +228,20 @@ function showPosts(sectionPosts) {
       <div class="contentLikes">
       <a href="#" dataid="${doc.id}" class="likes btnLike "><i class="fas fa-heart"></i></a>
       <div class="resultCounter counter">${doc.data().likes}</div>
+      <button class="comentPost">Comentar</button>
       </div>
       
     </div>`
         const newNode = document.createElement("div")
         newNode.innerHTML = renderPosts
         sectionPosts.appendChild(newNode)
-      }
+      } */
 
       //LIKES
       let btnLike = document.querySelectorAll('.btnLike')
       //console.log(btnLike);
       let btnClick = btnLike[btnLike.length - 1]
-      //console.log(btnClick);
+      console.log(btnClick);
 
       btnClick.addEventListener('click', counter)
       //let resultLikes = document.querySelectorAll('.resultCounter')
@@ -255,6 +279,16 @@ function showPosts(sectionPosts) {
           }
         });
       }
+
+      //COMENTS
+      /* let btnComentPost = document.querySelectorAll('.comentPost')
+      let btnComent = btnComentPost[btnComentPost.length - 1]
+      console.log(btnComent); */
+      //EDITAR
+      /* let btnComentPost = document.querySelectorAll('.comentPost')
+      let btnComent = btnComentPost[btnComentPost.length - 1]
+      console.log(btnComent);
+ */
     })
   })
 
@@ -267,11 +301,12 @@ function saveLikes(countLikes, idPost, whoLike) {
     likes: firebase.firestore.FieldValue.increment(countLikes),
     whoLike: [whoLike]
   })
-
-
 }
+
+
 //Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
-function limpiar(sectionPosts) {
+function clean(sectionPosts) {
   sectionPosts.innerHTML = '';
 }
+
 
