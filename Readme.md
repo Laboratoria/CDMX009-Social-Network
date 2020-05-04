@@ -4,19 +4,19 @@ Lifestyle está dirigido a hombres y mujeres de 25-35 años principalmente que t
 
 ### Prototipo de baja fidelidad (sketch)
 
-<img src ="images/proboceto.png">
+<img src ="images/proboceto.PNG">
 
 ### Prototipo de alta fidelidad
 
-<img src="images/protalta.png">
-<img src="images/protalta2.png">
-<img src="images/protalta3.png">
-<img src="images/protalta4.png">
+<img src="images/protalta.PNG">
+<img src="images/protalta2.PNG">
+<img src="images/protalta3.PNG">
+<img src="images/protalta4.PNG">
 
 ### Demo Lifestyle
-<img src="images/demo.png">
-<img src="images/demo2.png">
-<img src="images/demo3.png">
+<img src="images/demo.PNG">
+<img src="images/demo2.PNG">
+<img src="images/demo3.PNG">
 
 ### Objetivos de aprendizaje Edith Ortiz Cortés
 
