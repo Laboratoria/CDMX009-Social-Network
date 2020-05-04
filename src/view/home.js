@@ -58,13 +58,6 @@ export default () => {
             <div class='location'><p>${doc.data().location}</p></div>
             <div class='imagePost'><img width="100%" src="${doc.data().postimg}" /></div>
             <button id='${doc.id}' class='likes'><img class='membicha' src='./imgBichigram/membicha.png'>${doc.data().counter}</button> 
-            <br>
-            <br>
-            <button class='delete-post' id='${doc.id}'>borrar</button> <button class='edit-post' id='${doc.id}'> editar</button>
-            <form class='formComment' id='${doc.id}'>
-            <input type='text' name='comment' class='comments'> </input>
-            <button> comentar</button>
-            </form>
         </div>`;
       const nodo = document.createElement('div');
       nodo.innerHTML = div;
@@ -82,18 +75,6 @@ export default () => {
          counter: increment, 
        });
      })); 
-
-//  comments
-const forms = document.querySelectorAll('.formComment');
-forms.forEach(node => node.addEventListener ('submit', e => {
-  e.preventDefault();
-  const id = e.target.id; 
-  const text = e.target.children[0].value;
-  db.collection('posts').doc(id).update({
-    comments: text, 
-  })
-  .then(() => console.log('nice'));
-} ));
 
 });
    

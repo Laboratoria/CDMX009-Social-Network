@@ -76,6 +76,9 @@ body{
     align-content: center;
     flex-direction: column;
     @include text;
+    p{
+        animation: fadeIn 5s;
+    }
 }
 #newuser{
     display: none;
