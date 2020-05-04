@@ -1,29 +1,26 @@
-
 import {signOff} from '../firebase.js';
 
 export default () => {
-    const userName = "Humpty Alexander Dumpty";
-    const student = "Gato con botas";
-    const school = "Escuela de la vida";
-    const grade = "3";
+    const userName = "Laura Flores";
+    const student = "Carolina Flores";
+    const school = "Colegio La Paz";
+    const grade = "1";
     const group = "A";
-    const teacher = "Shrek y Fiona";
-    const comment = "Lorem Ipsum is simply dummyng a type specimen book. It has survived not only five centuries, but also the leap into electronic";
+    const teacher = "Melisa Gutierrez";
+    const comment = "Hola buen día, mi hija se trajo la chamarra de Adriana Juarez, la chamarra tiene grabado su nombre Carolina Flores";
     const likeCount ="15";
     const answers ="";
     const viewProfile = `
     <button id="logOut" class="btnLogOut">Cerrar Sesión</button>
     <section class="userNamePhoto">
-      <div>
+      <div class="namePhoto"> 
           <img src="img/User.svg">
-      </div>
-      <div>
-          <p class="userName">${userName}</p>
+          <p class="userName" contenteditable=true>${userName}</p>
       </div>
     </section> 
     <section class="userData">
       <div class="user-data">
-          <p>Alumno: ${student}</p>
+          <p contenteditable=true> Alumno: ${student}</p>
           <p>Escuela: ${school}</p>
           <p>Grado: ${grade}</p>
           <p>Grupo: ${group}</p>
@@ -36,26 +33,33 @@ export default () => {
        <div class="containerbx">
        <div>
           <div class="comment">
-            <div class="btnIcon">
-          <button type="submit" class="editBtn" id="btnEditPost" ><img src="img/edit.svg" /></button> 
-          <button type="submit" class="deleteBtn" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
+          <div class="btnIconos">
+          <button type="submit" class="edit" id="btnEditPost" ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="delete" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
           </div>
               <p>${comment}</p>
           </div>
       <div>
-          <div class="likes">
-              <img src="img/like.svg">${likeCount}
-          </div>
+           <div class="sectionLikes">
+           <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
+            </div>
            <div class="answer"> 
-           <div class="btnIcon">
-          <button type="submit" class="editBtn" id="btnEditPost"  ><img src="img/edit.svg" /></button> 
-          <button type="submit" class="deleteBtn" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
+           <div class="btnIconos">
+          <button type="submit" class="edit" id="btnEditPost"  ><img src="img/edit.svg" /></button> 
+          <button type="submit" class="delete" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
+          </div>
+               <p>Hola!, saben cuando se tomará la foto de grupo? gracias${answers}</p>
+          </div>
+          <div class="sectionLikes">
+          <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
           </div>
                <p>Comentarios${answers}</p>
           </div>
           <div class="likes">
               <img src="img/like.svg">${likeCount}
           </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>
@@ -72,3 +76,4 @@ export default () => {
 
     return divElement;
   }
+

@@ -196,4 +196,135 @@ function deletePost (e) {
   })
  }
 
-export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser };
+  //User login
+
+  function loginUser(email, password){
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+      window.open('#/', '_self');
+    }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+  }
+
+  function loginUserEmail(){
+    const email = document.getElementById("e-mail").value;
+    const password = document.getElementById("password").value;
+  
+    loginUser(email, password);
+  }
+
+  function signOff(){
+    firebase.auth().signOut().then(function() {
+      window.open('#/login', '_self');
+    }).catch(function(error) {
+    });
+    
+  } 
+
+//add post user
+function addUserPost(){
+  let user = firebase.auth().currentUser;
+  let post = document.getElementById("addNewPost").value;
+  db.collection("post").add({
+    post: post,
+    uid: user.uid,
+    user: user.displayName
+})
+.then(function(docRef) {
+  console.log("Document written with ID: ", docRef.id);  document.getElementById("addNewPost").value = '';
+    showPostUser();
+    
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+}
+
+//Show post user
+function showPostUser(){
+  const postContainer = document.getElementById('allNewPost');
+        postContainer.innerHTML='';
+        db.collection("post").onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {;
+        console.log(`${doc.id} => ${doc.data().post}`);
+        let postElement = document.createElement('div');
+        let postNew = `
+        <div class="containerPostPrint">
+        <div class="containerUser">
+          <img class="imgUser" src="img/user.svg"></img> <p class="nameUser">${doc.data().user}</p>
+          </div>
+          <div class="btnIcon">
+          <button type="submit" class="editBtn" data-doc="${doc.id}" ><img data-doc="${doc.id}" src="img/edit.svg" /></button> 
+          <button type="submit" class="deleteBtn" data-id="${doc.id}"><img data-id="${doc.id}" src="img/delete.svg" /></button> 
+          </div>
+          <div class="sectionPost">
+          <p contenteditable=true class="PostPrint">${doc.data().post}</p>
+          </div>
+          <textarea id = "editTextPost${doc.id}" style="display:none"></textarea>
+          <textarea class="answer" id="answer"> </textarea>
+          <div class="sectionLikes">
+          <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
+          </div>
+          <button class="btnAnswer">Responder</button>
+        </div>
+        `;
+        postElement.innerHTML = postNew;
+
+        postContainer.appendChild(postElement);
+
+        const buttonsDeletePost = document.querySelectorAll('.deleteBtn')
+        buttonsDeletePost.forEach(btn=>btn.addEventListener('click', deletePost))
+
+        const buttonsEditPost = document.querySelectorAll('.editBtn')
+        buttonsEditPost.forEach(btnEdit=>btnEdit.addEventListener('click', editPost))
+
+      });
+});
+}
+
+// Delete posts
+  function deletePost (e) {
+   let id = e.target.getAttribute('data-id')
+   console.log(e.target)
+   console.log(id)
+   if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
+
+  db.collection("post")
+      .doc(id)
+      .delete()
+      .then(function() 
+       {
+        console.error("Document successfully deleted!");
+        showPostUser()
+      })
+      .catch(function(error) {
+        console.error("Error removing document: ", error);
+      });
+  }
+
+// Edit posts
+ function editPost (e, post) {
+  console.log(e, post)
+  let newPost = e.target.getAttribute("data-doc")
+  console.log(newPost)
+  
+   return db.collection("newPost")
+    .doc("data-doc")
+    .update("data-id")
+    .then(function()
+     {
+      console.log("Document successfully updated!");
+      editBtn.innerHTML = 'Guardar';
+      editBtn.addEventListener('click', savePost);
+      showPostUser()
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
+};
+
+
+
+
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost, editPost};

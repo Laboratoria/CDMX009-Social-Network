@@ -31,7 +31,8 @@ export default () => {
         </tr>
       </tbody>
     </table>
-      <div class="homework">
+
+    <div class="homework">
     <p>Semana 30 Marzo - 3 Abril</p>
  </div>
   <table class="table">
