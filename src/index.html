@@ -21,7 +21,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
   <script>
   // Your web app's Firebase configuration
-    let firebaseConfig = {
+  let firebaseConfig = {
       apiKey: "AIzaSyD6boxRV32Ld50HrVuWx2Fkl5ZlYQyAabk",
       authDomain: "memingos-abeea.firebaseapp.com",
       databaseURL: "https://memingos-abeea.firebaseio.com",
@@ -33,13 +33,6 @@
     };
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    const providerGoogle = new firebase.auth.GoogleAuthProvider();
-    const providerFb = new firebase.auth.FacebookAuthProvider();
-    const db = firebase.firestore();
-    const storage = firebase.storage().ref();
-    const usersRef = firebase.database().ref('users');
-    const imageRefPost = firebase.database().ref().child('post-image');
-    const imageUser = firebase.database().ref('image');
   </script>
 </head>
 <body id="body">
@@ -65,5 +58,6 @@
   </script> 
   <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
   <script type="module" src="index.js"></script> 
+  <script src="database.js"></script>
 </body>
 </html>

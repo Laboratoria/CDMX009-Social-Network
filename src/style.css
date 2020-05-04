@@ -60,6 +60,7 @@ figure{
 
 .userInfo {
     align-items: center!important;
+    padding: 10px;
 }
 
 .column1{display: grid;
@@ -75,6 +76,11 @@ justify-content: center;}
     position: relative;
     padding: 0.97rem;
 }
+
+.postIcons {
+    padding: 2%;
+}
+
 #textId {
     width: 25%;
     margin-top: 10px;
