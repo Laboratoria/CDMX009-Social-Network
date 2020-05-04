@@ -155,27 +155,6 @@ function showPostUser(){
   })
  }
 
-
-// Borrar posts
-function deletePost (e) {
-  let id = e.target.getAttribute('data-id')
-  console.log(e.target)
-  console.log(id)
- if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
-
- db.collection("post")
-     .doc(id)
-     .delete()
-     .then(function() 
-      {
-       console.error("Document successfully deleted!");
-       showPostUser()
-     })
-     .catch(function(error) {
-       console.error("Error removing document: ", error);
-     });
- }
-
  // reply post
 
  function answer(e){
@@ -196,4 +175,45 @@ function deletePost (e) {
   })
  }
 
-export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser };
+// Delete posts
+  function deletePost (e) {
+   let id = e.target.getAttribute('data-id')
+   console.log(e.target)
+   console.log(id)
+   if (!confirm("¿Seguro que quieres eliminar esta publicación?")) return
+
+  db.collection("post")
+      .doc(id)
+      .delete()
+      .then(function() 
+       {
+        console.error("Document successfully deleted!");
+        showPostUser()
+      })
+      .catch(function(error) {
+        console.error("Error removing document: ", error);
+      });
+  }
+
+// Edit posts
+ function editPost (e, post) {
+  console.log(e, post)
+  let newPost = e.target.getAttribute("data-doc")
+  console.log(newPost)
+  
+   return db.collection("newPost")
+    .doc("data-doc")
+    .update("data-id")
+    .then(function()
+     {
+      console.log("Document successfully updated!");
+      editBtn.innerHTML = 'Guardar';
+      editBtn.addEventListener('click', savePost);
+      showPostUser()
+    })
+    .catch((error) => {
+      console.error("Error updating document: ", error);
+    });
+};
+
+export  { loginGoogle, loginFB, registerUser, loginUserEmail, signOff, addUserPost, showPostUser, deletePost, editPost};
