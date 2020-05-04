@@ -17,6 +17,20 @@
     </header>
     <section class="views" id="root"></section>
 
+    <div id="modalEdit" class="modal">
+      <div class="flex" id="flex">
+          <div class="contenido-modal">
+              <div class="modal-header flex">
+                  <h4>Edita tu post</h4>
+                  <span class="close" id="closeBtn">&times;</span>
+              </div>
+              <div class="modal-body">
+                  <textarea name="newTextPost" id="editPostText" class="postForm" rows="3"></textarea>
+                  <button type="submit" id="submitEditPost">Editar</button>
+                  </div>
+          </div>
+      </div>
+  </div>
 
   <script type="module" src="index.js"></script>
 
@@ -31,7 +45,8 @@
     projectId: "socialnetwork-91278",
     storageBucket: "socialnetwork-91278.appspot.com",
     messagingSenderId: "179888650732",
-    appId: "1:179888650732:web:c72867485943264fdca8c9"
+    appId: "1:179888650732:web:c72867485943264fdca8c9",
+    storageBucket: "gs://socialnetwork-91278.appspot.com",
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

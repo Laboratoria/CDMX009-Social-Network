@@ -20,7 +20,7 @@ export default () => {
             <form action="" class="newPost">
             <div>Bienvenida <span id="username"></span></div>
             <textarea name="newTextPost" id="newTextPost" class="postForm" rows="3" placeholder="¿Qué te gustaría compartir?"></textarea>
-            <button type="submit" id="submitNewPost">Compartir</button>
+            <button type="submit" class="updateBtns" id="submitNewPost">Compartir</button>
         </form>
             </section>
             <section class="sesionPrincipal1">
