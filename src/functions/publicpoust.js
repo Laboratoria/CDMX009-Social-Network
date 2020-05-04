@@ -49,7 +49,7 @@ function publicPost(user) {
 
 function addNewPost(post) {
     console.log(post);
-    let postsRef = db.collection('pruebas_300420_Esther');
+    let postsRef = db.collection('pruebas_020520');
     return postsRef.add(post);
 };
 

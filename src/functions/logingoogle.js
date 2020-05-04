@@ -13,9 +13,10 @@ function googleButton() {
             viewForum(user)
                 .then(function() {
                     publicPost();
-                }).then(function() {
-                    localStorage.setItem('userdata', JSON.stringify(user)); 
                 })
+                .then(function() {
+                    localStorage.setItem('userdata', JSON.stringify(user)); 
+                });
             document.getElementById('hideAndShow').style.display = 'block';
             movilIcon.classList.add('shown');
             

@@ -10,6 +10,8 @@ function register() {
     let registerPassLogin2 = document.getElementById('registerLoginPass2').value;
     let registerConfirmPassLogin2 = document.getElementById('registerLoginConfirmPass2').value;
     let movilIcon = document.getElementById('movilIcon');  
+    console.log(registerNameLogin2);
+    
     
     if (registerPassLogin2 != registerConfirmPassLogin2) {
         alert('Las contraseñas deben coincidir');

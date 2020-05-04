@@ -1,5 +1,5 @@
 function viewProfile(user) {
-    console.log(user);
+    //console.log(user);
     let emailCortado = 'No email';
 
     if (typeof user != 'undefined') {
@@ -22,7 +22,7 @@ function viewProfile(user) {
             </div>
 
             <div class="personalInformationPerfilUser">
-                <div class="namePerfilUser"><strong class="black-text perfilName little">${EmailCortado}<i class="material-icons center editProfileIcon">edit</i></strong></div>
+                <div class="namePerfilUser"><strong class="black-text perfilName little">${emailCortado}<i class="material-icons center editProfileIcon">edit</i></strong></div>
                 <div class="professionDescription">Profesión</div>
             </div>
         </div>

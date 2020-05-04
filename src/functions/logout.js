@@ -54,7 +54,7 @@ function out() {
                                 });
                             });
                     });
-                })
+                });
 
             window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
         })

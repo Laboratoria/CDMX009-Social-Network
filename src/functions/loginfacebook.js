@@ -13,7 +13,8 @@ function facebookButton() {
             viewForum(user)
                 .then(function() {
                     publicPost();
-                }).then(function() {
+                })
+                .then(function() {
                     localStorage.setItem('userdata', JSON.stringify(user)); 
                 })
             movilIcon.classList.add('shown');

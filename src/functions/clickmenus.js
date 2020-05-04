@@ -4,6 +4,7 @@ import { editionOfProfile } from '../view/editprofile.js';
 import { viewForum } from '../view/fuorum.js';
 import { publicPost, addNewPost } from './publicpoust.js';
 import { readPosts } from './readposts.js';
+import { editProfileUser } from './editprofile.js';
 
 function clickMenus(obtainingPersistenceData) {
     let nameMenus = document.querySelectorAll('ul.clickMenu li a'); 
@@ -22,7 +23,10 @@ function clickMenus(obtainingPersistenceData) {
                 viewProfile(obtainingPersistenceData);
                 window.history.pushState('perfil', 'Perfil', '/Perfil');
             } else if (userClickMenu == "/editarPerfil") {
-                editionOfProfile(obtainingPersistenceData);
+                editionOfProfile(obtainingPersistenceData)
+                    .then(function() {
+                        editProfileUser(obtainingPersistenceData);
+                    });
                 window.history.pushState('Editar Perfil', 'Editar Perfil', '/EditarPerfil');
             } else if (userClickMenu == "/cerrarSesion") {
                 out();
