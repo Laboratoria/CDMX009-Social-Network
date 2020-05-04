@@ -12,7 +12,6 @@ export default () => {
                 <div class="homeOptions">
                     <img src="images/CodeMakers.png" alt="logo" class="codeMakers">
                     <a href="#/home"><img src="images/casa.svg" alt="Home" class="btnHeader"></a>
-                    <a href="#/createPost"><img src="images/writePost.svg" alt="createPost" title="Crear Post" class="btnHeader"></a>
                     <a href="#/profile"><img src="images/profile.svg" alt="Profile" class="btnHeader" id="userPhoto"></a>
                     <img src="images/cerrar-sesion.svg" alt="Cerrar Sesion" class="btnHeader" id="logOutBtn">
                 </div>
@@ -21,7 +20,7 @@ export default () => {
             <form action="" class="newPost">
             <div>Bienvenida <span id="username"></span></div>
             <textarea name="newTextPost" id="newTextPost" class="postForm" rows="3" placeholder="¿Qué te gustaría compartir?"></textarea>
-            <button type="submit" id="submitNewPost">Compartir</button>
+            <button type="submit" class="updateBtns" id="submitNewPost">Compartir</button>
         </form>
             </section>
             <section class="sesionPrincipal1">

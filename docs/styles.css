@@ -122,13 +122,8 @@ button {
     width: 100%;
     resize: none;
 }
-#submitNewPost {
-    width: 25%; 
-    align-self: center; 
-    height: 1.5rem; 
-    margin: 1rem;}
 
-hr {width: 90%; border-color: #EBE134;}
+hr {width: 90%; border-color: rgb(47, 141, 218);}
 .postContainer {
     margin: 0.5rem 0.3rem;
     width: 90%; 
@@ -171,5 +166,81 @@ hr {width: 90%; border-color: #EBE134;}
     }
 textarea {
     border-radius: 16px 16px 16px 16px;
-    border: 3px solid #EBE134;
+    border: 3px solid rgb(47, 141, 218);
+}
+.modifyForm {
+    display: none;
+}
+/* modal */
+.flex{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal{
+    display: none;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.452);
+}
+.contenido-modal{
+    position: relative;
+    background-color: #ffffff;
+    margin: auto;
+    width: 90%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+@keyframes modal{
+    from{top:-330px; opacity:0;}
+    to{top:0; opacity:1;}
+}
+.close{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.modal-header {
+    width: 95%;
+    height: 2rem;
+    padding: 0.5rem;
+    background: #EBE134;
+}
+.modal-body{
+    padding: 20px 16px;
+}
+/* profile view */
+.nameandphoto {
+    margin: 5%;
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+.userPhoto {
+    border-radius: 3.5rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+.updateInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    border-radius: 26px 26px 26px 26px;
+    border: 0.25rem dashed #bdb5bd;
+    background: rgb(243, 243, 243);
+    padding: 1rem;
+}
+.updateBtns {
+    width: 50%;
+    margin: 1rem;
+    background: rgb(47, 141, 218);
+    border-radius: 1rem;
+    border: 0.15rem solid rgb(0, 1, 41);
+    font-weight: bolder;
 }

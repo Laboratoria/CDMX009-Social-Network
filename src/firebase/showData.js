@@ -2,6 +2,8 @@
 /* eslint-disable no-param-reassign */
 import { database } from './login.js';
 
+// const storage = firebase.storage();
+
 export const userAccess = (username, photo) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -40,6 +42,33 @@ const deleteOption = (event) => {
     });
 };
 
+const editPost = (event) => {
+  const modalEdit = document.querySelector('#modalEdit');
+  document.querySelector('#modalEdit').style.display = 'block';
+  const closeBtn = document.querySelector('#closeBtn');
+  closeBtn.addEventListener('click', () => {
+    modalEdit.style.display = 'none';
+  });
+  document.querySelector('#editPostText').value = event.target.getAttribute('data-content');
+  const btnEdit = document.querySelector('#submitEditPost');
+  btnEdit.addEventListener('click', () => {
+    const postsRef = database.collection('posts').doc(event.target.id);
+    console.log(event.target.id);
+    const newContent = document.querySelector('#newTextPost').value;
+    return postsRef.update({
+      postContent: newContent,
+    })
+      .then(() => {
+        alert('Document successfully updated!');
+        document.querySelector('#modalEdit').style.display = 'none';
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        console.error('Error updating document: ', error);
+      });
+  });
+};
+
 export const createNewPost = (content) => {
   const currentUserData = firebase.auth().currentUser;
   database.collection('posts').add({
@@ -55,31 +84,6 @@ export const createNewPost = (content) => {
     });
 };
 
-// const modifyOption = (content) => {
-//   const container = document.querySelector('.modify');
-//   const newTextarea = document.createElement('textarea');
-//   container.appendChild(newTextarea);
-//   newTextarea.innerHTML = content;
-//   const btn = document.querySelector('.btnsM');
-//   btn.innerHTML = 'Editar';
-//   btn.onclick = (event) => {
-//     const postsRef = database.collection('posts').doc(event.target.id);
-//     const newContent = document.querySelector('#newTextPost').value;
-//     return postsRef.update({
-//       postContent: newContent,
-//     })
-//       .then(() => {
-//         console.log('Document successfully updated!');
-//         btn.innerHTML = 'Guardar';
-//         document.querySelector('#newTextPost').value = '';
-//       })
-//       .catch((error) => {
-//         // The document probably doesn't exist.
-//         console.error('Error updating document: ', error);
-//       });
-//   };
-// };
-
 export const postTemplate = (templateContainer) => {
   database.collection('posts').onSnapshot((querySnapshot) => {
     templateContainer.innerHTML = '';
@@ -89,19 +93,23 @@ export const postTemplate = (templateContainer) => {
       const timestampFormat = doc.data().date.seconds;
       const newDateFormat = dateConverter(timestampFormat);
       const userTemplate = `
+      <div class="postContainer modifyForm">
+      <textarea id="modifyPost" rows="3"></textarea>
+      <button type="submit" id="submitNewPost">Modificar</button>
+    </div>
         <div class="postContainer">
           <div class="post">
               <img src="${doc.data().postPhotoOwner}" alt="Profile" class="postAuthor">
               <div class="postContent">
                 <span id="ownerName">${doc.data().postNameOwner}</span><br>
-                <span id="contentMessage">${doc.data().postContent}</span><br>
+                <span id="contentMessage" class="content">${doc.data().postContent}</span><br>
                 <span id="date">${newDateFormat}</span>
               </div>
           </div>
           <div class="postOptions">
               <div class="likes">00</div>
               <img src="images/corazon (1).svg" class="likes" alt="like">
-              <img src="images/rectification.svg" class="modify likes" id="" alt="Editar">
+              <img src="images/rectification.svg" class="edit likes" id="${doc.id}" alt="Editar" data-content="${doc.data().postContent}">
               <img src="images/borrar.svg" class="delete likes" id="${doc.id}" alt="Eliminar">
           </div>
         </div>`;
@@ -109,11 +117,9 @@ export const postTemplate = (templateContainer) => {
       const DeleteBtns = templateContainer.querySelectorAll('.delete');
       DeleteBtns.forEach(btn => btn.addEventListener('click', deleteOption));
 
-      // const modifyBtns = templateContainer.querySelectorAll('.btnsM');
-      // modifyBtns.forEach(btn => btn.addEventListener('click', (e) => {
-      //   e.preventDefault();
-      //   modifyOption(doc.data().postContent);
-      // }));
+      const btn = templateContainer.querySelectorAll('.edit');
+      btn.forEach(bt => bt.addEventListener('click', editPost));
     });
   });
 };
+

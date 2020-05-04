@@ -22,8 +22,8 @@ const router = (route) => {
       container.appendChild(components.home());
       break;
     }
-    case '#/createPost': {
-      container.appendChild(components.createPost());
+    case '#/profile': {
+      container.appendChild(components.profile());
       break;
     }
     default: {

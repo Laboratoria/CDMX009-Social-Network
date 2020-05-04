@@ -9,12 +9,12 @@ export default () => {
                 <input type="email" required id="loginEmail" placeholder= "Correo electrónico">
                 <input type="password" required id="loginPassword" minlength="6" placeholder="Contraseña">
                 <button type="submit" class="registerButton" id="loginButton">INICIAR SESIÓN</button>
-                <p><a href="#/passwordRecovery" id="recover">¿Has olvidado la contraseña?</a></p>
+                <h5><a href="#/passwordRecovery" id="recover">¿Has olvidado la contraseña?</a></h5>
             </form> 
             <div class="conectWithSocialMedia">
-                <h4>o ingresa con tu cuenta de:</h4>
-                <img src="images/facebook4.png" id="facebookLogin" class="buttons"></br>
-                <img src="images/Google4.png" id="googleLogin" class="buttons">
+                <h4> O </h4>
+                <img src="images/facebook4.png" id="facebookLogin" class="buttons">
+                <img src="images/google4.png" id="googleLogin" class="buttons">
                 <p>¿No tienes cuenta? <a href="#/register">Registrate</a></p>
             </div>  `;
 
