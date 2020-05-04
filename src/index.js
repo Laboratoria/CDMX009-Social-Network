@@ -349,7 +349,7 @@ const renderFeed = () => {
             <div class="header">
                 <div id="topBar"> </div>
                     <div class="file1 is-centered">
-                        <div id="postFeed"  class="column1">
+                        <div id="postFeed" class="column1">
                         </div>     
                     </div>
                 </div>
@@ -359,37 +359,43 @@ const renderFeed = () => {
     root.innerHTML = `${feed}${BottomBarForm}`;
     const postFeed = document.querySelector('#postFeed');
     let singlePost = '';
-  const renderSinglePost = (userPhoto, userName, imgPostURL,imgPostCaption, date) => {
-    singlePost += `
-    </br>
-    <div class="card">
-        <div class="userInfo media">
-            <div class="image is-48x48">
-                <img src=${userPhoto.url} class="is-rounded"/>
+    let ownerOpts = '';
+    const renderSinglePost = (userPhoto, userName, imgPostURL,imgPostCaption, date, userId, ownerId) => {
+        singlePost += `
+        </br>
+        <div class="card">
+            <div class="userInfo media">
+                <div class="image is-48x48">
+                    <img id=${userId} src=${userPhoto.url} class="is-rounded"/>
+                </div>
+                <div class="media-content">
+                    <p id=${userId}>${'@'}${userName.userName}</p>
+                </div>
+                <div id ="ownerOptions"></div>
             </div>
-            <div class="media-content">
-                <p>${'@'}${userName.userName}</p>
+            <div class="file is-centered">
+                <img src='${imgPostURL}'/>
             </div>
             <div>
-                <img id="delete"  title="Borrar" class="icon postIcons" src="https://i.ibb.co/xqywsQ6/goma-rgb.png" >
-                <img id="edit" title="Editar" class="icon postIcons" src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" >
+                <img id="like" class="icon" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
+                <img id="dislike" class="icon" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
+                <img id="commentPost" class="icon" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
+                <p>${imgPostCaption}</p>
+                <p>${date}</p>
             </div>
         </div>
-        <div class="file is-centered">
-            <img src='${imgPostURL}'/>
-        </div>
-        <div>
-            <img id="like" class="icon" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
-            <img id="dislike" class="icon" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
-            <img id="commentPost" class="icon" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
-            <p>${imgPostCaption}</p>
-            <p>${date}</p>
-        </div>
-    </div>
-    </br>
-    `;
-    postFeed.innerHTML = singlePost;
-  };
+        </br>
+        `;
+        ownerOpts += `
+        <img src="https://i.ibb.co/xqywsQ6/goma-rgb.png" title="Borrar" id="delete" class="icon postIcons">
+        <img src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" title="Editar" id="edit" class="icon postIcons">`;
+        postFeed.innerHTML = singlePost;
+        const ownerOptions = document.querySelector('#ownerOptions');
+        if (userId === ownerId) {
+            ownerOptions.insertAdjacentHTML("afterbegin", ownerOpts);
+            console.log('owner');
+        };
+    };
     document.querySelector('#topBar').innerHTML = topBarForm;
     topNavBar();
     database.getFeedData(renderSinglePost);
@@ -397,6 +403,7 @@ const renderFeed = () => {
         const item = event.target;
         if (!item) return;
         const chosenItem = item.id;
+        console.log(chosenItem);
         if (chosenItem === 'delete') {
             database.deletePost(key)
         }

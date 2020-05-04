@@ -1,19 +1,16 @@
 /* eslint-disable */
 let authError;
-let feedData;
 
 const database = {
-  signUp: (regEmail, regPassword, firebasePipo = null) => {
-    console.log(regEmail);
-    console.log(regPassword);
-    (firebasePipo ? firebasePipo : firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
+  signUp: (regEmail, regPassword, noFirebase = null) => {
+    (noFirebase ? noFirebase : firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
       .catch((error) => {
         authError = error;
         return authError;
       });
   },
-  signIn: (logEmail, logPassword, firebasePipo = null) => {
-    (firebasePipo ? firebasePipo : firebase).auth().signInWithEmailAndPassword(logEmail, logPassword)
+  signIn: (logEmail, logPassword, noFirebase = null) => {
+    (noFirebase ? noFirebase : firebase).auth().signInWithEmailAndPassword(logEmail, logPassword)
       .catch((error) => {
         authError = error;
         return authError;
@@ -47,8 +44,10 @@ const database = {
   getFeedData: async (renderFunction) => {
     const imageRefPost = firebase.database().ref().child('post-image');
     imageRefPost.on('value', async (snapshot) => {
-      feedData = snapshot.val();
-      Object.keys(feedData).reverse().forEach((key) => {
+      const feedData = await snapshot.val();
+      Object.keys(feedData).sort((a, b) => ((a.postTime > b.postTime) ? 1 : -1)).forEach((key) => {
+        const postId = key;
+        const ownerId = firebase.auth().currentUser.uid;
         const timeStamp = feedData[key].postTime;
         const normalDate = new Date(timeStamp);
         const dateFormat = normalDate.toLocaleString();
@@ -64,16 +63,16 @@ const database = {
             await imageUser.child(userId).once('value', (snap) => {
             photoUser = snap.val();
           });
-          renderFunction(photoUser, userName, picURL, picCaption, dateFormat);
+          renderFunction(photoUser, userName, picURL, picCaption, dateFormat, userId, ownerId);
         });
       });
     });
   },
   userObserver: (home) => {
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log('existe usuario activo');
-        renderFeed();
+        home();
         console.log('*****************');
         console.log(user.emailVerified);
         console.log('*****************');
@@ -89,6 +88,7 @@ const database = {
   },
   getProfileName: () => {
     const uid = firebase.auth().currentUser.uid;
+    console.log(uid);
     return firebase.firestore().collection('users').doc(uid).get()
       .then(doc => doc.data());
   },
@@ -199,8 +199,8 @@ const database = {
     });
   },
   deletePost: (key) => {
-    let postDelet = firebase.database().ref('post-image/'+ key)
-    postDelet.remove();
+    let postDelete = firebase.database().ref('post-image/'+ key)
+    postDelete.remove();
     
     // const db = firebase.firestore();
     // db.collection("post-image").doc(key).delete().then(function () {
@@ -217,4 +217,5 @@ const database = {
     });
   },
 };
+
 export default database;
