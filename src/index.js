@@ -4,15 +4,13 @@ import { viewSign } from '/main.js'
 import { showPosts } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
 import { renderProfileView } from "./views/profile.js"
-import { renderExitView } from "./views/exit.js"
 import { userObserverProfile } from "./views/profile.js"
 
-export const components = {
-//  home: renderHomeView,
-    post: renderPostView,
-    profile: renderProfileView,
-    exit: renderExitView
-};
+// export const components = {
+//     home: showPosts,
+//     post: renderPostView,
+//     profile: renderProfileView,
+// };
 
 
 //Instanciar Firestore

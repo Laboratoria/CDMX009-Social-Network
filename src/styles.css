@@ -94,6 +94,6 @@ a{
     visibility: visible;
 }
 
-#SavePost{
+.btnSave{
     display: none;
 }
