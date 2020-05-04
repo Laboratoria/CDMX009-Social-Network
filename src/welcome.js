@@ -59,8 +59,12 @@ export function modal(id, link, title, description, user){
   <div class="dropdown">
   <button id="btnOptions" class="btnOptions">...</button>
   <div id="myDropdown" class="dropdownContent">
-  <button data-id="${id}" id="btnEdit">Edit</button>
-  <button data-id="${id}" id="btnDelete">Delete</button>
+  <button data-id="${id}" id="btnEdit">
+  <img src="images/edit.png">
+  </button>
+  <button data-id="${id}" id="btnDelete">
+  <img src="images/xGreen.png">
+  </button>
   </div>
   </div>
   </header>

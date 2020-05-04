@@ -8,26 +8,36 @@ function singIn (){
         content.innerHTML='';
         let profileView= `
         <section class="container">
-        <img src="images/logo.png">
         <div>
-        <input id="mail" placeholder="Ingresa tu correo electrónico">
-        <input id="password" placeholder="Ingresa tu contraseña">
-        <button id="loginBtn">INGRESAR</button>
-        <button id="loginFacebook">FACEBOOK</button>
-        <button id="loginGmail">GMAIL</button>
+        <img id="logotype" src="images/logo.png">
+        </div>
+        <input class="inputUser" id="mail" placeholder="Ingresa tu correo electrónico">
+        <br>
+        <input class="inputUser" id="password" placeholder="Ingresa tu contraseña">
+        <br>
+        <button id="loginBtn" class="buttons">INGRESAR</button>
+        <br>
+        <p>O inicia sesión con:</p>
+        <div id="containerBtns">
+        <button id="loginFacebook" class="btnFbGmail">
+        <img class="authSocial" src="images/facebook.png">
+        </button>
+        <button id="loginGmail" class="btnFbGmail">
+        <img class="authSocial" src="images/gmail.png">
+        </button>
         </div>
         </section>`
         content.innerHTML= profileView;
         // staticMenu.remove();
         document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
-        document.querySelector("#profile").addEventListener('click', welcomeView);
-        document.querySelector("#provisional").addEventListener('click', profile) ;
+        document.querySelector("#profile").addEventListener('click', profile);
         let btnFacebook= document.querySelector("#loginFacebook");
         btnFacebook.onclick= authFacebook;
         function authFacebook () {
         let provider= new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result){
             alert("Éxito");
+            welcomeView();
             console.log(result);
         })
         .catch(function(error){
@@ -44,6 +54,7 @@ function singIn (){
                 console.log(token);
                 let user = result.user;
                 console.log(user);
+                welcomeView();
               }).catch(function(error) {
                 let errorCode = error.code;
                 console.log(errorCode);

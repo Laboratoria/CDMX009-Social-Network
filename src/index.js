@@ -1,8 +1,25 @@
 import singIn from './login.js';
+import profile from './profile.js';
+import welcomeView from './welcome.js';
+import showOupladWindow from './uopladContent.js';
+let btns= document.querySelectorAll('.btnNav');
 
-function init() {
+function router(root) {
   singIn();
+  switch(root){
+    case 'profile':
+      profile();
+      break;
+    case 'welcome':
+      welcomeView();
+      break;
+    case 'oupladContent':
+      showOupladWindow();
+      break;
+  }
 }
+
+// btns.forEach(btn => btn.onclick= e => router(e.target.id))
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyBuxP-xlUpYjWc5KNNt6q0hKbsxc8L4cE4',
@@ -17,4 +34,4 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
-window.addEventListener('load', init);
+window.addEventListener('load', router);

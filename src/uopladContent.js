@@ -30,8 +30,8 @@ let staticMenu= document.querySelector("#staticMenu");
     <div id="test"></div>
     </section>`
     content.innerHTML= oupladView;
-    let out= document.querySelector('#out');
-    out.onclick= singIn;
+    // let out= document.querySelector('#out');
+    // out.onclick= singIn;
     let preview= document.querySelector("#previewImage");
     let inputFile= document.querySelector("#addImage");
     inputFile.onchange= (e) => {
