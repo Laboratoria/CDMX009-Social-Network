@@ -1,5 +1,5 @@
 import { checkIn, logInFacebook, logInGoogle, home } from './firebase.js';
-export{ init }
+
 const logInButton = document.querySelector('#logIn');
 
 const creatAccountButton = document.querySelector('#creatAccount');
@@ -78,3 +78,10 @@ function logIn(){
 
   logInButton.onclick = logIn;
 
+  // MENU
+const btnToggle = document.querySelector('.toggle-btn');
+
+btnToggle.addEventListener('click', function () {
+  document.getElementById('sidebar').classList.toggle('active');
+  document.getElementById('sidebar')
+});
