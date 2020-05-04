@@ -60,7 +60,7 @@ export function userObserverProfile() {
 
 }
  */
-/* export function renderProfileView(myData) {
+export function renderProfileView(myData) {
   //console.log(myData);
   if (myData) {
     const profile =
@@ -100,9 +100,9 @@ export function userObserverProfile() {
     return profile
   }
 
-} */
+}
 
-export function renderProfileView(myData) {
+/* export function renderProfileView(myData) {
   //console.log(myData);
   if (myData) {
     const profile =
@@ -143,7 +143,7 @@ export function renderProfileView(myData) {
     return profile
   }
 
-}
+} */
 
 
 function edit() {
