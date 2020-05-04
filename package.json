@@ -15,7 +15,6 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "test2": "jest test/example.spec.js",
     "start": "serve src/"
   },
   "devDependencies": {

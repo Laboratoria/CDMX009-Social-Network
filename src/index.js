@@ -5,9 +5,9 @@ const root = document.querySelector('#root');
 const logo = '<div class=""> <img width="250px" class="mainLogo" src="https://i.ibb.co/sFBwWCc/memingos-rgb.png"></div>';
 let errMsg;
 const errorHandler = () => {
-  const errHand = database.errorInfo();
-  if (!errHand) return;
-  errMsg.innerHTML = errHand.message;
+    const errHand = database.errorInfo();
+    if (!errHand) return;
+    errMsg.innerHTML = errHand.message;
 };
 const topBarForm = `
     <div class="userInfo media navbar is-fixed-top">
@@ -26,32 +26,32 @@ const topBarForm = `
         </div>
     </div>`;
 const topNavBar = () => {
-  const showImg = document.querySelector('#profilePic');
-  const showUserName = document.querySelector('#profileUserNameSaved');
-  let imgSrc;
-  let userNameSrc;
-  database.getProfilePic()
-    .then((data) => {
-      if (!data) return;
-      imgSrc = data.url;
-      showImg.src = imgSrc;
-    });
-  database.getProfileName()
-    .then((data) => {
-      if (!data) return;
-      userNameSrc = data.userName;
-      showUserName.innerHTML = `${'@'}${userNameSrc}`;
-    })
-    .catch((error) => {
-        throw error('¡Error!');
-    });
+    const showImg = document.querySelector('#profilePic');
+    const showUserName = document.querySelector('#profileUserNameSaved');
+    let imgSrc;
+    let userNameSrc;
+    database.getProfilePic()
+        .then((data) => {
+            if (!data) return;
+            imgSrc = data.url;
+            showImg.src = imgSrc;
+        });
+    database.getProfileName()
+        .then((data) => {
+            if (!data) return;
+            userNameSrc = data.userName;
+            showUserName.innerHTML = `${'@'}${userNameSrc}`;
+        })
+        .catch((error) => {
+            throw error('¡Error!');
+        });
 };
 const renderSignIn = () => {
-  root.classList.add('section');
-  root.classList.add('signUpAndIn');
-  body.classList.remove('has-navbar-fixed-top');
-  body.classList.remove('has-navbar-fixed-bottom');
-  const signInForm = `
+    root.classList.add('section');
+    root.classList.add('signUpAndIn');
+    body.classList.remove('has-navbar-fixed-top');
+    body.classList.remove('has-navbar-fixed-bottom');
+    const signInForm = `
         <div class="has-text-centered has-text-white title is-4">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -109,6 +109,7 @@ const renderSignIn = () => {
             <td> ¿No tienes cuenta? </td> <a id="signUpLink"> Regístrate </a>
         </div>
     `;
+<<<<<<< HEAD
   root.innerHTML = `${logo}${signInForm}`;
   errMsg = document.querySelector('#errMsg');
   document.querySelector('#signUpLink').addEventListener('click', () => {
@@ -131,6 +132,31 @@ function renderSignUp () {
   body.classList.remove('has-navbar-fixed-top');
   body.classList.remove('has-navbar-fixed-bottom');
   const signUpForm = `
+=======
+    root.innerHTML = `${logo}${signInForm}`;
+    errMsg = document.querySelector('#errMsg');
+    document.querySelector('#signUpLink').addEventListener('click', () => {
+        renderSignUp();
+    });
+    document.querySelector('#logIn').addEventListener('click', () => {
+        const logEmail = document.getElementById('logEmail').value;
+        const logPassword = document.getElementById('logPassword').value;
+        database.signIn(logEmail, logPassword);
+        window.setTimeout(errorHandler, 400);
+    });
+    document.querySelector('#facebookSignIn').addEventListener('click', () => {
+        database.signInFacebook();
+    });
+    document.querySelector('#googleSignIn').addEventListener('click', () => {
+        database.signInGoogle();
+    });
+};
+const renderSignUp = () => {
+    root.classList.add('section');
+    body.classList.remove('has-navbar-fixed-top');
+    body.classList.remove('has-navbar-fixed-bottom');
+    const signUpForm = `
+>>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
         <div class="has-text-centered has-text-white title is-4 ">
             <h4> Bienvenido(a) </h4>
         </div>
@@ -191,6 +217,7 @@ function renderSignUp () {
             </a>
         </div>
         `;
+<<<<<<< HEAD
   root.innerHTML = `${logo}${signUpForm}`;
   errMsg = document.querySelector('#errMsg');
   const regEmail = document.getElementById('regEmail').value;
@@ -208,6 +235,27 @@ function renderSignUp () {
   document.querySelector('#signInLink').addEventListener('click', () => {
     renderSignIn();
   });
+=======
+    root.innerHTML = `${logo}${signUpForm}`;
+    errMsg = document.querySelector('#errMsg');
+    document.querySelector('#register').addEventListener('click', () => {
+        const regEmail = document.getElementById('regEmail').value;
+        const regPassword = document.getElementById('regPassword').value;
+        console.log(regEmail);
+        console.log(regPassword);
+        database.signUp(regEmail, regPassword);
+        window.setTimeout(errorHandler, 400);
+    });
+    document.querySelector('#facebookSignIn').addEventListener('click', () => {
+        database.signInFacebook();
+    });
+    document.querySelector('#googleSignIn').addEventListener('click', () => {
+        database.signInGoogle();
+    });
+    document.querySelector('#signInLink').addEventListener('click', () => {
+        renderSignIn();
+    });
+>>>>>>> 2c3688c0e47ce49ea14722d31865c1b13d347165
 };
 renderSignUp();
 const BottomBarForm = `
@@ -230,10 +278,10 @@ const BottomBarForm = `
 <div>
 `;
 const renderProfile = () => {
-  root.classList.add('section');
-  body.classList.remove('has-navbar-fixed-top');
-  body.classList.add('has-navbar-fixed-bottom');
-  const profile = `
+    root.classList.add('section');
+    body.classList.remove('has-navbar-fixed-top');
+    body.classList.add('has-navbar-fixed-bottom');
+    const profile = `
     <div class="logoMemingos"> 
     <img id="mLogo" width="50px" src="https://i.ibb.co/WDbX8yw/logo-m-new-rgb.png"/>
     </div>
@@ -289,59 +337,59 @@ const renderProfile = () => {
             </div>
         </div>
         `;
-  root.innerHTML = `${profile}${BottomBarForm}`;
-  document.querySelector('#home').addEventListener('click', () => {
-    renderFeed();
-  });
-  document.querySelector('#add').addEventListener('click', () => {
-    renderNewPost();
-  });
-  document.querySelector('#confirm').addEventListener('click', () => {
-    database.saveData();
-    window.setTimeout(renderFeed, 400);
-  });
-  document.querySelector('#logout').addEventListener('click', () => {
-    database.logout();
-    renderSignIn();
-  });
-  const showImg = document.querySelector('#showImg');
-  const showName = document.querySelector('#profileName');
-  let setInfo;
-  let imgSrc;
-  database.getProfilePic()
-    .then((data) => {
-      if (!data) return;
-      imgSrc = data.url;
-      showImg.src = imgSrc;
+    root.innerHTML = `${profile}${BottomBarForm}`;
+    document.querySelector('#home').addEventListener('click', () => {
+        renderFeed();
     });
-  document.querySelector('#profilePicture').addEventListener('change', (event) => {
-    database.uploadPicture(event.target.files[0]);
-    showImg.src = imgSrc;
-    window.setTimeout(renderProfile, 1500);
-  });
-  database.getProfileName()
-    .then((data) => {
-      if (!data) return;
-      setInfo = data;
-      showName.innerHTML = setInfo.userName;
+    document.querySelector('#add').addEventListener('click', () => {
+        renderNewPost();
     });
-  const profileName = document.querySelector('#profileName');
-  const userName = document.querySelector('#userName');
-  const biography = document.querySelector('#biography');
-  const setAll = () => {
-    if (!setInfo) return;
-    profileName.value = setInfo.profileName;
-    userName.value = setInfo.userName;
-    biography.value = setInfo.biography;
-  };
-  window.setTimeout(setAll, 1000);
+    document.querySelector('#confirm').addEventListener('click', () => {
+        database.saveData();
+        window.setTimeout(renderFeed, 400);
+    });
+    document.querySelector('#logout').addEventListener('click', () => {
+        database.logout();
+        renderSignIn();
+    });
+    const showImg = document.querySelector('#showImg');
+    const showName = document.querySelector('#profileName');
+    let setInfo;
+    let imgSrc;
+    database.getProfilePic()
+        .then((data) => {
+            if (!data) return;
+            imgSrc = data.url;
+            showImg.src = imgSrc;
+        });
+    document.querySelector('#profilePicture').addEventListener('change', (event) => {
+        database.uploadPicture(event.target.files[0]);
+        showImg.src = imgSrc;
+        window.setTimeout(renderProfile, 1500);
+    });
+    database.getProfileName()
+        .then((data) => {
+            if (!data) return;
+            setInfo = data;
+            showName.innerHTML = setInfo.userName;
+        });
+    const profileName = document.querySelector('#profileName');
+    const userName = document.querySelector('#userName');
+    const biography = document.querySelector('#biography');
+    const setAll = () => {
+        if (!setInfo) return;
+        profileName.value = setInfo.profileName;
+        userName.value = setInfo.userName;
+        biography.value = setInfo.biography;
+    };
+    window.setTimeout(setAll, 1000);
 };
- const renderFeed = () => {
-  root.classList.remove('signUpAndIn');
-  root.classList.remove('section');
-  body.classList.add('has-navbar-fixed-top');
-  body.classList.add('has-navbar-fixed-bottom');
-  const feed = `
+const renderFeed = () => {
+    root.classList.remove('signUpAndIn');
+    root.classList.remove('section');
+    body.classList.add('has-navbar-fixed-top');
+    body.classList.add('has-navbar-fixed-bottom');
+    const feed = `
         <div class="column body-column">
             <div class="header">
                 <div id="topBar"> </div>
@@ -353,25 +401,68 @@ const renderProfile = () => {
             </div>
         </div>
     `;
-  root.innerHTML = `${feed}${BottomBarForm}`;
-  document.querySelector('#topBar').innerHTML = topBarForm;
-  topNavBar();
-  database.getPostFeed();
-  document.querySelector('#myProfile').addEventListener('click', () => {
-    renderProfile();
-  });
-  document.querySelector('#add').addEventListener('click', () => {
-    renderNewPost();
-  });
-  document.querySelector('#home').addEventListener('click', () => {
-    renderFeed();
-  });
+    root.innerHTML = `${feed}${BottomBarForm}`;
+    const postFeed = document.querySelector('#postFeed');
+    let singlePost = '';
+  const renderSinglePost = (userPhoto, userName, imgPostURL,imgPostCaption, date) => {
+    singlePost += `
+    </br>
+    <div class="card">
+        <div class="userInfo media">
+            <div class="image is-48x48">
+                <img src=${userPhoto.url} class="is-rounded"/>
+            </div>
+            <div class="media-content">
+                <p>${'@'}${userName.userName}</p>
+            </div>
+            <div>
+                <img id="delete"  title="Borrar" class="icon postIcons" src="https://i.ibb.co/xqywsQ6/goma-rgb.png" >
+                <img id="edit" title="Editar" class="icon postIcons" src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" >
+            </div>
+        </div>
+        <div class="file is-centered">
+            <img src='${imgPostURL}'/>
+        </div>
+        <div>
+            <img id="like" class="icon" src="https://i.ibb.co/Kqxbg7Y/smile-rgb.png"/>
+            <img id="dislike" class="icon" src="https://i.ibb.co/0GdLWZ6/kk-rgb.png"/>
+            <img id="commentPost" class="icon" src="https://i.ibb.co/c20jsVj/coment-rgb.png"/>
+            <p>${imgPostCaption}</p>
+            <p>${date}</p>
+        </div>
+    </div>
+    </br>
+    `;
+    postFeed.innerHTML = singlePost;
+  };
+    document.querySelector('#topBar').innerHTML = topBarForm;
+    topNavBar();
+    database.getFeedData(renderSinglePost);
+    postFeed.addEventListener('click', (event) => {
+        const item = event.target;
+        if (!item) return;
+        const chosenItem = item.id;
+        if (chosenItem === 'delete') {
+            database.deletePost(key)
+        }
+    });
+    document.querySelector('#myProfile').addEventListener('click', () => {
+        renderProfile();
+    });
+    document.querySelector('#add').addEventListener('click', () => {
+        renderNewPost();
+    });
+    document.querySelector('#home').addEventListener('click', () => {
+        renderFeed();
+    });
+    
+  
 };
 const renderNewPost = () => {
-  root.classList.add('section');
-  root.classList.remove('signUpAndIn');
-  root.classList.remove('feed');
-  const post = `
+    root.classList.add('section');
+    root.classList.remove('signUpAndIn');
+    root.classList.remove('feed');
+    const post = `
         <div id="topBar"></div>
         <div id="showNewImg" class="file is-centered">
             <img id="showImgPreview" class="is-rounded" src=""/>
@@ -403,33 +494,33 @@ const renderNewPost = () => {
             </span>
         </button>
     `;
-  root.innerHTML = `${post}${BottomBarForm}`;
-  document.querySelector('#topBar').innerHTML = topBarForm;
-  topNavBar();
-  document.querySelector('#home').addEventListener('click', () => {
-    renderFeed();
-  });
-  document.querySelector('#myProfile').addEventListener('click', () => {
-    renderProfile();
-  });
-  const inputFile = document.querySelector('#uploadImg');
-  const previewContainer = document.querySelector('#showNewImg');
-  const previewImg = previewContainer.querySelector('#showImgPreview');
-  inputFile.addEventListener('change', function () {
-    const file = this.files[0];
-    if (file) {
-      const reader = new FileReader();
-      previewImg.style.display = 'block';
-      reader.addEventListener('load', function () {
-        console.log(this);
-        previewImg.setAttribute('src', this.result);
-      });
-      reader.readAsDataURL(file);
-    }
-  });
-  document.querySelector('#update').addEventListener('click', () => {
-    database.uploadPicturePost();
-    window.setTimeout(renderFeed, 3000);
-  });
+    root.innerHTML = `${post}${BottomBarForm}`;
+    document.querySelector('#topBar').innerHTML = topBarForm;
+    topNavBar();
+    document.querySelector('#home').addEventListener('click', () => {
+        renderFeed();
+    });
+    document.querySelector('#myProfile').addEventListener('click', () => {
+        renderProfile();
+    });
+    const inputFile = document.querySelector('#uploadImg');
+    const previewContainer = document.querySelector('#showNewImg');
+    const previewImg = previewContainer.querySelector('#showImgPreview');
+    inputFile.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            previewImg.style.display = 'block';
+            reader.addEventListener('load', function () {
+                console.log(this);
+                previewImg.setAttribute('src', this.result);
+            });
+            reader.readAsDataURL(file);
+        }
+    });
+    document.querySelector('#update').addEventListener('click', () => {
+        database.uploadPicturePost();
+        window.setTimeout(renderFeed, 3000);
+    });
 };
 database.userObserver(renderFeed);
