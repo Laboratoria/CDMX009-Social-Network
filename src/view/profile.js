@@ -35,6 +35,7 @@ export default () => {
   divElement.innerHTML = viewProfile;
   const db = firebase.firestore();
   const postsRef = db.collection('posts');
+  const auth = firebase.auth();
 
   // elementos del DOM
   const showInfo = divElement.querySelector('.profilePost');

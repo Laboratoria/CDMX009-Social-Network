@@ -939,7 +939,7 @@ body {
   height: auto;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
   #background1 {
     background-image: url("/imgBichigram/resp1.jpg");
     background-size: 100% 100%;
