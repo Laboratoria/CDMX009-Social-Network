@@ -1,5 +1,5 @@
 # DigiTareas escolar
- <img src="/src/img/presentación.png">
+ <img src="/src/img/presentacion.png">
 
 ## Historias de Usuario y planeación
 
