@@ -3,7 +3,7 @@ import loginFunctions from '../firebase/login.js';
 export default () => {
   const loginView = document.createElement('div');
   loginView.setAttribute('class', 'viewsStyle');
-  loginView.innerHTML = `
+  loginView.innerHTML = ` 
             <center><h3>Inicia Sesión con tu email</h3></center>
             <form class="registerForm">
                 <input type="email" required id="loginEmail" placeholder= "Correo electrónico">
@@ -12,7 +12,7 @@ export default () => {
                 <h5><a href="#/passwordRecovery" id="recover">¿Has olvidado la contraseña?</a></h5>
             </form> 
             <div class="conectWithSocialMedia">
-                <h4> O </h4>
+                
                 <img src="images/facebook4.png" id="facebookLogin" class="buttons"> </br>
                 <img src="images/google4.png" id="googleLogin" class="buttons">
                 <p>¿No tienes cuenta? <a href="#/register">Registrate</a></p>
