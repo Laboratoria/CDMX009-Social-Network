@@ -147,9 +147,9 @@ anterior en la siguiente sección.
 
 ### HTML y CSS
 
-* [ ] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-* [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+* [x] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [x] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 ### DOM y Web APIs
 
@@ -181,21 +181,21 @@ anterior en la siguiente sección.
 
 ### Colaboración en Github
 
-* [ ] Branches
-* [ ] Pull Requests
+* [x] Branches
+* [x] Pull Requests
 * [ ] Tags
 
 ### Organización en Github
 
-* [ ] Projects
+* [x] Projects
 * [ ] Issues
 * [ ] Labels
 * [ ] Milestones
 
 ### Buenas prácticas de desarrollo
 
-* [ ] Modularización
-* [ ] Nomenclatura / Semántica
+* [x] Modularización
+* [x] Nomenclatura / Semántica
 * [ ] Linting
 
 ***
