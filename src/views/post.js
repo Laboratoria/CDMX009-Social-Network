@@ -1,13 +1,12 @@
 import { root } from "../main.js";
-import { navBar } from "../main.js";
 import { showPosts } from "./home.js";
-import { showP } from "../main.js"
-
+import { navBar } from "../main.js";
 
 //Esto dibuja la vista donde se puede agregar un post
 
-//let db = firebase.firestore();
-export const renderPostView = () => {
+let db = firebase.firestore()
+
+export function renderPostView() {
   const posts =
     `<section id="container">
     <div class="container has-text-white">
@@ -29,17 +28,18 @@ export const renderPostView = () => {
                 <i class="fas fa-upload"></i>
               </span>
               <span class="file-label">
-                Agrega una imagen...
+                Agrega una ilustración...
               </span>
             </span>
           </label>
         </div>
-    <button id="newPost" class="button is-fullwidth is-primary is-large">Publicar</button>
-    <section id="putPosts"></section>
-    </section>`
+    <button id="newPost" class="button  is-fullwidth is-primary is-large">Publicar</button>
+    <section id="putPosts" class="sectionPosts"></section>
+    </section>
+    `
   navBar.style.display = 'block'
   root.innerHTML = posts
-  showPosts.innerHTML = '';
+
 
   //Nodos Imagen
   const fileInput = document.querySelector("#file")
@@ -51,11 +51,14 @@ export const renderPostView = () => {
 
   readFile(fileInput, sectionPosts)
 
-  //showPosts(sectionPosts)
+  showPosts(sectionPosts)
+
 }
 
 function readFile(fileInput, sectionPosts) {
   let url
+
+  //const fileInput = document.querySelector("#file")
   fileInput.onchange = (e) => {
     console.log(e);
     let file = e.target.files[0]
@@ -64,6 +67,7 @@ function readFile(fileInput, sectionPosts) {
       .then(snap => {
         console.log(snap);
         return snap.ref.getDownloadURL()
+
       })
       .then(link => {
         url = link
@@ -80,74 +84,78 @@ function readFile(fileInput, sectionPosts) {
   function textImage() {
     const text = document.querySelector('#body').value
     const title = document.querySelector("#title").value
-    firebase.auth().onAuthStateChanged(function (user) {
-      //console.log(user);
-      const docRef = db.collection('datausers/').doc(user.uid);
-      docRef.get().then(function (snapshot) {
-        let userData = snapshot.data();
-        console.log(userData);
-        let post = {
-          title: title,
-          text: text,
-          user: userData.name,
-          photo: userData.photo,//photoURL
-          date: new Date(),
-          img: url,
-          uid: userData.uid
-        }
-        addNewPost(post)
-          .then(res => {
-            console.log(res)
-          })
-          .catch(err => {
-            console.log("No hay nuevo post", err)
-          })
-        addPostBD(post)
-      })
-    })
-  }
-
-  function readText() {
-    const text = document.querySelector('#body').value
-    const title = document.querySelector("#title").value
-    firebase.auth().onAuthStateChanged(function (user) {
-      //console.log(user);
-      const docRef = db.collection('datausers/').doc(user.uid);
-      docRef.get().then(function (snapshot) {
-        let userData = snapshot.data();
-        console.log(userData);
-        let post = {
-          title: title,
-          text: text,
-          user: userData.name,
-          photo: userData.photo,
-          date: new Date(),
-          uid: userData.uid
-        }
-        addNewPost(post)
-          .then(res => {
-            console.log(res)
-          })
-          .catch(err => {
-            console.log("No hay nuevo post", err)
-          })
-        addPostBD(post)
-        showPosts()
-      })
-    })
-  };
-
-  //  Se agrega el post a la collección postsList en la BD
-  function addNewPost(post) {
-    return firebase.firestore().collection("postsList").add(post)
-  }
-
-  //  Se agregan los post al perfil del usuario
-  function addPostBD(post) {
     let user = firebase.auth().currentUser;
-    const docRef = firebase.firestore().collection('datausers/').doc(user.uid);//la / y el + user.uid hace que no se duplique el usuario
-    docRef.update({
-      post: firebase.firestore.FieldValue.arrayUnion(post)
-    })
+    let post = {
+      title: title,
+      text: text,
+      user: user.displayName,
+      photo: user.photoURL,
+      date: new Date(),
+      img: url
+    }
+    addNewPost(post)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log("No hay nuevo post", err)
+      })
+
+    addPostBD(post)
   }
+
+}
+
+function readText() {
+  const text = document.querySelector('#body').value
+  const title = document.querySelector("#title").value
+  let user = firebase.auth().currentUser;
+  console.log(user);
+
+  let post = {
+    title: title,
+    text: text,
+    user: user.name,
+    photo: user.photoURL,
+    date: new Date(),
+
+  }
+  addNewPost(post)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log("No hay nuevo post", err)
+    })
+  addPostBD(post)
+}
+//Esto agrega un post nuevo a la lista de posts
+
+
+//Funciones de Firebase
+
+//Se agrega el post a la collección postsList en la BD 
+function addNewPost(post) {
+  return firebase.firestore().collection("postsList").add(post)
+
+
+}
+function dataBD() {
+  firebase.firestore().collection("postsList").get().then(function (docs) {
+    docs.forEach(function (doc) {
+      console.log(doc.id);
+    });
+  });
+}
+dataBD()
+
+
+//Se agregan los post al perfil del usuario 
+function addPostBD(post) {
+  let user = firebase.auth().currentUser;
+  console.log(user);
+  const docRef = db.collection('datausers/').doc(user.uid);
+  docRef.update({
+    post: firebase.firestore.FieldValue.arrayUnion(post)
+  })
 }
