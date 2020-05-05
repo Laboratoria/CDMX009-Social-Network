@@ -8,9 +8,9 @@ A través de ella se puede crear y compartir reseñas de actividades, lugares y 
 
 Se aterrizó indivualmente la idea de las pantallas para identificar elementos esenciales para reunir en el prototipo de alta fidelidad.
 
-![Propuesta 1](img_readme/sketch_Kari.jpg:width:300)
-![Propuesta 2](img_readme/sketch_Xel.jpg:width:300)
-![Propuesta 3](img_readme/sketch_Bren.jpg:width:300)
+![Propuesta 1](img_readme/sketch_Kari.jpg=100x20)
+![Propuesta 2](img_readme/sketch_Xel.jpg=100x20)
+![Propuesta 3](img_readme/sketch_Bren.jpg=100x20)
 
 ## Prototipo de alta fidelidad
 
@@ -20,9 +20,6 @@ Integramos los elementos de cada sketch que aportaban más valor a la propuesta 
 ![Propuesta final](img_readme/figma2.png)
 
 ## Objetivos de aprendizaje
-
-Antes de empezar el proyecto, recuerda agregar tus objetivos de aprendizaje pendientes de tu proyecto
-anterior en la siguiente sección.
 
 ### Objetivos de aprendizajes pendientes
 
@@ -65,23 +62,6 @@ anterior en la siguiente sección.
 - [x] Branches
 - [x] Pull Requests
 - [ ] Tags
-
-### Organización en Github
-
-- [Pildora SPA](https://www.loom.com/share/fa63a8ad0e9a43428222c15b6f6613d3)
-- [Repositorio de pildora de SPA](https://github.com/betsyvies/bootcamp-spa)
-- [Pildora de mock Firebase](https://www.youtube.com/watch?v=06myVn41OTY&t=1s)
-- [Repositorio de pildora de mock Firebase](https://github.com/Danielalab/2018-2-Testing)
-- [Pildora MVC](https://github.com/merunga/todomvc-vanillajs)
-- [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-- [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-- [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-- [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-- [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-- [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-- [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-
----
 
 - [x] Projects
 - [ ] Issues
