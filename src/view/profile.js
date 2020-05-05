@@ -1,4 +1,4 @@
-export { user } from "../firebase-auth.js"
+/* export { user } from "../firebase-auth.js"
 const db = firebase.firestore();
 const st = firebase.storage();
 const user = user();
@@ -37,30 +37,16 @@ const updateProfile({
   email: emailUser
 })
 
-
+ */
 
 
 
 export default () => {
   const root = document.querySelector("#roots");
   const viewProfile = `
-  <section>
-  <div class="user-img">
-    <img id="photoUser" src="${localStorage.getItem('URLStorage')}" alt = 'member'/>  
-  </div>
-  <div>
-    <div class="flex-profile-name">
-      <textarea class="test textarea" id="userName" disable>${localStorage.getItem('nameStorage')}</textarea>
-      <button class="button-edit" id= "editBtn" type="button" data-name="${localStorage.getItem('nameStorage')}", data-photo="${localStorage.getItem('URLStorage')}"><img class="img-edit" src="./img/icons/pen.svg"></button>
-      <button type="submit" id="saveProfileBtn">guardar</button>
-    </div>
-    <div class="flex-connection">
-      <a href="#/followers">
-        <p> 5 <br> Seguidores</p>
-      </a>
-      <a href="#/follow">
-        <p> 3 <br> Seguidores</p>
-      </a>
+    <section>
+    <div class="user-img" style="margin-top:80px">
+      <img src="${localStorage.getItem('URLStorage')}" alt = 'member'/>  
     </div>
   </div>
   <div class="categories-btn-">
@@ -82,22 +68,45 @@ export default () => {
         </a>
       </div>
     </div>
-    <div>
-      <div class="categorie-btn-">
-        <a class="nav-link" href="#/saved">
-          <span class="menu-icons">
-            <i class="far fa-bookmark"></i>
-          </span>
-        </a>
+    <div class="categories-btn-">
+      <div>
+        <div class="categorie-btn-">
+          <a class="nav-link" href="#/favorites">
+            <span class="profile-icons">
+              <i class="far fa-heart"></i>
+            </span>
+          </a>  
+        </div>
+      </div>
+      <div>
+        <div class="categorie-btn-">
+          <a class="nav-link" href="#/reviews">
+            <span class="profile-icons">
+              <i class="far fa-sticky-note"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="categorie-btn-">
+          <a class="nav-link" href="#/saved">
+            <span class="profile-icons">
+              <i class="far fa-bookmark"></i>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
   `;
 
-  // Hide header
+  // Hide header elements
   const dashHeader = document.querySelector('#dashboardHeader');
   dashHeader.classList.add('hide');
+  const cardUser = document.querySelector('.card-user-desk');
+  cardUser.classList.add('hide');
+
 
   const divElemt = document.createElement('div');
   divElemt.innerHTML = viewProfile;

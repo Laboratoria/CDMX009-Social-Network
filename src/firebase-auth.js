@@ -28,21 +28,29 @@ export const logOut = () => {
 let displayName;
 let photoURL;
 
-export const user = firebase.auth().onAuthStateChanged((user) => {
-  const menu = document.querySelector('.menu');
-  if (user) {
-    const menuPic = document.querySelector('#user-photoURL');
-    const menuName = document.querySelector('#user-displayName');
-    menuName.innerHTML = user.displayName;
-    menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
-    displayName = user.displayName;
-    photoURL = user.photoURL;
-    localStorage.setItem('nameStorage', displayName);
-    localStorage.setItem('URLStorage', photoURL);
-    window.open('#/home', '_self');
-    menu.classList.remove('hide');
-    console.log('estas activo dude :)', user);
-  } else {
-    console.log('no estas activo chavo :(');
-  }
-});
+function observatorFirebase() {
+  firebase.auth().onAuthStateChanged((user) => {
+    const menu = document.querySelector('.menu');
+    if (user) {
+      const menuPic = document.querySelector('#user-photoURL');
+      const menuName = document.querySelector('#user-displayName');
+      const deskPic = document.querySelector('#userdesk-photoURL');
+      const deskName = document.querySelector('#userdesk-displayName');
+      menuName.innerHTML = user.displayName;
+      menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+      deskName.innerHTML = user.displayName;
+      deskPic.innerHTML = `<img src="${user.photoURL}"/>`;
+      displayName = user.displayName;
+      photoURL = user.photoURL;
+      localStorage.setItem('nameStorage', displayName);
+      localStorage.setItem('URLStorage', photoURL);
+      window.open('#/home', '_self');
+      menu.classList.remove('hide');
+      console.log('estas activo dude :)', user);
+    } else {
+      window.open('#/login', '_self')
+      console.log('no estas activo chavo :(');
+    }
+  });
+}
+observatorFirebase();
