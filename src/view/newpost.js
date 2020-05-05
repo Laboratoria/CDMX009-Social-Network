@@ -1,4 +1,3 @@
-
 const welcomeview = document.querySelector('#background1');
 
 export default () => {

@@ -962,7 +962,7 @@ body {
             transform: translate(-50%);
   }
   #background2 {
-    background-image: url("../imgBichigram/resp2.jpg");
+    background-image: url("../imgBichigram/resp3.jpg");
     background-size: 100% 100%;
   }
   #gridLogin {
@@ -995,7 +995,7 @@ body {
     border: none;
   }
   #background3 {
-    background-image: url("../imgBichigram/resp3.jpg");
+    background-image: url("../imgBichigram/resp2.jpg");
     background-size: 100% 100%;
   }
   #gridNew {
@@ -1038,7 +1038,7 @@ body {
     margin: 150px 0px;
   }
   #backgroundNewPost {
-    background-image: url("../imgBichigram/resp3.jpg");
+    background-image: url("../imgBichigram/resp2.jpg");
     background-size: 100% 200%;
   }
   #gridPost {
@@ -1061,7 +1061,7 @@ body {
     margin: 150px 0px;
   }
   #backgroundProfile {
-    background-image: url("../imgBichigram/resp2.jpg");
+    background-image: url("../imgBichigram/resp3.jpg");
     background-size: 100% 200%;
   }
   #grdProfile {

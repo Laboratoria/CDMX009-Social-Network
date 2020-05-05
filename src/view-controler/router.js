@@ -1,4 +1,4 @@
-import { components } from '../view/index.js.js';
+import { components } from '../view/index.js';
 
 const changeView = (route) => {
   const container = document.querySelector('#container');
