@@ -34,8 +34,12 @@ const observatorState = () => {
     if (user) {
       const menuPic = document.querySelector('#user-photoURL');
       const menuName = document.querySelector('#user-displayName');
+      const deskPic = document.querySelector('#userdesk-photoURL');
+      const deskName = document.querySelector('#userdesk-displayName');
       menuName.innerHTML = user.displayName;
       menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+      deskName.innerHTML = user.displayName;
+      deskPic.innerHTML = `<img src="${user.photoURL}"/>`;
       displayName = user.displayName;
       photoURL = user.photoURL;
       localStorage.setItem('nameStorage', displayName);

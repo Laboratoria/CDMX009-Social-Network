@@ -25,9 +25,9 @@ mockfirestore.autoFlush();
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
-  () => null,
-  () => mockauth,
-  () => mockfirestore,
+    () => null,
+    () => mockauth,
+    () => mockfirestore,
 );
 
 
