@@ -21,16 +21,52 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.8.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.1.2",
+<<<<<<< HEAD
+    "firebase-mock": "^2.3.2",
+=======
+    "firestore-jest-mock": "^0.3.0",
+>>>>>>> b7f7df148a0bc18b3252b7b71954fdfcf93ddd02
     "htmlhint": "^0.11.0",
-    "jest": "^24.8.0",
-    "regenerator-runtime": "^0.13.1",
+    "jest": "^24.9.0",
+    "mock-cloud-firestore": "^0.12.0",
+    "regenerator-runtime": "^0.13.5",
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
-  }
+  },
+  "dependencies": {
+    "bulma": "^0.8.2",
+<<<<<<< HEAD
+    "https-localhost": "^4.5.2"
+=======
+    "firebase-admin": "^8.11.0",
+    "mockfirebase": "^0.12.0"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".ts", ".d.ts"]
+      }
+    }
+>>>>>>> b7f7df148a0bc18b3252b7b71954fdfcf93ddd02
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kari2406/CDMX009-Social-Network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Kari2406/CDMX009-Social-Network/issues"
+  },
+  "homepage": "https://github.com/Kari2406/CDMX009-Social-Network#readme"
 }

@@ -1,12 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Civitas</title>
+  <meta name="author" content="Brenda Carranco, Xel Jimenez, Karina Sánchez" />
+  <meta name="description" content="Somos una red de conexión entre personas" />
+  <meta name="keywords" content="reviews, reseñas, people, comunidad, likes, followers" />
+  <link rel="icon" type="image/png" href="/src/img/favicon/favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@300;400&family=Roboto&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/1197ff44ad.js" crossorigin="anonymous"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
 </head>
+
 <body>
-  <script type="module" src="index.js"></script>
+  <section id="headerH">
+  </section>
+  <section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modalContent">
+          <div class="modal-header">
+            <div class="modal-img">
+              <input type="file" id="file" value=""></input>
+            </div>
+            <button type="button" class="close" id="modalClose" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="card-post-container">
+                  <div class="card-text">
+                    <input type="text" class="form-control" id="recipientTitle" placeholder="Titulo de la publicación">
+                    <input type="text" class="form-control" id="recipientActivity" placeholder="#categoría">
+                    <input type="text" class="form-control" id="recipientLocation" placeholder="Ubicación">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="recipientDescription"
+                  placeholder="Escribe aqui tu reseña o actividad">
+                </textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="submit-button" id="savePost">Publicar
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="" id="modalEditPost"></div>
+  </section>
+  <section class="menu" id="menuH">
+    <header class="header-size">
+      <div class="container" id="header">
+        <div class="header-container">
+          <div class="bg-nav-container">
+            <nav class="bg-nav">
+              <button class="menu-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="bars-icon">
+                  <i class="fas fa-bars"></i>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="logout-icon">
+                  <i class="fas fa-long-arrow-alt-left" id="logout"></i>
+                  <p>Salir</p>
+                </div>
+                <div class="user-img" id="user-photoURL">
+                </div>
+                <div class="white">
+                  <h3 id="user-displayName"></h3>
+                </div>
+                <ul class="my-navbar mr-auto menu-container">
+                  <li class="nav-item active ">
+                    <a class="nav-link" href="#/profile" id="profilePage">Perfil
+                      <span class="menu-icons">
+                        <i class="far fa-user"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#/favorites">Favoritos
+                      <span class="menu-icons">
+                        <i class="far fa-heart"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#/saved">Guardado
+                      <span class="menu-icons">
+                        <i class="far fa-bookmark"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#/ id=" navbarDropdown" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mis conexiones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#/followers">Seguidores</a>
+                      <a class="dropdown-item" href="#/follow">Seguidos</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <a class="logo-civitas-dashboard" href="#/home">
+            <img src="img/icons/logo.svg">
+          </a>
+          <div class="new-post-icon">
+            <a href="#/newPost" class="" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+              <i class="far fa-edit"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </section>
+  <section id="dashboardHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+        </div>
+        <div class="col-lg-7">
+          <div class="header-2">
+            <div class="categories-btn">
+              <div>
+                <div class="categorie-btn">
+                  <a>
+                    <img src="img/icons/food.svg">
+                  </a>
+                </div>
+                <p>Comida</p>
+              </div>
+              <div>
+                <div class="categorie-btn">
+                  <a>
+                    <img src="img/icons/drug.svg">
+                  </a>
+                </div>
+                <p>Salud</p>
+              </div>
+              <div>
+                <div class="categorie-btn">
+                  <a>
+                    <img src="img/icons/dog.svg">
+                  </a>
+                </div>
+                <p>Mascotas</p>
+              </div>
+              <div>
+                <div class="categorie-btn">
+                  <a>
+                    <img src="img/icons/home-run.svg">
+                  </a>
+                </div>
+                <p>En casa</p>
+              </div>
+            </div>
+            <div class="filters">
+              <div class="search-input-container">
+                <input class="search-input" type="search" name="search" placeholder="Buscar" />
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="filters-icon">
+                <a>
+                  <i class="fas fa-filter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id='roots'></div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 card-user-desk">
+          <div class="info-user-desktop">
+            <div class="user-img-desktop" id="userdesk-photoURL">
+            </div>
+            <div class="">
+              <a href="#/profile">
+                <h3 id="userdesk-displayName"></h3>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div id="contentCreated"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script>
+    let firebaseConfig = {
+      apiKey: "AIzaSyBqImEvm_hfsvsj2vN8KWBn6Ewr2zFb9CQ",
+      authDomain: "social-network-d33e4.firebaseapp.com",
+      databaseURL: "https://social-network-d33e4.firebaseio.com",
+      projectId: "social-network-d33e4",
+      storageBucket: "social-network-d33e4.appspot.com",
+      messagingSenderId: "957477248623",
+      appId: "1:957477248623:web:77fed7501ea9a56198b79a",
+      measurementId: "G-M3SME61YJ3"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+  <script type="module" src="firebase.js">
+  </script>
+  <script type="module" src="main.js">
+  </script>
+
 </body>
+
 </html>
