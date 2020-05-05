@@ -4,23 +4,19 @@ import { database } from './login.js';
 
 // const storage = firebase.storage();
 
-export const userAccess = (username, photo) => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      const userId = firebase.auth().currentUser.uid;
-      database.collection('users').where('id', '==', userId)
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            username.textContent = doc.data().name;
-            photo.src = doc.data().photo;
-          });
-        });
-    } else {
-      console.log('No user is signed in');
-    }
-  });
-};
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log(user);
+    localStorage.setItem('uid', user.uid);
+    localStorage.setItem('displayName', user.displayName);
+    localStorage.setItem('photoURL', user.photoURL);
+  } else {
+    console.log('No user is signed in');
+    localStorage.removeItem('uid');
+    localStorage.removeItem('displayName');
+    localStorage.removeItem('photoURL');
+  }
+});
 
 const dateConverter = (timeStampFormat) => {
   const date = new Date(timeStampFormat * 1000);
@@ -55,6 +51,7 @@ const editPost = (event) => {
     const postsRef = database.collection('posts').doc(event.target.id);
     console.log(event.target.id);
     const newContent = document.querySelector('#newTextPost').value;
+    console.log(newContent);
     return postsRef.update({
       postContent: newContent,
     })
@@ -87,16 +84,10 @@ export const createNewPost = (content) => {
 export const postTemplate = (templateContainer) => {
   database.collection('posts').onSnapshot((querySnapshot) => {
     templateContainer.innerHTML = '';
-    const docRef = database.collection('posts');
-    docRef.orderBy('date', 'desc');
     querySnapshot.forEach((doc) => {
       const timestampFormat = doc.data().date.seconds;
       const newDateFormat = dateConverter(timestampFormat);
       const userTemplate = `
-      <div class="postContainer modifyForm">
-      <textarea id="modifyPost" rows="3"></textarea>
-      <button type="submit" id="submitNewPost">Modificar</button>
-    </div>
         <div class="postContainer">
           <div class="post">
               <img src="${doc.data().postPhotoOwner}" alt="Profile" class="postAuthor">
@@ -109,17 +100,52 @@ export const postTemplate = (templateContainer) => {
           <div class="postOptions">
               <div class="likes">00</div>
               <img src="images/corazon (1).svg" class="likes" alt="like">
-              <img src="images/rectification.svg" class="edit likes" id="${doc.id}" alt="Editar" data-content="${doc.data().postContent}">
-              <img src="images/borrar.svg" class="delete likes" id="${doc.id}" alt="Eliminar">
           </div>
         </div>`;
       templateContainer.innerHTML += userTemplate;
-      const DeleteBtns = templateContainer.querySelectorAll('.delete');
-      DeleteBtns.forEach(btn => btn.addEventListener('click', deleteOption));
-
-      const btn = templateContainer.querySelectorAll('.edit');
-      btn.forEach(bt => bt.addEventListener('click', editPost));
     });
   });
 };
 
+// obtener post propios
+export const currentUserPosts = (postContainer) => {
+  postContainer.innerHTML = '';
+  // const prueba = localStorage.getItem('uid');
+  // console.log(prueba);
+  const currentUserRef = database.collection('posts');
+  const query = currentUserRef.where('postOwner', '==', localStorage.getItem('uid'));
+  query.get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        const timestampFormat = doc.data().date.seconds;
+        const newDateFormat = dateConverter(timestampFormat);
+        const userTemplate = `
+          <div class="postContainer">
+            <div class="post">
+                <img src="${doc.data().postPhotoOwner}" alt="Profile" class="postAuthor">
+                <div class="postContent">
+                  <span id="ownerName">${doc.data().postNameOwner}</span><br>
+                  <span id="contentMessage" class="content">${doc.data().postContent}</span><br>
+                  <span id="date">${newDateFormat}</span>
+                </div>
+            </div>
+            <div class="postOptions">
+                <div class="likes">00</div>
+                <img src="images/corazon (1).svg" class="likes" alt="like">
+                <img src="images/rectification.svg" class="edit likes" id="${doc.id}" alt="Editar" data-content="${doc.data().postContent}">
+                <img src="images/borrar.svg" class="delete likes" id="${doc.id}" alt="Eliminar">
+            </div>
+          </div>`;
+        postContainer.innerHTML += userTemplate;
+        const DeleteBtns = postContainer.querySelectorAll('.delete');
+        DeleteBtns.forEach(btn => btn.addEventListener('click', deleteOption));
+
+        const btn = postContainer.querySelectorAll('.edit');
+        btn.forEach(bt => bt.addEventListener('click', editPost));
+      });
+    })
+    .catch((error) => {
+      console.log('Error getting documents: ', error);
+    });
+};
