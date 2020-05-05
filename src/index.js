@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
         viewForum(obtainingPersistenceData)
             .then(function() {
                 publicPost(obtainingPersistenceData);
-                readPosts(obtainingPersistenceData);
+                readPosts();
                 //editProfileUser(obtainingPersistenceData);
 
             });

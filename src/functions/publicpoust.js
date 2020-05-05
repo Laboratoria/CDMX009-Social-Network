@@ -24,7 +24,11 @@ function publicPost(user) {
         console.log(user);
         let post = {
             texto: text.value,
-            user: user.displayName,
+
+
+
+
+            user: (user.hasOwnProperty('displayName') && user.displayName != null) ? user.displayName : emailCortado,
             date: new Date(),
             img: imageUrl, 
             mail: user.email,

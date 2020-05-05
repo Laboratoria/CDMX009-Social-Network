@@ -1,5 +1,5 @@
 function viewForum(user) {
-    //console.log(user);    
+    console.log('usuario entra', user);    
 
     let emailCortado = 'No email';
 
@@ -13,7 +13,8 @@ function viewForum(user) {
     if (user.photoURL != null) {
         image = user.photoURL;
     }
-    let name = user.displayName ? user.displayName : emailCortado;
+    let name = (user.hasOwnProperty('displayName') && user.displayName != null) ? user.displayName : emailCortado;
+    let job = (user.hasOwnProperty('job') && user.job != null && user.job != 'undefined') ? user.job : '';
     return new Promise(function(resolve, rejected) {
         let forumView = `
     <div id="containerThree">
@@ -27,7 +28,7 @@ function viewForum(user) {
                     <div class="namePerfilUser" id="userproperty"><strong class="black-text perfilName little">
                     ${name}
                     <i class="material-icons center editProfileIcon">edit</i></strong></div>
-                    <div class="professionDescription">${user.job}</div>
+                    <div class="professionDescription">${job}</div>
                 </div>
             </div>
         </section>

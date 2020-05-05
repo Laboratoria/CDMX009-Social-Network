@@ -12,7 +12,7 @@ function editionOfProfile(user) {
     if (user.photoURL != null) {
         image = user.photoURL;
     };
-    let name = user.displayName ? user.displayName : emailCortado;
+    let name = (user.hasOwnProperty('displayName') && user.displayName != null) ? user.displayName : emailCortado;
 
     return new Promise(function(resolve, rejected) {
         let editProfileVieView = ` 

@@ -1,5 +1,8 @@
-import { viewProfile } from '../view/profile.js';
 import { clickMenus } from './clickmenus.js';
+import { viewForum } from '../view/fuorum.js';
+import { publicPost, addNewPost } from './publicpoust.js';
+import { readPosts } from './readposts.js';
+
 
 function editProfileUser(user) {
     let savesChanges = document.getElementById('saveChangesButton');
@@ -37,7 +40,7 @@ function editProfileUser(user) {
         addInformationProfileEdit(editDataProfile)
             .then(function() {
                 // Get the existing data
-                var existing = localStorage.getItem('userdata');
+                let existing = localStorage.getItem('userdata');
                 // If no existing data, create an array
                 // Otherwise, convert the localStorage string to an array
                 existing = existing ? JSON.parse(existing) : {}; //un objeto vacio en el caso de que no haya para yo llenarlo
@@ -50,10 +53,18 @@ function editProfileUser(user) {
                 return existing;
             })
             .then(function(existing) { //esto es la promesa
+                console.log('este es el bueno', existing);
+                
                 alert('se guardaron los datos') //este es el resultado de la promesa
-                viewProfile(existing);
-                clickMenus(existing);
-                updatePostPic(user.uid, imageUrl)
+                viewForum(existing)
+                .then(function() {
+                    publicPost(existing);
+                    readPosts();
+                })
+                .then(function() {
+                    clickMenus(existing);
+                    updatePostPic(user.uid, imageUrl);
+                })
             })
             .catch(err => {
                 console.log(err) //esto es el error cuando la respuesta es negativa
@@ -68,11 +79,11 @@ function addInformationProfileEdit(editDataProfile) {
 }
 
 function updatePostPic(uid, photo) {
-    return db.collection("probando render 2").where("uid", "==", uid)
+    return db.collection("pruebas_020520").where("uid", "==", uid)
         .get()
         .then(function(resultAllPost) {
             resultAllPost.forEach(function(post) {
-                db.collection("probando render 2").doc(post.id).update({
+                db.collection("pruebas_020520").doc(post.id).update({
                     photo: photo,
                 });
             });

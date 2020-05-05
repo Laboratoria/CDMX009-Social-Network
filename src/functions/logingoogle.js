@@ -1,3 +1,8 @@
+import { clickMenus } from './clickmenus.js';
+import { viewForum } from '../view/fuorum.js';
+import { publicPost, addNewPost } from './publicpoust.js';
+
+
 //Login with Google Acount
 function googleButton() {
     let provider = new firebase.auth.GoogleAuthProvider();
@@ -20,12 +25,13 @@ function googleButton() {
             document.getElementById('hideAndShow').style.display = 'block';
             movilIcon.classList.add('shown');
             
-        }).catch(function(error) {
+        })
+        .catch(function(error) {
             let errorCode = error.code;
             let errorMessage = error.message;
             let email = error.email;
             let credential = error.credential;
         });
-};
+}
 
 export { googleButton }
