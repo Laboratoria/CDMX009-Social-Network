@@ -6,11 +6,12 @@ const displayName = localStorage.getItem('nameStorage');
 const photoURL = localStorage.getItem('URLStorage');
 let url;
 let day;
-let post;
+export let post;
 
 // Initialize Cloud Firestore through Firebase
 const st = firebase.storage();
-const collectionPost = db.collection('newPosts');
+export const collectionPost = db.collection('newPosts');
+console.log(collectionPost)
 
 const timeSnap = () => {
   const now = new Date();
@@ -113,6 +114,7 @@ export const render = () => {
               </div>
                
             `;
+
       const deletebutton = document.querySelectorAll('.js-delete');
       const deletePost = (e) => {
         console.log(e.target.id);

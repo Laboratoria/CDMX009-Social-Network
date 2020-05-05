@@ -13,13 +13,6 @@ export default () => {
   divElemt.innerHTML = viewHome;
   return divElemt;
 };
-//Log out function
+ // Log out function
 const logoutBtn = document.querySelector('#logout');
-logoutBtn.onclick = () => {
-  logOut.then(() => {
-    window.open('#/login', '_self');
-    // Sign-out successful.
-  }).catch((error) => {
-    alert('Ha ocurrido un error', error);
-  });
-};
+logoutBtn.addEventListener('click', logOut);
