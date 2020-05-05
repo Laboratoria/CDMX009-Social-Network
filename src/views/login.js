@@ -1,3 +1,4 @@
+import { navBar } from "../main.js";
 export default () => {
     const viewLogin = `
 <div class = "form-container ">
@@ -5,6 +6,7 @@ export default () => {
         <div class="centerItem">
             <h1 class="titles">Iniciar Sesión</h1>
         </div>
+        
         <div class = "control has-icons-left container-separate">
             <input class ="input is-rounded" type="email" placeholder="Email" id="email">
                 <span class="icon is-small is-left">
@@ -17,7 +19,7 @@ export default () => {
                     <i class="fas fa-lock"></i>
                 </span>
         </div>
-        <button class = "button is-rounded is-fullwidth container-separate is-primary" id="enter">Entrar</button>
+        <button class = "button is-rounded is-fullwidth container-separate is-primary "  id="enter">Entrar</button>
     
         <p class ="centerItem container-separate">O accede con:</p>
 
@@ -60,8 +62,10 @@ export default () => {
     </div>
 </div>
 
-    `
+    `;
+    navBar.style.display = 'none'
     return viewLogin
+
 }
 
 

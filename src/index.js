@@ -1,10 +1,5 @@
-import { root } from "../main.js";
-import { viewLogin } from '/main.js'
-import { viewSign } from '/main.js'
-import { showPosts } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
-import { renderProfileView } from "./views/profile.js"
-import { userObserverProfile } from "./views/profile.js"
+import { principalView } from "../main.js";
 
 //Instanciar Firestore
 const db = firebase.firestore();
@@ -237,4 +232,7 @@ function userObserver() {
         }
     });
 }
+
+
 userObserver()
+

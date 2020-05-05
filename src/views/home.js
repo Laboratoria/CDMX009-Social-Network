@@ -134,12 +134,4 @@ export function showPosts() {
   }
   )
 
-
-
-
-
-  // Antes de poner el nuevo post limpia la sectionPost para evitar se dupliquen 
-
-
-  //  HEADER
 }

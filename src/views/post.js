@@ -1,5 +1,5 @@
 import { root } from "../main.js";
-// import {renderHomeView} from "./home.js"; 
+import { navBar } from "../main.js";
 import { showPosts } from "./home.js";
 
 //Esto dibuja la vista donde se puede agregar un post
@@ -35,7 +35,10 @@ export const renderPostView = () => {
     <button id="newPost" class="button is-fullwidth is-primary is-large">Publicar</button>
     <section id="putPosts"></section>
     </section>`
+  navBar.style.display = 'block'
   root.innerHTML = posts
+
+
   //Nodos Imagen
   const fileInput = document.querySelector("#file")
   const sectionPosts = document.querySelector("#putPosts")
@@ -84,8 +87,8 @@ function readFile(fileInput, sectionPosts) {
         let post = {
           title: title,
           text: text,
-          user: user.displayName,
-          photo: user.photoURL,
+          user: userData.name,
+          photo: userData.photo,//photoURL
           date: new Date(),
           img: url,
           uid: userData.uid
@@ -114,8 +117,8 @@ function readFile(fileInput, sectionPosts) {
         let post = {
           title: title,
           text: text,
-          user: user.displayName,
-          photo: user.photoURL,
+          user: userData.name,
+          photo: userData.photo,
           date: new Date(),
           uid: userData.uid
         }

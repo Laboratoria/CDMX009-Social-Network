@@ -1,3 +1,4 @@
+import { navBar } from "../main.js";
 export default () => {
     const viewSignIn = `
 <div class = "form-container ">
@@ -29,7 +30,7 @@ export default () => {
         <p class ="centerItem container-separate">O accede con:</p>
         <div class = "centerItem">
             <button class = "button is-rounded btnIcon" id="goFacebook" ><span class="icon is-small"><i class="fab fa-facebook-f"></i></span></button>
-            <button class = "button is-rounded btnIcon" id="goGoogle"><i class="fab fa-google"></i></button>
+            <button class = "button is-rounded btnIcon" id="goGoogle"><span class="icon is-small"><i class="fab fa-google"></i></span></button>
         </div>
 
     </form>
@@ -74,7 +75,7 @@ export default () => {
             <button class="modal-close is-large" aria-label="close"  id="btnCloseNoGooFbk"></button>
     </div>
 </div>
-
     `
+    navBar.style.display = 'none'
     return viewSignIn
 }
