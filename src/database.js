@@ -6,6 +6,7 @@ const database = {
     (noFirebase ? noFirebase : firebase).auth().createUserWithEmailAndPassword(regEmail, regPassword)
       .catch((error) => {
         authError = error;
+        console.log(authError)
         return authError;
       });
   },
@@ -13,6 +14,7 @@ const database = {
     (noFirebase ? noFirebase : firebase).auth().signInWithEmailAndPassword(logEmail, logPassword)
       .catch((error) => {
         authError = error;
+        console.log(authError)
         return authError;
       });
   },
@@ -41,7 +43,7 @@ const database = {
       throw error('¡Error!');
     });
   },
-  getFeedData: async (renderFunction) => {
+  getFeedData: (renderFunction) => {
     const imageRefPost = firebase.database().ref().child('post-image');
     imageRefPost.on('value', async (snapshot) => {
       const feedData = await snapshot.val();
@@ -150,7 +152,7 @@ const database = {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
         console.log('File available at', downloadURL);
         database.createNodeFirebaseForPost(uploadImg.name, downloadURL);
-        database.getPostPic();
+        // database.getPostPic();
       });
     });
   },

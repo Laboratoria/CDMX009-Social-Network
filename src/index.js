@@ -7,7 +7,25 @@ let errMsg;
 const errorHandler = () => {
     const errHand = database.errorInfo();
     if (!errHand) return;
-    errMsg.innerHTML = errHand.message;
+    switch (errHand.code) {
+        case 'auth/weak-password':
+            errMsg.innerHTML = 'La contraseña debe ser de mínimo 6 caracteres';
+        break;
+        case 'auth/invalid-email':
+            errMsg.innerHTML = 'El formato del email es incorrecto';
+        break;
+        case 'auth/email-already-in-use':
+            errMsg.innerHTML = 'Este email ya esta en uso';
+        break;
+        case 'auth/wrong-password':
+            errMsg.innerHTML = 'La contraseña es incorrecta o el usuario no tiene password';
+        break;
+        case 'auth/user-not-found':
+            errMsg.innerHTML = 'Usuario no encontrado';
+        break;
+        default:
+            errMsg.innerHTML = errHand.message;
+    };
 };
 const topBarForm = `
     <div class="userInfo media navbar is-fixed-top">
@@ -359,7 +377,7 @@ const renderFeed = () => {
     root.innerHTML = `${feed}${BottomBarForm}`;
     const postFeed = document.querySelector('#postFeed');
     let singlePost = '';
-    let ownerOpts = '';
+    let ownerTools = '';
     const renderSinglePost = (userPhoto, userName, imgPostURL,imgPostCaption, date, userId, ownerId) => {
         singlePost += `
         </br>
@@ -386,13 +404,13 @@ const renderFeed = () => {
         </div>
         </br>
         `;
-        ownerOpts += `
-        <img src="https://i.ibb.co/xqywsQ6/goma-rgb.png" title="Borrar" id="delete" class="icon postIcons">
-        <img src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" title="Editar" id="edit" class="icon postIcons">`;
         postFeed.innerHTML = singlePost;
         const ownerOptions = document.querySelector('#ownerOptions');
         if (userId === ownerId) {
-            ownerOptions.insertAdjacentHTML("afterbegin", ownerOpts);
+            ownerTools += `
+                <img src="https://i.ibb.co/xqywsQ6/goma-rgb.png" title="Borrar" id="delete" class="icon postIcons">
+                <img src="https://i.ibb.co/ggQP6Fy/lapiz-rgb.png" title="Editar" id="edit" class="icon postIcons">`;
+            ownerOptions.innerHTML = ownerTools;
             console.log('owner');
         };
     };
