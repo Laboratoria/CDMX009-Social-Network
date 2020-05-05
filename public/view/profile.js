@@ -1,7 +1,8 @@
 export default () => {
   const viewProfile = `
     <section>
-    <div class="user-img" style="margin-top:80px">
+    <div class="container">
+    <div class="user-img">
       <img src="${localStorage.getItem('URLStorage')}" alt = 'member'/>  
     </div>
     <div>
@@ -48,6 +49,8 @@ export default () => {
       </div>
     </div>
     <div id= 'postsProfile'></div>;
+    </div>
+    
   </section>
   `;
 
