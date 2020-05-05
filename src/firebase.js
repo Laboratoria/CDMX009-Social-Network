@@ -1,5 +1,5 @@
-export { checkIn, logInFacebook, logInGoogle, home };
-import{ init } from './index.js';
+export { checkIn, logInFacebook, logInGoogle, close};
+import {home,init} from './index.js';
 const provider = new firebase.auth.GoogleAuthProvider();//proveedor del servicio
 
 const logInGoogleButton = document.querySelector('#logInGoogle');
@@ -23,8 +23,6 @@ function checkIn(email, pass) {
   });
   
   home ()
-  //q hago despues esta funcion debería llamar a otra funcion que dibuje(createAccount),(renderHome)
-  // renderHome()
 }
 
 
@@ -37,7 +35,7 @@ function logInFacebook () {
     // The signed-in user info.
    var user = result.user;
     // ...
-  console.log(user);
+ // console.log(user);
   
   }).catch(function(error) {
     // Handle Errors here.
@@ -62,7 +60,7 @@ function logInGoogle (){
     // The signed-in user info.
     var user = result.user;
     // ...
-    console.log(user);
+   // console.log(user);
 
     // Cuando hacemos login con google ocultamos todos los input y los botones 
   document.getElementById('logInUser').style.display="none";
@@ -87,34 +85,6 @@ function logInGoogle (){
 
 logInGoogleButton.onclick = logInGoogle;
 
-//esta es la funcion donde se realizan las publicaciones
-function home (){
-  document.getElementById('logInUser').style.display="none";
-  document.getElementById('init').style.display="none";
-  document.getElementById('logInNetwoork').style.display="none";
-  document.getElementById('LogInNewUser').style.display="none";
-
-
-    let loginView = `
-    <section>
-      <p id="post" > Aqui se debe publicar</p>
-      <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
-      <input type="submit" class="btnPost shadow btn btn-warning btn-default pl-5 pr-5 id="" value="Publicar">
-      <button id="like"><i class="fab fa-gratipay"></i></button>
-    </section>
-
-    <button id="close">Cerrar sesión</button>
-
-  
-     `
-     
-  root.innerHTML = loginView
-
-let closeButton = document.querySelector('#close');
-
-  
-  closeButton.onclick = e=> close()
-}
 
   
 
@@ -142,15 +112,9 @@ let closeButton = document.querySelector('#close');
   //Cerrando sesión
   function close(){
     firebase.auth().signOut()
-    /*.then(() => {
-      console.log('Out');
-    })
-    .catch((error) => {
-      console.log(error);
-    })*/
     console.log("cerrado");
     init()
-    
+  
   };
  
   
