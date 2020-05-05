@@ -1,0 +1,90 @@
+@mixin logoPrim {
+    font-family: fresca;
+    font-size: 36pt;
+    color: $colorPrim;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 2px black;
+}
+@mixin logobaby {
+    margin: 0px;
+    font-family: fresca;
+    font-size: 24pt;
+    color: $colorPrim;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 2px black;
+}
+@mixin text {
+    font-family: tajawal;
+    font-size: 12pt;
+    color: $colorPrim;
+    text-align: center;
+    letter-spacing: 1pt;
+    text-shadow: 1px 1px 2px black;
+}
+@mixin btn {
+    width: 125px;
+    height: 25px;
+    background: $btnColor;
+    border-radius: 15px;
+    list-style-type: none;
+    text-align: center;  
+    a{
+        position: relative;
+        color: $colorPrim; 
+    }
+}
+@mixin input{
+    margin: 10px 3px;
+    width: 170px;
+    padding: 6px 0px ;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid grey;
+    border-radius: 15px;   
+    text-align: center;
+}
+@mixin icon {
+    width: 40px;
+    height: auto;
+}
+@mixin top {
+    display: flex;
+    div{
+        margin: 5px 20px;
+        align-content: space-between;
+        p{
+            
+            @include logobaby;
+        }
+    
+    }
+    img{    
+            margin: 0px 20px;
+            width: 35px;
+            height: auto;
+        }
+    
+    
+    
+}
+@mixin footer{ 
+    a{
+        margin: 0px;
+    } 
+    ul{
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        }
+        li{
+            margin: 0px 20px;
+        }
+    img{
+        margin: 0px;
+        width: 50px;
+        height: auto;
+    }
+}
