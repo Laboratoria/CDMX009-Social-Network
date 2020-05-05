@@ -86,10 +86,14 @@ body{
   position: fixed;
 }
 
-#boxLast{
+#footer{
   background: linear-gradient(180deg, #41B6D0 0%, #DA70C2 100%);
   width: 100%;
   justify-content:flex-end;
   align-content: flex-end;
   position: fixed;
+}
+#img-content{
+  width: 25vmin;
+  height: 25vmin;
 }

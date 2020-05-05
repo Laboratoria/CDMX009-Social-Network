@@ -14,7 +14,7 @@ export function renderLogin() {
     </figure>
     <div class="columns is-mobile is-centered">
     <figure class="image">
-    <img class="is-rounded" id="logo"  src="images/logo.png " >
+    <img class="is-rounded" id="logo"  src="images/logob.jpg " >
     </figure>
     </div>
     </div>
