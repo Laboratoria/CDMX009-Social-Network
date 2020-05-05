@@ -47,6 +47,7 @@ export default () => {
         </div>
       </div>
     </div>
+    <div id= 'postsProfile'></div>;
   </section>
   `;
 
@@ -60,5 +61,7 @@ export default () => {
   const divElemt = document.createElement('div');
   divElemt.classList.add('position');
   divElemt.innerHTML = viewProfile;
-  return divElemt;
+  return divElemt
+
 };
+

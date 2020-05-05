@@ -13,6 +13,6 @@ export default () => {
   divElemt.innerHTML = viewHome;
   return divElemt;
 };
-// Log out function
+ // Log out function
 const logoutBtn = document.querySelector('#logout');
 logoutBtn.addEventListener('click', logOut);
