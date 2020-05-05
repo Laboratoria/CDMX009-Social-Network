@@ -2,20 +2,6 @@
     height: auto; 
     /* height: 100vh;  */
 }
-#root{
-    height: 100vh; 
-}
-
-/* *{
-   margin:0;
-   padding:0;
-   box-sizing: border-box; 
-   font-family: 'Poppins', sans-serif;
-   font-size: medium;
-} */
-
-
-
 
 body{
     /*background-color:#131515;*/
@@ -58,7 +44,7 @@ body{
 a{
     text-decoration-color: #A5DED3;
     text-decoration:none;
-    color: #A5DED3;
+    color: rgb(176, 196, 192);
 }
 
 .btnIcon{

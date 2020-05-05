@@ -1,8 +1,6 @@
-import { renderHomeView } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
 import { showPosts } from "./views/home.js"
 import { userObserverProfile } from "./views/profile.js"
-import { renderExitView } from "./views/exit.js"
 import login from "./views/login.js"
 import signIn from "./views/signIn.js"
 import principal from "./views/principal.js"

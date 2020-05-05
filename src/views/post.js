@@ -1,6 +1,8 @@
 import { root } from "../main.js";
 import { navBar } from "../main.js";
 import { showPosts } from "./home.js";
+import { showP } from "../main.js"
+
 
 //Esto dibuja la vista donde se puede agregar un post
 
@@ -37,7 +39,7 @@ export const renderPostView = () => {
     </section>`
   navBar.style.display = 'block'
   root.innerHTML = posts
-
+  showPosts.innerHTML = '';
 
   //Nodos Imagen
   const fileInput = document.querySelector("#file")
