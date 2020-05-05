@@ -1,9 +1,8 @@
 // import { changeView } from './views/viewcontroler.js'
-import { renderHomeView } from "./views/home.js"
 import { renderPostView } from "./views/post.js"
-import { showPosts } from "./views/home.js"
+// import { showPosts } from "./views/home.js"
 import { userObserverProfile } from "./views/profile.js"
-import { renderExitView } from "./views/exit.js"
+// import { renderExitView } from "./views/exit.js"
 import login from "./views/login.js"
 import signIn from "./views/signIn.js"
 import principal from "./views/principal.js"
@@ -23,8 +22,8 @@ const postButton = document.querySelector('#post');
 const profileButton = document.querySelector('#profile');
 const exitButton = document.querySelector('#exit');
 
-//homeButton.addEventListener('click', renderHomeView);
-homeButton.addEventListener('click', showPosts);
+homeButton.addEventListener('click', renderPostView);
+//homeButton.addEventListener('click', showPosts);
 postButton.addEventListener('click', renderPostView);
 profileButton.addEventListener('click', userObserverProfile);
 exitButton.addEventListener('click', signoutUser);
