@@ -38,8 +38,9 @@ function createAccount() {
   document.getElementById('init').style.display = 'block';
   document.getElementById('logInNetwoork').style.display = 'block';
   document.getElementById('LogInNewUser').style.display = 'block';
-  document.getElementById('createAccount').style.display = 'none';
-  document.getElementById('home').style.display = 'none';
+  //document.getElementById('createAccount').style.display = 'none';
+  document.getElementById('sidebar').style.display = 'none';
+  document.getElementById('post').style.display = 'none';
  }
 
 
@@ -75,7 +76,7 @@ function createAccount() {
     document.getElementById('logInUser').style.display="none";
     document.getElementById('init').style.display="none";
     document.getElementById('logInNetwoork').style.display="none";
-    document.getElementById('LogInNewUser').style.display="none";
+    document.getElementById('LogInNewUser').style.display="none";  //  let file = e.target.files[0]
   
       let homeView = `
   
@@ -86,12 +87,12 @@ function createAccount() {
         <ul>
           <li>MENÚ</li>
           <li>Perfil</li>
-          <li>Descubre</li>
+          <li> <button id="home">Descubre</button></li>
           <li> <button id="close">Cerrar sesión</button> </li>
         </ul>
       </div>
 
-  <section>
+  <section id="post" >
         <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
         <form id="post">
         <label class="btn btn-file"> 
@@ -108,6 +109,9 @@ function createAccount() {
     let toggleButton=document.querySelector('#toggle');
 
     toggleButton.onclick= e=> menu()
+
+    let homeButton = document.querySelector('#home');
+    homeButton.onclick = e=> home()
 
     let closeButton = document.querySelector('#close');
 
@@ -188,11 +192,6 @@ function createAccount() {
 
 function menu (){
 
-  // MENU
-//const btnToggle = document.querySelector('.toggle-btn');
-
-//toggleButton.addEventListener('click', function () {
   document.getElementById('sidebar').classList.toggle('active');
-  document.getElementById('sidebar')
-//});
+  
 }
