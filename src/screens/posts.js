@@ -3,13 +3,23 @@ let btns = document.querySelectorAll('.btn')
 
 function renderPost() {
 
-    let postView = `<div>
-    <h3>Cuéntanos... qué quieres enseñar?: </h3>
-    <input id="file" type="file" accept="image/*" multiple>
-    <textarea id="textPost" id="" cols="30" rows="10"></textarea>
-    <button id="postBtn" class="btn">Add Post</button>
-    <div id="div"></div>
-  </div>`
+    let postView =
+        `<div>  
+      <div class=card w-50">
+       <div class="card-colums">
+        <div class="card-body">
+            <h3 class="card-title">Cuéntanos... qué quieres enseñar?: </h3>
+            <input  class="card-img-top img-fluid" alt="Card image cap" id="file" type="file" accept="image/" multiple>
+            <div class="card-block">
+            <textarea class="card-text" id="textPost" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="card-footer">
+            <button id="postBtn" class="btn btn-outline-primary">Add Post</button>
+            <!--<div id="div"></div>-->
+         </div>
+      </div>
+     </div>
+    </div>`
     root.innerHTML = postView
     let addBtn = document.querySelector("#postBtn");
     let text = document.querySelector("#textPost");
@@ -25,10 +35,11 @@ function renderPost() {
             })
             .then(link => {
                 url = link
-                let img = document.createElement("img")
-                img.src = link
-                document.body.appendChild(img)
-                console.log(link)
+                let img = document.createElement("img");
+                img.setAttribute("id", "photo");
+                img.src = link;
+                document.body.appendChild(img);
+                console.log(link);
             })
     }
 
@@ -38,7 +49,7 @@ function renderPost() {
             body: text.value,
             user: "Natalia Olmos",
             date: Date.now(),
-            img: "url"
+            img: "url",
         }
 
         addNewPost(post)
@@ -59,15 +70,20 @@ function renderPost() {
 
     postsRef.onSnapshot(snap => {
         snap.forEach(doc => {
-            let div = `<div><p>${doc.data().img}</p> 
-            <p>${doc.data().body}</p> 
-            <p>${doc.data().user}</p>
-            <p>${doc.data().date}</p> 
-            <p>${doc.data().img}</p>
-            <p><button id="deletePost">Borrar</button></p>
-            <p><button id="updatePost">Editar</button></p>
-            <input type="button" id="like" value="Me gusta"/> 
-    </div>`;
+            let div = `<div class=card w-50" >
+             <div class="card-colums">
+              <div class="card-body">
+                 <p>${doc.data().img}
+                    ${doc.data().body}
+                    ${doc.data().user}
+                    ${doc.data().date}
+                 </p>
+                    <p><button class="type2" id="deletePost">Borrar</button><button class="type2"  id="updatePost">Editar</button></p>
+                    <input type="button" class="type2" id="like" value="Me gusta"/> 
+               </div>
+              </div>
+            </div>`
+
             let nodo = document.createElement("div");
             nodo.innerHTML = div;
             document.body.appendChild(nodo);

@@ -9,10 +9,10 @@ function logFb() {
             root.innerHTML = ""
             let img = document.createElement("img")
             img.src = data.user.photoURL
-            let h2 = document.createElement("h2")
-            h2.innerText = data.user.displayName
+            let h3 = document.createElement("h3")
+            h3.innerText = data.user.displayName
             document.body.appendChild(img)
-            document.body.appendChild(h2)
+            document.body.appendChild(h3)
             logInFb.remove()
 
         })

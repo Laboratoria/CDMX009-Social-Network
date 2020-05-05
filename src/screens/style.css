@@ -1,68 +1,109 @@
-
-body{
-    background-color: whitesmoke;
+body {
+    background-color: #B1E1B3;
     font-family: 'varela';
 }
 
-#borde1{
-background-color: rgb(127, 255, 146);
-height: 200px;
-font-family: 'Volkorn';
-width: 300px;
- text-align: center;
+#userImg {
+    min-width: 60px;
+    max-width: 80px;
 }
 
-.btn{
-font-size: 18px;
-line-height: 1.8;
-margin-bottom: 0;
-text-emphasis-color: white;
-position: relative;
-text-justify: auto;
+#borde1 {
+    background-color: rgb(127, 255, 146);
+    height: 200px;
+    font-family: 'Volkorn';
+    width: 300px;
+    text-align: center;
 }
-.navBar{
+
+.btn {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    text-emphasis-color: white;
+    position: relative;
+    text-justify: auto;
+}
+
+.navBar {
     background-color: thistle;
     box-shadow: 0 2px 4px rgb(127, 255, 146);
 }
 
-#border2{
+#border2 {
     background-color: darkblue;
     text-align: center;
 }
-.contenedor{
-width: 500px;
-border: solid 2px;
+
+.contenedor {
+    width: 500px;
+    border: solid 2px;
 }
-.logo-brand{
+
+.logo-brand {
     min-width: 60px;
-    max-width: 80px; 
+    max-width: 80px;
 }
-.navbar-toggler{font-size: 40px;}
-.navbar-toggler:focus{outline:none;}
-.content-center{
+
+.navbar-toggler {
+    font-size: 40px;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.content-center {
     max-width: 800px;
     margin: 0 auto 60px auto;
     text-align: center;
 }
-.content-center h1{
-    font-size: 66px; 
+
+.content-center h1 {
+    font-size: 66px;
     font-weight: 600;
     line-height: 80px;
 }
-#edu{
-    background-image:  url('screens/jovenes.jpg');
-    background-size: cover;
-    padding-top: 90px;
-    min-height: 700px;
-    color: black;
+
+.responsive {
+    width: 100%;
+    height: auto;
 }
-.topmargin-xs{margin-top: 15px;}
-.topmargin-sn{margin-top: 30px;}
-.topmargin-lg{margin-top: 60px;}
 
+.topmargin-xs {
+    margin-top: 15px;
+}
 
-@media (max-width: 575.98px) {.content-center h1{ font-size: 40px; line-height: normal;}}
-@media (min-width: 576px) and (max-width: 767.98px){}
+.topmargin-sn {
+    margin-top: 30px;
+}
+
+.topmargin-lg {
+    margin-top: 60px;
+}
+
+#photo {
+    width: 100%;
+    height: auto;
+}
+
+.type2 {
+    color: $color2 // Effect 2
+    // Inspiration https://tympanus.net/Development/CreativeLinkEffects/
+    .type2: after, .type2: before content: '' display: block position: absolute top: 100% left: 0 width: 100% height: 2px background-color: $color2 transition: all 0.3s ease transform: scale(0.85) .type2: hover: before top: 0 transform: scale(1) .type2: hover: after transform: scale(1)
+}
+
+@media (max-width: 575.98px) {
+    .content-center h1 {
+        font-size: 40px;
+        line-height: normal;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
 @media (min-width: 768px) and (max-width: 991.98px) {}
+
 @media (min-width: 992px) and (max-width: 1199.98px) {}
-@media (min-width: 1200px){}
+
+@media (min-width: 1200px) {}

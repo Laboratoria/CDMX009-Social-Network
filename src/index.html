@@ -6,51 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <link rel="stylesheet" type="text/css" href="screens/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="screens/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela|Vollkorn&display=swap" rel="stylessheet">
     <title>Document</title>
 </head>
 
 <body>
 
-        
-    <!--<div id="root">-->
-    <div class="container-fluid borde">
-        <div class="row"></div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="screens/logo.jpg" class="logo-brand" alt="logo"></a>
-    <a class="navbar-brand" href="#">Skill Matchers</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSuportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <header>
+        <div class="container-fluid borde">
+            <div class="row"></div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="screens/logo.jpg" class="logo-brand" alt="logo"></a>
+                <a class="navbar-brand" href="#">Skill Matchers</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSuportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <ion-icon name="menu-outline"></ion-icon>
     </button>
-        <div class="collapse navbar-collapse fixed-top" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-        <button id="/" class="btn">Home</button>
-        <button id="/login" class="btn">Login</button>
-        <button id="/face" class="btn">Log in with FB</button>
-        <button id="/about" class="btn">Postea aquí</button>
-        <button id="/goo" class="btn">Login with Google</button>
-                    </li>
-            </ul>
-    </nav>
-    <div id="root"></div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <button id="/" class="btn">Home</button>
+                            <button id="/login" class="btn">Login</button>
+                            <button id="/face" class="btn">Log in with FB</button>
+                            <button id="/about" class="btn">Postea aquí</button>
+                            <button id="/goo" class="btn">Login with Google</button>
+                        </li>
+                    </ul>
+            </nav>
+            </div>
+    </header>
+    <div id="root">
+    </div>
 
-    <section id="edu">
-        <div class="container">
-            <div class="content-center topmargin-l">
-            <h1>¡Bienvenido a Skill Matchers!</h1>
-        </section>
-         </div>
-        </nav>
-        </div>
 
-        
     <script type="module" src="router.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
@@ -74,16 +70,16 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     </script>
-</div>
-</div>
+    </div>
+    </div>
 
-<!--<script src="js/jquery-3.2.1.slim.min.js"></script>
+    <!--<script src="js/jquery-3.2.1.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>-->
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </body>

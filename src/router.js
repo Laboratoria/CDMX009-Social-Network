@@ -15,10 +15,10 @@ function router(route) {
     console.log(route)
     switch (route) {
         case '/about':
-            renderPost();
+            root.appendChild = renderPost();
             break;
         case '/login':
-            renderLogin();
+            root.appendChild = renderLogin();
             break;
         case '/goo':
             logGoogle();

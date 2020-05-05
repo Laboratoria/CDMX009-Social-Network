@@ -1,5 +1,4 @@
 let root = document.querySelector('#root')
-let btns = document.querySelectorAll('.btn')
     // loginView
 function renderLogin() {
 
@@ -39,11 +38,12 @@ function renderLogin() {
         //Get email and pass 
         const email = txtEmail.value;
         const password = txtPassword.value;
+        const user = firebase.auth().currentUser;
         const auth = firebase.auth();
         //Sign In
         const promise = auth.signInWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
-        alert("Bienvenid@ a la revolución del conocimiento!!");
+        alert(email + "Bienvenid@ a la revolución del conocimiento!!");
     });
 
     //Add realtime listener

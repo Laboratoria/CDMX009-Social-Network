@@ -1,12 +1,10 @@
 // main nodes
 let root = document.querySelector('#root')
-let btns = document.querySelectorAll('.btn')
     // first view
 function renderHome() {
-    let homeView = `<div>
-  <h1>Skill Matchers</h1>
-  
-
+    let homeView = `<div id="homeView">
+ 
+    <img id=youth src="/screens/jovenes.jpg" class="responsive" >
 </div>`
     root.innerHTML = homeView
 }

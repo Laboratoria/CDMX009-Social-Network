@@ -8,15 +8,17 @@ function logGoogle() {
         .then(data => {
             console.log(data.user)
             root.innerHTML = ""
-            let imggoo = document.createElement("img")
-            imggoo.src = data.user.photoURL
+            let imgGoo = document.createElement("img");
+            imgGoo.setAttribute("id", "userImg");
+            console.log("imgGoo", imgGoo);
+            imgGoo.src = data.user.photoURL
             let h1 = document.createElement("h1")
             h1.innerText = data.user.displayName
             let h3 = document.createElement("email")
             h3.innerText = data.user.email
                 // //colocarlos
 
-            document.body.appendChild(imggoo)
+            document.body.appendChild(imgGoo)
             document.body.appendChild(h1)
             document.body.appendChild(h3)
             logInGoogle.remove()
