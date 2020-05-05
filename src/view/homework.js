@@ -1,7 +1,7 @@
 export default () => {
 
   const viewHomework = `
-    <div class="homework">
+  <div class="homework">
     <h1>TAREAS</h1>
     <p>Semana 6 - 10 Abril</p>
   </div>

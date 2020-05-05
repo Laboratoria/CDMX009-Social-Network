@@ -174,7 +174,6 @@ function showPostUser(){
     console.log("error reply post", error);
   })
  }
-
 // Delete posts
   function deletePost (e) {
    let id = e.target.getAttribute('data-id')

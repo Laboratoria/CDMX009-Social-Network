@@ -7,7 +7,7 @@ export default () => {
     const grade = "1";
     const group = "A";
     const teacher = "Melisa Gutierrez";
-    const comment = "Hola buen día, mi hija se trajo la chamarra de Adriana Juarez, la chamarra tiene grabado su nombre Carolina Flores";
+    const comment = "Buen día, mi hija se trajo la chamarra de Adriana Juarez, la chamarra tiene su nombre Carolina Flores";
     const likeCount ="15";
     const answers ="";
     const viewProfile = `
@@ -29,16 +29,16 @@ export default () => {
         </div>
         <hr>
     </section>
-    <section class="commentBox">
-       <div class="containerbx">
+  <section class="commentBox">
+    <div class="containerbx">
        <div>
-          <div class="comment">
+        <div class="comment">
           <div class="btnIconos">
-          <button type="submit" class="edit" id="btnEditPost" ><img src="img/edit.svg" /></button> 
-          <button type="submit" class="delete" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
+            <button type="submit" class="edit" id="btnEditPost" ><img src="img/edit.svg" /></button> 
+            <button type="submit" class="delete" id="btnDeletePost" ><img src="img/delete.svg" /></button> 
           </div>
               <p>${comment}</p>
-          </div>
+        </div>
       <div>
            <div class="sectionLikes">
            <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
@@ -53,15 +53,13 @@ export default () => {
           <div class="sectionLikes">
           <p class="nroLikes">0<img class="imgLikes" src="img/like.svg" /></p>
           </div>
-               <p>Comentarios${answers}</p>
+               <p>${answers}</p>
           </div>
           <div class="likes">
               <img src="img/like.svg">${likeCount}
           </div>
-    </div>
-    </div>
-    </div>
-    </div>
+      </div>
+      </div>
     </div>
   </section>
     `

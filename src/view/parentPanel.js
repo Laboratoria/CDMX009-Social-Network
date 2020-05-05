@@ -20,6 +20,12 @@ export default () => {
 
   const buttonAddPost = document.querySelector('#btnAddPost')
   buttonAddPost.addEventListener('click', addUserPost)
+/*
+  const buttonDeletePost = document.querySelector('#btnDeletePost')
+  buttonDeletePost.addEventListener('click', deletePost)
+
+  const buttonEditPost = document.querySelector('#btnEditPost')
+  buttonEditPost.addEventListener('click', editPost)*/
 
   return divElement;
 }

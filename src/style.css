@@ -430,9 +430,8 @@ font-size: 20px;
 background-color: #ffffff;
 border-radius: 15px;
 padding: 25px;
-margin: 30px;
+margin: 50px;
 text-align: center;
-margin-left: 9%;
 }
 
 .weekdays{
@@ -748,7 +747,6 @@ header{
 
   .commentBox .comment {
     width: 85%;
-    height: 75px;
     font-size: 13px;
     text-align: center;
     padding: 3px;
@@ -786,6 +784,7 @@ header{
 footer {
   height: 55px;
   text-align: center;
+  width: 100%;
   }
 
   footer li img {
@@ -872,4 +871,3 @@ padding: 10px;
 
   
 }
-
