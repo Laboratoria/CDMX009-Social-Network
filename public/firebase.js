@@ -11,7 +11,8 @@ let comment;
 
 // Initialize Cloud Firestore through Firebase
 const st = firebase.storage();
-const collectionPost = db.collection('newPosts');
+export const collectionPost = db.collection('newPosts');
+console.log(collectionPost)
 
 const timeSnap = () => {
   const now = new Date();

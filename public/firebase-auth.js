@@ -1,6 +1,6 @@
 // Firebase auth functions
 
-//Login with email
+// Login with email
 export const emailLoginFb = (userEmail, userPassword) => {
   firebase.auth().signInWithEmailAndPassword(userEmail, userPassword);
 };
@@ -8,12 +8,12 @@ export const emailLoginFb = (userEmail, userPassword) => {
 // Login with google
 export const googleLogin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  return firebase.auth().signInWithPopup(provider);
+  return firebase.auth().signInWithRedirect(provider);
 };
 // Login with facebook
 export const facebookLogin = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
-  return firebase.auth().signInWithPopup(provider);
+  return firebase.auth().signInWithRedirect(provider);
 };
 // Logup with email
 export const emailLogup = (userEmail, userPassword) => {
@@ -24,11 +24,11 @@ export const logOut = () => {
   firebase.auth().signOut();
 };
 
-//Observator
+ // Observator
 let displayName;
 let photoURL;
 
-function observatorFirebase() {
+const observatorState = () => {
   firebase.auth().onAuthStateChanged((user) => {
     const menu = document.querySelector('.menu');
     if (user) {
@@ -46,11 +46,12 @@ function observatorFirebase() {
       localStorage.setItem('URLStorage', photoURL);
       window.open('#/home', '_self');
       menu.classList.remove('hide');
-      console.log('estas activo dude :)', user);
+      console.log('estas activo', user);
     } else {
-      window.open('#/login', '_self')
-      console.log('no estas activo chavo :(');
+      console.log('no estas activo');
+      window.open('#/login', '_self');
     }
   });
 }
-observatorFirebase();
+observatorState();
+ 
