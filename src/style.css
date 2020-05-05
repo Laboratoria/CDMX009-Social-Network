@@ -23,7 +23,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     margin: 0;
     height: 100%;
   }
-  
+ 
   .icon {
     max-width: 25px;
     vertical-align: middle;
@@ -32,9 +32,48 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   }
   
   #logo-login img{
-    max-width: 65px;
-  }
+    max-width: 605px;
   
+      display: block;
+      margin: auto;
+      max-width: 300px;
+      max-height: 300px;
+      animation-name: floating;
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      animation-iteration-count: infinite;
+      -webkit-animation-iteration-count: infinite;
+    }
+    @keyframes floating {
+      0% {
+          transform: translateY(0%);
+      }
+    
+      50% {
+          transform: translateY(8%);
+      }
+    
+      100% {
+          transform: translateY(0%);
+      }
+    }
+    
+    @-webkit-keyframes floating {
+      0% {
+          -webkit-transform: translateY(0%);
+      }
+    
+      50% {
+          -webkit-transform: translateY(8%);
+      }
+    
+      100% {
+          -webkit-transform: translateY(0%);
+      }
+    }
+    
+    
+ 
   .login {
     padding: 0 10px;
     background-color: white;
@@ -43,7 +82,9 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     margin: 10px;
     width: 250px;
     cursor: pointer;
-  }
+
+     }
+ 
   
   #friends {
     display: none;
@@ -52,6 +93,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   #new-account {
     cursor: pointer;
     text-decoration-line: underline;
+    
   }
   
   
@@ -72,21 +114,71 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     margin: 1em 0.4em;
   }
   
-  #logins, #logo {
+  #logins {
     display: block;
     margin: auto;
+    background: rgb(246, 248, 249);
+    height: 450px;
+    width: 300px;
+    border-radius: 10px;
+    
   }
   
+  #logo {
+
+   max-width: 605px;
   
-  
+      display: block;
+      margin: auto;
+      max-width: 500px;
+      max-height: 500px;
+      animation-name: floating;
+      animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      animation-iteration-count: infinite;
+      -webkit-animation-iteration-count: infinite;
+    }
+    @keyframes floating {
+      0% {
+          transform: translateY(0%);
+      }
+    
+      50% {
+          transform: translateY(8%);
+      }
+    
+      100% {
+          transform: translateY(0%);
+      }
+    }
+    
+    @-webkit-keyframes floating {
+      0% {
+          -webkit-transform: translateY(0%);
+      }
+    
+      50% {
+          -webkit-transform: translateY(8%);
+      }
+    
+      100% {
+          -webkit-transform: translateY(0%);
+      }
+    }
+    
   #logins {
     margin-top: 10px;
+    
   }
   
   #create-account {
     display: block;
     margin: auto;
-    margin-top: 10px;
+    background: rgb(246, 248, 249);
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    
   }
   
   .login {
@@ -114,9 +206,9 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     font-family: 'Economica', sans-serif;
     border: 1px solid #DF3A01;
     padding: 10px;
-    background: #0B0B3B;
+    background: rgb(201, 227, 238);
     border-radius: 10px;
-    color: #FFFFFF;
+    color: rgb(78, 7, 7);
     font-size: 16px;
     cursor: pointer;
   }
@@ -131,12 +223,16 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   }
   
   nav {
+   
+    background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
-    background-color: whitesmoke;
-    /* background-color:  rgb(33, 126, 156); */
+   opacity: 0.9;
+   background-image:  
+    url("https://i.pinimg.com/564x/e9/f0/5b/e9f05ba4769d71862b6349a19bfb8a39.jpg");
+background-color: transparent;
   }
   
   footer {
@@ -144,7 +240,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     bottom: 0;
     width: 100%;
     height: 80px;
-    background-color: whitesmoke;
+    background-color: rgb(56, 10, 83);
     /* background-color:  rgb(33, 126, 156); */
     display: flex;
     flex-flow: row-reverse;
@@ -173,11 +269,15 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   }
   
   #user-profile-side-nav {
+    background-image:  
+    url("https://i.pinimg.com/564x/e9/f0/5b/e9f05ba4769d71862b6349a19bfb8a39.jpg");
+background-color: transparent;
+    opacity: 0.9;
     position: fixed;
     display: none;
     height: 100%;
     width: 30%;
-    background-color: whitesmoke;
+ 
     z-index: 100;
     margin: auto;
     right: 0;
@@ -246,10 +346,10 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     min-height: 20%;
     margin: 5% auto;
     padding: 2%;
-    border: 1px solid #DF3A01;
-    background-color: whitesmoke;
     border-radius: 10px;
-  
+    background-image:   
+    url("https://i.pinimg.com/564x/e9/f0/5b/e9f05ba4769d71862b6349a19bfb8a39.jpg");
+background-color: transparent;
   }
   
   .post {
@@ -295,7 +395,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   
   #search:focus {
     outline: none;
-    border: 2px solid rgb(11, 89, 116);
+    border: 2px solid rgb(213, 79, 184);
   }
   
   #logo {
@@ -367,7 +467,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   
   select.post-input {
     box-sizing: content-box;
-    background-color: white;
+    background-color: rgb(165, 235, 230);
   }
   
   textarea.post-input {
@@ -383,7 +483,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   #post-it, #update-profile {
     float: right;
     margin-right: 7%;
-    color: white;
+    color: rgb(166, 235, 226);
     background-color: #0B0B3B;
   }
   
@@ -414,7 +514,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   .postUser{
     width: 100%;
     font-size: 16px;
-    color: #0B0B3B;
+    color: rgb(30, 30, 235);
     
   }
   
@@ -424,13 +524,14 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     width: 100%;
     min-height: 20%;
     margin: 5% auto;
+    opacity: 0.8;
     /* border: 1px solid rgb(33, 126, 156); */
-    background-color: whitesmoke;
+    
     border-radius: 10px;
   }
   .comment-btn {
-    color: white;
-    background-color:#0B0B3B;
+    color: rgb(255, 235, 235);
+    background-color:rgb(101, 101, 123);
     margin-right: 10px;
   }
   
@@ -450,15 +551,16 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   } */
   
   .teachers-font {  
-    color: rgb(11, 89, 116);
+    color: rgb(0, 0, 0);
     text-align: center;
     margin-left: 13px;
-    margin-top: 5px; 
+    margin-top: 4px; 
     cursor: pointer;
+    
   } 
 
   .WelcomeFont{
-    color: #DF3A01;
+    color: rgb(66, 102, 147);
     font-family: 'Economica', sans-serif;
     font-weight: bold;
     font-size: 25px;
@@ -466,18 +568,20 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     margin-left: 13px;
     margin-top: 5px; 
     cursor: pointer;
+
+    
   }
   
   .change-comment, .cancel_change{ 
     cursor: pointer;
-    color: rgb(11, 89, 116);
+    color: rgb(0, 0, 0);
     margin-left: 3px;
     margin-top: 100px;
     font-size: 13px;
   } 
   
   .edit-comment, .remove-comment{
-    color: rgb(11, 89, 116);
+    color: rgb(141, 210, 233);
     margin-left: 40px;
     margin-top: 100px;
     cursor: pointer;
@@ -511,8 +615,9 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   .postUser, .coment_user{
     min-height: 20%;
     margin: 5% auto;
-    border: #FFFFFF;
-    background-color: whitesmoke;
+    border: rgb(129, 220, 214);
+    background-color: rgb(246, 248, 249);
+    opacity: 0.8;
     border-radius: 14px;
     margin: auto 0; 
     display: block; 
@@ -598,7 +703,7 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
   @media only screen and (max-width: 768px) {
     .responsive {
         display: flex;
-        border-top: solid 1px rgb(11, 89, 116);
+        border-top: solid 1px rgb(159, 38, 38);
     }
   
     .div-responsive {

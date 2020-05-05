@@ -1,5 +1,3 @@
-
-
 function submitpost(tags, privacy, userId, post_text) {
     
     firebase.database().ref("users/"+firebase.auth().currentUser.uid).once("value", function(snapshot){
@@ -34,6 +32,7 @@ function submitpost(tags, privacy, userId, post_text) {
 
     })
 }
+
 function setLikePost() {
     let uid = firebase.auth().currentUser.uid;
     let name = firebase.auth().currentUser.displayName ? firebase.auth().currentUser.displayName: firebase.auth().currentUser.email;
@@ -60,12 +59,3 @@ function setLikePost() {
 
 })
 }
-
-
-      
-    
-
-
-
-
-

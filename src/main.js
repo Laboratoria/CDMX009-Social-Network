@@ -1,4 +1,4 @@
-import * as session from "./auth.js"
+
 
 document.addEventListener("DOMContentLoaded", event => {
     // Initialize Firebase
@@ -23,15 +23,17 @@ document.addEventListener("DOMContentLoaded", event => {
         <div id="logo-login"><img src="./images/logoAppBco.png">
         </div>
         <div id="logins">
+        
         <p class="WelcomeFont">Bienvenidx</p>
-        <p class="teachers-font">¡Encuentra la solución a tus problemas!</p>
+         <MARQUEE SCROLLAMOUNT=5> <p class="teachers-font">¡Encuentra la solución a tus problemas!</p> </MARQUEE> 
+        
         <input type="text"  id="login-mail" class="login-input" placeholder="Email">
         <input type="password" id="login-pwd" class="login-input" placeholder="Contraseña">
         <button id="login-btn" class="login-btn">Iniciar Sesión</button>
         <p class="teachers-font">¿No tienes cuenta? Registrate <a id="new-account">AQUÍ</a></p>
         <p class="teachers-font">------------------  O  ------------------</p>
-        <span id="google-login" class="login"><img src="g.png" class="icon" alt="googleLogo"><p>Iniciar Sesión con Google</p></span>
-        <span id="facebook-login" class="login facebook"><img src="f.png" class="icon" alt="facebookLogo"><p>Iniciar Sesión con Facebook</p></span>
+        <span id="google-login" class="login"><img src="./images/g.png" class="icon" alt="googleLogo"><p>Iniciar Sesión con Google</p></span>
+        <span id="facebook-login" class="login facebook"><img src="./images/f.png" class="icon" alt="facebookLogo"><p>Iniciar Sesión con Facebook</p></span>
         </div>
         `
     
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", event => {
           document.getElementById("root").innerHTML = `
           <div id="logo-login"><img src="./images/logoAppBco.png"></div>
           <div id="create-account">
-          <p class="teachers-font">Ingresa un correo y una contraseña para tu cuenta</p>
+         <big> <MARQUEE SCROLLAMOUNT=5>  <p class="teachers-font">Ingresa un correo y una contraseña para tu cuenta</p> </MARQUEE> </big>
   
           <input type="text"  id="login-mail" class="login-input" placeholder="Email">
           <input type="password" id="login-pwd" class="login-input" placeholder="Contraseña">
