@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "firebase": "^7.13.2",
-    "firebase-admin": "^8.10.0"
+    "firebase-admin": "^8.10.0",
+    "mock-cloud-firestore": "^0.12.0"
   }
 }

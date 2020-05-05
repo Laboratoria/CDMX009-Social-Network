@@ -12,6 +12,8 @@ export function saveFirestore(name, img, data, link) {
     comments: coment.value,
     likes: '',
     image: link || '',
+    addLikes: '',
+    addComent:'',
   })
     .then((docRef) => {
       console.log('Document written with ID: ', docRef.id);

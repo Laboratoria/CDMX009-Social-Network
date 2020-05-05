@@ -80,9 +80,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: space-around;
-  color: #5e6973;
-  letter-spacing: 0.2rem;
-  
+  color:#5e6973;
 }
 
 
@@ -158,6 +156,11 @@ height: auto;
 resize: none;
 
 }
+.postStyle{
+  width: auto;
+  height: auto;
+
+}
 
 /* Buttons */
 .btnLike {
@@ -173,7 +176,9 @@ resize: none;
 .btnStyles1,
 .btnStylesEdit,
 .btnSty,
-.btnStylesC {
+.btnStylesC,
+.btnComment,
+.btnAddC {
   font-size: 15px;
   width: 100px;
   height: 25px;
@@ -254,6 +259,7 @@ figure{
 }
 
 #card2 {
+  text-align: justify;
   margin-bottom: 16px;
   margin-top: 16px;
   background-color: #ffff;

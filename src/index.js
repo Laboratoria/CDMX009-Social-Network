@@ -6,17 +6,17 @@ import { saveFirestore } from './utils/saveInFirestore.js';
 import { openModalEdit } from './utils/modalEdit.js';
 import { signOut } from './utils/exit.js';
 import { addLikes } from './utils/countLikes.js';
+import {openModalComent} from './utils/openComment.js'
 import { openModal } from './utils/info.js';
 
 let getEmail;
-let getName;
+export let getName;
 let getImg;
 let url;
+export let userSigned;
 const db = firebase.firestore();
 const firstPa = document.getElementById('firstPage');
 const allSite = document.getElementById('allTheSite');
-const filterComents = document.querySelector('#addFilters');
-const filterMyComents = document.querySelector('#addMyComents');
 const filterName = document.querySelector('#searchName');
 const btnFilter = document.querySelector('#searchButtom1');
 const btnMySite = document.querySelector('#myWall');
@@ -24,7 +24,7 @@ const goToPrincipal = document.querySelector('#allComents');
 const printing = document.querySelector('#addComents');
 const btnMod = document.getElementById('btnInfo');
 export const printCreateUser = document.getElementById('logingUsers');
-export const userAction = document.getElementById('actionUser')
+export const userAction = document.getElementById('actionUser');
 btnMod.addEventListener('click', () => {
   openModal();
 });
@@ -32,7 +32,9 @@ btnMod.addEventListener('click', () => {
 //* ****************************register users */
 
 export const userNew = document.getElementById('newUser');
-userNew.addEventListener('click', printCreate);
+userNew.addEventListener('click', () => {
+  printCreate(printCreateUser, userAction);
+});
 
 //* *****************Login with providers ****************************
 const btnGoogle = document.getElementById('loginGoogle');
@@ -61,7 +63,7 @@ export function theWatcher() {
     if (user) {
       console.log('active user');
       printSite();
-      const userSigned = firebase.auth().currentUser;
+      userSigned = firebase.auth().currentUser;
       if (userSigned != null) {
         userSigned.providerData.forEach((profile) => {
           if (profile.displayName === null) {
@@ -98,7 +100,7 @@ buttonClose.addEventListener('click', () => {
 });
 //* ***********************Get info profile********************************
 export function getNameProfile() {
-  const userSigned = firebase.auth().currentUser;
+  userSigned = firebase.auth().currentUser;
   if (userSigned != null) {
     userSigned.providerData.forEach((profile) => {
       if (profile.displayName === null) {
@@ -110,6 +112,7 @@ export function getNameProfile() {
       }
     });
   }
+  return getName;
 }
 //* ***********************Add image in Firestorage********************************
 const fileInput = document.querySelector('#file');
@@ -137,20 +140,20 @@ shareBtn.addEventListener('click', () => {
 });
 
 //* ***********************Print cards posts********************************
-function addNewCard(printing1, doc) {
+export function addNewCard(printing1, doc) {
   const posting = document.createElement('div');
   const createTarget = `<div id="card2" class='allComents'>
   <header class="styleNamePost">
   <img src="${doc.data().photo}" class="imgProfilePost">
  <div class="nameDate"><strong>${doc.data().name}</strong>
  <p> ${doc.data().date}</p></div></header>
-<p> ${doc.data().comments}</p>
+<p class="postStyle">${doc.data().comments}</p>
 <p><img width="200" src="${doc.data().image}"/></p>
 <p> likes ${doc.data().likes} </p> 
 <p><img src="img/like.svg" name="${doc.id}" class="btnLike"> 
 <button id="btnEdit" data-doc="${
   doc.id
-}" class="btnStylesEdit" class="btnStyles">Edit</button>
+}" class="btnStylesEdit" class="btnStyles">Editar</button>
 <button id="${doc.id}" class="btnStyles1">Borrar</button></p></div>`;
   posting.innerHTML = createTarget;
   printing1.appendChild(posting);
@@ -168,19 +171,25 @@ function addNewCardNoComents(printing2, doc) {
  <img src="${doc.data().photo}" class="imgProfilePost">
  <div class="nameDate"><strong>${doc.data().name}</strong>
  <p> ${doc.data().date}</p></div></header>
- <p> ${doc.data().comments}</p>
+ <p>${doc.data().comments}</p>
 <p><img width="200" src="${doc.data().image}"/></p>
 <p> likes ${doc.data().likes} </p> 
 <div class="like"><img src="img/like.svg" name="${
   doc.id
-}" class="btnLike"></div>`;
+}" class="btnLike"></div>
+<button class="btnComment" data-id="${doc.id}">Comentar</button>
+<div class="text-box" title="${doc.id}"><ul><div>Comentarios:</div>
+<br>${doc.data().addComent}</ul></div>`;
+
   posting.innerHTML = createTarget;
   printing2.appendChild(posting);
   const btnlike = document.querySelectorAll('.btnLike');
   btnlike.forEach(actionBtnLikes => actionBtnLikes.addEventListener('click', addLikes));
+  const btnComent = document.querySelectorAll('.btnComment');
+  btnComent.forEach(open => open.addEventListener('click', openModalComent))
 }
 
-////* **Print coments in real time**
+// //* **Print coments in real time**
 db.collection('publications')
   .orderBy('date', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -192,43 +201,46 @@ db.collection('publications')
   });
 
 //* **Filter wall all users**
-goToPrincipal.addEventListener('click', backToPrincipal)
-function backToPrincipal(){
+function backToPrincipal() {
   db.collection('publications')
-  .orderBy('date', 'desc')
-  .onSnapshot((querySnapshot) => {
-    printing.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      addNewCardNoComents(printing, doc);
+    .orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      printing.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        addNewCardNoComents(printing, doc);
+      });
     });
-  });
-};
+}
+goToPrincipal.addEventListener('click', backToPrincipal);
 
 // ***Filter post of me**
-btnMySite.addEventListener('click', filterMyComments)
- function filterMyComments (){
+function filterMyComments() {
   console.log(filterName.value);
   db.collection('publications')
     .where('name', '==', getName || getEmail)
+    .orderBy('date', 'desc')
     .onSnapshot((filters) => {
       printing.innerHTML = '';
       filters.forEach((doc) => {
         addNewCard(printing, doc);
-      });  });
-};
+      });
+    });
+}
+btnMySite.addEventListener('click', filterMyComments);
 
-//******************Search By Name **********/
-btnFilter.addEventListener('click', filterBySearch)
+//* *****************Search By Name **********/
 function filterBySearch() {
   db.collection('publications')
     .where('name', '==', filterName.value)
+    .orderBy('date', 'desc')
     .onSnapshot((filters) => {
       printing.innerHTML = '';
       filters.forEach((doc) => {
         addNewCardNoComents(printing, doc);
       });
     });
-};
+}
+btnFilter.addEventListener('click', filterBySearch);
 
 // if we also use ".orderBy("Date", "desc")" the real time doesn't work anymore,
 // because it needs an index, we did it but it doesn't detect it
