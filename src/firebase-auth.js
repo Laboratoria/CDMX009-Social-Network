@@ -28,24 +28,21 @@ export const logOut = () => {
 let displayName;
 let photoURL;
 
-function observatorFirebase() {
-  firebase.auth().onAuthStateChanged((user) => {
-    const menu = document.querySelector('.menu');
-    if (user) {
-      const menuPic = document.querySelector('#user-photoURL');
-      const menuName = document.querySelector('#user-displayName');
-      menuName.innerHTML = user.displayName;
-      menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
-      displayName = user.displayName;
-      photoURL = user.photoURL;
-      localStorage.setItem('nameStorage', displayName);
-      localStorage.setItem('URLStorage', photoURL);
-      window.open('#/home', '_self');
-      menu.classList.remove('hide');
-      console.log('estas activo dude :)', user);
-    } else {
-      console.log('no estas activo chavo :(');
-    }
-  });
-}
-observatorFirebase();
+export const user = firebase.auth().onAuthStateChanged((user) => {
+  const menu = document.querySelector('.menu');
+  if (user) {
+    const menuPic = document.querySelector('#user-photoURL');
+    const menuName = document.querySelector('#user-displayName');
+    menuName.innerHTML = user.displayName;
+    menuPic.innerHTML = `<img src="${user.photoURL}"/>`;
+    displayName = user.displayName;
+    photoURL = user.photoURL;
+    localStorage.setItem('nameStorage', displayName);
+    localStorage.setItem('URLStorage', photoURL);
+    window.open('#/home', '_self');
+    menu.classList.remove('hide');
+    console.log('estas activo dude :)', user);
+  } else {
+    console.log('no estas activo chavo :(');
+  }
+});

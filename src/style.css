@@ -301,7 +301,16 @@ nav .bg-nav {
 }
 /*Post*/
 .img-edit {
-  width: 5%;
+  width: 47%;
+  border-style: none;
+  background: white;
+}
+
+.button-edit{
+  width: 10% !important;
+  padding: 1px !important;
+  background-color: white;
+  border-style: none;
 }
 .img-add-friend {
   width: 10%;
@@ -350,6 +359,10 @@ nav .bg-nav {
   width: 30px;
   margin-right: 10px;
 }
+
+/* .textarea{
+  border-style: ;
+} */
 .flex-row {
   display: flex;
   justify-content: space-between;
