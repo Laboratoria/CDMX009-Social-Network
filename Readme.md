@@ -1,13 +1,9 @@
 # SOCIAL NETWORK
-
-## PROYECTO:  EDU-LINE
- 
-## RESUMEN: 
-
+## PROYECTO: EDU-LINE
+## RESUMEN:
 Red Social sobre temas de educación
 
 ## INVESTIGACIÓN UX:
-
 Aplicación dirigida a usuarios especialistas en el tema y padres de familia que se podrán comunicar a través de esta red social; compartir tips, técnicas y demás información que ayude mejorar la educación de sus hijos o dar pautas para que los profesionales mejoren su forma de enseñar.
 
 ## Historias de Usuario:
@@ -24,29 +20,21 @@ Aplicación dirigida a usuarios especialistas en el tema y padres de familia que
 
 * Al final debo poder ingresar a la red social y poder visualizar los datos de mi perfil creado o editarlos.
 
-    > 
+## FEEDBACK:  SI
 
 ## PROTOTIPO BAJA FIDELIDAD:
 
-## FEEDBACK:
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet1.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet2.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet3.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet4.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet5.jpg)
 
 ## PROTOTIPO ALTA FIDELIDAD (FIGMA):
 
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNetFigma.jpg)
 
-
-## PROTOTIPO BAJA FINAL:
-
-
-
-
-
-
-
-
-
-
-
-
+## PROTOTIPO FINAL:
 
 
 

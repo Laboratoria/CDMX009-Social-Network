@@ -20,6 +20,7 @@ background: -webkit-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,
 background: -o-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
 background: -ms-linear-gradient(-45deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
 background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 14%, rgba(148,228,250,1) 45%, rgba(46,202,250,1) 62%, rgba(63,63,117,1) 100%);
+
     margin: 0;
     height: 100%;
   }
@@ -30,6 +31,8 @@ background: linear-gradient(135deg, rgba(148,228,250,1) 0%, rgba(46,202,250,1) 1
     padding: 5px;
     display: inline-block;
   }
+
+
   
   #logo-login img{
     max-width: 605px;

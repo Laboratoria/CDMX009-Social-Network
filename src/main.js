@@ -1,21 +1,32 @@
 
+document.addEventListener("DOMContentLoaded", event => {' '
 
-document.addEventListener("DOMContentLoaded", event => {
     // Initialize Firebase
-       var firebaseConfig = {
-        apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
-        authDomain: "edu-line-ffdbc.firebaseapp.com",
-        databaseURL: "https://edu-line-ffdbc.firebaseio.com",
-        projectId: "edu-line-ffdbc",
-        storageBucket: "edu-line-ffdbc.appspot.com",
-        messagingSenderId: "243851799693",
-        appId: "1:243851799693:web:1d67b4f9ccaf7e21c506c4",
-        measurementId: "G-D5ZWECPYD2"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    var firebaseConfig = {
+      apiKey: "AIzaSyA9o_vnAaRup2c4BwwAWyWKFsVT5DMLft8",
+      authDomain: "edu-line-ffdbc.firebaseapp.com",
+      databaseURL: "https://edu-line-ffdbc.firebaseio.com",
+      projectId: "edu-line-ffdbc",
+      storageBucket: "edu-line-ffdbc.appspot.com",
+      messagingSenderId: "243851799693",
+      appId: "1:243851799693:web:1d67b4f9ccaf7e21c506c4",
+      measurementId: "G-D5ZWECPYD2"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
       loginPage(); 
-      
+     
+
+     // Intro to the App
+     function startApp() {
+
+     document.getElementById("root").innerHTML = `
+     <div id="beginning"><img src="./images/logoAppBco.png">
+     </div>
+     `
+     }
+
       // FUNCION QUE CREA PAGINA INICIAL
       function loginPage() {
       
@@ -38,28 +49,28 @@ document.addEventListener("DOMContentLoaded", event => {
         `
     
       
-        //BOTON LOGIN CON GOOGLE
+        //LOGIN BUTTON WITH GOOGLE
         document.getElementById("google-login").addEventListener("click", googleLogin)
         function googleLogin() {
           const provider = new firebase.auth.GoogleAuthProvider();
           firebase.auth().signInWithRedirect(provider);
       }
       
-        // BOTON LOGIN CON FACEBOOK
+        // LOGIN BUTTON WITH FACEBOOK
         document.getElementById("facebook-login").addEventListener("click", facebookLogin)
         function facebookLogin() {
           const provider = new firebase.auth.FacebookAuthProvider();
           firebase.auth().signInWithRedirect(provider);
       }
       
-        // BOTON PARA LOGIN CON EMAIL Y PASSWORD
+        // LOGIN BUTTON WITH EMAIL AND PASSWORD
         document.getElementById("login-btn").addEventListener("click", ()=> {
           const email = document.getElementById("login-mail").value;
           const password = document.getElementById("login-pwd").value;
           emailLogin(email, password);
         })
     
-        // BOTON QUE LLEVA A PAGINA DE CREAR CUENTA
+        // BUTTON LEADING TO CREATE ACCOUNT PAGE
         document.getElementById("new-account").addEventListener("click", ()=> {
           document.getElementById("root").innerHTML = `
           <div id="logo-login"><img src="./images/logoAppBco.png"></div>
@@ -74,10 +85,10 @@ document.addEventListener("DOMContentLoaded", event => {
           
           
           `
-          // BOTON QUE VUELVE AL LOGIN
+          // BUTTON COMING BACK 
           document.getElementById("volver").addEventListener("click", loginPage)
     
-          // BOTON QUE CREA CUENTA
+          // BUTTON CREATE ACCOUNT
           document.getElementById("login-btn").addEventListener("click", ()=>{
             const mail = document.getElementById("login-mail"). value;
             const pwd = document.getElementById("login-pwd").value;
@@ -91,10 +102,10 @@ document.addEventListener("DOMContentLoaded", event => {
     
       
     
-      // LO QUE SE CREA CUANDO LOGEA EL USUARIO
+      // CREATE POST VIEW
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-          // User is signed in-el usuario está registrado
+          // User is signed in
             window.socialNetwork.createNewUserStorage();
             firebase.database().ref("users/"+firebase.auth().currentUser.uid).on("value", function(snapshot){
               // console.log(snapshot.val())
@@ -129,7 +140,7 @@ document.addEventListener("DOMContentLoaded", event => {
       
           document.getElementById("btnUp").addEventListener("click", scrollWin);
       
-          // REFERESH CON LOGO
+          // REFERESH WITH LOGO
           document.getElementById("logo").addEventListener("click", ()=> {
             window.socialNetwork.printPosts(window.socialNetwork.printPostsDOM);
           })
@@ -144,7 +155,7 @@ document.addEventListener("DOMContentLoaded", event => {
             window.socialNetwork.printPosts(window.socialNetwork.printPostsDOM);
       
     
-        //PARA BUSCAR POR TAG
+        //SEARCH BY TAG
         document.getElementById("search-tag").addEventListener("click", ()=> {
     
           if(document.getElementById("search").value === ""){
@@ -158,12 +169,12 @@ document.addEventListener("DOMContentLoaded", event => {
     
         })
         
-        // BOTON QUE CREA PAGINA PARA POSTEAR
+        // BUTTON CREATE A POST PAGE
         document.getElementById("new-post").addEventListener("click", postingPage)
         document.getElementById("new-post2").addEventListener("click", postingPage)
     
       
-        // BOTON BARRA DE NAVEGACIÓN LATERAL
+        // NAVIGATION BAR
         document.getElementById("user-profile").addEventListener("click", ()=> {
           document.getElementById("user-profile-side-nav").style.display = "block";
         })
@@ -171,7 +182,7 @@ document.addEventListener("DOMContentLoaded", event => {
           document.getElementById("user-profile-side-nav").style.display = "block";
         })
       
-        // PARA CERRAR NAVEGACIÓN LATERAL
+        // SIDE NAVIGATION
         document.getElementById("content").addEventListener("click", ()=> {
           document.getElementById("user-profile-side-nav").style.display = "none";
         })
@@ -180,7 +191,7 @@ document.addEventListener("DOMContentLoaded", event => {
         })
       
       
-        // PARA CREAR LA PAGINA DE EDITAR PERFIL DE USUARIO
+        // EDIT USER PROFILE
         document.getElementById("profile-info").addEventListener("click", ()=> {
           document.getElementById("user-profile-side-nav").style.display = "none";
           firebase.database().ref("users/"+firebase.auth().currentUser.uid).once("value", function(snapshot){
@@ -206,7 +217,7 @@ document.addEventListener("DOMContentLoaded", event => {
             `
     
           })
-          // BOTON QUE ACTUALIZA EL PERFIL
+          // BUTTON THAT UPDATES THE PROFILE
           document.getElementById("update-profile").addEventListener("click", ()=> {
             let username = document.getElementById("username").value;
             let proficency = document.getElementById("proficency").value;
@@ -214,7 +225,7 @@ document.addEventListener("DOMContentLoaded", event => {
             window.socialNetwork.updateProfile(username, proficency, userPic);
           })
     
-          // BOTON QUE CANCELA ACTUALIZACIÓN DE PERFIL Y VUELVE A PAGINA DE POSTS
+          // BUTTON CANCELS PROFILE UPDATE AND RETURNS TO POSTS PAGE
           document.getElementById("profile-update-cancel").addEventListener("click", ()=> {
             document.getElementById("content").style.display = "block";
             document.getElementById("content2").style.display = "none";
@@ -232,7 +243,7 @@ document.addEventListener("DOMContentLoaded", event => {
         }
       });
     
-      // PARA VERIFICAR QUE LA AUTENTICACION CON REDIRECCIONAMIENTO SALIO OK
+      // TO VERIFY THAT THE AUTHENTICATION WENT WELL
       firebase.auth().getRedirectResult().then(function(result) {
         if (result.credential) {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -252,10 +263,7 @@ document.addEventListener("DOMContentLoaded", event => {
         var credential = error.credential;
         // ...
       });
-    
-     
-    
-    
+
     
     })
     
@@ -277,7 +285,7 @@ document.addEventListener("DOMContentLoaded", event => {
         </div>
         
         `
-        //BOTON QUE GENERA POST
+        //BUTTON THAT GENERATES POST
         document.getElementById("post-it").addEventListener("click", ()=> {
           const tags = document.getElementById("post-tags").value;
           const privacy = document.getElementById("privacy-setting").value;
@@ -291,7 +299,7 @@ document.addEventListener("DOMContentLoaded", event => {
           submitpost(tags, privacy, userId, post_text)
         } )//este es el de submit post
     
-        //BOTON QUE VUELVE A LOS POST
+        //BUTTON THAT RETURNS TO THE POSTS
         document.getElementById("cancel").addEventListener("click", ()=> {
           window.socialNetwork.printPosts(window.socialNetwork.printPostsDOM)
           window.scrollTo(0,0);
@@ -304,7 +312,7 @@ document.addEventListener("DOMContentLoaded", event => {
     
     
     
-    // POSTS ES UN ARRAY
+    // POST ARRAY
     function printTaggedPosts(posts) {
       document.getElementById("content").innerHTML = "";
         for (let post in posts){
