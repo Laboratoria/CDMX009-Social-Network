@@ -54,16 +54,16 @@ Objetivos de aprendizaje
 - [x] Manipulación dinámica del DOM
 - [x] History API
 - [x] [localStorage]
- Javascript
+ ###Javascript
 - [x] Uso de callbacks
 - [x] Consumo de Promesas
 - [x] Uso ES modules (import | export)
- Firebase
+ ###Firebase
 - [x] Firestore
 - [x] Firebase Auth
 - [x] Firebase security rules
 - [x] Uso de onSnapshot | onAuthStateChanged
- Testing
+ ###Testing
  Testeo de tus funciones
  Testeo asíncrono
  Mocking
@@ -71,12 +71,12 @@ Objetivos de aprendizaje
 - [x] Branches
 - [x] Pull Requests
 -  Tags
- Organización en Github
+ ###Organización en Github
   Projects
   Issues
  Labels
  Milestones
- Buenas prácticas de desarrollo
+ ###Buenas prácticas de desarrollo
 -  [x] Modularización
 -  [x] Nomenclatura / Semántica
   Linting
