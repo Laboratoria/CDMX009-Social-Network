@@ -10,14 +10,6 @@ let storage = firebase.storage();
 let imgRef = storage.ref('images');
 let main = document.querySelector('#main');
 
-//let originalPost = 'n60Red5WLbXexfrHBymd';
-/*let originalPost =  
-gpFlL9t0x8A3CdsW6gGL
-n60Red5WLbXexfrHBymd
-nQG7x0vBh1fcwzsjyu6E
-pgltFxUCv1UTSoltAOmZ;*/ 
-
-
 export const editPost = (postId) =>{  
     
     let originalPost = postId;
