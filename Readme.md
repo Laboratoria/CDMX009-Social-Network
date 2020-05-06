@@ -50,25 +50,25 @@ Objetivos de aprendizaje
 - [x] HTML semántico
 - [x] CSS flexbox
 - [x] Construir tu aplicación respetando el diseño realizado (maquetación).
-- DOM y Web APIs
+-     DOM y Web APIs
 - [x] Manipulación dinámica del DOM
 - [x] History API
 - [x] [localStorage]
 
- ###Javascript
+ #Javascript
  
 - [x] Uso de callbacks
 - [x] Consumo de Promesas
 - [x] Uso ES modules (import | export)
 
- ###Firebase
+ Firebase
  
 - [x] Firestore
 - [x] Firebase Auth
 - [x] Firebase security rules
 - [x] Uso de onSnapshot | onAuthStateChanged
 
- ###Testing
+ #Testing
  
  Testeo de tus funciones
  Testeo asíncrono
@@ -89,4 +89,4 @@ Objetivos de aprendizaje
  
 -  [x] Modularización
 -  [x] Nomenclatura / Semántica
-  Linting
+    Linting
