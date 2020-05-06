@@ -137,40 +137,44 @@ El objetivo de usar Firestore en este proyecto, es que aprendes a manejar y pers
     > - Se hicieron pruebas de usuabilidad y se implementó el feedback si se 
     >   consideró necesario.
 
-## Objetivos de aprendizaje
+### Objetivos de aprendizajes pendientes Ania
 
-Antes de empezar el proyecto, recuerda agregar tus objetivos de aprendizaje pendientes de tu proyecto
-anterior en la siguiente sección.
+[/] Diseñar la aplicación pensando y entendiendo al usuario.
+[/] Planear y ejecutar tests de usabilidad.
+[ ] Testear funciones (funciones puras).
 
-### Objetivos de aprendizajes pendientes
-
+[/] Manipular arrays (filter | map | sort | reduce).
+[/] Manipular objects (key | value).
+[ ] Entender la diferencia entre expression y statements.
+[ ] Utilizar funciones (parámetros | argumentos | valor de retorno).
+[ ] Entender la diferencia entre tipos de datos atómicos y estructurados.
 
 ### HTML y CSS
 
-* [ ] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [/] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
 * [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 ### DOM y Web APIs
 
-* [ ] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [/] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
 * [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
 * [ ] [`localStorage`]
 
 ### Javascript
 
-* [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-* [ ] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-* [ ] Uso ES modules
+* [/] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [/] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
+* [/] Uso ES modules
 ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 | [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
 
 ### Firebase
 
-* [ ] [Firestore](https://firebase.google.com/docs/firestore)
+* [/] [Firestore](https://firebase.google.com/docs/firestore)
 * [ ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
-* [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
-* [ ] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
+* [/] [Firebase security rules](https://firebase.google.com/docs/rules)
+* [/] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
 | [onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
 
 ### Testing
@@ -181,7 +185,7 @@ anterior en la siguiente sección.
 
 ### Colaboración en Github
 
-* [ ] Branches
+* [/] Branches
 * [ ] Pull Requests
 * [ ] Tags
 
@@ -194,9 +198,162 @@ anterior en la siguiente sección.
 
 ### Buenas prácticas de desarrollo
 
-* [ ] Modularización
+* [/] Modularización
 * [ ] Nomenclatura / Semántica
 * [ ] Linting
+## Objetivos de aprendizaje
+### Objetivos de aprendizajes pendientes Liz
+
+
+### HTML y CSS
+
+* [X] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [X] [CSS flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [X] Construir tu aplicación respetando el diseño realizado (maquetación).
+
+### DOM y Web APIs
+
+* [X] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
+* [ ] [localStorage]
+
+### Javascript
+
+* [X] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [X] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
+* [X] Uso ES modules
+([import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+| [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
+
+### Firebase
+
+* [X] [Firestore](https://firebase.google.com/docs/firestore)
+* [X] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
+* [X] [Firebase security rules](https://firebase.google.com/docs/rules)
+* [X] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
+| [onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
+
+### Testing
+
+* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
+* [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
+
+### Colaboración en Github
+
+* [X] Branches
+* [X] Pull Requests
+* [ ] Tags
+
+### Organización en Github
+
+* [ ] Projects
+* [ ] Issues
+* [ ] Labels
+* [ ] Milestones
+
+### Buenas prácticas de desarrollo
+
+* [X] Modularización
+* [X] Nomenclatura / Semántica
+* [X] Linting
+
+ITZEL PAOLA TAPIA
+### HTML y CSS
+
+* [x] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [x] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [x] Construir tu aplicación respetando el diseño realizado (maquetación).
+
+### DOM y Web APIs
+
+* [x] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [-] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
+* [-] [`localStorage`]
+
+### Javascript
+
+* [-] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [-] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
+* [-] Uso ES modules
+([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+| [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
+
+### Firebase
+
+* [-] [Firestore](https://firebase.google.com/docs/firestore)
+* [x] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
+* [-] [Firebase security rules](https://firebase.google.com/docs/rules)
+* [-] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
+| [-]onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
+
+### Testing
+
+* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
+* [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
+
+### Colaboración en Github
+
+* [x] Branches
+* [x] Pull Requests
+* [ -] Tags
+
+### Organización en Github
+
+* [ ] Projects
+* [ ] Issues
+* [ ] Labels
+* [ ] Milestones
+
+### Buenas prácticas de desarrollo
+
+* [-] Modularización
+* [x] Nomenclatura / Semántica
+* [ ] Linting
+
+Jimena
+## HTML y CSS
+
+* [x] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [x] [CSS flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [x] Construir tu aplicación respetando el diseño realizado (maquetación).
+
+### DOM y Web APIs
+
+* [ ] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
+* [ ] [localStorage]
+
+### Javascript
+
+* [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [ ] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
+* [ x] Uso ES modules
+([import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+| [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
+
+### Firebase
+
+* [ ] [Firestore](https://firebase.google.com/docs/firestore)
+* [x ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
+* [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
+* [ ] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
+| [onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
+
+### Testing
+
+* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
+* [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
+
+### Colaboración en Github
+
+* [ x] Branches
+* [ ] Pull Requests
+* [ ] Tags
+
+
 
 ***
 
