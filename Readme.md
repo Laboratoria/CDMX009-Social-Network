@@ -50,7 +50,7 @@ Objetivos de aprendizaje
 - [x] HTML semántico
 - [x] CSS flexbox
 - [x] Construir tu aplicación respetando el diseño realizado (maquetación).
--     DOM y Web APIs
+- [ ] DOM y Web APIs
 - [x] Manipulación dinámica del DOM
 - [x] History API
 - [x] [localStorage]
@@ -70,23 +70,23 @@ Objetivos de aprendizaje
 
  Testing
  
- Testeo de tus funciones
- Testeo asíncrono
- Mocking
- Colaboración en Github
+- [ ] Testeo de tus funciones
+- [ ] Testeo asíncrono
+- [ ] Mocking
+- [ ] Colaboración en Github
 - [x] Branches
 - [x] Pull Requests
--  Tags
+- [ ]Tags
 
  Organización en Github
  
-  Projects
-  Issues
- Labels
- Milestones
+ - [ ]Projects
+ - [ ]Issues
+ - [ ]Labels
+ - [ ]Milestones
  
  Buenas prácticas de desarrollo
  
--  [x] Modularización
--  [x] Nomenclatura / Semántica
-    Linting
+- [x] Modularización
+- [x] Nomenclatura / Semántica
+- [ ]Linting
