@@ -53,7 +53,7 @@ Objetivos de aprendizaje
 - [ ] DOM y Web APIs
 - [x] Manipulación dinámica del DOM
 - [x] History API
-- [x] [localStorage]
+- [ ] [Localstorage]
 
  Javascript
  
@@ -80,13 +80,13 @@ Objetivos de aprendizaje
 
  Organización en Github
  
- - [ ]Projects
- - [ ]Issues
- - [ ]Labels
- - [ ]Milestones
+ - [ ] Projects
+ - [ ] Issues
+ - [ ] Labels
+ - [ ] Milestones
  
  Buenas prácticas de desarrollo
  
 - [x] Modularización
 - [x] Nomenclatura / Semántica
-- [ ]Linting
+- [ ] Linting
