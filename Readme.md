@@ -14,7 +14,7 @@ TripLife es una red social para viajeros creada para compartir y recordar tus hi
 
 ## Sketch
 #### Ingreso - Registro
-<img src="/src/imagesReadme/scketch-ingreso-registro.JPG" alt="Ingreso-Registro" width="400px">
+<img src="/src/imagesReadme/sketch-ingreso-registro.JPG" alt="Ingreso-Registro" width="400px">
 
 #### Perfil - Post
 <img src="/src/imagesReadme/scketch-perfil-post.JPG" alt="perfil-post" width="400px">
