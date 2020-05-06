@@ -11,10 +11,15 @@ Nombre de la aplicación: **Code Dev**
 **Que problema soluciona:** mantener conectadas a las personas pertenecientes a la misma actividad, pudiendo solicitar ayuda a personas más experimentadas y permanecer conectadas en cualquier hora y lugar.
 
 **Prototipo**
+
 Diseño inicial
+
 <img src= "images/prototipo inicial.jpg">
+
 Diseño final
+
 <img src= "images/prototipo_actual.jpg">
+
 **Feeback**
 Al inicio del diseño de la aplicacion construimos una idea de acuerdo a nuestras creencias y creyendo que habíamos tomando buenas decisiones sin embargo al recibir los comentarios de parte de coaches y prospectos a usuarios decidimos usar colores mas  atractivos,  formas modernas en cuanto al diseño en general y  seguir las tendencias actuales en cuanto a aplicaciones móbiles.
 
