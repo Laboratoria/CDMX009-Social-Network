@@ -31,16 +31,16 @@ Esta página sirve al usuario para personalizar su perfil con los campos: nombre
 
 Tecnologías y características de la aplicación
 
-HTML
-CSS
-Javascript
-Materialize
-Firebase
-Firestore
-Github colaborativo
-SPA
-MVC
-Responsive Desing
+- HTML
+- CSS
+- Javascript
+- Materialize
+- Firebase
+- Firestore
+- Github colaborativo
+- SPA
+- MVC
+- Responsive Desing
 
 
 Objetivos de aprendizaje 
@@ -54,29 +54,29 @@ Objetivos de aprendizaje
 - [x] Manipulación dinámica del DOM
 - [x] History API
 - [x] [localStorage]
-- Javascript
+ Javascript
 - [x] Uso de callbacks
 - [x] Consumo de Promesas
 - [x] Uso ES modules (import | export)
-- Firebase
+ Firebase
 - [x] Firestore
 - [x] Firebase Auth
 - [x] Firebase security rules
 - [x] Uso de onSnapshot | onAuthStateChanged
-- Testing
-- Testeo de tus funciones
-- Testeo asíncrono
-- Mocking
-- Colaboración en Github
+ Testing
+ Testeo de tus funciones
+ Testeo asíncrono
+ Mocking
+ Colaboración en Github
 - [x] Branches
 - [x] Pull Requests
 -  Tags
-- Organización en Github
--  Projects
--  Issues
-- Labels
-- Milestones
-- Buenas prácticas de desarrollo
+ Organización en Github
+  Projects
+  Issues
+ Labels
+ Milestones
+ Buenas prácticas de desarrollo
 -  [x] Modularización
 -  [x] Nomenclatura / Semántica
--  Linting
+  Linting
