@@ -43,12 +43,12 @@ MVC
 Responsive Desing
 
 
-Objetivos de aprendizaje
+Objetivos de aprendizaje 
 
 
-[x] HTML y CSS
-[x] HTML semántico
-[x] CSS flexbox
+- [x] HTML y CSS
+- [x] HTML semántico
+- [x] CSS flexbox
 [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 DOM y Web APIs
 [x] Manipulación dinámica del DOM
