@@ -14,7 +14,7 @@ Nombre de la aplicación: **Code Dev**
 
 Diseño inicial
 
-<img src= "images/prototipo inicial.jpg">
+<img src= "src/images/prototipo_inicial.jpg">
 
 Diseño final
 
