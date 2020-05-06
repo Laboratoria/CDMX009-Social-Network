@@ -50,10 +50,10 @@ Objetivos de aprendizaje
 - [x] HTML semántico
 - [x] CSS flexbox
 - [x] Construir tu aplicación respetando el diseño realizado (maquetación).
-- [ ] DOM y Web APIs
+- [x] DOM y Web APIs
 - [x] Manipulación dinámica del DOM
 - [x] History API
-- [ ] [Localstorage]
+- [x] [Localstorage]
 
  Javascript
  
