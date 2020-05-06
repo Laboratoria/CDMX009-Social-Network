@@ -20,7 +20,7 @@ TripLife es una red social para viajeros creada para compartir y recordar tus hi
 ## Prototito
 #### Ingreso - Registro
 
-#### Perfil
+#### Perfil 
 
 #### Post
 
