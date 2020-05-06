@@ -49,34 +49,34 @@ Objetivos de aprendizaje
 - [x] HTML y CSS
 - [x] HTML semántico
 - [x] CSS flexbox
-[x] Construir tu aplicación respetando el diseño realizado (maquetación).
-DOM y Web APIs
-[x] Manipulación dinámica del DOM
-[x] History API
-[x] [localStorage]
-Javascript
-[x] Uso de callbacks
-[x] Consumo de Promesas
-[x] Uso ES modules (import | export)
-Firebase
-[x] Firestore
-[x] Firebase Auth
-[x] Firebase security rules
-[x] Uso de onSnapshot | onAuthStateChanged
-Testing
- Testeo de tus funciones
- Testeo asíncrono
- Mocking
-Colaboración en Github
-[x] Branches
-[x] Pull Requests
- Tags
-Organización en Github
- Projects
- Issues
- Labels
- Milestones
-Buenas prácticas de desarrollo
- [x] Modularización
- [x] Nomenclatura / Semántica
- Linting
+- [x] Construir tu aplicación respetando el diseño realizado (maquetación).
+- DOM y Web APIs
+- [x] Manipulación dinámica del DOM
+- [x] History API
+- [x] [localStorage]
+- Javascript
+- [x] Uso de callbacks
+- [x] Consumo de Promesas
+- [x] Uso ES modules (import | export)
+- Firebase
+- [x] Firestore
+- [x] Firebase Auth
+- [x] Firebase security rules
+- [x] Uso de onSnapshot | onAuthStateChanged
+- Testing
+- Testeo de tus funciones
+- Testeo asíncrono
+- Mocking
+- Colaboración en Github
+- [x] Branches
+- [x] Pull Requests
+-  Tags
+- Organización en Github
+-  Projects
+-  Issues
+- Labels
+- Milestones
+- Buenas prácticas de desarrollo
+-  [x] Modularización
+-  [x] Nomenclatura / Semántica
+-  Linting
