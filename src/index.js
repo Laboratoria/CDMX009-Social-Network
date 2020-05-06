@@ -1,7 +1,8 @@
 import { checkIn, logInFacebook, logInGoogle, close}from './firebase.js';
 export{home,init}
 
-const logInButton = document.querySelector('#logIn');
+window.onload= init();
+
 
 const creatAccountButton = document.querySelector('#creatAccount');
 
@@ -34,27 +35,52 @@ function createAccount() {
 
 
  function init() {
-  document.getElementById('logInUser').style.display = 'block';
-  document.getElementById('init').style.display = 'block';
-  document.getElementById('logInNetwoork').style.display = 'block';
-  document.getElementById('LogInNewUser').style.display = 'block';
-  //document.getElementById('createAccount').style.display = 'none';
-  document.getElementById('sidebar').style.display = 'none';
-  document.getElementById('post').style.display = 'none';
+
+
+  let initView =`
+  <section class="container text-center">
+  <h1 class="display-4 font-weight-bold pt-1">Healt & Fitness <i class="fas fa-dumbbell"></i></h1>
+
+  <div class=" mb-4" id="init">
+  <h2 class="display-5 text-black font-weight-bold">Inicia Sesión</h2 class="display-4">
+  </div>
+
+  <div id="logInUser" class="logIn pt-3 pb-3">
+    <input id="emailLogIn" type="email" placeholder="Nombre de usuario" name="email" class="form-control mb-5 mr-sm-5 p-2"/>
+    <input  id="passLogIn" type="password" placeholder="Contraseña" class="form-control mb-5 mr-sm-5 p-2"/>
+    <button id="logIn" class="shadow btn btn-warning btn-default pl-5 pr-5" >Ingresar</button>
+  </div>
+
+  <div class="m-2"id="logInNetwoork">
+  <p>Iniciar con:</p> 
+  <button id="logInFacebook" class="btn btn-primary btn-circle btn-xl m-2"><i class="fab fa-facebook"></i></button>  
+  <button id="logInGoogle" class="btn btn-danger btn-circle btn-xl m-2"><i class="fab fa-google"></i></button>
+  </div>
+
+  <div id="LogInNewUser" class="creatAccount">
+    <p>No tienes Cuenta?</p>
+    <button id="creatAccount" class="btn btn-link"> Crear Cuenta</button>
+  </div>
+  </section>
+  `
+  root.innerHTML = initView
+    let logInButton = document.querySelector('#logIn')
+    let emailLogIn = document.querySelector('#emailLogIn')
+    let passLogIn = document.querySelector('#passLogIn')
+    logInButton.onclick = e => logIn(emailLogIn.value, passLogIn.value) // listener que ejecuta la funcion de Firebase
+    let logInFacebookButoon = document.querySelector('#logInFacebook')
+    logInFacebookButoon.onclick = e => logInFacebook ()
+    let logInGoogleButton = document.querySelector('#logInGoogle')
+    logInGoogleButton.onclick = e => logInGoogle ()
  }
 
 
-  function logIn(){
+  function logIn(emailLogIn, passLogIn){
 
-    document.getElementById('logInNetwoork').style.display="none";
-    document.getElementById('LogInNewUser').style.display="none";
-      
-    let emailLogIn = document.querySelector('#emailLogIn').value
-    let passLogIn = document.querySelector('#passLogIn').value
       console.log(emailLogIn);
   
        console.log(passLogIn);
-       home ()
+       //home ()
       firebase.auth().signInWithEmailAndPassword(emailLogIn, passLogIn).catch(function(error) {
         
         // Handle Errors here.
@@ -68,15 +94,10 @@ function createAccount() {
       
     }
   
-    logInButton.onclick = logIn;
 
 
   //esta es la funcion donde se realizan las publicaciones
   function home (){
-    document.getElementById('logInUser').style.display="none";
-    document.getElementById('init').style.display="none";
-    document.getElementById('logInNetwoork').style.display="none";
-    document.getElementById('LogInNewUser').style.display="none";  //  let file = e.target.files[0]
   
       let homeView = `
   
@@ -115,7 +136,7 @@ function createAccount() {
 
     let closeButton = document.querySelector('#close');
 
-  closeButton.onclick = e=> close()
+    closeButton.onclick = e=> close()
   
     let selectImagenButton = document.querySelector('#fichero')
   

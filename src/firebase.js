@@ -1,10 +1,11 @@
 export { checkIn, logInFacebook, logInGoogle, close};
 import {home,init} from './index.js';
+
 const provider = new firebase.auth.GoogleAuthProvider();//proveedor del servicio
 
-const logInGoogleButton = document.querySelector('#logInGoogle');
+//const logInGoogleButton = document.querySelector('#logInGoogle');
 
-const logInFacebookButton = document.querySelector('#logInFacebook');
+//const logInFacebookButton = document.querySelector('#logInFacebook');
 
 
 
@@ -50,7 +51,6 @@ function logInFacebook () {
   home ()
 }
 
-logInFacebookButton.onclick = logInFacebook;
 
 
 function logInGoogle (){
@@ -83,7 +83,6 @@ function logInGoogle (){
   
 }
 
-logInGoogleButton.onclick = logInGoogle;
 
 
   
