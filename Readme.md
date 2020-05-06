@@ -1,3 +1,29 @@
+# Proyecto: TripLife
+
+TripLife es una red social para viajeros creada para compartir y recordar tus historias, fotos y tips con otros viajeros que disfrutan vivir a través de los viajes.
+
+“ La vida es un viaje que vale la pena compartir. ”
+
+## TripLife te permite 
+* Comparte y recomienda nuevos lugares.
+* Regístrate con facebook o google.
+* Comparte el momento más significativo del lugar en el que estés.
+* Elige quién puede ver lo que compartes.
+* Conoce nuevos lugares a través de otros viajeros.
+* Reacciona a los momentos que más te gusten de otros viajeros.
+
+## Sketch
+#### Ingreso - Registro
+
+#### Perfil - Post
+
+## Prototito
+#### Ingreso - Registro
+
+#### Perfil
+
+#### Post
+
 # Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
