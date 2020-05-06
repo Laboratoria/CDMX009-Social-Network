@@ -54,17 +54,17 @@ function editProfileUser(user) {
             })
             .then(function(existing) { //esto es la promesa
                 console.log('este es el bueno', existing);
-                
+
                 alert('se guardaron los datos') //este es el resultado de la promesa
                 viewForum(existing)
-                .then(function() {
-                    publicPost(existing);
-                    readPosts();
-                })
-                .then(function() {
-                    clickMenus(existing);
-                    updatePostPic(user.uid, imageUrl);
-                })
+                    .then(function() {
+                        publicPost(existing);
+                        readPosts();
+                    })
+                    .then(function() {
+                        clickMenus(existing);
+                        updatePostPic(user.uid, imageUrl);
+                    })
             })
             .catch(err => {
                 console.log(err) //esto es el error cuando la respuesta es negativa
