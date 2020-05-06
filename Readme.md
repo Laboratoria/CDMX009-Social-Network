@@ -1,3 +1,32 @@
+# Proyecto: TripLife
+
+TripLife es una red social para viajeros creada para compartir y recordar tus historias, fotos y tips con otros viajeros que disfrutan vivir a través de los viajes.
+
+“ La vida es un viaje que vale la pena compartir. ”
+
+## TripLife te permite 
+* Comparte y recomienda nuevos lugares.
+* Regístrate con facebook o google.
+* Comparte el momento más significativo del lugar en el que estés.
+* Elige quién puede ver lo que compartes.
+* Conoce nuevos lugares a través de otros viajeros.
+* Reacciona a los momentos que más te gusten de otros viajeros.
+
+## Sketch
+#### Ingreso - Registro
+<img src="sketch-ingreso-registro.JPG" alt="Ingreso-Registro" width="100px">
+
+#### Perfil - Post
+<img src="scketch-perfil-post.JPG" alt="Ingreso-Registro" width="100px">
+
+## Prototito
+#### Ingreso - Registro
+<img src="prototipo-ingreso-registro.JPG" alt="Ingreso-Registro" width="100px">
+
+#### Perfil 
+
+#### Post
+
 # Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
@@ -147,9 +176,9 @@ anterior en la siguiente sección.
 
 ### HTML y CSS
 
-* [ ] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-* [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+* [x] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [x] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 ### DOM y Web APIs
 
@@ -181,21 +210,21 @@ anterior en la siguiente sección.
 
 ### Colaboración en Github
 
-* [ ] Branches
-* [ ] Pull Requests
+* [x] Branches
+* [x] Pull Requests
 * [ ] Tags
 
 ### Organización en Github
 
-* [ ] Projects
+* [x] Projects
 * [ ] Issues
 * [ ] Labels
 * [ ] Milestones
 
 ### Buenas prácticas de desarrollo
 
-* [ ] Modularización
-* [ ] Nomenclatura / Semántica
+* [x] Modularización
+* [x] Nomenclatura / Semántica
 * [ ] Linting
 
 ***
