@@ -34,7 +34,7 @@ Las **caraterísticas técnicas** de la aplicación :
 
 # Sketch
 
-![sketch.jpg]
+![sketch](src/sketch.jpg)
 
 # Wireframe y Mockup
 
