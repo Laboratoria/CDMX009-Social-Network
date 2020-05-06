@@ -73,7 +73,7 @@ Objetivos de aprendizaje
 - [ ] Testeo de tus funciones
 - [ ] Testeo asíncrono
 - [ ] Mocking
-- [ ] Colaboración en Github
+- [x] Colaboración en Github
 - [x] Branches
 - [x] Pull Requests
 - [ ] Tags
@@ -89,4 +89,4 @@ Objetivos de aprendizaje
  
 - [x] Modularización
 - [x] Nomenclatura / Semántica
-- [ ] Linting
+- [x] Linting
