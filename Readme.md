@@ -76,7 +76,7 @@ Objetivos de aprendizaje
 - [ ] Colaboración en Github
 - [x] Branches
 - [x] Pull Requests
-- [ ]Tags
+- [ ] Tags
 
  Organización en Github
  
