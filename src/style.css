@@ -19,12 +19,13 @@ main {
 .root{
     width: 375px;
     height: 664px;
-    background-color: transparent;
     /*Flexbox*/
     display: flex;
+    flex-direction: column;
 }
 
 footer{
+    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -310,4 +311,26 @@ header{
 
 .container p {
     margin-bottom: 30px;
+}
+
+#btnRegister {
+    margin-top: 140px;
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid #888;
+    padding: 15px;
+    width: 280px;
+    font-weight: bold;
+    color: #686868;
+    text-align: left;
+}
+
+/* welcome window */
+
+/* profile window */
+
+#flexImage{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 }

@@ -1,10 +1,14 @@
 import showOupladWindow from './uopladContent.js'
 import welcomeView from './welcome.js'
 import profile from './profile.js'
+import { showRegisterWindow } from './register.js'
 let content= document.querySelector(".root");
 let staticMenu= document.querySelector("#staticMenu");
+let btnOut= document.querySelector("#out");
 
 function singIn (){
+    btnOut.style.display="none";
+    staticMenu.style.display= "none";
         content.innerHTML='';
         let profileView= `
         <section class="container">
@@ -26,10 +30,11 @@ function singIn (){
         <img class="authSocial" src="images/gmail.png">
         </button>
         </div>
+        <button id="btnRegister">Registrate si eres nuevo</button>
         </section>`
         content.innerHTML= profileView;
         // staticMenu.remove();
-        document.querySelector("#oupladContent").addEventListener('click', showOupladWindow);
+        document.querySelector("#btnRegister").addEventListener('click', showRegisterWindow);
         document.querySelector("#profile").addEventListener('click', profile);
         let btnFacebook= document.querySelector("#loginFacebook");
         btnFacebook.onclick= authFacebook;

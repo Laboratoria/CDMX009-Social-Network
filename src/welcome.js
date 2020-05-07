@@ -1,22 +1,29 @@
 import showOupladWindow from './uopladContent.js'
 import profile from './profile.js'
+import singIn from './login.js';
 
 document.querySelector("#profile").addEventListener('click', welcomeView);
 let content= document.querySelector(".root");
 let header= document.querySelector(".header");
 let staticMenu= document.querySelector("#staticMenu");
+let btnOut= document.querySelector("#out");
 
 
 function welcomeView (){
+  btnOut.style.display="block";
+  staticMenu.style.display= "block";
     content.innerHTML= '';
     let user = firebase.auth().currentUser;
     if (user != null) {
       let infoUser= `
-      <div>¡Bienvenida ${user.displayName}!</div>`
+      <section id="welcomeText">
+      <div>¡Bienvenida ${user.displayName}!</div>
+      </section>`
       content.innerHTML=infoUser;}
     let dataBase= firebase.firestore();
     dataBase.collection("posts").orderBy("date","desc").onSnapshot(function(snapshot){
         let changes= snapshot.docChanges();
+        console.log(changes);
         changes.forEach(change=>{
             let section= document.createElement("section");
             section.classList.add("containerPosts");
@@ -160,6 +167,9 @@ export function modal(id, link, title, description, user){
         });
         }
     }
+    btnOut.onclick= singIn;
 }
+
+
 
 export default welcomeView;

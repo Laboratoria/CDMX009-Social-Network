@@ -16,7 +16,8 @@ function profile () {
         dataBase.collection("posts").where("id", "==", user.uid).orderBy("date","desc")
         .onSnapshot(function(snapshot){
             let changes= snapshot.docChanges();
-            changes.forEach(change=>{
+            console.log(changes);
+            changes.forEach(change =>{
                 let section= document.createElement("section");
                 section.classList.add("containerProfile");
                 let button= document.createElement("button");
@@ -31,6 +32,7 @@ function profile () {
                 button.appendChild(img);
                 section.appendChild(button);
                 content.appendChild(section);
+                content.removeChild(section);
             });
             let modalRoot= document.querySelector("#modalRoot");
             let btnsPosts= document.querySelectorAll(".btnsPosts");
