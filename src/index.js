@@ -15,18 +15,15 @@ export const router = (route) =>{
       case 'content':
         renderContent();
         appendStyleSheet('contentStyle.css');
-         break;
-       case 'profil':
-         login.profil();
-         break;
+         return;
        case 'signin':
          appendStyleSheet('signinStyle.css');
          renderSignin();
-         break;
+         return;
        default:
          login.renderLogin();
          appendStyleSheet('loginStyle.css');
-         break;
+         return;
     }
 }
 

@@ -13,11 +13,11 @@ const getLoginData = () => {
   firebase.auth()
   .signInWithEmailAndPassword(loginEmail.value, loginPsw.value)
   .catch(error => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    let errorCode = error.code;
+    let errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
-    var user = firebase.auth().currentUser;
+    let user = firebase.auth().currentUser;
     if(errorCode == 'auth/invalid-email' || errorCode == 'auth/user-not-found') {
       loginEmail.style.border = "2px solid red";
       document.querySelector('#errorMsg').style.display = "block";
@@ -62,8 +62,8 @@ const renderLogin = () =>{
   loginBtn.addEventListener("click", getLoginData);
   forgotPsw.addEventListener("click", f => {
     console.log('Olvidó contraseña');
-    var auth = firebase.auth();
-    var emailAddress = document.querySelector("#loginEmail").value;
+    let auth = firebase.auth();
+    let emailAddress = document.querySelector("#loginEmail").value;
 
     auth.sendPasswordResetEmail(emailAddress).then(function() {
       console.log('Enviando mail de reestablecimiento de psw');
