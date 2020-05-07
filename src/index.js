@@ -3,37 +3,6 @@ export{home,init}
 
 window.onload= init();
 
-
-const creatAccountButton = document.querySelector('#creatAccount');
-
-function createAccount() {
-  
-  document.getElementById('logInUser').style.display = 'none';
-  document.getElementById('init').style.display = 'none';
-  document.getElementById('logInNetwoork').style.display = 'none';
-  document.getElementById('LogInNewUser').style.display = 'none';
-  const createAccountView = `
-      <div class="login" id="createAccount">
-        
-         <input id="email" type="email" placeholder="email" />
-        <br>
-        <input id="pass" type="password" placeholder="pass" />
-        <button id="checkIn" >Registrarse</button>
-        <button id="back" >volver</button>
-      </div>`
-     // primero se dibuja en el DOM 
-    root.innerHTML = createAccountView
-    // escuchar primero hay que manipular
-    let checkInButton = document.querySelector('#checkIn')
-    let backButton = document.querySelector('#back')
-    let email = document.querySelector('#email')
-    let pass = document.querySelector('#pass')
-    checkInButton.onclick = e=>checkIn(email.value, pass.value) // listener que ejecuta la funcion de Firebase
-    backButton.onclick = e=> init()
-  }
-  creatAccountButton.onclick = createAccount;
-
-
  function init() {
 
 
@@ -94,7 +63,35 @@ function createAccount() {
       
     }
   
+    const creatAccountButton = document.querySelector('#creatAccount');
 
+    function createAccount() {
+      
+      document.getElementById('logInUser').style.display = 'none';
+      document.getElementById('init').style.display = 'none';
+      document.getElementById('logInNetwoork').style.display = 'none';
+      document.getElementById('LogInNewUser').style.display = 'none';
+      const createAccountView = `
+          <div class="login" id="createAccount">
+            
+             <input id="email" type="email" placeholder="email" />
+            <br>
+            <input id="pass" type="password" placeholder="pass" />
+            <button id="checkIn" >Registrarse</button>
+            <button id="back" >volver</button>
+          </div>`
+         // primero se dibuja en el DOM 
+        root.innerHTML = createAccountView
+        // escuchar primero hay que manipular
+        let checkInButton = document.querySelector('#checkIn')
+        let backButton = document.querySelector('#back')
+        let email = document.querySelector('#email')
+        let pass = document.querySelector('#pass')
+        checkInButton.onclick = e=>checkIn(email.value, pass.value) // listener que ejecuta la funcion de Firebase
+        backButton.onclick = e=> init()
+      }
+      creatAccountButton.onclick = createAccount;
+    
 
   //esta es la funcion donde se realizan las publicaciones
   function home (){
@@ -108,23 +105,23 @@ function createAccount() {
         <ul>
           <li>MENÚ</li>
           <li>Perfil</li>
-          <li> <button id="home">Descubre</button></li>
-          <li> <button id="close">Cerrar sesión</button> </li>
+          <li> <button class="btn btn-warning" id="home">Descubre</button></li>
+          <li> <button class="btn btn-warning" id="close">Cerrar sesión</button> </li>
         </ul>
       </div>
-
-  <section id="post" >
-        <textarea name="" id="" cols="40" rows="10" placeholder="Crear publicación"></textarea>
+      <h1 class="display-4 text-center font-weight-bold pt-1">Healt & Fitness <i class="fas fa-dumbbell"></i></h1>
+    <section id="post" >
+        <textarea name="" id="" cols="60" rows="10" placeholder="Crear publicación"></textarea>
         <form id="post">
-        <label class="btn btn-file"> 
-          <input type="file" name="fichero" value="" id="fichero" class="btnPost shadow btn btn-warning btn-default pl-5 pr-5  >
+        <label class="btn btn-file" id="PostButton"> 
+        <p>Publicar</p>
+        
+          <input type="file" name="fichero" value="" id="fichero" >
         </label>
         </form>
       <button id="like"><i class="fab fa-gratipay"></i></button>
     </section>
-
-    
-  
+ 
       `
     root.innerHTML = homeView
     let toggleButton=document.querySelector('#toggle');
@@ -167,7 +164,7 @@ function createAccount() {
         let datos=snapshot.val();
         let result="";
        for (var key in datos){
-         result += '<img width="200" class="img-thummnil" src="' + datos[key].url + '"/>';
+         result += '<img width="300" class="img-thummnil" src="' + datos[key].url + '"/>';
        }
         document.getElementById("root").innerHTML=result;
       })
@@ -208,7 +205,6 @@ function createAccount() {
     function crearNodoBDFB( nombreImagen, downloadURL){
       imagenesRef.push({nombre:nombreImagen, url:downloadURL});
     }
-
 
 
 function menu (){

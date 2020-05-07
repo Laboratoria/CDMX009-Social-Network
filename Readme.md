@@ -75,7 +75,7 @@ https://www.figma.com/proto/VH2HfNAXIWznU9FqpoMFQJ/Social-Network?node-id=102%3A
 
 ### Testing
 
-* [ ] [Testeo de tus funciones]
+* [x] [Testeo de tus funciones]
 * [ ] [Testeo asíncrono]
 * [ ] [Mocking]
 
