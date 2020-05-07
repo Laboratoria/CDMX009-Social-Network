@@ -130,15 +130,15 @@ anterior en la siguiente sección.
 
 ### Testing
 
-* [x] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
 * [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
 * [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
 
 ### Colaboración en Github
 
-* [x] Branches
-* [x] Pull Requests
-* [x] Tags
+* [ ] Branches
+* [ ] Pull Requests
+* [ ] Tags
 
 ### Organización en Github
 
