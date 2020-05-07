@@ -27,7 +27,7 @@ El objetivo son personas que aman cocinar postres y pasteles para que tengan un 
 
 Prototipado
 
-<img src= "images/prot1v2.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/prot1v2.png">
 <img src= "images/prot2v2.png">
 <img src= "images/prot3v2.png">
 <img src= "images/prot4v2.png">
