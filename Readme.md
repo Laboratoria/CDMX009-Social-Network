@@ -51,11 +51,15 @@ Tecnologías y características de la aplicación
 Objetivos de aprendizaje 
 
 
-- [x] HTML y CSS
+HTML y CSS
+
+
 - [x] HTML semántico
 - [x] CSS flexbox
 - [x] Construir tu aplicación respetando el diseño realizado (maquetación).
-- [x] DOM y Web APIs
+
+   DOM y Web APIs
+   
 - [x] Manipulación dinámica del DOM
 - [x] History API
 - [x] [Localstorage]
@@ -78,7 +82,10 @@ Objetivos de aprendizaje
 - [ ] Testeo de tus funciones
 - [ ] Testeo asíncrono
 - [ ] Mocking
-- [x] Colaboración en Github
+
+  Colaboración en Github
+  
+  
 - [x] Branches
 - [x] Pull Requests
 - [ ] Tags
