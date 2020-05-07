@@ -14,14 +14,14 @@ TripLife es una red social para viajeros creada para compartir y recordar tus hi
 
 ## Sketch
 #### Ingreso - Registro
-<img src="sketch-ingreso-registro.JPG" alt="Ingreso-Registro" width="100px">
+<img src="/src/imagesReadme/sketch-ingreso-registro.JPG" alt="Ingreso-Registro" width="400px">
 
 #### Perfil - Post
-<img src="scketch-perfil-post.JPG" alt="Ingreso-Registro" width="100px">
+<img src="/src/imagesReadme/scketch-perfil-post.JPG" alt="perfil-post" width="400px">
 
 ## Prototito
 #### Ingreso - Registro
-<img src="prototipo-ingreso-registro.JPG" alt="Ingreso-Registro" width="100px">
+<img src="/src/imagesReadme/prototipo-ingreso-registro.JPG" alt="Ingreso-Registro" width="400px">
 
 #### Perfil 
 
@@ -182,22 +182,22 @@ anterior en la siguiente sección.
 
 ### DOM y Web APIs
 
-* [ ] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [x] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
 * [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
 * [ ] [`localStorage`]
 
 ### Javascript
 
-* [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [x] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
 * [ ] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-* [ ] Uso ES modules
+* [x] Uso ES modules
 ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 | [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
 
 ### Firebase
 
-* [ ] [Firestore](https://firebase.google.com/docs/firestore)
-* [ ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
+* [x] [Firestore](https://firebase.google.com/docs/firestore)
+* [x] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
 * [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
 * [ ] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
 | [onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
