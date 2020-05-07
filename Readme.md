@@ -130,7 +130,7 @@ anterior en la siguiente sección.
 
 ### Testing
 
-* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [x] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
 * [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
 * [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
 
