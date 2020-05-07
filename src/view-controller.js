@@ -16,4 +16,8 @@ export function signUp() {
 export function newPost () {
   const postTxt = document.querySelector('#postTxt').value;
   const postImg = document.querySelector('#filePost').value;
+  function addPost(){
+    
+  }
 }
+
