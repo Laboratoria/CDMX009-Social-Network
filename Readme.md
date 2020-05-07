@@ -159,7 +159,7 @@ anterior en la siguiente sección.
 
 ### Javascript
 
-* [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [x] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
 * [x] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
 * [x] Uso ES modules
 ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
@@ -196,7 +196,7 @@ anterior en la siguiente sección.
 
 * [ ] Modularización
 * [ ] Nomenclatura / Semántica
-* [ ] Linting
+* [x] Linting
 
 ***
 
