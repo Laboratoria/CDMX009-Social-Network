@@ -1,4 +1,4 @@
-import { login, signup } from './controller/firebase-controller.js';
+import { login, signup} from './controller/firebase-controller.js';
 
 // Login with email and password
 export function logIn() {
@@ -13,6 +13,7 @@ export function signUp() {
   const password = document.querySelector('#passwordSignUp').value;
   signup(email, password);
 }
+<<<<<<< HEAD
 export function newPost () {
   const postTxt = document.querySelector('#postTxt').value;
   const postImg = document.querySelector('#filePost').value;
@@ -21,3 +22,5 @@ export function newPost () {
   }
 }
 
+=======
+>>>>>>> 6bbcc6920634d716eed22158cd6aa3eb09ace05d

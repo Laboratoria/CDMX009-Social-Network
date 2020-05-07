@@ -232,8 +232,3 @@ function goHome(){
       profile.onclick = postPage
 
 }
-
-
-
-
- 
