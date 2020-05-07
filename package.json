@@ -13,7 +13,6 @@
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
     "start": "serve src/"
   },
@@ -26,11 +25,16 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.1.2",
+    "firebase-functions-test": "^0.2.1",
     "htmlhint": "^0.11.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "regenerator-runtime": "^0.13.1",
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.11.0",
+    "firebase-functions": "^3.6.1"
   }
 }

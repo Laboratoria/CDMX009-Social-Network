@@ -1,3 +1,43 @@
+# SOCIAL NETWORK
+## PROYECTO: EDU-LINE
+## RESUMEN:
+Red Social sobre temas de educación
+
+## INVESTIGACIÓN UX:
+Aplicación dirigida a usuarios especialistas en el tema y padres de familia que se podrán comunicar a través de esta red social; compartir tips, técnicas y demás información que ayude mejorar la educación de sus hijos o dar pautas para que los profesionales mejoren su forma de enseñar.
+
+## Historias de Usuario:
+
+* Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
+
+* Como usuario nuevo debo poder tener la opción de iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
+
+* Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
+
+* Como usuario loggeado debo poder ver todos los posts públicos y privados que he creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de mis post.
+
+* Yo como usuario loggeado, puedo dar like y llevar un conteo de likes en mi publicación así como poder escribir, guardar, editar o eliminar un comentario en mi publicación.
+
+* Al final debo poder ingresar a la red social y poder visualizar los datos de mi perfil creado o editarlos.
+
+## FEEDBACK:  SI
+
+## PROTOTIPO BAJA FIDELIDAD:
+
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet1.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet2.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet3.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet4.jpg)
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNet5.jpg)
+
+## PROTOTIPO ALTA FIDELIDAD (FIGMA):
+
+![alt text](https://raw.githubusercontent.com/Zeltzin1996/CDMX009-Social-Network/master/SocialNetFigma.jpg)
+
+## PROTOTIPO FINAL:
+
+
+
 # Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
@@ -147,43 +187,43 @@ anterior en la siguiente sección.
 
 ### HTML y CSS
 
-* [ ] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-* [ ] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+* [✔] [HTML semántico](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
+* [🤔] [CSS `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [✔] Construir tu aplicación respetando el diseño realizado (maquetación).
 
 ### DOM y Web APIs
 
-* [ ] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
-* [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-* [ ] [`localStorage`]
+* [✔] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
+* [✔] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
+* [✔] [`localStorage`]
 
 ### Javascript
 
-* [ ] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-* [ ] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-* [ ] Uso ES modules
-([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
-| [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
+* [🤔] [Uso de callbacks](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [🤔] [Consumo de Promesas](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
+* [🤔] Uso ES modules
+* [✔] ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+* [✔] `export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
 
 ### Firebase
 
 * [ ] [Firestore](https://firebase.google.com/docs/firestore)
-* [ ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
-* [ ] [Firebase security rules](https://firebase.google.com/docs/rules)
-* [ ] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
+* [✔]  ] [Firebase Auth](https://firebase.google.com/docs/auth/web/start)
+* [🤔] [Firebase security rules](https://firebase.google.com/docs/rules)
+* [🤔] [Uso de onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen)
 | [onAuthStateChanged](https://firebase.google.com/docs/auth/web/start#set_an_authentication_state_observer_and_get_user_data)
 
 ### Testing
 
-* [ ] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
+* [🤔] [Testeo de tus funciones](https://jestjs.io/docs/es-ES/getting-started)
 * [ ] [Testeo asíncrono](https://jestjs.io/docs/es-ES/asynchronous)
 * [ ] [Mocking](https://jestjs.io/docs/es-ES/manual-mocks)
 
 ### Colaboración en Github
 
-* [ ] Branches
-* [ ] Pull Requests
-* [ ] Tags
+* [✔] Branches
+* [✔] Pull Requests
+* [✔] Tags
 
 ### Organización en Github
 
@@ -194,8 +234,8 @@ anterior en la siguiente sección.
 
 ### Buenas prácticas de desarrollo
 
-* [ ] Modularización
-* [ ] Nomenclatura / Semántica
+* [✔] Modularización
+* [🤔 ] Nomenclatura / Semántica
 * [ ] Linting
 
 ***

@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'config',
+1 verbose cli   'set',
+1 verbose cli   'prefix',
+1 verbose cli   '/npm',
+1 verbose cli   '-g' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 info config set "prefix" "/npm"
+5 verbose stack Error: EACCES: permission denied, open '/etc/npmrc'
+6 verbose cwd /home/laboratoria112-am/Documentos/laboratoria/CDMX009-Social-Network
+7 error Linux 4.15.0-72-generic
+8 error argv "/usr/bin/node" "/usr/bin/npm" "config" "set" "prefix" "/npm" "-g"
+9 error node v8.10.0
+10 error npm  v3.5.2
+11 error path /etc/npmrc
+12 error code EACCES
+13 error errno -13
+14 error syscall open
+15 error Error: EACCES: permission denied, open '/etc/npmrc'
+15 error  { Error: EACCES: permission denied, open '/etc/npmrc'
+15 error   errno: -13,
+15 error   code: 'EACCES',
+15 error   syscall: 'open',
+15 error   path: '/etc/npmrc' }
+16 error Please try running this command again as root/Administrator.
+17 verbose exit [ -13, true ]
