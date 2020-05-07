@@ -10,9 +10,17 @@ Puedes acceder registrándote como usuario nuevo o ingresar con tu cuenta de fac
 tu cuenta de Google.
 
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla1.png">
+
+
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla2.png">
+
+
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla3.png">
+
+
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla4.png">
+
+
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantallapost.png">
 
 
