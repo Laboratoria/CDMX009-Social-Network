@@ -1,4 +1,4 @@
-import { postPage } from '../views/postpage.js';
+import { postPage } from '../views/postpageProfile.js';
 
 export const db = firebase.firestore();
 // Authentication
@@ -68,4 +68,5 @@ export function loginFace() {
     }));
 }
 // Add Post
+
 export const postsRef = db.collection('posts');

@@ -149,7 +149,7 @@ left:45%
   position: fixed;
   background:white;
   top:92.5%;
-  width: 100%;
+  width: 80%;
   
 }
 #newPost{
@@ -181,7 +181,9 @@ left:45%
    position: static;
 }
 #photoProfile{
-  width:45%;
+  width:35%;
+  height: 23%;
+  border-radius: 50%;
 }
 
 #newPost{
