@@ -6,11 +6,10 @@ describe('example', () => {
   });
 }); */
 
-import * as auth from '.auth.js'
+// import * as auth from '.auth.js'
 
-global.firebase {
-  auth: jest.fn(() => ({
-    signInWithEmailAndPassword
-  }))
-}
-
+// global.firebase {
+//   auth: jest.fn(() => ({
+//     signInWithEmailAndPassword
+//   }))
+// }
