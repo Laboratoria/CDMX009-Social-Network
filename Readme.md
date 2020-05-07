@@ -9,11 +9,11 @@ Publica tus recetas en forma privada o pública. Visualízalas todas en un solo 
 Puedes acceder registrándote como usuario nuevo o ingresar con tu cuenta de facebook o 
 tu cuenta de Google.
 
-<img src= "images/pantalla1.png">
-<img src= "images/pantalla2.png">
-<img src= "images/pantalla3.png">
-<img src= "images/pantalla4.png">
-<img src= "images/pantallapost.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla1.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla2.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla3.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantalla4.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/pantallapost.png">
 
 
 Investigación:
@@ -28,9 +28,9 @@ El objetivo son personas que aman cocinar postres y pasteles para que tengan un 
 Prototipado
 
 <img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/prot1v2.png">
-<img src= "images/prot2v2.png">
-<img src= "images/prot3v2.png">
-<img src= "images/prot4v2.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/prot2v2.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/prot3v2.png">
+<img src= "https://github.com/Sheiki1/CDMX009-Social-Network/blob/master/src/images/prot4v2.png">
 
 Feedback recibido: Se nos hizo el comentario que la app no era muy intuitiva, así que se cambió el diseño de la primera versión.
 
