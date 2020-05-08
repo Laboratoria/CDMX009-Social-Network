@@ -33,7 +33,6 @@ export function goHome() {
         <div class="card">
         <div class="container" id = ="${p.data().id}">
         <img src="${p.data().userImg}" alt="Avatar" id="photoUser">
-        
         <h4 id= UserName ><b>${p.data().user}</b></h4> 
         </div>
         <img src="${p.data().img}" alt="Avatar" style="width:100%">
@@ -46,15 +45,6 @@ export function goHome() {
         </div>
         <br>`;
       root.appendChild(post);
-    //   const deletePosts = document.querySelectorAll(".buttond");
-    //   deletePosts.forEach(btn=> {
-    //     btn.addEventListener('click', (e) => {
-    //       firebase.firestore().collection('posts').doc(p.id).delete().then(() => {
-    //         console.log('Document successfully deleted!');
-    //       })
-    //         .catch((error) => {
-    //           console.error('Error removing document: ', error);
-    //         });<button class="buttond" id="${p.data().id}"><i class="fas fa-backspace is-medium" aria-hidden="true"></i></button>
     });
   });
 }

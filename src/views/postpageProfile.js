@@ -46,7 +46,7 @@ export function postPage() {
         console.log(doc.id, " => ", doc.data());
         box.innerHTML += `
           <div class="card">
-          <div class="container" id = ="${doc.data().id}">
+          <div class="container">
           <img src="${doc.data().userImg}" alt="Avatar" id="photoUser"><button class="buttond" id="${doc.data().id}"><i class="fas fa-backspace is-medium" aria-hidden="true"></i></button>
           <h4 id= UserName ><b>${doc.data().user}</b></h4> 
           </div>
@@ -63,7 +63,7 @@ export function postPage() {
         const deletePosts = document.querySelectorAll(".buttond");
         deletePosts.forEach(btn=> {
           btn.addEventListener('click', (e) => {
-            firebase.firestore().collection('posts').doc(id).delete().then(() => {
+            firebase.firestore().collection('posts').doc(doc.id).delete().then(() => {
               console.log('Document successfully deleted!');
             })
               .catch((error) => {
