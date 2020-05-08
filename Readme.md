@@ -1,3 +1,106 @@
+# Healt & Fitness
+
+Healt & Fitness es una app donde podrás compartir tips, recetas, rutinas de ejercicio, y todo lo relacionado con el cuidado de tu salud y tu cuerpo.
+
+Las **caraterísticas técnicas** de la aplicación :
+- Single-Page Application [SPA]
+- Diseñada con un enfoque [mobile first]
+- Permitir la persintencia de datos
+  
+#### Arquitectura de la aplicación
+
+- Codigo modularizado a través de *es modules* ([`import`] y [`export`]
+
+- Patrón  modelo - vista - controlador [MVC]
+
+#### Tecnologías 
+
+
+* HTML5 semántico
+*  CSS3
+* Bootstrap
+* JavaScript (ES6+)
+* Firebase
+* Firestore 
+
+# Historias de Usuario
+
+* Como usuario nuevo debo poder crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
+
+* Como usuario nuevo debo poder tener la opción de iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
+
+* Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
+
+
+# Sketch
+
+![sketch](src/sketch.jpg)
+
+# Wireframe y Mockup
+
+https://www.figma.com/file/VH2HfNAXIWznU9FqpoMFQJ/Social-Network?node-id=0%3A1
+
+# Prototype
+
+https://www.figma.com/proto/VH2HfNAXIWznU9FqpoMFQJ/Social-Network?node-id=102%3A2&scaling=scale-down
+
+## Objetivos de aprendizaje
+
+
+### HTML y CSS
+
+* [x] [HTML semántico]
+* [x] [CSS `flexbox`]
+* [ ] Construir tu aplicación respetando el diseño realizado (maquetación).
+
+### DOM y Web APIs
+
+* [x] [Manipulación dinámica del DOM]
+* [ ] [History API]
+* [x] [`localStorage`]
+
+### Javascript
+
+* [x] [Uso de callbacks]
+* [x] [Consumo de Promesas]
+* [x] Uso ES modules
+
+### Firebase
+
+* [x] [Firestore]
+* [x] [Firebase Auth]
+* [x] [Firebase security rules]
+* [x] [Uso de onSnapshot]
+| [onAuthStateChanged]
+
+### Testing
+
+* [x] [Testeo de tus funciones]
+* [ ] [Testeo asíncrono]
+* [ ] [Mocking]
+
+### Colaboración en Github
+
+* [ ] Branches
+* [x] Pull Requests
+* [ ] Tags
+
+### Organización en Github
+
+* [ ] Projects
+* [ ] Issues
+* [ ] Labels
+* [ ] Milestones
+
+### Buenas prácticas de desarrollo
+
+* [x] Modularización
+* [x] Nomenclatura / Semántica
+* [ ] Linting
+
+
+
+___________________________________________________________________________________________________________
 # Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
