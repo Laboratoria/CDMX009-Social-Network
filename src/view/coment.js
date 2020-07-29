@@ -1,6 +1,6 @@
 function buildComent(imageUser, nameUser, img, text, id) {
     return `
-    <div>
+    <div class="public-wrapper">
     <div class="informationBox">
         <div class="chip boxStyle">
             <img src="${imageUser}" alt="Contact Person">
