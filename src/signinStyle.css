@@ -1,0 +1,103 @@
+@font-face {
+    font-family: font-text;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+  }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: font-text, sans-serif;
+}
+
+/* .input {
+    display: flex;
+    display: block;
+    justify-content: center;
+    width: 359px;
+    height: 54px;
+    left: 26px;
+    opacity: 0.5;
+    border: 1px;
+    border-radius: 10px;
+} */
+
+html{
+    background-color: #FAF7EE;
+}
+
+.formNewUser{
+    display: flex;
+    flex-direction: column;
+}
+
+figure{
+    max-width: 187px;
+    margin:auto;
+    margin-top: 57px;
+    margin-bottom: 31px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+#errorMsg{
+    font-family: font-text;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+    color: red;
+    display: none;
+}
+
+p, span{
+    font-family: font-text;
+    font-size: 16px;
+    text-align: center;
+}
+
+p span, p u{
+    cursor: pointer;
+}
+
+.input {
+    padding-left: 15px;
+    border-radius: 15px;
+    width: 359px;
+    height: 54px;
+    margin: auto;
+    margin-bottom: 15px;
+    font-family: font-text;
+    font-size: 18px;
+    background-color: #E1E8EC;
+    opacity: 0.5;
+    border: #E1E8EC;
+}
+
+::placeholder{
+    color:black;
+}
+
+.button{
+    width: 195px;
+    height: 54px;
+    background-color: #F3BA00;
+    opacity: 0.8;
+    border-radius: 30px;
+    border: #F3BA00;
+    font-family: font-text;
+    font-size: 18px;
+    margin:auto; 
+    margin-top: 2px;
+    margin-bottom:9px;
+}
+
+@media (max-width: 414px) {
+    .input {
+         width: 300px;
+         
+     }
+}
