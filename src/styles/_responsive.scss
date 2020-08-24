@@ -1,0 +1,138 @@
+@media screen and (min-width: 500px){
+    #background1 {
+        background-image: url($r1);
+        background-size: 100% 100%;   
+    }
+    .gridWelcome{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.7fr 1fr 1.4fr ;
+        grid-gap: 12px;
+        margin: 0px;
+    }
+    .w1 #logo{
+        top: 35%;
+    }
+    .w3 nav #login{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+
+    }
+    #background2{
+        background-image: url($r3);
+        background-size: 100% 100%;
+    }
+    #gridLogin{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr ;
+        grid-gap: 15px;
+    }
+    .l1 img{
+        position: absolute;
+        top: -5%;
+        left: 48%;
+        transform: translate(-50%);
+    }
+    .l1 p{
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%);
+
+    }
+    button.fb{
+        background: none;
+        border: none;
+    }
+    button.google{
+        background: none;
+        border: none;
+    }
+    #background3{
+        background-image: url($r2);
+        background-size: 100% 100%;
+    }
+    #gridNew{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3.5fr 1fr ;
+        gap: 15px;
+    }
+    .n1 h3{
+        margin-block-end: 0;
+    }
+    #backgroundHome{
+        background-image: url($r4);
+        background-size: 100% 100%;
+    }
+    #gridHome{
+        grid-template-columns: 1fr 600px 1fr;
+        grid-template-rows: 1fr;
+    }
+    .h1{
+        margin: 150px 0px;
+        button{
+            background: none;
+            border: none;
+       } 
+    }
+    .h2{
+        #posts{
+            display: block;
+            overflow: scroll;
+            button{
+                background: none;
+                border: none;
+            }
+        }
+    }
+    .h3{
+        margin: 150px 0px;
+    }
+    #backgroundNewPost{
+        background-image: url($r2);
+        background-size: 100% 200%;
+    }
+    #gridPost{
+        grid-template-columns: 1fr 600px 1fr;
+        grid-template-rows: 800px;
+    }
+    .p1{
+        margin: 150px 0px;
+        button{
+            background: none;
+            border: none;
+        } 
+     }
+     .p2{
+         form{
+             margin-top: 30px;
+         }
+     }
+     .p3{
+        margin:150px 0px;
+     }
+    #backgroundProfile{
+        background-image: url($r3);
+        background-size: 100% 200%;
+    }
+    #grdProfile{
+        grid-template-columns: 1fr 600px 1fr;
+        grid-template-rows: 800px;
+    }
+    #prof1{
+        margin-top: 150px;
+        button{
+            background: none;
+            border: none;
+        }
+    }
+    .prof3{
+        margin-top: 150px;
+    }
+
+
+
+    
+    
+
+  }

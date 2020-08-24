@@ -1,0 +1,69 @@
+#backgroundNewPost{
+    background-image: url($background2);
+    background-size: cover;
+    font-family: Fresca;
+    margin: 0;
+}
+#gridPost{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 540px 50px;
+    grid-gap: 2px;
+    margin: 0px;
+}
+.p1{
+    @include top;
+}
+.p2{
+    background-color: white;
+    form{
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    p{  position: absolute;
+        @include text;
+    }
+    #postPhoto{
+        position: relative;
+        border-radius: 15px;
+        background-color: palevioletred;
+        width: 360px;
+        height: 360px;
+        input{
+            width: 360px;
+            height: 360px;
+            opacity: 0;
+        }
+        #here{
+            position: relative;
+            // width: 300px;
+            // height: 300px;
+            border-radius: 15px;
+            z-index: 1;
+        }
+        img{
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 15px;
+        }
+    }
+    .btn{
+        @include btn;
+        color: white;
+    }
+    #registerDescription{
+        width: 350px;
+        height: auto;
+    }
+    #registerLocation{
+        width: 350px;
+        height: auto;
+    }
+}
+.p3{
+    margin: 0px;
+    @include footer;
+}
