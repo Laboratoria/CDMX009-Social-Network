@@ -298,13 +298,13 @@ button.waves-effect.waves-light.btn-small.btn-enter {
     opacity: 0.9;
 }
 
-p.coments {
+/* p.coments {
     padding-top: 10px;
     font-size: 0.8em;
     padding-bottom: 10px;
     padding-left: 10px;
     margin-left: 10px;
-}
+} */
 
 a.waves-effect.waves-light.btn-small {
     width: 35px;
@@ -756,6 +756,8 @@ label.waves-effect.waves-light.btn-small {
     padding-top: 10px;
     font-size: 1em;
     padding-bottom: 10px;
+    text-align: left;
+    margin-left: 22px;
     }
 
     .public-wrapper {
