@@ -1,5 +1,5 @@
 function viewForum(user) {
-    //console.log(user);    
+    console.log('usuario entra', user);    
 
     let emailCortado = 'No email';
 
@@ -13,6 +13,8 @@ function viewForum(user) {
     if (user.photoURL != null) {
         image = user.photoURL;
     }
+    let name = (user.hasOwnProperty('displayName') && user.displayName != null) ? user.displayName : emailCortado;
+    let job = (user.hasOwnProperty('job') && user.job != null && user.job != 'undefined') ? user.job : '';
     return new Promise(function(resolve, rejected) {
         let forumView = `
     <div id="containerThree">
@@ -24,9 +26,9 @@ function viewForum(user) {
 
                 <div class="personalInformationPerfilUser">
                     <div class="namePerfilUser" id="userproperty"><strong class="black-text perfilName little">
-                    ${emailCortado}
+                    ${name}
                     <i class="material-icons center editProfileIcon">edit</i></strong></div>
-                    <div class="professionDescription">Profesión</div>
+                    <div class="professionDescription">${job}</div>
                 </div>
             </div>
         </section>
@@ -38,11 +40,14 @@ function viewForum(user) {
             
             <div class="right-align">
                 <input id="myNewFile" type="file" name="myNewFile" accept="image" class="publication">
-                <label class="waves-effect waves-light btn-small" for="myNewFile"> <i class="material-icons center">image</i></label>
-                <button id="publish" class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2" ><i class="material-icons right">computer</i>Publicar</button>
+                    <label class="waves-effect waves-light btn-small" for="myNewFile"> 
+                        <i class="material-icons center">image</i>
+                    </label>
+                <button id="publish" class="waves-effect waves-light btn-small imegeOfPersonalCommit publication2" >
+                    <i class="material-icons right">computer</i>Publicar
+                </button>
             </div>
         </div>
-
          <div id="showComment"></div>   
     </div>`
         root.innerHTML = forumView;

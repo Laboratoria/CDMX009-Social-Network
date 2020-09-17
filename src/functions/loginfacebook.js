@@ -1,3 +1,8 @@
+import { clickMenus } from './clickmenus.js';
+import { viewForum } from '../view/fuorum.js';
+import { publicPost, addNewPost } from './publicpoust.js';
+
+
 //Login with Facebook
 function facebookButton() {
     let provider = new firebase.auth.FacebookAuthProvider();
@@ -13,7 +18,8 @@ function facebookButton() {
             viewForum(user)
                 .then(function() {
                     publicPost();
-                }).then(function() {
+                })
+                .then(function() {
                     localStorage.setItem('userdata', JSON.stringify(user)); 
                 })
             movilIcon.classList.add('shown');
