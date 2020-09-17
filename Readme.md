@@ -11,12 +11,14 @@ Nombre de la aplicación: **Code Dev**
 **Que problema soluciona:** mantener conectadas a las personas pertenecientes a la misma actividad, pudiendo solicitar ayuda a personas más experimentadas y permanecer conectadas en cualquier hora y lugar.
 
 **Prototipo**
+
 Diseño inicial
-![alt text](https://raw.githubusercontent.com/DianyelaMaldonado/CDMX009-Social-Network/master/images/prototipo-actual.jpg)
+
+<img src= "src/images/prototipo_inicial.jpg">
 
 Diseño final
-![alt text](https://raw.githubusercontent.com/DianyelaMaldonado/CDMX009-Social-Network/master/prototype/prototipo-final.jpg)
 
+<img src= "src/images/prototipo_actual.jpg">
 **Feeback**
 Al inicio del diseño de la aplicacion construimos una idea de acuerdo a nuestras creencias y creyendo que habíamos tomando buenas decisiones sin embargo al recibir los comentarios de parte de coaches y prospectos a usuarios decidimos usar colores mas  atractivos,  formas modernas en cuanto al diseño en general y  seguir las tendencias actuales en cuanto a aplicaciones móbiles.
 
@@ -43,52 +45,3 @@ Tecnologías y características de la aplicación
 - SPA
 - MVC
 - Responsive Desing
-
-
-Objetivos de aprendizaje 
-
-
-- [x] HTML y CSS
-- [x] HTML semántico
-- [x] CSS flexbox
-- [x] Construir tu aplicación respetando el diseño realizado (maquetación).
-- [x] DOM y Web APIs
-- [x] Manipulación dinámica del DOM
-- [x] History API
-- [x] [Localstorage]
-
- Javascript
- 
-- [x] Uso de callbacks
-- [x] Consumo de Promesas
-- [x] Uso ES modules (import | export)
-
- Firebase
- 
-- [x] Firestore
-- [x] Firebase Auth
-- [x] Firebase security rules
-- [x] Uso de onSnapshot | onAuthStateChanged
-
- Testing
- 
-- [ ] Testeo de tus funciones
-- [ ] Testeo asíncrono
-- [ ] Mocking
-- [x] Colaboración en Github
-- [x] Branches
-- [x] Pull Requests
-- [ ] Tags
-
- Organización en Github
- 
- - [ ] Projects
- - [ ] Issues
- - [ ] Labels
- - [ ] Milestones
- 
- Buenas prácticas de desarrollo
- 
-- [x] Modularización
-- [x] Nomenclatura / Semántica
-- [x] Linting
