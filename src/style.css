@@ -168,19 +168,15 @@ ol {
 
 @import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
 body {
-    width: 78%;
+    width: 100%;
     font-family: 'Montserrat', sans-serif;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-.nav-wrapper {
-    margin-bottom: 20px;
 }
 
 .navletters {
@@ -297,21 +293,8 @@ img.responsive-img.mySecondImage {
     display: inline-block;
 }
 
-i.fas.fa-globe-americas {
-    text-align: right;
-    padding-left: 40px;
-    color: #6a1b9a;
-}
-
-.points {
-    color: red;
-    padding-left: 30px;
-    text-align: right;
-    cursor: pointer;
-}
-
 button.waves-effect.waves-light.btn-small.btn-enter {
-    background-color: #662483;
+    background-color: green;
     opacity: 0.9;
 }
 
@@ -361,26 +344,22 @@ i.material-icons.left.like {
     padding-bottom: 25px;
 }
 
-.informationBox {
-    display: flex;
-    align-items: center;
-}
-
 .chip.boxStyle {
     background: #b87df75c;
-    width: 50%;
     color: #6a1b9a;
     padding-left: 10px;
     margin-left: 20px;
     display: flex;
+    width: fit-content;
 }
 
 ul#mobile-demo {
-    background: #64ffda;
+    background: #5f5e5e;
+    
 }
 
 .sidenav li>a {
-    color: #6a1b9a;
+    color: #dea7ff;
     font-weight: bold;
 }
 
@@ -399,9 +378,6 @@ ul#mobile-demo {
     text-align: right;
     margin-left: 15px;
 }
-
-
-/* Page 2 edit profil */
 
 p.chip.boxStyle2 {
     background: #b87df75c;
@@ -579,8 +555,19 @@ input.validatePassword.boxFields {
     line-height: 2.5em;
 }
 
+.pencil {
+    color: white;
+}
+
+.selectProfilePicture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
 #myNewFile,
 #newEditPost,
+#newProfilePhoto,
 .hideFile {
     width: 0.1px;
     height: 0.1px;
@@ -592,11 +579,17 @@ input.validatePassword.boxFields {
 
 #myNewFile+label,
 #newEditPost+label,
+#newProfilePhoto+label,
 .hideFile+label {
     color: white;
     background-color: #662483;
     display: inline-block;
     border-radius: 8px;
+}
+
+#newProfilePhoto+label,
+#newProfilePhoto+label:hover {
+    background-color: #662483;
 }
 
 #myNewFile:focus+label,
@@ -607,16 +600,19 @@ input.validatePassword.boxFields {
 .hideFile:focus+label,
 .hideFile+label:hover {
     background-color: #662483;
+    padding-bottom: 10px;
 }
 
 .hideFile+label,
 .hideFile {
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
 #myNewFile:focus+label,
+#newProfilePhoto+label,
 .hideFile {
-    outline: 1px dotted#662483;
+    outline: 1px dotted #662483;
     outline: -webkit-focus-ring-color auto 5px;
 }
 
@@ -624,9 +620,58 @@ div#showComment {
     text-align: center;
 }
 
+.public-wrapper{
+    border: 1px solid #662483;
+    margin: 2%;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.informationBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .fixed-action-btn {
     position: relative;
-    padding-top: 0;
+    margin-left: 25px;
+    margin-top: 40px;
+    margin-right: 3px;
+}
+
+.world {
+    color: #662483;
+    font-size: 1.5em;
+    margin: auto 10px;
+}
+
+.points {
+    display: inline-flex;
+    color: #662483;
+    text-align: center;
+    cursor: pointer;
+}
+
+.all .editDelete {
+    max-width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ul.editDelete { 
+    margin: 0 10px;
+} */
+
+ul.editDelete {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.chip.boxStyle {
+    max-width: max-content;
 }
 
 .onBox {
@@ -637,13 +682,12 @@ label.waves-effect.waves-light.btn-small {
     max-width: 50px;
 }
 
-.fixed-action-btn.direction-right ul,
+/* .fixed-action-btn.direction-right ul,
 .publicationedit,
 .fixed-action-btn.direction-right ul,
 .publicationedit {
     text-align: left;
-}
-
+} */
 
 /* ********* Medias Querys *********** */
 
@@ -683,7 +727,7 @@ label.waves-effect.waves-light.btn-small {
     }
 
     .chip.boxStyle {
-        width: 30%;
+        width: fit-content;
     }
 
     .sidenav-trigger {
@@ -701,6 +745,32 @@ label.waves-effect.waves-light.btn-small {
     div#showComment {
         text-align: center;
     }
+
+    .postWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    p.coments {
+    padding-top: 10px;
+    font-size: 1em;
+    padding-bottom: 10px;
+    }
+
+    .public-wrapper {
+    border: 1px solid #662483;
+    margin: 2%;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+
+
+
 }
 
 @media only screen and (max-width: 640px) {
@@ -720,5 +790,24 @@ label.waves-effect.waves-light.btn-small {
         display: flex;
         margin: 30px;
         border-radius: 8px;
+    }
+
+    .public-wrapper {
+    border: 1px solid #662483;
+    margin: 2%;
+    box-shadow: 0 10px 16px -5px rgba(0, 0, 0, 0.65);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    width: 92%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    }
+
+    p.coments {
+    padding-top: 10px;
+    font-size: 0.8em;
     }
 }

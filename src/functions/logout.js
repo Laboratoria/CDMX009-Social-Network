@@ -3,6 +3,8 @@ import { viewLogin } from '../view/login.js';
 import { loginPageOne } from './loginpageone.js';
 import { viewRegister } from '../view/register.js';
 import { register } from './register.js';
+import { googleButton } from './logingoogle.js';
+import { facebookButton } from './loginfacebook.js';
 
 function out() {
     console.log('revisando out');
@@ -54,7 +56,7 @@ function out() {
                                 });
                             });
                     });
-                })
+                });
 
             window.history.pushState('cerrar sesion', 'cerrar sesion', '/');
         })

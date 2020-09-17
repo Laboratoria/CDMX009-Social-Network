@@ -3,7 +3,7 @@ import { buildComent } from '../view/coment.js';
 
 function readPosts() {
     let emailCortado = 'No hay email';
-    let postsRef = db.collection('pruebas_300420_Esther');
+    let postsRef = db.collection('pruebas_020520');
     postsRef.orderBy('date', 'desc').onSnapshot(snap => {
         let publishPust = document.querySelector('#showComment');
         publishPust.innerHTML = '';
@@ -24,7 +24,7 @@ function readPosts() {
 //Delete Post        
         let elems = document.querySelectorAll('.fixed-action-btn');
         let instances = M.FloatingActionButton.init(elems, {
-            direction: 'bottom',
+            direction: 'right',
             hoverEnabled: false
         });
 
@@ -32,7 +32,7 @@ function readPosts() {
 
         deleteComments.forEach(function(deleteComment) {
             deleteComment.addEventListener('click', function(clickedPoints) {
-                db.collection('pruebas_300420_Esther').doc(clickedPoints.target.dataset.id).delete()
+                db.collection('pruebas_020520').doc(clickedPoints.target.dataset.id).delete()
                     .then(function() {
                         alert('Post borrado exitosamente');
                     })
@@ -46,7 +46,7 @@ function readPosts() {
         let editComments = document.querySelectorAll('.editPostUser');
         editComments.forEach(function(editComment) {
             editComment.addEventListener('click', function(clickedPencil) {
-                let postForEdition = db.collection("pruebas_300420_Esther").doc(clickedPencil.target.dataset.id); 
+                let postForEdition = db.collection("pruebas_020520").doc(clickedPencil.target.dataset.id); 
                 let publicEditPost = document.querySelector('#newPostPublish-' + clickedPencil.target.dataset.id);
                 let box = document.querySelector('.editTextPostUser-' + clickedPencil.target.dataset.id);
                 box.style.display = 'block';
@@ -72,7 +72,7 @@ function readPosts() {
                 publicEditPost.onclick = function() {
                     return postForEdition.update({
                             texto: box.value,
-                            img: imageUrl,
+                            //img: imageUrl,
                         })
                         .then(function() {
                             alert("Post editado exitosamente!!");

@@ -15,6 +15,7 @@ import { register } from './functions/register.js';
 import { readPosts } from './functions/readposts.js';
 import { clickMenus } from './functions/clickmenus.js';
 import { publicPost, addNewPost } from './functions/publicpoust.js';
+import { editProfileUser } from './functions/editprofile.js'
 
 
 // Start Code
@@ -68,12 +69,13 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(function() {
                 publicPost(obtainingPersistenceData);
                 readPosts();
+                //editProfileUser(obtainingPersistenceData);
 
-            })
+            });
         document.getElementById('hideAndShow').style.display = 'block';
         movilIcon.classList.add('shown');
-    }
-})
+    };
+});
 
 // Mobile Browser
 document.addEventListener('DOMContentLoaded', function() {
