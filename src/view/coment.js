@@ -28,8 +28,10 @@ function buildComent(imageUser, nameUser, img, text, id) {
     </div>
 
     <div class="comentsAndLikes">
-        <img width="200" src="${img}" />
+        <div class="postWrapper">
         <p class="coments">${text}</p>
+        <img width="290" src="${img}" />
+        </div>
 
         <textarea class="editTextPostUser-${id} onBox" name="description" placeholder="Escribe un commit...">${text}</textarea>
 

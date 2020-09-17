@@ -12,6 +12,7 @@ function publicPost(user) {
                 imageUrl = link;
                 let img = document.createElement('img');
                 img.src = imageUrl;
+                document.getElementById("showComment").appendChild(img);
                 document.body.appendChild(img);
                 document.getElementById("showComment").appendChild(img);
             });
@@ -19,8 +20,8 @@ function publicPost(user) {
 
     let publicPost = document.getElementById('publish');
 
-    publicPost.onclick = function() {
-        let text = document.getElementById('userCommit'); 
+    publicPost.onclick = function () {
+        let text = document.getElementById('userCommit');
         console.log(user);
         let post = {
             texto: text.value,
@@ -30,19 +31,19 @@ function publicPost(user) {
 
             user: (user.hasOwnProperty('displayName') && user.displayName != null) ? user.displayName : emailCortado,
             date: new Date(),
-            img: imageUrl, 
+            img: imageUrl,
             mail: user.email,
             photo: user.photoURL,
             uid: user.uid,
         }
         addNewPost(post)
-            .then(function(post) { 
+            .then(function (post) {
                 alert('Post publicado');
             })
-            .then(function() {
+            .then(function () {
                 text.value = "";
             })
-            .then(function() {
+            .then(function () {
                 imageUrl = "";
             })
             .catch(err => {
