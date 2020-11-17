@@ -319,7 +319,8 @@ const renderProfile = () => {
     });
     document.querySelector('#confirm').addEventListener('click', () => {
         database.saveData();
-        window.setTimeout(renderFeed, 400);
+        renderFeed();
+        // window.setTimeout(renderFeed, 400);
     });
     document.querySelector('#logout').addEventListener('click', () => {
         database.logout();
