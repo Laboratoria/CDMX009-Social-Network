@@ -319,8 +319,7 @@ const renderProfile = () => {
     });
     document.querySelector('#confirm').addEventListener('click', () => {
         database.saveData();
-        renderFeed();
-        // window.setTimeout(renderFeed, 400);
+        window.setTimeout(renderFeed, 400);
     });
     document.querySelector('#logout').addEventListener('click', () => {
         database.logout();
@@ -501,7 +500,7 @@ const renderNewPost = () => {
     });
     document.querySelector('#update').addEventListener('click', () => {
         database.uploadPicturePost();
-        window.setTimeout(renderFeed, 3000);
+        window.setTimeout(renderFeed, 1000);
     });
 };
 database.userObserver(renderFeed);
