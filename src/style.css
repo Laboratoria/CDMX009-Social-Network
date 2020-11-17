@@ -1,0 +1,99 @@
+/* stylelint-disable */
+.signUpAndIn {
+    background-color: #023047;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainLogo{
+    size: 12px;
+    margin:auto;
+    display: flex;
+    align-items: baseline;
+      
+}
+
+.logoMemingos {
+    text-align: right;
+}
+
+#mLogo {
+    vertical-align: top;
+}
+
+figure{
+    border-top-width: 10px;
+    border-right-width: 1em;
+    border-bottom-width: thick;
+    border-left-width: thin;
+}
+
+.imgCircle{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+}
+
+.imgProfile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.navBarCenter {
+    display: flex;
+    justify-content:center;
+    
+}
+
+.navbaritem{
+    color: #4a4a4a;
+    display: block;
+    line-height: .1;
+    padding: .5rem 2.2rem;  
+    display: flex;
+    justify-content:space-between;
+}
+
+.userInfo {
+    align-items: center!important;
+    padding: 10px;
+}
+
+.column1{display: grid;
+flex-basis: 0;
+flex-grow: 1;
+flex-shrink: 1;
+padding: 0.97rem;
+justify-content: center;}
+
+.file1{align-items: stretch;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    padding: 0.97rem;
+}
+
+.postIcons {
+    padding: 2%;
+}
+
+#textId {
+    width: 25%;
+    margin-top: 10px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+  }
+  #showNewImg {
+      width: 325px;
+      min-height: 250px;
+      border: 2px solid #dddddd;
+      margin-top: 15px;
+  }

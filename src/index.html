@@ -4,9 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title> Memingos </title>
+  <link rel="stylesheet" href="style.css" media="screen and (min-width: 200px)">
+  <link rel = "icon" type = "image/png" href ="https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png">
+  <link rel = "apple-touch-icon" type = "image/png" href = "https://i.ibb.co/yhwCvy1/logo-m-new-rgb.png"/>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/bulma.css.map">
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/bulma-social.min.css">
+  <link rel="stylesheet" href="css/spacing.sass">
+  <link rel="stylesheet" href="css/columns.sass">
+  <link rel="stylesheet" href="css/image.sass">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+  <script>
+  // Your web app's Firebase configuration
+  let firebaseConfig = {
+      apiKey: "AIzaSyD6boxRV32Ld50HrVuWx2Fkl5ZlYQyAabk",
+      authDomain: "memingos-abeea.firebaseapp.com",
+      databaseURL: "https://memingos-abeea.firebaseio.com",
+      projectId: "memingos-abeea",
+      storageBucket: "memingos-abeea.appspot.com",
+      messagingSenderId: "299345545979",
+      appId: "1:299345545979:web:a1d0095b63dc2c48e5be5e",
+      measurementId: "G-7SHPQ7YX96"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </head>
-<body>
+<body id="body">
+  <section class="section signUpAndIn" id="root"></section>
   <script type="module" src="index.js"></script>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '844392916082779',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v6.0'
+    });
+    FB.AppEvents.logPageView();   
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  </script> 
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script type="module" src="index.js"></script> 
 </body>
 </html>
